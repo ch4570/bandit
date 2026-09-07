@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="480" viewBox="0 0 1280 480" role="img" aria-labelledby="title desc">
+  <title id="title">PM Craft — from evidence to a product someone can build</title>
+  <desc id="desc">An editorial diagram connects evidence, a product decision, requirements, and verification. An orange return path brings observed results back to the decision.</desc>
+  <rect width="1280" height="480" rx="16" fill="#f3f0e8"/>
+  <path d="M64 62h1152" stroke="#bbb7ab"/>
+  <text x="64" y="44" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="15" letter-spacing="2" fill="#444c45">PM CRAFT</text>
+  <text x="1216" y="44" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="13" letter-spacing="1.5" fill="#60675e">PRODUCT PLANNING / AGENT SKILL</text>
+  <text x="64" y="135" font-family="Georgia,serif" font-size="56" letter-spacing="-1.5" fill="#202c25">Make the next decision count.</text>
+  <text x="66" y="178" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="21" fill="#566057">Keep the reason, the rule, and the result connected.</text>
+  <path d="M94 286h1080" stroke="#a5aca2" stroke-width="2"/>
+  <path d="m342 281 8 5-8 5m292-10 8 5-8 5m292-10 8 5-8 5" fill="none" stroke="#687869" stroke-width="2"/>
+  <circle cx="94" cy="286" r="13" fill="#f3f0e8" stroke="#324a39" stroke-width="3"/>
+  <path d="m386 271 15 15-15 15-15-15z" fill="#cc5a32"/>
+  <rect x="666" y="274" width="24" height="24" rx="2" fill="#324a39"/>
+  <circle cx="970" cy="286" r="13" fill="#324a39"/>
+  <path d="m964 286 4 4 8-8" fill="none" stroke="#f3f0e8" stroke-width="2"/>
+  <g font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="24" font-weight="600" fill="#202c25">
+    <text x="64" y="250">Evidence</text><text x="356" y="250">Decision</text><text x="648" y="250">Requirements</text><text x="940" y="250">Verification</text>
+  </g>
+  <g font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="16" fill="#566057">
+    <text x="64" y="335">What do we know?</text><text x="356" y="335">What will we choose?</text><text x="648" y="335">What must happen?</text><text x="940" y="335">What did we observe?</text>
+  </g>
+  <path d="M970 356v27q0 12-12 12H398q-12 0-12-12v-27" fill="none" stroke="#cc5a32" stroke-width="2"/>
+  <path d="m381 364 5-8 5 8" fill="none" stroke="#cc5a32" stroke-width="2"/>
+  <rect x="552" y="382" width="244" height="25" fill="#f3f0e8"/>
+  <text x="674" y="400" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="13" letter-spacing="1" fill="#ad4623">NEW EVIDENCE, REVISED CHOICE</text>
+  <path d="M64 436h1152" stroke="#bbb7ab"/>
+  <text x="64" y="461" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="12" letter-spacing="1" fill="#60675e">RESEARCH · DECIDE · SPEC · REVIEW · UPDATE</text>
+  <text x="1216" y="461" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="12" fill="#60675e">ch4570/pm-craft</text>
+</svg>

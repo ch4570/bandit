@@ -1,0 +1,71 @@
+---
+name: pm-craft
+description: Research, scope, write, review, and update product plans for apps and services. Use for product discovery, MVP decisions, PRDs, and changes to product requirements or experiment results; excludes standalone UI styling, code implementation, and personal task scheduling.
+---
+
+# PM Craft
+
+Make the next product decision useful, and keep its connection to evidence,
+requirements, and verification intact. Match the user's language and existing
+product vocabulary.
+
+## Enter where the work is
+
+Read the current request, relevant existing decisions, and the artifacts needed
+for this result. Reuse the existing PRD or domain documents. A review does not
+require a rewrite; a small answer does not require a new file or a workshop.
+
+Choose the relevant mode and read its reference. Combine modes only when the
+requested result needs them; this table is not a mandatory sequence.
+
+| Requested outcome | Reference |
+| --- | --- |
+| Understand a customer problem, alternatives, business assumption, or experiment | [Research](references/research.md) |
+| Choose an option, prioritize, or cut an MVP to fit constraints | [Decide](references/decisions.md) |
+| Turn a direction into buildable product requirements | [Specify](references/specification.md) |
+| Find consequential gaps or conflicts in an existing plan | [Review](references/review.md) |
+| Incorporate a changed decision or newly observed result | [Update](references/changes.md) |
+
+For a lasting plan, a handoff, or work spanning decisions, also read
+[Evidence and decisions](references/evidence-and-decisions.md). Use stable links
+or IDs for material dependencies. For a new lasting plan only, the optional
+[plan template](assets/plan-template.md) can help; omit inapplicable sections.
+
+## Preserve meaning across the work
+
+- Distinguish a user's report, a document's claim, code you read, behavior you
+  observed running, a calculation, and an untested assumption. These support
+  different conclusions. A code-derived description cannot independently prove
+  the implementation matches intended requirements.
+- Keep proposed checks separate from executed checks, and execution separate
+  from pass/fail/inconclusive. Record the relevant environment and version when
+  reporting a test result. Mock behavior and interest are not live persistence
+  and paid demand.
+- Treat the user's current explicit choice as authority within its scope.
+  Respect designated domain source documents. A newer file timestamp, interview,
+  or current implementation does not silently replace an adopted requirement.
+  Surface conflicting decisions of equal authority and continue unaffected work.
+- Derive requirements from the product's actual actors, objects, events, and
+  lifecycle. Protect the smallest complete value path, including recovery where
+  its absence would break that path. A feature count or score cannot decide this.
+- Keep historical evidence attached to the conditions that produced it. When
+  a decision changes, follow affected requirements, metrics, and checks; leave
+  unaffected decisions and observations intact.
+
+## Use judgment without stalling
+
+When the user delegates a reversible draft or recommendation, choose a reasoned
+default and label it. Missing price or segment data can remain an assumption
+while you produce a useful draft. Ask a targeted question only when an unresolved
+conflict, ambiguous target, or essential missing fact prevents the requested
+result; continue independent work while waiting. Never invent observed results
+to fill the gap.
+
+A plan is not authorization to implement it, contact customers, launch an
+experiment, spend money, or publish. Work within the user's actual request.
+Use available specialist skills for an authorized handoff when relevant;
+PM Craft itself has no required tool, connector, or companion skill.
+
+Finish with the decision or artifact, the evidence that supports it, material
+unknowns, and the next action that can change the decision. Match the detail to
+the work; do not expand a narrow request into a complete product strategy.

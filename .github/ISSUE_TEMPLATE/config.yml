@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Installation and troubleshooting
+    url: https://github.com/ch4570/pm-craft/blob/main/INSTALL.md
+    about: Check installation paths, conflicts, and host discovery.
+  - name: Support guide
+    url: https://github.com/ch4570/pm-craft/blob/main/SUPPORT.md
+    about: Learn which details to include and how to prepare a sanitized report.

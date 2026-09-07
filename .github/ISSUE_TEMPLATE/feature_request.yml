@@ -1,0 +1,28 @@
+name: Improvement proposal
+description: Propose a focused improvement using a concrete task.
+title: "[Proposal] "
+body:
+  - type: textarea
+    id: task
+    attributes:
+      label: Product task
+      description: "What were you trying to decide, write, review, or change? English and Korean are welcome."
+    validations:
+      required: true
+  - type: textarea
+    id: gap
+    attributes:
+      label: Current gap
+      description: "Explain the missing behavior and why the existing workflow is insufficient."
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: "Describe the smallest useful improvement and a fictional example that would demonstrate it."
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and trade-offs
+      description: "Could an existing mode or a separate tool handle the task?"

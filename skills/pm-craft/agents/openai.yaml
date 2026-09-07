@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM Craft"
+  short_description: "Product decisions connected to evidence and delivery"
+  default_prompt: "Use $pm-craft to turn this product idea into a focused MVP plan with explicit assumptions and acceptance criteria."

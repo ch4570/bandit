@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+.venv/
+dist/
+.DS_Store
+.pm-craft-install.json

@@ -1,0 +1,40 @@
+name: Bug or incorrect behavior
+description: Report an installation problem or a reproducible product-planning failure.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: "English and Korean are welcome. Use fictional or sanitized inputs; omit secrets and private customer information."
+  - type: input
+    id: version
+    attributes:
+      label: PM Craft version
+      placeholder: "0.1.0 or commit"
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: "For installation: OS, Python version, and command. For behavior: host, model if known, and how the skill was loaded."
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Request and reproduction
+      description: "Include the smallest input or steps that reproduce the problem."
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: "Paste relevant output and distinguish what you ran from what you inferred."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      description: "Name the product rule or installer behavior that should hold."
+    validations:
+      required: true
