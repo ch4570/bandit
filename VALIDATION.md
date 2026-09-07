@@ -3,6 +3,28 @@
 Distribution checks and planning behavior are reported separately. Product
 fixtures are synthetic. npm registry publication is deferred.
 
+## Published BANDIT 0.2.0 — 2026-09-07
+
+- [Release commit CI](https://github.com/ch4570/bandit/actions/runs/34133194874):
+  **all ten jobs passed**. This includes Node 22/24 on Linux, macOS, and Windows,
+  plus four optional Python helper jobs. An earlier Windows Python fixture
+  compared LF text to CRLF source bytes; the test now checks archive bytes
+  against the actual source file. The packager was unchanged by that correction.
+- [Release packaging](https://github.com/ch4570/bandit/actions/runs/34133289107):
+  **passed**, publishing GitHub assets for tag `v0.2.0` at commit
+  `9a777251c8fde01cd3d99621898e0eff9d6120ac`. No npm registry publication ran.
+- Downloaded all three release archives and verified their SHA-256 checksums.
+  `bandit.tgz` and `ch4570-bandit-0.2.0.tgz` are byte-identical.
+- [Public tarball installation receipt](evals/results/2026-09-07-bandit/public-install.json):
+  the exact README `npx --yes` command passed with a fresh npm cache and only
+  Node/npm/npx/sh on PATH, with neither Git nor Python available. It installed
+  all ten skill files into a Korean/spaced project path, preserved existing
+  project files, repeated without changes, and installed globally into an
+  isolated CODEX_HOME. The real user's global skill directory was not used.
+- [Optional Git shorthand receipt](evals/results/2026-09-07-bandit/github-install.json):
+  `npx --yes github:ch4570/bandit` also passed with an explicit temporary project
+  destination and fresh npm cache/config. Existing project files were preserved.
+
 ## BANDIT 0.2.0 — local checks, 2026-09-07
 
 - Native Node installer, package, and validator suite: **30 passed** on macOS
@@ -29,6 +51,8 @@ A reviewer who did not write the Node installer used the README-style
 review exercised Korean/spaced paths, preview without writes, custom CODEX_HOME,
 conflict errors, and preservation of an existing package.json, package lock,
 unrelated skill, and planning document.
+The [review record](evals/results/2026-09-07-bandit/install-review.json) retains
+the observed failures and successful versioned-URL update.
 
 That review found a real update problem: npm reused a cached package when the
 same mutable download URL served a new version. Adding `--prefer-online` did

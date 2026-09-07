@@ -23,3 +23,18 @@ or an independent blind grade.
 
 The [PM Craft 0.1.0 comparison](../2026-09-07/README.md) remains historical and
 unchanged. The rename, avatar, and npm installer do not improve those old scores.
+
+## Installation evidence
+
+These distribution checks are separate from the planning task above:
+
+- [Independent HTTP install review](install-review.json), including the mutable
+  URL cache failure and successful versioned-URL update.
+- [Published GitHub tarball](public-install.json): the exact README command,
+  without Git or Python on PATH; project, repeat, and isolated global installs.
+- [Optional Git shorthand](github-install.json): fresh npm cache and temporary
+  Korean/spaced project destination, with existing files preserved.
+
+Temporary absolute paths are replaced with `<temporary-workspace>` in the
+shared installation receipts. See [validation](../../../VALIDATION.md)
+for the release commit, CI runs, and platform details.

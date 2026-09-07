@@ -1,0 +1,43 @@
+{
+  "command": [
+    "npx",
+    "--yes",
+    "github:ch4570/bandit",
+    "--repo",
+    "<temporary-workspace>/기획 검증 프로젝트",
+    "--json"
+  ],
+  "exit_code": 0,
+  "project": "<temporary-workspace>/기획 검증 프로젝트",
+  "npm_cache": "<temporary-workspace>/fresh-cache",
+  "userconfig": "<temporary-workspace>/npmrc-user",
+  "globalconfig": "<temporary-workspace>/npmrc-global",
+  "status": "installed",
+  "destination": "<temporary-workspace>/기획 검증 프로젝트/.agents/skills/bandit",
+  "version": "0.2.0",
+  "skill_files": 10,
+  "all_hashes_match_marker": true,
+  "project_files_preserved": true,
+  "no_node_modules": true,
+  "skill_name_bandit": true,
+  "prompt_bandit": true,
+  "files": [
+    "SKILL.md",
+    "agents/openai.yaml",
+    "assets/bandit-avatar.png",
+    "assets/plan-template.md",
+    "references/changes.md",
+    "references/decisions.md",
+    "references/evidence-and-decisions.md",
+    "references/research.md",
+    "references/review.md",
+    "references/specification.md"
+  ],
+  "package_manifest": "<temporary-workspace>/fresh-cache/_npx/6467a66a2ab4ddcb/node_modules/@ch4570/bandit/package.json",
+  "package_name": "@ch4570/bandit",
+  "no_lifecycle_hooks": true,
+  "no_skill_install_in_invocation_directory": true,
+  "no_dependencies": true,
+  "date": "2026-09-07",
+  "tested_commit": "9a777251c8fde01cd3d99621898e0eff9d6120ac"
+}
