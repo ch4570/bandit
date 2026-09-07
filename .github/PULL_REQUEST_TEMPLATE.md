@@ -8,4 +8,4 @@ List the checks actually run and their results. Distinguish structural tests, in
 
 ## Scope
 
-Explain any change to existing decisions, installation behavior, references, or public usage instructions. Mention new sources and license notices when external material is included.
+Explain any change to existing decisions, installation behavior, references, character voice, or public usage instructions. Keep the one-command npm onboarding consistent in English and Korean. Mention new sources and license notices when external material is included.

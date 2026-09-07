@@ -1,15 +1,21 @@
-# Use PM Craft
+# Use BANDIT
 
 [한국어](usage.ko.md) · [Install](../INSTALL.md) · [Examples](../examples/README.md)
 
+Install from your project folder, then start a new agent session if needed:
+
+```sh
+npx --yes https://github.com/ch4570/bandit/releases/download/v0.2.0/bandit.tgz
+```
+
 Ask for the product result you need. You do not need to name a mode, choose a framework, or complete an interview before receiving a useful draft.
 
-Include the existing plan or source material when you have it, the decision to make, and constraints that would change the answer. Specify whether you want a proposal, a read-only review, or edits to a named document.
+BANDIT keeps its working voice direct and professional; you do not need cowboy prompts or roleplay. Include the existing plan or source material when you have it, the decision to make, and constraints that would change the answer. Specify whether you want a proposal, a read-only review, or edits to a named document.
 
 ## Research a problem or test an assumption
 
 ```text
-$pm-craft We have two competitor feature pages and no customer interviews.
+$bandit We have two competitor feature pages and no customer interviews.
 Draft a one-page opportunity brief for a shared planning app. Separate
 what the sources show from assumptions about adoption and payment.
 Suggest the smallest next test that could change the build decision.
@@ -22,7 +28,7 @@ If live research tools are unavailable, the agent can assess supplied sources an
 ## Choose a useful MVP
 
 ```text
-$pm-craft This plan has eleven P0 requirements. We have one developer
+$bandit This plan has eleven P0 requirements. We have one developer
 and two weeks for a paid pilot. Keep the complete change-request approval
 journey, explain manual alternatives, and recommend what to defer.
 ```
@@ -32,7 +38,7 @@ Expect a first use case that can be completed, a reason for each meaningful trad
 ## Write a spec with product meaning
 
 ```text
-$pm-craft Turn these voting rules into a development handoff. There are
+$bandit Turn these voting rules into a development handoff. There are
 five participants, two votes for each option, and one missing response.
 Explain who can change a response, when the coordinator can finalize,
 and what must be preserved if the decision is reopened.
@@ -45,7 +51,7 @@ The handoff can describe the minimum data relationships needed to explain behavi
 ## Review without rewriting
 
 ```text
-$pm-craft Review only the renewal experiment in docs/PRD.md. Five
+$bandit Review only the renewal experiment in docs/PRD.md. Five
 subscribers say they will continue, but nobody has reached the next
 billing date. Preserve the original success criterion. Do not edit files.
 ```
@@ -57,7 +63,7 @@ Reviewing a PRD does not exercise the product. Source inspection, a screenshot, 
 ## Update a decision and its consequences
 
 ```text
-$pm-craft Update our existing plan for a free shared workspace instead
+$bandit Update our existing plan for a free shared workspace instead
 of a paid solo plan. Trace changes to permissions, costs, onboarding,
 metrics, and the next experiment. Preserve the old pilot results with
 their original price and product conditions.
@@ -77,6 +83,6 @@ Distinguish accepted goals from descriptions recovered from code. If the PRD say
 
 Give the next contributor the user role, main task, accepted and proposed decisions, state conditions, failure/recovery expectations, persistence boundary, and acceptance scenarios. UI work can then refine layout, interaction feedback, and wording around those rules.
 
-PM Craft does not require a UI skill, Figma, an issue tracker, or an external account. A planning request does not authorize code changes, contacting customers, posting tickets, or deploying an application. Use the host's existing permissions for any separately requested action.
+BANDIT does not require a UI skill, Figma, an issue tracker, or an external account. A planning request does not authorize code changes, contacting customers, posting tickets, or deploying an application. Use the host's existing permissions for any separately requested action.
 
 [Design](design.md) explains the shared rules. [Evaluation](../evals/README.md) describes how to assess actual outputs; [Validation](../VALIDATION.md) lists checks that have been run.

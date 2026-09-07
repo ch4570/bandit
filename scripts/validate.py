@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check PM Craft packaging, metadata, and local references; not PM effectiveness."""
+"""Check BANDIT packaging, metadata, and local references; not PM effectiveness."""
 from __future__ import annotations
 
 import argparse
@@ -114,10 +114,18 @@ def validate(root: Path) -> dict:
         payload = install.tree_files(skill)
     except (ValueError, OSError, UnicodeError) as exc:
         return {"ok": False, "errors": [str(exc)], "checks": "structure and references only"}
+    package = root / "package.json"
+    if package.exists():
+        try:
+            data = json.loads(install.regular_bytes(package))
+            if data.get("name") != "@ch4570/bandit" or data.get("version") != version:
+                errors.append("package.json: name/version must match @ch4570/bandit and VERSION")
+        except (ValueError, AttributeError, OSError) as exc:
+            errors.append(f"package.json: {exc}")
     try:
         metadata = frontmatter(payload.get("SKILL.md", b"").decode("utf-8"))
         if metadata.get("name") != install.NAME:
-            errors.append("SKILL.md name must match the pm-craft directory")
+            errors.append("SKILL.md name must match the bandit directory")
         if not isinstance(metadata.get("description"), str) or not metadata["description"].strip():
             errors.append("SKILL.md needs a nonempty description")
     except (ValueError, UnicodeError) as exc:
@@ -128,8 +136,8 @@ def validate(root: Path) -> dict:
         for field in ("display_name", "short_description", "default_prompt"):
             if not isinstance(interface.get(field), str) or not interface[field].strip():
                 errors.append(f"agents/openai.yaml: interface.{field} is required")
-        if "$pm-craft" not in interface.get("default_prompt", ""):
-            errors.append("agents/openai.yaml: default_prompt must mention $pm-craft")
+        if "$bandit" not in interface.get("default_prompt", ""):
+            errors.append("agents/openai.yaml: default_prompt must mention $bandit")
         for field in ("icon_small", "icon_large"):
             if field in interface:
                 icon = skill / interface[field]
@@ -149,7 +157,7 @@ def validate(root: Path) -> dict:
             try:
                 data = json.loads(install.regular_bytes(manifest))
                 if data.get("name") != install.NAME or data.get("version") != version:
-                    errors.append(f"{manifest.relative_to(root)}: name/version must match pm-craft and VERSION")
+                    errors.append(f"{manifest.relative_to(root)}: name/version must match bandit and VERSION")
             except (ValueError, AttributeError, OSError) as exc:
                 errors.append(f"{manifest}: {exc}")
     return {"ok": not errors, "version": version, "skill_files": len(payload),

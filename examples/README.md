@@ -2,7 +2,9 @@
 
 These are fictional product situations, not customer research or evidence that
 the products have succeeded. The evaluation inputs contain deliberately supplied
-facts; they are not observations made by PM Craft in the real world.
+facts; they are not observations made in the real world. The linked recorded
+outputs were produced by PM Craft 0.1.0, BANDIT's earlier name. They are retained
+as historical examples; current prompts use `$bandit`.
 
 | Example | What to inspect |
 | --- | --- |

@@ -10,26 +10,59 @@ permissions:
   contents: read
 
 jobs:
-  check:
+  npm:
+    name: npm / ${{ matrix.os }} / Node ${{ matrix.node }}
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python: ['3.11', '3.14']
+        node: ['22', '24']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Validate skill and npm metadata without Python
+        run: npm run validate
+      - name: Test installer and isolated npm package consumption
+        run: npm test
+      - name: Pack npm distribution
+        run: |
+          node -e "require('node:fs').mkdirSync('dist', {recursive:true})"
+          npm pack --pack-destination dist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bandit-${{ matrix.os }}-node-${{ matrix.node }}
+          path: dist/*.tgz
+
+  python-helper:
+    name: Optional Python helper / ${{ matrix.os }} / ${{ matrix.python }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python: '3.11'
+          - os: ubuntu-latest
+            python: '3.14'
+          - os: macos-latest
+            python: '3.14'
+          - os: windows-latest
+            python: '3.14'
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python }}
-      - name: Validate skill structure and references
+      - name: Validate optional helper distribution
         run: python -B scripts/validate.py
-      - name: Installer, archive, and validation tests
+      - name: Test optional installer, archive, and validation
         run: python -B -m unittest discover -s tests -v
-      - name: Build reproducible distribution
+      - name: Build reproducible source bundle
         run: python -B scripts/build_bundle.py
       - uses: actions/upload-artifact@v4
         with:
-          name: pm-craft-${{ matrix.os }}-python-${{ matrix.python }}
+          name: bandit-${{ matrix.os }}-python-${{ matrix.python }}
           path: dist/*
-

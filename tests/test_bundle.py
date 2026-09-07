@@ -11,12 +11,30 @@ import install
 
 
 class BundleTests(DistributionTest):
+    def test_npm_source_and_tests_are_included_in_offline_bundle(self):
+        payload = {
+            "package.json": '{"name":"@ch4570/bandit","version":"0.2.0"}\n',
+            "bin/bandit.mjs": "#!/usr/bin/env node\nimport '../lib/install.mjs';\n",
+            "lib/install.mjs": "export const fixture = true;\n",
+            "scripts/validate-node.mjs": "export const fixture = true;\n",
+            "tests-node/install.test.mjs": "// Distribution test fixture.\n",
+        }
+        for relative, content in payload.items():
+            target = self.source / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(content, encoding="utf-8")
+        result = build_bundle.build_bundle(self.source, self.area / "dist")
+        with zipfile.ZipFile(result["artifact"]) as archive:
+            for relative, content in payload.items():
+                self.assertEqual(archive.read("bandit-0.2.0/" + relative).decode(), content)
+            self.assertEqual(archive.getinfo("bandit-0.2.0/bin/bandit.mjs").external_attr >> 16, 0o100755)
+
     def test_reproducible_archive_and_inventory(self):
         one = build_bundle.build_bundle(self.source, self.area / "first")
         two = build_bundle.build_bundle(self.source, self.area / "second")
         self.assertEqual(Path(one["artifact"]).read_bytes(), Path(two["artifact"]).read_bytes())
         with zipfile.ZipFile(one["artifact"]) as archive:
-            prefix = "pm-craft-0.1.0/"
+            prefix = "bandit-0.2.0/"
             inventory = json.loads(archive.read(prefix + build_bundle.INVENTORY))
             self.assertEqual(set(archive.namelist()), {prefix + name for name in inventory["files"]} | {prefix + build_bundle.INVENTORY})
             for name, expected in inventory["files"].items():
@@ -29,7 +47,7 @@ class BundleTests(DistributionTest):
         with zipfile.ZipFile(result["artifact"]) as archive:
             archive.extractall(extracted)
         self.source.rename(self.area / "original hidden")
-        entrypoint = extracted / "pm-craft-0.1.0/install.py"
+        entrypoint = extracted / "bandit-0.2.0/install.py"
         process = subprocess.run([sys.executable, str(entrypoint), "--dest", str(self.destination)], cwd=self.area, capture_output=True, text=True)
         self.assertEqual(process.returncode, 0, process.stderr)
         self.assertTrue((self.destination / "references/rules.md").is_file())
@@ -72,7 +90,7 @@ class BundleTests(DistributionTest):
         output.mkdir()
         victim = self.area / "victim.txt"
         victim.write_text("keep")
-        self.link(output / "pm-craft-0.1.0.zip", victim)
+        self.link(output / "bandit-0.2.0.zip", victim)
         with self.assertRaisesRegex(install.InstallError, "Symlink or junction"):
             build_bundle.build_bundle(self.source, output)
         self.assertEqual(victim.read_text(), "keep")

@@ -29,7 +29,7 @@ class InstallTests(DistributionTest):
         self.write("references/rules.md", "updated\n")
         self.write("references/new.md", "new\n")
         (self.skill / "assets/template.md").unlink()
-        (self.source / "VERSION").write_text("0.2.0\n", encoding="utf-8")
+        (self.source / "VERSION").write_text("0.3.0\n", encoding="utf-8")
         result = install.install_into(self.source, self.destination)
         self.assertEqual(result["status"], "updated")
         self.assertEqual((self.destination / "references/rules.md").read_text(), "updated\n")
@@ -123,7 +123,7 @@ class InstallTests(DistributionTest):
         output = io.StringIO()
         with patch.object(install, "ROOT", self.source), contextlib.redirect_stdout(output):
             self.assertEqual(install.main(["--repo", str(project)]), 0)
-        self.assertTrue((project / ".agents/skills/pm-craft/SKILL.md").is_file())
+        self.assertTrue((project / ".agents/skills/bandit/SKILL.md").is_file())
         self.assertFalse((project / "AGENTS.md").exists())
 
     def test_io_failure_restores_previously_updated_content(self):
@@ -171,7 +171,7 @@ class InstallTests(DistributionTest):
             install.install_into(self.source, self.skill)
 
     def test_source_case_alias_cannot_be_used_as_destination(self):
-        alias = self.source / "SKILLS/PM-CRAFT"
+        alias = self.source / "SKILLS/BANDIT"
         with self.assertRaisesRegex(install.InstallError, "overlap"):
             install.install_into(self.source, alias)
         self.assertFalse((self.skill / install.MARKER).exists())

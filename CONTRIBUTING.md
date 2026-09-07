@@ -2,24 +2,24 @@
 
 Start with a concrete product-planning failure or usability problem. A short example of the request, available evidence, actual output, and expected behavior is more useful than a proposal to add many new frameworks.
 
-Read [the design](docs/design.md) and [evaluation guide](evals/README.md). PM Craft is one skill with five modes. Keep the entry point small and put conditional guidance in the reference that owns it. Do not copy a shared rule into every mode.
+Read [the design](docs/design.md) and [evaluation guide](evals/README.md). BANDIT is one skill with five modes. Keep the entry point small and put conditional guidance in the reference that owns it. Do not copy a shared rule into every mode.
 
 ## Local development
 
-Clone the repository and use Python 3.11+. The installer and repository checks use the standard library.
+Clone the repository and use Node.js 22+. The npm installer and its tests have no third-party dependencies; no dependency installation is required.
 
 ```sh
-python3 scripts/validate.py
-python3 -m unittest discover -s tests -v
+npm run validate
+npm test
 ```
 
-For a packaging change, build and inspect a local bundle:
+For a packaging change, build and inspect the npm archive:
 
 ```sh
-python3 scripts/build_bundle.py
+npm pack --pack-destination /path/to/temporary-directory
 ```
 
-Generated distribution files belong under `dist/`. Exercise installer changes against temporary directories, including a local modification conflict, rather than installing into an active agent environment to run a test.
+Keep generated archives out of source control. The repository also retains Python tooling for its manual-copy ZIP distribution; users of the npm installer do not need Python. Exercise installer changes against temporary directories, including a local modification conflict, rather than installing into an active agent environment to run a test.
 
 ## Make the change reviewable
 
@@ -27,6 +27,7 @@ Generated distribution files belong under `dist/`. Exercise installer changes ag
 - Keep existing accepted decisions and unrelated work intact.
 - Include a small fictional reproduction when behavior changes. Do not publish customer material, credentials, or private workspace paths.
 - Run checks relevant to the change and record the actual result. For skill instructions, also assess a realistic output when the change could affect decisions.
+- Keep the [BANDIT identity](docs/brand.md) consistent without adding roleplay to real product documents.
 - Update English and Korean user-facing guides when their instructions change. Translate meaning and product terminology, not sentence shape.
 - Record release-facing changes in [CHANGELOG.md](CHANGELOG.md).
 

@@ -1,13 +1,21 @@
 # Development evaluations
 
-PM Craft is evaluated on concrete planning work, separately from installer and
+BANDIT is evaluated on concrete planning work, separately from installer and
 package checks. Inputs are fictional, and all claimed observations inside them
 are supplied fixture data. They are not real customer results.
 
-**[Recorded results: 2026-09-07](results/2026-09-07/README.md)** — 11 completed
+**Historical [PM Craft 0.1.0 results](results/2026-09-07/README.md)** — 11 completed
 task runs, preserved outputs and transcripts, independent meaning-based grades,
 and an explicitly inconclusive quality comparison. PM Craft used more reported
 input tokens in the three paired cases; no token-savings claim is made.
+
+Those outputs and hashes are preserved under the original PM Craft name. They
+are not new BANDIT 0.2.0 measurements. To reproduce the historical PM Craft arm,
+use the runner from git tag `v0.1.0`; the current runner uses `--arm bandit`.
+
+A [focused BANDIT 0.2.0 forward check](results/2026-09-07-bandit/README.md)
+records the rebranded skill performing one small planning task. It is not a
+repeat of the three-arm comparison.
 
 ## Cases
 
@@ -37,7 +45,8 @@ cap in a fresh Codex CLI task:
 1. Baseline reasoning without a PM skill.
 2. [phuryn/pm-skills](https://github.com/phuryn/pm-skills/tree/18468a95b427e70e258b51389796367c6f684e7d)
    at the pinned commit, with relevant command procedures and referenced skills.
-3. This PM Craft instruction snapshot.
+3. The instruction snapshot under test (PM Craft in the historical record,
+   BANDIT in current runs).
 
 The CLI adaptation reads slash-command instructions as text and applies the
 actual user's scope first. The complete upstream checkout is available for
@@ -52,7 +61,7 @@ need Python 3.11+. Installations of Codex with different CLI flags may require
 adapting the runner; the recorded runs identify the CLI version.
 
 ```sh
-python3 evals/run_local.py --case 04-incomparable-scores --arm pmcraft --output-dir /absolute/path/to/new-runs
+python3 evals/run_local.py --case 04-incomparable-scores --arm bandit --output-dir /absolute/path/to/new-runs
 python3 evals/run_local.py --case 04-incomparable-scores --arm baseline --output-dir /absolute/path/to/new-runs
 ```
 

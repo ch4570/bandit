@@ -34,7 +34,7 @@ and [independent grading](../evals/results/2026-09-07/grades-01-04.md).
 ## Try it
 
 ```text
-$pm-craft 한 여행에서 숙소와 출발일을 따로 투표하는 웹앱이야.
+$bandit 한 여행에서 숙소와 출발일을 따로 투표하는 웹앱이야.
 로그인 없이 참가하고 마감 전 자기 응답을 바꿀 수 있어.
 개발자 한 명, 2주 MVP로 기획해줘. 작은 정책은 초안으로 제안해.
 ```

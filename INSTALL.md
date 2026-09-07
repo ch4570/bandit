@@ -1,103 +1,116 @@
-# Install PM Craft
+# Install BANDIT
 
-[Overview](README.md) · [한국어 소개](README.ko.md) · [Usage](docs/usage.md)
+[Overview](README.md) · [한국어](README.ko.md) · [Usage](docs/usage.md)
 
-Install the complete `pm-craft` skill folder in a location your agent can read. The supplied installer requires Python 3.11+ and creates a project skill; the target application does not need to use Python.
+## One command
 
-PM Craft has no planning runtime, package-index dependency, model API client, or MCP server. The host agent provides inference and tools. Check [VALIDATION.md](VALIDATION.md) for the platforms and host behavior actually checked.
-
-## Get version 0.1.0
-
-With Git:
+Open your project folder and run:
 
 ```sh
-git clone --branch v0.1.0 https://github.com/ch4570/pm-craft.git
-cd pm-craft
+npx --yes https://github.com/ch4570/bandit/releases/download/v0.2.0/bandit.tgz
 ```
 
-Or download `pm-craft-0.1.0.zip` and its checksum from [release v0.1.0](https://github.com/ch4570/pm-craft/releases/tag/v0.1.0), extract it, and open `pm-craft-0.1.0/`, which contains `install.py`. The release includes `SHA256SUMS.txt` and a `.zip.sha256` file. Compare the downloaded archive's SHA-256 with the published value before extracting if you need to verify the download.
+Requires **Node.js 22+ and npm**. The command downloads BANDIT 0.2.0 from GitHub and installs the complete skill into the current project's `.agents/skills/bandit/`. No Git, clone, Python, package configuration, or API key is needed.
 
-## Install in a project
+Then ask your agent:
 
-Use an existing project path. Quote paths containing spaces.
+```text
+$bandit Turn this idea into a two-week MVP plan. Recommend the scope,
+explain the trade-offs, and use our existing planning document.
+```
+
+The npm registry package is **not published yet**. Use the GitHub command above; `npx @ch4570/bandit` is reserved for a future registry release.
+
+## Release archives
+
+The command above pins both the installer and skill to **0.2.0**. Release archives and checksums are available on [v0.2.0](https://github.com/ch4570/bandit/releases/tag/v0.2.0). `bandit.tgz` and `ch4570-bandit-0.2.0.tgz` on that release contain the same package.
+
+A checksum verifies that a downloaded archive matches the published file; it does not assess the quality of the skill's output.
+
+## Short GitHub command
+
+If Git is already installed, the shorter command also works:
 
 ```sh
-python3 install.py --repo /absolute/path/to/project --plan
-python3 install.py --repo /absolute/path/to/project
+npx --yes github:ch4570/bandit
 ```
 
-`--plan` reports the proposed operation without writing files. Omit it when ready to install. The destination is:
+This follows the repository's default branch, which can differ from the latest release. The archive command above is the default route for published releases.
 
-```text
-/absolute/path/to/project/.agents/skills/pm-craft/
-```
+## Choose where to install
 
-The installer copies the skill and its referenced resources, records managed file hashes, and emits a JSON result on stdout. Errors go to stderr with exit code 2. It does not modify agent instructions, shell configuration, or unrelated skill folders. Installation paths containing symbolic links or junctions are refused; use the real directory path.
+The default is your current project. Append an option to the same install command:
 
-On Windows, use a launcher that selects Python 3.11 or newer, for example:
+| Option | Destination |
+| --- | --- |
+| None | Current project: `.agents/skills/bandit/` |
+| `--global` | `$CODEX_HOME/skills/bandit/`, or `~/.codex/skills/bandit/` when `CODEX_HOME` is unset |
+| `--repo /path/to/project` | Another project's `.agents/skills/bandit/` |
+| `--dest /path/to/skills/bandit` | The exact skill directory supplied |
 
-```powershell
-py -3 install.py --repo "C:\projects\my-app" --plan
-py -3 install.py --repo "C:\projects\my-app"
-```
+Choose only one destination option. Quote paths containing spaces. `--dest` includes the final `bandit` directory, not just its parent. Use the discovery location supported by your host.
 
-These commands describe the intended installation interface. Executed platform checks are listed in [Validation](VALIDATION.md).
-
-## Choose an exact destination
-
-Use `--dest` instead of `--repo` when the host requires another skill location:
+To see the changes before installing:
 
 ```sh
-python3 install.py --dest /absolute/path/to/skills/pm-craft --plan
-python3 install.py --dest /absolute/path/to/skills/pm-craft
+npx --yes https://github.com/ch4570/bandit/releases/download/v0.2.0/bandit.tgz --plan
 ```
 
-`--dest` is the complete skill directory, including `pm-craft`, not its parent. Choose the discovery path supported by your host. A different destination does not prove that the host has loaded or executed the skill.
+For script-friendly output, add `--json`; it emits a JSON result on stdout, including errors. Normal errors use stderr. Errors exit with status 2. `--help` lists options and `--version` shows the installer version. The explicit `install` subcommand is optional; the short command already performs installation.
 
-## Use it
+The same npx commands work in a terminal or PowerShell. [Validation](VALIDATION.md) records the platforms and commands actually tested.
 
-In hosts that support named skill invocation:
+## If the agent cannot find BANDIT
+
+Start a new agent session or refresh the host's skill discovery. In hosts that support named skills, use `$bandit`. Otherwise point to the installed file:
 
 ```text
-$pm-craft Reduce this plan to a two-week pilot. Keep the core approval
-rules, explain what can be handled manually, and preserve the existing PRD.
+Read .agents/skills/bandit/SKILL.md and apply it to review our PRD.
+Report the gaps and proposed fixes without editing the original.
 ```
 
-Otherwise provide the path directly:
+The [Codex metadata](skills/bandit/agents/openai.yaml) supplies the display name and default prompt. Other agents can read the Markdown skill and its references. Discovery, reference loading, and task execution are separate behaviors; check them in the host you use.
 
-```text
-Read /absolute/path/to/project/.agents/skills/pm-craft/SKILL.md and use it
-to review our product plan. Report findings without editing the plan.
+BANDIT contains instructions and an installer. The agent supplies its model, filesystem access, and any live research tools under its existing permissions and usage costs.
+
+## Updates and local changes
+
+To update, copy the installation command from the [current README](https://github.com/ch4570/bandit#saddle-up), which names the current release version. Run it against the same project, or include the same `--global` or destination option you used before. Repeating a fixed-version command keeps that version.
+
+The installer recognizes its managed files, leaves identical files alone, and checks for local conflicts before changing anything. It preserves unrelated files and reports conflicting customizations instead of overwriting them. There is no force-overwrite option.
+
+The optional `releases/latest/download/bandit.tgz` URL can be used for a first installation, but npm may keep executing its earlier cached package when that URL changes. `--prefer-online` did not resolve this in our check. Use a versioned release URL for updates.
+
+If a local edit conflicts, keep a copy of your customized skill. Install the new release into another `--dest` for comparison, or deliberately remove the old skill folder after preserving your changes. Do not delete other skills or project files.
+
+If you previously installed **PM Craft 0.1.0**, BANDIT uses a new folder and invocation: `bandit` and `$bandit`. The installer reports a sibling `pm-craft` folder and leaves it untouched. Keep the old folder while reviewing any customizations; remove only the old `pm-craft` skill folder when you are ready. Renaming the repository does not update an installed copy automatically.
+
+## Optional global command
+
+If you prefer to keep the installer command on your PATH:
+
+```sh
+npm install -g github:ch4570/bandit
+bandit
 ```
 
-Start a new agent session or refresh the host's skill discovery when needed. The skill's [openai.yaml](skills/pm-craft/agents/openai.yaml) file supplies Codex-facing metadata; the Markdown instructions remain readable by other agents. Compatibility includes separate questions: can the host discover the folder, load its references, and successfully complete a task? Check each through the host you use.
+Run `bandit` in each project that should receive the skill. `npm install -g` installs the **CLI**; `bandit --global` installs the **skill for Codex across projects**. These are separate choices. The default npx command requires neither a permanent CLI installation nor global npm write access. This optional GitHub shorthand route requires Git.
 
-## Update and keep local changes
+## Manual copy and removal
 
-Get the new release, then rerun its installer against the same destination. Identical managed files are a no-op; an unedited managed installation can be updated. Conflicting local modifications or different unmanaged files are preserved and reported. Byte-identical files can be adopted into a managed installation. There is no force-overwrite option.
+You can also copy the entire `skills/bandit/` directory from the repository into the discovery directory your agent supports. Keep `SKILL.md`, references, assets, and metadata together. Manual copying can work offline once you have the files; live research still needs the host's tools.
 
-If there is a conflict, review the local and release versions. Preserve your customized folder and install the release into another exact destination for comparison, or back up and remove the old skill folder before installing again. Do not remove other skills or project files to resolve a conflict.
-
-## Copy manually or work offline
-
-You can use a file manager to copy the entire `skills/pm-craft/` directory from the release into your host's skill directory. Keep `SKILL.md`, references, assets, and metadata together; copying only `SKILL.md` leaves its relative references unavailable. Start with an absent destination or merge deliberately to preserve local changes.
-
-The installer and manual copying work from a downloaded bundle without a network connection. Research tasks may still need the host's browsing capability; a skill cannot turn unavailable sources into verified evidence.
-
-Manual copies do not have the installer's ownership record. A later installer can adopt byte-identical files, but a conflicting manual version needs the update procedure above.
-
-## Remove
-
-Delete only the installed `pm-craft` skill directory after preserving any customizations. The installer does not add a runtime, external account, or shell command that needs separate removal. Documents you created using the skill belong to your project and remain there.
+To remove the skill, delete only the installed `bandit` skill directory after preserving any customizations. Your planning documents remain in your project. If you also installed the optional global CLI, remove it with `npm uninstall -g @ch4570/bandit`.
 
 ## Troubleshooting
 
-| Symptom | Next check |
+| Symptom | Try this |
 | --- | --- |
-| Python is unavailable | Use Python 3.11+, or copy the complete skill manually |
-| Installer rejects a symbolic link or junction | Use the real source and destination directory paths |
-| Installer reports a conflict | Inspect the affected local files; use another destination or preserve them before replacing |
-| Host cannot find the skill | Check its discovery location and refresh the session, or give it the `SKILL.md` path |
-| Reference file cannot be read | Verify the whole folder was copied with relative paths intact |
-| Agent cannot research a source | Supply the source or use available host tools; keep the claim unverified until supported |
-| Output quality is poor despite installation success | Share a sanitized task and actual output through [Support](SUPPORT.md); installation is not a behavior test |
+| `npx` is unavailable or Node is too old | Install Node.js 22 or newer, which includes npm |
+| GitHub shorthand cannot find Git | Use the [default release archive command](#one-command) |
+| `npx @ch4570/bandit` cannot find a package | Use `npx --yes https://github.com/ch4570/bandit/releases/download/v0.2.0/bandit.tgz`; registry publication is deferred |
+| Rerunning an old command keeps an old version | Copy the versioned command from the current README |
+| Installer reports a conflicting file | Preserve the customization and compare in a separate destination |
+| Installer rejects a linked path | Use the real directory path shown by your filesystem |
+| Agent cannot load a reference | Check that the entire skill folder was copied |
+| Installation works but the plan is poor | Share a small sanitized task and actual output through [Support](SUPPORT.md) |

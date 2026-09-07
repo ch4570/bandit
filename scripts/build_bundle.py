@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a reproducible, dependency-free PM Craft ZIP and SHA-256 manifest."""
+"""Build a reproducible, dependency-free BANDIT ZIP and SHA-256 manifest."""
 from __future__ import annotations
 
 import argparse
@@ -15,14 +15,17 @@ import install
 from scripts import validate
 
 INVENTORY = "BUNDLE-MANIFEST.json"
-DIRECTORIES = ("docs", "examples", "evals", "assets", "scripts", "tests", ".github")
-EXTENSIONS = {".md", ".py", ".json", ".jsonl", ".yaml", ".yml", ".txt", ".csv", ".toml", ".svg", ".png", ".jpg", ".jpeg", ".webp", ".html"}
+DIRECTORIES = ("docs", "examples", "evals", "assets", "scripts", "tests", "tests-node", "bin", "lib", ".github")
+EXTENSIONS = {".md", ".py", ".js", ".mjs", ".cjs", ".json", ".jsonl", ".yaml", ".yml", ".txt", ".csv", ".toml", ".svg", ".png", ".jpg", ".jpeg", ".webp", ".html"}
 
 
 def contents(root: Path) -> dict[str, bytes]:
     files = {f"skills/{install.NAME}/{name}": data for name, data in install.tree_files(root / install.SKILL).items()}
     for name in ("VERSION", "LICENSE", "README.md", "install.py"):
         files[name] = install.regular_bytes(root / name)
+    for name in ("package.json", "package-lock.json"):
+        if (root / name).exists():
+            files[name] = install.regular_bytes(root / name)
     for path in sorted(root.glob("*.md")):
         files[path.name] = install.regular_bytes(path)
     for name in (".editorconfig", ".gitattributes", ".gitignore"):
@@ -47,12 +50,12 @@ def archive_bytes(root: Path) -> tuple[str, bytes, dict]:
     files[INVENTORY] = (json.dumps(inventory, sort_keys=True, ensure_ascii=False, indent=2) + "\n").encode()
     stream = io.BytesIO()
     # Fixed timestamps, file mode, sort order, and stored bytes keep builds identical
-    # across platforms and zlib versions. This text-only bundle is small.
+    # across platforms and zlib versions. npm consumers do not need this helper.
     with zipfile.ZipFile(stream, "w", compression=zipfile.ZIP_STORED) as archive:
         for name, data in sorted(files.items()):
-            entry = zipfile.ZipInfo(f"pm-craft-{release}/{name}", date_time=(1980, 1, 1, 0, 0, 0))
+            entry = zipfile.ZipInfo(f"bandit-{release}/{name}", date_time=(1980, 1, 1, 0, 0, 0))
             entry.create_system = 3
-            entry.external_attr = 0o100644 << 16
+            entry.external_attr = (0o100755 if name.startswith("bin/") else 0o100644) << 16
             archive.writestr(entry, data)
     return release, stream.getvalue(), inventory
 
@@ -65,7 +68,7 @@ def build_bundle(root: Path, output: Path) -> dict:
         if install.is_within(output, source):
             raise install.InstallError("Output directory must not be inside bundled input directories")
     release, data, inventory = archive_bytes(root)
-    name = f"pm-craft-{release}.zip"
+    name = f"bandit-{release}.zip"
     checksum = install.digest(data)
     checksum_line = f"{checksum}  {name}\n".encode("ascii")
     artifacts = {name: data, name + ".sha256": checksum_line}
@@ -106,7 +109,7 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(build_bundle(ROOT, args.output_dir), indent=2))
         return 0
     except (ValueError, OSError, UnicodeError) as exc:
-        print(f"pm-craft bundle: {exc}", file=sys.stderr)
+        print(f"bandit bundle: {exc}", file=sys.stderr)
         return 2
 
 

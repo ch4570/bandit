@@ -14,21 +14,57 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
       - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
-      - name: Verify tag matches VERSION
+      - name: Verify release identities
         env:
           RELEASE_TAG: ${{ github.ref_name }}
-        run: python -c "import os,pathlib; expected='v'+pathlib.Path('VERSION').read_text().strip(); assert os.environ['RELEASE_TAG']==expected, f'Tag must be {expected}'"
-      - name: Validate distribution
-        run: python -B scripts/validate.py
-      - name: Run installer and archive tests
-        run: python -B -m unittest discover -s tests -v
-      - name: Build archive and checksums
-        run: python -B scripts/build_bundle.py
-      - name: Publish versioned release assets
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          import assert from 'node:assert/strict';
+          const version = readFileSync('VERSION', 'utf8').trim();
+          const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
+          assert.equal(pkg.version, version, 'package.json version must match VERSION');
+          assert.equal(process.env.RELEASE_TAG, `v${version}`, 'release tag must match VERSION');
+          NODE
+      - name: Validate npm distribution
+        run: npm run validate
+      - name: Test npm installation and package consumption
+        run: npm test
+      - name: Test optional Python helper and source bundle
+        run: |
+          python -B scripts/validate.py
+          python -B -m unittest discover -s tests -v
+      - name: Build source bundle and npm tarball
+        run: |
+          python -B scripts/build_bundle.py
+          npm pack --pack-destination dist
+      - name: Create stable npm download and checksums
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { createHash } from 'node:crypto';
+          import { copyFileSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+          const packages = readdirSync('dist').filter((entry) => entry.endsWith('.tgz'));
+          assert.equal(packages.length, 1, 'release must contain one versioned npm tarball');
+          copyFileSync(`dist/${packages[0]}`, 'dist/bandit.tgz');
+          const lines = readFileSync('dist/SHA256SUMS.txt', 'utf8').trim().split('\n');
+          for (const name of [...packages, 'bandit.tgz']) {
+            const checksum = createHash('sha256').update(readFileSync(`dist/${name}`)).digest('hex');
+            const line = `${checksum}  ${name}`;
+            writeFileSync(`dist/${name}.sha256`, `${line}\n`);
+            lines.push(line);
+          }
+          writeFileSync('dist/SHA256SUMS.txt', `${lines.sort().join('\n')}\n`);
+          NODE
+      - name: Publish GitHub release assets
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ github.ref_name }}
-        run: gh release create "$RELEASE_TAG" dist/*.zip dist/*.sha256 dist/SHA256SUMS.txt --verify-tag --title "PM Craft $RELEASE_TAG" --generate-notes
+        run: gh release create "$RELEASE_TAG" dist/*.tgz dist/*.zip dist/*.sha256 dist/SHA256SUMS.txt --verify-tag --title "BANDIT $RELEASE_TAG" --generate-notes
+      # npm registry publication is intentionally deferred. No npm publish step.

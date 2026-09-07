@@ -1,44 +1,63 @@
-# Validation record
+# BANDIT validation record
 
-Validation concerns both the distributable skill and its behavior. The two are
-reported separately. All product fixtures in this repository are synthetic.
+Distribution checks and planning behavior are reported separately. Product
+fixtures are synthetic. npm registry publication is deferred.
 
-## Local checks — 2026-09-07
+## BANDIT 0.2.0 — local checks, 2026-09-07
 
-On macOS arm64, Python 3.11 and 3.12:
+- Native Node installer, package, and validator suite: **30 passed** on macOS
+  arm64 (Node 26.8.1, npm 11.19.0). The 20 installer tests also passed on Node 22.
+- Node-only skill/package validation: **passed**, ten complete skill files,
+  including the avatar and referenced resources.
+- Optional Python helper/source ZIP suite: **40 passed**, Python 3.11 and 3.12.
+  Python is not needed by npm consumers.
+- OpenAI skill-creator validation: **passed** in an isolated development
+  environment. Its PyYAML dependency is not part of the npm package.
+- The npm artifact was packed and consumed outside the checkout. Its install
+  did not create a skill through lifecycle hooks; the explicit CLI installed
+  the complete skill and preserved the consumer's project files.
+- The source ZIP was extracted outside the checkout and its Node CLI installed
+  all ten skill files with an empty PATH, using an explicit Node executable.
+- The final hero and avatar were visually inspected. The avatar uses an opaque
+  parchment background. [Image prompts](docs/assets/IMAGE-PROMPTS.md) record the
+  built-in image generation and background correction.
 
-- Repository installer, archive, and validation tests: **38 passed**.
-- Skill structure and references: **passed**, nine distributable skill files.
-- OpenAI skill-creator `quick_validate.py`: **passed** using an isolated Python
-  3.12 environment with PyYAML 6.0.3. PyYAML is not a runtime dependency.
-- Actual skill installation into a temporary project: files matched the source;
-  a repeated install returned `unchanged`.
-- The archive test extracts a bundle, hides its source checkout, and installs
-  using the extracted installer, checking the complete skill contents.
+## Independent install review
 
-An independent installation review found case-insensitive filesystem defects:
-case-only file renames could delete a managed file, and aliased path casing could
-bypass source/destination and bundle-output containment. These were reproduced
-on APFS, fixed before release, and added to the regression suite. Case-only managed
-renames are now a preflight conflict that preserves the existing installation.
+A reviewer who did not write the Node installer used the README-style
+`npx --yes <HTTP tarball URL>` command against a temporary HTTP server. The
+review exercised Korean/spaced paths, preview without writes, custom CODEX_HOME,
+conflict errors, and preservation of an existing package.json, package lock,
+unrelated skill, and planning document.
 
-The tool tests cover meaningful preservation and packaging behavior. They do not
-evaluate product demand, the quality of a PRD, every filesystem, or every agent host.
+That review found a real update problem: npm reused a cached package when the
+same mutable download URL served a new version. Adding `--prefer-online` did
+not repair it in the tested npm version. Changing to a new versioned URL
+successfully updated the same installation with the same npm cache.
 
-## Behavior
+The public installation command therefore uses a versioned GitHub release URL.
+To update, copy the new release's command. We do not describe rerunning a
+`releases/latest` alias as a reliable updater. This keeps first installation and
+upgrades as one command without adding a self-update service or registry dependency.
 
-See [evaluation inputs, methods, outputs, and limitations](evals/README.md).
-Forward testing uses fresh task contexts without the rubric or author diagnoses.
-The comparison has baseline, pinned upstream, and PM Craft conditions; source
-differences alone are not treated as evidence of superior model behavior.
+## Current planning check
 
-[Eleven completed tasks](evals/results/2026-09-07/README.md) are recorded: nine
-paired runs and two additional PM Craft checks. In the paired tasks, all three
-arms received the same 11 pass and 1 partial judgments. PM Craft used more
-reported input tokens. These development cases establish no comparative quality
-or cost advantage; exact backend model settings were not pinned.
+A [fresh BANDIT task](evals/results/2026-09-07-bandit/README.md) completed after
+the rename and persona change. It stayed concise, recommended a provisional
+segment and experiment, distinguished interest from paid demand, and produced
+ordinary planning language. This single check is not a comparative quality claim.
 
-## Reproduce repository checks
+## Reproduce
+
+Node.js 22+ and npm:
+
+```sh
+npm run validate
+npm test
+npm pack
+```
+
+Optional Python 3.11+ source tooling:
 
 ```sh
 python3 scripts/validate.py
@@ -46,16 +65,24 @@ python3 -m unittest discover -s tests -v
 python3 scripts/build_bundle.py
 ```
 
-Requires Python 3.11+. The [remote CI run for source commit d34df23](https://github.com/ch4570/pm-craft/actions/runs/34127543544)
-completed successfully in all six combinations: Linux, macOS, and Windows on
-Python 3.11 and 3.14. Each job ran skill validation, the 38-test suite, and archive
-creation. Release assets are built from the version tag by the
-[release workflow](.github/workflows/release.yml).
+[CI](.github/workflows/ci.yml) defines Node 22/24 jobs on Linux, macOS, and
+Windows, plus checks for the optional Python tools. The [release workflow](.github/workflows/release.yml)
+attaches npm tarballs, a source ZIP, and checksums to GitHub. It has no npm
+registry publishing step.
+
+## Historical PM Craft 0.1.0 results
+
+The original [11 planning runs](evals/results/2026-09-07/README.md) and their
+hashes retain the PM Craft name. In the three paired cases, all three arms had
+11 pass and 1 partial judgments. PM Craft used more reported input tokens.
+These are not newly measured BANDIT results.
+
+The [original validation record](https://github.com/ch4570/bandit/blob/v0.1.0/VALIDATION.md)
+contains the earlier 38-test Python suite and six successful CI combinations.
 
 ## Limits
 
-Package tests use temporary directories and local fixtures, not external services.
-PM behavior depends on the model, the supplied context, and the host's tools.
-No real customer interviews, live launch experiments, or production application
-tests were performed to validate PM Craft. No claim of general superiority,
-token savings, or product-market fit follows from these checks.
+Temporary install tests do not establish compatibility with every host or
+filesystem. Planning quality depends on the model, context, and available tools.
+No real customer research, public experiment, or production app was validated.
+Rebranding and easier installation do not establish superior PM output.

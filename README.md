@@ -1,63 +1,69 @@
-![PM Craft: connect evidence, decisions, requirements, and checks](docs/assets/pm-craft-hero.svg)
+![BANDIT, a western raccoon with a red bandana, a pencil, and a product plan](docs/assets/bandit-hero.png)
 
-# PM Craft
+# BANDIT
 
-**Make a product decision. Carry it through to the next person building it.**
+**An outlaw with a plan. Your next product move, made clear.**
 
-[한국어](README.ko.md) · [v0.1.0](https://github.com/ch4570/pm-craft/releases/tag/v0.1.0) · [Install](INSTALL.md) · [Examples](examples/README.md) · [Evaluation](evals/README.md)
+[한국어](README.ko.md) · [Install](INSTALL.md) · [Examples](examples/README.md) · [v0.2.0](https://github.com/ch4570/bandit/releases/tag/v0.2.0)
 
-PM Craft is an agent skill for planning apps and services. It helps you research a problem, choose an MVP, write a product spec, review an existing plan, and keep related requirements consistent when a decision changes.
+BANDIT is your product-planning partner: a sharp raccoon in a cowboy hat, armed with a pencil and a map. Bring an idea, an overloaded roadmap, or a half-written PRD. Leave with a useful decision and a plan someone can build.
 
-It keeps customer evidence separate from assumptions, makes product rules concrete, and distinguishes a proposed check from a result someone actually observed. Use your existing PRD; a small request does not need a new document system.
+## Saddle up
 
-**One skill · Five focused modes · English and Korean guides · MIT**
-
-## Start with your next decision
-
-Clone the pinned release and install the skill in your project. Requires Git and Python 3.11+; a [release ZIP and manual copy](INSTALL.md) are also available.
+Run this **inside your project**:
 
 ```sh
-git clone --branch v0.1.0 https://github.com/ch4570/pm-craft.git
-cd pm-craft
-python3 install.py --repo /absolute/path/to/your-project
+npx --yes https://github.com/ch4570/bandit/releases/download/v0.2.0/bandit.tgz
 ```
 
 Then ask your agent:
 
 ```text
-$pm-craft Review our PRD's group voting rules. Explain who can change
-a vote, when a decision becomes final, and what happens to missing
-responses. Propose only the missing decisions; keep the review read-only.
+$bandit Help me turn this idea into a two-week MVP. Recommend the
+smallest useful scope, explain the trade-offs, and draft the plan.
 ```
 
-If your host does not support `$pm-craft`, ask it to read `.agents/skills/pm-craft/SKILL.md` and follow it for the task. Host discovery and tool availability vary. [Installation and troubleshooting](INSTALL.md).
+Requires **Node.js 22+ and npm**. Installs the complete skill into `.agents/skills/bandit/`. No Git, cloning, or Python setup. [Installation options](INSTALL.md).
 
-PM Craft contains instructions and references. Your agent supplies the model, file access, and any research tools; their normal usage costs and permissions apply. The installer copies the skill. It does not run a PM model or provide a planning CLI, API, or external account connection.
+The npm registry release comes later; the command above installs directly from GitHub. If your agent does not recognize `$bandit`, ask it to read `.agents/skills/bandit/SKILL.md` and use it for the task. Refresh or start a new agent session if necessary.
 
-## Choose the work you need
+## What BANDIT rides with
 
-| Your request | Mode | Useful result |
-| --- | --- | --- |
-| “What evidence would justify building this?” | Research | Sources, open assumptions, and a proportionate test |
-| “What can we cut for a two-week pilot?” | Decide | A complete first use case, trade-offs, and deferred scope |
-| “Make these rules ready for development.” | Spec | Actors, conditions, state changes, and acceptance scenarios |
-| “Find gaps in this plan.” | Review | Specific findings with evidence and proposed corrections |
-| “We changed the price and added sharing.” | Update | Affected requirements, permissions, metrics, and retained history |
-
-These are alternatives, not five mandatory steps. A narrow review stays narrow. An existing decision stays in force until the user changes it or adopts a proposed replacement.
-
-## See what it produces
-
-The [examples](examples/README.md) use fictional product situations to show how evidence, decisions, requirements, and checks fit together. They are not customer validation results.
-
-The [evaluation guide](evals/README.md) records 11 completed task runs: three paired cases across baseline, upstream, and PM Craft, plus two PM Craft forward checks. The paired cases did not establish a quality advantage. [Validation](VALIDATION.md) records 38 tool tests and successful CI across Linux, macOS, and Windows; package checks alone do not establish planning quality.
-
-| Guide | What you will find |
+| Bring this | Get this |
 | --- | --- |
-| [Usage](docs/usage.md) · [한국어 사용법](docs/usage.ko.md) | Prompts, inputs, outputs, and handoffs |
-| [Install](INSTALL.md) | Project installation, custom paths, updates, and removal |
-| [Design](docs/design.md) | Scope, modes, and evidence boundaries |
-| [Comparison](docs/comparison.md) | Design choices and the pinned upstream material we reviewed |
-| [Contributing](CONTRIBUTING.md) | Develop and test a change |
+| An idea and a few sources | **Research:** what the evidence supports, what remains a guess, and what to test next |
+| Too much scope and a deadline | **Decide:** a complete first use case, clear trade-offs, and what can wait |
+| Rules that are hard to implement | **Spec:** actors, states, exceptions, and acceptance scenarios |
+| A PRD that needs a second opinion | **Review:** specific gaps, their consequences, and proposed corrections |
+| A new price, policy, or direction | **Update:** affected requirements and experiments, with the old evidence preserved |
 
-[Support](SUPPORT.md) · [Changelog](CHANGELOG.md) · [MIT license](LICENSE)
+Just describe the job. BANDIT chooses the relevant mode; you do not need to run all five or learn a command catalog.
+
+## A character with good judgment
+
+BANDIT is direct, curious, and willing to make a recommendation. The hat stays on the cover; your PRDs stay clear and professional. It separates evidence from assumptions, keeps proposed decisions distinct from accepted ones, and checks the rules behind a feature.
+
+Use your existing documents. A small decision can be a paragraph; an ongoing product can use linked requirements and checks. Planning work stays within the task you requested.
+
+For every Codex project on this computer:
+
+```sh
+npx --yes https://github.com/ch4570/bandit/releases/download/v0.2.0/bandit.tgz --global
+```
+
+BANDIT provides the skill and its installer. Your agent supplies the model, research tools, and file access under its existing permissions and usage costs.
+
+## Open the trail map
+
+| Guide | What's inside |
+| --- | --- |
+| [Usage](docs/usage.md) · [한국어 사용법](docs/usage.ko.md) | Copyable prompts and practical handoffs |
+| [Install](INSTALL.md) | One-command setup, updates, custom locations, and removal |
+| [Examples](examples/README.md) | Fictional planning situations and worked outputs |
+| [Meet BANDIT](docs/brand.md) | Character, voice, and visual identity |
+| [Design](docs/design.md) · [Comparison](docs/comparison.md) | How the skill works and its upstream influences |
+| [Validation](VALIDATION.md) · [Evaluation](evals/README.md) | Executed checks, raw task evidence, and limitations |
+
+The earlier **PM Craft 0.1.0** evaluation contains 11 task runs. Its three paired cases did not establish a quality advantage over baseline or upstream, and used more reported input tokens. Those records retain their original name and version; they are not new BANDIT benchmark results.
+
+[Contributing](CONTRIBUTING.md) · [Support](SUPPORT.md) · [Changelog](CHANGELOG.md) · [MIT](LICENSE)

@@ -42,9 +42,9 @@ def run_case(case: str, arm: str, output: Path, upstream: Path | None) -> int:
     workspace = run / "workspace"
     workspace.mkdir(parents=True)
     shutil.copytree(fixture, workspace / "input")
-    if arm == "pmcraft":
-        shutil.copytree(ROOT / "skills" / "pm-craft", workspace / "instructions" / "pm-craft")
-        instruction = "Use instructions/pm-craft/SKILL.md and the relevant references it routes to."
+    if arm == "bandit":
+        shutil.copytree(ROOT / "skills" / "bandit", workspace / "instructions" / "bandit")
+        instruction = "Use instructions/bandit/SKILL.md and the relevant references it routes to."
     elif arm == "upstream":
         # Preserve all dependencies. Routes identify the relevant entrypoints;
         # the agent may follow further skill references within this snapshot.
@@ -90,7 +90,7 @@ def run_case(case: str, arm: str, output: Path, upstream: Path | None) -> int:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--case", choices=ROUTES, required=True)
-    parser.add_argument("--arm", choices=["baseline", "upstream", "pmcraft"], required=True)
+    parser.add_argument("--arm", choices=["baseline", "upstream", "bandit"], required=True)
     parser.add_argument("--upstream", type=Path)
     parser.add_argument("--output-dir", type=Path, required=True,
                         help="New run artifacts are written here; your Codex account's usage applies")
@@ -98,7 +98,7 @@ def main() -> int:
     try:
         return run_case(args.case, args.arm, args.output_dir, args.upstream)
     except (ValueError, OSError, subprocess.CalledProcessError) as exc:
-        parser.exit(2, f"pm-craft eval: {exc}\n")
+        parser.exit(2, f"bandit eval: {exc}\n")
 
 
 if __name__ == "__main__":

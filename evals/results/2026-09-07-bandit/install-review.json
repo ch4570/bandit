@@ -1,0 +1,114 @@
+{
+  "method": "Independent local HTTP npm/npx review; synthetic package versions 0.2.0 and 0.2.1, no public 0.2.1 release",
+  "platform": {
+    "os": "macOS arm64",
+    "node": "26.8.1",
+    "npm": "11.19.0"
+  },
+  "publication_transform": "temporary workspace path replaced with <temporary-workspace>; results retained",
+  "original_sha256": "47180c74eaf859824f95ee687e0f81db626bc9ed9abe52245ae2f0981b6045bd",
+  "results": [
+    {
+      "case": "npx archive preview in Korean path preserves entire project",
+      "ok": true,
+      "detail": {
+        "code": 0,
+        "out": "{\n  \"status\": \"plan\",\n  \"source\": \"<temporary-workspace>/npm-cache/_npx/51e420d771a4ef72/node_modules/@ch4570/bandit/skills/bandit\",\n  \"destination\": \"<temporary-workspace>/한글 기획 프로젝트/.agents/skills/bandit\",\n  \"version\": \"0.2.0\",\n  \"managed\": false,\n  \"changes\": [\n    {\n      \"action\": \"add\",\n      \"path\": \"SKILL.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"agents/openai.yaml\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"assets/bandit-avatar.png\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"assets/plan-template.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"references/changes.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"references/decisions.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"references/evidence-and-decisions.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"references/research.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"references/review.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"references/specification.md\"\n    }\n  ],\n  \"unchanged_files\": 0,\n  \"marker_change\": true,\n  \"notes\": [\n    \"A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.\"\n  ]\n}\n",
+        "err": ""
+      }
+    },
+    {
+      "case": "literal npx archive invocation; existing package/lock/skills/plan intact",
+      "ok": true,
+      "detail": {
+        "code": 0,
+        "out": "BANDIT is ready.\n<temporary-workspace>/한글 기획 프로젝트/.agents/skills/bandit\n\nOpen or restart your agent, then try:\n$bandit Turn this app idea into a focused MVP plan.\n\nA separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.\n",
+        "err": ""
+      }
+    },
+    {
+      "case": "all added project files confined to bandit skill",
+      "ok": true,
+      "detail": [
+        ".agents/skills/bandit/agents",
+        ".agents/skills/bandit/.bandit-install.json",
+        ".agents/skills/bandit/references/research.md",
+        ".agents/skills/bandit/agents/openai.yaml",
+        ".agents/skills/bandit/assets/plan-template.md",
+        ".agents/skills/bandit/assets/bandit-avatar.png",
+        ".agents/skills/bandit",
+        ".agents/skills/bandit/references/specification.md",
+        ".agents/skills/bandit/assets",
+        ".agents/skills/bandit/references/evidence-and-decisions.md",
+        ".agents/skills/bandit/references",
+        ".agents/skills/bandit/SKILL.md",
+        ".agents/skills/bandit/references/changes.md",
+        ".agents/skills/bandit/references/decisions.md",
+        ".agents/skills/bandit/references/review.md"
+      ]
+    },
+    {
+      "case": "npx forwards global to installer with custom Korean CODEX_HOME",
+      "ok": true,
+      "detail": {
+        "code": 0,
+        "out": "{\n  \"status\": \"installed\",\n  \"source\": \"<temporary-workspace>/npm-cache/_npx/51e420d771a4ef72/node_modules/@ch4570/bandit/skills/bandit\",\n  \"destination\": \"<temporary-workspace>/개인 Codex 공간/skills/bandit\",\n  \"version\": \"0.2.0\",\n  \"managed\": false,\n  \"changes\": [\n    {\n      \"action\": \"add\",\n      \"path\": \"SKILL.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"agents/openai.yaml\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"assets/bandit-avatar.png\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"assets/plan-template.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"references/changes.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"references/decisions.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"references/evidence-and-decisions.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"references/research.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"references/review.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"references/specification.md\"\n    }\n  ],\n  \"unchanged_files\": 0,\n  \"marker_change\": true\n}\n",
+        "err": ""
+      }
+    },
+    {
+      "case": "customized installed skill stops politely without changes",
+      "ok": true,
+      "detail": {
+        "code": 2,
+        "out": "",
+        "err": "BANDIT: Nothing installed. Preserve or move the conflicting files, then retry:\n  locally modified or deleted file: SKILL.md\n"
+      }
+    },
+    {
+      "case": "mistyped project path gives actionable error",
+      "ok": true,
+      "detail": {
+        "code": 2,
+        "out": "",
+        "err": "BANDIT: Project directory does not exist: <temporary-workspace>/missing\n"
+      }
+    },
+    {
+      "case": "npx HTTP archive infers bin and installs without Git",
+      "ok": true,
+      "detail": {
+        "code": 0,
+        "out": "{\n  \"status\": \"installed\",\n  \"source\": \"<temporary-workspace>/npm-cache/_npx/51e420d771a4ef72/node_modules/@ch4570/bandit/skills/bandit\",\n  \"destination\": \"<temporary-workspace>/http-project/.agents/skills/bandit\",\n  \"version\": \"0.2.0\",\n  \"managed\": false,\n  \"changes\": [\n    {\n      \"action\": \"add\",\n      \"path\": \"SKILL.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"agents/openai.yaml\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"assets/bandit-avatar.png\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"assets/plan-template.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"references/changes.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"references/decisions.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"references/evidence-and-decisions.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"references/research.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"references/review.md\"\n    },\n    {\n      \"action\": \"add\",\n      \"path\": \"references/specification.md\"\n    }\n  ],\n  \"unchanged_files\": 0,\n  \"marker_change\": true\n}\n",
+        "err": ""
+      }
+    },
+    {
+      "case": "repeat stable URL resolves changed release with same npm cache",
+      "ok": false,
+      "detail": {
+        "code": 0,
+        "out": "{\n  \"status\": \"unchanged\",\n  \"source\": \"<temporary-workspace>/npm-cache/_npx/51e420d771a4ef72/node_modules/@ch4570/bandit/skills/bandit\",\n  \"destination\": \"<temporary-workspace>/http-project/.agents/skills/bandit\",\n  \"version\": \"0.2.0\",\n  \"managed\": true,\n  \"changes\": [],\n  \"unchanged_files\": 10,\n  \"marker_change\": false\n}\n",
+        "err": ""
+      }
+    },
+    {
+      "case": "prefer-online refreshes stable URL cached execution",
+      "ok": false,
+      "detail": {
+        "code": 0,
+        "out": "{\n  \"status\": \"unchanged\",\n  \"source\": \"<temporary-workspace>/npm-cache/_npx/51e420d771a4ef72/node_modules/@ch4570/bandit/skills/bandit\",\n  \"destination\": \"<temporary-workspace>/http-project/.agents/skills/bandit\",\n  \"version\": \"0.2.0\",\n  \"managed\": true,\n  \"changes\": [],\n  \"unchanged_files\": 10,\n  \"marker_change\": false\n}\n",
+        "err": ""
+      }
+    },
+    {
+      "case": "version-specific URL updates same destination with same cache",
+      "ok": true,
+      "detail": {
+        "code": 0,
+        "out": "{\n  \"status\": \"updated\",\n  \"source\": \"<temporary-workspace>/npm-cache/_npx/a25574b0c40943a0/node_modules/@ch4570/bandit/skills/bandit\",\n  \"destination\": \"<temporary-workspace>/http-project/.agents/skills/bandit\",\n  \"version\": \"0.2.1\",\n  \"managed\": true,\n  \"changes\": [],\n  \"unchanged_files\": 10,\n  \"marker_change\": true\n}\n",
+        "err": ""
+      }
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 # Design
 
-PM Craft helps an agent make the next product decision and preserve its meaning through requirements and later changes. Version 0.1.0 is one installable skill for apps and services, with five focused modes.
+BANDIT helps an agent make the next product decision and preserve its meaning through requirements and later changes. Version 0.2.0 is one installable skill for apps and services, with five focused modes.
 
 ## One entry point, selective references
 
-`skills/pm-craft/SKILL.md` owns the scope, routing, shared constraints, and completion expectations. Mode references provide detail only when the requested task needs it:
+`skills/bandit/SKILL.md` owns the scope, routing, shared constraints, and completion expectations. Mode references provide detail only when the requested task needs it:
 
 | Mode | Responsibility |
 | --- | --- |
@@ -51,19 +51,24 @@ Reuse the project's existing source-of-truth boundaries. If separate documents o
 
 When a user delegates a reversible draft choice, make a reasoned recommendation and label it. Ask when a material target is ambiguous or explicit constraints conflict, and continue independent work when possible. Do not make every mode a new permission checkpoint.
 
-PM Craft's responsibilities end at the requested product artifact or assessment. It can hand accepted rules and open decisions to implementation or UI work. It does not require another specialist skill, and its use does not authorize customer outreach, purchases, account mutations, code changes, or deployment.
+BANDIT's responsibilities end at the requested product artifact or assessment. It can hand accepted rules and open decisions to implementation or UI work. It does not require another specialist skill, and its use does not authorize customer outreach, purchases, account mutations, code changes, or deployment.
+
+## A recognizable partner, a plain working voice
+
+BANDIT's cowboy hat, red bandana, pencil, and map give the project a recognizable character. The working voice stays direct and useful: recommend a next move, explain the trade-off, and be precise about uncertainty. Product documents use the user's language and terminology. Western roleplay is optional and belongs only where the user requests it. See [the brand guide](brand.md).
 
 ## Packaging and evaluation are separate
 
-The project installer copies a self-contained skill folder and protects local modifications. It is not a planning engine. The host model and available tools execute the instructions.
+A dependency-free Node.js installer distributes the complete skill through npm tooling. Running `npx --yes https://github.com/ch4570/bandit/releases/download/v0.2.0/bandit.tgz` from a project installs `.agents/skills/bandit/` without Git or Python. The versioned archive works before npm registry publication. The installer protects local modifications. The host model and available tools execute the skill instructions.
 
 Structural validation can check package metadata and references. Installer tests can verify filesystem behavior. Neither proves good PM judgment. [Evaluation](../evals/README.md) covers realistic product tasks, including preservation of a good existing plan and behavior under changed assumptions. [Validation](../VALIDATION.md) records which checks actually ran.
 
 ## What would justify the next version
 
-The first paired development cases produced no demonstrated quality advantage
-over baseline or upstream. PM Craft also used more reported input tokens on
-those cases. The next evidence should come from held-out tasks with noisier
+The historical PM Craft 0.1.0 paired development cases produced no demonstrated
+quality advantage over baseline or upstream. PM Craft also used more reported
+input tokens on those cases. They remain labeled with their original version;
+the BANDIT rename does not create new behavior evidence. The next evidence should come from held-out tasks with noisier
 sources and decisions that evolve across several turns, with a pinned model and
 blind grading. Preserve baseline successes and report regressions.
 

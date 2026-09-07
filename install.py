@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install the PM Craft text skill without changing unrelated project files."""
+"""Install the BANDIT text skill without changing unrelated project files."""
 from __future__ import annotations
 
 import argparse
@@ -13,8 +13,8 @@ import sys
 import tempfile
 import unicodedata
 
-NAME = "pm-craft"
-MARKER = ".pm-craft-install.json"
+NAME = "bandit"
+MARKER = ".bandit-install.json"
 ROOT = Path(__file__).resolve().parent
 SKILL = Path("skills") / NAME
 IGNORED = {".git", "__pycache__", ".DS_Store"}
@@ -105,7 +105,7 @@ def tree_files(directory: Path) -> dict[str, bytes]:
 def version(root: Path) -> str:
     value = regular_bytes(root / "VERSION").decode("utf-8").strip()
     if not re.fullmatch(r"(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)", value):
-        raise InstallError("VERSION must contain a stable semantic version, e.g. 0.1.0")
+        raise InstallError("VERSION must contain a stable semantic version, e.g. 0.2.0")
     return value
 
 
@@ -190,7 +190,7 @@ def atomic_write(path: Path, data: bytes) -> None:
     check_path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     check_path(path.parent)
-    descriptor, temporary = tempfile.mkstemp(prefix=".pm-craft-", dir=path.parent)
+    descriptor, temporary = tempfile.mkstemp(prefix=".bandit-", dir=path.parent)
     try:
         with os.fdopen(descriptor, "wb") as stream:
             stream.write(data)
@@ -211,7 +211,7 @@ def install_into(source_root: Path, destination: Path, dry_run: bool = False) ->
     # Serialize installers for this destination; never create this lock for --plan.
     check_path(destination.parent)
     destination.parent.mkdir(parents=True, exist_ok=True)
-    lock = destination.parent / ("." + destination.name + ".pm-craft.lock")
+    lock = destination.parent / ("." + destination.name + ".bandit.lock")
     check_path(lock)
     try:
         lock_fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
@@ -270,7 +270,7 @@ def install_into(source_root: Path, destination: Path, dry_run: bool = False) ->
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     target = parser.add_mutually_exclusive_group(required=True)
-    target.add_argument("--repo", type=Path, help="Existing project root; installs to .agents/skills/pm-craft")
+    target.add_argument("--repo", type=Path, help="Existing project root; installs to .agents/skills/bandit")
     target.add_argument("--dest", type=Path, help="Exact skill directory (not its parent)")
     parser.add_argument("--plan", action="store_true", help="Show changes without creating or modifying files")
     args = parser.parse_args(argv)
@@ -288,7 +288,7 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(install_into(ROOT, destination, args.plan), ensure_ascii=False, indent=2))
         return 0
     except (InstallError, OSError, UnicodeError) as exc:
-        print(f"pm-craft install: {exc}", file=sys.stderr)
+        print(f"bandit install: {exc}", file=sys.stderr)
         return 2
 
 

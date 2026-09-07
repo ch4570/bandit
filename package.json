@@ -1,0 +1,41 @@
+{
+  "name": "@ch4570/bandit",
+  "version": "0.2.0",
+  "description": "BANDIT — an outlaw with a plan. Evidence-led product planning for coding agents.",
+  "type": "module",
+  "bin": {
+    "bandit": "bin/bandit.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "scripts/validate-node.mjs",
+    "skills/bandit/",
+    "README.md",
+    "README.ko.md",
+    "INSTALL.md",
+    "LICENSE",
+    "VERSION"
+  ],
+  "scripts": {
+    "test": "node --test tests-node/*.test.mjs",
+    "validate": "node scripts/validate-node.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ch4570/bandit.git"
+  },
+  "homepage": "https://github.com/ch4570/bandit#readme",
+  "bugs": {
+    "url": "https://github.com/ch4570/bandit/issues"
+  },
+  "keywords": ["agent-skill", "codex", "product-management", "planning", "prd", "bandit"],
+  "author": "ch4570",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
