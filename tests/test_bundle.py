@@ -25,8 +25,8 @@ class BundleTests(DistributionTest):
             target.write_text(content, encoding="utf-8")
         result = build_bundle.build_bundle(self.source, self.area / "dist")
         with zipfile.ZipFile(result["artifact"]) as archive:
-            for relative, content in payload.items():
-                self.assertEqual(archive.read("bandit-0.2.0/" + relative).decode(), content)
+            for relative in payload:
+                self.assertEqual(archive.read("bandit-0.2.0/" + relative), (self.source / relative).read_bytes())
             self.assertEqual(archive.getinfo("bandit-0.2.0/bin/bandit.mjs").external_attr >> 16, 0o100755)
 
     def test_reproducible_archive_and_inventory(self):
