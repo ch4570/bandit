@@ -1,0 +1,21 @@
+{
+  "method": "independent subagent; fresh context with task, raw inputs, and skill only",
+  "model": "inherited host model; no override; exact host settings not recorded",
+  "rubric_given": false,
+  "skill_files_read": [
+    "SKILL.md",
+    "references/specification.md",
+    "references/evidence-and-decisions.md",
+    "references/decisions.md"
+  ],
+  "publication_transform": {
+    "operation": "replace the two machine-specific absolute input link targets with portable input/<filename> links",
+    "affected_targets": [
+      "request.md",
+      "brief.md"
+    ],
+    "reason": "portable input links; no semantic edits"
+  },
+  "original_output_sha256": "799dd87b3d5dc7f135d6262b76f08c94278da95c2d8662011b4d00afe775d5f1",
+  "published_output_sha256": "7a5099b1c99100e5fe6e35ae6d32a64c98d667475764aa59b9c8b3acb7cd8f85"
+}

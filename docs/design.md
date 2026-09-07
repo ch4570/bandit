@@ -58,3 +58,16 @@ PM Craft's responsibilities end at the requested product artifact or assessment.
 The project installer copies a self-contained skill folder and protects local modifications. It is not a planning engine. The host model and available tools execute the instructions.
 
 Structural validation can check package metadata and references. Installer tests can verify filesystem behavior. Neither proves good PM judgment. [Evaluation](../evals/README.md) covers realistic product tasks, including preservation of a good existing plan and behavior under changed assumptions. [Validation](../VALIDATION.md) records which checks actually ran.
+
+## What would justify the next version
+
+The first paired development cases produced no demonstrated quality advantage
+over baseline or upstream. PM Craft also used more reported input tokens on
+those cases. The next evidence should come from held-out tasks with noisier
+sources and decisions that evolve across several turns, with a pinned model and
+blind grading. Preserve baseline successes and report regressions.
+
+Improve reference selection if repeated runs show unnecessary reading while
+retaining the evidence and change semantics. Add a mode, script, or integration
+only when a concrete recurring task demonstrates the need. A larger catalog is
+not the success criterion for this focused skill.

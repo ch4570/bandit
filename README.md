@@ -50,7 +50,7 @@ These are alternatives, not five mandatory steps. A narrow review stays narrow. 
 
 The [examples](examples/README.md) use fictional product situations to show how evidence, decisions, requirements, and checks fit together. They are not customer validation results.
 
-The [evaluation guide](evals/README.md) defines realistic tasks and comparison conditions. We have not established that PM Craft outperforms a baseline model or another PM skill library. [Validation](VALIDATION.md) records checks actually run and their limits; package checks alone do not establish planning quality.
+The [evaluation guide](evals/README.md) records 11 completed task runs: three paired cases across baseline, upstream, and PM Craft, plus two PM Craft forward checks. The paired cases did not establish a quality advantage. [Validation](VALIDATION.md) records 38 tool tests and successful CI across Linux, macOS, and Windows; package checks alone do not establish planning quality.
 
 | Guide | What you will find |
 | --- | --- |

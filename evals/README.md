@@ -4,6 +4,11 @@ PM Craft is evaluated on concrete planning work, separately from installer and
 package checks. Inputs are fictional, and all claimed observations inside them
 are supplied fixture data. They are not real customer results.
 
+**[Recorded results: 2026-09-07](results/2026-09-07/README.md)** — 11 completed
+task runs, preserved outputs and transcripts, independent meaning-based grades,
+and an explicitly inconclusive quality comparison. PM Craft used more reported
+input tokens in the three paired cases; no token-savings claim is made.
+
 ## Cases
 
 | Case | Mode and decision |

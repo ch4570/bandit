@@ -28,7 +28,8 @@ policies were labeled as draft recommendations.
 
 This scenario is a planned check. It does not mean the app was built or a test
 passed. It makes a likely implementation mistake visible before development.
-The full output and its grading are linked from the evaluation record.
+Read the [full output](../evals/results/2026-09-07/01-multiple-decisions--pmcraft-forward/output.md)
+and [independent grading](../evals/results/2026-09-07/grades-01-04.md).
 
 ## Try it
 

@@ -1,0 +1,43 @@
+{
+  "case": "02-offer-change",
+  "arm": "pmcraft",
+  "codex_version": "codex-cli 0.153.4",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "/private/tmp/pm-craft-paired-20260907/02-offer-change--pmcraft/workspace",
+    "-o",
+    "/private/tmp/pm-craft-paired-20260907/02-offer-change--pmcraft/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host defaults",
+  "upstream_commit": null,
+  "input_sha256": {
+    "current-plan.md": "18b60d49b72cb22b6b56584564498c5b3538dd5f9c603aa9634e946ccc498070",
+    "observations.md": "4b151192ebb1d397f7158d2f18afc3f110cc002d784733e047e6c0b2cea4b57f",
+    "request.md": "306372d5fbb3ec43970909b60f9e2f05d4d1513c9f113410b760bb88a1f063d0"
+  },
+  "instruction_sha256": {
+    "pm-craft/SKILL.md": "fadaf4c269a6d3b983bbc29990ff8deaccdd0b8b5eb5c739b0c6ba21faadff7f",
+    "pm-craft/agents/openai.yaml": "2edd51fb3ec701f62780608069e5434e4b04f777e61e0e3c5ee1a261ce81e933",
+    "pm-craft/assets/plan-template.md": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5",
+    "pm-craft/references/changes.md": "bd679f1f937f71d3e5dbc47a5ef4490c5aa259f1377bf5b7afd6bfcb4e96056d",
+    "pm-craft/references/decisions.md": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+    "pm-craft/references/evidence-and-decisions.md": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+    "pm-craft/references/research.md": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6",
+    "pm-craft/references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "pm-craft/references/specification.md": "c65122697e1fc0c286b26c65752a03808b382f78b875d674edcc19725cf91f7a"
+  },
+  "exit_code": 0,
+  "elapsed_seconds": 90.342
+}

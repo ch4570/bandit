@@ -1,0 +1,175 @@
+{
+  "date": "2026-09-07",
+  "skill_source_commit": "d34df23",
+  "runs": [
+    {
+      "run": "02-offer-change--baseline",
+      "output_sha256": "7f5fb06de36b9a35b9c56185833629c0ffe3811ef0ee80ea10a53e41765a90e6",
+      "input_unchanged": true,
+      "usage": {
+        "input_tokens": 41944,
+        "cached_input_tokens": 36608,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2021,
+        "reasoning_output_tokens": 96
+      },
+      "read_commands": [
+        "/bin/zsh -lc 'rg --files input'",
+        "/bin/zsh -lc 'cat input/request.md input/current-plan.md input/observations.md'"
+      ]
+    },
+    {
+      "run": "02-offer-change--pmcraft",
+      "output_sha256": "366f0ace5179e82b0861c41f0c87596f28907a86cbf3690cf75765b8f47aacaf",
+      "input_unchanged": true,
+      "usage": {
+        "input_tokens": 69603,
+        "cached_input_tokens": 57600,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2404,
+        "reasoning_output_tokens": 60
+      },
+      "read_commands": [
+        "/bin/zsh -lc 'cat input/request.md; cat instructions/pm-craft/SKILL.md'",
+        "/bin/zsh -lc 'rg --files input instructions/pm-craft'",
+        "/bin/zsh -lc 'cat instructions/pm-craft/references/evidence-and-decisions.md'",
+        "/bin/zsh -lc 'cat input/current-plan.md'",
+        "/bin/zsh -lc 'cat instructions/pm-craft/references/decisions.md'",
+        "/bin/zsh -lc 'cat instructions/pm-craft/references/changes.md'",
+        "/bin/zsh -lc 'cat instructions/pm-craft/references/specification.md'",
+        "/bin/zsh -lc 'cat input/observations.md'",
+        "/bin/zsh -lc 'cat instructions/pm-craft/references/research.md'"
+      ]
+    },
+    {
+      "run": "02-offer-change--upstream",
+      "output_sha256": "346337dfa02984692ec3b84dcd85f614cb03b6a9e9d389908c6b63ca1c05e783",
+      "input_unchanged": true,
+      "usage": {
+        "input_tokens": 46362,
+        "cached_input_tokens": 39424,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2291,
+        "reasoning_output_tokens": 43
+      },
+      "read_commands": [
+        "/bin/zsh -lc 'pwd && rg --files input instructions/upstream/pm-execution instructions/upstream/pm-data-analytics'",
+        "/bin/zsh -lc 'cat input/request.md input/current-plan.md input/observations.md instructions/upstream/pm-execution/commands/write-prd.md instructions/upstream/pm-execution/skills/create-prd/SKILL.md instructions/upstream/pm-data-analytics/skills/ab-test-analysis/SKILL.md'"
+      ]
+    },
+    {
+      "run": "03-intent-review--baseline",
+      "output_sha256": "ccecbba7494fdb42043873710def3d2d93afa3eecaafdbaa9e02dea7aaa42c21",
+      "input_unchanged": true,
+      "usage": {
+        "input_tokens": 41666,
+        "cached_input_tokens": 38528,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 662,
+        "reasoning_output_tokens": 0
+      },
+      "read_commands": [
+        "/bin/zsh -lc 'rg --files input'",
+        "/bin/zsh -lc 'cat input/request.md input/master.md input/approval-policy.md input/generated-prd.md input/implementation.py input/test_acceptance.py'"
+      ]
+    },
+    {
+      "run": "03-intent-review--pmcraft",
+      "output_sha256": "7f8daf285122ce9ee355a592a0ee6d80a91b9d618f14463e6ddcc64be95913db",
+      "input_unchanged": true,
+      "usage": {
+        "input_tokens": 58818,
+        "cached_input_tokens": 53376,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 966,
+        "reasoning_output_tokens": 56
+      },
+      "read_commands": [
+        "/bin/zsh -lc 'pwd; rg --files input instructions/pm-craft'",
+        "/bin/zsh -lc 'cat input/request.md instructions/pm-craft/SKILL.md'",
+        "/bin/zsh -lc 'cat instructions/pm-craft/references/review.md input/master.md input/approval-policy.md input/generated-prd.md input/implementation.py input/test_acceptance.py'"
+      ]
+    },
+    {
+      "run": "03-intent-review--upstream",
+      "output_sha256": "bbea9042f2ce763eafa32905764e51b334b1e041d32c53de1d32cc1ee8ce1a0e",
+      "input_unchanged": true,
+      "usage": {
+        "input_tokens": 51901,
+        "cached_input_tokens": 32256,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1100,
+        "reasoning_output_tokens": 27
+      },
+      "read_commands": [
+        "/bin/zsh -lc 'cat input/request.md; rg --files input instructions/upstream/pm-ai-shipping'",
+        "/bin/zsh -lc 'cat instructions/upstream/pm-ai-shipping/skills/intended-vs-implemented/SKILL.md instructions/upstream/pm-ai-shipping/commands/derive-tests.md instructions/upstream/pm-ai-shipping/skills/shipping-artifacts/SKILL.md'",
+        "/bin/zsh -lc 'nl -ba input/master.md; nl -ba input/approval-policy.md; nl -ba input/generated-prd.md; nl -ba input/implementation.py; nl -ba input/test_acceptance.py'"
+      ]
+    },
+    {
+      "run": "04-incomparable-scores--baseline",
+      "output_sha256": "de4911f437ebaa2119eca46238607040afcbee71a6d4461fd93c3afc458ae466",
+      "input_unchanged": true,
+      "usage": {
+        "input_tokens": 41753,
+        "cached_input_tokens": 38656,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 717,
+        "reasoning_output_tokens": 75
+      },
+      "read_commands": [
+        "/bin/zsh -lc 'ls -la input && rg --files input'",
+        "/bin/zsh -lc 'cat input/request.md input/options.md'"
+      ]
+    },
+    {
+      "run": "04-incomparable-scores--pmcraft",
+      "output_sha256": "e5c0848e99cef996ecb8151ef02e6f0252dc295b3dd650b0e3a9a2e67f01e735",
+      "input_unchanged": true,
+      "usage": {
+        "input_tokens": 44053,
+        "cached_input_tokens": 39424,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 794,
+        "reasoning_output_tokens": 52
+      },
+      "read_commands": [
+        "/bin/zsh -lc 'ls input && cat input/request.md && cat instructions/pm-craft/SKILL.md'",
+        "/bin/zsh -lc 'cat input/options.md && cat instructions/pm-craft/references/decisions.md'"
+      ]
+    },
+    {
+      "run": "04-incomparable-scores--upstream",
+      "output_sha256": "b0de48d14bf418c005d6c22ace399997f1eadab46f11ee28fcec1573de400a1d",
+      "input_unchanged": true,
+      "usage": {
+        "input_tokens": 43687,
+        "cached_input_tokens": 38784,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 826,
+        "reasoning_output_tokens": 30
+      },
+      "read_commands": [
+        "/bin/zsh -lc 'pwd && rg --files input instructions/upstream/pm-product-discovery/skills/prioritize-features instructions/upstream/pm-execution/skills/prioritization-frameworks'",
+        "/bin/zsh -lc 'cat input/request.md input/options.md instructions/upstream/pm-product-discovery/skills/prioritize-features/SKILL.md instructions/upstream/pm-execution/skills/prioritization-frameworks/SKILL.md'"
+      ]
+    },
+    {
+      "run": "05-small-research--pmcraft",
+      "output_sha256": "3bc94b40482fb4740251511a6d7ee6946d45d17c4fe7f67e672e31d9068d04cf",
+      "input_unchanged": true,
+      "usage": {
+        "input_tokens": 44762,
+        "cached_input_tokens": 39424,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 482,
+        "reasoning_output_tokens": 0
+      },
+      "read_commands": [
+        "/bin/zsh -lc 'ls input && cat instructions/pm-craft/SKILL.md && cat input/request.md'",
+        "/bin/zsh -lc 'cat instructions/pm-craft/references/research.md instructions/pm-craft/references/decisions.md'"
+      ]
+    }
+  ]
+}

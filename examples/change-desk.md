@@ -28,6 +28,8 @@ preview cannot isolate the causal effect of price.
 
 These interpretations come from the **fictional supplied data**. They illustrate
 the reasoning a useful update should preserve, not real business performance.
+See the [PM Craft output](../evals/results/2026-09-07/02-offer-change--pmcraft/output.md)
+and [grading, including the shared reporting omission](../evals/results/2026-09-07/grades-02-03-05.md).
 
 ## Try it
 

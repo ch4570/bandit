@@ -1,0 +1,32 @@
+{
+  "case": "04-incomparable-scores",
+  "arm": "baseline",
+  "codex_version": "codex-cli 0.153.4",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "/private/tmp/pm-craft-paired-20260907/04-incomparable-scores--baseline/workspace",
+    "-o",
+    "/private/tmp/pm-craft-paired-20260907/04-incomparable-scores--baseline/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host defaults",
+  "upstream_commit": null,
+  "input_sha256": {
+    "options.md": "37c29ecb882a491ad24d6b393f5e295ec117350bd603091a930b621e129e3de5",
+    "request.md": "1b8a07d5c3285cf8648221ae0df60369d81dd4605b3437fd06723e9f581ff9cf"
+  },
+  "instruction_sha256": {},
+  "exit_code": 0,
+  "elapsed_seconds": 36.207
+}

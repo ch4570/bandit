@@ -32,6 +32,12 @@ Forward testing uses fresh task contexts without the rubric or author diagnoses.
 The comparison has baseline, pinned upstream, and PM Craft conditions; source
 differences alone are not treated as evidence of superior model behavior.
 
+[Eleven completed tasks](evals/results/2026-09-07/README.md) are recorded: nine
+paired runs and two additional PM Craft checks. In the paired tasks, all three
+arms received the same 11 pass and 1 partial judgments. PM Craft used more
+reported input tokens. These development cases establish no comparative quality
+or cost advantage; exact backend model settings were not pinned.
+
 ## Reproduce repository checks
 
 ```sh
@@ -40,9 +46,10 @@ python3 -m unittest discover -s tests -v
 python3 scripts/build_bundle.py
 ```
 
-Requires Python 3.11+. GitHub [CI](.github/workflows/ci.yml) defines Linux, macOS,
-and Windows jobs on Python 3.11 and 3.14. A configured workflow is not itself a
-completed remote run. Release assets are built from the version tag by the
+Requires Python 3.11+. The [remote CI run for source commit d34df23](https://github.com/ch4570/pm-craft/actions/runs/34127543544)
+completed successfully in all six combinations: Linux, macOS, and Windows on
+Python 3.11 and 3.14. Each job ran skill validation, the 38-test suite, and archive
+creation. Release assets are built from the version tag by the
 [release workflow](.github/workflows/release.yml).
 
 ## Limits

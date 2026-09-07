@@ -1,0 +1,36 @@
+{
+  "case": "03-intent-review",
+  "arm": "baseline",
+  "codex_version": "codex-cli 0.153.4",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "/private/tmp/pm-craft-paired-20260907/03-intent-review--baseline/workspace",
+    "-o",
+    "/private/tmp/pm-craft-paired-20260907/03-intent-review--baseline/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host defaults",
+  "upstream_commit": null,
+  "input_sha256": {
+    "approval-policy.md": "6a68f726c584005774c0da78d4619a4474bf236bcbea0f194ce6f202cf7814bf",
+    "generated-prd.md": "f82bb234a2f932b1c69fbffc015e959a6b6841a1b629a6c996f187bfc210f45c",
+    "implementation.py": "5e3c3384694d0095cc93ea30aecf70459b453243c3e8916b86c4648222a97631",
+    "master.md": "1e9513c53b2a776b108a7c02bd151df3a54199528ff2862f0b3667227b51cd44",
+    "request.md": "82dff95eb7702dc6525697938e4ef99c05c021162a2d8028cffc6daf759f2da7",
+    "test_acceptance.py": "3d2ae7227d175233737745fc405a4420b1ddce7a297b6220fd042f813c2713f2"
+  },
+  "instruction_sha256": {},
+  "exit_code": 0,
+  "elapsed_seconds": 31.645
+}
