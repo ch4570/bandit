@@ -5,6 +5,19 @@ fixtures are synthetic. npm registry publication is deferred.
 
 ## BANDIT 0.4.0 — scope and specification rewrites, 2026-09-08
 
+- [Release-commit CI](https://github.com/ch4570/bandit/actions/runs/34174926526):
+  **all ten jobs passed**, including Node 22/24 on Linux, macOS, and Windows,
+  plus the four optional Python helper jobs.
+- [Release packaging](https://github.com/ch4570/bandit/actions/runs/34174944931)
+  passed for tag `v0.4.0`, commit `3d836b16868e85dfacdc541ff17fe2056fd76f52`.
+  All three published archives matched their checksums; the two npm tarball
+  names are byte-identical. [Archive receipt](evals/results/2026-09-08-bandit-scope-specify/release-archives.json).
+- [Public installation receipt](evals/results/2026-09-08-bandit-scope-specify/public-install.json):
+  the exact README command installed all five skills with a fresh npm cache
+  and no Git or Python on PATH. Project installation, unchanged repetition,
+  isolated global installation, and public v0.3.0-to-v0.4.0 migration passed.
+  Retired entrypoints were removed; project files, user notes, and unrelated
+  empty directories were preserved. No npm registry publication ran.
 - Five active skill folders validate with exact names, invocation metadata,
   complete local references, and **34 skill files**. All five passed the
   official skill-creator validator. The retired `bandit-decide` and

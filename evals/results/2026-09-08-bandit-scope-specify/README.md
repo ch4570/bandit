@@ -48,6 +48,14 @@ from the public v0.3.0 package to a local HTTP-served v0.4.0 package, including
 preview, upgrade, unchanged rerun, and edited-retired-skill protection. It does
 not establish availability of the public v0.4.0 release asset.
 
+After release, the [public installation receipt](public-install.json) verified
+the exact README command with a fresh npm cache and without Git or Python on
+PATH. All five skills and 34 files matched the source. Repeat installation,
+isolated global installation, and public v0.3.0-to-v0.4.0 migration passed,
+including retirement of the old commands and preservation of user notes.
+The [release archive receipt](release-archives.json) records verified checksums
+for the three published archives and the release commit.
+
 These three single runs do not establish reliability, superiority, or token
 savings. Earlier [v0.3.0 results](../2026-09-08-bandit-commands/README.md) retain
 their original commands and instruction hashes.

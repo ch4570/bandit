@@ -1,0 +1,23 @@
+{
+  "tag": "v0.4.0",
+  "commit": "3d836b16868e85dfacdc541ff17fe2056fd76f52",
+  "release_run": "https://github.com/ch4570/bandit/actions/runs/34174944931",
+  "archives": [
+    {
+      "file": "bandit.tgz",
+      "sha256": "af5e83e5c45ab15956f1d7463ed9194ef1362f2ea68c6db9a7a967c915a3735f",
+      "verified": true
+    },
+    {
+      "file": "ch4570-bandit-0.4.0.tgz",
+      "sha256": "af5e83e5c45ab15956f1d7463ed9194ef1362f2ea68c6db9a7a967c915a3735f",
+      "verified": true
+    },
+    {
+      "file": "bandit-0.4.0.zip",
+      "sha256": "d8216c4fdcf7b5453a498a0da6b127e089634afb512b57ad67b9e3ba430dfd5f",
+      "verified": true
+    }
+  ],
+  "npm_aliases_byte_identical": true
+}
