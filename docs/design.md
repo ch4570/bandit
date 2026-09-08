@@ -1,20 +1,25 @@
 # Design
 
-BANDIT helps an agent make the next product decision and preserve its meaning through requirements and later changes. Version 0.2.0 is one installable skill for apps and services, with five focused modes.
+BANDIT helps an agent make the next product decision and preserve its meaning through requirements and later changes. Version 0.3.0 provides five directly invocable specialist skills and the general `$bandit` skill for apps and services.
 
-## One entry point, selective references
+## Separate commands, shared planning principles
 
-`skills/bandit/SKILL.md` owns the scope, routing, shared constraints, and completion expectations. Mode references provide detail only when the requested task needs it:
+Users select a specialist for a specific task or use the general skill for work that spans tasks:
 
-| Mode | Responsibility |
+| Command | Responsibility |
 | --- | --- |
-| Research | Examine evidence and assumptions; design a proportionate next investigation or experiment |
-| Decide | Compare options, choose scope, and preserve the reason for a recommendation |
-| Spec | Turn product meaning into actors, rules, state changes, and acceptance scenarios |
-| Review | Inspect a bounded artifact without editing it; distinguish defects, evidence gaps, and optional improvements |
-| Update | Propagate a changed decision or observed result to affected parts of the plan |
+| [`$bandit-research`](../skills/bandit-research/SKILL.md) | Examine evidence and assumptions; design the next useful investigation or experiment |
+| [`$bandit-decide`](../skills/bandit-decide/SKILL.md) | Compare options, choose scope, and explain a recommendation |
+| [`$bandit-specify`](../skills/bandit-specify/SKILL.md) | Turn product meaning into actors, rules, states, and acceptance scenarios |
+| [`$bandit-review`](../skills/bandit-review/SKILL.md) | Inspect a bounded artifact without editing it; distinguish defects, evidence gaps, and optional improvements |
+| [`$bandit-update`](../skills/bandit-update/SKILL.md) | Follow a changed decision or observed result into the affected plan |
+| [`$bandit`](../skills/bandit/SKILL.md) | Select the planning workflow for a general or combined request |
 
-Modes are not a mandatory sequence. A price change need not generate a market report, and a review need not produce a replacement PRD. The optional plan template supports new ongoing work; existing artifacts take precedence.
+Each specialist has its own `SKILL.md`, metadata, and all referenced resources. It works directly without requiring the general skill to run first. Users can install the whole set at once, or copy a complete specialist folder independently.
+
+The reference sources remain under `skills/bandit/`. Maintainers run `node scripts/sync-skills.mjs` to copy the resources each specialist needs, including resources referenced by another reference. `node scripts/sync-skills.mjs --check` verifies those copies. This keeps one maintained definition of a rule while each distributed skill remains self-contained.
+
+The commands are not a mandatory sequence. A price change need not generate a market report, and a review need not produce a replacement PRD. The optional plan template supports new ongoing work; existing artifacts take precedence.
 
 ## Keep different claims distinct
 
@@ -49,7 +54,7 @@ Reuse the project's existing source-of-truth boundaries. If separate documents o
 
 ## Keep delivery within the request
 
-When a user delegates a reversible draft choice, make a reasoned recommendation and label it. Ask when a material target is ambiguous or explicit constraints conflict, and continue independent work when possible. Do not make every mode a new permission checkpoint.
+When a user delegates a reversible draft choice, make a reasoned recommendation and label it. Ask when a material target is ambiguous or explicit constraints conflict, and continue independent work when possible. Do not make each specialist a new permission checkpoint.
 
 BANDIT's responsibilities end at the requested product artifact or assessment. It can hand accepted rules and open decisions to implementation or UI work. It does not require another specialist skill, and its use does not authorize customer outreach, purchases, account mutations, code changes, or deployment.
 
@@ -59,7 +64,7 @@ BANDIT's cowboy hat, red bandana, pencil, and map give the project a recognizabl
 
 ## Packaging and evaluation are separate
 
-A dependency-free Node.js installer distributes the complete skill through npm tooling. Running `npx --yes https://github.com/ch4570/bandit/releases/download/v0.2.0/bandit.tgz` from a project installs `.agents/skills/bandit/` without Git or Python. The versioned archive works before npm registry publication. The installer protects local modifications. The host model and available tools execute the skill instructions.
+A dependency-free Node.js installer distributes all six skills through npm tooling. Running `npx --yes https://github.com/ch4570/bandit/releases/download/v0.3.0/bandit.tgz` from a project installs the six sibling skill folders under `.agents/skills/` without Git or Python. The versioned archive works before npm registry publication. The installer protects local modifications. The host model and available tools execute the skill instructions.
 
 Structural validation can check package metadata and references. Installer tests can verify filesystem behavior. Neither proves good PM judgment. [Evaluation](../evals/README.md) covers realistic product tasks, including preservation of a good existing plan and behavior under changed assumptions. [Validation](../VALIDATION.md) records which checks actually ran.
 
@@ -73,6 +78,6 @@ sources and decisions that evolve across several turns, with a pinned model and
 blind grading. Preserve baseline successes and report regressions.
 
 Improve reference selection if repeated runs show unnecessary reading while
-retaining the evidence and change semantics. Add a mode, script, or integration
+retaining the evidence and change semantics. Add a specialist, script, or integration
 only when a concrete recurring task demonstrates the need. A larger catalog is
 not the success criterion for this focused skill.

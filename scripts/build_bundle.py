@@ -20,7 +20,9 @@ EXTENSIONS = {".md", ".py", ".js", ".mjs", ".cjs", ".json", ".jsonl", ".yaml", "
 
 
 def contents(root: Path) -> dict[str, bytes]:
-    files = {f"skills/{install.NAME}/{name}": data for name, data in install.tree_files(root / install.SKILL).items()}
+    files = {f"skills/{skill_name}/{name}": data
+             for skill_name in install.SKILL_NAMES
+             for name, data in install.tree_files(root / "skills" / skill_name).items()}
     for name in ("VERSION", "LICENSE", "README.md", "install.py"):
         files[name] = install.regular_bytes(root / name)
     for name in ("package.json", "package-lock.json"):
@@ -63,7 +65,7 @@ def archive_bytes(root: Path) -> tuple[str, bytes, dict]:
 def build_bundle(root: Path, output: Path) -> dict:
     root, output = root.resolve(strict=True), install.absolute(output)
     install.check_path(output)
-    for directory in (*DIRECTORIES, str(install.SKILL)):
+    for directory in (*DIRECTORIES, "skills"):
         source = root / directory
         if install.is_within(output, source):
             raise install.InstallError("Output directory must not be inside bundled input directories")

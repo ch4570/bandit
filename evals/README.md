@@ -11,11 +11,16 @@ input tokens in the three paired cases; no token-savings claim is made.
 
 Those outputs and hashes are preserved under the original PM Craft name. They
 are not new BANDIT 0.2.0 measurements. To reproduce the historical PM Craft arm,
-use the runner from git tag `v0.1.0`; the current runner uses `--arm bandit`.
+use the runner from git tag `v0.1.0`. The current runner supports the general
+`--arm bandit` and the five directly invoked specialist arms.
 
 A [focused BANDIT 0.2.0 forward check](results/2026-09-07-bandit/README.md)
 records the rebranded skill performing one small planning task. It is not a
 repeat of the three-arm comparison.
+
+The [BANDIT 0.3.0 specialist checks](results/2026-09-08-bandit-commands/README.md)
+exercise all five direct `$bandit-*` invocations in fresh local projects.
+Their outputs, logs, and installer upgrade receipt are recorded separately.
 
 ## Cases
 
@@ -61,9 +66,16 @@ need Python 3.11+. Installations of Codex with different CLI flags may require
 adapting the runner; the recorded runs identify the CLI version.
 
 ```sh
-python3 evals/run_local.py --case 04-incomparable-scores --arm bandit --output-dir /absolute/path/to/new-runs
+python3 evals/run_local.py --case 04-incomparable-scores --arm bandit-decide --output-dir /absolute/path/to/new-runs
 python3 evals/run_local.py --case 04-incomparable-scores --arm baseline --output-dir /absolute/path/to/new-runs
 ```
+
+Specialist arms are `bandit-research`, `bandit-decide`, `bandit-specify`,
+`bandit-review`, and `bandit-update`. These copy all six skill folders into
+the isolated project's `.agents/skills/` and invoke the selected `$bandit-*`
+name in the prompt. Inspect the execution log to confirm the agent read that
+entrypoint. The general `bandit` arm retains the explicit instruction snapshot
+method used by the earlier runner.
 
 For upstream, use a clean checkout at the pinned commit:
 

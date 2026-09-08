@@ -1,0 +1,4 @@
+interface:
+  display_name: "BANDIT Decide"
+  short_description: "Choose MVP scope and product priorities"
+  default_prompt: "Use $bandit-decide to recommend an MVP scope that fits our time and team."

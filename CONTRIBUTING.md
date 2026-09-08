@@ -2,13 +2,14 @@
 
 Start with a concrete product-planning failure or usability problem. A short example of the request, available evidence, actual output, and expected behavior is more useful than a proposal to add many new frameworks.
 
-Read [the design](docs/design.md) and [evaluation guide](evals/README.md). BANDIT is one skill with five modes. Keep the entry point small and put conditional guidance in the reference that owns it. Do not copy a shared rule into every mode.
+Read [the design](docs/design.md) and [evaluation guide](evals/README.md). BANDIT contains five specialist skills plus the general skill. Keep each entry point focused. Maintain shared references under `skills/bandit/`, then run `node scripts/sync-skills.mjs` to copy each specialist's needed resources. Edit the canonical references rather than their generated copies.
 
 ## Local development
 
 Clone the repository and use Node.js 22+. The npm installer and its tests have no third-party dependencies; no dependency installation is required.
 
 ```sh
+node scripts/sync-skills.mjs --check
 npm run validate
 npm test
 ```
@@ -38,5 +39,7 @@ Use the [pull request template](.github/PULL_REQUEST_TEMPLATE.md) to explain the
 ## Sources and scope
 
 Use primary sources for factual research and pin references when discussing a particular version. Explain the limits of what a source supports. Preserve license notices when incorporating substantial external material.
+
+A specialist must be usable from its own installed folder with all references available. When changing packaging, check that a 0.2.0 installation can be upgraded to all six skills and that a conflict in any one destination leaves the other five untouched.
 
 Propose major domain expansions in an issue first so maintainers can assess their fit. UI styling, implementation engines, personal task scheduling, and external account integrations are outside the current skill's core scope.

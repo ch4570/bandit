@@ -105,27 +105,17 @@ def local_references(path: Path, text: str, boundary: Path) -> list[str]:
     return errors
 
 
-def validate(root: Path) -> dict:
-    root = root.resolve(strict=True)
+def validate_skill(root: Path, skill_name: str) -> tuple[int, list[str]]:
     errors: list[str] = []
-    skill = root / install.SKILL
+    skill = root / "skills" / skill_name
     try:
-        version = install.version(root)
         payload = install.tree_files(skill)
     except (ValueError, OSError, UnicodeError) as exc:
-        return {"ok": False, "errors": [str(exc)], "checks": "structure and references only"}
-    package = root / "package.json"
-    if package.exists():
-        try:
-            data = json.loads(install.regular_bytes(package))
-            if data.get("name") != "@ch4570/bandit" or data.get("version") != version:
-                errors.append("package.json: name/version must match @ch4570/bandit and VERSION")
-        except (ValueError, AttributeError, OSError) as exc:
-            errors.append(f"package.json: {exc}")
+        return 0, [f"{skill_name}: {exc}"]
     try:
         metadata = frontmatter(payload.get("SKILL.md", b"").decode("utf-8"))
-        if metadata.get("name") != install.NAME:
-            errors.append("SKILL.md name must match the bandit directory")
+        if metadata.get("name") != skill_name:
+            errors.append(f"SKILL.md name must match the {skill_name} directory")
         if not isinstance(metadata.get("description"), str) or not metadata["description"].strip():
             errors.append("SKILL.md needs a nonempty description")
     except (ValueError, UnicodeError) as exc:
@@ -136,8 +126,12 @@ def validate(root: Path) -> dict:
         for field in ("display_name", "short_description", "default_prompt"):
             if not isinstance(interface.get(field), str) or not interface[field].strip():
                 errors.append(f"agents/openai.yaml: interface.{field} is required")
-        if "$bandit" not in interface.get("default_prompt", ""):
-            errors.append("agents/openai.yaml: default_prompt must mention $bandit")
+        display_name = "BANDIT" if skill_name == install.NAME else "BANDIT " + skill_name.removeprefix("bandit-").title()
+        if interface.get("display_name") != display_name:
+            errors.append(f"agents/openai.yaml: display_name must be {display_name}")
+        prompt = interface.get("default_prompt", "")
+        if not isinstance(prompt, str) or not re.search(r"\$" + re.escape(skill_name) + r"(?![\w-])", prompt):
+            errors.append(f"agents/openai.yaml: default_prompt must mention ${skill_name}")
         for field in ("icon_small", "icon_large"):
             if field in interface:
                 icon = skill / interface[field]
@@ -151,6 +145,29 @@ def validate(root: Path) -> dict:
                 errors.extend(local_references(skill / name, content.decode("utf-8"), skill.resolve()))
             except (UnicodeError, ValueError) as exc:
                 errors.append(f"{name}: {exc}")
+    return len(payload), [f"{skill_name}/{error}" for error in errors]
+
+
+def validate(root: Path) -> dict:
+    root = root.resolve(strict=True)
+    errors: list[str] = []
+    try:
+        version = install.version(root)
+    except (ValueError, OSError, UnicodeError) as exc:
+        return {"ok": False, "errors": [str(exc)], "checks": "structure and references only"}
+    package = root / "package.json"
+    if package.exists():
+        try:
+            data = json.loads(install.regular_bytes(package))
+            if data.get("name") != "@ch4570/bandit" or data.get("version") != version:
+                errors.append("package.json: name/version must match @ch4570/bandit and VERSION")
+        except (ValueError, AttributeError, OSError) as exc:
+            errors.append(f"package.json: {exc}")
+    skills = []
+    for skill_name in install.SKILL_NAMES:
+        count, skill_errors = validate_skill(root, skill_name)
+        skills.append({"name": skill_name, "skill_files": count})
+        errors.extend(skill_errors)
     # A plugin manifest is optional: native skills do not need one.
     for manifest in (root / ".codex-plugin/plugin.json", root / ".claude-plugin/plugin.json"):
         if manifest.exists():
@@ -160,7 +177,7 @@ def validate(root: Path) -> dict:
                     errors.append(f"{manifest.relative_to(root)}: name/version must match bandit and VERSION")
             except (ValueError, AttributeError, OSError) as exc:
                 errors.append(f"{manifest}: {exc}")
-    return {"ok": not errors, "version": version, "skill_files": len(payload),
+    return {"ok": not errors, "version": version, "skill_files": sum(item["skill_files"] for item in skills), "skills": skills,
             "errors": errors, "checks": "structure and references only; no claim of PM effectiveness"}
 
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install the BANDIT text skill without changing unrelated project files."""
+"""Install all six BANDIT skills without changing unrelated project files."""
 from __future__ import annotations
 
 import argparse
@@ -17,6 +17,7 @@ NAME = "bandit"
 MARKER = ".bandit-install.json"
 ROOT = Path(__file__).resolve().parent
 SKILL = Path("skills") / NAME
+SKILL_NAMES = (NAME, "bandit-research", "bandit-decide", "bandit-specify", "bandit-review", "bandit-update")
 IGNORED = {".git", "__pycache__", ".DS_Store"}
 
 
@@ -109,7 +110,7 @@ def version(root: Path) -> str:
     return value
 
 
-def read_marker(destination: Path) -> dict | None:
+def read_marker(destination: Path, skill_name: str = NAME) -> dict | None:
     path = destination / MARKER
     check_path(path)
     if not path.exists():
@@ -118,7 +119,7 @@ def read_marker(destination: Path) -> dict | None:
         value = json.loads(regular_bytes(path))
     except (UnicodeDecodeError, json.JSONDecodeError) as exc:
         raise InstallError(f"Invalid ownership marker: {path}") from exc
-    if not isinstance(value, dict) or value.get("format") != 1 or value.get("name") != NAME or not isinstance(value.get("files"), dict):
+    if not isinstance(value, dict) or value.get("format") != 1 or value.get("name") != skill_name or not isinstance(value.get("files"), dict):
         raise InstallError(f"Unrecognized ownership marker: {path}")
     seen: set[str] = set()
     for name, checksum in value["files"].items():
@@ -129,18 +130,20 @@ def read_marker(destination: Path) -> dict | None:
     return value
 
 
-def make_plan(source_root: Path, destination: Path) -> tuple[dict, dict[str, bytes], bytes]:
+def make_plan(source_root: Path, destination: Path, skill_name: str = NAME) -> tuple[dict, dict[str, bytes], bytes]:
+    if skill_name not in SKILL_NAMES:
+        raise InstallError(f"Unknown BANDIT skill: {skill_name}")
     source_root, destination = absolute(source_root), absolute(destination)
     check_path(destination)
     if destination.exists() and not destination.is_dir():
         raise InstallError(f"Destination is not a directory: {destination}")
-    source = source_root / SKILL
+    source = source_root / "skills" / skill_name
     if is_within(destination, source) or is_within(source, destination):
         raise InstallError("Source and installation destination must not overlap")
     payload = tree_files(source)
     if "SKILL.md" not in payload or MARKER in payload:
         raise InstallError("Source must contain SKILL.md and must not contain an installation marker")
-    installed = read_marker(destination)
+    installed = read_marker(destination, skill_name)
     previous = installed["files"] if installed else {}
     previous_case = {canonical_name(name): name for name in previous}
     for name in payload:
@@ -150,7 +153,7 @@ def make_plan(source_root: Path, destination: Path) -> tuple[dict, dict[str, byt
                 f"Case-only managed path rename requires manual migration: {old_name} -> {name}. "
                 "Nothing installed; use a fresh destination to preserve the existing installation."
             )
-    desired = {"format": 1, "name": NAME, "version": version(source_root),
+    desired = {"format": 1, "name": skill_name, "version": version(source_root),
                "files": {name: digest(data) for name, data in sorted(payload.items())}}
     changes, conflicts, unchanged = [], [], 0
     for name in sorted(set(previous) | set(payload)):
@@ -180,7 +183,7 @@ def make_plan(source_root: Path, destination: Path) -> tuple[dict, dict[str, byt
         raise InstallError("Nothing installed; preserve or move these files before retrying:\n  " + "\n  ".join(conflicts))
     marker = (json.dumps(desired, ensure_ascii=False, sort_keys=True, indent=2) + "\n").encode()
     marker_change = installed != desired
-    report = {"status": "plan", "source": str(source), "destination": str(destination),
+    report = {"name": skill_name, "status": "plan", "source": str(source), "destination": str(destination),
               "version": desired["version"], "managed": installed is not None,
               "changes": changes, "unchanged_files": unchanged, "marker_change": marker_change}
     return report, payload, marker
@@ -201,61 +204,55 @@ def atomic_write(path: Path, data: bytes) -> None:
             os.unlink(temporary)
 
 
-def install_into(source_root: Path, destination: Path, dry_run: bool = False) -> dict:
-    destination = absolute(destination)
-    report, payload, marker = make_plan(source_root, destination)
+def _install_plans(planner, dry_run: bool = False) -> list[dict]:
+    """Preflight every destination, then apply one rollback journal under all locks."""
+    plans = planner()
     if dry_run:
-        return report
-    if not report["changes"] and not report["marker_change"]:
-        return {**report, "status": "unchanged"}
-    # Serialize installers for this destination; never create this lock for --plan.
-    check_path(destination.parent)
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    lock = destination.parent / ("." + destination.name + ".bandit.lock")
-    check_path(lock)
+        return [report for report, _, _ in plans]
+    if all(not report["changes"] and not report["marker_change"] for report, _, _ in plans):
+        return [{**report, "status": "unchanged"} for report, _, _ in plans]
+    locks: list[Path] = []
     try:
-        lock_fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
-    except FileExistsError as exc:
-        raise InstallError(f"Install lock exists: {lock}; retry after the other installer finishes") from exc
-    os.close(lock_fd)
-    backups: dict[Path, bytes | None] = {}
-    try:
-        report, payload, marker = make_plan(source_root, destination)
-        for item in report["changes"]:
-            target = destination / item["path"]
-            backups[target] = regular_bytes(target) if target.exists() else None
-        marker_path = destination / MARKER
-        backups[marker_path] = regular_bytes(marker_path) if marker_path.exists() else None
-        applied: list[Path] = []
-        installed_bytes: dict[Path, bytes | None] = {}
-        try:
+        destinations = sorted((Path(report["destination"]) for report, _, _ in plans), key=lambda item: canonical_name(str(item)))
+        for destination in destinations:
+            check_path(destination.parent)
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            lock = destination.parent / ("." + destination.name + ".bandit.lock")
+            check_path(lock)
+            try:
+                lock_fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+            except FileExistsError as exc:
+                raise InstallError(f"Install lock exists: {lock}; retry after the other installer finishes") from exc
+            os.close(lock_fd)
+            locks.append(lock)
+        plans = planner()
+        changes: list[tuple[Path, bytes | None]] = []
+        for report, payload, marker in plans:
+            destination = Path(report["destination"])
             for item in report["changes"]:
-                target = destination / item["path"]
+                changes.append((destination / item["path"], None if item["action"] == "remove" else payload[item["path"]]))
+            if report["marker_change"]:
+                changes.append((destination / MARKER, marker))
+        backups = {target: regular_bytes(target) if target.exists() else None for target, _ in changes}
+        applied: list[tuple[Path, bytes | None]] = []
+        try:
+            for target, desired in changes:
                 current = regular_bytes(target) if target.exists() else None
                 if current != backups[target]:
                     raise InstallError(f"Destination changed during installation; preserving the edit: {target}")
-                if item["action"] == "remove":
+                if desired is None:
                     check_path(target)
                     target.unlink()
-                    installed_bytes[target] = None
                 else:
-                    atomic_write(target, payload[item["path"]])
-                    installed_bytes[target] = payload[item["path"]]
-                applied.append(target)
-            current_marker = regular_bytes(marker_path) if marker_path.exists() else None
-            if current_marker != backups[marker_path]:
-                raise InstallError("Ownership marker changed during installation; preserving it")
-            atomic_write(marker_path, marker)
-            installed_bytes[marker_path] = marker
-            applied.append(marker_path)
+                    atomic_write(target, desired)
+                applied.append((target, desired))
         except (OSError, InstallError):
-            # Recover touched contents after an ordinary I/O failure. No unrelated files are removed.
-            for target in reversed(applied):
-                old = backups[target]
+            for target, installed in reversed(applied):
                 current = regular_bytes(target) if target.exists() else None
-                if current != installed_bytes[target]:
-                    # An editor changed it after our write: keep that edit, never restore over it.
+                if current != installed:
+                    # An editor changed it after our write; retain that edit.
                     continue
+                old = backups[target]
                 if old is None:
                     check_path(target)
                     target.unlink(missing_ok=True)
@@ -263,15 +260,52 @@ def install_into(source_root: Path, destination: Path, dry_run: bool = False) ->
                     atomic_write(target, old)
             raise
     finally:
-        lock.unlink()
-    return {**report, "status": "updated" if report["managed"] else "installed"}
+        for lock in reversed(locks):
+            lock.unlink()
+    return [{**report, "status": ("updated" if report["managed"] else "installed")
+             if report["changes"] or report["marker_change"] else "unchanged"} for report, _, _ in plans]
+
+
+def install_into(source_root: Path, destination: Path, dry_run: bool = False, skill_name: str = NAME) -> dict:
+    """Single-skill API retained for existing callers; the CLI installs the bundle."""
+    return _install_plans(lambda: [make_plan(source_root, destination, skill_name)], dry_run)[0]
+
+
+def install_bundle(source_root: Path, destination: Path, dry_run: bool = False) -> dict:
+    source_root, destination = absolute(source_root), absolute(destination)
+    destinations = {name: destination if name == NAME else destination.parent / name for name in SKILL_NAMES}
+    targets = list(destinations.values())
+    for index, target in enumerate(targets):
+        if any(is_within(target, other) or is_within(other, target) for other in targets[:index]):
+            raise InstallError("The core destination collides with a specialist skill destination")
+        for name in SKILL_NAMES:
+            source = source_root / "skills" / name
+            if is_within(target, source) or is_within(source, target):
+                raise InstallError("Source and installation destination must not overlap")
+
+    def planner():
+        plans = [make_plan(source_root, destinations[name], name) for name in SKILL_NAMES]
+        if len({report["version"] for report, _, _ in plans}) != 1:
+            raise InstallError("Source version changed during installation; retry with a stable package")
+        return plans
+
+    reports = _install_plans(planner, dry_run)
+    managed = any(report["managed"] for report in reports)
+    status = "plan" if dry_run else "unchanged" if all(report["status"] == "unchanged" for report in reports) else "updated" if managed else "installed"
+    return {"status": status, "source": str(source_root / "skills"), "destination": str(destination),
+            "destination_root": str(destination.parent), "version": reports[0]["version"], "managed": managed,
+            "commands": ["$" + name for name in SKILL_NAMES], "skills": reports,
+            "changes": [{"skill": report["name"], "action": item["action"], "path": report["name"] + "/" + item["path"]}
+                        for report in reports for item in report["changes"]],
+            "unchanged_files": sum(report["unchanged_files"] for report in reports),
+            "marker_change": any(report["marker_change"] for report in reports)}
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     target = parser.add_mutually_exclusive_group(required=True)
-    target.add_argument("--repo", type=Path, help="Existing project root; installs to .agents/skills/bandit")
-    target.add_argument("--dest", type=Path, help="Exact skill directory (not its parent)")
+    target.add_argument("--repo", type=Path, help="Existing project root; installs all six skills to .agents/skills")
+    target.add_argument("--dest", type=Path, help="Exact core skill directory; specialists install beside it")
     parser.add_argument("--plan", action="store_true", help="Show changes without creating or modifying files")
     args = parser.parse_args(argv)
     try:
@@ -285,7 +319,7 @@ def main(argv: list[str] | None = None) -> int:
             destination = root / ".agents" / "skills" / NAME
         else:
             destination = absolute(args.dest)
-        print(json.dumps(install_into(ROOT, destination, args.plan), ensure_ascii=False, indent=2))
+        print(json.dumps(install_bundle(ROOT, destination, args.plan), ensure_ascii=False, indent=2))
         return 0
     except (InstallError, OSError, UnicodeError) as exc:
         print(f"bandit install: {exc}", file=sys.stderr)

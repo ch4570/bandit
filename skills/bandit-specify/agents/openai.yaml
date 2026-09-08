@@ -1,0 +1,4 @@
+interface:
+  display_name: "BANDIT Specify"
+  short_description: "Turn product decisions into buildable specs"
+  default_prompt: "Use $bandit-specify to write product rules and acceptance scenarios for this feature."

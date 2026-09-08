@@ -1,6 +1,7 @@
 import contextlib
 import io
 import json
+import shutil
 from pathlib import Path
 from unittest.mock import patch
 
@@ -124,6 +125,9 @@ class InstallTests(DistributionTest):
         with patch.object(install, "ROOT", self.source), contextlib.redirect_stdout(output):
             self.assertEqual(install.main(["--repo", str(project)]), 0)
         self.assertTrue((project / ".agents/skills/bandit/SKILL.md").is_file())
+        self.assertEqual(len(json.loads(output.getvalue())["skills"]), 6)
+        for skill_name in install.SKILL_NAMES:
+            self.assertTrue((project / ".agents/skills" / skill_name / "SKILL.md").is_file())
         self.assertFalse((project / "AGENTS.md").exists())
 
     def test_io_failure_restores_previously_updated_content(self):
@@ -185,3 +189,126 @@ class InstallTests(DistributionTest):
             install.install_into(self.source, self.destination)
         self.assertEqual(install.tree_files(self.destination), before)
         self.assertEqual((self.destination / "references/Guide.md").read_text(), "same contents")
+
+    def test_bundle_installs_every_skill_with_its_own_ownership_and_is_idempotent(self):
+        report = install.install_bundle(self.source, self.destination)
+        self.assertEqual(report["status"], "installed")
+        self.assertEqual(report["destination"], str(self.destination))
+        self.assertEqual(report["commands"], ["$" + name for name in install.SKILL_NAMES])
+        for name in install.SKILL_NAMES:
+            target = self.destination.parent / name
+            for relative, data in install.tree_files(self.source / "skills" / name).items():
+                self.assertEqual((target / relative).read_bytes(), data)
+            self.assertEqual(json.loads((target / install.MARKER).read_text())["name"], name)
+        before = install.tree_files(self.destination.parent)
+        self.assertEqual(install.install_bundle(self.source, self.destination)["status"], "unchanged")
+        self.assertEqual(install.tree_files(self.destination.parent), before)
+
+    def test_bundle_plan_has_all_six_destinations_without_creating_directories(self):
+        report = install.install_bundle(self.source, self.destination, dry_run=True)
+        self.assertEqual(report["status"], "plan")
+        self.assertEqual(len(report["skills"]), 6)
+        self.assertTrue(any(item["path"] == "bandit-update/SKILL.md" for item in report["changes"]))
+        self.assertFalse(self.destination.parent.exists())
+
+    def test_later_specialist_conflict_prevents_every_update(self):
+        install.install_bundle(self.source, self.destination)
+        self.write("SKILL.md", "updated core")
+        (self.destination.parent / "bandit-update/SKILL.md").write_text("local specialist edit")
+        before = install.tree_files(self.destination.parent)
+        with patch.object(install, "atomic_write") as writer, self.assertRaisesRegex(install.InstallError, "local modification"):
+            install.install_bundle(self.source, self.destination)
+        writer.assert_not_called()
+        self.assertEqual(install.tree_files(self.destination.parent), before)
+
+    def test_old_single_skill_install_upgrades_and_adds_specialists(self):
+        install.install_into(self.source, self.destination)
+        (self.destination / "notes.txt").write_text("my existing notes")
+        self.write("SKILL.md", "new orchestrator")
+        (self.source / "VERSION").write_text("0.3.0\n")
+        report = install.install_bundle(self.source, self.destination)
+        self.assertEqual(report["status"], "updated")
+        self.assertEqual((self.destination / "notes.txt").read_text(), "my existing notes")
+        for name in install.SKILL_NAMES:
+            target = self.destination.parent / name
+            self.assertTrue((target / "SKILL.md").is_file())
+            self.assertEqual(json.loads((target / install.MARKER).read_text())["version"], "0.3.0")
+
+    def test_missing_later_specialist_source_prevents_core_update(self):
+        install.install_into(self.source, self.destination)
+        self.write("SKILL.md", "updated core")
+        shutil.rmtree(self.source / "skills/bandit-update")
+        before = install.tree_files(self.destination.parent)
+        with self.assertRaisesRegex(install.InstallError, "Missing directory"):
+            install.install_bundle(self.source, self.destination)
+        self.assertEqual(install.tree_files(self.destination.parent), before)
+
+    def test_later_specialist_io_failure_rolls_back_prior_skills_and_markers(self):
+        install.install_bundle(self.source, self.destination)
+        for name in install.SKILL_NAMES:
+            self.write_skill(name, "references/rules.md", "updated rules")
+        (self.source / "VERSION").write_text("0.3.0\n")
+        before = install.tree_files(self.destination.parent)
+        original = install.atomic_write
+        failed = False
+
+        def fail_later(path, data):
+            nonlocal failed
+            if "bandit-update" in path.parts and path.name == "rules.md" and not failed:
+                failed = True
+                raise OSError("simulated later-skill I/O failure")
+            return original(path, data)
+
+        with patch.object(install, "atomic_write", side_effect=fail_later), self.assertRaisesRegex(OSError, "later-skill"):
+            install.install_bundle(self.source, self.destination)
+        self.assertEqual(install.tree_files(self.destination.parent), before)
+
+    def test_concurrent_later_skill_edit_survives_cross_skill_rollback(self):
+        install.install_bundle(self.source, self.destination)
+        before_core = install.tree_files(self.destination)
+        self.write("SKILL.md", "updated core")
+        self.write_skill("bandit-update", "references/rules.md", "updated specialist")
+        later = self.destination.parent / "bandit-update/references/rules.md"
+        original = install.atomic_write
+        edited = False
+
+        def edit_later(path, data):
+            nonlocal edited
+            result = original(path, data)
+            if path == self.destination / "SKILL.md" and not edited:
+                edited = True
+                later.write_text("concurrent specialist edit")
+            return result
+
+        with patch.object(install, "atomic_write", side_effect=edit_later), self.assertRaisesRegex(install.InstallError, "changed during"):
+            install.install_bundle(self.source, self.destination)
+        self.assertEqual(install.tree_files(self.destination), before_core)
+        self.assertEqual(later.read_text(), "concurrent specialist edit")
+
+    def test_custom_core_destination_keeps_specialists_as_fixed_siblings(self):
+        destination = self.area / "custom skills/core-planner"
+        report = install.install_bundle(self.source, destination)
+        self.assertEqual(report["destination"], str(destination))
+        self.assertTrue((destination / "SKILL.md").is_file())
+        for name in install.SKILL_NAMES[1:]:
+            self.assertTrue((destination.parent / name / "SKILL.md").is_file())
+
+    def test_core_destination_cannot_alias_a_specialist(self):
+        destination = self.destination.parent / "BANDIT-UPDATE"
+        with self.assertRaisesRegex(install.InstallError, "collides"):
+            install.install_bundle(self.source, destination)
+        self.assertFalse(destination.parent.exists())
+
+    def test_core_destination_cannot_overlap_another_specialist_source(self):
+        with self.assertRaisesRegex(install.InstallError, "overlap"):
+            install.install_bundle(self.source, self.source / "skills/bandit-update/custom-core")
+
+    def test_existing_later_skill_lock_prevents_updates_and_keeps_that_lock(self):
+        install.install_bundle(self.source, self.destination)
+        self.write("SKILL.md", "updated core")
+        lock = self.destination.parent / ".bandit-update.bandit.lock"
+        lock.write_text("other installer")
+        before = install.tree_files(self.destination.parent)
+        with self.assertRaisesRegex(install.InstallError, "Install lock exists"):
+            install.install_bundle(self.source, self.destination)
+        self.assertEqual(install.tree_files(self.destination.parent), before)

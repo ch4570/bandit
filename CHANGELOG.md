@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.0 — Separate planning commands
+
+- Add five independently invocable skills: `$bandit-research`, `$bandit-decide`, `$bandit-specify`, `$bandit-review`, and `$bandit-update`.
+- Keep `$bandit` available for general and combined planning requests.
+- Install all six skills with one npm command, including project, personal Codex, and custom destinations. Check every destination for conflicts before applying changes.
+- Bundle each specialist's own instructions, metadata, and referenced resources so it can work independently.
+- Put the actual commands, examples, expected outputs, and skill links directly in the English and Korean READMEs.
+- Provide a versioned 0.3.0 archive so existing 0.2.0 users can add the specialists with one new install command and a fresh agent session.
+
+npm registry publication remains deferred. [Validation](VALIDATION.md) records the checks actually run for this release.
+
 ## 0.2.0 — BANDIT
 
 PM Craft becomes **BANDIT (밴딧)**, a western raccoon planning partner with a cowboy hat, red bandana, pencil, and map.

@@ -1,5 +1,7 @@
 from _support import DistributionTest
 from scripts import validate
+import install
+import shutil
 
 
 class ValidateTests(DistributionTest):
@@ -7,6 +9,7 @@ class ValidateTests(DistributionTest):
         result = validate.validate(self.source)
         self.assertTrue(result["ok"], result["errors"])
         self.assertIn("no claim", result["checks"])
+        self.assertEqual([item["name"] for item in result["skills"]], list(install.SKILL_NAMES))
 
     def test_missing_reference_is_a_failure(self):
         self.write("SKILL.md", '---\nname: bandit\ndescription: Product planning\n---\nRead `references/missing.md`.\n')
@@ -51,3 +54,21 @@ class ValidateTests(DistributionTest):
         self.write("references/rules.md", '[outside](../../../README.md)\n')
         result = validate.validate(self.source)
         self.assertTrue(any("leaves its package" in error for error in result["errors"]))
+
+    def test_missing_specialist_fails_even_with_a_valid_core(self):
+        shutil.rmtree(self.source / "skills/bandit-update")
+        result = validate.validate(self.source)
+        self.assertFalse(result["ok"])
+        self.assertTrue(any("bandit-update" in error for error in result["errors"]))
+
+    def test_specialist_prompt_requires_its_exact_invocation(self):
+        self.write_skill("bandit-research", "agents/openai.yaml", 'interface:\n  display_name: "BANDIT Research"\n  short_description: "Plan useful products"\n  default_prompt: "Use $bandit-research-extra"\n')
+        result = validate.validate(self.source)
+        self.assertFalse(result["ok"])
+        self.assertTrue(any("default_prompt must mention $bandit-research" in error for error in result["errors"]))
+
+    def test_specialist_reference_cannot_depend_on_existing_sibling_files(self):
+        self.write_skill("bandit-review", "references/rules.md", "[Core rules](../../bandit/references/rules.md)\n")
+        result = validate.validate(self.source)
+        self.assertFalse(result["ok"])
+        self.assertTrue(any("bandit-review" in error and "leaves its package" in error for error in result["errors"]))

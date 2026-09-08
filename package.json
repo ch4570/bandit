@@ -1,6 +1,6 @@
 {
   "name": "@ch4570/bandit",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "BANDIT — an outlaw with a plan. Evidence-led product planning for coding agents.",
   "type": "module",
   "bin": {
@@ -13,7 +13,7 @@
     "bin/",
     "lib/",
     "scripts/validate-node.mjs",
-    "skills/bandit/",
+    "skills/",
     "README.md",
     "README.ko.md",
     "INSTALL.md",

@@ -24,7 +24,9 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - name: Validate skill and npm metadata without Python
-        run: npm run validate
+        run: |
+          node scripts/sync-skills.mjs --check
+          npm run validate
       - name: Test installer and isolated npm package consumption
         run: npm test
       - name: Pack npm distribution

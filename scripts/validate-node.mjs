@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const NAME = 'bandit';
+export const SKILL_NAMES = [NAME, 'bandit-research', 'bandit-decide', 'bandit-specify', 'bandit-review', 'bandit-update'];
 const PACKAGE_NAME = '@ch4570/bandit';
 const CHECKS = 'structure and references only; no claim of PM effectiveness';
 
@@ -133,11 +134,47 @@ async function localReferences(filename, text, boundary, errors) {
   }
 }
 
+async function validateSkill(root, name) {
+  const errors = [];
+  const skill = path.join(root, 'skills', name);
+  const files = await skillFiles(skill, errors);
+  try {
+    const metadata = frontmatter(await regularFile(path.join(skill, 'SKILL.md')));
+    if (metadata.name !== name) errors.push(`SKILL.md name must match the ${name} directory`);
+    if (typeof metadata.description !== 'string' || !metadata.description.trim()) errors.push('SKILL.md needs a nonempty description');
+  } catch (error) { errors.push(`SKILL.md: ${error.message}`); }
+  try {
+    const ui = yamlMapping(await regularFile(path.join(skill, 'agents/openai.yaml')));
+    const face = ui.interface ?? {};
+    for (const field of ['display_name', 'short_description', 'default_prompt']) {
+      if (typeof face[field] !== 'string' || !face[field].trim()) errors.push(`agents/openai.yaml: interface.${field} is required`);
+    }
+    const displayName = name === NAME ? 'BANDIT' : `BANDIT ${name.slice(7, 8).toUpperCase()}${name.slice(8)}`;
+    if (face.display_name !== displayName) errors.push(`agents/openai.yaml: display_name must be ${displayName}`);
+    if (typeof face.default_prompt !== 'string' || !face.default_prompt.match(/\$[a-z][a-z0-9-]*/gu)?.includes(`$${name}`)) errors.push(`agents/openai.yaml: default_prompt must mention $${name}`);
+    for (const field of ['icon_small', 'icon_large']) {
+      if (face[field] !== undefined) {
+        const icon = typeof face[field] === 'string' ? path.resolve(skill, face[field]) : '';
+        if (!icon || !inside(icon, skill) || !files.has(path.relative(skill, icon).split(path.sep).join('/'))) errors.push(`agents/openai.yaml: ${field} must resolve inside the skill`);
+      }
+    }
+  } catch (error) { errors.push(`agents/openai.yaml: ${error.message}`); }
+  for (const [relative, filename] of files) {
+    if (relative.endsWith('.md')) {
+      try {
+        const text = await regularFile(filename);
+        if (/\bpm-craft\b|\bPM Craft\b/u.test(text)) errors.push(`${relative}: previous product identity remains in the active skill`);
+        await localReferences(filename, text, skill, errors);
+      } catch (error) { errors.push(`${relative}: ${error.message}`); }
+    }
+  }
+  return { name, skillFiles: files.size, errors: errors.map((error) => `${name}/${error}`) };
+}
+
 export async function validateDistribution(directory = ROOT) {
   const errors = [];
   let root;
   try { root = await realpath(directory); } catch (error) { return { ok: false, errors: [error.message], checks: CHECKS }; }
-  const skill = path.join(root, 'skills', NAME);
   let version;
   try {
     version = (await regularFile(path.join(root, 'VERSION'))).trim();
@@ -157,37 +194,13 @@ export async function validateDistribution(directory = ROOT) {
       if (pkg.scripts?.[hook]) errors.push(`package.json must not require a ${hook} lifecycle hook`);
     }
   } catch (error) { errors.push(`package.json: ${error.message}`); }
-  const files = await skillFiles(skill, errors);
-  try {
-    const metadata = frontmatter(await regularFile(path.join(skill, 'SKILL.md')));
-    if (metadata.name !== NAME) errors.push('SKILL.md name must match the bandit directory');
-    if (typeof metadata.description !== 'string' || !metadata.description.trim()) errors.push('SKILL.md needs a nonempty description');
-  } catch (error) { errors.push(`SKILL.md: ${error.message}`); }
-  try {
-    const ui = yamlMapping(await regularFile(path.join(skill, 'agents/openai.yaml')));
-    const face = ui.interface ?? {};
-    for (const field of ['display_name', 'short_description', 'default_prompt']) {
-      if (typeof face[field] !== 'string' || !face[field].trim()) errors.push(`agents/openai.yaml: interface.${field} is required`);
-    }
-    if (face.display_name !== 'BANDIT') errors.push('agents/openai.yaml: display_name must be BANDIT');
-    if (typeof face.default_prompt !== 'string' || !/\$bandit\b/u.test(face.default_prompt)) errors.push('agents/openai.yaml: default_prompt must mention $bandit');
-    for (const field of ['icon_small', 'icon_large']) {
-      if (face[field] !== undefined) {
-        const icon = typeof face[field] === 'string' ? path.resolve(skill, face[field]) : '';
-        if (!icon || !inside(icon, skill) || !files.has(path.relative(skill, icon).split(path.sep).join('/'))) errors.push(`agents/openai.yaml: ${field} must resolve inside the skill`);
-      }
-    }
-  } catch (error) { errors.push(`agents/openai.yaml: ${error.message}`); }
-  for (const [relative, filename] of files) {
-    if (relative.endsWith('.md')) {
-      try {
-        const text = await regularFile(filename);
-        if (/\bpm-craft\b|\bPM Craft\b/u.test(text)) errors.push(`${relative}: previous product identity remains in the active skill`);
-        await localReferences(filename, text, skill, errors);
-      } catch (error) { errors.push(`${relative}: ${error.message}`); }
-    }
+  const skills = [];
+  for (const name of SKILL_NAMES) {
+    const result = await validateSkill(root, name);
+    skills.push({ name, skillFiles: result.skillFiles });
+    errors.push(...result.errors);
   }
-  return { ok: errors.length === 0, version, skillFiles: files.size, errors, checks: CHECKS };
+  return { ok: errors.length === 0, version, skillFiles: skills.reduce((total, skill) => total + skill.skillFiles, 0), skills, errors, checks: CHECKS };
 }
 
 async function main() {

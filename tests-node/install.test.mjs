@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { installInto, makePlan, runCli, MARKER } from '../lib/installer.mjs';
+import { installInto, installBundle, makePlan, runCli, MARKER, SKILL_NAMES } from '../lib/installer.mjs';
 
 function fixture(t) {
   const root = fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()), 'bandit-test-'));
@@ -14,10 +14,13 @@ function fixture(t) {
   const dest = path.join(project, '.agents', 'skills', 'bandit');
   fs.mkdirSync(skill, { recursive: true });
   fs.mkdirSync(project);
-  put(source, 'package.json', JSON.stringify({ name: '@ch4570/bandit', version: '0.2.0' }));
-  put(skill, 'SKILL.md', '---\nname: bandit\ndescription: Make an actionable product plan.\n---\n# BANDIT\n');
-  put(skill, 'references/research.md', 'Follow the evidence.\n');
-  put(skill, 'assets/portrait.png', Buffer.from([0, 255, 42, 12]));
+  put(source, 'package.json', JSON.stringify({ name: '@ch4570/bandit', version: '0.3.0' }));
+  for (const name of SKILL_NAMES) {
+    const folder = path.join(source, 'skills', name);
+    put(folder, 'SKILL.md', `---\nname: ${name}\ndescription: Make an actionable product plan.\n---\n# BANDIT\n`);
+    put(folder, 'references/research.md', 'Follow the evidence.\n');
+    put(folder, 'assets/portrait.png', Buffer.from([0, 255, 42, 12]));
+  }
   return { root, source, project, skill, dest };
 }
 
@@ -42,7 +45,7 @@ function cli(args, f, options = {}) {
   return { code, stdout, stderr };
 }
 
-test('no-argument CLI installs complete skill and preserves project files', (t) => {
+test('no-argument CLI installs six discoverable skills and preserves project files', (t) => {
   const f = fixture(t);
   const original = '{"name":"users-app","scripts":{"test":"custom"}}\n';
   put(f.project, 'package.json', original);
@@ -51,6 +54,13 @@ test('no-argument CLI installs complete skill and preserves project files', (t) 
   assert.match(result.stdout, /BANDIT is ready/);
   assert.match(result.stdout, /\$bandit/);
   assert.equal(result.stderr, '');
+  assert.deepEqual(fs.readdirSync(path.dirname(f.dest)).sort(), [...SKILL_NAMES].sort());
+  for (const name of SKILL_NAMES) {
+    const folder = path.join(path.dirname(f.dest), name);
+    assert.match(fs.readFileSync(path.join(folder, 'SKILL.md'), 'utf8'), new RegExp(`name: ${name}\\n`));
+    assert.equal(JSON.parse(fs.readFileSync(path.join(folder, MARKER))).name, name);
+    assert.ok(result.stdout.includes(`$${name}`));
+  }
   assert.deepEqual(fs.readFileSync(path.join(f.dest, 'assets/portrait.png')), Buffer.from([0, 255, 42, 12]));
   assert.equal(fs.readFileSync(path.join(f.project, 'package.json'), 'utf8'), original);
   assert.equal(fs.existsSync(path.join(f.project, 'package-lock.json')), false);
@@ -62,7 +72,9 @@ test('plan and JSON output leave no installation directories', (t) => {
   const result = cli(['install', '--plan', '--json'], f);
   assert.equal(result.code, 0);
   assert.equal(JSON.parse(result.stdout).status, 'plan');
-  assert.equal(JSON.parse(result.stdout).changes.length, 3);
+  assert.equal(JSON.parse(result.stdout).changes.length, 18);
+  assert.deepEqual(JSON.parse(result.stdout).commands, SKILL_NAMES.map((name) => `$${name}`));
+  assert.equal(JSON.parse(result.stdout).skills.length, 6);
   assert.equal(fs.existsSync(path.join(f.project, '.agents')), false);
 });
 
@@ -133,10 +145,12 @@ test('global, repo, and exact destination options route without modifying cwd', 
   const codexHome = path.join(f.root, 'custom-codex');
   let result = cli(['--global', '--json'], f, { env: { CODEX_HOME: codexHome } });
   assert.equal(JSON.parse(result.stdout).destination, path.join(codexHome, 'skills', 'bandit'));
+  assert.equal(JSON.parse(result.stdout).skills.length, 6);
   result = cli(['--repo', f.project, '--json'], f);
   assert.equal(JSON.parse(result.stdout).destination, f.dest);
   result = cli(['--dest', '../exact-skill', '--json'], f);
   assert.equal(JSON.parse(result.stdout).destination, path.join(f.root, 'exact-skill'));
+  assert.equal(JSON.parse(result.stdout).skills.find((skill) => skill.name === 'bandit-update').destination, path.join(f.root, 'bandit-update'));
   result = cli(['--global', '--plan', '--json'], f);
   assert.equal(JSON.parse(result.stdout).destination, path.join(f.root, 'home', '.codex', 'skills', 'bandit'));
 });
@@ -149,7 +163,7 @@ test('argument errors have exit 2 and parseable JSON when requested', (t) => {
     assert.equal(JSON.parse(result.stdout).status, 'error');
     assert.equal(result.stderr, '');
   }
-  assert.equal(cli(['--version'], f).stdout, '0.2.0\n');
+  assert.equal(cli(['--version'], f).stdout, '0.3.0\n');
   assert.match(cli(['--help'], f).stdout, /--global/);
 });
 
@@ -244,4 +258,133 @@ test('invalid source versions cannot become installed markers', (t) => {
   put(f.source, 'package.json', JSON.stringify({ version: 'next' }));
   assert.throws(() => installInto(f.source, f.dest), /stable semantic version/);
   assert.equal(fs.existsSync(f.dest), false);
+});
+
+test('an existing 0.2 core upgrades while all five independent skills are added', (t) => {
+  const f = fixture(t);
+  put(f.source, 'package.json', JSON.stringify({ version: '0.2.0' }));
+  installInto(f.source, f.dest);
+  put(f.dest, 'my-notes.md', 'Keep old notes.');
+  put(f.source, 'package.json', JSON.stringify({ version: '0.3.0' }));
+  put(f.skill, 'SKILL.md', 'The new general planning skill.');
+  const report = installBundle(f.source, f.dest);
+  assert.equal(report.status, 'updated');
+  assert.equal(report.skills[0].status, 'updated');
+  assert.equal(report.skills.filter((skill) => skill.status === 'installed').length, 5);
+  assert.equal(report.version, '0.3.0');
+  assert.equal(fs.readFileSync(path.join(f.dest, 'my-notes.md'), 'utf8'), 'Keep old notes.');
+  assert.equal(installBundle(f.source, f.dest).status, 'unchanged');
+});
+
+test('an edited 0.2 core prevents adding the five specialist skills', (t) => {
+  const f = fixture(t);
+  put(f.source, 'package.json', JSON.stringify({ version: '0.2.0' }));
+  installInto(f.source, f.dest);
+  put(f.dest, 'SKILL.md', 'Local edits to the old installation.');
+  put(f.source, 'package.json', JSON.stringify({ version: '0.3.0' }));
+  const before = snapshot(path.dirname(f.dest));
+  assert.throws(() => installBundle(f.source, f.dest), /locally modified/);
+  assert.deepEqual(snapshot(path.dirname(f.dest)), before);
+});
+
+test('a conflict in the last skill blocks all six updates before writing', (t) => {
+  const f = fixture(t);
+  installBundle(f.source, f.dest);
+  for (const name of SKILL_NAMES) put(path.join(f.source, 'skills', name), 'SKILL.md', `New ${name}.`);
+  put(path.join(path.dirname(f.dest), 'bandit-update'), 'SKILL.md', 'Local edit in the last skill.');
+  const before = snapshot(path.dirname(f.dest));
+  assert.throws(() => installBundle(f.source, f.dest), /bandit-update/);
+  assert.deepEqual(snapshot(path.dirname(f.dest)), before);
+});
+
+test('an unmanaged last-skill conflict leaves a fresh core uninstalled', (t) => {
+  const f = fixture(t);
+  put(path.join(path.dirname(f.dest), 'bandit-update'), 'SKILL.md', 'Independent user file.');
+  const before = snapshot(path.dirname(f.dest));
+  assert.throws(() => installBundle(f.source, f.dest), /unmanaged file/);
+  assert.deepEqual(snapshot(path.dirname(f.dest)), before);
+  assert.equal(fs.existsSync(f.dest), false);
+});
+
+test('a missing packaged specialist is rejected before creating any destination', (t) => {
+  const f = fixture(t);
+  fs.rmSync(path.join(f.source, 'skills', 'bandit-update'), { recursive: true });
+  assert.throws(() => installBundle(f.source, f.dest), /Missing skill directory/);
+  assert.equal(fs.existsSync(path.join(f.project, '.agents')), false);
+});
+
+test('custom --dest cannot collide with another installed skill or any package source', (t) => {
+  const f = fixture(t);
+  assert.throws(() => installBundle(f.source, path.join(f.root, 'bandit-update')), /--dest overlaps/);
+  assert.throws(() => installBundle(f.source, path.join(f.source, 'skills', 'custom-core')), /Source and destination/);
+  assert.equal(fs.existsSync(path.join(f.root, 'bandit-update')), false);
+});
+
+test('a lock on any specialist prevents the entire package installation', (t) => {
+  const f = fixture(t);
+  put(path.dirname(f.dest), '.bandit-update.bandit.lock', 'Another installer owns this lock.');
+  const before = snapshot(path.dirname(f.dest));
+  assert.throws(() => installBundle(f.source, f.dest), /Another installation/);
+  assert.deepEqual(snapshot(path.dirname(f.dest)), before);
+});
+
+test('an I/O failure in the last skill rolls back updates across earlier skills', (t) => {
+  const f = fixture(t);
+  installBundle(f.source, f.dest);
+  for (const name of SKILL_NAMES) put(path.join(f.source, 'skills', name), 'SKILL.md', `Changed ${name}.`);
+  const before = snapshot(path.dirname(f.dest));
+  const rename = fs.renameSync;
+  let failed = false;
+  fs.renameSync = (from, to) => {
+    if (!failed && to === path.join(path.dirname(f.dest), 'bandit-update', 'SKILL.md')) {
+      failed = true;
+      throw Object.assign(new Error('Simulated disk failure'), { code: 'EIO' });
+    }
+    return rename(from, to);
+  };
+  try { assert.throws(() => installBundle(f.source, f.dest), /Simulated disk failure/); }
+  finally { fs.renameSync = rename; }
+  assert.equal(failed, true);
+  assert.deepEqual(snapshot(path.dirname(f.dest)), before);
+});
+
+test('a failed fresh package install removes only directories and files it created', (t) => {
+  const f = fixture(t);
+  put(f.project, 'notes.txt', 'Do not touch.');
+  const before = snapshot(f.project);
+  const rename = fs.renameSync;
+  let failed = false;
+  fs.renameSync = (from, to) => {
+    if (!failed && to === path.join(path.dirname(f.dest), 'bandit-update', 'SKILL.md')) {
+      failed = true;
+      throw Object.assign(new Error('Simulated disk failure'), { code: 'EIO' });
+    }
+    return rename(from, to);
+  };
+  try { assert.throws(() => installBundle(f.source, f.dest), /Simulated disk failure/); }
+  finally { fs.renameSync = rename; }
+  assert.equal(failed, true);
+  assert.deepEqual(snapshot(f.project), before);
+});
+
+test('cross-skill recovery preserves an editor change made during the failed update', (t) => {
+  const f = fixture(t);
+  installBundle(f.source, f.dest);
+  for (const name of SKILL_NAMES) put(path.join(f.source, 'skills', name), 'SKILL.md', `Changed ${name}.`);
+  const before = snapshot(path.dirname(f.dest));
+  const edited = 'User edit while installation was running.';
+  const rename = fs.renameSync;
+  let failed = false;
+  fs.renameSync = (from, to) => {
+    if (!failed && to === path.join(path.dirname(f.dest), 'bandit-update', 'SKILL.md')) {
+      failed = true;
+      put(f.dest, 'SKILL.md', edited);
+      throw Object.assign(new Error('Simulated disk failure'), { code: 'EIO' });
+    }
+    return rename(from, to);
+  };
+  try { assert.throws(() => installBundle(f.source, f.dest), /Simulated disk failure/); }
+  finally { fs.renameSync = rename; }
+  const expected = { ...before, [path.join('bandit', 'SKILL.md')]: Buffer.from(edited).toString('base64') };
+  assert.deepEqual(snapshot(path.dirname(f.dest)), expected);
 });

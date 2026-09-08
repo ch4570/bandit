@@ -37,7 +37,9 @@ Western phrases belong in occasional introductions, artwork, and promotional cop
 ## Name and distribution
 
 - Display name: **BANDIT**; Korean reading: **밴딧**.
-- Skill and command: `bandit`; named agent invocation: `$bandit`.
+- General agent command: `$bandit`.
+- Specialist commands: `$bandit-research`, `$bandit-decide`, `$bandit-specify`, `$bandit-review`, and `$bandit-update`.
+- Installer executable: `bandit`; one installation adds all six skills.
 - npm package identity: `@ch4570/bandit`.
 - Repository: [ch4570/bandit](https://github.com/ch4570/bandit).
 

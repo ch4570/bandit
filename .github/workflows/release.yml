@@ -33,7 +33,9 @@ jobs:
           assert.equal(process.env.RELEASE_TAG, `v${version}`, 'release tag must match VERSION');
           NODE
       - name: Validate npm distribution
-        run: npm run validate
+        run: |
+          node scripts/sync-skills.mjs --check
+          npm run validate
       - name: Test npm installation and package consumption
         run: npm test
       - name: Test optional Python helper and source bundle

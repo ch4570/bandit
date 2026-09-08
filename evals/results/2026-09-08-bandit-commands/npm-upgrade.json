@@ -1,0 +1,515 @@
+{
+  "original_receipt_sha256": "b2828cc1a9bfadd9f95e6d9e16e140a6c288fb4a13d8ae019596f2705ca1ff4e",
+  "path_redactions": [
+    "temporary workspace",
+    "source checkout"
+  ],
+  "receipt": {
+    "root": "<temporary-workspace>",
+    "project": "<temporary-workspace>/실제 설치 검증 프로젝트",
+    "cache": "<temporary-workspace>/fresh-cache",
+    "steps": [
+      {
+        "label": "public-0.2.0",
+        "command": [
+          "npx",
+          "--yes",
+          "https://github.com/ch4570/bandit/releases/download/v0.2.0/bandit.tgz",
+          "--repo",
+          "<temporary-workspace>/실제 설치 검증 프로젝트",
+          "--json"
+        ],
+        "exit_code": 0,
+        "report": {
+          "status": "installed",
+          "source": "<temporary-workspace>/fresh-cache/_npx/b7f9dad465447c92/node_modules/@ch4570/bandit/skills/bandit",
+          "destination": "<temporary-workspace>/실제 설치 검증 프로젝트/.agents/skills/bandit",
+          "version": "0.2.0",
+          "managed": false,
+          "changes": [
+            {
+              "action": "add",
+              "path": "SKILL.md"
+            },
+            {
+              "action": "add",
+              "path": "agents/openai.yaml"
+            },
+            {
+              "action": "add",
+              "path": "assets/bandit-avatar.png"
+            },
+            {
+              "action": "add",
+              "path": "assets/plan-template.md"
+            },
+            {
+              "action": "add",
+              "path": "references/changes.md"
+            },
+            {
+              "action": "add",
+              "path": "references/decisions.md"
+            },
+            {
+              "action": "add",
+              "path": "references/evidence-and-decisions.md"
+            },
+            {
+              "action": "add",
+              "path": "references/research.md"
+            },
+            {
+              "action": "add",
+              "path": "references/review.md"
+            },
+            {
+              "action": "add",
+              "path": "references/specification.md"
+            }
+          ],
+          "unchanged_files": 0,
+          "marker_change": true
+        }
+      },
+      {
+        "label": "upgrade-0.3.0",
+        "command": [
+          "npx",
+          "--yes",
+          "http://127.0.0.1:53869/v0.3.0/bandit.tgz",
+          "--repo",
+          "<temporary-workspace>/실제 설치 검증 프로젝트",
+          "--json"
+        ],
+        "exit_code": 0,
+        "report": {
+          "status": "updated",
+          "source": "<temporary-workspace>/fresh-cache/_npx/c8f001319079f19c/node_modules/@ch4570/bandit/skills",
+          "destination": "<temporary-workspace>/실제 설치 검증 프로젝트/.agents/skills/bandit",
+          "destination_root": "<temporary-workspace>/실제 설치 검증 프로젝트/.agents/skills",
+          "version": "0.3.0",
+          "managed": true,
+          "commands": [
+            "$bandit",
+            "$bandit-research",
+            "$bandit-decide",
+            "$bandit-specify",
+            "$bandit-review",
+            "$bandit-update"
+          ],
+          "skills": [
+            {
+              "name": "bandit",
+              "status": "updated",
+              "source": "<temporary-workspace>/fresh-cache/_npx/c8f001319079f19c/node_modules/@ch4570/bandit/skills/bandit",
+              "destination": "<temporary-workspace>/실제 설치 검증 프로젝트/.agents/skills/bandit",
+              "version": "0.3.0",
+              "managed": true,
+              "changes": [
+                {
+                  "action": "update",
+                  "path": "SKILL.md"
+                }
+              ],
+              "unchanged_files": 9,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-research",
+              "status": "installed",
+              "source": "<temporary-workspace>/fresh-cache/_npx/c8f001319079f19c/node_modules/@ch4570/bandit/skills/bandit-research",
+              "destination": "<temporary-workspace>/실제 설치 검증 프로젝트/.agents/skills/bandit-research",
+              "version": "0.3.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-decide",
+              "status": "installed",
+              "source": "<temporary-workspace>/fresh-cache/_npx/c8f001319079f19c/node_modules/@ch4570/bandit/skills/bandit-decide",
+              "destination": "<temporary-workspace>/실제 설치 검증 프로젝트/.agents/skills/bandit-decide",
+              "version": "0.3.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "references/decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-specify",
+              "status": "installed",
+              "source": "<temporary-workspace>/fresh-cache/_npx/c8f001319079f19c/node_modules/@ch4570/bandit/skills/bandit-specify",
+              "destination": "<temporary-workspace>/실제 설치 검증 프로젝트/.agents/skills/bandit-specify",
+              "version": "0.3.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-review",
+              "status": "installed",
+              "source": "<temporary-workspace>/fresh-cache/_npx/c8f001319079f19c/node_modules/@ch4570/bandit/skills/bandit-review",
+              "destination": "<temporary-workspace>/실제 설치 검증 프로젝트/.agents/skills/bandit-review",
+              "version": "0.3.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/review.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-update",
+              "status": "installed",
+              "source": "<temporary-workspace>/fresh-cache/_npx/c8f001319079f19c/node_modules/@ch4570/bandit/skills/bandit-update",
+              "destination": "<temporary-workspace>/실제 설치 검증 프로젝트/.agents/skills/bandit-update",
+              "version": "0.3.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/changes.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/review.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            }
+          ],
+          "changes": [
+            {
+              "action": "update",
+              "path": "bandit/SKILL.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/SKILL.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/agents/openai.yaml",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/references/evidence-and-decisions.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/references/research.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-decide/SKILL.md",
+              "skill": "bandit-decide"
+            },
+            {
+              "action": "add",
+              "path": "bandit-decide/agents/openai.yaml",
+              "skill": "bandit-decide"
+            },
+            {
+              "action": "add",
+              "path": "bandit-decide/references/decisions.md",
+              "skill": "bandit-decide"
+            },
+            {
+              "action": "add",
+              "path": "bandit-decide/references/evidence-and-decisions.md",
+              "skill": "bandit-decide"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/SKILL.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/agents/openai.yaml",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/assets/plan-template.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/evidence-and-decisions.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/specification.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/SKILL.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/agents/openai.yaml",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/assets/plan-template.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/evidence-and-decisions.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/review.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/specification.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-update/SKILL.md",
+              "skill": "bandit-update"
+            },
+            {
+              "action": "add",
+              "path": "bandit-update/agents/openai.yaml",
+              "skill": "bandit-update"
+            },
+            {
+              "action": "add",
+              "path": "bandit-update/assets/plan-template.md",
+              "skill": "bandit-update"
+            },
+            {
+              "action": "add",
+              "path": "bandit-update/references/changes.md",
+              "skill": "bandit-update"
+            },
+            {
+              "action": "add",
+              "path": "bandit-update/references/evidence-and-decisions.md",
+              "skill": "bandit-update"
+            },
+            {
+              "action": "add",
+              "path": "bandit-update/references/research.md",
+              "skill": "bandit-update"
+            },
+            {
+              "action": "add",
+              "path": "bandit-update/references/review.md",
+              "skill": "bandit-update"
+            },
+            {
+              "action": "add",
+              "path": "bandit-update/references/specification.md",
+              "skill": "bandit-update"
+            }
+          ],
+          "unchanged_files": 9,
+          "marker_change": true
+        }
+      },
+      {
+        "label": "refused-0.3.1",
+        "command": [
+          "npx",
+          "--yes",
+          "http://127.0.0.1:54080/v0.3.1/bandit.tgz",
+          "--repo",
+          "<temporary-workspace>/실제 설치 검증 프로젝트",
+          "--json"
+        ],
+        "exit_code": 2,
+        "report": {
+          "status": "error",
+          "error": "Nothing installed. Preserve or move the conflicting files in bandit-update, then retry:\n  locally modified or deleted file: SKILL.md"
+        }
+      }
+    ],
+    "public_old_version_verified": true,
+    "upgrade_skill_checks": [
+      {
+        "name": "bandit",
+        "marker_name_matches": true,
+        "version": "0.3.0",
+        "files": 10,
+        "hashes_match": true,
+        "entry_name_matches": true,
+        "prompt_matches": true
+      },
+      {
+        "name": "bandit-research",
+        "marker_name_matches": true,
+        "version": "0.3.0",
+        "files": 4,
+        "hashes_match": true,
+        "entry_name_matches": true,
+        "prompt_matches": true
+      },
+      {
+        "name": "bandit-decide",
+        "marker_name_matches": true,
+        "version": "0.3.0",
+        "files": 4,
+        "hashes_match": true,
+        "entry_name_matches": true,
+        "prompt_matches": true
+      },
+      {
+        "name": "bandit-specify",
+        "marker_name_matches": true,
+        "version": "0.3.0",
+        "files": 5,
+        "hashes_match": true,
+        "entry_name_matches": true,
+        "prompt_matches": true
+      },
+      {
+        "name": "bandit-review",
+        "marker_name_matches": true,
+        "version": "0.3.0",
+        "files": 6,
+        "hashes_match": true,
+        "entry_name_matches": true,
+        "prompt_matches": true
+      },
+      {
+        "name": "bandit-update",
+        "marker_name_matches": true,
+        "version": "0.3.0",
+        "files": 8,
+        "hashes_match": true,
+        "entry_name_matches": true,
+        "prompt_matches": true
+      }
+    ],
+    "project_files_preserved": true,
+    "no_project_node_modules": true,
+    "no_lifecycle_hooks": true,
+    "late_specialist_conflict_refused": true,
+    "all_project_bytes_unchanged_after_refusal": true,
+    "all_six_remain_version_0.3.0": true,
+    "success": true
+  }
+}

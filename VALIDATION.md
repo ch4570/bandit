@@ -3,6 +3,30 @@
 Distribution checks and planning behavior are reported separately. Product
 fixtures are synthetic. npm registry publication is deferred.
 
+## BANDIT 0.3.0 — direct commands, 2026-09-08
+
+- Six independent skill folders validate with exact names and invocation
+  metadata, complete local references, and **37 skill files**. The official
+  skill-creator validator passed for all six.
+- Native npm installer, package consumption, and validator tests: **44 passed**.
+  The installer and package subset also passed on the minimum supported Node 22.
+- Optional Python installer and source bundle tests: **55 passed**. Node and
+  Python recognize each other's six installed ownership records as unchanged.
+- All six destinations are checked before applying an update. Tests exercise
+  a last-specialist conflict, lock contention, a later write failure, recovery
+  across skills, and preservation of a concurrent user edit.
+- The source ZIP was built reproducibly, extracted outside the checkout, and
+  its Node CLI installed all six skills and 37 files without Python on PATH.
+- [Actual npm upgrade check](evals/results/2026-09-08-bandit-commands/npm-upgrade.json):
+  the public 0.2.0 installer upgraded through a locally served 0.3.0 npm tarball.
+  Existing project files were preserved. A later synthetic update encountering
+  a modified specialist refused the whole update and preserved all project bytes.
+- [Five fresh specialist tasks](evals/results/2026-09-08-bandit-commands/README.md)
+  each invoked its own `$bandit-*` name in Codex, used its relevant resources,
+  and completed within the requested output limit. Inputs and skill snapshots
+  were unchanged. This is a direct-command development check, not a new quality
+  comparison or an evaluation of the general router's revised description.
+
 ## Published BANDIT 0.2.0 — 2026-09-07
 
 - [Release commit CI](https://github.com/ch4570/bandit/actions/runs/34133194874):

@@ -1,0 +1,4 @@
+interface:
+  display_name: "BANDIT Update"
+  short_description: "Trace planning changes and preserve evidence"
+  default_prompt: "Use $bandit-update to reflect this decision in our plan and identify checks to revisit."

@@ -1,0 +1,57 @@
+[
+  {
+    "case": "01-multiple-decisions",
+    "skill": "bandit-specify",
+    "invocation": "$bandit-specify",
+    "exit_code": 0,
+    "words": 737,
+    "input_unchanged": true,
+    "instruction_hashes_match": true,
+    "output_sha256": "2c5cf4214c2c24b660f394000dc56628ac6adce8987beae619f9ecd0cf88788e",
+    "elapsed_seconds": 76.597
+  },
+  {
+    "case": "02-offer-change",
+    "skill": "bandit-update",
+    "invocation": "$bandit-update",
+    "exit_code": 0,
+    "words": 807,
+    "input_unchanged": true,
+    "instruction_hashes_match": true,
+    "output_sha256": "2a441e352466501ec97f4c578bf0580aaba2de11da48fdee36381d2b6a7fb09c",
+    "elapsed_seconds": 88.589
+  },
+  {
+    "case": "03-intent-review",
+    "skill": "bandit-review",
+    "invocation": "$bandit-review",
+    "exit_code": 0,
+    "words": 296,
+    "input_unchanged": true,
+    "instruction_hashes_match": true,
+    "output_sha256": "514c0f44ad626db9f8745c9a3ad887e1baf6c1ebe22e073d0b2caeaf8bc54995",
+    "elapsed_seconds": 47.467
+  },
+  {
+    "case": "04-incomparable-scores",
+    "skill": "bandit-decide",
+    "invocation": "$bandit-decide",
+    "exit_code": 0,
+    "words": 265,
+    "input_unchanged": true,
+    "instruction_hashes_match": true,
+    "output_sha256": "af04d89eda66a0e5c15a153254089f3a6ac3f8b157bcf42b5331d8d5edd5bc33",
+    "elapsed_seconds": 38.037
+  },
+  {
+    "case": "05-small-research",
+    "skill": "bandit-research",
+    "invocation": "$bandit-research",
+    "exit_code": 0,
+    "words": 158,
+    "input_unchanged": true,
+    "instruction_hashes_match": true,
+    "output_sha256": "2bea623d2d0f2c5397a5cf7bbdcbd7113538df54a066a7e3c46c27e8ef2c0d8e",
+    "elapsed_seconds": 30.761
+  }
+]

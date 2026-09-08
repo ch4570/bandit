@@ -5,6 +5,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+import install
 
 
 class DistributionTest(unittest.TestCase):
@@ -23,10 +24,18 @@ class DistributionTest(unittest.TestCase):
         self.write("references/rules.md", "# Rules\nUse the actual product context.\n")
         self.write("agents/openai.yaml", 'interface:\n  display_name: "BANDIT"\n  short_description: "Plan useful products"\n  default_prompt: "Use $bandit to scope my product."\n')
         self.write("assets/template.md", "# Plan\n")
+        for skill_name in install.SKILL_NAMES[1:]:
+            display = "BANDIT " + skill_name.removeprefix("bandit-").title()
+            self.write_skill(skill_name, "SKILL.md", f'---\nname: {skill_name}\ndescription: "Product planning specialist"\n---\n# {display}\nRead [rules](references/rules.md).\n')
+            self.write_skill(skill_name, "references/rules.md", "# Rules\nUse the actual product context.\n")
+            self.write_skill(skill_name, "agents/openai.yaml", f'interface:\n  display_name: "{display}"\n  short_description: "Plan useful products"\n  default_prompt: "Use ${skill_name} to scope my product."\n')
         self.destination = self.area / "project with spaces" / ".agents/skills/bandit"
 
     def write(self, name, text):
-        path = self.skill / name
+        self.write_skill("bandit", name, text)
+
+    def write_skill(self, skill_name, name, text):
+        path = self.source / "skills" / skill_name / name
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8")
 

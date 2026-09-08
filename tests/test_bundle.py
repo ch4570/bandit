@@ -36,6 +36,9 @@ class BundleTests(DistributionTest):
         with zipfile.ZipFile(one["artifact"]) as archive:
             prefix = "bandit-0.2.0/"
             inventory = json.loads(archive.read(prefix + build_bundle.INVENTORY))
+            for skill_name in install.SKILL_NAMES:
+                self.assertIn(f"skills/{skill_name}/SKILL.md", inventory["files"])
+                self.assertIn(f"skills/{skill_name}/references/rules.md", inventory["files"])
             self.assertEqual(set(archive.namelist()), {prefix + name for name in inventory["files"]} | {prefix + build_bundle.INVENTORY})
             for name, expected in inventory["files"].items():
                 self.assertEqual(hashlib.sha256(archive.read(prefix + name)).hexdigest(), expected)
@@ -53,6 +56,10 @@ class BundleTests(DistributionTest):
         self.assertTrue((self.destination / "references/rules.md").is_file())
         self.assertTrue((self.destination / "agents/openai.yaml").is_file())
         self.assertTrue((self.destination / "assets/template.md").is_file())
+        for skill_name in install.SKILL_NAMES:
+            target = self.destination.parent / skill_name
+            self.assertTrue((target / "SKILL.md").is_file())
+            self.assertEqual(json.loads((target / install.MARKER).read_text())["name"], skill_name)
 
     def test_output_preserves_unrelated_files_and_identical_build_is_noop(self):
         output = self.area / "custom output"
@@ -77,6 +84,12 @@ class BundleTests(DistributionTest):
         with self.assertRaisesRegex(install.InstallError, "bundled input"):
             build_bundle.build_bundle(self.source, self.skill / "generated")
         self.assertFalse((self.skill / "generated").exists())
+
+    def test_build_rejects_output_inside_specialist_source(self):
+        output = self.source / "skills/bandit-update/generated"
+        with self.assertRaisesRegex(install.InstallError, "bundled input"):
+            build_bundle.build_bundle(self.source, output)
+        self.assertFalse(output.exists())
 
     def test_case_alias_cannot_hide_output_inside_bundled_docs(self):
         docs = self.source / "docs"
