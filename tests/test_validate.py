@@ -56,10 +56,10 @@ class ValidateTests(DistributionTest):
         self.assertTrue(any("leaves its package" in error for error in result["errors"]))
 
     def test_missing_specialist_fails_even_with_a_valid_core(self):
-        shutil.rmtree(self.source / "skills/bandit-update")
+        shutil.rmtree(self.source / "skills/bandit-review")
         result = validate.validate(self.source)
         self.assertFalse(result["ok"])
-        self.assertTrue(any("bandit-update" in error for error in result["errors"]))
+        self.assertTrue(any("bandit-review" in error for error in result["errors"]))
 
     def test_specialist_prompt_requires_its_exact_invocation(self):
         self.write_skill("bandit-research", "agents/openai.yaml", 'interface:\n  display_name: "BANDIT Research"\n  short_description: "Plan useful products"\n  default_prompt: "Use $bandit-research-extra"\n')
@@ -72,3 +72,15 @@ class ValidateTests(DistributionTest):
         result = validate.validate(self.source)
         self.assertFalse(result["ok"])
         self.assertTrue(any("bandit-review" in error and "leaves its package" in error for error in result["errors"]))
+
+    def test_retired_commands_cannot_remain_in_the_packaged_skill_tree(self):
+        for name in install.RETIRED_NAMES:
+            with self.subTest(name=name):
+                self.write_skill(name, "SKILL.md", "obsolete command")
+                result = validate.validate(self.source)
+                self.assertFalse(result["ok"])
+                self.assertTrue(any(f"Unexpected packaged skill: {name}" in error for error in result["errors"]))
+
+    def test_unknown_skills_cannot_bypass_the_canonical_package_inventory(self):
+        self.write_skill("bandit-unknown", "SKILL.md", "unreviewed extra command")
+        self.assertFalse(validate.validate(self.source)["ok"])

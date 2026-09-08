@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const canonical = path.join(root, 'skills', 'bandit');
-const specialists = ['research', 'decide', 'specify', 'review', 'update'];
+const specialists = ['research', 'scope', 'specify', 'review'];
 const check = process.argv.slice(2).includes('--check');
 if (process.argv.slice(2).some((arg) => arg !== '--check')) {
   throw new Error('Usage: node scripts/sync-skills.mjs [--check]');

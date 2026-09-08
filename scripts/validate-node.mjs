@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const NAME = 'bandit';
-export const SKILL_NAMES = [NAME, 'bandit-research', 'bandit-decide', 'bandit-specify', 'bandit-review', 'bandit-update'];
+export const SKILL_NAMES = [NAME, 'bandit-research', 'bandit-scope', 'bandit-specify', 'bandit-review'];
 const PACKAGE_NAME = '@ch4570/bandit';
 const CHECKS = 'structure and references only; no claim of PM effectiveness';
 
@@ -194,6 +194,11 @@ export async function validateDistribution(directory = ROOT) {
       if (pkg.scripts?.[hook]) errors.push(`package.json must not require a ${hook} lifecycle hook`);
     }
   } catch (error) { errors.push(`package.json: ${error.message}`); }
+  try {
+    for (const entry of await readdir(path.join(root, 'skills'))) {
+      if (!SKILL_NAMES.includes(entry) && !['.git', '__pycache__', '.DS_Store'].includes(entry)) errors.push(`Unexpected packaged skill: ${entry}`);
+    }
+  } catch (error) { errors.push(`skills: ${error.message}`); }
   const skills = [];
   for (const name of SKILL_NAMES) {
     const result = await validateSkill(root, name);

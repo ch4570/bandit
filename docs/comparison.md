@@ -6,16 +6,16 @@ BANDIT is a focused alternative for app and service planning, not a demonstrated
 
 The reviewed reference is [phuryn/pm-skills at commit `18468a95b427e70e258b51389796367c6f684e7d`](https://github.com/phuryn/pm-skills/tree/18468a95b427e70e258b51389796367c6f684e7d). Claims here concern that snapshot, not every later version.
 
-| Choice | phuryn snapshot | BANDIT 0.3.0 |
+| Choice | phuryn snapshot | BANDIT 0.4.0 |
 | --- | --- | --- |
-| Entry | A broad collection of specialized skills and associated commands | Five directly callable planning specialists plus a general entrypoint |
-| Scope | Discovery, strategy, execution, research, analytics, and additional PM work | Research, decisions, specifications, review, and updates for apps and services |
+| Entry | A broad collection of specialized skills and associated commands | Four directly callable planning specialists plus a general entrypoint |
+| Scope | Discovery, strategy, execution, research, analytics, and additional PM work | Research, MVP scope, specification writing and rewriting, and review for apps and services |
 | Handoff | Artifact guidance is distributed across related skills and commands | Canonical evidence and decision guidance synchronized into self-contained specialists |
-| Existing plan | Offers document creation and analysis workflows | Explicitly reuses the existing artifact and preserves scoped decisions |
-| Change work | Several task-specific workflows | A dedicated skill for tracing the effects of a changed decision |
+| Existing plan | Offers document creation and analysis workflows | Uses the existing plan as a baseline and rewrites requested content and structure while preserving unrelated decisions |
+| Change work | Several task-specific workflows | Specification work includes changed rules, affected requirements and checks, and preserved historical evidence |
 | Evidence of quality | Source instructions describe intended behavior | Examples and evaluation tasks define intended behavior; executed results are recorded separately |
 
-The smaller surface is a maintenance and entry-point choice. It is not evidence of better output or lower token usage. BANDIT 0.2.0 introduced a character identity and npm installation; 0.3.0 adds five independent specialist commands. Historical PM Craft 0.1.0 runs do not measure those changes.
+The smaller surface is a maintenance and entry-point choice. It is not evidence of better output or lower token usage. BANDIT 0.2.0 introduced a character identity and npm installation; 0.3.0 added independent specialist commands; 0.4.0 clarifies MVP scope and combines new and revised specifications under one command. Historical PM Craft 0.1.0 runs do not measure those changes.
 
 ## Strengths to retain
 

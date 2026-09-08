@@ -1,13 +1,13 @@
 ---
 name: bandit
-description: Coordinate product planning with BANDIT when the user asks for general planning or a task spanning research, scope, requirements, review, and updates. Use a named BANDIT specialist directly when the user selects one; excludes standalone UI styling, code implementation, and personal task scheduling.
+description: Coordinate product planning with BANDIT when the user asks for general planning or a task spanning research, MVP scope, specification creation or rewriting, and review. Use a named BANDIT specialist directly when the user selects one; excludes standalone UI styling, code implementation, and personal task scheduling.
 ---
 
 # BANDIT
 
 Use this general entrypoint for an open-ended or combined planning request.
 The bundle also provides directly callable specialists: `$bandit-research`,
-`$bandit-decide`, `$bandit-specify`, `$bandit-review`, and `$bandit-update`.
+`$bandit-scope`, `$bandit-specify`, and `$bandit-review`.
 When the user selected a specialist, work from that skill's instructions;
 do not restart the task through this general router.
 
@@ -24,7 +24,9 @@ product vocabulary.
 ## Enter where the work is
 
 Read the current request, relevant existing decisions, and the artifacts needed
-for this result. Reuse the existing PRD or domain documents. A review does not
+for this result. Use an existing PRD as the baseline and rewrite it when the
+requested direction requires that; specification includes revising old plans.
+A review does not
 require a rewrite; a small answer does not require a new file or a workshop.
 
 Choose the relevant mode and read its reference. Combine modes only when the
@@ -33,10 +35,9 @@ requested result needs them; this table is not a mandatory sequence.
 | Requested outcome | Reference |
 | --- | --- |
 | Understand a customer problem, alternatives, business assumption, or experiment | [Research](references/research.md) |
-| Choose an option, prioritize, or cut an MVP to fit constraints | [Decide](references/decisions.md) |
-| Turn a direction into buildable product requirements | [Specify](references/specification.md) |
+| Choose what to build now, prioritize, or cut an MVP to fit constraints | [Scope](references/decisions.md) |
+| Create or rewrite a specification, including changed decisions or new results | [Specify](references/specification.md) |
 | Find consequential gaps or conflicts in an existing plan | [Review](references/review.md) |
-| Incorporate a changed decision or newly observed result | [Update](references/changes.md) |
 
 For a lasting plan, a handoff, or work spanning decisions, also read
 [Evidence and decisions](references/evidence-and-decisions.md). Use stable links

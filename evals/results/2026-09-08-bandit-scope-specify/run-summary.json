@@ -1,0 +1,58 @@
+[
+  {
+    "case": "01-multiple-decisions",
+    "skill": "bandit-specify",
+    "invocation": "$bandit-specify",
+    "entrypoint_read": ".agents/skills/bandit-specify/SKILL.md",
+    "exit_code": 0,
+    "words": 843,
+    "input_unchanged": true,
+    "changed_input_paths": [],
+    "instructions_unchanged": true,
+    "instruction_file_count": 34,
+    "instruction_hashes_match_current_source": true,
+    "output_sha256": "4385988ed9f96e184f3b1b5f90a541e111697ea834def8fa247337bf8093b1e6",
+    "elapsed_seconds": 94.47,
+    "intermediate_command_exit_codes": []
+  },
+  {
+    "case": "04-incomparable-scores",
+    "skill": "bandit-scope",
+    "invocation": "$bandit-scope",
+    "entrypoint_read": ".agents/skills/bandit-scope/SKILL.md",
+    "exit_code": 0,
+    "words": 273,
+    "input_unchanged": true,
+    "changed_input_paths": [],
+    "instructions_unchanged": true,
+    "instruction_file_count": 34,
+    "instruction_hashes_match_current_source": true,
+    "output_sha256": "92a9e6b83aa39bde303fd1e048d87bde5aacd12c43d46da96563d280d747dedd",
+    "elapsed_seconds": 37.91,
+    "intermediate_command_exit_codes": []
+  },
+  {
+    "case": "06-existing-spec-rewrite",
+    "skill": "bandit-specify",
+    "invocation": "$bandit-specify",
+    "entrypoint_read": ".agents/skills/bandit-specify/SKILL.md",
+    "exit_code": 0,
+    "words": 42,
+    "input_unchanged": false,
+    "changed_input_paths": [
+      "docs/PRD.md"
+    ],
+    "instructions_unchanged": true,
+    "instruction_file_count": 34,
+    "instruction_hashes_match_current_source": true,
+    "output_sha256": "e4df9dabedbe681bc9abd5d31a2812d889316f523f44f0c059ec294213a222e0",
+    "elapsed_seconds": 256.993,
+    "intermediate_command_exit_codes": [
+      127
+    ],
+    "editable_artifact": "input/docs/PRD.md",
+    "artifact_words": 728,
+    "artifact_sha256": "12b59d8db86349e29569719896ade0df8fe2ac965f4af8bb204b3371f68caa65",
+    "only_requested_artifact_changed": true
+  }
+]

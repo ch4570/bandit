@@ -1,7 +1,10 @@
-# Plan changes and new results
+# Changes and new results within specification work
 
 Use this reference to incorporate a changed request, a revised decision, or observed results into an existing plan.
+Apply it as part of creating or rewriting a specification, not a separate user command.
 Update the requested planning artifacts and their affected dependencies; preserve unrelated decisions.
+When the user asks for a rewrite or changes the product direction substantially,
+rebuild the document's structure and rules around that direction rather than only appending a delta.
 For a small edit, a precise patch and a short explanation are enough.
 Do not create a separate ledger, new plan, or approval sequence solely to record that edit.
 
@@ -9,7 +12,8 @@ Do not create a separate ledger, new plan, or approval sequence solely to record
 
 Read the user's current request, the relevant current decisions, and the evidence attached to the change.
 Identify what is changing, what prompted it, and which product, audience, or version it affects.
-Retain the existing document structure and any designated domain sources of truth.
+Use the existing document as the baseline and respect designated domain sources of truth.
+Keep or replace its structure according to the requested result; do not preserve an obsolete layout at the expense of a coherent new specification.
 Distinguish a new instruction from a question, an unadopted suggestion, or an observation.
 Do not infer the requested target from file modification time alone.
 

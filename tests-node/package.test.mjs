@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
-import { SKILL_NAMES } from '../lib/installer.mjs';
+import { SKILL_NAMES, RETIRED_NAMES } from '../lib/installer.mjs';
 
 const repository = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -20,7 +20,7 @@ test('the npm artifact is complete and its extracted CLI works without the check
   const temporary = fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()), 'bandit-pack-'));
   t.after(() => fs.rmSync(temporary, { recursive: true, force: true }));
   const packed = JSON.parse(npm(['pack', '--ignore-scripts', '--json', '--pack-destination', temporary], { cwd: repository }))[0];
-  assert.equal(packed.filename, 'ch4570-bandit-0.3.0.tgz');
+  assert.equal(packed.filename, 'ch4570-bandit-0.4.0.tgz');
   const entries = new Set(packed.files.map((file) => file.path));
   for (const required of ['package.json', 'bin/bandit.mjs', 'lib/installer.mjs', 'scripts/validate-node.mjs', 'VERSION', 'LICENSE', 'skills/bandit/SKILL.md', 'skills/bandit/agents/openai.yaml']) {
     assert.ok(entries.has(required), `Missing packed file: ${required}`);
@@ -34,6 +34,7 @@ test('the npm artifact is complete and its extracted CLI works without the check
     for (const file of files) assert.ok(entries.has(`skills/${name}/${file.split(path.sep).join('/')}`), `Skill asset omitted: ${name}/${file}`);
   }
   for (const name of entries) assert.ok(!/^(?:tests(?:-node)?\/|evals\/|install\.py|\.git\/)/.test(name), `Unneeded payload: ${name}`);
+  for (const name of RETIRED_NAMES) assert.ok(![...entries].some((entry) => entry.startsWith(`skills/${name}/`)), `Retired skill must not ship: ${name}`);
 
   const archive = path.join(temporary, packed.filename);
   const isolated = path.join(temporary, 'isolated');
@@ -53,7 +54,7 @@ test('the npm artifact is complete and its extracted CLI works without the check
   const report = JSON.parse(execFileSync(process.execPath, [path.join(installedPackage, 'bin', 'bandit.mjs'), '--json'], { cwd: project, encoding: 'utf8' }));
   assert.equal(report.status, 'installed');
   assert.equal(report.destination, path.join(project, '.agents', 'skills', 'bandit'));
-  assert.equal(report.skills.length, 6);
+  assert.equal(report.skills.length, 5);
   assert.deepEqual(report.commands, SKILL_NAMES.map((name) => `$${name}`));
   assert.deepEqual(fs.readdirSync(report.destination_root).sort(), [...SKILL_NAMES].sort());
   for (const [name, files] of skillFiles) {
@@ -71,7 +72,7 @@ test('the npm artifact is complete and its extracted CLI works without the check
   const npxReport = JSON.parse(npm(['exec', '--offline', '--yes', '--cache', path.join(temporary, 'npm-cache'), `--package=${archive}`, '--', 'bandit', '--json'], { cwd: npxProject }));
   assert.equal(npxReport.status, 'installed');
   assert.equal(npxReport.destination, path.join(npxProject, '.agents', 'skills', 'bandit'));
-  assert.equal(npxReport.skills.length, 6);
+  assert.equal(npxReport.skills.length, 5);
   for (const name of SKILL_NAMES) assert.equal(fs.existsSync(path.join(npxReport.destination_root, name, 'SKILL.md')), true);
   assert.equal(fs.existsSync(path.join(npxProject, 'package.json')), false);
   assert.equal(fs.existsSync(path.join(npxProject, 'node_modules')), false);

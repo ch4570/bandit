@@ -1,4 +1,4 @@
 interface:
   display_name: "BANDIT Specify"
-  short_description: "Turn product decisions into buildable specs"
-  default_prompt: "Use $bandit-specify to write product rules and acceptance scenarios for this feature."
+  short_description: "Create or rewrite product specifications"
+  default_prompt: "Use $bandit-specify to read any existing PRD and create or rewrite the specification for this direction."

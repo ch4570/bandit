@@ -10,6 +10,18 @@ import install
 
 
 class InstallTests(DistributionTest):
+    def old_install(self, name, files=None):
+        """A synthetic 0.3 installation, independent of the new active skill list."""
+        target = self.destination.parent / name
+        payload = files or {"SKILL.md": f"# {name}\n".encode(), "references/rules.md": b"old rules\n"}
+        for relative, content in payload.items():
+            filename = target / relative
+            filename.parent.mkdir(parents=True, exist_ok=True)
+            filename.write_bytes(content)
+        marker = {"format": 1, "name": name, "version": "0.3.0", "files": {relative: install.digest(content) for relative, content in payload.items()}}
+        (target / install.MARKER).write_text(json.dumps(marker))
+        return target
+
     def test_dry_run_creates_nothing(self):
         result = install.install_into(self.source, self.destination, dry_run=True)
         self.assertEqual(result["status"], "plan")
@@ -125,7 +137,7 @@ class InstallTests(DistributionTest):
         with patch.object(install, "ROOT", self.source), contextlib.redirect_stdout(output):
             self.assertEqual(install.main(["--repo", str(project)]), 0)
         self.assertTrue((project / ".agents/skills/bandit/SKILL.md").is_file())
-        self.assertEqual(len(json.loads(output.getvalue())["skills"]), 6)
+        self.assertEqual(len(json.loads(output.getvalue())["skills"]), 5)
         for skill_name in install.SKILL_NAMES:
             self.assertTrue((project / ".agents/skills" / skill_name / "SKILL.md").is_file())
         self.assertFalse((project / "AGENTS.md").exists())
@@ -204,17 +216,17 @@ class InstallTests(DistributionTest):
         self.assertEqual(install.install_bundle(self.source, self.destination)["status"], "unchanged")
         self.assertEqual(install.tree_files(self.destination.parent), before)
 
-    def test_bundle_plan_has_all_six_destinations_without_creating_directories(self):
+    def test_bundle_plan_has_all_five_destinations_without_creating_directories(self):
         report = install.install_bundle(self.source, self.destination, dry_run=True)
         self.assertEqual(report["status"], "plan")
-        self.assertEqual(len(report["skills"]), 6)
-        self.assertTrue(any(item["path"] == "bandit-update/SKILL.md" for item in report["changes"]))
+        self.assertEqual(len(report["skills"]), 5)
+        self.assertTrue(any(item["path"] == "bandit-review/SKILL.md" for item in report["changes"]))
         self.assertFalse(self.destination.parent.exists())
 
     def test_later_specialist_conflict_prevents_every_update(self):
         install.install_bundle(self.source, self.destination)
         self.write("SKILL.md", "updated core")
-        (self.destination.parent / "bandit-update/SKILL.md").write_text("local specialist edit")
+        (self.destination.parent / "bandit-review/SKILL.md").write_text("local specialist edit")
         before = install.tree_files(self.destination.parent)
         with patch.object(install, "atomic_write") as writer, self.assertRaisesRegex(install.InstallError, "local modification"):
             install.install_bundle(self.source, self.destination)
@@ -237,7 +249,7 @@ class InstallTests(DistributionTest):
     def test_missing_later_specialist_source_prevents_core_update(self):
         install.install_into(self.source, self.destination)
         self.write("SKILL.md", "updated core")
-        shutil.rmtree(self.source / "skills/bandit-update")
+        shutil.rmtree(self.source / "skills/bandit-review")
         before = install.tree_files(self.destination.parent)
         with self.assertRaisesRegex(install.InstallError, "Missing directory"):
             install.install_bundle(self.source, self.destination)
@@ -254,7 +266,7 @@ class InstallTests(DistributionTest):
 
         def fail_later(path, data):
             nonlocal failed
-            if "bandit-update" in path.parts and path.name == "rules.md" and not failed:
+            if "bandit-review" in path.parts and path.name == "rules.md" and not failed:
                 failed = True
                 raise OSError("simulated later-skill I/O failure")
             return original(path, data)
@@ -267,8 +279,8 @@ class InstallTests(DistributionTest):
         install.install_bundle(self.source, self.destination)
         before_core = install.tree_files(self.destination)
         self.write("SKILL.md", "updated core")
-        self.write_skill("bandit-update", "references/rules.md", "updated specialist")
-        later = self.destination.parent / "bandit-update/references/rules.md"
+        self.write_skill("bandit-review", "references/rules.md", "updated specialist")
+        later = self.destination.parent / "bandit-review/references/rules.md"
         original = install.atomic_write
         edited = False
 
@@ -294,21 +306,164 @@ class InstallTests(DistributionTest):
             self.assertTrue((destination.parent / name / "SKILL.md").is_file())
 
     def test_core_destination_cannot_alias_a_specialist(self):
-        destination = self.destination.parent / "BANDIT-UPDATE"
+        destination = self.destination.parent / "BANDIT-REVIEW"
         with self.assertRaisesRegex(install.InstallError, "collides"):
             install.install_bundle(self.source, destination)
         self.assertFalse(destination.parent.exists())
 
     def test_core_destination_cannot_overlap_another_specialist_source(self):
         with self.assertRaisesRegex(install.InstallError, "overlap"):
-            install.install_bundle(self.source, self.source / "skills/bandit-update/custom-core")
+            install.install_bundle(self.source, self.source / "skills/bandit-review/custom-core")
 
     def test_existing_later_skill_lock_prevents_updates_and_keeps_that_lock(self):
         install.install_bundle(self.source, self.destination)
         self.write("SKILL.md", "updated core")
-        lock = self.destination.parent / ".bandit-update.bandit.lock"
+        lock = self.destination.parent / ".bandit-review.bandit.lock"
         lock.write_text("other installer")
         before = install.tree_files(self.destination.parent)
         with self.assertRaisesRegex(install.InstallError, "Install lock exists"):
             install.install_bundle(self.source, self.destination)
         self.assertEqual(install.tree_files(self.destination.parent), before)
+
+    def test_managed_retired_skills_are_removed_while_five_active_skills_are_installed(self):
+        for name in install.RETIRED_NAMES:
+            self.old_install(name)
+        report = install.install_bundle(self.source, self.destination)
+        self.assertEqual(report["status"], "updated")
+        self.assertEqual([item["name"] for item in report["skills"]], list(install.SKILL_NAMES))
+        self.assertEqual(len(report["commands"]), 5)
+        self.assertTrue(all(item["status"] == "retired" for item in report["retirements"]))
+        self.assertEqual({item["from"]: item["to"] for item in report["migrations"]}, install.MIGRATIONS)
+        for name in install.RETIRED_NAMES:
+            self.assertFalse((self.destination.parent / name).exists())
+            self.assertNotIn("$" + name, report["commands"])
+            self.assertTrue(any(item["skill"] == name and item["action"] == "remove" for item in report["changes"]))
+
+    def test_retirement_preserves_unmanaged_notes_and_removes_only_empty_owned_directories(self):
+        target = self.old_install("bandit-update")
+        (target / "my-notes.txt").write_text("keep my notes")
+        (target / "my-empty-directory").mkdir()
+        report = install.install_bundle(self.source, self.destination)
+        self.assertEqual((target / "my-notes.txt").read_text(), "keep my notes")
+        self.assertFalse((target / "SKILL.md").exists())
+        self.assertFalse((target / install.MARKER).exists())
+        self.assertFalse((target / "references").exists())
+        self.assertTrue((target / "my-empty-directory").is_dir())
+        self.assertEqual(next(item for item in report["retirements"] if item["name"] == "bandit-update")["status"], "retired")
+
+    def test_modified_retired_file_stops_every_install_before_writes(self):
+        install.install_into(self.source, self.destination)
+        self.write("SKILL.md", "updated core")
+        target = self.old_install("bandit-decide")
+        (target / "references/rules.md").write_text("local retirement edit")
+        before = install.tree_files(self.destination.parent)
+        with patch.object(install, "atomic_write") as writer, self.assertRaisesRegex(install.InstallError, "local modification in retired"):
+            install.install_bundle(self.source, self.destination)
+        writer.assert_not_called()
+        self.assertEqual(install.tree_files(self.destination.parent), before)
+
+    def test_unmanaged_retired_entrypoint_is_never_silently_left_or_removed(self):
+        target = self.destination.parent / "bandit-update"
+        target.mkdir(parents=True)
+        (target / "SKILL.md").write_text("my handwritten update skill")
+        before = install.tree_files(self.destination.parent)
+        with self.assertRaisesRegex(install.InstallError, "unmanaged retired SKILL.md"):
+            install.install_bundle(self.source, self.destination)
+        self.assertEqual(install.tree_files(self.destination.parent), before)
+        self.assertFalse(self.destination.exists())
+
+    def test_unmanaged_retired_entrypoint_conflicts_even_when_other_files_are_managed(self):
+        target = self.old_install("bandit-decide", {"references/rules.md": b"managed rule"})
+        (target / "SKILL.md").write_text("unmanaged entrypoint")
+        with self.assertRaisesRegex(install.InstallError, "unmanaged retired SKILL.md"):
+            install.install_bundle(self.source, self.destination)
+        self.assertEqual((target / "SKILL.md").read_text(), "unmanaged entrypoint")
+        self.assertFalse(self.destination.exists())
+
+    def test_missing_retired_owned_files_do_not_block_safe_retirement(self):
+        target = self.old_install("bandit-update")
+        (target / "SKILL.md").unlink()
+        report = install.install_bundle(self.source, self.destination)
+        self.assertEqual(report["status"], "updated")
+        self.assertFalse(target.exists())
+
+    def test_already_deleted_retired_contents_allow_marker_and_empty_directory_cleanup(self):
+        target = self.old_install("bandit-update")
+        (target / "SKILL.md").unlink()
+        (target / "references/rules.md").unlink()
+        install.install_bundle(self.source, self.destination)
+        self.assertFalse(target.exists())
+
+    def test_retired_deletions_roll_back_when_an_active_marker_write_fails(self):
+        install.install_into(self.source, self.destination)
+        old_targets = [self.old_install(name) for name in install.RETIRED_NAMES]
+        self.write("SKILL.md", "updated core")
+        before = install.tree_files(self.destination.parent)
+        original = install.atomic_write
+        failed = False
+
+        def fail_marker(path, data):
+            nonlocal failed
+            if path == self.destination / install.MARKER and not failed:
+                failed = True
+                self.assertTrue(all(not (target / "SKILL.md").exists() for target in old_targets))
+                raise OSError("simulated migration marker failure")
+            return original(path, data)
+
+        with patch.object(install, "atomic_write", side_effect=fail_marker), self.assertRaisesRegex(OSError, "migration marker"):
+            install.install_bundle(self.source, self.destination)
+        self.assertEqual(install.tree_files(self.destination.parent), before)
+
+    def test_retirement_rollback_preserves_a_concurrent_recreated_file(self):
+        install.install_into(self.source, self.destination)
+        target = self.old_install("bandit-update")
+        self.write("SKILL.md", "updated core")
+        before_core = install.tree_files(self.destination)
+        original = install.atomic_write
+        failed = False
+
+        def fail_after_edit(path, data):
+            nonlocal failed
+            if path == self.destination / install.MARKER and not failed:
+                failed = True
+                (target / "SKILL.md").write_text("concurrent replacement")
+                raise OSError("migration failure after concurrent edit")
+            return original(path, data)
+
+        with patch.object(install, "atomic_write", side_effect=fail_after_edit), self.assertRaisesRegex(OSError, "migration failure"):
+            install.install_bundle(self.source, self.destination)
+        self.assertEqual((target / "SKILL.md").read_text(), "concurrent replacement")
+        self.assertTrue((target / install.MARKER).exists())
+        self.assertEqual(install.tree_files(self.destination), before_core)
+
+    def test_retired_skill_lock_blocks_the_whole_transaction(self):
+        self.destination.parent.mkdir(parents=True)
+        lock = self.destination.parent / ".bandit-update.bandit.lock"
+        lock.write_text("another installer")
+        before = install.tree_files(self.destination.parent)
+        with self.assertRaisesRegex(install.InstallError, "Install lock exists"):
+            install.install_bundle(self.source, self.destination)
+        self.assertEqual(install.tree_files(self.destination.parent), before)
+        self.assertFalse(self.destination.exists())
+
+    def test_custom_core_destination_cannot_use_a_retired_name(self):
+        with self.assertRaisesRegex(install.InstallError, "collides"):
+            install.install_bundle(self.source, self.destination.parent / "BANDIT-DECIDE")
+        self.assertFalse(self.destination.parent.exists())
+
+    def test_unmanaged_notes_without_a_retired_entrypoint_are_preserved(self):
+        target = self.destination.parent / "bandit-update"
+        target.mkdir(parents=True)
+        (target / "notes.md").write_text("unmanaged notes")
+        report = install.install_bundle(self.source, self.destination)
+        self.assertEqual((target / "notes.md").read_text(), "unmanaged notes")
+        self.assertEqual(next(item for item in report["retirements"] if item["name"] == "bandit-update")["status"], "preserved")
+
+    def test_migration_plan_never_removes_retired_files(self):
+        target = self.old_install("bandit-decide")
+        before = install.tree_files(self.destination.parent)
+        report = install.install_bundle(self.source, self.destination, dry_run=True)
+        self.assertEqual(report["status"], "plan")
+        self.assertEqual(len(report["skills"]), 5)
+        self.assertEqual(install.tree_files(self.destination.parent), before)
+        self.assertTrue((target / "SKILL.md").exists())

@@ -3,6 +3,34 @@
 Distribution checks and planning behavior are reported separately. Product
 fixtures are synthetic. npm registry publication is deferred.
 
+## BANDIT 0.4.0 — scope and specification rewrites, 2026-09-08
+
+- Five active skill folders validate with exact names, invocation metadata,
+  complete local references, and **34 skill files**. All five passed the
+  official skill-creator validator. The retired `bandit-decide` and
+  `bandit-update` entrypoints are absent from the package.
+- Native npm installer, package consumption, and validator tests: **58 passed**.
+  Optional Python installer and source bundle tests: **71 passed**.
+- Upgrade checks cover unchanged retired files, missing managed files,
+  customized files, unrelated notes and empty directories, lock contention,
+  rollback after deletions, and preservation of concurrent edits. A conflicting
+  retired skill stops the entire upgrade before any active skill changes.
+- Actual v0.3.0 installations migrated successfully in both directions between
+  the Python and Node installers. Repeated v0.4.0 installation was unchanged.
+  A reproducible source ZIP installed all five skills and 34 files through its
+  extracted Node CLI with no Python available on PATH.
+- [Actual npm migration receipt](evals/results/2026-09-08-bandit-scope-specify/npm-upgrade.json):
+  public v0.3.0 upgraded through a locally served v0.4.0 tarball with a fresh
+  cache. The two retired entrypoints and ownership records were removed,
+  user notes were preserved, and a customized retired skill caused a complete
+  refusal with all project bytes unchanged.
+- [Three fresh planning tasks](evals/results/2026-09-08-bandit-scope-specify/README.md)
+  exercise `$bandit-scope`, creation through `$bandit-specify`, and rewriting
+  an existing PRD through the same `$bandit-specify` command. The last task
+  actually edits its isolated PRD; original inputs and the rewritten artifact
+  are recorded separately. These are focused development checks, not a new
+  comparative quality benchmark.
+
 ## BANDIT 0.3.0 — direct commands, 2026-09-08
 
 - [Release-commit CI](https://github.com/ch4570/bandit/actions/runs/34173461219):
@@ -100,7 +128,7 @@ To update, copy the new release's command. We do not describe rerunning a
 `releases/latest` alias as a reliable updater. This keeps first installation and
 upgrades as one command without adding a self-update service or registry dependency.
 
-## Current planning check
+## Earlier planning check
 
 A [fresh BANDIT task](evals/results/2026-09-07-bandit/README.md) completed after
 the rename and persona change. It stayed concise, recommended a provisional

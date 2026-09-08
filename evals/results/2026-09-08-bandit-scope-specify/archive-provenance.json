@@ -1,0 +1,80 @@
+{
+  "temporary_path_replacement": "<temporary-run-root>",
+  "files": {
+    "01-multiple-decisions--bandit-specify/metadata.json": {
+      "original_sha256": "a9c46474f7ddb4ec1b3e412c38ae37294ba0429d5ddf5b898f4e35c31b3074e5",
+      "archived_sha256": "8db2c152e8bb6c83e43773739fa2ac685807d60299bf3fbf8cc810a08aa7ac12",
+      "temporary_path_redacted": true
+    },
+    "01-multiple-decisions--bandit-specify/prompt.txt": {
+      "original_sha256": "6464623d5e6a88b0cc30b49095b018173844f1a4ec1a0ed088ea5c589e5097bb",
+      "archived_sha256": "6464623d5e6a88b0cc30b49095b018173844f1a4ec1a0ed088ea5c589e5097bb",
+      "temporary_path_redacted": false
+    },
+    "01-multiple-decisions--bandit-specify/output.md": {
+      "original_sha256": "4385988ed9f96e184f3b1b5f90a541e111697ea834def8fa247337bf8093b1e6",
+      "archived_sha256": "4385988ed9f96e184f3b1b5f90a541e111697ea834def8fa247337bf8093b1e6",
+      "temporary_path_redacted": false
+    },
+    "01-multiple-decisions--bandit-specify/events.jsonl": {
+      "original_sha256": "7ed946f6a51e3e42bf3789a42966f24017dc0fb1504bd37a41747d0a5268621a",
+      "archived_sha256": "7ed946f6a51e3e42bf3789a42966f24017dc0fb1504bd37a41747d0a5268621a",
+      "temporary_path_redacted": false
+    },
+    "01-multiple-decisions--bandit-specify/stderr.txt": {
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "temporary_path_redacted": false
+    },
+    "04-incomparable-scores--bandit-scope/metadata.json": {
+      "original_sha256": "3a8c1503522b6df71efc03a3204e33e7813bcfdcf470da06bd0b1ff077774cd3",
+      "archived_sha256": "b939385b32a2381e3d87e05727da4a1343b5185135dc5de5d9f08cb7f8a61039",
+      "temporary_path_redacted": true
+    },
+    "04-incomparable-scores--bandit-scope/prompt.txt": {
+      "original_sha256": "a2c299732742d96f6847eb9238f8211f4d5aebdd62c601840f6d843a0a4e0e18",
+      "archived_sha256": "a2c299732742d96f6847eb9238f8211f4d5aebdd62c601840f6d843a0a4e0e18",
+      "temporary_path_redacted": false
+    },
+    "04-incomparable-scores--bandit-scope/output.md": {
+      "original_sha256": "92a9e6b83aa39bde303fd1e048d87bde5aacd12c43d46da96563d280d747dedd",
+      "archived_sha256": "92a9e6b83aa39bde303fd1e048d87bde5aacd12c43d46da96563d280d747dedd",
+      "temporary_path_redacted": false
+    },
+    "04-incomparable-scores--bandit-scope/events.jsonl": {
+      "original_sha256": "d3ac6e2600fb24bc1dbf3d3e95814f8b39a333807ba333cd97e0150df75d5ef9",
+      "archived_sha256": "ef22382ef40124c0de90c9a5b83ff34293506c69861478fd8490e15901700f97",
+      "temporary_path_redacted": true
+    },
+    "04-incomparable-scores--bandit-scope/stderr.txt": {
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "temporary_path_redacted": false
+    },
+    "06-existing-spec-rewrite--bandit-specify/metadata.json": {
+      "original_sha256": "83e67ee63c69def3c56f3ffd1cf68e4c715a89bf255ce5d46012b591b4df343b",
+      "archived_sha256": "6746ae3d1f99a2d40ba866a2835785abdf02336b3c2f6e323b40e9d52872a85e",
+      "temporary_path_redacted": true
+    },
+    "06-existing-spec-rewrite--bandit-specify/prompt.txt": {
+      "original_sha256": "2b79b3743a5aaf73864fe0390ef420389f46ee523287b09aa9ea6b5352f35814",
+      "archived_sha256": "2b79b3743a5aaf73864fe0390ef420389f46ee523287b09aa9ea6b5352f35814",
+      "temporary_path_redacted": false
+    },
+    "06-existing-spec-rewrite--bandit-specify/output.md": {
+      "original_sha256": "e4df9dabedbe681bc9abd5d31a2812d889316f523f44f0c059ec294213a222e0",
+      "archived_sha256": "e4df9dabedbe681bc9abd5d31a2812d889316f523f44f0c059ec294213a222e0",
+      "temporary_path_redacted": false
+    },
+    "06-existing-spec-rewrite--bandit-specify/events.jsonl": {
+      "original_sha256": "8d52cd545d8948988de156fa01b3be7b551445dfa7d98dba3823a7fd5178d9a4",
+      "archived_sha256": "60b16df5be7796b9ed257048aa620e7cb1e5a16f2e7f31bc9873c865b955d769",
+      "temporary_path_redacted": true
+    },
+    "06-existing-spec-rewrite--bandit-specify/stderr.txt": {
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "temporary_path_redacted": false
+    }
+  }
+}

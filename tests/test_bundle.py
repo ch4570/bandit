@@ -39,6 +39,8 @@ class BundleTests(DistributionTest):
             for skill_name in install.SKILL_NAMES:
                 self.assertIn(f"skills/{skill_name}/SKILL.md", inventory["files"])
                 self.assertIn(f"skills/{skill_name}/references/rules.md", inventory["files"])
+            for retired_name in install.RETIRED_NAMES:
+                self.assertFalse(any(name.startswith(f"skills/{retired_name}/") for name in inventory["files"]))
             self.assertEqual(set(archive.namelist()), {prefix + name for name in inventory["files"]} | {prefix + build_bundle.INVENTORY})
             for name, expected in inventory["files"].items():
                 self.assertEqual(hashlib.sha256(archive.read(prefix + name)).hexdigest(), expected)
@@ -86,7 +88,7 @@ class BundleTests(DistributionTest):
         self.assertFalse((self.skill / "generated").exists())
 
     def test_build_rejects_output_inside_specialist_source(self):
-        output = self.source / "skills/bandit-update/generated"
+        output = self.source / "skills/bandit-review/generated"
         with self.assertRaisesRegex(install.InstallError, "bundled input"):
             build_bundle.build_bundle(self.source, output)
         self.assertFalse(output.exists())
@@ -120,5 +122,11 @@ class BundleTests(DistributionTest):
     def test_invalid_skill_cannot_be_packaged(self):
         (self.skill / "agents/openai.yaml").unlink()
         with self.assertRaisesRegex(install.InstallError, "validation failed"):
+            build_bundle.build_bundle(self.source, self.area / "out")
+        self.assertFalse((self.area / "out").exists())
+
+    def test_retired_skill_source_cannot_be_packaged(self):
+        self.write_skill("bandit-update", "SKILL.md", "obsolete command")
+        with self.assertRaisesRegex(install.InstallError, "Unexpected packaged skill"):
             build_bundle.build_bundle(self.source, self.area / "out")
         self.assertFalse((self.area / "out").exists())

@@ -5,12 +5,12 @@
 Install from your project folder, then start a new agent session if needed:
 
 ```sh
-npx --yes https://github.com/ch4570/bandit/releases/download/v0.3.0/bandit.tgz
+npx --yes https://github.com/ch4570/bandit/releases/download/v0.4.0/bandit.tgz
 ```
 
-The installer adds five specialist skills and the general `$bandit` skill. Use the command below for the task you need, then describe the desired result in your own words. For a combined request, use `$bandit` and let it choose the planning workflow.
+The installer adds four specialist skills and the general `$bandit` skill. Use the command below for the task you need, then describe the desired result in your own words. For a combined request, use `$bandit` and let it choose the planning workflow.
 
-**Upgrading from 0.2.0:** use the new 0.3.0 installation URL above in the same project, then start a new agent session to discover the specialist commands. Preserve your previous `--global` or destination option when applicable.
+**Upgrading from 0.2 or 0.3:** use the 0.4.0 command above in the same project, then start a new agent session. Preserve your previous `--global` or destination option when applicable. [Migration details](../INSTALL.md#upgrade-from-02-or-03).
 
 BANDIT keeps its working voice direct and professional; you do not need cowboy prompts or roleplay. Include the existing plan or source material when you have it, the decision to make, and constraints that would change the answer. Specify whether you want a proposal, a read-only review, or edits to a named document.
 
@@ -29,19 +29,19 @@ If live research tools are unavailable, the agent can assess supplied sources an
 
 [Skill instructions](../skills/bandit-research/SKILL.md).
 
-## Choose a useful MVP · `$bandit-decide`
+## Choose a useful MVP · `$bandit-scope`
 
 ```text
-$bandit-decide This plan has eleven P0 requirements. We have one developer
+$bandit-scope This plan has eleven P0 requirements. We have one developer
 and two weeks for a paid pilot. Keep the complete change-request approval
 journey, explain manual alternatives, and recommend what to defer.
 ```
 
 Expect a first use case that can be completed, a reason for each meaningful trade-off, and explicit effort assumptions. A rule such as “only five P0s” is not a substitute for preserving the conditions that make approval valid. Authorization, version identity, and duplicate effects may be conditions of one capability rather than separate features to cut.
 
-[Skill instructions](../skills/bandit-decide/SKILL.md).
+[Skill instructions](../skills/bandit-scope/SKILL.md).
 
-## Write a spec with product meaning · `$bandit-specify`
+## Create or rewrite a spec · `$bandit-specify`
 
 ```text
 $bandit-specify Turn these voting rules into a development handoff. There are
@@ -53,6 +53,17 @@ and what must be preserved if the decision is reopened.
 Expect concrete actors, objects, conditions, state changes, exceptions, and acceptance scenarios. The agent should identify missing decisions, propose reasonable draft choices where delegated, and distinguish those proposals from accepted policy. A generic record CRUD list cannot define the meaning of a vote or an approval.
 
 The handoff can describe the minimum data relationships needed to explain behavior. It does not need to choose a database, invent APIs, or rewrite the application's architecture.
+
+Use the same command when an existing spec needs a new direction:
+
+```text
+$bandit-specify Rewrite docs/PRD.md for a free shared workspace instead
+of our paid solo plan. Reorganize the sections and replace rules that no
+longer fit. Make permissions, onboarding, metrics, and acceptance criteria
+agree. Keep old pilot results with their original price and conditions.
+```
+
+Expect a coherent revised specification, including any needed restructuring and rule changes. The requested scope determines how much to rewrite. Follow changed requirements into related metrics, experiments, and checks; preserve unrelated accepted decisions and the meaning of historical results. A new direction does not retroactively validate itself with an old pilot.
 
 [Skill instructions](../skills/bandit-specify/SKILL.md).
 
@@ -69,21 +80,6 @@ Expect a scoped assessment with the scenario, expected rule, available evidence,
 Reviewing a PRD does not exercise the product. Source inspection, a screenshot, a local demonstration, a passing test, and customer outcomes support different claims.
 
 [Skill instructions](../skills/bandit-review/SKILL.md).
-
-## Update a decision and its consequences · `$bandit-update`
-
-```text
-$bandit-update Update our existing plan for a free shared workspace instead
-of a paid solo plan. Trace changes to permissions, costs, onboarding,
-metrics, and the next experiment. Preserve the old pilot results with
-their original price and product conditions.
-```
-
-Expect a bounded change that follows the affected decisions through the plan. Existing evidence remains attached to the conditions under which it was collected. A new price and new sharing feature do not retroactively explain the old pilot's results or isolate the causal effect of price.
-
-If different documents own product scope, transaction rules, and business assumptions, keep those responsibilities and update the relevant references. A new master document is not required.
-
-[Skill instructions](../skills/bandit-update/SKILL.md).
 
 ## Keep the output proportionate
 

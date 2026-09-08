@@ -1,9 +1,29 @@
 # Product specification
 
-Use this reference to turn a product decision into requirements someone can implement and verify.
+Use this reference to create or rewrite product requirements someone can implement and verify.
 Start at the requested feature or journey; a small change needs only its affected rules and checks.
-Reuse the current plan, terminology, and designated domain documents.
+Read the current plan, terminology, and designated domain documents before drafting.
 The optional [plan template](../assets/plan-template.md) is for a new durable plan, not a replacement for an existing PRD.
+
+## Create or rewrite the specification
+
+Check relevant project documents for an existing specification. If one exists,
+use it as the baseline; otherwise create the requested new plan. The presence of
+an old spec is not a reason to ask the user to choose a different command.
+
+When the user changes the product direction or requests a rewrite, rebuild the
+document around the adopted direction. Reorganize sections, replace obsolete
+rules, and revise scope, flows, metrics, and acceptance criteria together as
+needed. Produce a coherent current specification, rather than an appended set
+of changes that leaves conflicting rules in place. A narrow change can remain
+a targeted edit; existing content does not make a full rewrite mandatory.
+
+For changed decisions or new evidence, apply [change guidance](changes.md).
+Carry forward unaffected requirements and preserve previous observations with
+their original conditions. Old successful checks may become historical or need
+rechecking; they do not become new results for the rewritten product. Use the
+project's existing history mechanism or a concise historical section, without
+forcing a separate ledger or a new approval step.
 
 ## Establish the intended behavior
 

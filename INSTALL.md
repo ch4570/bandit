@@ -7,48 +7,27 @@
 Open your project folder and run:
 
 ```sh
-npx --yes https://github.com/ch4570/bandit/releases/download/v0.3.0/bandit.tgz
+npx --yes https://github.com/ch4570/bandit/releases/download/v0.4.0/bandit.tgz
 ```
 
-Requires **Node.js 22+ and npm**. The command downloads BANDIT 0.3.0 from GitHub and installs all six skills into the current project's `.agents/skills/`. No Git, clone, Python, package configuration, or API key is needed.
+Requires **Node.js 22+ and npm**. This installs all five skills into the current project's `.agents/skills/`. Git, cloning, Python, package configuration, and API keys are unnecessary.
 
 Then ask your agent:
 
 ```text
-$bandit-decide Turn this idea into a two-week MVP plan. Recommend the scope,
-explain the trade-offs, and use our existing planning document.
+$bandit-scope Set the MVP scope for this idea. We have one developer and
+two weeks. Recommend what to include, defer, and handle manually.
 ```
 
-The installation adds these commands:
+| Command | Task | Installed folder |
+| --- | --- | --- |
+| `$bandit-research` | Research evidence and experiments | `.agents/skills/bandit-research/` |
+| `$bandit-scope` | Set MVP scope and priorities | `.agents/skills/bandit-scope/` |
+| `$bandit-specify` | Create or rewrite a product spec | `.agents/skills/bandit-specify/` |
+| `$bandit-review` | Review an existing plan | `.agents/skills/bandit-review/` |
+| `$bandit` | Combine planning tasks | `.agents/skills/bandit/` |
 
-| Command | Installed folder |
-| --- | --- |
-| `$bandit-research` | `.agents/skills/bandit-research/` |
-| `$bandit-decide` | `.agents/skills/bandit-decide/` |
-| `$bandit-specify` | `.agents/skills/bandit-specify/` |
-| `$bandit-review` | `.agents/skills/bandit-review/` |
-| `$bandit-update` | `.agents/skills/bandit-update/` |
-| `$bandit` | `.agents/skills/bandit/` |
-
-The five specialists handle their named tasks directly. Use `$bandit` for a combined planning request. [Commands and examples](README.md#skill-commands-and-usage).
-
-The npm registry package is **not published yet**. Use the GitHub command above; `npx @ch4570/bandit` is reserved for a future registry release.
-
-## Release archives
-
-The command above pins the installer and all six skills to **0.3.0**. Release archives and checksums are available on [v0.3.0](https://github.com/ch4570/bandit/releases/tag/v0.3.0). `bandit.tgz` and `ch4570-bandit-0.3.0.tgz` on that release contain the same package.
-
-A checksum verifies that a downloaded archive matches the published file; it does not assess the quality of the skill's output.
-
-## Short GitHub command
-
-If Git is already installed, the shorter command also works:
-
-```sh
-npx --yes github:ch4570/bandit
-```
-
-This follows the repository's default branch, which can differ from the latest release. The archive command above is the default route for published releases.
+[Commands and examples](README.md#skill-commands-and-usage) explain each task. **The npm registry package is not published yet.** Use the GitHub archive command above; `npx @ch4570/bandit` is reserved for a future registry release.
 
 ## Choose where to install
 
@@ -56,81 +35,90 @@ The default is your current project. Append an option to the same install comman
 
 | Option | Destination |
 | --- | --- |
-| None | All six skill folders under the current project's `.agents/skills/` |
-| `--global` | All six under `$CODEX_HOME/skills/`, or `~/.codex/skills/` when `CODEX_HOME` is unset |
-| `--repo /path/to/project` | All six under that project's `.agents/skills/` |
-| `--dest /path/to/skills/bandit` | General `bandit` skill at this exact path; the five specialists beside it |
+| None | All five folders under the current project's `.agents/skills/` |
+| `--global` | All five under `$CODEX_HOME/skills/`, or `~/.codex/skills/` when `CODEX_HOME` is unset |
+| `--repo /path/to/project` | All five under that project's `.agents/skills/` |
+| `--dest /path/to/skills/bandit` | General `bandit` skill at this exact path; the four specialists beside it |
 
-Choose only one destination option. Quote paths containing spaces. `--dest` is the exact directory for the general `bandit` skill. The installer puts `bandit-research`, `bandit-decide`, `bandit-specify`, `bandit-review`, and `bandit-update` in the same parent directory. A custom name is allowed for the general directory, but it cannot collide with a specialist's name. Use the discovery location supported by your host.
+Choose one destination option. Quote paths containing spaces. `--dest` names the exact general-skill directory, including its final folder. A custom name is allowed, but it cannot match an active or retired specialist's name. The other four folders use their standard names in the same parent directory.
 
-To see the changes before installing:
+For personal Codex use across projects:
 
 ```sh
-npx --yes https://github.com/ch4570/bandit/releases/download/v0.3.0/bandit.tgz --plan
+npx --yes https://github.com/ch4570/bandit/releases/download/v0.4.0/bandit.tgz --global
 ```
 
-For script-friendly output, add `--json`; it emits a JSON result on stdout, including errors. Normal errors use stderr. Errors exit with status 2. `--help` lists options and `--version` shows the installer version. The explicit `install` subcommand is optional; the short command already performs installation.
+To preview the installation and any migration without changing the skill folders:
 
-The same npx commands work in a terminal or PowerShell. [Validation](VALIDATION.md) records the platforms and commands actually tested.
-
-## If the agent cannot find BANDIT
-
-Start a new agent session or refresh the host's skill discovery. In hosts that support named skills, use the command for the task, such as `$bandit-review`. Otherwise point to that skill's installed file:
-
-```text
-Read .agents/skills/bandit-review/SKILL.md and apply it to review our PRD.
-Report the gaps and proposed fixes without editing the original.
+```sh
+npx --yes https://github.com/ch4570/bandit/releases/download/v0.4.0/bandit.tgz --plan
 ```
 
-Each skill includes Codex metadata, Markdown instructions, and its own references. Other agents can read those instructions directly. Discovery, reference loading, and task execution are separate behaviors; check them in the host you use.
+Add `--json` for machine-readable results, including errors, on stdout. Normal errors use stderr; errors exit with status 2. `--help` lists options and `--version` shows the installer version. The explicit `install` subcommand is optional.
 
-BANDIT contains instructions and an installer. The agent supplies its model, filesystem access, and any live research tools under its existing permissions and usage costs.
+## Upgrade from 0.2 or 0.3
 
-## Upgrade from 0.2.0
+Run the **0.4.0 command above** against the same project. Include the same `--global` or custom destination option if applicable, then start a new agent session.
 
-Run the **0.3.0 command above** against the same project. It updates the general `bandit` skill and adds all five specialist folders. Include the same `--global` or custom destination option if that is how you installed before. Start a new agent session so it can discover the new commands.
+- **From 0.2:** the installer updates the general skill and adds the four current specialists.
+- **From 0.3:** use `$bandit-scope` for the work previously handled by `$bandit-decide`. Use `$bandit-specify` for both new specs and the changes previously handled by `$bandit-update`.
 
-The old 0.2.0 installer contains only the general skill; repeating its old command cannot add the specialists.
+The installer automatically removes unchanged, managed files and ownership records from the retired `bandit-decide` and `bandit-update` installations. Unrelated notes remain; a folder containing those notes can remain after its skill is retired. Files you already deleted from a retired installation are not restored.
+
+If a retired skill has modified managed files, an invalid ownership record, or an unmanaged `SKILL.md`, the whole upgrade stops before changing the skills. Preserve your customizations and move the conflicting old skill outside the host's discovery directory, then rerun the command. A folder containing only unrelated notes does not block migration.
+
+The old installer stays on its old version. Repeating a 0.2 or 0.3 command cannot install the current command set.
 
 ## Updates and local changes
 
-To update, copy the installation command from the [current README](https://github.com/ch4570/bandit#saddle-up), which names the current release version. Run it against the same project, or include the same `--global` or destination option you used before. Repeating a fixed-version command keeps that version.
+For a future version, copy the install command from the [current README](https://github.com/ch4570/bandit#saddle-up) and use the same destination. The versioned URL ensures npm can distinguish the new release from an earlier cached package.
 
-The installer recognizes its managed files, leaves identical files alone, and checks all six destinations for local conflicts before changing anything. It preserves unrelated files and reports conflicting customizations instead of overwriting them. There is no force-overwrite option.
+The installer checks the current and retired skill destinations before applying changes. Identical managed files stay untouched. Conflicting edits are reported and preserved; there is no force-overwrite option. To compare versions, choose a `--dest` under a separate parent directory so all specialist folders are separate too.
 
-The optional `releases/latest/download/bandit.tgz` URL can be used for a first installation, but npm may keep executing its earlier cached package when that URL changes. `--prefer-online` did not resolve this in our check. Use a versioned release URL for updates.
+The optional `releases/latest/download/bandit.tgz` URL can work for a first installation, but npm may keep executing its earlier cached package when that URL changes. `--prefer-online` did not resolve this in our check. Use a versioned release URL for updates.
 
-If a local edit conflicts, keep a copy of your customized skill. Install the new release with `--dest` under a separate parent directory for comparison, or deliberately remove the old skill folder after preserving your changes. Do not delete other skills or project files.
+An older **PM Craft 0.1.0** folder is reported and left untouched. Preserve any customizations before removing that old folder yourself.
 
-If you previously installed **PM Craft 0.1.0**, BANDIT uses the six new folders and commands listed above. The installer reports a sibling `pm-craft` folder and leaves it untouched. Keep the old folder while reviewing any customizations; remove only the old `pm-craft` skill folder when you are ready. Renaming the repository does not update an installed copy automatically.
+## If the agent cannot find a command
 
-## Optional global command
+Start a new agent session or refresh its skill discovery. In hosts supporting named skills, use a command such as `$bandit-specify`. Otherwise point to the installed file:
 
-If you prefer to keep the installer command on your PATH:
-
-```sh
-npm install -g github:ch4570/bandit
-bandit
+```text
+Read .agents/skills/bandit-specify/SKILL.md and use it to rewrite our PRD
+for the new direction described below.
 ```
 
-Run `bandit` in each project that should receive all six skills. `npm install -g` installs the **CLI**; `bandit --global` installs **all six skills for Codex across projects**. These are separate choices. The default npx command requires neither a permanent CLI installation nor global npm write access. This optional GitHub shorthand route requires Git.
+Each skill includes its own Markdown instructions, references, and Codex metadata. Your host supplies the model, file access, and research tools under its existing permissions and usage costs. [Validation](VALIDATION.md) records what has actually been checked.
 
-## Manual copy and removal
+## Release archives and other install methods
 
-You can also copy any of the six complete skill folders from the repository's `skills/` directory into the discovery directory your agent supports. Each is self-contained. Keep its `SKILL.md`, references, assets, and metadata together. Manual copying can work offline once you have the files; live research still needs the host's tools.
+The command above pins the installer and all five skills to **0.4.0**. [Release v0.4.0](https://github.com/ch4570/bandit/releases/tag/v0.4.0) provides `bandit.tgz`, the identical `ch4570-bandit-0.4.0.tgz`, and checksums.
 
-To remove the full set, preserve your customizations and delete only the six installed folders named in the command table above. With a custom `--dest`, use the exact general skill folder you chose. Your planning documents remain in your project. If you also installed the optional global CLI, remove it with `npm uninstall -g @ch4570/bandit`.
+If Git is installed, the shorter command follows the repository's default branch:
+
+```sh
+npx --yes github:ch4570/bandit
+```
+
+That branch can differ from the current release. To keep the installer on your PATH instead, use `npm install -g github:ch4570/bandit`, then run `bandit` in your project. Installing the global CLI and installing the skills with `bandit --global` are separate choices.
+
+For manual or offline installation, copy the complete skill folders from `skills/` into the discovery directory supported by your host. Each folder is self-contained; keep its instructions, references, assets, and metadata together. Manual copies do not automatically migrate old installations.
+
+## Remove
+
+Preserve your customizations, then delete only the five installed folders named in the command table. With a custom `--dest`, use the exact general-skill folder you chose. Keep any retained notes from retired skills. Planning documents remain in your project.
+
+If you also installed the optional global CLI, remove it with `npm uninstall -g @ch4570/bandit`.
 
 ## Troubleshooting
 
 | Symptom | Try this |
 | --- | --- |
 | `npx` is unavailable or Node is too old | Install Node.js 22 or newer, which includes npm |
-| GitHub shorthand cannot find Git | Use the [default release archive command](#one-command) |
-| `npx @ch4570/bandit` cannot find a package | Use `npx --yes https://github.com/ch4570/bandit/releases/download/v0.3.0/bandit.tgz`; registry publication is deferred |
-| Rerunning an old command keeps an old version | Copy the versioned command from the current README |
-| Installer reports a conflicting file | Preserve the customization and compare in a separate destination |
-| Installer rejects a linked path | Use the real directory path shown by your filesystem |
-| Only `$bandit` appears after a 0.2.0 installation | Run the 0.3.0 command, then refresh or restart the agent session |
-| Agent cannot load a reference | Check that the entire skill folder was copied |
-| Installation works but the plan is poor | Share a small sanitized task and actual output through [Support](SUPPORT.md) |
+| GitHub shorthand cannot find Git | Use the versioned archive command at the top |
+| Registry package cannot be found | Use the GitHub archive command; registry publication is deferred |
+| Old commands still appear | Run the 0.4.0 installer, then refresh or restart your agent session |
+| Upgrade reports a retired-skill conflict | Preserve the old customized skill and move it outside discovery before retrying |
+| Installer rejects a linked path | Use the real directory path |
+| A reference cannot be loaded | Check that the complete skill folder was copied |
+| Installation works but the plan is poor | Share a sanitized task and actual output through [Support](SUPPORT.md) |

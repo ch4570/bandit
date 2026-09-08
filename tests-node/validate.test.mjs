@@ -35,7 +35,7 @@ test('Node alone validates the distributable and excludes historical evidence fr
   const report = await f.validate();
   assert.equal(report.ok, true, report.errors.join('\n'));
   assert.equal(report.version, '0.2.0');
-  assert.equal(report.skillFiles, 18);
+  assert.equal(report.skillFiles, 15);
   assert.deepEqual(report.skills.map((skill) => skill.name), SKILL_NAMES);
   assert.match(report.checks, /no claim/u);
 });
@@ -116,10 +116,10 @@ test('missing distribution root produces a structured failure', async (t) => {
 
 test('a valid core cannot hide a missing specialist', async (t) => {
   const f = await fixture(t);
-  await rm(path.join(f.root, 'skills/bandit-update'), { recursive: true });
+  await rm(path.join(f.root, 'skills/bandit-review'), { recursive: true });
   const report = await f.validate();
   assert.equal(report.ok, false);
-  assert.ok(report.errors.some((error) => error.includes('bandit-update')));
+  assert.ok(report.errors.some((error) => error.includes('bandit-review')));
 });
 
 test('specialists must keep their exact metadata and invocation identity', async (t) => {
@@ -147,4 +147,21 @@ test('specialists cannot depend on a sibling skill even when that file exists', 
   const report = await f.validate();
   assert.equal(report.ok, false);
   assert.ok(report.errors.some((error) => error.includes('bandit-review') && error.includes('leaves its package')));
+});
+
+test('retired commands cannot remain in the packaged skill tree', async (t) => {
+  const f = await fixture(t);
+  for (const name of ['bandit-decide', 'bandit-update']) await f.write(`skills/${name}/SKILL.md`, '# Obsolete command\n');
+  const report = await f.validate();
+  assert.equal(report.ok, false);
+  assert.ok(report.errors.some((error) => error.includes('Unexpected packaged skill: bandit-decide')));
+  assert.ok(report.errors.some((error) => error.includes('Unexpected packaged skill: bandit-update')));
+});
+
+test('unknown skills cannot bypass the canonical package inventory', async (t) => {
+  const f = await fixture(t);
+  await f.write('skills/bandit-unknown/SKILL.md', '# Unexpected command\n');
+  const report = await f.validate();
+  assert.equal(report.ok, false);
+  assert.ok(report.errors.some((error) => error.includes('Unexpected packaged skill: bandit-unknown')));
 });

@@ -164,6 +164,12 @@ def validate(root: Path) -> dict:
         except (ValueError, AttributeError, OSError) as exc:
             errors.append(f"package.json: {exc}")
     skills = []
+    try:
+        for entry in (root / "skills").iterdir():
+            if entry.name not in install.SKILL_NAMES and entry.name not in install.IGNORED:
+                errors.append(f"Unexpected packaged skill: {entry.name}")
+    except OSError as exc:
+        errors.append(f"skills: {exc}")
     for skill_name in install.SKILL_NAMES:
         count, skill_errors = validate_skill(root, skill_name)
         skills.append({"name": skill_name, "skill_files": count})

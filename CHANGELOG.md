@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.4.0 — Clearer planning tasks
+
+- Use `$bandit-scope` for MVP scope, priorities, and trade-offs, replacing `$bandit-decide`.
+- Combine new specifications and changes to existing specifications in `$bandit-specify`. It can rewrite the necessary document structure and product rules while preserving historical evidence under its original conditions.
+- Retire the standalone `$bandit-update` command. The current set is research, scope, specify, review, and the optional general `$bandit` skill.
+- Install the five current skills with one versioned npm command. Upgrade existing installations and remove unchanged managed files from the retired skills automatically.
+- Preserve unrelated notes from retired folders and stop the complete upgrade when a retired skill contains conflicting customizations.
+- Show both new-spec and existing-spec examples directly in the English and Korean READMEs.
+
+npm registry publication remains deferred. [Validation](VALIDATION.md) records checks actually completed for this release.
+
 ## 0.3.0 — Separate planning commands
 
 - Add five independently invocable skills: `$bandit-research`, `$bandit-decide`, `$bandit-specify`, `$bandit-review`, and `$bandit-update`.

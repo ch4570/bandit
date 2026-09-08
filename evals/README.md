@@ -10,9 +10,9 @@ and an explicitly inconclusive quality comparison. PM Craft used more reported
 input tokens in the three paired cases; no token-savings claim is made.
 
 Those outputs and hashes are preserved under the original PM Craft name. They
-are not new BANDIT 0.2.0 measurements. To reproduce the historical PM Craft arm,
+are not new BANDIT measurements. To reproduce the historical PM Craft arm,
 use the runner from git tag `v0.1.0`. The current runner supports the general
-`--arm bandit` and the five directly invoked specialist arms.
+`--arm bandit` and the four directly invoked specialist arms.
 
 A [focused BANDIT 0.2.0 forward check](results/2026-09-07-bandit/README.md)
 records the rebranded skill performing one small planning task. It is not a
@@ -22,18 +22,26 @@ The [BANDIT 0.3.0 specialist checks](results/2026-09-08-bandit-commands/README.m
 exercise all five direct `$bandit-*` invocations in fresh local projects.
 Their outputs, logs, and installer upgrade receipt are recorded separately.
 
+The [BANDIT 0.4.0 scope and specification checks](results/2026-09-08-bandit-scope-specify/README.md)
+record three fresh tasks: scope selection, a new specification, and an actual
+existing-PRD rewrite. Original inputs and the rewritten artifact are preserved
+separately. These are development checks, not a new comparative benchmark.
+
 ## Cases
 
-| Case | Mode and decision |
+| Case | Planning task |
 | --- | --- |
 | [01 — multiple decisions](cases/01-multiple-decisions/request.md) | Specify separate lodging/date votes in one accountless trip |
-| [02 — offer change](cases/02-offer-change/request.md) | Update price and sharing rules; interpret pilot evidence |
+| [02 — offer change](cases/02-offer-change/request.md) | Specify changed price and sharing rules; interpret pilot evidence |
 | [03 — intent review](cases/03-intent-review/request.md) | Review adopted policy against a newer code-derived PRD and an unexecuted test |
-| [04 — incomparable scores](cases/04-incomparable-scores/request.md) | Prioritize when RICE units, confidence, and effort are incompatible |
+| [04 — incomparable scores](cases/04-incomparable-scores/request.md) | Scope priorities when RICE units, confidence, and effort are incompatible |
 | [05 — small research](cases/05-small-research/request.md) | Recommend one cheap test without customer data or a workshop |
+| [06 — existing spec rewrite](cases/06-existing-spec-rewrite/request.md) | Rewrite an existing PRD for free team collaboration while preserving approval rules and historical evidence conditions |
 
-The [rubric](RUBRIC.md) was written before the recorded runs. It grades observable
-meaning, including failures, rather than matching headings. The cases reflect
+The [rubric](RUBRIC.md) for cases 01–05 was written before those recorded runs.
+It grades observable meaning, including failures, rather than matching headings.
+Case 06 is checked against its request and the original and rewritten artifacts;
+it has no independent rubric score. The cases reflect
 design concerns already used to create the skill: they are development checks,
 not a hidden or representative benchmark of all PM work.
 
@@ -41,8 +49,10 @@ not a hidden or representative benchmark of all PM work.
 
 An independent agent receives only the user's request, raw fixtures, and the
 skill with its relevant references. It receives no rubric, desired answer,
-suspected defect, or previous output. Product inputs stay read-only and no
-customer outreach or live experiment is run.
+suspected defect, or previous output. Product inputs stay read-only by default.
+The optional `--edit-artifact` run uses a writable workspace and instructs the
+agent to edit only the named input artifact; before/after hashes check whether
+it respected that scope. No customer outreach or live experiment is run.
 
 For paired diagnostic runs, each condition receives the same case and output
 cap in a fresh Codex CLI task:
@@ -66,16 +76,25 @@ need Python 3.11+. Installations of Codex with different CLI flags may require
 adapting the runner; the recorded runs identify the CLI version.
 
 ```sh
-python3 evals/run_local.py --case 04-incomparable-scores --arm bandit-decide --output-dir /absolute/path/to/new-runs
+python3 evals/run_local.py --case 04-incomparable-scores --arm bandit-scope --output-dir /absolute/path/to/new-runs
 python3 evals/run_local.py --case 04-incomparable-scores --arm baseline --output-dir /absolute/path/to/new-runs
 ```
 
-Specialist arms are `bandit-research`, `bandit-decide`, `bandit-specify`,
-`bandit-review`, and `bandit-update`. These copy all six skill folders into
+Specialist arms are `bandit-research`, `bandit-scope`, `bandit-specify`,
+and `bandit-review`. These copy all five skill folders into
 the isolated project's `.agents/skills/` and invoke the selected `$bandit-*`
 name in the prompt. Inspect the execution log to confirm the agent read that
 entrypoint. The general `bandit` arm retains the explicit instruction snapshot
 method used by the earlier runner.
+
+To check a real artifact rewrite, permit the PRD named in case 06:
+
+```sh
+python3 evals/run_local.py --case 06-existing-spec-rewrite --arm bandit-specify --edit-artifact input/docs/PRD.md --output-dir /absolute/path/to/new-runs
+```
+
+The runner retains the original input files separately. Review the resulting
+PRD and the before/after hashes, not just the agent's final reply.
 
 For upstream, use a clean checkout at the pinned commit:
 
@@ -87,8 +106,9 @@ python3 evals/run_local.py --case 04-incomparable-scores --arm upstream --upstre
 
 Each run preserves the prompt, input and instruction hashes, final output,
 events, error output, exit code, and elapsed time. Existing run directories are
-never reused. Review full outputs against the fixed rubric before revising the
-skill. Report partial results and failed runs alongside successes.
+never reused. Review full outputs against the applicable rubric or case request
+before revising the skill. Report partial results and failed runs alongside
+successes.
 
 ## Interpretation limits
 

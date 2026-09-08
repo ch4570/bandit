@@ -4,7 +4,7 @@
 
 **An outlaw with a plan. Your next product move, made clear.**
 
-[한국어](README.ko.md) · [Install](INSTALL.md) · [Commands & usage](#skill-commands-and-usage) · [Examples](examples/README.md) · [v0.3.0](https://github.com/ch4570/bandit/releases/tag/v0.3.0)
+[한국어](README.ko.md) · [Install](INSTALL.md) · [Commands & usage](#skill-commands-and-usage) · [Examples](examples/README.md) · [v0.4.0](https://github.com/ch4570/bandit/releases/tag/v0.4.0)
 
 BANDIT is your product-planning partner: a sharp raccoon in a cowboy hat, armed with a pencil and a map. Bring an idea, an overloaded roadmap, or a half-written PRD. Leave with a useful decision and a plan someone can build.
 
@@ -13,33 +13,32 @@ BANDIT is your product-planning partner: a sharp raccoon in a cowboy hat, armed 
 Run this **inside your project**:
 
 ```sh
-npx --yes https://github.com/ch4570/bandit/releases/download/v0.3.0/bandit.tgz
+npx --yes https://github.com/ch4570/bandit/releases/download/v0.4.0/bandit.tgz
 ```
 
 Then ask your agent:
 
 ```text
-$bandit-decide Help me turn this idea into a two-week MVP. Recommend the
+$bandit-scope Help me turn this idea into a two-week MVP. Recommend the
 smallest useful scope, explain the trade-offs, and draft the plan.
 ```
 
-Requires **Node.js 22+ and npm**. Installs **six skills** into `.agents/skills/`, including all five specialist commands below. No Git, cloning, or Python setup. [Installation options](INSTALL.md).
+Requires **Node.js 22+ and npm**. Installs **five skills** into `.agents/skills/`, including all four specialist commands below. No Git, cloning, or Python setup. [Installation options](INSTALL.md).
 
-**Upgrading from 0.2.0?** Run the 0.3.0 command above in the same project, then start a new agent session to load the specialist skills. Use the same `--global` or destination option if applicable.
+**Upgrading from 0.2 or 0.3?** Run the 0.4.0 command above in the same project, then start a new agent session. Use the same `--global` or destination option if applicable. [Upgrade details](INSTALL.md#upgrade-from-02-or-03).
 
-The npm registry release comes later; the command above installs directly from GitHub. If your agent does not recognize `$bandit-decide`, ask it to read `.agents/skills/bandit-decide/SKILL.md` and use it for the task. Refresh or start a new agent session if necessary.
+The npm registry release comes later; the command above installs directly from GitHub. If your agent does not recognize `$bandit-scope`, ask it to read `.agents/skills/bandit-scope/SKILL.md` and use it for the task. Refresh or start a new agent session if necessary.
 
 ## Skill commands and usage
 
-One installation gives you **five specialist skills and the general `$bandit` skill**. Choose a command and add your request. Each specialist has its own instructions and can be invoked directly.
+One installation gives you **four specialist skills and the general `$bandit` skill**. Choose a command and add your request. Each specialist has its own instructions and can be invoked directly.
 
 | Command | When to use it | Expected deliverable |
 | --- | --- | --- |
-| [`$bandit-research`](#research) | Research a customer problem, alternatives, demand, or an experiment | Evidence, assumptions, a supported conclusion, and the next useful test |
-| [`$bandit-decide`](#decide) | Choose an option, prioritize features, or fit an MVP to capacity | Recommended scope, trade-offs, deferred work, and conditions for revisiting the choice |
-| [`$bandit-specify`](#specify) | Turn a product direction into requirements for development | Actors, rules, states, permissions, exceptions, and acceptance scenarios |
-| [`$bandit-review`](#review) | Find consequential gaps or conflicts in an existing plan | Findings tied to source sections, consequences, and proposed corrections |
-| [`$bandit-update`](#update) | Incorporate a changed decision or newly observed result | Updated planning sections, affected dependencies, preserved history, and checks to revisit |
+| [`$bandit-research`](#research) | Research customer problems, alternatives, demand, or an experiment | Evidence, assumptions, and the next useful test |
+| [`$bandit-scope`](#scope) | Set MVP scope and feature priorities within your capacity | Included, deferred, and excluded work, trade-offs, and key dependencies |
+| [`$bandit-specify`](#specify) | Create a spec or rewrite an existing one for a new direction | A coherent PRD, product rules, acceptance scenarios, and preserved evidence |
+| [`$bandit-review`](#review) | Inspect a plan for consequential gaps or conflicts | Findings tied to source sections, consequences, and proposed corrections |
 | [`$bandit`](#general-planning) | Combine planning tasks or let BANDIT choose the workflow | A plan or recommendation matched to your overall request |
 
 Replace the example ideas and document paths with your own. Include existing sources, constraints such as time and team size, and the output you want.
@@ -54,17 +53,19 @@ assumptions, and propose the smallest next test of paid demand.
 
 Get a focused evidence brief and experiment proposal. Free signups, stated interest, and actual payment support different claims; unavailable evidence remains unverified. Live research depends on your agent's tools. Without browsing, BANDIT can assess supplied sources and prepare a research plan. [Research guidance](skills/bandit-research/SKILL.md).
 
-### Decide
+### Scope
 
 ```text
-$bandit-decide Reduce the attached PRD to a two-week pilot for one developer.
+$bandit-scope Reduce the attached PRD to a two-week pilot for one developer.
 Keep the complete request → client approval → result lookup journey.
 Recommend what to defer and where a manual step is enough.
 ```
 
-Get a complete first use case, kept and deferred scope, trade-offs, and material capacity assumptions. Essential permissions and recovery stay connected to the outcome they protect. [Decision guidance](skills/bandit-decide/SKILL.md).
+Get a complete first use case, kept and deferred scope, trade-offs, and material capacity assumptions. Essential permissions and recovery stay connected to the outcome they protect. [Scope guidance](skills/bandit-scope/SKILL.md).
 
 ### Specify
+
+Create a new spec:
 
 ```text
 $bandit-specify Write a spec for a shared vote with five participants. Define
@@ -72,7 +73,16 @@ response changes, a 2–2 tie with one missing vote, closing, and reopening.
 Recommend draft rules for decisions we have not made yet.
 ```
 
-Get implementable product rules with actors, state changes, exceptions, and observable acceptance scenarios. Proposed defaults remain distinguishable from accepted decisions. [Specification guidance](skills/bandit-specify/SKILL.md).
+Or rewrite an existing spec around a changed direction:
+
+```text
+$bandit-specify Rewrite docs/PRD.md for a free shared workspace instead of
+our paid solo plan. Reorganize the document and replace obsolete rules
+where needed. Cover permissions, onboarding, metrics, and acceptance
+scenarios. Keep prior pilot results with their original price and conditions.
+```
+
+Get a new or revised PRD with actors, states, exceptions, and observable acceptance scenarios. The document can be restructured to fit the new direction; historical evidence retains its original meaning. Proposed defaults remain distinct from accepted decisions. [Specification guidance](skills/bandit-specify/SKILL.md).
 
 ### Review
 
@@ -83,16 +93,6 @@ Leave the original files unchanged.
 ```
 
 Get findings within the requested scope, each explaining the evidence, consequence, and proposed correction. A review leaves the source documents intact and does not claim the product was tested merely because its plan was read. [Review guidance](skills/bandit-review/SKILL.md).
-
-### Update
-
-```text
-$bandit-update Update docs/PRD.md from a paid solo plan to a free shared
-workspace. Trace the effects on permissions, onboarding, and experiments.
-Preserve old pilot results with their original price and conditions.
-```
-
-Get changes to the affected planning sections, connected requirements and checks, and a record of what remains historical. Unaffected decisions and evidence stay intact. [Change guidance](skills/bandit-update/SKILL.md).
 
 ### General planning
 
@@ -116,7 +116,7 @@ Use your existing documents. A small decision can be a paragraph; an ongoing pro
 For every Codex project on this computer:
 
 ```sh
-npx --yes https://github.com/ch4570/bandit/releases/download/v0.3.0/bandit.tgz --global
+npx --yes https://github.com/ch4570/bandit/releases/download/v0.4.0/bandit.tgz --global
 ```
 
 BANDIT provides the skills and their installer. Your agent supplies the model, research tools, and file access under its existing permissions and usage costs.

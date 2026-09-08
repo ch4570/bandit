@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { installInto, installBundle, makePlan, runCli, MARKER, SKILL_NAMES } from '../lib/installer.mjs';
+import { createHash } from 'node:crypto';
+import { installInto, installBundle, makePlan, runCli, MARKER, SKILL_NAMES, RETIRED_NAMES } from '../lib/installer.mjs';
 
 function fixture(t) {
   const root = fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()), 'bandit-test-'));
@@ -14,7 +15,7 @@ function fixture(t) {
   const dest = path.join(project, '.agents', 'skills', 'bandit');
   fs.mkdirSync(skill, { recursive: true });
   fs.mkdirSync(project);
-  put(source, 'package.json', JSON.stringify({ name: '@ch4570/bandit', version: '0.3.0' }));
+  put(source, 'package.json', JSON.stringify({ name: '@ch4570/bandit', version: '0.4.0' }));
   for (const name of SKILL_NAMES) {
     const folder = path.join(source, 'skills', name);
     put(folder, 'SKILL.md', `---\nname: ${name}\ndescription: Make an actionable product plan.\n---\n# BANDIT\n`);
@@ -45,7 +46,22 @@ function cli(args, f, options = {}) {
   return { code, stdout, stderr };
 }
 
-test('no-argument CLI installs six discoverable skills and preserves project files', (t) => {
+function oldInstallation(f) {
+  const oldNames = ['bandit', 'bandit-research', 'bandit-decide', 'bandit-specify', 'bandit-review', 'bandit-update'];
+  for (const name of oldNames) {
+    const destination = path.join(path.dirname(f.dest), name);
+    const files = {
+      'SKILL.md': `---\nname: ${name}\ndescription: The original 0.3 skill.\n---\nOriginal instructions.\n`,
+      'references/old.md': 'Original reference.\n',
+      'agents/openai.yaml': `interface:\n  default_prompt: "Use $${name}."\n`,
+    };
+    for (const [file, bytes] of Object.entries(files)) put(destination, file, bytes);
+    put(destination, MARKER, JSON.stringify({ format: 1, name, version: '0.3.0',
+      files: Object.fromEntries(Object.entries(files).map(([file, bytes]) => [file, createHash('sha256').update(bytes).digest('hex')])) }));
+  }
+}
+
+test('no-argument CLI installs five discoverable skills and preserves project files', (t) => {
   const f = fixture(t);
   const original = '{"name":"users-app","scripts":{"test":"custom"}}\n';
   put(f.project, 'package.json', original);
@@ -72,9 +88,9 @@ test('plan and JSON output leave no installation directories', (t) => {
   const result = cli(['install', '--plan', '--json'], f);
   assert.equal(result.code, 0);
   assert.equal(JSON.parse(result.stdout).status, 'plan');
-  assert.equal(JSON.parse(result.stdout).changes.length, 18);
+  assert.equal(JSON.parse(result.stdout).changes.length, 15);
   assert.deepEqual(JSON.parse(result.stdout).commands, SKILL_NAMES.map((name) => `$${name}`));
-  assert.equal(JSON.parse(result.stdout).skills.length, 6);
+  assert.equal(JSON.parse(result.stdout).skills.length, 5);
   assert.equal(fs.existsSync(path.join(f.project, '.agents')), false);
 });
 
@@ -145,12 +161,12 @@ test('global, repo, and exact destination options route without modifying cwd', 
   const codexHome = path.join(f.root, 'custom-codex');
   let result = cli(['--global', '--json'], f, { env: { CODEX_HOME: codexHome } });
   assert.equal(JSON.parse(result.stdout).destination, path.join(codexHome, 'skills', 'bandit'));
-  assert.equal(JSON.parse(result.stdout).skills.length, 6);
+  assert.equal(JSON.parse(result.stdout).skills.length, 5);
   result = cli(['--repo', f.project, '--json'], f);
   assert.equal(JSON.parse(result.stdout).destination, f.dest);
   result = cli(['--dest', '../exact-skill', '--json'], f);
   assert.equal(JSON.parse(result.stdout).destination, path.join(f.root, 'exact-skill'));
-  assert.equal(JSON.parse(result.stdout).skills.find((skill) => skill.name === 'bandit-update').destination, path.join(f.root, 'bandit-update'));
+  assert.equal(JSON.parse(result.stdout).skills.find((skill) => skill.name === 'bandit-review').destination, path.join(f.root, 'bandit-review'));
   result = cli(['--global', '--plan', '--json'], f);
   assert.equal(JSON.parse(result.stdout).destination, path.join(f.root, 'home', '.codex', 'skills', 'bandit'));
 });
@@ -163,7 +179,7 @@ test('argument errors have exit 2 and parseable JSON when requested', (t) => {
     assert.equal(JSON.parse(result.stdout).status, 'error');
     assert.equal(result.stderr, '');
   }
-  assert.equal(cli(['--version'], f).stdout, '0.3.0\n');
+  assert.equal(cli(['--version'], f).stdout, '0.4.0\n');
   assert.match(cli(['--help'], f).stdout, /--global/);
 });
 
@@ -260,46 +276,46 @@ test('invalid source versions cannot become installed markers', (t) => {
   assert.equal(fs.existsSync(f.dest), false);
 });
 
-test('an existing 0.2 core upgrades while all five independent skills are added', (t) => {
+test('an existing 0.2 core upgrades while all four independent specialists are added', (t) => {
   const f = fixture(t);
   put(f.source, 'package.json', JSON.stringify({ version: '0.2.0' }));
   installInto(f.source, f.dest);
   put(f.dest, 'my-notes.md', 'Keep old notes.');
-  put(f.source, 'package.json', JSON.stringify({ version: '0.3.0' }));
+  put(f.source, 'package.json', JSON.stringify({ version: '0.4.0' }));
   put(f.skill, 'SKILL.md', 'The new general planning skill.');
   const report = installBundle(f.source, f.dest);
   assert.equal(report.status, 'updated');
   assert.equal(report.skills[0].status, 'updated');
-  assert.equal(report.skills.filter((skill) => skill.status === 'installed').length, 5);
-  assert.equal(report.version, '0.3.0');
+  assert.equal(report.skills.filter((skill) => skill.status === 'installed').length, 4);
+  assert.equal(report.version, '0.4.0');
   assert.equal(fs.readFileSync(path.join(f.dest, 'my-notes.md'), 'utf8'), 'Keep old notes.');
   assert.equal(installBundle(f.source, f.dest).status, 'unchanged');
 });
 
-test('an edited 0.2 core prevents adding the five specialist skills', (t) => {
+test('an edited 0.2 core prevents adding the four specialist skills', (t) => {
   const f = fixture(t);
   put(f.source, 'package.json', JSON.stringify({ version: '0.2.0' }));
   installInto(f.source, f.dest);
   put(f.dest, 'SKILL.md', 'Local edits to the old installation.');
-  put(f.source, 'package.json', JSON.stringify({ version: '0.3.0' }));
+  put(f.source, 'package.json', JSON.stringify({ version: '0.4.0' }));
   const before = snapshot(path.dirname(f.dest));
   assert.throws(() => installBundle(f.source, f.dest), /locally modified/);
   assert.deepEqual(snapshot(path.dirname(f.dest)), before);
 });
 
-test('a conflict in the last skill blocks all six updates before writing', (t) => {
+test('a conflict in the last skill blocks all five updates before writing', (t) => {
   const f = fixture(t);
   installBundle(f.source, f.dest);
   for (const name of SKILL_NAMES) put(path.join(f.source, 'skills', name), 'SKILL.md', `New ${name}.`);
-  put(path.join(path.dirname(f.dest), 'bandit-update'), 'SKILL.md', 'Local edit in the last skill.');
+  put(path.join(path.dirname(f.dest), 'bandit-review'), 'SKILL.md', 'Local edit in the last skill.');
   const before = snapshot(path.dirname(f.dest));
-  assert.throws(() => installBundle(f.source, f.dest), /bandit-update/);
+  assert.throws(() => installBundle(f.source, f.dest), /bandit-review/);
   assert.deepEqual(snapshot(path.dirname(f.dest)), before);
 });
 
 test('an unmanaged last-skill conflict leaves a fresh core uninstalled', (t) => {
   const f = fixture(t);
-  put(path.join(path.dirname(f.dest), 'bandit-update'), 'SKILL.md', 'Independent user file.');
+  put(path.join(path.dirname(f.dest), 'bandit-review'), 'SKILL.md', 'Independent user file.');
   const before = snapshot(path.dirname(f.dest));
   assert.throws(() => installBundle(f.source, f.dest), /unmanaged file/);
   assert.deepEqual(snapshot(path.dirname(f.dest)), before);
@@ -308,21 +324,21 @@ test('an unmanaged last-skill conflict leaves a fresh core uninstalled', (t) => 
 
 test('a missing packaged specialist is rejected before creating any destination', (t) => {
   const f = fixture(t);
-  fs.rmSync(path.join(f.source, 'skills', 'bandit-update'), { recursive: true });
+  fs.rmSync(path.join(f.source, 'skills', 'bandit-review'), { recursive: true });
   assert.throws(() => installBundle(f.source, f.dest), /Missing skill directory/);
   assert.equal(fs.existsSync(path.join(f.project, '.agents')), false);
 });
 
 test('custom --dest cannot collide with another installed skill or any package source', (t) => {
   const f = fixture(t);
-  assert.throws(() => installBundle(f.source, path.join(f.root, 'bandit-update')), /--dest overlaps/);
+  assert.throws(() => installBundle(f.source, path.join(f.root, 'bandit-review')), /--dest overlaps/);
   assert.throws(() => installBundle(f.source, path.join(f.source, 'skills', 'custom-core')), /Source and destination/);
-  assert.equal(fs.existsSync(path.join(f.root, 'bandit-update')), false);
+  assert.equal(fs.existsSync(path.join(f.root, 'bandit-review')), false);
 });
 
 test('a lock on any specialist prevents the entire package installation', (t) => {
   const f = fixture(t);
-  put(path.dirname(f.dest), '.bandit-update.bandit.lock', 'Another installer owns this lock.');
+  put(path.dirname(f.dest), '.bandit-review.bandit.lock', 'Another installer owns this lock.');
   const before = snapshot(path.dirname(f.dest));
   assert.throws(() => installBundle(f.source, f.dest), /Another installation/);
   assert.deepEqual(snapshot(path.dirname(f.dest)), before);
@@ -336,7 +352,7 @@ test('an I/O failure in the last skill rolls back updates across earlier skills'
   const rename = fs.renameSync;
   let failed = false;
   fs.renameSync = (from, to) => {
-    if (!failed && to === path.join(path.dirname(f.dest), 'bandit-update', 'SKILL.md')) {
+    if (!failed && to === path.join(path.dirname(f.dest), 'bandit-review', 'SKILL.md')) {
       failed = true;
       throw Object.assign(new Error('Simulated disk failure'), { code: 'EIO' });
     }
@@ -355,7 +371,7 @@ test('a failed fresh package install removes only directories and files it creat
   const rename = fs.renameSync;
   let failed = false;
   fs.renameSync = (from, to) => {
-    if (!failed && to === path.join(path.dirname(f.dest), 'bandit-update', 'SKILL.md')) {
+    if (!failed && to === path.join(path.dirname(f.dest), 'bandit-review', 'SKILL.md')) {
       failed = true;
       throw Object.assign(new Error('Simulated disk failure'), { code: 'EIO' });
     }
@@ -376,7 +392,7 @@ test('cross-skill recovery preserves an editor change made during the failed upd
   const rename = fs.renameSync;
   let failed = false;
   fs.renameSync = (from, to) => {
-    if (!failed && to === path.join(path.dirname(f.dest), 'bandit-update', 'SKILL.md')) {
+    if (!failed && to === path.join(path.dirname(f.dest), 'bandit-review', 'SKILL.md')) {
       failed = true;
       put(f.dest, 'SKILL.md', edited);
       throw Object.assign(new Error('Simulated disk failure'), { code: 'EIO' });
@@ -387,4 +403,161 @@ test('cross-skill recovery preserves an editor change made during the failed upd
   finally { fs.renameSync = rename; }
   const expected = { ...before, [path.join('bandit', 'SKILL.md')]: Buffer.from(edited).toString('base64') };
   assert.deepEqual(snapshot(path.dirname(f.dest)), expected);
+});
+
+test('0.3 migration installs scope and retires both old commands without aliases', (t) => {
+  const f = fixture(t);
+  oldInstallation(f);
+  const result = cli(['--json'], f);
+  assert.equal(result.code, 0);
+  const report = JSON.parse(result.stdout);
+  assert.equal(report.status, 'updated');
+  assert.deepEqual(report.skills.map((skill) => skill.name), SKILL_NAMES);
+  assert.deepEqual(report.commands, SKILL_NAMES.map((name) => `$${name}`));
+  assert.deepEqual(report.retirements.map((skill) => [skill.name, skill.status]), RETIRED_NAMES.map((name) => [name, 'retired']));
+  assert.deepEqual(report.migrations, [
+    { from: 'bandit-decide', to: 'bandit-scope', status: 'retired' },
+    { from: 'bandit-update', to: 'bandit-specify', status: 'retired' },
+  ]);
+  assert.deepEqual(fs.readdirSync(path.dirname(f.dest)).sort(), [...SKILL_NAMES].sort());
+  assert.ok(report.changes.some((change) => change.skill === 'bandit-decide' && change.action === 'remove'));
+  assert.equal(installBundle(f.source, f.dest).status, 'unchanged');
+});
+
+test('retirement keeps unrelated notes while removing old entrypoints and ownership', (t) => {
+  const f = fixture(t);
+  oldInstallation(f);
+  const retired = path.join(path.dirname(f.dest), 'bandit-decide');
+  put(retired, 'personal/notes.md', 'My local planning notes.');
+  const report = installBundle(f.source, f.dest);
+  assert.equal(report.retirements[0].status, 'retired');
+  assert.equal(fs.readFileSync(path.join(retired, 'personal/notes.md'), 'utf8'), 'My local planning notes.');
+  assert.equal(fs.existsSync(path.join(retired, 'SKILL.md')), false);
+  assert.equal(fs.existsSync(path.join(retired, MARKER)), false);
+  assert.equal(fs.existsSync(path.join(retired, 'references')), false);
+  const again = installBundle(f.source, f.dest);
+  assert.equal(again.status, 'unchanged');
+  assert.equal(again.retirements[0].status, 'preserved');
+});
+
+test('already deleted managed files do not block retiring their old skill', (t) => {
+  const f = fixture(t);
+  oldInstallation(f);
+  const retired = path.join(path.dirname(f.dest), 'bandit-update');
+  fs.unlinkSync(path.join(retired, 'SKILL.md'));
+  fs.unlinkSync(path.join(retired, 'references/old.md'));
+  assert.equal(installBundle(f.source, f.dest).status, 'updated');
+  assert.equal(fs.existsSync(retired), false);
+});
+
+test('a modified retired reference blocks all active updates and both retirements', (t) => {
+  const f = fixture(t);
+  oldInstallation(f);
+  put(path.join(path.dirname(f.dest), 'bandit-update'), 'references/old.md', 'User customization.');
+  const before = snapshot(path.dirname(f.dest));
+  assert.throws(() => installBundle(f.source, f.dest), /modified files in retired skill bandit-update/);
+  assert.deepEqual(snapshot(path.dirname(f.dest)), before);
+});
+
+test('an unmanaged retired entrypoint blocks migration even when other notes are safe', (t) => {
+  const f = fixture(t);
+  const retired = path.join(path.dirname(f.dest), 'bandit-decide');
+  put(retired, 'SKILL.md', 'An independent skill with the old name.');
+  put(retired, 'notes.md', 'Leave everything alone.');
+  const before = snapshot(f.project);
+  assert.throws(() => installBundle(f.source, f.dest), /unmanaged retired skill/);
+  assert.deepEqual(snapshot(f.project), before);
+});
+
+test('a marker cannot authorize removing an unlisted retired entrypoint', (t) => {
+  const f = fixture(t);
+  oldInstallation(f);
+  const retired = path.join(path.dirname(f.dest), 'bandit-decide');
+  const marker = JSON.parse(fs.readFileSync(path.join(retired, MARKER)));
+  delete marker.files['SKILL.md'];
+  put(retired, MARKER, JSON.stringify(marker));
+  const before = snapshot(f.project);
+  assert.throws(() => installBundle(f.source, f.dest), /unmanaged retired skill/);
+  assert.deepEqual(snapshot(f.project), before);
+});
+
+test('unmanaged retired folders without an entrypoint are preserved', (t) => {
+  const f = fixture(t);
+  const retired = path.join(path.dirname(f.dest), 'bandit-update');
+  put(retired, 'notes.md', 'These are notes, not an installed command.');
+  const report = installBundle(f.source, f.dest);
+  assert.equal(report.status, 'installed');
+  assert.equal(report.retirements.find((skill) => skill.name === 'bandit-update').status, 'preserved');
+  assert.equal(fs.readFileSync(path.join(retired, 'notes.md'), 'utf8'), 'These are notes, not an installed command.');
+});
+
+test('migration preview reports removals without changing any files or directories', (t) => {
+  const f = fixture(t);
+  oldInstallation(f);
+  const before = snapshot(f.project);
+  const result = cli(['--plan', '--json'], f);
+  assert.equal(result.code, 0);
+  const report = JSON.parse(result.stdout);
+  assert.equal(report.status, 'plan');
+  assert.ok(report.retirements.every((skill) => skill.changes.length === 3 && skill.marker_change));
+  assert.deepEqual(snapshot(f.project), before);
+});
+
+test('retired target locks serialize migration with the 0.3 installer', (t) => {
+  const f = fixture(t);
+  oldInstallation(f);
+  put(path.dirname(f.dest), '.bandit-update.bandit.lock', 'Old installer lock.');
+  const before = snapshot(f.project);
+  assert.throws(() => installBundle(f.source, f.dest), /Another installation/);
+  assert.deepEqual(snapshot(f.project), before);
+});
+
+test('custom core destinations cannot overlap either retired command', (t) => {
+  const f = fixture(t);
+  for (const name of RETIRED_NAMES) assert.throws(() => installBundle(f.source, path.join(f.root, name)), /--dest overlaps/);
+  assert.equal(fs.existsSync(path.join(f.root, 'bandit-decide')), false);
+  assert.equal(fs.existsSync(path.join(f.root, 'bandit-update')), false);
+});
+
+test('an active write failure restores already retired files and markers', (t) => {
+  const f = fixture(t);
+  oldInstallation(f);
+  const before = snapshot(f.project);
+  const rename = fs.renameSync;
+  let observedRetirement = false;
+  let failed = false;
+  fs.renameSync = (from, to) => {
+    if (!failed && to === path.join(f.dest, 'SKILL.md')) {
+      failed = true;
+      observedRetirement = RETIRED_NAMES.every((name) => !fs.existsSync(path.join(path.dirname(f.dest), name, MARKER)));
+      throw Object.assign(new Error('Simulated active update failure'), { code: 'EIO' });
+    }
+    return rename(from, to);
+  };
+  try { assert.throws(() => installBundle(f.source, f.dest), /Simulated active update failure/); }
+  finally { fs.renameSync = rename; }
+  assert.equal(observedRetirement, true);
+  assert.deepEqual(snapshot(f.project), before);
+});
+
+test('retirement recovery preserves an editor replacement of a deleted old file', (t) => {
+  const f = fixture(t);
+  oldInstallation(f);
+  const before = snapshot(f.project);
+  const edited = 'A concurrent edit to preserve.';
+  const retired = path.join(path.dirname(f.dest), 'bandit-update');
+  const rename = fs.renameSync;
+  let failed = false;
+  fs.renameSync = (from, to) => {
+    if (!failed && to === path.join(f.dest, 'SKILL.md')) {
+      failed = true;
+      put(retired, 'SKILL.md', edited);
+      throw Object.assign(new Error('Simulated active update failure'), { code: 'EIO' });
+    }
+    return rename(from, to);
+  };
+  try { assert.throws(() => installBundle(f.source, f.dest), /Simulated active update failure/); }
+  finally { fs.renameSync = rename; }
+  const expected = { ...before, [path.join('.agents', 'skills', 'bandit-update', 'SKILL.md')]: Buffer.from(edited).toString('base64') };
+  assert.deepEqual(snapshot(f.project), expected);
 });

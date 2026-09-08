@@ -1,11 +1,11 @@
 ---
-name: bandit-decide
-description: Choose product scope, feature priorities, and a feasible MVP direction under stated constraints. Use for product trade-offs, alternatives, and prioritization; excludes personal task scheduling and code implementation.
+name: bandit-scope
+description: Define MVP scope and feature priorities under time, team, and product constraints. Use to choose what to build now, defer, or handle manually and compare product alternatives; excludes personal task scheduling and code implementation.
 ---
 
-# BANDIT Decide
+# BANDIT Scope
 
-Make the requested product choice useful. Read existing decisions, the deadline,
+Define what the team should build now and what can wait. Read existing decisions, the deadline,
 capacity, and relevant evidence, then apply
 [scope and priority guidance](references/decisions.md). Work directly from this
 skill without invoking the general BANDIT router.

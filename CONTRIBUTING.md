@@ -2,7 +2,7 @@
 
 Start with a concrete product-planning failure or usability problem. A short example of the request, available evidence, actual output, and expected behavior is more useful than a proposal to add many new frameworks.
 
-Read [the design](docs/design.md) and [evaluation guide](evals/README.md). BANDIT contains five specialist skills plus the general skill. Keep each entry point focused. Maintain shared references under `skills/bandit/`, then run `node scripts/sync-skills.mjs` to copy each specialist's needed resources. Edit the canonical references rather than their generated copies.
+Read [the design](docs/design.md) and [evaluation guide](evals/README.md). BANDIT contains four specialist skills plus the general skill. Keep each entry point focused. Maintain shared references under `skills/bandit/`, then run `node scripts/sync-skills.mjs` to copy each specialist's needed resources. Edit the canonical references rather than their generated copies.
 
 ## Local development
 
@@ -40,6 +40,8 @@ Use the [pull request template](.github/PULL_REQUEST_TEMPLATE.md) to explain the
 
 Use primary sources for factual research and pin references when discussing a particular version. Explain the limits of what a source supports. Preserve license notices when incorporating substantial external material.
 
-A specialist must be usable from its own installed folder with all references available. When changing packaging, check that a 0.2.0 installation can be upgraded to all six skills and that a conflict in any one destination leaves the other five untouched.
+A specialist must be usable from its own installed folder with all references available. Specification work covers both new plans and rewrites; assess substantial direction changes with a realistic existing PRD, not just a new-document prompt.
+
+When changing packaging, check upgrades from both 0.2 and 0.3 to the current five skills. Retire only unchanged managed files from the old command set, preserve unrelated notes, and ensure a conflict in an active or retired skill leaves the entire installation untouched.
 
 Propose major domain expansions in an issue first so maintainers can assess their fit. UI styling, implementation engines, personal task scheduling, and external account integrations are outside the current skill's core scope.

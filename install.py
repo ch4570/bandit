@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install all six BANDIT skills without changing unrelated project files."""
+"""Install five BANDIT skills and safely retire their superseded commands."""
 from __future__ import annotations
 
 import argparse
@@ -17,7 +17,9 @@ NAME = "bandit"
 MARKER = ".bandit-install.json"
 ROOT = Path(__file__).resolve().parent
 SKILL = Path("skills") / NAME
-SKILL_NAMES = (NAME, "bandit-research", "bandit-decide", "bandit-specify", "bandit-review", "bandit-update")
+SKILL_NAMES = (NAME, "bandit-research", "bandit-scope", "bandit-specify", "bandit-review")
+RETIRED_NAMES = ("bandit-decide", "bandit-update")
+MIGRATIONS = {"bandit-decide": "bandit-scope", "bandit-update": "bandit-specify"}
 IGNORED = {".git", "__pycache__", ".DS_Store"}
 
 
@@ -204,13 +206,69 @@ def atomic_write(path: Path, data: bytes) -> None:
             os.unlink(temporary)
 
 
+def make_retirement_plan(destination: Path, skill_name: str) -> tuple[dict, dict[str, bytes], None]:
+    """Remove only unchanged files proven to belong to an obsolete installation."""
+    if skill_name not in RETIRED_NAMES:
+        raise InstallError(f"Unknown retired BANDIT skill: {skill_name}")
+    destination = absolute(destination)
+    check_path(destination)
+    if destination.exists() and not destination.is_dir():
+        raise InstallError(f"Retired skill destination is not a directory: {destination}")
+    installed = read_marker(destination, skill_name)
+    previous = installed["files"] if installed else {}
+    changes = []
+    entrypoint = destination / "SKILL.md"
+    check_path(entrypoint)
+    if entrypoint.exists() and "SKILL.md" not in previous:
+        raise InstallError(f"Nothing installed; unmanaged retired SKILL.md must be preserved or moved: {entrypoint}")
+    for name, checksum in sorted(previous.items()):
+        target = destination / name
+        check_path(target)
+        if target.exists():
+            if digest(regular_bytes(target)) != checksum:
+                raise InstallError(f"Nothing installed; local modification in retired skill must be preserved or moved: {target}")
+            changes.append({"action": "remove", "path": name})
+    report = {"name": skill_name, "retired": True, "status": "plan", "destination": str(destination),
+              "managed": installed is not None, "changes": changes, "unchanged_files": 0,
+              "marker_change": installed is not None}
+    return report, {}, None
+
+
+def _completed_report(report: dict) -> dict:
+    if report.get("retired"):
+        status = "retired" if report["managed"] else "preserved" if Path(report["destination"]).exists() else "absent"
+    else:
+        status = ("updated" if report["managed"] else "installed") if report["changes"] or report["marker_change"] else "unchanged"
+    return {**report, "status": status}
+
+
+def _prune_retired_directories(report: dict, owned_paths) -> None:
+    """Only prune empty parents of previously managed paths, never unrelated dirs."""
+    if not report.get("retired") or not report["managed"]:
+        return
+    destination = Path(report["destination"])
+    directories = {destination}
+    for relative in owned_paths:
+        parent = (destination / relative).parent
+        while parent != destination:
+            directories.add(parent)
+            parent = parent.parent
+    for directory in sorted(directories, key=lambda item: len(item.parts), reverse=True):
+        try:
+            check_path(directory)
+            directory.rmdir()
+        except (OSError, InstallError):
+            # Preserve nonempty directories, concurrent edits and inaccessible paths.
+            pass
+
+
 def _install_plans(planner, dry_run: bool = False) -> list[dict]:
     """Preflight every destination, then apply one rollback journal under all locks."""
     plans = planner()
     if dry_run:
         return [report for report, _, _ in plans]
     if all(not report["changes"] and not report["marker_change"] for report, _, _ in plans):
-        return [{**report, "status": "unchanged"} for report, _, _ in plans]
+        return [_completed_report(report) for report, _, _ in plans]
     locks: list[Path] = []
     try:
         destinations = sorted((Path(report["destination"]) for report, _, _ in plans), key=lambda item: canonical_name(str(item)))
@@ -227,12 +285,14 @@ def _install_plans(planner, dry_run: bool = False) -> list[dict]:
             locks.append(lock)
         plans = planner()
         changes: list[tuple[Path, bytes | None]] = []
+        markers: list[tuple[Path, bytes | None]] = []
         for report, payload, marker in plans:
             destination = Path(report["destination"])
             for item in report["changes"]:
                 changes.append((destination / item["path"], None if item["action"] == "remove" else payload[item["path"]]))
             if report["marker_change"]:
-                changes.append((destination / MARKER, marker))
+                markers.append((destination / MARKER, marker))
+        changes.extend(markers)
         backups = {target: regular_bytes(target) if target.exists() else None for target, _ in changes}
         applied: list[tuple[Path, bytes | None]] = []
         try:
@@ -259,11 +319,14 @@ def _install_plans(planner, dry_run: bool = False) -> list[dict]:
                 else:
                     atomic_write(target, old)
             raise
+        for report, _, _ in plans:
+            if report.get("retired") and report["managed"]:
+                marker_before = backups[Path(report["destination"]) / MARKER]
+                _prune_retired_directories(report, json.loads(marker_before)["files"])
     finally:
         for lock in reversed(locks):
             lock.unlink()
-    return [{**report, "status": ("updated" if report["managed"] else "installed")
-             if report["changes"] or report["marker_change"] else "unchanged"} for report, _, _ in plans]
+    return [_completed_report(report) for report, _, _ in plans]
 
 
 def install_into(source_root: Path, destination: Path, dry_run: bool = False, skill_name: str = NAME) -> dict:
@@ -273,12 +336,13 @@ def install_into(source_root: Path, destination: Path, dry_run: bool = False, sk
 
 def install_bundle(source_root: Path, destination: Path, dry_run: bool = False) -> dict:
     source_root, destination = absolute(source_root), absolute(destination)
-    destinations = {name: destination if name == NAME else destination.parent / name for name in SKILL_NAMES}
+    all_names = (*SKILL_NAMES, *RETIRED_NAMES)
+    destinations = {name: destination if name == NAME else destination.parent / name for name in all_names}
     targets = list(destinations.values())
     for index, target in enumerate(targets):
         if any(is_within(target, other) or is_within(other, target) for other in targets[:index]):
             raise InstallError("The core destination collides with a specialist skill destination")
-        for name in SKILL_NAMES:
+        for name in all_names:
             source = source_root / "skills" / name
             if is_within(target, source) or is_within(source, target):
                 raise InstallError("Source and installation destination must not overlap")
@@ -287,14 +351,18 @@ def install_bundle(source_root: Path, destination: Path, dry_run: bool = False) 
         plans = [make_plan(source_root, destinations[name], name) for name in SKILL_NAMES]
         if len({report["version"] for report, _, _ in plans}) != 1:
             raise InstallError("Source version changed during installation; retry with a stable package")
-        return plans
+        return plans + [make_retirement_plan(destinations[name], name) for name in RETIRED_NAMES]
 
     reports = _install_plans(planner, dry_run)
+    active = [report for report in reports if not report.get("retired")]
+    retirements = [report for report in reports if report.get("retired")]
     managed = any(report["managed"] for report in reports)
-    status = "plan" if dry_run else "unchanged" if all(report["status"] == "unchanged" for report in reports) else "updated" if managed else "installed"
+    changed = any(report["changes"] or report["marker_change"] for report in reports)
+    status = "plan" if dry_run else "unchanged" if not changed else "updated" if managed else "installed"
     return {"status": status, "source": str(source_root / "skills"), "destination": str(destination),
             "destination_root": str(destination.parent), "version": reports[0]["version"], "managed": managed,
-            "commands": ["$" + name for name in SKILL_NAMES], "skills": reports,
+            "commands": ["$" + name for name in SKILL_NAMES], "skills": active, "retirements": retirements,
+            "migrations": [{"from": report["name"], "to": MIGRATIONS[report["name"]], "status": report["status"]} for report in retirements],
             "changes": [{"skill": report["name"], "action": item["action"], "path": report["name"] + "/" + item["path"]}
                         for report in reports for item in report["changes"]],
             "unchanged_files": sum(report["unchanged_files"] for report in reports),
@@ -304,7 +372,7 @@ def install_bundle(source_root: Path, destination: Path, dry_run: bool = False) 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     target = parser.add_mutually_exclusive_group(required=True)
-    target.add_argument("--repo", type=Path, help="Existing project root; installs all six skills to .agents/skills")
+    target.add_argument("--repo", type=Path, help="Existing project root; installs five skills to .agents/skills and retires superseded commands")
     target.add_argument("--dest", type=Path, help="Exact core skill directory; specialists install beside it")
     parser.add_argument("--plan", action="store_true", help="Show changes without creating or modifying files")
     args = parser.parse_args(argv)

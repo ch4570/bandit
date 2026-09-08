@@ -1,6 +1,6 @@
 # Design
 
-BANDIT helps an agent make the next product decision and preserve its meaning through requirements and later changes. Version 0.3.0 provides five directly invocable specialist skills and the general `$bandit` skill for apps and services.
+BANDIT helps an agent make the next product decision and preserve its meaning through requirements and later changes. Version 0.4.0 provides four directly invocable specialist skills and the general `$bandit` skill for apps and services.
 
 ## Separate commands, shared planning principles
 
@@ -9,17 +9,22 @@ Users select a specialist for a specific task or use the general skill for work 
 | Command | Responsibility |
 | --- | --- |
 | [`$bandit-research`](../skills/bandit-research/SKILL.md) | Examine evidence and assumptions; design the next useful investigation or experiment |
-| [`$bandit-decide`](../skills/bandit-decide/SKILL.md) | Compare options, choose scope, and explain a recommendation |
-| [`$bandit-specify`](../skills/bandit-specify/SKILL.md) | Turn product meaning into actors, rules, states, and acceptance scenarios |
+| [`$bandit-scope`](../skills/bandit-scope/SKILL.md) | Define MVP scope and priorities under stated capacity and constraints |
+| [`$bandit-specify`](../skills/bandit-specify/SKILL.md) | Create or rewrite a spec, including product rules, structure, affected checks, and evidence history |
 | [`$bandit-review`](../skills/bandit-review/SKILL.md) | Inspect a bounded artifact without editing it; distinguish defects, evidence gaps, and optional improvements |
-| [`$bandit-update`](../skills/bandit-update/SKILL.md) | Follow a changed decision or observed result into the affected plan |
 | [`$bandit`](../skills/bandit/SKILL.md) | Select the planning workflow for a general or combined request |
 
 Each specialist has its own `SKILL.md`, metadata, and all referenced resources. It works directly without requiring the general skill to run first. Users can install the whole set at once, or copy a complete specialist folder independently.
 
 The reference sources remain under `skills/bandit/`. Maintainers run `node scripts/sync-skills.mjs` to copy the resources each specialist needs, including resources referenced by another reference. `node scripts/sync-skills.mjs --check` verifies those copies. This keeps one maintained definition of a rule while each distributed skill remains self-contained.
 
-The commands are not a mandatory sequence. A price change need not generate a market report, and a review need not produce a replacement PRD. The optional plan template supports new ongoing work; existing artifacts take precedence.
+The commands are not a mandatory sequence. A price change need not generate a market report, and a review leaves the source unchanged. The optional plan template supports new work. Existing artifacts are the baseline for specification work; the current request determines what needs rewriting.
+
+## Keep specification work together
+
+`$bandit-specify` owns both a new spec and an existing spec that needs to reflect a new direction. It can revise the document's structure, replace outdated rules, and rewrite the affected journey as needed. A small edit can remain small; a substantive change should produce a coherent revised specification.
+
+The same work follows changed rules into permissions, metrics, experiments, and acceptance criteria. Historical observations remain attached to the conditions that produced them. This is part of specification work, so users do not need a separate command for applying a change.
 
 ## Keep different claims distinct
 
@@ -48,7 +53,7 @@ Cutting scope should retain a complete first use case and the conditions that ma
 
 ## Preserve history when decisions change
 
-An update follows the changed decision into requirements, permissions, business assumptions, metrics, checks, and user-facing claims where relevant. Unrelated sections and prior evidence remain intact. Results keep the conditions under which they were collected; changing the price today does not make yesterday's trial a test of that price.
+Specification revision follows the changed decision into requirements, permissions, business assumptions, metrics, checks, and user-facing claims where relevant. Unrelated sections and prior evidence remain intact. Results keep the conditions under which they were collected; changing the price today does not make yesterday's trial a test of that price.
 
 Reuse the project's existing source-of-truth boundaries. If separate documents own commercial assumptions and transaction rules, maintain those links rather than silently centralizing everything into a new file.
 
@@ -64,7 +69,7 @@ BANDIT's cowboy hat, red bandana, pencil, and map give the project a recognizabl
 
 ## Packaging and evaluation are separate
 
-A dependency-free Node.js installer distributes all six skills through npm tooling. Running `npx --yes https://github.com/ch4570/bandit/releases/download/v0.3.0/bandit.tgz` from a project installs the six sibling skill folders under `.agents/skills/` without Git or Python. The versioned archive works before npm registry publication. The installer protects local modifications. The host model and available tools execute the skill instructions.
+A dependency-free Node.js installer distributes all five skills through npm tooling. Running `npx --yes https://github.com/ch4570/bandit/releases/download/v0.4.0/bandit.tgz` from a project installs the five sibling skill folders under `.agents/skills/` without Git or Python. The versioned archive works before npm registry publication. The installer protects local modifications. The host model and available tools execute the skill instructions.
 
 Structural validation can check package metadata and references. Installer tests can verify filesystem behavior. Neither proves good PM judgment. [Evaluation](../evals/README.md) covers realistic product tasks, including preservation of a good existing plan and behavior under changed assumptions. [Validation](../VALIDATION.md) records which checks actually ran.
 
