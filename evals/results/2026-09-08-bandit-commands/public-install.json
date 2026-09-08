@@ -1,0 +1,30 @@
+{
+  "date": "2026-09-08",
+  "url": "https://github.com/ch4570/bandit/releases/download/v0.3.0/bandit.tgz",
+  "node": "v26.8.1",
+  "pathExecutables": [
+    "node",
+    "npm",
+    "npx",
+    "sh"
+  ],
+  "gitAvailable": false,
+  "pythonAvailable": false,
+  "cleanNpmCache": true,
+  "exactReadmeInvocation": true,
+  "projectInstall": "pass",
+  "skills": [
+    "bandit",
+    "bandit-research",
+    "bandit-decide",
+    "bandit-specify",
+    "bandit-review",
+    "bandit-update"
+  ],
+  "completeSkillFiles": 37,
+  "preservesProjectFiles": true,
+  "repeatInstall": "unchanged",
+  "isolatedGlobalInstall": "pass",
+  "public020To030Upgrade": "pass",
+  "output": "BANDIT is ready.\n<temporary-workspace>/한글 기획 프로젝트/.agents/skills\n\nSix skills installed: $bandit, $bandit-research, $bandit-decide, $bandit-specify, $bandit-review, $bandit-update\n\nOpen or restart your agent, then try:\n$bandit-decide Turn this app idea into a focused MVP plan.\n"
+}

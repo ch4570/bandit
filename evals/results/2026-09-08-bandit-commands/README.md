@@ -47,3 +47,8 @@ a user edit. The command returned exit 2, leaving all project bytes and all
 six installed versions unchanged. This synthetic version was not released.
 Temporary paths are redacted in the shared receipt, with the original receipt's
 SHA-256 retained. This check is separate from planning behavior.
+
+After publication, the [public installation receipt](public-install.json)
+confirmed the exact v0.3.0 README command with only Node/npm/npx/sh on PATH.
+Fresh project, unchanged repeat, isolated global, and public v0.2.0-to-v0.3.0
+upgrade checks all passed. Each installed skill file matched the release source.

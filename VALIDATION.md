@@ -5,6 +5,18 @@ fixtures are synthetic. npm registry publication is deferred.
 
 ## BANDIT 0.3.0 — direct commands, 2026-09-08
 
+- [Release-commit CI](https://github.com/ch4570/bandit/actions/runs/34173461219):
+  **all ten jobs passed**, including Node 22/24 on Linux, macOS, and Windows,
+  plus the four optional Python helper jobs.
+- [Release packaging](https://github.com/ch4570/bandit/actions/runs/34173598362)
+  passed for tag `v0.3.0`, commit `5d0c131639c1f3755848b8a483508e654fb82267`.
+  All three downloaded archives matched their SHA-256 checksums; the short and
+  versioned npm tarball names contain identical bytes. No npm publish ran.
+- [Public installation receipt](evals/results/2026-09-08-bandit-commands/public-install.json):
+  the exact README command installed all six skills using a fresh npm cache,
+  without Git or Python on PATH. Korean/spaced project paths, unchanged repeat
+  installation, isolated global installation, and public 0.2.0-to-0.3.0 upgrade
+  all passed with existing project files preserved.
 - Six independent skill folders validate with exact names and invocation
   metadata, complete local references, and **37 skill files**. The official
   skill-creator validator passed for all six.
