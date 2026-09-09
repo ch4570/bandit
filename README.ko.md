@@ -28,7 +28,7 @@ $bandit-scope 이 아이디어를 2주 안에 만들 MVP로 기획해줘.
 
 **0.2 또는 0.3을 사용 중이라면** 같은 프로젝트에서 위 0.4.0 설치 명령을 실행한 뒤 새 에이전트 세션을 여세요. 기존 `--global`이나 경로 옵션은 그대로 붙이세요. [업그레이드 안내](INSTALL.md#upgrade-from-02-or-03)
 
-npm 레지스트리 등록은 추후 진행합니다. 위 명령은 지금 GitHub에서 직접 설치합니다. 에이전트가 `$bandit-scope`를 찾지 못하면 `.agents/skills/bandit-scope/SKILL.md`를 읽고 적용하라고 요청하세요. 필요하면 새 에이전트 세션을 여세요.
+npm 레지스트리 등록은 추후 진행합니다. 위 명령은 지금 GitHub에서 직접 설치합니다. 에이전트가 `$bandit-scope`를 찾지 못하면 기본 프로젝트 설치에서는 `.agents/skills/bandit-scope/SKILL.md`를 읽도록 요청하세요. 다른 위치에 설치했다면 설치 프로그램이 출력한 디렉터리 아래의 `bandit-scope/SKILL.md`를 사용하세요. 해당 파일을 작업에 적용하라고 요청하고, 필요하면 스킬 검색을 새로 고치거나 새 에이전트 세션을 여세요.
 
 <a id="skill-catalog"></a>
 

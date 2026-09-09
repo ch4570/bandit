@@ -1,4 +1,4 @@
-<!-- Optional template for a new durable product plan. Each {{...}} is an intentional fill slot. Replace slots with supported content or an explicit open question; remove unused sections and this note. Existing plans keep their own structure. -->
+<!-- Optional template for a new durable product plan. Each {{...}} is an intentional fill slot. Replace slots with supported content or an explicit open question; remove unused sections and this note. When revising an existing plan, use it as the baseline and adapt its structure to the request. -->
 # {{Product or initiative}}
 
 **Purpose:** {{Decision or deliverable this plan supports}}

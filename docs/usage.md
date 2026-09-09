@@ -41,6 +41,10 @@ Expect a first use case that can be completed, a reason for each meaningful trad
 
 [Skill instructions](../skills/bandit-scope/SKILL.md).
 
+[Recorded scope example](../examples/standby-admission.md): a bounded investment
+when the supported launch paths do not fit the available people and time.
+This is unreleased local development evidence, not a public-release guarantee.
+
 ## Create or rewrite a spec · `$bandit-specify`
 
 ```text
@@ -67,6 +71,10 @@ Expect a coherent revised specification, including any needed restructuring and 
 
 [Skill instructions](../skills/bandit-specify/SKILL.md).
 
+[Recorded rewrite example](../examples/library-pickup.md): the original PRD,
+supplied evidence and actual edited artifact. This is an unreleased local
+development run, not a worked example presented as a quality benchmark.
+
 ## Review without rewriting · `$bandit-review`
 
 ```text
@@ -80,6 +88,11 @@ Expect a scoped assessment with the scenario, expected rule, available evidence,
 Reviewing a PRD does not exercise the product. Source inspection, a screenshot, a local demonstration, a passing test, and customer outcomes support different claims.
 
 [Skill instructions](../skills/bandit-review/SKILL.md).
+
+[Recorded Korean review example](../examples/photo-export-review.md): a photo-export
+PRD assessed against linked policy, static code and verification records. This
+is unreleased local development evidence, not a public-release result or proof
+of runtime behavior.
 
 ## Keep the output proportionate
 

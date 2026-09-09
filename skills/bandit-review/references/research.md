@@ -47,6 +47,10 @@ would change. A target is a proposed decision threshold, not an observation or a
 universal product-market-fit cutoff. Choose its level using context and the cost
 of a wrong decision; leave it provisional when that context is missing.
 
+For a manual or concierge test, bound the operator's work through delivery of
+the promised outcome, not only setup or recruitment. Include a provisional
+delivery-time budget and what will be reduced or stopped if it is exceeded.
+
 Match the evidence to its meaning:
 
 | Observation | Can inform | Does not by itself establish |

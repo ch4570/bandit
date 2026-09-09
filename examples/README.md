@@ -2,9 +2,31 @@
 
 These are fictional product situations, not customer research or evidence that
 the products have succeeded. The evaluation inputs contain deliberately supplied
-facts; they are not observations made in the real world. The linked recorded
-outputs were produced by PM Craft 0.1.0, BANDIT's earlier name. They are retained
-as historical examples; current prompts use `$bandit`.
+facts, not real-world observations. Choose the specialist for a single task;
+use `$bandit` for general or combined planning. Adapted prompts below are not
+claims that those exact words produced a linked recorded answer.
+
+## Recorded BANDIT examples / BANDIT 실행 예제
+
+These outputs come from **unreleased local development**, not the public 0.4.0
+release. They link to the original inputs, complete artifact and assessment.
+They illustrate possible results, not a quality benchmark or a guarantee.
+
+아래 결과는 **아직 공개 배포하지 않은 로컬 개발 버전**의 실행 기록입니다.
+원본 자료와 전체 결과물, 검토 기록을 함께 보세요. 실제 고객 성과나 스킬의
+일반적인 성능을 입증하는 자료는 아닙니다.
+
+| Example | What to inspect |
+| --- | --- |
+| [HoldHarbor: rewrite a reminder PRD](library-pickup.md) · `$bandit-specify` | The actual before/after document, proposed rollout boundary, preserved consent rules and historical evidence |
+| [SeatRelay: fund work before an event](standby-admission.md) · `$bandit-scope` | Complete admission versus partial screens, operating-time constraints, and a proposed decision without a false launch promise |
+| [모아전: review photo-export permission](photo-export-review.md) · `$bandit-review` | A Korean review of linked policy, static code and historical verification; material findings without unnecessary scope changes |
+
+## Historical examples / 이전 버전 예제
+
+The following recorded outputs were produced by **PM Craft 0.1.0**, BANDIT's
+earlier name. Their names, evidence and assessments remain historical. The
+“Try it” prompts use the corresponding current command.
 
 | Example | What to inspect |
 | --- | --- |

@@ -10,22 +10,16 @@ and verify. Read the user's current decisions and relevant domain documents,
 then apply [specification guidance](references/specification.md). Start directly
 with this skill; a general BANDIT planning pass is not a prerequisite.
 
-Look for an existing specification among the relevant project documents before
-writing. If none exists, create the requested specification. If one exists,
-read it as the baseline and make the current document fit the new direction.
-For a requested rewrite or a substantial direction change, reorganize and
-rewrite the specification as needed; do not merely append an update or retain
-an obsolete structure. For a narrow request, revise the affected sections.
-This choice is part of specification work, not a separate update command.
+Use an existing specification as the baseline; otherwise create one. For a
+requested rewrite or changed direction, rebuild its current rules and structure
+as needed. A narrow request needs only affected sections. Both use this command.
 
-When revising existing decisions or incorporating new results, also read
-[change and evidence guidance](references/changes.md). Preserve relevant past
-observations under their original conditions, using existing history or a
-clearly marked historical section. A rewritten plan must not invent a new
-experimental success or leave contradictory old rules looking current.
+For changed decisions or new evidence, also read
+[change guidance](references/changes.md), preserving observations under their
+original conditions and keeping superseded rules distinct from the current plan.
 
-Derive actors, objects, meaningful state
-changes, permissions, and recovery from the actual product. A narrow feature
+Derive actors, objects, meaningful state changes, permissions, and recovery from
+the actual product. A narrow feature
 does not require a complete new PRD. Current code describes implementation;
 it does not silently replace adopted requirements. Where the user delegates an
 undecided rule, propose a reasoned draft and distinguish it from accepted policy.
