@@ -281,7 +281,7 @@ def _install_plans(planner, dry_run: bool = False) -> list[dict]:
         return [report for report, _, _ in plans]
     if all(not report["changes"] and not report["marker_change"] for report, _, _ in plans):
         return [_completed_report(report) for report, _, _ in plans]
-    locks: list[tuple[Path, os.stat_result]] = []
+    locks: list[tuple[Path, os.stat_result | None]] = []
     failure: BaseException | None = None
     try:
         destinations = sorted((Path(report["destination"]) for report, _, _ in plans), key=lambda item: canonical_name(str(item)))
@@ -294,8 +294,16 @@ def _install_plans(planner, dry_run: bool = False) -> list[dict]:
                 lock_fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
             except FileExistsError as exc:
                 raise InstallError(f"Install lock exists: {lock}; retry after the other installer finishes") from exc
+            locks.append((lock, None))
             try:
-                locks.append((lock, os.fstat(lock_fd)))
+                locks[-1] = (lock, os.fstat(lock_fd))
+            except OSError:
+                # One descriptor-based retry identifies our lock for cleanup only.
+                try:
+                    locks[-1] = (lock, os.fstat(lock_fd))
+                except OSError:
+                    pass  # Cleanup preserves and reports an unidentified lock.
+                raise
             finally:
                 os.close(lock_fd)
         expected: dict[Path, bytes | None] = {}
@@ -360,6 +368,8 @@ def _install_plans(planner, dry_run: bool = False) -> list[dict]:
                     current = lock.lstat()
                 except FileNotFoundError:
                     continue
+                if acquired is None:
+                    raise InstallError("Lock ownership could not be verified; preserving it")
                 if (not stat.S_ISREG(current.st_mode) or current.st_dev != acquired.st_dev
                         or current.st_ino != acquired.st_ino or current.st_size != 0
                         or current.st_mtime_ns != acquired.st_mtime_ns):
