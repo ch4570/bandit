@@ -119,6 +119,7 @@ If you also installed the optional global CLI, remove it with `npm uninstall -g 
 | Registry package cannot be found | Use the GitHub archive command; registry publication is deferred |
 | Old commands still appear | Run the 0.4.0 installer, then refresh or restart your agent session |
 | Upgrade reports a retired-skill conflict | Preserve the old customized skill and move it outside discovery before retrying |
+| Python helper reports `Recovery could not restore` or `Recovery preserved a concurrent change` | The original installation failed and the listed paths need inspection. Keep local edits, compare those paths with the ownership marker, and resolve the remaining conflict before retrying. Other recoverable files were still processed. |
 | Installer rejects a linked path | Use the real directory path |
 | A reference cannot be loaded | Check that the complete skill folder was copied |
 | Installation works but the plan is poor | Share a sanitized task and actual output through [Support](SUPPORT.md) |

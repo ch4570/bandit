@@ -242,6 +242,87 @@ class InstallTests(DistributionTest):
         self.assertEqual((self.destination / "SKILL.md").read_bytes(), old_spec)
         self.assertEqual((self.destination / "references/rules.md").read_text(), "concurrent user edit")
 
+    def assert_rollback_replacement_preserved(self, replacement):
+        self.write("a.md", "old a")
+        self.write("z.md", "old z")
+        install.install_into(self.source, self.destination)
+        before = install.tree_files(self.destination)
+        for relative in ("SKILL.md", "a.md", "z.md"):
+            self.write(relative, "updated " + relative)
+        replaced = self.destination / "a.md"
+        editor_target = self.area / "editor-target.txt"
+        if replacement == "symlink":
+            editor_target.write_bytes(b"editor content outside the installation")
+        original = install.atomic_write
+        disk_failure = OSError("original z.md write failure")
+
+        def fail_after_editor_replacement(path, data):
+            if path == self.destination / "z.md":
+                self.assertEqual(replaced.read_text(), "updated a.md")
+                replaced.unlink()
+                if replacement == "directory":
+                    replaced.mkdir()
+                    (replaced / "notes.txt").write_bytes(b"editor notes")
+                else:
+                    self.link(replaced, editor_target)
+                raise disk_failure
+            return original(path, data)
+
+        with patch.object(install, "atomic_write", side_effect=fail_after_editor_replacement), self.assertRaises(OSError) as failure:
+            install.install_into(self.source, self.destination)
+        self.assertIs(failure.exception, disk_failure)
+        self.assertIn(str(replaced), "\n".join(getattr(failure.exception, "__notes__", [])))
+        if replacement == "directory":
+            self.assertTrue(replaced.is_dir())
+            del before["a.md"]
+            self.assertEqual(install.tree_files(self.destination), {**before, "a.md/notes.txt": b"editor notes"})
+        else:
+            self.assertTrue(replaced.is_symlink())
+            self.assertEqual(replaced.readlink(), editor_target)
+            for relative, data in before.items():
+                if relative != "a.md":
+                    self.assertEqual((self.destination / relative).read_bytes(), data, relative)
+            if replacement == "symlink":
+                self.assertEqual(editor_target.read_bytes(), b"editor content outside the installation")
+            else:
+                self.assertFalse(editor_target.exists())
+
+    def test_rollback_directory_replacement_does_not_block_other_restores(self):
+        self.assert_rollback_replacement_preserved("directory")
+
+    def test_rollback_symlink_replacement_does_not_block_other_restores(self):
+        self.assert_rollback_replacement_preserved("symlink")
+
+    def test_rollback_dangling_symlink_replacement_is_preserved_and_reported(self):
+        self.assert_rollback_replacement_preserved("dangling symlink")
+
+    def test_cli_rollback_write_failure_is_reported_while_other_files_restore(self):
+        self.write("a.md", "old a")
+        self.write("z.md", "old z")
+        install.install_bundle(self.source, self.destination)
+        before = install.tree_files(self.destination.parent)
+        for relative in ("SKILL.md", "a.md", "z.md"):
+            self.write(relative, "updated " + relative)
+        unrestored = self.destination / "a.md"
+        original = install.atomic_write
+
+        def fail_during_apply_and_recovery(path, data):
+            if path == self.destination / "z.md":
+                raise OSError("original z.md write failure")
+            if path == unrestored and data == b"old a":
+                raise PermissionError("a.md recovery write denied")
+            return original(path, data)
+
+        output, errors = io.StringIO(), io.StringIO()
+        with patch.object(install, "ROOT", self.source), patch.object(install, "atomic_write", side_effect=fail_during_apply_and_recovery), contextlib.redirect_stdout(output), contextlib.redirect_stderr(errors):
+            code = install.main(["--dest", str(self.destination)])
+        self.assertEqual(code, 2)
+        self.assertEqual(output.getvalue(), "")
+        self.assertIn("bandit install: original z.md write failure", errors.getvalue())
+        self.assertIn(str(unrestored), errors.getvalue())
+        self.assertIn("a.md recovery write denied", errors.getvalue())
+        self.assertEqual(install.tree_files(self.destination.parent), {**before, "bandit/a.md": b"updated a.md"})
+
     def test_source_destination_overlap_is_rejected(self):
         with self.assertRaisesRegex(install.InstallError, "overlap"):
             install.install_into(self.source, self.skill)
@@ -495,6 +576,39 @@ class InstallTests(DistributionTest):
         self.assertEqual((target / "SKILL.md").read_text(), "concurrent replacement")
         self.assertTrue((target / install.MARKER).exists())
         self.assertEqual(install.tree_files(self.destination), before_core)
+
+    def test_rollback_retired_restore_failure_does_not_block_the_remaining_bundle(self):
+        install.install_bundle(self.source, self.destination)
+        for name in install.RETIRED_NAMES:
+            self.old_install(name)
+        before = install.tree_files(self.destination.parent)
+        for name in install.SKILL_NAMES:
+            self.write_skill(name, "SKILL.md", "updated " + name)
+        unrestored = self.destination.parent / "bandit-update/references/rules.md"
+        failed_marker = self.destination.parent / "bandit-review" / install.MARKER
+        original = install.atomic_write
+        disk_failure = OSError("original active marker write failure")
+        recovery_attempted = False
+
+        def fail_during_apply_and_recovery(path, data):
+            nonlocal recovery_attempted
+            if path == failed_marker:
+                self.assertFalse(unrestored.exists())
+                raise disk_failure
+            if path == unrestored:
+                recovery_attempted = True
+                raise PermissionError("retired reference recovery denied")
+            return original(path, data)
+
+        with patch.object(install, "atomic_write", side_effect=fail_during_apply_and_recovery), self.assertRaises(OSError) as failure:
+            install.install_bundle(self.source, self.destination)
+        self.assertIs(failure.exception, disk_failure)
+        self.assertTrue(recovery_attempted)
+        notes = "\n".join(getattr(failure.exception, "__notes__", []))
+        self.assertIn(str(unrestored), notes)
+        self.assertIn("retired reference recovery denied", notes)
+        del before["bandit-update/references/rules.md"]
+        self.assertEqual(install.tree_files(self.destination.parent), before)
 
     def test_retired_skill_lock_blocks_the_whole_transaction(self):
         self.destination.parent.mkdir(parents=True)

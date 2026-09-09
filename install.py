@@ -325,18 +325,21 @@ def _install_plans(planner, dry_run: bool = False) -> list[dict]:
                 else:
                     atomic_write(target, desired)
                 applied.append((target, desired))
-        except (OSError, InstallError):
+        except (OSError, InstallError) as failure:
             for target, installed in reversed(applied):
-                current = regular_bytes(target) if target.exists() else None
-                if current != installed:
-                    # An editor changed it after our write; retain that edit.
-                    continue
-                old = backups[target]
-                if old is None:
+                try:
                     check_path(target)
-                    target.unlink(missing_ok=True)
-                else:
-                    atomic_write(target, old)
+                    current = regular_bytes(target) if target.exists() else None
+                    if current != installed:
+                        failure.add_note(f"Recovery preserved a concurrent change: {target}")
+                        continue
+                    old = backups[target]
+                    if old is None:
+                        target.unlink(missing_ok=True)
+                    else:
+                        atomic_write(target, old)
+                except (OSError, InstallError) as recovery_error:
+                    failure.add_note(f"Recovery could not restore {target}: {recovery_error}")
             raise
         for report, _, _ in plans:
             if report.get("retired") and report["managed"]:
@@ -410,6 +413,8 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     except (InstallError, OSError, UnicodeError) as exc:
         print(f"bandit install: {exc}", file=sys.stderr)
+        for note in getattr(exc, "__notes__", ()):
+            print(note, file=sys.stderr)
         return 2
 
 
