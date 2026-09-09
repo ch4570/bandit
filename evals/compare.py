@@ -23,6 +23,17 @@ SETTINGS_FIELDS = ("model", "reasoning_effort", "timeout_seconds", "max_output_w
 SPECIALISTS = ("bandit-research", "bandit-scope", "bandit-specify", "bandit-review")
 
 
+def _finite_float(value: str) -> float:
+    number = float(value)
+    if not math.isfinite(number):
+        raise ValueError(f"Nonfinite JSON number: {value}")
+    return number
+
+
+def _read_json(path: Path):
+    return json.loads(path.read_text(encoding="utf-8"), parse_float=_finite_float, parse_constant=_finite_float)
+
+
 def _text(value) -> bool:
     return isinstance(value, str) and bool(value.strip()) and "\0" not in value
 
@@ -114,7 +125,7 @@ def _read_run(entry: dict, directory: Path, pricing: dict | None) -> tuple[dict,
     reasons = []
     metadata = {}
     try:
-        metadata = json.loads(_evidence_path(directory, "metadata.json").read_text(encoding="utf-8"))
+        metadata = _read_json(_evidence_path(directory, "metadata.json"))
         if not isinstance(metadata, dict):
             raise ValueError("metadata must be an object")
     except (OSError, ValueError) as exc:
@@ -147,8 +158,11 @@ def _read_run(entry: dict, directory: Path, pricing: dict | None) -> tuple[dict,
         reasons.append("runner_sha256 unavailable or invalid")
     if not _hashes(metadata.get("input_sha256")):
         reasons.append("input_sha256 unavailable or invalid")
-    if not _hashes(metadata.get("instruction_sha256"), empty=True):
+    instructions = metadata.get("instruction_sha256")
+    if not _hashes(instructions, empty=arm == "baseline"):
         reasons.append("instruction_sha256 unavailable or invalid")
+    elif arm in ("bandit", *SPECIALISTS) and f"{arm}/SKILL.md" not in instructions:
+        reasons.append(f"instruction_sha256 missing selected entrypoint {arm}/SKILL.md")
     for key in ("exit_code", "process_exit_code"):
         if type(metadata.get(key)) is not int:
             reasons.append(f"{key} unavailable")
@@ -300,15 +314,16 @@ def main() -> int:
     args = parser.parse_args()
     try:
         manifest_path = args.manifest.resolve()
-        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-        pricing = json.loads(args.pricing.read_text(encoding="utf-8")) if args.pricing else None
+        manifest = _read_json(manifest_path)
+        pricing = _read_json(args.pricing) if args.pricing else None
         _, entries = _manifest_runs(manifest, manifest_path.parent)
         output = args.output.resolve()
         if any(output.is_relative_to(directory) for _, directory in entries):
             raise ValueError("Output must be outside every run directory to preserve historical evidence")
         result = summarize_comparison(manifest, manifest_path.parent, pricing)
+        serialized = json.dumps(result, indent=2, allow_nan=False) + "\n"
         with args.output.open("x", encoding="utf-8") as stream:
-            stream.write(json.dumps(result, indent=2, allow_nan=False) + "\n")
+            stream.write(serialized)
     except (OSError, ValueError, TypeError) as exc:
         parser.exit(2, f"bandit comparison: {exc}\n")
     print(json.dumps({"output": str(output), "status": result["status"]}))

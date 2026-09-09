@@ -137,6 +137,8 @@ def run_case(case: str, arm: str, output: Path, upstream: Path | None, edit_arti
     run = output.resolve() / f"{case}--{arm}"
     if run.exists():
         raise ValueError(f"Run already exists; use a new output directory: {run}")
+    if arm in ("bandit", *SPECIALISTS) and not (skill_source / arm / "SKILL.md").is_file():
+        raise ValueError(f"Skill bundle must contain {arm}/SKILL.md: {skill_source}")
     if arm == "upstream":
         if upstream is None:
             raise ValueError("--upstream is required for the upstream arm")
