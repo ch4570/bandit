@@ -1,0 +1,279 @@
+{
+  "format": 1,
+  "archive_status": "archived",
+  "archived_at": "2026-09-08T14:46:18.426Z",
+  "source_format": "evals/run_local.py",
+  "run_status": "completed",
+  "source_exit_code": 0,
+  "terminal_event": "turn.completed",
+  "invalid_event_lines": 0,
+  "missing_or_empty_output": false,
+  "input_changes": [],
+  "input_scope_respected": true,
+  "instruction_changes": [],
+  "original_input_missing": [],
+  "original_instruction_missing": [],
+  "original_text_snapshot_complete": true,
+  "instruction_restore_directory": ".agents/skills",
+  "omitted_png_files": [
+    "instructions/bandit/assets/bandit-avatar.png"
+  ],
+  "temporary_path_replacement": "<temporary-run-root>",
+  "files": {
+    "metadata.json": {
+      "source": "metadata.json",
+      "original_sha256": "0332df6fbc4ada763f7dec948a762f1152cac8846dd06b9424da857c70601966",
+      "archived_sha256": "b603805c18033c8f37a89a79664e8773a5ee51df97c0929668e9702b36f5789d",
+      "temporary_path_normalized": true
+    },
+    "prompt.txt": {
+      "source": "prompt.txt",
+      "original_sha256": "49916d68cf713fef3493595f33fb64678e4b91a64e7fcc4cdeee60b80bdc2453",
+      "archived_sha256": "49916d68cf713fef3493595f33fb64678e4b91a64e7fcc4cdeee60b80bdc2453",
+      "temporary_path_normalized": false
+    },
+    "events.jsonl": {
+      "source": "events.jsonl",
+      "original_sha256": "b34e3c7f4e85b89ba19dac0ab4638163d495d89e0890b6a19cd5da4ad9750486",
+      "archived_sha256": "ec67f88de5af8240b54adb4a8e86d31ce511e7c171d4f95f6d8f28601d55ddc1",
+      "temporary_path_normalized": true
+    },
+    "stderr.txt": {
+      "source": "stderr.txt",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "temporary_path_normalized": false
+    },
+    "output.md": {
+      "source": "output.md",
+      "original_sha256": "f046aba3ecb185df52d2f34c404474e93652ea0b98b90a1b943b57a91abdd6aa",
+      "archived_sha256": "f046aba3ecb185df52d2f34c404474e93652ea0b98b90a1b943b57a91abdd6aa",
+      "temporary_path_normalized": false
+    },
+    "input/pilot.md": {
+      "source": "workspace/input/pilot.md",
+      "original_sha256": "8a1baaaa552ae7b9a59d3752e3f6dbcab093744a003b385b258494621e4377fb",
+      "archived_sha256": "8a1baaaa552ae7b9a59d3752e3f6dbcab093744a003b385b258494621e4377fb",
+      "temporary_path_normalized": false
+    },
+    "input/request.md": {
+      "source": "workspace/input/request.md",
+      "original_sha256": "8e32fe701a4e93bbd554f887b4596751dbd3ad0624090d93ae365115788d5b4e",
+      "archived_sha256": "8e32fe701a4e93bbd554f887b4596751dbd3ad0624090d93ae365115788d5b4e",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit/agents/openai.yaml": {
+      "source": "workspace/.agents/skills/bandit/agents/openai.yaml",
+      "original_sha256": "1a24331976f7a257ad2aafba9c786c4dc5e5ddb25a98a8dbecdd0c1ae0ddc5f9",
+      "archived_sha256": "1a24331976f7a257ad2aafba9c786c4dc5e5ddb25a98a8dbecdd0c1ae0ddc5f9",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit/assets/bandit-avatar.png": {
+      "source": "workspace/.agents/skills/bandit/assets/bandit-avatar.png",
+      "original_sha256": "091520edefe34c49af5c800f7073c53f602f23531ecab0a5f3ee46d0ef5afab2",
+      "archived_sha256": null,
+      "temporary_path_normalized": false,
+      "omitted": "PNG retained by hash only"
+    },
+    "instructions/bandit/assets/plan-template.md": {
+      "source": "workspace/.agents/skills/bandit/assets/plan-template.md",
+      "original_sha256": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5",
+      "archived_sha256": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit/references/changes.md": {
+      "source": "workspace/.agents/skills/bandit/references/changes.md",
+      "original_sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+      "archived_sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit/references/decisions.md": {
+      "source": "workspace/.agents/skills/bandit/references/decisions.md",
+      "original_sha256": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+      "archived_sha256": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit/references/evidence-and-decisions.md": {
+      "source": "workspace/.agents/skills/bandit/references/evidence-and-decisions.md",
+      "original_sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+      "archived_sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit/references/research.md": {
+      "source": "workspace/.agents/skills/bandit/references/research.md",
+      "original_sha256": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6",
+      "archived_sha256": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit/references/review.md": {
+      "source": "workspace/.agents/skills/bandit/references/review.md",
+      "original_sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+      "archived_sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit/references/specification.md": {
+      "source": "workspace/.agents/skills/bandit/references/specification.md",
+      "original_sha256": "056e30fac704a3f4cbcdb9cd5432a656193307be8d307a4f4941d3fa94478bb0",
+      "archived_sha256": "056e30fac704a3f4cbcdb9cd5432a656193307be8d307a4f4941d3fa94478bb0",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit/SKILL.md": {
+      "source": "workspace/.agents/skills/bandit/SKILL.md",
+      "original_sha256": "746c8b76f096a3396363d6b1a17b0ca3f46c547827e0f639a8a45e4706198b0b",
+      "archived_sha256": "746c8b76f096a3396363d6b1a17b0ca3f46c547827e0f639a8a45e4706198b0b",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-research/agents/openai.yaml": {
+      "source": "workspace/.agents/skills/bandit-research/agents/openai.yaml",
+      "original_sha256": "af4da23d45df56346cd7f9924f440dc4d946ee9cf02f9130cd47b14f0ef0835c",
+      "archived_sha256": "af4da23d45df56346cd7f9924f440dc4d946ee9cf02f9130cd47b14f0ef0835c",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-research/references/evidence-and-decisions.md": {
+      "source": "workspace/.agents/skills/bandit-research/references/evidence-and-decisions.md",
+      "original_sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+      "archived_sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-research/references/research.md": {
+      "source": "workspace/.agents/skills/bandit-research/references/research.md",
+      "original_sha256": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6",
+      "archived_sha256": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-research/SKILL.md": {
+      "source": "workspace/.agents/skills/bandit-research/SKILL.md",
+      "original_sha256": "be1313ca9679fec07b172fbdd5e2eda1f19bc6903b897934a3dec995696dcfd5",
+      "archived_sha256": "be1313ca9679fec07b172fbdd5e2eda1f19bc6903b897934a3dec995696dcfd5",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-review/agents/openai.yaml": {
+      "source": "workspace/.agents/skills/bandit-review/agents/openai.yaml",
+      "original_sha256": "4e4e969c8109f589d77ea687f3a9a5eeb6af82b0abff1bce2cf6906aa7bad2f2",
+      "archived_sha256": "4e4e969c8109f589d77ea687f3a9a5eeb6af82b0abff1bce2cf6906aa7bad2f2",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-review/assets/plan-template.md": {
+      "source": "workspace/.agents/skills/bandit-review/assets/plan-template.md",
+      "original_sha256": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5",
+      "archived_sha256": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-review/references/changes.md": {
+      "source": "workspace/.agents/skills/bandit-review/references/changes.md",
+      "original_sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+      "archived_sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-review/references/evidence-and-decisions.md": {
+      "source": "workspace/.agents/skills/bandit-review/references/evidence-and-decisions.md",
+      "original_sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+      "archived_sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-review/references/research.md": {
+      "source": "workspace/.agents/skills/bandit-review/references/research.md",
+      "original_sha256": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6",
+      "archived_sha256": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-review/references/review.md": {
+      "source": "workspace/.agents/skills/bandit-review/references/review.md",
+      "original_sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+      "archived_sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-review/references/specification.md": {
+      "source": "workspace/.agents/skills/bandit-review/references/specification.md",
+      "original_sha256": "056e30fac704a3f4cbcdb9cd5432a656193307be8d307a4f4941d3fa94478bb0",
+      "archived_sha256": "056e30fac704a3f4cbcdb9cd5432a656193307be8d307a4f4941d3fa94478bb0",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-review/SKILL.md": {
+      "source": "workspace/.agents/skills/bandit-review/SKILL.md",
+      "original_sha256": "16373b70230cad31f65d5e0304938625261a4b1676b8893ec9881fefb37380bc",
+      "archived_sha256": "16373b70230cad31f65d5e0304938625261a4b1676b8893ec9881fefb37380bc",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-scope/agents/openai.yaml": {
+      "source": "workspace/.agents/skills/bandit-scope/agents/openai.yaml",
+      "original_sha256": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293",
+      "archived_sha256": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-scope/references/decisions.md": {
+      "source": "workspace/.agents/skills/bandit-scope/references/decisions.md",
+      "original_sha256": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+      "archived_sha256": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-scope/references/evidence-and-decisions.md": {
+      "source": "workspace/.agents/skills/bandit-scope/references/evidence-and-decisions.md",
+      "original_sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+      "archived_sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-scope/SKILL.md": {
+      "source": "workspace/.agents/skills/bandit-scope/SKILL.md",
+      "original_sha256": "5c9fb2a0c9e555f9f716f89157a9f98025bcb342b5d0f718e3f86f59c67a7fda",
+      "archived_sha256": "5c9fb2a0c9e555f9f716f89157a9f98025bcb342b5d0f718e3f86f59c67a7fda",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-specify/agents/openai.yaml": {
+      "source": "workspace/.agents/skills/bandit-specify/agents/openai.yaml",
+      "original_sha256": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf",
+      "archived_sha256": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-specify/assets/plan-template.md": {
+      "source": "workspace/.agents/skills/bandit-specify/assets/plan-template.md",
+      "original_sha256": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5",
+      "archived_sha256": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-specify/references/changes.md": {
+      "source": "workspace/.agents/skills/bandit-specify/references/changes.md",
+      "original_sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+      "archived_sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-specify/references/evidence-and-decisions.md": {
+      "source": "workspace/.agents/skills/bandit-specify/references/evidence-and-decisions.md",
+      "original_sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+      "archived_sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-specify/references/research.md": {
+      "source": "workspace/.agents/skills/bandit-specify/references/research.md",
+      "original_sha256": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6",
+      "archived_sha256": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-specify/references/review.md": {
+      "source": "workspace/.agents/skills/bandit-specify/references/review.md",
+      "original_sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+      "archived_sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-specify/references/specification.md": {
+      "source": "workspace/.agents/skills/bandit-specify/references/specification.md",
+      "original_sha256": "056e30fac704a3f4cbcdb9cd5432a656193307be8d307a4f4941d3fa94478bb0",
+      "archived_sha256": "056e30fac704a3f4cbcdb9cd5432a656193307be8d307a4f4941d3fa94478bb0",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-specify/SKILL.md": {
+      "source": "workspace/.agents/skills/bandit-specify/SKILL.md",
+      "original_sha256": "6d83ab40691407630b030dcbf64997c7de08c6e0be3b62b1330c056876637ce7",
+      "archived_sha256": "6d83ab40691407630b030dcbf64997c7de08c6e0be3b62b1330c056876637ce7",
+      "temporary_path_normalized": false
+    }
+  },
+  "limitations": [
+    "Process completion and hash agreement are not planning-quality grades or proof of compliance with every task instruction.",
+    "Original inputs and instruction bytes are unchanged; only the five run log/artifact files receive literal run-root path normalization.",
+    "PNG files are recorded by SHA256 only and must be restored separately for an identical image-bearing workspace.",
+    "Missing originals cannot be reconstructed from hashes. Partial original trees and available after-state are retained explicitly.",
+    "Path normalization is not a general secret scrubber. Only supplied run evidence is archived; other workspace files and host state are not retained.",
+    "Host-default model configuration and external services are not pinned by this archive; replay is not guaranteed to produce the same response."
+  ]
+}

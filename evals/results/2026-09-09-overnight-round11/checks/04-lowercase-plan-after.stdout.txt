@@ -1,0 +1,114 @@
+{
+  "status": "plan",
+  "source": "/WORKSPACE/bandit/skills",
+  "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/pm-craft",
+  "destination_root": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills",
+  "version": "0.4.0",
+  "managed": true,
+  "commands": [
+    "$bandit",
+    "$bandit-research",
+    "$bandit-scope",
+    "$bandit-specify",
+    "$bandit-review"
+  ],
+  "skills": [
+    {
+      "name": "bandit",
+      "status": "plan",
+      "source": "/WORKSPACE/bandit/skills/bandit",
+      "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/pm-craft",
+      "version": "0.4.0",
+      "managed": true,
+      "changes": [],
+      "unchanged_files": 10,
+      "marker_change": false
+    },
+    {
+      "name": "bandit-research",
+      "status": "plan",
+      "source": "/WORKSPACE/bandit/skills/bandit-research",
+      "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-research",
+      "version": "0.4.0",
+      "managed": true,
+      "changes": [],
+      "unchanged_files": 4,
+      "marker_change": false
+    },
+    {
+      "name": "bandit-scope",
+      "status": "plan",
+      "source": "/WORKSPACE/bandit/skills/bandit-scope",
+      "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-scope",
+      "version": "0.4.0",
+      "managed": true,
+      "changes": [],
+      "unchanged_files": 4,
+      "marker_change": false
+    },
+    {
+      "name": "bandit-specify",
+      "status": "plan",
+      "source": "/WORKSPACE/bandit/skills/bandit-specify",
+      "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-specify",
+      "version": "0.4.0",
+      "managed": true,
+      "changes": [],
+      "unchanged_files": 8,
+      "marker_change": false
+    },
+    {
+      "name": "bandit-review",
+      "status": "plan",
+      "source": "/WORKSPACE/bandit/skills/bandit-review",
+      "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-review",
+      "version": "0.4.0",
+      "managed": true,
+      "changes": [],
+      "unchanged_files": 8,
+      "marker_change": false
+    }
+  ],
+  "retirements": [
+    {
+      "name": "bandit-decide",
+      "status": "plan",
+      "source": null,
+      "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-decide",
+      "version": null,
+      "managed": false,
+      "changes": [],
+      "unchanged_files": 0,
+      "marker_change": false
+    },
+    {
+      "name": "bandit-update",
+      "status": "plan",
+      "source": null,
+      "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-update",
+      "version": null,
+      "managed": false,
+      "changes": [],
+      "unchanged_files": 0,
+      "marker_change": false
+    }
+  ],
+  "migrations": [
+    {
+      "from": "bandit-decide",
+      "to": "bandit-scope",
+      "status": "plan"
+    },
+    {
+      "from": "bandit-update",
+      "to": "bandit-specify",
+      "status": "plan"
+    }
+  ],
+  "changes": [],
+  "unchanged_files": 34,
+  "marker_change": false,
+  "notes": [
+    "A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it."
+  ]
+}

@@ -1,0 +1,4278 @@
+{
+  "started_at": "2026-09-08T19:23:27.831Z",
+  "ended_at": "2026-09-08T19:23:31.218Z",
+  "scratch": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre",
+  "repo": "/WORKSPACE/bandit",
+  "runtime": {
+    "executable": "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+    "version": "v22.23.2",
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "source_installer_sha256_before": "6c2555e1c09d3efa416ae63ab7870143271bfed7f035f91287d01580ff2456ec",
+  "source_installer_sha256_after": "6c2555e1c09d3efa416ae63ab7870143271bfed7f035f91287d01580ff2456ec",
+  "scope": "Direct local Node CLI only; explicit scratch destinations; closed stdin; no network, host skill writes, fault injection, or cleanup.",
+  "commands": [
+    {
+      "label": "lowercase-plan-before",
+      "argv": [
+        "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+        "/WORKSPACE/bandit/bin/bandit.mjs",
+        "--dest",
+        "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/pm-craft",
+        "--plan",
+        "--json"
+      ],
+      "cwd": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/project",
+      "stdin": "closed",
+      "shell": false,
+      "started_at": "2026-09-08T19:23:27.834Z",
+      "ended_at": "2026-09-08T19:23:27.969Z",
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "01-lowercase-plan-before.stdout.txt",
+      "stderr": "01-lowercase-plan-before.stderr.txt"
+    },
+    {
+      "label": "lowercase-install",
+      "argv": [
+        "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+        "/WORKSPACE/bandit/bin/bandit.mjs",
+        "--dest",
+        "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/pm-craft",
+        "--json"
+      ],
+      "cwd": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/project",
+      "stdin": "closed",
+      "shell": false,
+      "started_at": "2026-09-08T19:23:27.970Z",
+      "ended_at": "2026-09-08T19:23:28.579Z",
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "02-lowercase-install.stdout.txt",
+      "stderr": "02-lowercase-install.stderr.txt"
+    },
+    {
+      "label": "lowercase-repeat",
+      "argv": [
+        "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+        "/WORKSPACE/bandit/bin/bandit.mjs",
+        "--dest",
+        "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/pm-craft",
+        "--json"
+      ],
+      "cwd": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/project",
+      "stdin": "closed",
+      "shell": false,
+      "started_at": "2026-09-08T19:23:28.584Z",
+      "ended_at": "2026-09-08T19:23:28.764Z",
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "03-lowercase-repeat.stdout.txt",
+      "stderr": "03-lowercase-repeat.stderr.txt"
+    },
+    {
+      "label": "lowercase-plan-after",
+      "argv": [
+        "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+        "/WORKSPACE/bandit/bin/bandit.mjs",
+        "--dest",
+        "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/pm-craft",
+        "--plan",
+        "--json"
+      ],
+      "cwd": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/project",
+      "stdin": "closed",
+      "shell": false,
+      "started_at": "2026-09-08T19:23:28.769Z",
+      "ended_at": "2026-09-08T19:23:28.961Z",
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "04-lowercase-plan-after.stdout.txt",
+      "stderr": "04-lowercase-plan-after.stderr.txt"
+    },
+    {
+      "label": "lowercase-text-repeat",
+      "argv": [
+        "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+        "/WORKSPACE/bandit/bin/bandit.mjs",
+        "--dest",
+        "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/pm-craft"
+      ],
+      "cwd": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/project",
+      "stdin": "closed",
+      "shell": false,
+      "started_at": "2026-09-08T19:23:28.965Z",
+      "ended_at": "2026-09-08T19:23:29.145Z",
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "05-lowercase-text-repeat.stdout.txt",
+      "stderr": "05-lowercase-text-repeat.stderr.txt"
+    },
+    {
+      "label": "mixed-case-plan-before",
+      "argv": [
+        "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+        "/WORKSPACE/bandit/bin/bandit.mjs",
+        "--dest",
+        "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/PM-Craft",
+        "--plan",
+        "--json"
+      ],
+      "cwd": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/project",
+      "stdin": "closed",
+      "shell": false,
+      "started_at": "2026-09-08T19:23:29.149Z",
+      "ended_at": "2026-09-08T19:23:29.273Z",
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "06-mixed-case-plan-before.stdout.txt",
+      "stderr": "06-mixed-case-plan-before.stderr.txt"
+    },
+    {
+      "label": "mixed-case-install",
+      "argv": [
+        "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+        "/WORKSPACE/bandit/bin/bandit.mjs",
+        "--dest",
+        "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/PM-Craft",
+        "--json"
+      ],
+      "cwd": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/project",
+      "stdin": "closed",
+      "shell": false,
+      "started_at": "2026-09-08T19:23:29.274Z",
+      "ended_at": "2026-09-08T19:23:29.893Z",
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "07-mixed-case-install.stdout.txt",
+      "stderr": "07-mixed-case-install.stderr.txt"
+    },
+    {
+      "label": "mixed-case-repeat",
+      "argv": [
+        "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+        "/WORKSPACE/bandit/bin/bandit.mjs",
+        "--dest",
+        "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/PM-Craft",
+        "--json"
+      ],
+      "cwd": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/project",
+      "stdin": "closed",
+      "shell": false,
+      "started_at": "2026-09-08T19:23:29.897Z",
+      "ended_at": "2026-09-08T19:23:30.077Z",
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "08-mixed-case-repeat.stdout.txt",
+      "stderr": "08-mixed-case-repeat.stderr.txt"
+    },
+    {
+      "label": "mixed-case-plan-after",
+      "argv": [
+        "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+        "/WORKSPACE/bandit/bin/bandit.mjs",
+        "--dest",
+        "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/PM-Craft",
+        "--plan",
+        "--json"
+      ],
+      "cwd": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/project",
+      "stdin": "closed",
+      "shell": false,
+      "started_at": "2026-09-08T19:23:30.081Z",
+      "ended_at": "2026-09-08T19:23:30.270Z",
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "09-mixed-case-plan-after.stdout.txt",
+      "stderr": "09-mixed-case-plan-after.stderr.txt"
+    },
+    {
+      "label": "mixed-case-text-repeat",
+      "argv": [
+        "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+        "/WORKSPACE/bandit/bin/bandit.mjs",
+        "--dest",
+        "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/PM-Craft"
+      ],
+      "cwd": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/project",
+      "stdin": "closed",
+      "shell": false,
+      "started_at": "2026-09-08T19:23:30.274Z",
+      "ended_at": "2026-09-08T19:23:30.470Z",
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "10-mixed-case-text-repeat.stdout.txt",
+      "stderr": "10-mixed-case-text-repeat.stderr.txt"
+    },
+    {
+      "label": "genuine-sibling-plan",
+      "argv": [
+        "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+        "/WORKSPACE/bandit/bin/bandit.mjs",
+        "--dest",
+        "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills/core-planner",
+        "--plan",
+        "--json"
+      ],
+      "cwd": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/project",
+      "stdin": "closed",
+      "shell": false,
+      "started_at": "2026-09-08T19:23:30.474Z",
+      "ended_at": "2026-09-08T19:23:30.599Z",
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "11-genuine-sibling-plan.stdout.txt",
+      "stderr": "11-genuine-sibling-plan.stderr.txt"
+    },
+    {
+      "label": "genuine-sibling-install",
+      "argv": [
+        "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+        "/WORKSPACE/bandit/bin/bandit.mjs",
+        "--dest",
+        "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills/core-planner",
+        "--json"
+      ],
+      "cwd": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/project",
+      "stdin": "closed",
+      "shell": false,
+      "started_at": "2026-09-08T19:23:30.599Z",
+      "ended_at": "2026-09-08T19:23:31.214Z",
+      "exit_code": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "12-genuine-sibling-install.stdout.txt",
+      "stderr": "12-genuine-sibling-install.stderr.txt"
+    }
+  ],
+  "observations": [
+    {
+      "label": "lowercase",
+      "core_name": "pm-craft",
+      "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/pm-craft",
+      "before_inventory": null,
+      "installed_inventory": [
+        {
+          "path": "bandit-research",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-research/.bandit-install.json",
+          "type": "file",
+          "bytes": 474,
+          "sha256": "bfbf1ebbdb5cc4150d91e7eda16d327d149b8f62774d9dc229af6e3314b2fd80"
+        },
+        {
+          "path": "bandit-research/SKILL.md",
+          "type": "file",
+          "bytes": 1572,
+          "sha256": "be1313ca9679fec07b172fbdd5e2eda1f19bc6903b897934a3dec995696dcfd5"
+        },
+        {
+          "path": "bandit-research/agents",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-research/agents/openai.yaml",
+          "type": "file",
+          "bytes": 219,
+          "sha256": "af4da23d45df56346cd7f9924f440dc4d946ee9cf02f9130cd47b14f0ef0835c"
+        },
+        {
+          "path": "bandit-research/references",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-research/references/evidence-and-decisions.md",
+          "type": "file",
+          "bytes": 4656,
+          "sha256": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523"
+        },
+        {
+          "path": "bandit-research/references/research.md",
+          "type": "file",
+          "bytes": 4813,
+          "sha256": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3"
+        },
+        {
+          "path": "bandit-review",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-review/.bandit-install.json",
+          "type": "file",
+          "bytes": 867,
+          "sha256": "92decdcb7a24d5df2ea525b3990d447d3db1f9f3421d25bff8a62711bf751e34"
+        },
+        {
+          "path": "bandit-review/SKILL.md",
+          "type": "file",
+          "bytes": 1582,
+          "sha256": "16373b70230cad31f65d5e0304938625261a4b1676b8893ec9881fefb37380bc"
+        },
+        {
+          "path": "bandit-review/agents",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-review/agents/openai.yaml",
+          "type": "file",
+          "bytes": 217,
+          "sha256": "4e4e969c8109f589d77ea687f3a9a5eeb6af82b0abff1bce2cf6906aa7bad2f2"
+        },
+        {
+          "path": "bandit-review/assets",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-review/assets/plan-template.md",
+          "type": "file",
+          "bytes": 4898,
+          "sha256": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e"
+        },
+        {
+          "path": "bandit-review/references",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-review/references/changes.md",
+          "type": "file",
+          "bytes": 6476,
+          "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0"
+        },
+        {
+          "path": "bandit-review/references/evidence-and-decisions.md",
+          "type": "file",
+          "bytes": 4656,
+          "sha256": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523"
+        },
+        {
+          "path": "bandit-review/references/research.md",
+          "type": "file",
+          "bytes": 4813,
+          "sha256": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3"
+        },
+        {
+          "path": "bandit-review/references/review.md",
+          "type": "file",
+          "bytes": 5137,
+          "sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d"
+        },
+        {
+          "path": "bandit-review/references/specification.md",
+          "type": "file",
+          "bytes": 8434,
+          "sha256": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431"
+        },
+        {
+          "path": "bandit-scope",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-scope/.bandit-install.json",
+          "type": "file",
+          "bytes": 472,
+          "sha256": "66a9943f097af3aeff6f42a7f7a402ddf861a85c7b7f61eed58181c0793b4415"
+        },
+        {
+          "path": "bandit-scope/SKILL.md",
+          "type": "file",
+          "bytes": 1562,
+          "sha256": "5c9fb2a0c9e555f9f716f89157a9f98025bcb342b5d0f718e3f86f59c67a7fda"
+        },
+        {
+          "path": "bandit-scope/agents",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-scope/agents/openai.yaml",
+          "type": "file",
+          "bytes": 222,
+          "sha256": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293"
+        },
+        {
+          "path": "bandit-scope/references",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-scope/references/decisions.md",
+          "type": "file",
+          "bytes": 3381,
+          "sha256": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26"
+        },
+        {
+          "path": "bandit-scope/references/evidence-and-decisions.md",
+          "type": "file",
+          "bytes": 4656,
+          "sha256": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523"
+        },
+        {
+          "path": "bandit-specify",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-specify/.bandit-install.json",
+          "type": "file",
+          "bytes": 868,
+          "sha256": "c80e5bf7f9181a69a99588f762834ccb03fc1200d0f01031197322a8059464ee"
+        },
+        {
+          "path": "bandit-specify/SKILL.md",
+          "type": "file",
+          "bytes": 2142,
+          "sha256": "9862565be56488293dc0c726724328f2b4f4e818b2b941b6aeb5d8e51617a2d3"
+        },
+        {
+          "path": "bandit-specify/agents",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-specify/agents/openai.yaml",
+          "type": "file",
+          "bytes": 233,
+          "sha256": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf"
+        },
+        {
+          "path": "bandit-specify/assets",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-specify/assets/plan-template.md",
+          "type": "file",
+          "bytes": 4898,
+          "sha256": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e"
+        },
+        {
+          "path": "bandit-specify/references",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-specify/references/changes.md",
+          "type": "file",
+          "bytes": 6476,
+          "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0"
+        },
+        {
+          "path": "bandit-specify/references/evidence-and-decisions.md",
+          "type": "file",
+          "bytes": 4656,
+          "sha256": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523"
+        },
+        {
+          "path": "bandit-specify/references/research.md",
+          "type": "file",
+          "bytes": 4813,
+          "sha256": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3"
+        },
+        {
+          "path": "bandit-specify/references/review.md",
+          "type": "file",
+          "bytes": 5137,
+          "sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d"
+        },
+        {
+          "path": "bandit-specify/references/specification.md",
+          "type": "file",
+          "bytes": 8434,
+          "sha256": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431"
+        },
+        {
+          "path": "pm-craft",
+          "type": "directory"
+        },
+        {
+          "path": "pm-craft/.bandit-install.json",
+          "type": "file",
+          "bytes": 1059,
+          "sha256": "86097a6e2aae539cc7f0f5e5967ee163be1bc8b1da405ae4469f60549b5a0c0e"
+        },
+        {
+          "path": "pm-craft/SKILL.md",
+          "type": "file",
+          "bytes": 4888,
+          "sha256": "746c8b76f096a3396363d6b1a17b0ca3f46c547827e0f639a8a45e4706198b0b"
+        },
+        {
+          "path": "pm-craft/agents",
+          "type": "directory"
+        },
+        {
+          "path": "pm-craft/agents/openai.yaml",
+          "type": "file",
+          "bytes": 352,
+          "sha256": "1a24331976f7a257ad2aafba9c786c4dc5e5ddb25a98a8dbecdd0c1ae0ddc5f9"
+        },
+        {
+          "path": "pm-craft/assets",
+          "type": "directory"
+        },
+        {
+          "path": "pm-craft/assets/bandit-avatar.png",
+          "type": "file",
+          "bytes": 2647123,
+          "sha256": "091520edefe34c49af5c800f7073c53f602f23531ecab0a5f3ee46d0ef5afab2"
+        },
+        {
+          "path": "pm-craft/assets/plan-template.md",
+          "type": "file",
+          "bytes": 4898,
+          "sha256": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e"
+        },
+        {
+          "path": "pm-craft/references",
+          "type": "directory"
+        },
+        {
+          "path": "pm-craft/references/changes.md",
+          "type": "file",
+          "bytes": 6476,
+          "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0"
+        },
+        {
+          "path": "pm-craft/references/decisions.md",
+          "type": "file",
+          "bytes": 3381,
+          "sha256": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26"
+        },
+        {
+          "path": "pm-craft/references/evidence-and-decisions.md",
+          "type": "file",
+          "bytes": 4656,
+          "sha256": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523"
+        },
+        {
+          "path": "pm-craft/references/research.md",
+          "type": "file",
+          "bytes": 4813,
+          "sha256": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3"
+        },
+        {
+          "path": "pm-craft/references/review.md",
+          "type": "file",
+          "bytes": 5137,
+          "sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d"
+        },
+        {
+          "path": "pm-craft/references/specification.md",
+          "type": "file",
+          "bytes": 8434,
+          "sha256": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431"
+        }
+      ],
+      "marker": {
+        "format": 1,
+        "name": "bandit",
+        "version": "0.4.0",
+        "files": {
+          "SKILL.md": "746c8b76f096a3396363d6b1a17b0ca3f46c547827e0f639a8a45e4706198b0b",
+          "agents/openai.yaml": "1a24331976f7a257ad2aafba9c786c4dc5e5ddb25a98a8dbecdd0c1ae0ddc5f9",
+          "assets/bandit-avatar.png": "091520edefe34c49af5c800f7073c53f602f23531ecab0a5f3ee46d0ef5afab2",
+          "assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+          "references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+          "references/decisions.md": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+          "references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523",
+          "references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+          "references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+          "references/specification.md": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431"
+        }
+      },
+      "reports": {
+        "plan_before": {
+          "status": "plan",
+          "source": "/WORKSPACE/bandit/skills",
+          "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/pm-craft",
+          "destination_root": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills",
+          "version": "0.4.0",
+          "managed": false,
+          "commands": [
+            "$bandit",
+            "$bandit-research",
+            "$bandit-scope",
+            "$bandit-specify",
+            "$bandit-review"
+          ],
+          "skills": [
+            {
+              "name": "bandit",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/pm-craft",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/bandit-avatar.png"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/changes.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/review.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-research",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit-research",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-research",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-scope",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit-scope",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-scope",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "references/decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-specify",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit-specify",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-specify",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/changes.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/review.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-review",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit-review",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-review",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/changes.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/review.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            }
+          ],
+          "retirements": [
+            {
+              "name": "bandit-decide",
+              "status": "plan",
+              "source": null,
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-decide",
+              "version": null,
+              "managed": false,
+              "changes": [],
+              "unchanged_files": 0,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-update",
+              "status": "plan",
+              "source": null,
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-update",
+              "version": null,
+              "managed": false,
+              "changes": [],
+              "unchanged_files": 0,
+              "marker_change": false
+            }
+          ],
+          "migrations": [
+            {
+              "from": "bandit-decide",
+              "to": "bandit-scope",
+              "status": "plan"
+            },
+            {
+              "from": "bandit-update",
+              "to": "bandit-specify",
+              "status": "plan"
+            }
+          ],
+          "changes": [
+            {
+              "action": "add",
+              "path": "bandit/SKILL.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/agents/openai.yaml",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/assets/bandit-avatar.png",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/assets/plan-template.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/changes.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/decisions.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/evidence-and-decisions.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/research.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/review.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/specification.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/SKILL.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/agents/openai.yaml",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/references/evidence-and-decisions.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/references/research.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/SKILL.md",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/agents/openai.yaml",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/references/decisions.md",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/references/evidence-and-decisions.md",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/SKILL.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/agents/openai.yaml",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/assets/plan-template.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/changes.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/evidence-and-decisions.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/research.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/review.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/specification.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/SKILL.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/agents/openai.yaml",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/assets/plan-template.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/changes.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/evidence-and-decisions.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/research.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/review.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/specification.md",
+              "skill": "bandit-review"
+            }
+          ],
+          "unchanged_files": 0,
+          "marker_change": true
+        },
+        "install": {
+          "status": "installed",
+          "source": "/WORKSPACE/bandit/skills",
+          "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/pm-craft",
+          "destination_root": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills",
+          "version": "0.4.0",
+          "managed": false,
+          "commands": [
+            "$bandit",
+            "$bandit-research",
+            "$bandit-scope",
+            "$bandit-specify",
+            "$bandit-review"
+          ],
+          "skills": [
+            {
+              "name": "bandit",
+              "status": "installed",
+              "source": "/WORKSPACE/bandit/skills/bandit",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/pm-craft",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/bandit-avatar.png"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/changes.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/review.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-research",
+              "status": "installed",
+              "source": "/WORKSPACE/bandit/skills/bandit-research",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-research",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-scope",
+              "status": "installed",
+              "source": "/WORKSPACE/bandit/skills/bandit-scope",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-scope",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "references/decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-specify",
+              "status": "installed",
+              "source": "/WORKSPACE/bandit/skills/bandit-specify",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-specify",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/changes.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/review.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-review",
+              "status": "installed",
+              "source": "/WORKSPACE/bandit/skills/bandit-review",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-review",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/changes.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/review.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            }
+          ],
+          "retirements": [
+            {
+              "name": "bandit-decide",
+              "status": "absent",
+              "source": null,
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-decide",
+              "version": null,
+              "managed": false,
+              "changes": [],
+              "unchanged_files": 0,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-update",
+              "status": "absent",
+              "source": null,
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-update",
+              "version": null,
+              "managed": false,
+              "changes": [],
+              "unchanged_files": 0,
+              "marker_change": false
+            }
+          ],
+          "migrations": [
+            {
+              "from": "bandit-decide",
+              "to": "bandit-scope",
+              "status": "absent"
+            },
+            {
+              "from": "bandit-update",
+              "to": "bandit-specify",
+              "status": "absent"
+            }
+          ],
+          "changes": [
+            {
+              "action": "add",
+              "path": "bandit/SKILL.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/agents/openai.yaml",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/assets/bandit-avatar.png",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/assets/plan-template.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/changes.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/decisions.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/evidence-and-decisions.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/research.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/review.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/specification.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/SKILL.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/agents/openai.yaml",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/references/evidence-and-decisions.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/references/research.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/SKILL.md",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/agents/openai.yaml",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/references/decisions.md",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/references/evidence-and-decisions.md",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/SKILL.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/agents/openai.yaml",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/assets/plan-template.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/changes.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/evidence-and-decisions.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/research.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/review.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/specification.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/SKILL.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/agents/openai.yaml",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/assets/plan-template.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/changes.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/evidence-and-decisions.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/research.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/review.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/specification.md",
+              "skill": "bandit-review"
+            }
+          ],
+          "unchanged_files": 0,
+          "marker_change": true,
+          "notes": [
+            "A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it."
+          ]
+        },
+        "repeat": {
+          "status": "unchanged",
+          "source": "/WORKSPACE/bandit/skills",
+          "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/pm-craft",
+          "destination_root": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills",
+          "version": "0.4.0",
+          "managed": true,
+          "commands": [
+            "$bandit",
+            "$bandit-research",
+            "$bandit-scope",
+            "$bandit-specify",
+            "$bandit-review"
+          ],
+          "skills": [
+            {
+              "name": "bandit",
+              "status": "unchanged",
+              "source": "/WORKSPACE/bandit/skills/bandit",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/pm-craft",
+              "version": "0.4.0",
+              "managed": true,
+              "changes": [],
+              "unchanged_files": 10,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-research",
+              "status": "unchanged",
+              "source": "/WORKSPACE/bandit/skills/bandit-research",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-research",
+              "version": "0.4.0",
+              "managed": true,
+              "changes": [],
+              "unchanged_files": 4,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-scope",
+              "status": "unchanged",
+              "source": "/WORKSPACE/bandit/skills/bandit-scope",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-scope",
+              "version": "0.4.0",
+              "managed": true,
+              "changes": [],
+              "unchanged_files": 4,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-specify",
+              "status": "unchanged",
+              "source": "/WORKSPACE/bandit/skills/bandit-specify",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-specify",
+              "version": "0.4.0",
+              "managed": true,
+              "changes": [],
+              "unchanged_files": 8,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-review",
+              "status": "unchanged",
+              "source": "/WORKSPACE/bandit/skills/bandit-review",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-review",
+              "version": "0.4.0",
+              "managed": true,
+              "changes": [],
+              "unchanged_files": 8,
+              "marker_change": false
+            }
+          ],
+          "retirements": [
+            {
+              "name": "bandit-decide",
+              "status": "absent",
+              "source": null,
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-decide",
+              "version": null,
+              "managed": false,
+              "changes": [],
+              "unchanged_files": 0,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-update",
+              "status": "absent",
+              "source": null,
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-update",
+              "version": null,
+              "managed": false,
+              "changes": [],
+              "unchanged_files": 0,
+              "marker_change": false
+            }
+          ],
+          "migrations": [
+            {
+              "from": "bandit-decide",
+              "to": "bandit-scope",
+              "status": "absent"
+            },
+            {
+              "from": "bandit-update",
+              "to": "bandit-specify",
+              "status": "absent"
+            }
+          ],
+          "changes": [],
+          "unchanged_files": 34,
+          "marker_change": false,
+          "notes": [
+            "A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it."
+          ]
+        },
+        "plan_after": {
+          "status": "plan",
+          "source": "/WORKSPACE/bandit/skills",
+          "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/pm-craft",
+          "destination_root": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills",
+          "version": "0.4.0",
+          "managed": true,
+          "commands": [
+            "$bandit",
+            "$bandit-research",
+            "$bandit-scope",
+            "$bandit-specify",
+            "$bandit-review"
+          ],
+          "skills": [
+            {
+              "name": "bandit",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/pm-craft",
+              "version": "0.4.0",
+              "managed": true,
+              "changes": [],
+              "unchanged_files": 10,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-research",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit-research",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-research",
+              "version": "0.4.0",
+              "managed": true,
+              "changes": [],
+              "unchanged_files": 4,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-scope",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit-scope",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-scope",
+              "version": "0.4.0",
+              "managed": true,
+              "changes": [],
+              "unchanged_files": 4,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-specify",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit-specify",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-specify",
+              "version": "0.4.0",
+              "managed": true,
+              "changes": [],
+              "unchanged_files": 8,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-review",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit-review",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-review",
+              "version": "0.4.0",
+              "managed": true,
+              "changes": [],
+              "unchanged_files": 8,
+              "marker_change": false
+            }
+          ],
+          "retirements": [
+            {
+              "name": "bandit-decide",
+              "status": "plan",
+              "source": null,
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-decide",
+              "version": null,
+              "managed": false,
+              "changes": [],
+              "unchanged_files": 0,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-update",
+              "status": "plan",
+              "source": null,
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills/bandit-update",
+              "version": null,
+              "managed": false,
+              "changes": [],
+              "unchanged_files": 0,
+              "marker_change": false
+            }
+          ],
+          "migrations": [
+            {
+              "from": "bandit-decide",
+              "to": "bandit-scope",
+              "status": "plan"
+            },
+            {
+              "from": "bandit-update",
+              "to": "bandit-specify",
+              "status": "plan"
+            }
+          ],
+          "changes": [],
+          "unchanged_files": 34,
+          "marker_change": false,
+          "notes": [
+            "A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it."
+          ]
+        }
+      },
+      "normal_repeat_stdout": "BANDIT is already up to date.\n/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/lowercase/skills\n\nFive skills installed: $bandit, $bandit-research, $bandit-scope, $bandit-specify, $bandit-review\n\nOpen or restart your agent, then try:\n$bandit-scope Turn this app idea into a focused MVP plan.\n\nA separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.\n",
+      "legacy_path_resolves_to_core": true
+    },
+    {
+      "label": "mixed-case",
+      "core_name": "PM-Craft",
+      "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/PM-Craft",
+      "before_inventory": null,
+      "installed_inventory": [
+        {
+          "path": "PM-Craft",
+          "type": "directory"
+        },
+        {
+          "path": "PM-Craft/.bandit-install.json",
+          "type": "file",
+          "bytes": 1059,
+          "sha256": "86097a6e2aae539cc7f0f5e5967ee163be1bc8b1da405ae4469f60549b5a0c0e"
+        },
+        {
+          "path": "PM-Craft/SKILL.md",
+          "type": "file",
+          "bytes": 4888,
+          "sha256": "746c8b76f096a3396363d6b1a17b0ca3f46c547827e0f639a8a45e4706198b0b"
+        },
+        {
+          "path": "PM-Craft/agents",
+          "type": "directory"
+        },
+        {
+          "path": "PM-Craft/agents/openai.yaml",
+          "type": "file",
+          "bytes": 352,
+          "sha256": "1a24331976f7a257ad2aafba9c786c4dc5e5ddb25a98a8dbecdd0c1ae0ddc5f9"
+        },
+        {
+          "path": "PM-Craft/assets",
+          "type": "directory"
+        },
+        {
+          "path": "PM-Craft/assets/bandit-avatar.png",
+          "type": "file",
+          "bytes": 2647123,
+          "sha256": "091520edefe34c49af5c800f7073c53f602f23531ecab0a5f3ee46d0ef5afab2"
+        },
+        {
+          "path": "PM-Craft/assets/plan-template.md",
+          "type": "file",
+          "bytes": 4898,
+          "sha256": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e"
+        },
+        {
+          "path": "PM-Craft/references",
+          "type": "directory"
+        },
+        {
+          "path": "PM-Craft/references/changes.md",
+          "type": "file",
+          "bytes": 6476,
+          "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0"
+        },
+        {
+          "path": "PM-Craft/references/decisions.md",
+          "type": "file",
+          "bytes": 3381,
+          "sha256": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26"
+        },
+        {
+          "path": "PM-Craft/references/evidence-and-decisions.md",
+          "type": "file",
+          "bytes": 4656,
+          "sha256": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523"
+        },
+        {
+          "path": "PM-Craft/references/research.md",
+          "type": "file",
+          "bytes": 4813,
+          "sha256": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3"
+        },
+        {
+          "path": "PM-Craft/references/review.md",
+          "type": "file",
+          "bytes": 5137,
+          "sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d"
+        },
+        {
+          "path": "PM-Craft/references/specification.md",
+          "type": "file",
+          "bytes": 8434,
+          "sha256": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431"
+        },
+        {
+          "path": "bandit-research",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-research/.bandit-install.json",
+          "type": "file",
+          "bytes": 474,
+          "sha256": "bfbf1ebbdb5cc4150d91e7eda16d327d149b8f62774d9dc229af6e3314b2fd80"
+        },
+        {
+          "path": "bandit-research/SKILL.md",
+          "type": "file",
+          "bytes": 1572,
+          "sha256": "be1313ca9679fec07b172fbdd5e2eda1f19bc6903b897934a3dec995696dcfd5"
+        },
+        {
+          "path": "bandit-research/agents",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-research/agents/openai.yaml",
+          "type": "file",
+          "bytes": 219,
+          "sha256": "af4da23d45df56346cd7f9924f440dc4d946ee9cf02f9130cd47b14f0ef0835c"
+        },
+        {
+          "path": "bandit-research/references",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-research/references/evidence-and-decisions.md",
+          "type": "file",
+          "bytes": 4656,
+          "sha256": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523"
+        },
+        {
+          "path": "bandit-research/references/research.md",
+          "type": "file",
+          "bytes": 4813,
+          "sha256": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3"
+        },
+        {
+          "path": "bandit-review",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-review/.bandit-install.json",
+          "type": "file",
+          "bytes": 867,
+          "sha256": "92decdcb7a24d5df2ea525b3990d447d3db1f9f3421d25bff8a62711bf751e34"
+        },
+        {
+          "path": "bandit-review/SKILL.md",
+          "type": "file",
+          "bytes": 1582,
+          "sha256": "16373b70230cad31f65d5e0304938625261a4b1676b8893ec9881fefb37380bc"
+        },
+        {
+          "path": "bandit-review/agents",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-review/agents/openai.yaml",
+          "type": "file",
+          "bytes": 217,
+          "sha256": "4e4e969c8109f589d77ea687f3a9a5eeb6af82b0abff1bce2cf6906aa7bad2f2"
+        },
+        {
+          "path": "bandit-review/assets",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-review/assets/plan-template.md",
+          "type": "file",
+          "bytes": 4898,
+          "sha256": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e"
+        },
+        {
+          "path": "bandit-review/references",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-review/references/changes.md",
+          "type": "file",
+          "bytes": 6476,
+          "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0"
+        },
+        {
+          "path": "bandit-review/references/evidence-and-decisions.md",
+          "type": "file",
+          "bytes": 4656,
+          "sha256": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523"
+        },
+        {
+          "path": "bandit-review/references/research.md",
+          "type": "file",
+          "bytes": 4813,
+          "sha256": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3"
+        },
+        {
+          "path": "bandit-review/references/review.md",
+          "type": "file",
+          "bytes": 5137,
+          "sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d"
+        },
+        {
+          "path": "bandit-review/references/specification.md",
+          "type": "file",
+          "bytes": 8434,
+          "sha256": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431"
+        },
+        {
+          "path": "bandit-scope",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-scope/.bandit-install.json",
+          "type": "file",
+          "bytes": 472,
+          "sha256": "66a9943f097af3aeff6f42a7f7a402ddf861a85c7b7f61eed58181c0793b4415"
+        },
+        {
+          "path": "bandit-scope/SKILL.md",
+          "type": "file",
+          "bytes": 1562,
+          "sha256": "5c9fb2a0c9e555f9f716f89157a9f98025bcb342b5d0f718e3f86f59c67a7fda"
+        },
+        {
+          "path": "bandit-scope/agents",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-scope/agents/openai.yaml",
+          "type": "file",
+          "bytes": 222,
+          "sha256": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293"
+        },
+        {
+          "path": "bandit-scope/references",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-scope/references/decisions.md",
+          "type": "file",
+          "bytes": 3381,
+          "sha256": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26"
+        },
+        {
+          "path": "bandit-scope/references/evidence-and-decisions.md",
+          "type": "file",
+          "bytes": 4656,
+          "sha256": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523"
+        },
+        {
+          "path": "bandit-specify",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-specify/.bandit-install.json",
+          "type": "file",
+          "bytes": 868,
+          "sha256": "c80e5bf7f9181a69a99588f762834ccb03fc1200d0f01031197322a8059464ee"
+        },
+        {
+          "path": "bandit-specify/SKILL.md",
+          "type": "file",
+          "bytes": 2142,
+          "sha256": "9862565be56488293dc0c726724328f2b4f4e818b2b941b6aeb5d8e51617a2d3"
+        },
+        {
+          "path": "bandit-specify/agents",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-specify/agents/openai.yaml",
+          "type": "file",
+          "bytes": 233,
+          "sha256": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf"
+        },
+        {
+          "path": "bandit-specify/assets",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-specify/assets/plan-template.md",
+          "type": "file",
+          "bytes": 4898,
+          "sha256": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e"
+        },
+        {
+          "path": "bandit-specify/references",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-specify/references/changes.md",
+          "type": "file",
+          "bytes": 6476,
+          "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0"
+        },
+        {
+          "path": "bandit-specify/references/evidence-and-decisions.md",
+          "type": "file",
+          "bytes": 4656,
+          "sha256": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523"
+        },
+        {
+          "path": "bandit-specify/references/research.md",
+          "type": "file",
+          "bytes": 4813,
+          "sha256": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3"
+        },
+        {
+          "path": "bandit-specify/references/review.md",
+          "type": "file",
+          "bytes": 5137,
+          "sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d"
+        },
+        {
+          "path": "bandit-specify/references/specification.md",
+          "type": "file",
+          "bytes": 8434,
+          "sha256": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431"
+        }
+      ],
+      "marker": {
+        "format": 1,
+        "name": "bandit",
+        "version": "0.4.0",
+        "files": {
+          "SKILL.md": "746c8b76f096a3396363d6b1a17b0ca3f46c547827e0f639a8a45e4706198b0b",
+          "agents/openai.yaml": "1a24331976f7a257ad2aafba9c786c4dc5e5ddb25a98a8dbecdd0c1ae0ddc5f9",
+          "assets/bandit-avatar.png": "091520edefe34c49af5c800f7073c53f602f23531ecab0a5f3ee46d0ef5afab2",
+          "assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+          "references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+          "references/decisions.md": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+          "references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523",
+          "references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+          "references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+          "references/specification.md": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431"
+        }
+      },
+      "reports": {
+        "plan_before": {
+          "status": "plan",
+          "source": "/WORKSPACE/bandit/skills",
+          "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/PM-Craft",
+          "destination_root": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills",
+          "version": "0.4.0",
+          "managed": false,
+          "commands": [
+            "$bandit",
+            "$bandit-research",
+            "$bandit-scope",
+            "$bandit-specify",
+            "$bandit-review"
+          ],
+          "skills": [
+            {
+              "name": "bandit",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/PM-Craft",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/bandit-avatar.png"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/changes.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/review.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-research",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit-research",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-research",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-scope",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit-scope",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-scope",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "references/decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-specify",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit-specify",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-specify",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/changes.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/review.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-review",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit-review",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-review",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/changes.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/review.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            }
+          ],
+          "retirements": [
+            {
+              "name": "bandit-decide",
+              "status": "plan",
+              "source": null,
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-decide",
+              "version": null,
+              "managed": false,
+              "changes": [],
+              "unchanged_files": 0,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-update",
+              "status": "plan",
+              "source": null,
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-update",
+              "version": null,
+              "managed": false,
+              "changes": [],
+              "unchanged_files": 0,
+              "marker_change": false
+            }
+          ],
+          "migrations": [
+            {
+              "from": "bandit-decide",
+              "to": "bandit-scope",
+              "status": "plan"
+            },
+            {
+              "from": "bandit-update",
+              "to": "bandit-specify",
+              "status": "plan"
+            }
+          ],
+          "changes": [
+            {
+              "action": "add",
+              "path": "bandit/SKILL.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/agents/openai.yaml",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/assets/bandit-avatar.png",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/assets/plan-template.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/changes.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/decisions.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/evidence-and-decisions.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/research.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/review.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/specification.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/SKILL.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/agents/openai.yaml",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/references/evidence-and-decisions.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/references/research.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/SKILL.md",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/agents/openai.yaml",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/references/decisions.md",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/references/evidence-and-decisions.md",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/SKILL.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/agents/openai.yaml",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/assets/plan-template.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/changes.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/evidence-and-decisions.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/research.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/review.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/specification.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/SKILL.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/agents/openai.yaml",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/assets/plan-template.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/changes.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/evidence-and-decisions.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/research.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/review.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/specification.md",
+              "skill": "bandit-review"
+            }
+          ],
+          "unchanged_files": 0,
+          "marker_change": true
+        },
+        "install": {
+          "status": "installed",
+          "source": "/WORKSPACE/bandit/skills",
+          "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/PM-Craft",
+          "destination_root": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills",
+          "version": "0.4.0",
+          "managed": false,
+          "commands": [
+            "$bandit",
+            "$bandit-research",
+            "$bandit-scope",
+            "$bandit-specify",
+            "$bandit-review"
+          ],
+          "skills": [
+            {
+              "name": "bandit",
+              "status": "installed",
+              "source": "/WORKSPACE/bandit/skills/bandit",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/PM-Craft",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/bandit-avatar.png"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/changes.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/review.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-research",
+              "status": "installed",
+              "source": "/WORKSPACE/bandit/skills/bandit-research",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-research",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-scope",
+              "status": "installed",
+              "source": "/WORKSPACE/bandit/skills/bandit-scope",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-scope",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "references/decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-specify",
+              "status": "installed",
+              "source": "/WORKSPACE/bandit/skills/bandit-specify",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-specify",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/changes.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/review.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-review",
+              "status": "installed",
+              "source": "/WORKSPACE/bandit/skills/bandit-review",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-review",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/changes.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/review.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            }
+          ],
+          "retirements": [
+            {
+              "name": "bandit-decide",
+              "status": "absent",
+              "source": null,
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-decide",
+              "version": null,
+              "managed": false,
+              "changes": [],
+              "unchanged_files": 0,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-update",
+              "status": "absent",
+              "source": null,
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-update",
+              "version": null,
+              "managed": false,
+              "changes": [],
+              "unchanged_files": 0,
+              "marker_change": false
+            }
+          ],
+          "migrations": [
+            {
+              "from": "bandit-decide",
+              "to": "bandit-scope",
+              "status": "absent"
+            },
+            {
+              "from": "bandit-update",
+              "to": "bandit-specify",
+              "status": "absent"
+            }
+          ],
+          "changes": [
+            {
+              "action": "add",
+              "path": "bandit/SKILL.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/agents/openai.yaml",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/assets/bandit-avatar.png",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/assets/plan-template.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/changes.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/decisions.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/evidence-and-decisions.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/research.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/review.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/specification.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/SKILL.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/agents/openai.yaml",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/references/evidence-and-decisions.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/references/research.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/SKILL.md",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/agents/openai.yaml",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/references/decisions.md",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/references/evidence-and-decisions.md",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/SKILL.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/agents/openai.yaml",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/assets/plan-template.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/changes.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/evidence-and-decisions.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/research.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/review.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/specification.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/SKILL.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/agents/openai.yaml",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/assets/plan-template.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/changes.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/evidence-and-decisions.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/research.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/review.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/specification.md",
+              "skill": "bandit-review"
+            }
+          ],
+          "unchanged_files": 0,
+          "marker_change": true,
+          "notes": [
+            "A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it."
+          ]
+        },
+        "repeat": {
+          "status": "unchanged",
+          "source": "/WORKSPACE/bandit/skills",
+          "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/PM-Craft",
+          "destination_root": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills",
+          "version": "0.4.0",
+          "managed": true,
+          "commands": [
+            "$bandit",
+            "$bandit-research",
+            "$bandit-scope",
+            "$bandit-specify",
+            "$bandit-review"
+          ],
+          "skills": [
+            {
+              "name": "bandit",
+              "status": "unchanged",
+              "source": "/WORKSPACE/bandit/skills/bandit",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/PM-Craft",
+              "version": "0.4.0",
+              "managed": true,
+              "changes": [],
+              "unchanged_files": 10,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-research",
+              "status": "unchanged",
+              "source": "/WORKSPACE/bandit/skills/bandit-research",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-research",
+              "version": "0.4.0",
+              "managed": true,
+              "changes": [],
+              "unchanged_files": 4,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-scope",
+              "status": "unchanged",
+              "source": "/WORKSPACE/bandit/skills/bandit-scope",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-scope",
+              "version": "0.4.0",
+              "managed": true,
+              "changes": [],
+              "unchanged_files": 4,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-specify",
+              "status": "unchanged",
+              "source": "/WORKSPACE/bandit/skills/bandit-specify",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-specify",
+              "version": "0.4.0",
+              "managed": true,
+              "changes": [],
+              "unchanged_files": 8,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-review",
+              "status": "unchanged",
+              "source": "/WORKSPACE/bandit/skills/bandit-review",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-review",
+              "version": "0.4.0",
+              "managed": true,
+              "changes": [],
+              "unchanged_files": 8,
+              "marker_change": false
+            }
+          ],
+          "retirements": [
+            {
+              "name": "bandit-decide",
+              "status": "absent",
+              "source": null,
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-decide",
+              "version": null,
+              "managed": false,
+              "changes": [],
+              "unchanged_files": 0,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-update",
+              "status": "absent",
+              "source": null,
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-update",
+              "version": null,
+              "managed": false,
+              "changes": [],
+              "unchanged_files": 0,
+              "marker_change": false
+            }
+          ],
+          "migrations": [
+            {
+              "from": "bandit-decide",
+              "to": "bandit-scope",
+              "status": "absent"
+            },
+            {
+              "from": "bandit-update",
+              "to": "bandit-specify",
+              "status": "absent"
+            }
+          ],
+          "changes": [],
+          "unchanged_files": 34,
+          "marker_change": false,
+          "notes": [
+            "A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it."
+          ]
+        },
+        "plan_after": {
+          "status": "plan",
+          "source": "/WORKSPACE/bandit/skills",
+          "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/PM-Craft",
+          "destination_root": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills",
+          "version": "0.4.0",
+          "managed": true,
+          "commands": [
+            "$bandit",
+            "$bandit-research",
+            "$bandit-scope",
+            "$bandit-specify",
+            "$bandit-review"
+          ],
+          "skills": [
+            {
+              "name": "bandit",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/PM-Craft",
+              "version": "0.4.0",
+              "managed": true,
+              "changes": [],
+              "unchanged_files": 10,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-research",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit-research",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-research",
+              "version": "0.4.0",
+              "managed": true,
+              "changes": [],
+              "unchanged_files": 4,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-scope",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit-scope",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-scope",
+              "version": "0.4.0",
+              "managed": true,
+              "changes": [],
+              "unchanged_files": 4,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-specify",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit-specify",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-specify",
+              "version": "0.4.0",
+              "managed": true,
+              "changes": [],
+              "unchanged_files": 8,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-review",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit-review",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-review",
+              "version": "0.4.0",
+              "managed": true,
+              "changes": [],
+              "unchanged_files": 8,
+              "marker_change": false
+            }
+          ],
+          "retirements": [
+            {
+              "name": "bandit-decide",
+              "status": "plan",
+              "source": null,
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-decide",
+              "version": null,
+              "managed": false,
+              "changes": [],
+              "unchanged_files": 0,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-update",
+              "status": "plan",
+              "source": null,
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills/bandit-update",
+              "version": null,
+              "managed": false,
+              "changes": [],
+              "unchanged_files": 0,
+              "marker_change": false
+            }
+          ],
+          "migrations": [
+            {
+              "from": "bandit-decide",
+              "to": "bandit-scope",
+              "status": "plan"
+            },
+            {
+              "from": "bandit-update",
+              "to": "bandit-specify",
+              "status": "plan"
+            }
+          ],
+          "changes": [],
+          "unchanged_files": 34,
+          "marker_change": false,
+          "notes": [
+            "A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it."
+          ]
+        }
+      },
+      "normal_repeat_stdout": "BANDIT is already up to date.\n/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/mixed-case/skills\n\nFive skills installed: $bandit, $bandit-research, $bandit-scope, $bandit-specify, $bandit-review\n\nOpen or restart your agent, then try:\n$bandit-scope Turn this app idea into a focused MVP plan.\n\nA separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.\n",
+      "legacy_path_resolves_to_core": false
+    },
+    {
+      "label": "genuine-sibling",
+      "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills/core-planner",
+      "legacy_before_inventory": [
+        {
+          "path": "SKILL.md",
+          "type": "file",
+          "bytes": 60,
+          "sha256": "ce5b01fed35435e3bd1051465a0c2394ddab7f710536259849c6a363e0e6a009"
+        }
+      ],
+      "legacy_after_inventory": [
+        {
+          "path": "SKILL.md",
+          "type": "file",
+          "bytes": 60,
+          "sha256": "ce5b01fed35435e3bd1051465a0c2394ddab7f710536259849c6a363e0e6a009"
+        }
+      ],
+      "reports": {
+        "plan": {
+          "status": "plan",
+          "source": "/WORKSPACE/bandit/skills",
+          "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills/core-planner",
+          "destination_root": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills",
+          "version": "0.4.0",
+          "managed": false,
+          "commands": [
+            "$bandit",
+            "$bandit-research",
+            "$bandit-scope",
+            "$bandit-specify",
+            "$bandit-review"
+          ],
+          "skills": [
+            {
+              "name": "bandit",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills/core-planner",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/bandit-avatar.png"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/changes.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/review.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-research",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit-research",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills/bandit-research",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-scope",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit-scope",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills/bandit-scope",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "references/decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-specify",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit-specify",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills/bandit-specify",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/changes.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/review.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-review",
+              "status": "plan",
+              "source": "/WORKSPACE/bandit/skills/bandit-review",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills/bandit-review",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/changes.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/review.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            }
+          ],
+          "retirements": [
+            {
+              "name": "bandit-decide",
+              "status": "plan",
+              "source": null,
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills/bandit-decide",
+              "version": null,
+              "managed": false,
+              "changes": [],
+              "unchanged_files": 0,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-update",
+              "status": "plan",
+              "source": null,
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills/bandit-update",
+              "version": null,
+              "managed": false,
+              "changes": [],
+              "unchanged_files": 0,
+              "marker_change": false
+            }
+          ],
+          "migrations": [
+            {
+              "from": "bandit-decide",
+              "to": "bandit-scope",
+              "status": "plan"
+            },
+            {
+              "from": "bandit-update",
+              "to": "bandit-specify",
+              "status": "plan"
+            }
+          ],
+          "changes": [
+            {
+              "action": "add",
+              "path": "bandit/SKILL.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/agents/openai.yaml",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/assets/bandit-avatar.png",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/assets/plan-template.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/changes.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/decisions.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/evidence-and-decisions.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/research.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/review.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/specification.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/SKILL.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/agents/openai.yaml",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/references/evidence-and-decisions.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/references/research.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/SKILL.md",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/agents/openai.yaml",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/references/decisions.md",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/references/evidence-and-decisions.md",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/SKILL.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/agents/openai.yaml",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/assets/plan-template.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/changes.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/evidence-and-decisions.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/research.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/review.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/specification.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/SKILL.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/agents/openai.yaml",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/assets/plan-template.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/changes.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/evidence-and-decisions.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/research.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/review.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/specification.md",
+              "skill": "bandit-review"
+            }
+          ],
+          "unchanged_files": 0,
+          "marker_change": true,
+          "notes": [
+            "A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it."
+          ]
+        },
+        "install": {
+          "status": "installed",
+          "source": "/WORKSPACE/bandit/skills",
+          "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills/core-planner",
+          "destination_root": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills",
+          "version": "0.4.0",
+          "managed": false,
+          "commands": [
+            "$bandit",
+            "$bandit-research",
+            "$bandit-scope",
+            "$bandit-specify",
+            "$bandit-review"
+          ],
+          "skills": [
+            {
+              "name": "bandit",
+              "status": "installed",
+              "source": "/WORKSPACE/bandit/skills/bandit",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills/core-planner",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/bandit-avatar.png"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/changes.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/review.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-research",
+              "status": "installed",
+              "source": "/WORKSPACE/bandit/skills/bandit-research",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills/bandit-research",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-scope",
+              "status": "installed",
+              "source": "/WORKSPACE/bandit/skills/bandit-scope",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills/bandit-scope",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "references/decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-specify",
+              "status": "installed",
+              "source": "/WORKSPACE/bandit/skills/bandit-specify",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills/bandit-specify",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/changes.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/review.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            },
+            {
+              "name": "bandit-review",
+              "status": "installed",
+              "source": "/WORKSPACE/bandit/skills/bandit-review",
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills/bandit-review",
+              "version": "0.4.0",
+              "managed": false,
+              "changes": [
+                {
+                  "action": "add",
+                  "path": "SKILL.md"
+                },
+                {
+                  "action": "add",
+                  "path": "agents/openai.yaml"
+                },
+                {
+                  "action": "add",
+                  "path": "assets/plan-template.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/changes.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/evidence-and-decisions.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/research.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/review.md"
+                },
+                {
+                  "action": "add",
+                  "path": "references/specification.md"
+                }
+              ],
+              "unchanged_files": 0,
+              "marker_change": true
+            }
+          ],
+          "retirements": [
+            {
+              "name": "bandit-decide",
+              "status": "absent",
+              "source": null,
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills/bandit-decide",
+              "version": null,
+              "managed": false,
+              "changes": [],
+              "unchanged_files": 0,
+              "marker_change": false
+            },
+            {
+              "name": "bandit-update",
+              "status": "absent",
+              "source": null,
+              "destination": "/TEMP/SYSTEM/bandit-round11-legacy-before-HX1Kre/genuine-sibling/skills/bandit-update",
+              "version": null,
+              "managed": false,
+              "changes": [],
+              "unchanged_files": 0,
+              "marker_change": false
+            }
+          ],
+          "migrations": [
+            {
+              "from": "bandit-decide",
+              "to": "bandit-scope",
+              "status": "absent"
+            },
+            {
+              "from": "bandit-update",
+              "to": "bandit-specify",
+              "status": "absent"
+            }
+          ],
+          "changes": [
+            {
+              "action": "add",
+              "path": "bandit/SKILL.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/agents/openai.yaml",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/assets/bandit-avatar.png",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/assets/plan-template.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/changes.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/decisions.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/evidence-and-decisions.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/research.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/review.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit/references/specification.md",
+              "skill": "bandit"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/SKILL.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/agents/openai.yaml",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/references/evidence-and-decisions.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-research/references/research.md",
+              "skill": "bandit-research"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/SKILL.md",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/agents/openai.yaml",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/references/decisions.md",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-scope/references/evidence-and-decisions.md",
+              "skill": "bandit-scope"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/SKILL.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/agents/openai.yaml",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/assets/plan-template.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/changes.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/evidence-and-decisions.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/research.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/review.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-specify/references/specification.md",
+              "skill": "bandit-specify"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/SKILL.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/agents/openai.yaml",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/assets/plan-template.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/changes.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/evidence-and-decisions.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/research.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/review.md",
+              "skill": "bandit-review"
+            },
+            {
+              "action": "add",
+              "path": "bandit-review/references/specification.md",
+              "skill": "bandit-review"
+            }
+          ],
+          "unchanged_files": 0,
+          "marker_change": true,
+          "notes": [
+            "A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it."
+          ]
+        }
+      },
+      "installed_inventory": [
+        {
+          "path": "bandit-research",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-research/.bandit-install.json",
+          "type": "file",
+          "bytes": 474,
+          "sha256": "bfbf1ebbdb5cc4150d91e7eda16d327d149b8f62774d9dc229af6e3314b2fd80"
+        },
+        {
+          "path": "bandit-research/SKILL.md",
+          "type": "file",
+          "bytes": 1572,
+          "sha256": "be1313ca9679fec07b172fbdd5e2eda1f19bc6903b897934a3dec995696dcfd5"
+        },
+        {
+          "path": "bandit-research/agents",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-research/agents/openai.yaml",
+          "type": "file",
+          "bytes": 219,
+          "sha256": "af4da23d45df56346cd7f9924f440dc4d946ee9cf02f9130cd47b14f0ef0835c"
+        },
+        {
+          "path": "bandit-research/references",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-research/references/evidence-and-decisions.md",
+          "type": "file",
+          "bytes": 4656,
+          "sha256": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523"
+        },
+        {
+          "path": "bandit-research/references/research.md",
+          "type": "file",
+          "bytes": 4813,
+          "sha256": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3"
+        },
+        {
+          "path": "bandit-review",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-review/.bandit-install.json",
+          "type": "file",
+          "bytes": 867,
+          "sha256": "92decdcb7a24d5df2ea525b3990d447d3db1f9f3421d25bff8a62711bf751e34"
+        },
+        {
+          "path": "bandit-review/SKILL.md",
+          "type": "file",
+          "bytes": 1582,
+          "sha256": "16373b70230cad31f65d5e0304938625261a4b1676b8893ec9881fefb37380bc"
+        },
+        {
+          "path": "bandit-review/agents",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-review/agents/openai.yaml",
+          "type": "file",
+          "bytes": 217,
+          "sha256": "4e4e969c8109f589d77ea687f3a9a5eeb6af82b0abff1bce2cf6906aa7bad2f2"
+        },
+        {
+          "path": "bandit-review/assets",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-review/assets/plan-template.md",
+          "type": "file",
+          "bytes": 4898,
+          "sha256": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e"
+        },
+        {
+          "path": "bandit-review/references",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-review/references/changes.md",
+          "type": "file",
+          "bytes": 6476,
+          "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0"
+        },
+        {
+          "path": "bandit-review/references/evidence-and-decisions.md",
+          "type": "file",
+          "bytes": 4656,
+          "sha256": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523"
+        },
+        {
+          "path": "bandit-review/references/research.md",
+          "type": "file",
+          "bytes": 4813,
+          "sha256": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3"
+        },
+        {
+          "path": "bandit-review/references/review.md",
+          "type": "file",
+          "bytes": 5137,
+          "sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d"
+        },
+        {
+          "path": "bandit-review/references/specification.md",
+          "type": "file",
+          "bytes": 8434,
+          "sha256": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431"
+        },
+        {
+          "path": "bandit-scope",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-scope/.bandit-install.json",
+          "type": "file",
+          "bytes": 472,
+          "sha256": "66a9943f097af3aeff6f42a7f7a402ddf861a85c7b7f61eed58181c0793b4415"
+        },
+        {
+          "path": "bandit-scope/SKILL.md",
+          "type": "file",
+          "bytes": 1562,
+          "sha256": "5c9fb2a0c9e555f9f716f89157a9f98025bcb342b5d0f718e3f86f59c67a7fda"
+        },
+        {
+          "path": "bandit-scope/agents",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-scope/agents/openai.yaml",
+          "type": "file",
+          "bytes": 222,
+          "sha256": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293"
+        },
+        {
+          "path": "bandit-scope/references",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-scope/references/decisions.md",
+          "type": "file",
+          "bytes": 3381,
+          "sha256": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26"
+        },
+        {
+          "path": "bandit-scope/references/evidence-and-decisions.md",
+          "type": "file",
+          "bytes": 4656,
+          "sha256": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523"
+        },
+        {
+          "path": "bandit-specify",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-specify/.bandit-install.json",
+          "type": "file",
+          "bytes": 868,
+          "sha256": "c80e5bf7f9181a69a99588f762834ccb03fc1200d0f01031197322a8059464ee"
+        },
+        {
+          "path": "bandit-specify/SKILL.md",
+          "type": "file",
+          "bytes": 2142,
+          "sha256": "9862565be56488293dc0c726724328f2b4f4e818b2b941b6aeb5d8e51617a2d3"
+        },
+        {
+          "path": "bandit-specify/agents",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-specify/agents/openai.yaml",
+          "type": "file",
+          "bytes": 233,
+          "sha256": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf"
+        },
+        {
+          "path": "bandit-specify/assets",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-specify/assets/plan-template.md",
+          "type": "file",
+          "bytes": 4898,
+          "sha256": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e"
+        },
+        {
+          "path": "bandit-specify/references",
+          "type": "directory"
+        },
+        {
+          "path": "bandit-specify/references/changes.md",
+          "type": "file",
+          "bytes": 6476,
+          "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0"
+        },
+        {
+          "path": "bandit-specify/references/evidence-and-decisions.md",
+          "type": "file",
+          "bytes": 4656,
+          "sha256": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523"
+        },
+        {
+          "path": "bandit-specify/references/research.md",
+          "type": "file",
+          "bytes": 4813,
+          "sha256": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3"
+        },
+        {
+          "path": "bandit-specify/references/review.md",
+          "type": "file",
+          "bytes": 5137,
+          "sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d"
+        },
+        {
+          "path": "bandit-specify/references/specification.md",
+          "type": "file",
+          "bytes": 8434,
+          "sha256": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431"
+        },
+        {
+          "path": "core-planner",
+          "type": "directory"
+        },
+        {
+          "path": "core-planner/.bandit-install.json",
+          "type": "file",
+          "bytes": 1059,
+          "sha256": "86097a6e2aae539cc7f0f5e5967ee163be1bc8b1da405ae4469f60549b5a0c0e"
+        },
+        {
+          "path": "core-planner/SKILL.md",
+          "type": "file",
+          "bytes": 4888,
+          "sha256": "746c8b76f096a3396363d6b1a17b0ca3f46c547827e0f639a8a45e4706198b0b"
+        },
+        {
+          "path": "core-planner/agents",
+          "type": "directory"
+        },
+        {
+          "path": "core-planner/agents/openai.yaml",
+          "type": "file",
+          "bytes": 352,
+          "sha256": "1a24331976f7a257ad2aafba9c786c4dc5e5ddb25a98a8dbecdd0c1ae0ddc5f9"
+        },
+        {
+          "path": "core-planner/assets",
+          "type": "directory"
+        },
+        {
+          "path": "core-planner/assets/bandit-avatar.png",
+          "type": "file",
+          "bytes": 2647123,
+          "sha256": "091520edefe34c49af5c800f7073c53f602f23531ecab0a5f3ee46d0ef5afab2"
+        },
+        {
+          "path": "core-planner/assets/plan-template.md",
+          "type": "file",
+          "bytes": 4898,
+          "sha256": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e"
+        },
+        {
+          "path": "core-planner/references",
+          "type": "directory"
+        },
+        {
+          "path": "core-planner/references/changes.md",
+          "type": "file",
+          "bytes": 6476,
+          "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0"
+        },
+        {
+          "path": "core-planner/references/decisions.md",
+          "type": "file",
+          "bytes": 3381,
+          "sha256": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26"
+        },
+        {
+          "path": "core-planner/references/evidence-and-decisions.md",
+          "type": "file",
+          "bytes": 4656,
+          "sha256": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523"
+        },
+        {
+          "path": "core-planner/references/research.md",
+          "type": "file",
+          "bytes": 4813,
+          "sha256": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3"
+        },
+        {
+          "path": "core-planner/references/review.md",
+          "type": "file",
+          "bytes": 5137,
+          "sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d"
+        },
+        {
+          "path": "core-planner/references/specification.md",
+          "type": "file",
+          "bytes": 8434,
+          "sha256": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431"
+        },
+        {
+          "path": "pm-craft",
+          "type": "directory"
+        },
+        {
+          "path": "pm-craft/SKILL.md",
+          "type": "file",
+          "bytes": 60,
+          "sha256": "ce5b01fed35435e3bd1051465a0c2394ddab7f710536259849c6a363e0e6a009"
+        }
+      ]
+    }
+  ]
+}

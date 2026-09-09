@@ -1,0 +1,141 @@
+{
+  "format": 1,
+  "archive_status": "archived",
+  "archived_at": "2026-09-08T15:37:31.089Z",
+  "source_format": "evals/run_local.py",
+  "run_status": "completed",
+  "source_exit_code": 0,
+  "terminal_event": "turn.completed",
+  "invalid_event_lines": 0,
+  "missing_or_empty_output": false,
+  "input_changes": [],
+  "input_scope_respected": true,
+  "instruction_changes": [],
+  "original_input_missing": [],
+  "original_instruction_missing": [],
+  "original_text_snapshot_complete": true,
+  "instruction_restore_directory": "instructions",
+  "omitted_png_files": [
+    "instructions/bandit/assets/bandit-avatar.png"
+  ],
+  "temporary_path_replacement": "<temporary-run-root>",
+  "files": {
+    "metadata.json": {
+      "source": "metadata.json",
+      "original_sha256": "e70969a7d3c52a5e629fa9973456384baf951369b2fd95a2273a1199fe59cef7",
+      "archived_sha256": "343afff4945f29fed7a8b25f54bcb57ad250fd186201ae7b826eb1f4bbabf3e2",
+      "temporary_path_normalized": true
+    },
+    "prompt.txt": {
+      "source": "prompt.txt",
+      "original_sha256": "680b878f80e75b28a76cac4428f71088f9a2c8655295ab12798c4447c28ee1d1",
+      "archived_sha256": "680b878f80e75b28a76cac4428f71088f9a2c8655295ab12798c4447c28ee1d1",
+      "temporary_path_normalized": false
+    },
+    "events.jsonl": {
+      "source": "events.jsonl",
+      "original_sha256": "a0db6b2cf2ccc349fdbc7f01da65accb5b713650be9f20c21420ab1fcc4aff72",
+      "archived_sha256": "a0db6b2cf2ccc349fdbc7f01da65accb5b713650be9f20c21420ab1fcc4aff72",
+      "temporary_path_normalized": false
+    },
+    "stderr.txt": {
+      "source": "stderr.txt",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "temporary_path_normalized": false
+    },
+    "output.md": {
+      "source": "output.md",
+      "original_sha256": "704e2618833826d909d84f191bb552e2b36032537c217849b37e117e2d719bbe",
+      "archived_sha256": "704e2618833826d909d84f191bb552e2b36032537c217849b37e117e2d719bbe",
+      "temporary_path_normalized": false
+    },
+    "input/brief.md": {
+      "source": "original-input/brief.md",
+      "original_sha256": "3d7c26189beb016fb4dac119f55c7a3dd3820e77f485140b964e15623801aa0b",
+      "archived_sha256": "3d7c26189beb016fb4dac119f55c7a3dd3820e77f485140b964e15623801aa0b",
+      "temporary_path_normalized": false
+    },
+    "input/draft.md": {
+      "source": "original-input/draft.md",
+      "original_sha256": "b6fad16b2d5d07446bc839e2787f6f48899704c5e9b97aa99976052c7a86b43e",
+      "archived_sha256": "b6fad16b2d5d07446bc839e2787f6f48899704c5e9b97aa99976052c7a86b43e",
+      "temporary_path_normalized": false
+    },
+    "input/request.md": {
+      "source": "original-input/request.md",
+      "original_sha256": "7d8dbe017ebad548e044bd4457a5a48098a57f52bffd0c0489b7b558536c8634",
+      "archived_sha256": "7d8dbe017ebad548e044bd4457a5a48098a57f52bffd0c0489b7b558536c8634",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit/agents/openai.yaml": {
+      "source": "original-instructions/bandit/agents/openai.yaml",
+      "original_sha256": "1a24331976f7a257ad2aafba9c786c4dc5e5ddb25a98a8dbecdd0c1ae0ddc5f9",
+      "archived_sha256": "1a24331976f7a257ad2aafba9c786c4dc5e5ddb25a98a8dbecdd0c1ae0ddc5f9",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit/assets/bandit-avatar.png": {
+      "source": "original-instructions/bandit/assets/bandit-avatar.png",
+      "original_sha256": "091520edefe34c49af5c800f7073c53f602f23531ecab0a5f3ee46d0ef5afab2",
+      "archived_sha256": null,
+      "temporary_path_normalized": false,
+      "omitted": "PNG retained by hash only"
+    },
+    "instructions/bandit/assets/plan-template.md": {
+      "source": "original-instructions/bandit/assets/plan-template.md",
+      "original_sha256": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+      "archived_sha256": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit/references/changes.md": {
+      "source": "original-instructions/bandit/references/changes.md",
+      "original_sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+      "archived_sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit/references/decisions.md": {
+      "source": "original-instructions/bandit/references/decisions.md",
+      "original_sha256": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+      "archived_sha256": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit/references/evidence-and-decisions.md": {
+      "source": "original-instructions/bandit/references/evidence-and-decisions.md",
+      "original_sha256": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+      "archived_sha256": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit/references/research.md": {
+      "source": "original-instructions/bandit/references/research.md",
+      "original_sha256": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6",
+      "archived_sha256": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit/references/review.md": {
+      "source": "original-instructions/bandit/references/review.md",
+      "original_sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+      "archived_sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit/references/specification.md": {
+      "source": "original-instructions/bandit/references/specification.md",
+      "original_sha256": "4c05c35ae324b15eb1141b544c870d69c94988a8214a61e772714500fbb75e04",
+      "archived_sha256": "4c05c35ae324b15eb1141b544c870d69c94988a8214a61e772714500fbb75e04",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit/SKILL.md": {
+      "source": "original-instructions/bandit/SKILL.md",
+      "original_sha256": "746c8b76f096a3396363d6b1a17b0ca3f46c547827e0f639a8a45e4706198b0b",
+      "archived_sha256": "746c8b76f096a3396363d6b1a17b0ca3f46c547827e0f639a8a45e4706198b0b",
+      "temporary_path_normalized": false
+    }
+  },
+  "limitations": [
+    "Process completion and hash agreement are not planning-quality grades or proof of compliance with every task instruction.",
+    "Original inputs and instruction bytes are unchanged; only the five run log/artifact files receive literal run-root path normalization.",
+    "PNG files are recorded by SHA256 only and must be restored separately for an identical image-bearing workspace.",
+    "Missing originals cannot be reconstructed from hashes. Partial original trees and available after-state are retained explicitly.",
+    "Path normalization is not a general secret scrubber. Only supplied run evidence is archived; other workspace files and host state are not retained.",
+    "Host-default model configuration and external services are not pinned by this archive; replay is not guaranteed to produce the same response."
+  ]
+}

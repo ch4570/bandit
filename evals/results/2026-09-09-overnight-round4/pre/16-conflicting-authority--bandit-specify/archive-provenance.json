@@ -1,0 +1,158 @@
+{
+  "format": 1,
+  "archive_status": "archived",
+  "archived_at": "2026-09-08T16:25:00.395Z",
+  "source_format": "evals/run_local.py",
+  "run_status": "completed",
+  "source_exit_code": 0,
+  "terminal_event": "turn.completed",
+  "invalid_event_lines": 0,
+  "missing_or_empty_output": false,
+  "input_changes": [
+    "docs/PRD.md"
+  ],
+  "input_scope_respected": true,
+  "instruction_changes": [],
+  "original_input_missing": [],
+  "original_instruction_missing": [],
+  "original_text_snapshot_complete": true,
+  "instruction_restore_directory": ".agents/skills",
+  "omitted_png_files": [],
+  "temporary_path_replacement": "<temporary-run-root>",
+  "files": {
+    "metadata.json": {
+      "source": "metadata.json",
+      "original_sha256": "6294142f2e1ac6495ea31ca1e1c033a95c8356850c4659ae288ceeb5905e4f73",
+      "archived_sha256": "5ac5771bf363bacf1505d589f0d26556d519c4ab7d8168d4cb29935c08ab19bd",
+      "temporary_path_normalized": true
+    },
+    "prompt.txt": {
+      "source": "prompt.txt",
+      "original_sha256": "55d2793594fdb250256f0cee9693080d4ad4be87b3b58ab7373dce8a26050c5e",
+      "archived_sha256": "55d2793594fdb250256f0cee9693080d4ad4be87b3b58ab7373dce8a26050c5e",
+      "temporary_path_normalized": false
+    },
+    "events.jsonl": {
+      "source": "events.jsonl",
+      "original_sha256": "8f2c1f557357eff3d3306a25755c53aa16ef175381f7569331d2e49b83f4d95b",
+      "archived_sha256": "8f2c1f557357eff3d3306a25755c53aa16ef175381f7569331d2e49b83f4d95b",
+      "temporary_path_normalized": false
+    },
+    "stderr.txt": {
+      "source": "stderr.txt",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "temporary_path_normalized": false
+    },
+    "output.md": {
+      "source": "output.md",
+      "original_sha256": "132824a8cb16567c8701d1463e7ce1b048fecca738e96cdca4b2ad078c8d2174",
+      "archived_sha256": "132824a8cb16567c8701d1463e7ce1b048fecca738e96cdca4b2ad078c8d2174",
+      "temporary_path_normalized": false
+    },
+    "input/docs/PRD.md": {
+      "source": "original-input/docs/PRD.md",
+      "original_sha256": "53459c22e422c6eeccce7450936bed7cce45ccd723f2d81b0a54ced821de6685",
+      "archived_sha256": "53459c22e422c6eeccce7450936bed7cce45ccd723f2d81b0a54ced821de6685",
+      "temporary_path_normalized": false
+    },
+    "input/policy/contribution-records.md": {
+      "source": "original-input/policy/contribution-records.md",
+      "original_sha256": "b36bbf9dd813b90dc3bec1408f84f9ac0d3b3bfd25c3dd46c06ebc74dd590af6",
+      "archived_sha256": "b36bbf9dd813b90dc3bec1408f84f9ac0d3b3bfd25c3dd46c06ebc74dd590af6",
+      "temporary_path_normalized": false
+    },
+    "input/policy/membership-departure.md": {
+      "source": "original-input/policy/membership-departure.md",
+      "original_sha256": "852cf8391fea8e4a42733108859061a6d2cf58d42f5bc134c76ed19d9fcd8c5d",
+      "archived_sha256": "852cf8391fea8e4a42733108859061a6d2cf58d42f5bc134c76ed19d9fcd8c5d",
+      "temporary_path_normalized": false
+    },
+    "input/request.md": {
+      "source": "original-input/request.md",
+      "original_sha256": "4865bee80d131e9a3be3190e3d17f465a559ae3f7ee23a5b867712cf53f14aa4",
+      "archived_sha256": "4865bee80d131e9a3be3190e3d17f465a559ae3f7ee23a5b867712cf53f14aa4",
+      "temporary_path_normalized": false
+    },
+    "after/docs/PRD.md": {
+      "source": "workspace/input/docs/PRD.md",
+      "original_sha256": "1483e253f53b773bb16bea3ba20b06a7838af70c92bd8d5b09061c3731b29422",
+      "archived_sha256": "1483e253f53b773bb16bea3ba20b06a7838af70c92bd8d5b09061c3731b29422",
+      "temporary_path_normalized": false
+    },
+    "after/policy/contribution-records.md": {
+      "source": "workspace/input/policy/contribution-records.md",
+      "original_sha256": "b36bbf9dd813b90dc3bec1408f84f9ac0d3b3bfd25c3dd46c06ebc74dd590af6",
+      "archived_sha256": "b36bbf9dd813b90dc3bec1408f84f9ac0d3b3bfd25c3dd46c06ebc74dd590af6",
+      "temporary_path_normalized": false
+    },
+    "after/policy/membership-departure.md": {
+      "source": "workspace/input/policy/membership-departure.md",
+      "original_sha256": "852cf8391fea8e4a42733108859061a6d2cf58d42f5bc134c76ed19d9fcd8c5d",
+      "archived_sha256": "852cf8391fea8e4a42733108859061a6d2cf58d42f5bc134c76ed19d9fcd8c5d",
+      "temporary_path_normalized": false
+    },
+    "after/request.md": {
+      "source": "workspace/input/request.md",
+      "original_sha256": "4865bee80d131e9a3be3190e3d17f465a559ae3f7ee23a5b867712cf53f14aa4",
+      "archived_sha256": "4865bee80d131e9a3be3190e3d17f465a559ae3f7ee23a5b867712cf53f14aa4",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-specify/agents/openai.yaml": {
+      "source": "original-instructions/bandit-specify/agents/openai.yaml",
+      "original_sha256": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf",
+      "archived_sha256": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-specify/assets/plan-template.md": {
+      "source": "original-instructions/bandit-specify/assets/plan-template.md",
+      "original_sha256": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+      "archived_sha256": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-specify/references/changes.md": {
+      "source": "original-instructions/bandit-specify/references/changes.md",
+      "original_sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+      "archived_sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-specify/references/evidence-and-decisions.md": {
+      "source": "original-instructions/bandit-specify/references/evidence-and-decisions.md",
+      "original_sha256": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+      "archived_sha256": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-specify/references/research.md": {
+      "source": "original-instructions/bandit-specify/references/research.md",
+      "original_sha256": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+      "archived_sha256": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-specify/references/review.md": {
+      "source": "original-instructions/bandit-specify/references/review.md",
+      "original_sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+      "archived_sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-specify/references/specification.md": {
+      "source": "original-instructions/bandit-specify/references/specification.md",
+      "original_sha256": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431",
+      "archived_sha256": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431",
+      "temporary_path_normalized": false
+    },
+    "instructions/bandit-specify/SKILL.md": {
+      "source": "original-instructions/bandit-specify/SKILL.md",
+      "original_sha256": "9862565be56488293dc0c726724328f2b4f4e818b2b941b6aeb5d8e51617a2d3",
+      "archived_sha256": "9862565be56488293dc0c726724328f2b4f4e818b2b941b6aeb5d8e51617a2d3",
+      "temporary_path_normalized": false
+    }
+  },
+  "limitations": [
+    "Process completion and hash agreement are not planning-quality grades or proof of compliance with every task instruction.",
+    "Original inputs and instruction bytes are unchanged; only the five run log/artifact files receive literal run-root path normalization.",
+    "PNG files are recorded by SHA256 only and must be restored separately for an identical image-bearing workspace.",
+    "Missing originals cannot be reconstructed from hashes. Partial original trees and available after-state are retained explicitly.",
+    "Path normalization is not a general secret scrubber. Only supplied run evidence is archived; other workspace files and host state are not retained.",
+    "Host-default model configuration and external services are not pinned by this archive; replay is not guaranteed to produce the same response."
+  ]
+}

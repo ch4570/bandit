@@ -1,0 +1,26 @@
+{
+  "label": "migration-repeat",
+  "executable": "/TEMP/bandit-round14-lSJnNY/bin/npx",
+  "args": [
+    "--yes",
+    "--offline",
+    "--cache=/TEMP/bandit-round14-lSJnNY/cache-candidate",
+    "--package=/WORKSPACE/bandit/dist/overnight-round13/ch4570-bandit-0.4.0.tgz",
+    "--",
+    "bandit",
+    "--json"
+  ],
+  "cwd": "/TEMP/bandit-round14-lSJnNY/projects/migration clean",
+  "cache": "cache-candidate",
+  "started_at_utc": "2026-09-08T20:54:43.966Z",
+  "stdin": "closed",
+  "shell": false,
+  "available_bytes_before": 353406976,
+  "stdout": "{\n  \"status\": \"unchanged\",\n  \"source\": \"/TEMP/bandit-round14-lSJnNY/cache-candidate/_npx/b7b5b3ad4c28d9d1/node_modules/@ch4570/bandit/skills\",\n  \"destination\": \"/TEMP/bandit-round14-lSJnNY/projects/migration clean/.agents/skills/bandit\",\n  \"destination_root\": \"/TEMP/bandit-round14-lSJnNY/projects/migration clean/.agents/skills\",\n  \"version\": \"0.4.0\",\n  \"managed\": true,\n  \"commands\": [\n    \"$bandit\",\n    \"$bandit-research\",\n    \"$bandit-scope\",\n    \"$bandit-specify\",\n    \"$bandit-review\"\n  ],\n  \"skills\": [\n    {\n      \"name\": \"bandit\",\n      \"status\": \"unchanged\",\n      \"source\": \"/TEMP/bandit-round14-lSJnNY/cache-candidate/_npx/b7b5b3ad4c28d9d1/node_modules/@ch4570/bandit/skills/bandit\",\n      \"destination\": \"/TEMP/bandit-round14-lSJnNY/projects/migration clean/.agents/skills/bandit\",\n      \"version\": \"0.4.0\",\n      \"managed\": true,\n      \"changes\": [],\n      \"unchanged_files\": 10,\n      \"marker_change\": false\n    },\n    {\n      \"name\": \"bandit-research\",\n      \"status\": \"unchanged\",\n      \"source\": \"/TEMP/bandit-round14-lSJnNY/cache-candidate/_npx/b7b5b3ad4c28d9d1/node_modules/@ch4570/bandit/skills/bandit-research\",\n      \"destination\": \"/TEMP/bandit-round14-lSJnNY/projects/migration clean/.agents/skills/bandit-research\",\n      \"version\": \"0.4.0\",\n      \"managed\": true,\n      \"changes\": [],\n      \"unchanged_files\": 4,\n      \"marker_change\": false\n    },\n    {\n      \"name\": \"bandit-scope\",\n      \"status\": \"unchanged\",\n      \"source\": \"/TEMP/bandit-round14-lSJnNY/cache-candidate/_npx/b7b5b3ad4c28d9d1/node_modules/@ch4570/bandit/skills/bandit-scope\",\n      \"destination\": \"/TEMP/bandit-round14-lSJnNY/projects/migration clean/.agents/skills/bandit-scope\",\n      \"version\": \"0.4.0\",\n      \"managed\": true,\n      \"changes\": [],\n      \"unchanged_files\": 4,\n      \"marker_change\": false\n    },\n    {\n      \"name\": \"bandit-specify\",\n      \"status\": \"unchanged\",\n      \"source\": \"/TEMP/bandit-round14-lSJnNY/cache-candidate/_npx/b7b5b3ad4c28d9d1/node_modules/@ch4570/bandit/skills/bandit-specify\",\n      \"destination\": \"/TEMP/bandit-round14-lSJnNY/projects/migration clean/.agents/skills/bandit-specify\",\n      \"version\": \"0.4.0\",\n      \"managed\": true,\n      \"changes\": [],\n      \"unchanged_files\": 8,\n      \"marker_change\": false\n    },\n    {\n      \"name\": \"bandit-review\",\n      \"status\": \"unchanged\",\n      \"source\": \"/TEMP/bandit-round14-lSJnNY/cache-candidate/_npx/b7b5b3ad4c28d9d1/node_modules/@ch4570/bandit/skills/bandit-review\",\n      \"destination\": \"/TEMP/bandit-round14-lSJnNY/projects/migration clean/.agents/skills/bandit-review\",\n      \"version\": \"0.4.0\",\n      \"managed\": true,\n      \"changes\": [],\n      \"unchanged_files\": 8,\n      \"marker_change\": false\n    }\n  ],\n  \"retirements\": [\n    {\n      \"name\": \"bandit-decide\",\n      \"status\": \"preserved\",\n      \"source\": null,\n      \"destination\": \"/TEMP/bandit-round14-lSJnNY/projects/migration clean/.agents/skills/bandit-decide\",\n      \"version\": null,\n      \"managed\": false,\n      \"changes\": [],\n      \"unchanged_files\": 0,\n      \"marker_change\": false\n    },\n    {\n      \"name\": \"bandit-update\",\n      \"status\": \"absent\",\n      \"source\": null,\n      \"destination\": \"/TEMP/bandit-round14-lSJnNY/projects/migration clean/.agents/skills/bandit-update\",\n      \"version\": null,\n      \"managed\": false,\n      \"changes\": [],\n      \"unchanged_files\": 0,\n      \"marker_change\": false\n    }\n  ],\n  \"migrations\": [\n    {\n      \"from\": \"bandit-decide\",\n      \"to\": \"bandit-scope\",\n      \"status\": \"preserved\"\n    },\n    {\n      \"from\": \"bandit-update\",\n      \"to\": \"bandit-specify\",\n      \"status\": \"absent\"\n    }\n  ],\n  \"changes\": [],\n  \"unchanged_files\": 34,\n  \"marker_change\": false\n}\n",
+  "stderr": "",
+  "exit_code": 0,
+  "signal": null,
+  "launch_error": null,
+  "finished_at_utc": "2026-09-08T20:54:44.618Z",
+  "available_bytes_after": 353374208
+}

@@ -1,0 +1,22 @@
+TAP version 13
+# Subtest: an existing PM Craft installation is reported and left intact
+ok 1 - an existing PM Craft installation is reported and left intact
+  ---
+  duration_ms: 388.686125
+  type: 'test'
+  ...
+# Subtest: custom PM Craft core destinations do not emit separate legacy installation notes
+ok 2 - custom PM Craft core destinations do not emit separate legacy installation notes
+  ---
+  duration_ms: 1550.791416
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1991.593167

@@ -116,6 +116,13 @@ State the relevant environment, version, or test data when a check's result depe
 
 ## Finish the handoff
 
+When a word cap is explicit and a counting tool is available, count the complete
+draft before delivery and revise until it fits. Deliver that counted text, not
+an expanded version. Otherwise leave headroom rather than claim an exact count.
+Budget current rules, historical evidence and checks together. Combine rules with
+observable checks and cut duplicate rationale or speculative detail before
+dropping necessary behavior or evidence conditions.
+
 Check that scope, roles, rules, states, and acceptance criteria describe the same product.
 Expose open decisions that could change behavior, with a proposed default when appropriate.
 Separate implementation-blocking decisions from details that can remain flexible.

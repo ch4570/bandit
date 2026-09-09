@@ -20,6 +20,25 @@ For a packaging change, build and inspect the npm archive:
 npm pack --pack-destination /path/to/temporary-directory
 ```
 
+Test that local archive from a separate disposable project, using the filename
+printed by `npm pack`. Keep each candidate archive immutable and use a fresh
+cache for a different build, especially while the package version is unchanged:
+
+```sh
+npx --yes --cache="/absolute/path/to/fresh-cache" --package="/absolute/path/to/ch4570-bandit-0.4.0.tgz" -- bandit --plan --json
+npx --yes --cache="/absolute/path/to/fresh-cache" --package="/absolute/path/to/ch4570-bandit-0.4.0.tgz" -- bandit --json
+```
+
+The preview must not change the project. Run the second command again to check
+an unchanged repeat, and compare installed payloads and ownership records with
+the candidate archive rather than trusting its version label alone.
+The explicit package/command form follows the [npm npx documentation](https://docs.npmjs.com/cli/v11/commands/npx/).
+In the [Node-22 integration check](evals/results/2026-09-09-overnight-round9/README.md),
+a plain positional local `.tgz` path was treated as an executable by npm 11.19.0;
+that failed invocation is retained separately from the corrected checks.
+This local-development form does not replace the versioned GitHub command in
+[INSTALL.md](INSTALL.md).
+
 Keep generated archives out of source control. The repository also retains Python tooling for its manual-copy ZIP distribution; users of the npm installer do not need Python. Exercise installer changes against temporary directories, including a local modification conflict, rather than installing into an active agent environment to run a test.
 
 ## Make the change reviewable

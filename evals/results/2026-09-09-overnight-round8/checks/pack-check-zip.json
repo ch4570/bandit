@@ -1,0 +1,9 @@
+{
+  "artifact": "/TEMP/bandit-round8-9PIwDl/pack-check/bandit-0.4.0.zip",
+  "checksum": "/TEMP/bandit-round8-9PIwDl/pack-check/bandit-0.4.0.zip.sha256",
+  "manifest": "/TEMP/bandit-round8-9PIwDl/pack-check/SHA256SUMS.txt",
+  "sha256": "feca2dd6bf24515ffab0ae59eba63d9cae03483c6c8294215f352beea7e3aea2",
+  "version": "0.4.0",
+  "files": 1171,
+  "bytes": 12020648
+}

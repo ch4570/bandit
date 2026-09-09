@@ -1,0 +1,12 @@
+test_model_cli_argument_is_forwarded_after_web_search (test_eval_runner.EvalRunnerTests.test_model_cli_argument_is_forwarded_after_web_search) ... ok
+test_model_cli_default_remains_unset (test_eval_runner.EvalRunnerTests.test_model_cli_default_remains_unset) ... ok
+test_model_default_keeps_host_selection_and_existing_permissions (test_eval_runner.EvalRunnerTests.test_model_default_keeps_host_selection_and_existing_permissions) ... ok
+test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) ... ok
+test_model_override_is_forwarded_without_changing_web_or_sandbox_scope (test_eval_runner.EvalRunnerTests.test_model_override_is_forwarded_without_changing_web_or_sandbox_scope) ... ok
+test_model_override_is_retained_after_launch_failures (test_eval_runner.EvalRunnerTests.test_model_override_is_retained_after_launch_failures) ... ok
+test_model_override_is_retained_after_nonzero_task_exit (test_eval_runner.EvalRunnerTests.test_model_override_is_retained_after_nonzero_task_exit) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.101s
+
+OK

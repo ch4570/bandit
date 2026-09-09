@@ -1,0 +1,278 @@
+{
+  "recorded_at": "2026-09-08T18:44:21.388Z",
+  "format": 1,
+  "purpose": "Original-to-retained integration text-file byte verification",
+  "files_verified": 37,
+  "files": [
+    {
+      "original": "/TEMP/bandit-round9-pm62vi/failure.json",
+      "archive": "attempt1/failure.json",
+      "bytes": 850,
+      "sha256": "3907f27004b2e38b9dfd8db8ceceffe75c215cdea2273285e2e299e1e7cb3056",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-pm62vi/logs/01-runtime.json",
+      "archive": "attempt1/logs/01-runtime.json",
+      "bytes": 674,
+      "sha256": "44cadb8d7eba2ace54295dbc5db1a6b2a677fdbc4a61a91fe7012743f4821e35",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-pm62vi/logs/02-public-install.json",
+      "archive": "attempt1/logs/02-public-install.json",
+      "bytes": 802,
+      "sha256": "036b4114f33b6c38c115365c96e9541449761cba79da8248e6e038e5bf891368",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-pm62vi/logs/03-public-repeat.json",
+      "archive": "attempt1/logs/03-public-repeat.json",
+      "bytes": 4668,
+      "sha256": "897966e9c1bfdb050b96e3996654d8e8054c841dc07c7823ec0aea18f87d8f8c",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-pm62vi/logs/04-candidate-preview.json",
+      "archive": "attempt1/logs/04-candidate-preview.json",
+      "bytes": 664,
+      "sha256": "d254df9c70d11fa0b6ff9f8248e51ccf8c9dbed600275ce8b2a4dbf0a184c0e3",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-pm62vi/snapshots/candidate-preview-before.json",
+      "archive": "attempt1/snapshots/candidate-preview-before.json",
+      "bytes": 232,
+      "sha256": "9b9ce7e23edae020e047af1a384382edc2a1aa52f5ec6af7025f6a137bba8e08",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-pm62vi/snapshots/public-installed.json",
+      "archive": "attempt1/snapshots/public-installed.json",
+      "bytes": 13574,
+      "sha256": "7309f5aec830fe5a5690542c6feeb51130e164f2054b59b2580b49f7cfd30b6d",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-pm62vi/snapshots/public-repeat-after.json",
+      "archive": "attempt1/snapshots/public-repeat-after.json",
+      "bytes": 13574,
+      "sha256": "7309f5aec830fe5a5690542c6feeb51130e164f2054b59b2580b49f7cfd30b6d",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-pm62vi/snapshots/public-repeat-before.json",
+      "archive": "attempt1/snapshots/public-repeat-before.json",
+      "bytes": 13574,
+      "sha256": "7309f5aec830fe5a5690542c6feeb51130e164f2054b59b2580b49f7cfd30b6d",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-pm62vi/sources.json",
+      "archive": "attempt1/sources.json",
+      "bytes": 16354,
+      "sha256": "439d58a7a44267377ee1cea7e960ea78982b051f7e0266ed2cb448ca11d8aafd",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/logs/01-runtime.json",
+      "archive": "attempt2/logs/01-runtime.json",
+      "bytes": 674,
+      "sha256": "d6f42dcd7ba24dc799db587109e7464205cffeaba944c45e09e7e592a41e3434",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/logs/02-public-install.json",
+      "archive": "attempt2/logs/02-public-install.json",
+      "bytes": 802,
+      "sha256": "8c83af255364a962e7e589cbdc0bcd3448b21a5a88309aaf3364105fcc1900c8",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/logs/03-public-repeat.json",
+      "archive": "attempt2/logs/03-public-repeat.json",
+      "bytes": 4668,
+      "sha256": "2de4b54e607a9ada7727c2a2510f5aa38efd5a691daa0cb784013a1ba0a2af24",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/logs/04-candidate-preview.json",
+      "archive": "attempt2/logs/04-candidate-preview.json",
+      "bytes": 12845,
+      "sha256": "03d40dd4674836f7078b95edb97a3c23030c160caafa64ed81d8e1103318dd3a",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/logs/05-candidate-install.json",
+      "archive": "attempt2/logs/05-candidate-install.json",
+      "bytes": 12869,
+      "sha256": "a284beede8b601960bccb53c0a5e925e49448c51b3c50886ffbf76e56974952a",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/logs/06-candidate-repeat.json",
+      "archive": "attempt2/logs/06-candidate-repeat.json",
+      "bytes": 4768,
+      "sha256": "d96821de476c297dd7c2fce6d4068751fa379de19f7aaee1b65109ac37fd0dd0",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/logs/07-old-clean-install.json",
+      "archive": "attempt2/logs/07-old-clean-install.json",
+      "bytes": 12932,
+      "sha256": "a9880c9b68c96ed7f3d0e307fd0eb2331675accd762c81bb0b68bec7d6db90ce",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/logs/08-migration-preview.json",
+      "archive": "attempt2/logs/08-migration-preview.json",
+      "bytes": 13783,
+      "sha256": "dd7a374d3e33f36d35199e67a42ccc212fbf9c53ab01b2276ebf4ebe76bd3012",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/logs/09-migration-install.json",
+      "archive": "attempt2/logs/09-migration-install.json",
+      "bytes": 13801,
+      "sha256": "d505c4192c88b57c2e35c74af0709f96e58d3a9021b02072b7899b63d01bffd6",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/logs/10-migration-repeat.json",
+      "archive": "attempt2/logs/10-migration-repeat.json",
+      "bytes": 4684,
+      "sha256": "cfed5d1aa4b37c6988cccd5694be9eadec1b620232194dea6fb06b234ef37855",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/logs/11-old-customized-install.json",
+      "archive": "attempt2/logs/11-old-customized-install.json",
+      "bytes": 12982,
+      "sha256": "8f3d509f1c787875c917fe04de08ec36f943d7bf0cd398a5881482f3f839f442",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/logs/12-migration-conflict.json",
+      "archive": "attempt2/logs/12-migration-conflict.json",
+      "bytes": 719,
+      "sha256": "f2aa59a78a8c121150515897493152770d84b747e8da0cabb7c72983adfe4588",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/result.json",
+      "archive": "attempt2/result.json",
+      "bytes": 1719,
+      "sha256": "b8b217620f01c938db05f089213b1268036efa0cd08978f583b46bc2c6bc453a",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/snapshots/candidate-preview-after.json",
+      "archive": "attempt2/snapshots/candidate-preview-after.json",
+      "bytes": 232,
+      "sha256": "34fa96ebbdda450069cedb0c96b1626a9b1177e26cc854677cc85bbc7f57b2f2",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/snapshots/candidate-preview-before.json",
+      "archive": "attempt2/snapshots/candidate-preview-before.json",
+      "bytes": 232,
+      "sha256": "34fa96ebbdda450069cedb0c96b1626a9b1177e26cc854677cc85bbc7f57b2f2",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/snapshots/candidate-repeat-after.json",
+      "archive": "attempt2/snapshots/candidate-repeat-after.json",
+      "bytes": 13574,
+      "sha256": "75eb13034fb81555a8f98424c9be68569ea20ec23a7a34e0a78fa57ea2a622e9",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/snapshots/candidate-repeat-before.json",
+      "archive": "attempt2/snapshots/candidate-repeat-before.json",
+      "bytes": 13574,
+      "sha256": "75eb13034fb81555a8f98424c9be68569ea20ec23a7a34e0a78fa57ea2a622e9",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/snapshots/conflict-after.json",
+      "archive": "attempt2/snapshots/conflict-after.json",
+      "bytes": 15263,
+      "sha256": "f7e71e7dc5128a00ab810890d1f5953c736134457ef7ba15f4a939962a57a8d8",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/snapshots/conflict-before.json",
+      "archive": "attempt2/snapshots/conflict-before.json",
+      "bytes": 15263,
+      "sha256": "f7e71e7dc5128a00ab810890d1f5953c736134457ef7ba15f4a939962a57a8d8",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/snapshots/migration-preview-after.json",
+      "archive": "attempt2/snapshots/migration-preview-after.json",
+      "bytes": 15941,
+      "sha256": "dc2493131f84025c2b08e284b5c7f0a2b14373e41569407faf36d36e8571538e",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/snapshots/migration-preview-before.json",
+      "archive": "attempt2/snapshots/migration-preview-before.json",
+      "bytes": 15941,
+      "sha256": "dc2493131f84025c2b08e284b5c7f0a2b14373e41569407faf36d36e8571538e",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/snapshots/migration-repeat-after.json",
+      "archive": "attempt2/snapshots/migration-repeat-after.json",
+      "bytes": 14400,
+      "sha256": "4669f8a416eac69252e618f27ce2d57d292c3e0f90df57ac6ab939e7bb8a910a",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/snapshots/migration-repeat-before.json",
+      "archive": "attempt2/snapshots/migration-repeat-before.json",
+      "bytes": 14400,
+      "sha256": "4669f8a416eac69252e618f27ce2d57d292c3e0f90df57ac6ab939e7bb8a910a",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/snapshots/public-installed.json",
+      "archive": "attempt2/snapshots/public-installed.json",
+      "bytes": 13574,
+      "sha256": "9778bf01a059def125933ce79d47772cb53b836b1e7ca0f12f8cb98beee87ff5",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/snapshots/public-repeat-after.json",
+      "archive": "attempt2/snapshots/public-repeat-after.json",
+      "bytes": 13574,
+      "sha256": "9778bf01a059def125933ce79d47772cb53b836b1e7ca0f12f8cb98beee87ff5",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/snapshots/public-repeat-before.json",
+      "archive": "attempt2/snapshots/public-repeat-before.json",
+      "bytes": 13574,
+      "sha256": "9778bf01a059def125933ce79d47772cb53b836b1e7ca0f12f8cb98beee87ff5",
+      "transformation": "none"
+    },
+    {
+      "original": "/TEMP/bandit-round9-wwXdSO/sources.json",
+      "archive": "attempt2/sources.json",
+      "bytes": 16354,
+      "sha256": "439d58a7a44267377ee1cea7e960ea78982b051f7e0266ed2cb448ca11d8aafd",
+      "transformation": "none"
+    }
+  ],
+  "downloads": {
+    "public040": {
+      "path": "dist/overnight-round9/public-sources/public-0.4.0.tgz",
+      "sha256": "af5e83e5c45ab15956f1d7463ed9194ef1362f2ea68c6db9a7a967c915a3735f"
+    },
+    "public030": {
+      "path": "dist/overnight-round9/public-sources/public-0.3.0.tgz",
+      "sha256": "b1cba7db515776d86d1d2e06b627e30df7c5a6ecaa9e52a7330e43726b1e8b29"
+    }
+  },
+  "limits": "JSON command records, snapshots, sources and terminal result/failure copied unchanged. Original project/cache trees remain in scratch; public downloaded binaries are separately retained in ignored dist, not this text evidence or source ZIP. This is not full syscall or npm debug-log archival."
+}

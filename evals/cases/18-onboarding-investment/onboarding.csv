@@ -1,0 +1,17 @@
+shop_id,export_family,import_attempts,stored_import_events,manual_rescue,usable_stock_check,support_minutes,issue_note
+S01,standard_csv,1,1,0,1,0,none
+S02,standard_csv,1,1,0,1,0,none
+S03,standard_csv,2,1,0,1,0,header_alias_self_fixed
+S04,standard_csv,1,1,0,1,0,none
+S05,standard_csv,3,2,1,1,35,quantity_unit_mapping
+S06,standard_csv,2,1,1,1,30,header_mapping
+S07,standard_csv,4,1,1,1,45,quantity_unit_mapping
+S08,standard_csv,2,1,0,0,15,quantity_unit_mapping
+S09,standard_csv,1,1,0,0,10,duplicate_sku
+S10,standard_csv,3,0,1,0,35,unsupported_encoding
+S11,legacy_export,4,2,1,1,60,header_mapping
+S12,legacy_export,3,1,1,1,50,quantity_unit_mapping
+S13,legacy_export,2,1,0,0,20,duplicate_sku
+S14,legacy_export,3,0,1,0,40,missing_sku_source
+S15,legacy_export,2,0,0,0,15,unsupported_encoding
+S16,legacy_export,1,0,0,0,10,missing_sku_source

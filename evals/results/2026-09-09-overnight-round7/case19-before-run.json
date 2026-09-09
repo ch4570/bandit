@@ -1,0 +1,33 @@
+{
+  "recorded_at": "2026-09-08T17:44:57.809Z",
+  "phase": "before either case19 TASK",
+  "case": "19-library-pickup-reminders",
+  "raw_sha256": {
+    "docs/PRD.md": "5fd0be7aa5319245bc6bbe002625cedd84569e16701b6b8d494a08248164009b",
+    "pilot-notes.md": "fa372be584310fb655b8f859b6e73016024e69e38d9f8757ff08440dc94e5b5d",
+    "reader-outcomes.csv": "85fc053ee70b3028c36cf323e7066f11bd14fcd0f04cac5e777a09f39733b2cd",
+    "request.md": "86f68101962d048d376e759df8f48e7fcf673f8b3d261dd277c4d88294f11555"
+  },
+  "rubric_sha256": "be5e9cf6f4f05ad2271f942535e755f97d4ede1d4a3f462f368489f3d7a74a85",
+  "standalone_skill_sha256": {
+    "SKILL.md": "9862565be56488293dc0c726724328f2b4f4e818b2b941b6aeb5d8e51617a2d3",
+    "agents/openai.yaml": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf",
+    "assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "references/evidence-and-decisions.md": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+    "references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+    "references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "references/specification.md": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431"
+  },
+  "all_skills_map_sha256": "e49c9478eceaa6cd109ea2192d8bf71d4cc519b8f7d7e61bca0172356f0bb320",
+  "editable_artifact": "input/docs/PRD.md",
+  "artifact_word_cap": 800,
+  "planned_arms": [
+    "bandit-specify (standalone)",
+    "baseline"
+  ],
+  "web_search": "disabled",
+  "model": "unmodified host defaults",
+  "scope": "fresh isolated tasks receive only four raw files and assigned instructions; no rubric, author diagnoses, or prior outputs",
+  "limitations": "synthetic author-designed development check; both rollout recommendations permitted; unsigned timestamp; no instruction change"
+}

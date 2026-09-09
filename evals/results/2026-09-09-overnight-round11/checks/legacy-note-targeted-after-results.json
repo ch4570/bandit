@@ -1,0 +1,27 @@
+{
+  "argv": [
+    "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+    "--test",
+    "--test-name-pattern=PM Craft",
+    "tests-node/install.test.mjs"
+  ],
+  "cwd": "/WORKSPACE/bandit",
+  "stdin": "closed",
+  "shell": false,
+  "started_at": "2026-09-08T19:26:50.856Z",
+  "ended_at": "2026-09-08T19:26:52.881Z",
+  "runtime": "v22.23.2",
+  "exit_code": 0,
+  "signal": null,
+  "error": null,
+  "hashes_before": {
+    "lib/installer.mjs": "9fc6f906b9dc563a66d55662fe4bdb6b0be37b7108e996d1a443cd6ace39bfd6",
+    "tests-node/install.test.mjs": "4a2259d68f57107f270efec164304115f226f98a127cc006878d2220cf2f4a46"
+  },
+  "hashes_after": {
+    "lib/installer.mjs": "9fc6f906b9dc563a66d55662fe4bdb6b0be37b7108e996d1a443cd6ace39bfd6",
+    "tests-node/install.test.mjs": "4a2259d68f57107f270efec164304115f226f98a127cc006878d2220cf2f4a46"
+  },
+  "stdout": "legacy-note-targeted-after.stdout.txt",
+  "stderr": "legacy-note-targeted-after.stderr.txt"
+}

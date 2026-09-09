@@ -1,0 +1,8 @@
+{
+  "status": "failed",
+  "finished_at": "2026-09-08T18:34:18.530Z",
+  "message": "candidate-preview: /bin/sh: /WORKSPACE/bandit/dist/overnight-round8/ch4570-bandit-0.4.0.tgz: Permission denied\n\n\n126 !== 0\n",
+  "stack": "AssertionError [ERR_ASSERTION]: candidate-preview: /bin/sh: /WORKSPACE/bandit/dist/overnight-round8/ch4570-bandit-0.4.0.tgz: Permission denied\n\n\n126 !== 0\n\n    at command (file:///WORKSPACE/bandit/evals/results/2026-09-09-overnight-round9/checks/npx-flow.mjs:65:10)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async file:///WORKSPACE/bandit/evals/results/2026-09-09-overnight-round9/checks/npx-flow.mjs:189:31",
+  "completed_command_records": 4,
+  "preserved_root": "/TEMP/bandit-round9-pm62vi"
+}

@@ -1,0 +1,44 @@
+{
+  "case": "09-linked-policy-review",
+  "arm": "baseline",
+  "codex_version": "codex-cli 0.153.4",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "<temporary-run-root>/workspace",
+    "-o",
+    "<temporary-run-root>/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host defaults",
+  "upstream_commit": null,
+  "input_sha256": {
+    "docs/PRD.md": "bff239fcd22161cbe453b76d71919306c3507024ac01d32b01a2d46ffd67d5fe",
+    "docs/booking-policy.md": "ca6dc559645688264ae561dd497a37483d317ef7f1a62ea97d0865d35f02cd4d",
+    "docs/discovery-notes.md": "11a864678f4eeb59e093886a30dcb98db41bbd44780ad0e0244e019d1451c21f",
+    "request.md": "56a735e50c2d0174959b74d3024a933a6a2bcfc75c4c0992cc46e2cc2841b863"
+  },
+  "instruction_sha256": {},
+  "invocation": null,
+  "standalone_specialist": false,
+  "editable_artifact": null,
+  "exit_code": 0,
+  "elapsed_seconds": 37.516,
+  "input_after_sha256": {
+    "docs/PRD.md": "bff239fcd22161cbe453b76d71919306c3507024ac01d32b01a2d46ffd67d5fe",
+    "docs/booking-policy.md": "ca6dc559645688264ae561dd497a37483d317ef7f1a62ea97d0865d35f02cd4d",
+    "docs/discovery-notes.md": "11a864678f4eeb59e093886a30dcb98db41bbd44780ad0e0244e019d1451c21f",
+    "request.md": "56a735e50c2d0174959b74d3024a933a6a2bcfc75c4c0992cc46e2cc2841b863"
+  },
+  "instruction_after_sha256": {}
+}

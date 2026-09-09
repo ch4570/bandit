@@ -1,0 +1,15 @@
+{
+  "prior_result_source": "dist/overnight-round7/bandit-0.4.0.zip",
+  "prior_result_files_checked": 876,
+  "prior_result_changes": [],
+  "historical_source": "HEAD:f4a376e23b16f311931b4d06853a0943575e09e7",
+  "historical_PM_Craft_files_checked": 93,
+  "historical_changes": [],
+  "unchanged_from_round7_zip": [
+    "lib/installer.mjs",
+    "install.py",
+    "evals/run_local.py",
+    "evals/archive_run.mjs"
+  ],
+  "method": "Read-only direct byte comparison of every prior archived result file against the frozen previous ZIP; compare each tracked historical path to git show HEAD:path. No files removed or rewritten. The 93 historical files are included in the 876, not additional files."
+}

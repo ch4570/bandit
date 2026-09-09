@@ -21,6 +21,7 @@ SKILL_NAMES = (NAME, "bandit-research", "bandit-scope", "bandit-specify", "bandi
 RETIRED_NAMES = ("bandit-decide", "bandit-update")
 MIGRATIONS = {"bandit-decide": "bandit-scope", "bandit-update": "bandit-specify"}
 IGNORED = {".git", "__pycache__", ".DS_Store"}
+_UNCHECKED = object()
 
 
 class InstallError(ValueError):
@@ -112,13 +113,16 @@ def version(root: Path) -> str:
     return value
 
 
-def read_marker(destination: Path, skill_name: str = NAME) -> dict | None:
+def read_marker(destination: Path, skill_name: str = NAME, observed: dict | None = None) -> dict | None:
     path = destination / MARKER
     check_path(path)
     if not path.exists():
+        if observed is not None:
+            observed[path] = None
         return None
     try:
-        value = json.loads(regular_bytes(path))
+        data = regular_bytes(path)
+        value = json.loads(data)
     except (UnicodeDecodeError, json.JSONDecodeError) as exc:
         raise InstallError(f"Invalid ownership marker: {path}") from exc
     if not isinstance(value, dict) or value.get("format") != 1 or value.get("name") != skill_name or not isinstance(value.get("files"), dict):
@@ -129,10 +133,13 @@ def read_marker(destination: Path, skill_name: str = NAME) -> dict | None:
         if canonical_name(name) == canonical_name(MARKER) or canonical_name(name) in seen or not isinstance(checksum, str) or not re.fullmatch(r"[0-9a-f]{64}", checksum):
             raise InstallError(f"Invalid managed file entry: {name}")
         seen.add(canonical_name(name))
+    if observed is not None:
+        observed[path] = data
     return value
 
 
-def make_plan(source_root: Path, destination: Path, skill_name: str = NAME) -> tuple[dict, dict[str, bytes], bytes]:
+def make_plan(source_root: Path, destination: Path, skill_name: str = NAME,
+              observed: dict | None = None) -> tuple[dict, dict[str, bytes], bytes]:
     if skill_name not in SKILL_NAMES:
         raise InstallError(f"Unknown BANDIT skill: {skill_name}")
     source_root, destination = absolute(source_root), absolute(destination)
@@ -145,7 +152,7 @@ def make_plan(source_root: Path, destination: Path, skill_name: str = NAME) -> t
     payload = tree_files(source)
     if "SKILL.md" not in payload or MARKER in payload:
         raise InstallError("Source must contain SKILL.md and must not contain an installation marker")
-    installed = read_marker(destination, skill_name)
+    installed = read_marker(destination, skill_name, observed)
     previous = installed["files"] if installed else {}
     previous_case = {canonical_name(name): name for name in previous}
     for name in payload:
@@ -164,7 +171,10 @@ def make_plan(source_root: Path, destination: Path, skill_name: str = NAME) -> t
         if target.exists() and not target.is_file():
             conflicts.append(f"not a regular file: {name}")
             continue
-        current = digest(regular_bytes(target)) if target.exists() else None
+        data = regular_bytes(target) if target.exists() else None
+        if observed is not None:
+            observed[target] = data
+        current = digest(data) if data is not None else None
         old, new = previous.get(name), desired["files"].get(name)
         if new is not None and current == new:
             unchanged += 1
@@ -191,22 +201,50 @@ def make_plan(source_root: Path, destination: Path, skill_name: str = NAME) -> t
     return report, payload, marker
 
 
-def atomic_write(path: Path, data: bytes) -> None:
+def _same_file_state(current: os.stat_result, identity: os.stat_result) -> bool:
+    fields = ("st_dev", "st_ino", "st_mode", "st_size", "st_mtime_ns", "st_ctime_ns")
+    return stat.S_ISREG(current.st_mode) and all(getattr(current, field) == getattr(identity, field) for field in fields)
+
+
+def _staged_file_matches(path: Path, identity: os.stat_result | None, data: bytes) -> bool:
+    if identity is None:
+        return False
+    check_path(path)
+    return (_same_file_state(path.lstat(), identity) and regular_bytes(path) == data
+            and _same_file_state(path.lstat(), identity))
+
+
+def atomic_write(path: Path, data: bytes, *, expected=_UNCHECKED) -> None:
     check_path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     check_path(path.parent)
     descriptor, temporary = tempfile.mkstemp(prefix=".bandit-", dir=path.parent)
+    temporary = Path(temporary)
+    identity = None
     try:
         with os.fdopen(descriptor, "wb") as stream:
             stream.write(data)
+            stream.flush()
+            identity = os.fstat(stream.fileno())
         check_path(path)
+        if expected is not _UNCHECKED:
+            current = regular_bytes(path) if path.exists() else None
+            if current != expected:
+                raise InstallError(f"Destination changed during installation; preserving the edit: {path}")
+        if not _staged_file_matches(temporary, identity, data):
+            raise InstallError(f"Staged file changed during installation: {temporary}")
         os.replace(temporary, path)
     finally:
-        if os.path.exists(temporary):
-            os.unlink(temporary)
+        try:
+            if _staged_file_matches(temporary, identity, data):
+                temporary.unlink()
+        except (OSError, InstallError):
+            # Keep changed/unverifiable staging files without hiding the original error.
+            pass
 
 
-def make_retirement_plan(destination: Path, skill_name: str) -> tuple[dict, dict[str, bytes], None]:
+def make_retirement_plan(destination: Path, skill_name: str,
+                         observed: dict | None = None) -> tuple[dict, dict[str, bytes], None]:
     """Remove only unchanged files proven to belong to an obsolete installation."""
     if skill_name not in RETIRED_NAMES:
         raise InstallError(f"Unknown retired BANDIT skill: {skill_name}")
@@ -214,7 +252,7 @@ def make_retirement_plan(destination: Path, skill_name: str) -> tuple[dict, dict
     check_path(destination)
     if destination.exists() and not destination.is_dir():
         raise InstallError(f"Retired skill destination is not a directory: {destination}")
-    installed = read_marker(destination, skill_name)
+    installed = read_marker(destination, skill_name, observed)
     previous = installed["files"] if installed else {}
     changes = []
     entrypoint = destination / "SKILL.md"
@@ -225,8 +263,11 @@ def make_retirement_plan(destination: Path, skill_name: str) -> tuple[dict, dict
         target = destination / name
         check_path(target)
         if target.exists():
-            if digest(regular_bytes(target)) != checksum:
+            data = regular_bytes(target)
+            if digest(data) != checksum:
                 raise InstallError(f"Nothing installed; local modification in retired skill must be preserved or moved: {target}")
+            if observed is not None:
+                observed[target] = data
             changes.append({"action": "remove", "path": name})
     report = {"name": skill_name, "retired": True, "status": "plan", "destination": str(destination),
               "managed": installed is not None, "changes": changes, "unchanged_files": 0,
@@ -262,14 +303,26 @@ def _prune_retired_directories(report: dict, owned_paths) -> None:
             pass
 
 
+def _release_lock(path: Path, identity: os.stat_result) -> None:
+    try:
+        check_path(path)
+        current = path.lstat()
+        # Another empty file at the old pathname is not our acquired lock.
+        if _same_file_state(current, identity):
+            path.unlink()
+    except (OSError, InstallError):
+        # Preserve changed/unsafe paths; a cleanup error must not strand other locks.
+        pass
+
+
 def _install_plans(planner, dry_run: bool = False) -> list[dict]:
     """Preflight every destination, then apply one rollback journal under all locks."""
-    plans = planner()
+    plans = planner({})
     if dry_run:
         return [report for report, _, _ in plans]
     if all(not report["changes"] and not report["marker_change"] for report, _, _ in plans):
         return [_completed_report(report) for report, _, _ in plans]
-    locks: list[Path] = []
+    locks: list[tuple[Path, os.stat_result]] = []
     try:
         destinations = sorted((Path(report["destination"]) for report, _, _ in plans), key=lambda item: canonical_name(str(item)))
         for destination in destinations:
@@ -281,9 +334,13 @@ def _install_plans(planner, dry_run: bool = False) -> list[dict]:
                 lock_fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
             except FileExistsError as exc:
                 raise InstallError(f"Install lock exists: {lock}; retry after the other installer finishes") from exc
-            os.close(lock_fd)
-            locks.append(lock)
-        plans = planner()
+            try:
+                identity = os.fstat(lock_fd)
+            finally:
+                os.close(lock_fd)
+            locks.append((lock, identity))
+        backups = {}
+        plans = planner(backups)
         changes: list[tuple[Path, bytes | None]] = []
         markers: list[tuple[Path, bytes | None]] = []
         for report, payload, marker in plans:
@@ -293,7 +350,11 @@ def _install_plans(planner, dry_run: bool = False) -> list[dict]:
             if report["marker_change"]:
                 markers.append((destination / MARKER, marker))
         changes.extend(markers)
-        backups = {target: regular_bytes(target) if target.exists() else None for target, _ in changes}
+        # Check the preflight snapshots before any write; never adopt newer bytes.
+        for target, _ in changes:
+            current = regular_bytes(target) if target.exists() else None
+            if current != backups[target]:
+                raise InstallError(f"Destination changed during installation; preserving the edit: {target}")
         applied: list[tuple[Path, bytes | None]] = []
         try:
             for target, desired in changes:
@@ -304,34 +365,38 @@ def _install_plans(planner, dry_run: bool = False) -> list[dict]:
                     check_path(target)
                     target.unlink()
                 else:
-                    atomic_write(target, desired)
+                    atomic_write(target, desired, expected=backups[target])
                 applied.append((target, desired))
         except (OSError, InstallError):
             for target, installed in reversed(applied):
-                current = regular_bytes(target) if target.exists() else None
-                if current != installed:
-                    # An editor changed it after our write; retain that edit.
+                try:
+                    current = regular_bytes(target) if target.exists() else None
+                    if current != installed:
+                        # An editor changed it after our write; retain that edit.
+                        continue
+                    old = backups[target]
+                    if old is None:
+                        check_path(target)
+                        target.unlink(missing_ok=True)
+                    else:
+                        atomic_write(target, old, expected=installed)
+                except (OSError, InstallError):
+                    # Keep the original failure and recover the other files where possible.
                     continue
-                old = backups[target]
-                if old is None:
-                    check_path(target)
-                    target.unlink(missing_ok=True)
-                else:
-                    atomic_write(target, old)
             raise
         for report, _, _ in plans:
             if report.get("retired") and report["managed"]:
                 marker_before = backups[Path(report["destination"]) / MARKER]
                 _prune_retired_directories(report, json.loads(marker_before)["files"])
     finally:
-        for lock in reversed(locks):
-            lock.unlink()
+        for lock, identity in reversed(locks):
+            _release_lock(lock, identity)
     return [_completed_report(report) for report, _, _ in plans]
 
 
 def install_into(source_root: Path, destination: Path, dry_run: bool = False, skill_name: str = NAME) -> dict:
     """Single-skill API retained for existing callers; the CLI installs the bundle."""
-    return _install_plans(lambda: [make_plan(source_root, destination, skill_name)], dry_run)[0]
+    return _install_plans(lambda observed: [make_plan(source_root, destination, skill_name, observed)], dry_run)[0]
 
 
 def install_bundle(source_root: Path, destination: Path, dry_run: bool = False) -> dict:
@@ -347,11 +412,11 @@ def install_bundle(source_root: Path, destination: Path, dry_run: bool = False) 
             if is_within(target, source) or is_within(source, target):
                 raise InstallError("Source and installation destination must not overlap")
 
-    def planner():
-        plans = [make_plan(source_root, destinations[name], name) for name in SKILL_NAMES]
+    def planner(observed):
+        plans = [make_plan(source_root, destinations[name], name, observed) for name in SKILL_NAMES]
         if len({report["version"] for report, _, _ in plans}) != 1:
             raise InstallError("Source version changed during installation; retry with a stable package")
-        return plans + [make_retirement_plan(destinations[name], name) for name in RETIRED_NAMES]
+        return plans + [make_retirement_plan(destinations[name], name, observed) for name in RETIRED_NAMES]
 
     reports = _install_plans(planner, dry_run)
     active = [report for report in reports if not report.get("retired")]

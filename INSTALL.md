@@ -71,7 +71,7 @@ The old installer stays on its old version. Repeating a 0.2 or 0.3 command canno
 
 ## Updates and local changes
 
-For a future version, copy the install command from the [current README](https://github.com/ch4570/bandit#saddle-up) and use the same destination. The versioned URL ensures npm can distinguish the new release from an earlier cached package.
+For a future version, copy the install command from the [current README](https://github.com/ch4570/bandit#saddle-up) and use the same destination. Then refresh skill discovery or start a new agent session so the host loads the updated skills. The versioned URL ensures npm can distinguish the new release from an earlier cached package.
 
 The installer checks the current and retired skill destinations before applying changes. Identical managed files stay untouched. Conflicting edits are reported and preserved; there is no force-overwrite option. To compare versions, choose a `--dest` under a separate parent directory so all specialist folders are separate too.
 
@@ -81,12 +81,14 @@ An older **PM Craft 0.1.0** folder is reported and left untouched. Preserve any 
 
 ## If the agent cannot find a command
 
-Start a new agent session or refresh its skill discovery. In hosts supporting named skills, use a command such as `$bandit-specify`. Otherwise point to the installed file:
+Start a new agent session or refresh its skill discovery. In hosts supporting named skills, use a command such as `$bandit-specify`. Otherwise point to that skill's installed `SKILL.md`. For the default project installation:
 
 ```text
 Read .agents/skills/bandit-specify/SKILL.md and use it to rewrite our PRD
 for the new direction described below.
 ```
+
+For `--global`, `--repo`, or `--dest`, use `bandit-specify/SKILL.md` under the skills directory printed by the installer instead of assuming the current project's `.agents/skills/`.
 
 Each skill includes its own Markdown instructions, references, and Codex metadata. Your host supplies the model, file access, and research tools under its existing permissions and usage costs. [Validation](VALIDATION.md) records what has actually been checked.
 

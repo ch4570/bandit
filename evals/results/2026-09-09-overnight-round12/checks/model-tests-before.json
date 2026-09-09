@@ -1,0 +1,34 @@
+{
+  "command": [
+    "/Users/DEVELOPER/.local/bin/python3.11",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_eval_runner.py",
+    "-k",
+    "model",
+    "-v"
+  ],
+  "cwd": "/WORKSPACE/bandit",
+  "stdin": "closed",
+  "shell": false,
+  "started_at_utc": "2026-09-08T19:50:22.823296+00:00",
+  "finished_at_utc": "2026-09-08T19:50:22.955444+00:00",
+  "python_version": "3.11.16 (main, Aug 14 2026, 15:24:25) [Clang 22.1.3 ]",
+  "exit_code": 1,
+  "hashes_before": {
+    "evals/run_local.py": "1d06a3878e62ca045ef5be05a8184fc95cbe379a9584faebb78139ba51d70298",
+    "tests/test_eval_runner.py": "763e45ebcf89ea628b8904d6f2efcd3163d085f02f57ecf61def25f5d8e568d5"
+  },
+  "hashes_after": {
+    "evals/run_local.py": "1d06a3878e62ca045ef5be05a8184fc95cbe379a9584faebb78139ba51d70298",
+    "tests/test_eval_runner.py": "763e45ebcf89ea628b8904d6f2efcd3163d085f02f57ecf61def25f5d8e568d5"
+  },
+  "stdout": "model-tests-before.stdout.txt",
+  "stderr": "model-tests-before.stderr.txt",
+  "scope": "Selected unittest methods only; all Codex child/version calls mocked; no native TASK or PM-quality measurement."
+}

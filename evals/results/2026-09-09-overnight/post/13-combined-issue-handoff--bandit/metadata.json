@@ -1,0 +1,65 @@
+{
+  "case": "13-combined-issue-handoff",
+  "arm": "bandit",
+  "codex_version": "codex-cli 0.153.4",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "<temporary-run-root>/workspace",
+    "-o",
+    "<temporary-run-root>/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host defaults",
+  "upstream_commit": null,
+  "input_sha256": {
+    "brief.md": "3d7c26189beb016fb4dac119f55c7a3dd3820e77f485140b964e15623801aa0b",
+    "draft.md": "b6fad16b2d5d07446bc839e2787f6f48899704c5e9b97aa99976052c7a86b43e",
+    "request.md": "7d8dbe017ebad548e044bd4457a5a48098a57f52bffd0c0489b7b558536c8634"
+  },
+  "instruction_sha256": {
+    "bandit/SKILL.md": "746c8b76f096a3396363d6b1a17b0ca3f46c547827e0f639a8a45e4706198b0b",
+    "bandit/agents/openai.yaml": "1a24331976f7a257ad2aafba9c786c4dc5e5ddb25a98a8dbecdd0c1ae0ddc5f9",
+    "bandit/assets/bandit-avatar.png": "091520edefe34c49af5c800f7073c53f602f23531ecab0a5f3ee46d0ef5afab2",
+    "bandit/assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "bandit/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "bandit/references/decisions.md": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+    "bandit/references/evidence-and-decisions.md": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+    "bandit/references/research.md": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6",
+    "bandit/references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "bandit/references/specification.md": "056e30fac704a3f4cbcdb9cd5432a656193307be8d307a4f4941d3fa94478bb0"
+  },
+  "invocation": null,
+  "standalone_specialist": false,
+  "custom_fixture": false,
+  "editable_artifact": null,
+  "exit_code": 0,
+  "elapsed_seconds": 62.903,
+  "input_after_sha256": {
+    "brief.md": "3d7c26189beb016fb4dac119f55c7a3dd3820e77f485140b964e15623801aa0b",
+    "draft.md": "b6fad16b2d5d07446bc839e2787f6f48899704c5e9b97aa99976052c7a86b43e",
+    "request.md": "7d8dbe017ebad548e044bd4457a5a48098a57f52bffd0c0489b7b558536c8634"
+  },
+  "instruction_after_sha256": {
+    "bandit/SKILL.md": "746c8b76f096a3396363d6b1a17b0ca3f46c547827e0f639a8a45e4706198b0b",
+    "bandit/agents/openai.yaml": "1a24331976f7a257ad2aafba9c786c4dc5e5ddb25a98a8dbecdd0c1ae0ddc5f9",
+    "bandit/assets/bandit-avatar.png": "091520edefe34c49af5c800f7073c53f602f23531ecab0a5f3ee46d0ef5afab2",
+    "bandit/assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "bandit/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "bandit/references/decisions.md": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+    "bandit/references/evidence-and-decisions.md": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+    "bandit/references/research.md": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6",
+    "bandit/references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "bandit/references/specification.md": "056e30fac704a3f4cbcdb9cd5432a656193307be8d307a4f4941d3fa94478bb0"
+  }
+}

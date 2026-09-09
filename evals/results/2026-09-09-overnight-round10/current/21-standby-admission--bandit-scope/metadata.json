@@ -1,0 +1,61 @@
+{
+  "case": "21-standby-admission",
+  "arm": "bandit-scope",
+  "codex_version": "codex-cli 0.153.4",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "-c",
+    "web_search=\"disabled\"",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "<temporary-run-root>/workspace",
+    "-o",
+    "<temporary-run-root>/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host model defaults; explicit web_search",
+  "web_search": "disabled",
+  "runner_status": "exited",
+  "started_at_utc": "2026-09-08T19:05:45.171418+00:00",
+  "upstream_commit": null,
+  "input_sha256": {
+    "adopted-rules.md": "3ae035afb4a5b5b334e6713921dc9b08f14294abc05fb2158ee597cdc2cb7d1a",
+    "engineering-notes.md": "1d4ad920f5a5483e603488d46404851640af8e35f65910e2a239a8e76dd4fb9b",
+    "pilot-brief.md": "09ce09d8702166ac1036b817c1d5a92e64938d6d1bf096bc3e9a4291e3432243",
+    "request.md": "3fe07694780814b16fc1a450caa7c445e1d6f36e19bd49e3803c7c795bec7803"
+  },
+  "instruction_sha256": {
+    "bandit-scope/SKILL.md": "5c9fb2a0c9e555f9f716f89157a9f98025bcb342b5d0f718e3f86f59c67a7fda",
+    "bandit-scope/agents/openai.yaml": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293",
+    "bandit-scope/references/decisions.md": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+    "bandit-scope/references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523"
+  },
+  "invocation": "$bandit-scope",
+  "standalone_specialist": true,
+  "custom_fixture": false,
+  "editable_artifact": null,
+  "exit_code": 0,
+  "elapsed_seconds": 41.981,
+  "finished_at_utc": "2026-09-08T19:06:27.152577+00:00",
+  "input_after_sha256": {
+    "adopted-rules.md": "3ae035afb4a5b5b334e6713921dc9b08f14294abc05fb2158ee597cdc2cb7d1a",
+    "engineering-notes.md": "1d4ad920f5a5483e603488d46404851640af8e35f65910e2a239a8e76dd4fb9b",
+    "pilot-brief.md": "09ce09d8702166ac1036b817c1d5a92e64938d6d1bf096bc3e9a4291e3432243",
+    "request.md": "3fe07694780814b16fc1a450caa7c445e1d6f36e19bd49e3803c7c795bec7803"
+  },
+  "instruction_after_sha256": {
+    "bandit-scope/SKILL.md": "5c9fb2a0c9e555f9f716f89157a9f98025bcb342b5d0f718e3f86f59c67a7fda",
+    "bandit-scope/agents/openai.yaml": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293",
+    "bandit-scope/references/decisions.md": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+    "bandit-scope/references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523"
+  }
+}

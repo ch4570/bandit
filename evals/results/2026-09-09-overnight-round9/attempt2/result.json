@@ -1,0 +1,36 @@
+{
+  "status": "pass",
+  "finished_at": "2026-09-08T18:37:45.172Z",
+  "runtime": "v22.23.2\n11.19.0\n/TEMP/bandit-round9-wwXdSO/bin/node\n/TEMP/bandit-round9-wwXdSO/bin/npm\n/TEMP/bandit-round9-wwXdSO/bin/npx\n",
+  "inherited_environment": false,
+  "home_override": false,
+  "user_config": "empty fixture files",
+  "stdin": "closed",
+  "caches_initially_empty": true,
+  "git_and_python_on_path": false,
+  "caches": [
+    {
+      "root": "/TEMP/bandit-round9-wwXdSO/cache-public/_npx/32726b5855c9de5e/node_modules/@ch4570/bandit",
+      "files_checked": 43,
+      "archive_sha256": "af5e83e5c45ab15956f1d7463ed9194ef1362f2ea68c6db9a7a967c915a3735f"
+    },
+    {
+      "root": "/TEMP/bandit-round9-wwXdSO/cache-candidate/_npx/00b3351034d6ef06/node_modules/@ch4570/bandit",
+      "files_checked": 43,
+      "archive_sha256": "a2fb5d29889010c2c0c8d0da3783be052667d6c295ffac72039ac99045655252"
+    },
+    {
+      "root": "/TEMP/bandit-round9-wwXdSO/cache-old/_npx/78fc6f09d53d0da5/node_modules/@ch4570/bandit",
+      "files_checked": 46,
+      "archive_sha256": "b1cba7db515776d86d1d2e06b627e30df7c5a6ecaa9e52a7330e43726b1e8b29"
+    }
+  ],
+  "commands": 12,
+  "fixtures": [
+    "public exact command and unchanged repeat",
+    "candidate preview/install/unchanged repeat",
+    "authentic 0.3 migration preserves unrelated files",
+    "customized retired file refuses entire upgrade unchanged"
+  ],
+  "limitations": "Fresh macOS Node-22 npx integration, not first-ever public installation proof, cross-platform coverage, named host discovery, product quality, or publication. Downloads are locally hashed; cache package bytes are compared to them. No hidden process syscall audit."
+}

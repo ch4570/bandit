@@ -1,7 +1,8 @@
 # Evidence and decisions
 
-Use this contract for lasting artifacts and handoffs. Keep the project's existing
-structure and terminology. Record only connections that matter to a decision;
+Use this contract for lasting artifacts and handoffs. Respect the project's
+authoritative sources and terminology; match document structure to the request.
+Record only connections that matter to a decision;
 a short comparison can express them in prose instead of maintaining five tables.
 
 ## Separate the kinds of claims
@@ -26,8 +27,10 @@ Evidence origin changes what can be concluded:
 - **Calculated:** formula, input sources, units, and assumptions; not newly observed data.
 - **Synthetic:** illustrate behavior; exclude from claims about real customers.
 
-External numbers need a period, unit, population, and source date. If an input is
-missing, use a labeled scenario/range or leave the conclusion open. Do not invent
+Reported numbers need a period, unit, population, and source date; derived claims
+must preserve what was counted. A source/report date alone does not establish
+when an observation occurred or a decision was adopted. If an input is missing,
+use a labeled scenario/range or leave the conclusion open. Do not invent
 citations, quotes, customer interviews, confidence percentages, or market totals.
 
 ## Resolve authority before merging claims

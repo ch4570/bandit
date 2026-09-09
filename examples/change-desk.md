@@ -34,7 +34,7 @@ and [grading, including the shared reporting omission](../evals/results/2026-09-
 ## Try it
 
 ```text
-$bandit 다음 파일럿은 무료로 바꾸고 팀 동료와 초안을 함께 쓰게 할 거야.
+$bandit-specify 다음 파일럿은 무료로 바꾸고 팀 동료와 초안을 함께 쓰게 할 거야.
 고객 승인은 지정 담당자만 할 수 있어. 기존 PRD와 관측 결과를 읽고
 영향받은 요구사항·지표·검증을 갱신해줘. 과거 기록은 남겨줘.
 ```

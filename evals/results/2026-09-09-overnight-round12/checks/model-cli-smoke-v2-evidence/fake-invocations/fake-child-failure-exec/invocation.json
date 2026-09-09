@@ -1,0 +1,30 @@
+{
+  "kind": "synthetic fake executable, not a native Codex invocation",
+  "id": "fake-child-failure-exec",
+  "mode": "exec",
+  "label": "child-failure",
+  "argv": [
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "-c",
+    "web_search=\"disabled\"",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "/TEMP/bandit-round12-4a9iyv/fake-model-cli-pa_nce5k/runs/child-failure/fake-model-child-failure--baseline/workspace",
+    "-o",
+    "/TEMP/bandit-round12-4a9iyv/fake-model-cli-pa_nce5k/runs/child-failure/fake-model-child-failure--baseline/output.md",
+    "--model",
+    "synthetic-model.integration",
+    "-"
+  ],
+  "cwd": "/WORKSPACE/bandit",
+  "started_at_utc": "2026-09-08T19:55:43.021844+00:00",
+  "finished_at_utc": "2026-09-08T19:55:43.022500+00:00",
+  "exit_code": 23
+}

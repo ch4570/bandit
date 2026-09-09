@@ -1,0 +1,45 @@
+{
+  "case": "fake-model-default",
+  "arm": "baseline",
+  "codex_version": "fake-codex model-cli-smoke 0 (no backend)",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "-c",
+    "web_search=\"disabled\"",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/runs/default/fake-model-default--baseline/workspace",
+    "-o",
+    "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/runs/default/fake-model-default--baseline/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host model defaults; explicit web_search",
+  "web_search": "disabled",
+  "runner_status": "exited",
+  "started_at_utc": "2026-09-08T19:53:44.588323+00:00",
+  "upstream_commit": null,
+  "input_sha256": {
+    "request.md": "9c0a03e2931b6e50e18a51e5c54aee12c2c76bcf83e4cb7cdef143901e31cc9e"
+  },
+  "instruction_sha256": {},
+  "invocation": null,
+  "standalone_specialist": false,
+  "custom_fixture": true,
+  "editable_artifact": null,
+  "exit_code": 0,
+  "elapsed_seconds": 0.045,
+  "finished_at_utc": "2026-09-08T19:53:44.633269+00:00",
+  "input_after_sha256": {
+    "request.md": "9c0a03e2931b6e50e18a51e5c54aee12c2c76bcf83e4cb7cdef143901e31cc9e"
+  },
+  "instruction_after_sha256": {}
+}

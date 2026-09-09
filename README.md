@@ -27,7 +27,7 @@ Requires **Node.js 22+ and npm**. Installs **five skills** into `.agents/skills/
 
 **Upgrading from 0.2 or 0.3?** Run the 0.4.0 command above in the same project, then start a new agent session. Use the same `--global` or destination option if applicable. [Upgrade details](INSTALL.md#upgrade-from-02-or-03).
 
-The npm registry release comes later; the command above installs directly from GitHub. If your agent does not recognize `$bandit-scope`, ask it to read `.agents/skills/bandit-scope/SKILL.md` and use it for the task. Refresh or start a new agent session if necessary.
+The npm registry release comes later; the command above installs directly from GitHub. If your agent does not recognize `$bandit-scope`, ask it to read `.agents/skills/bandit-scope/SKILL.md` for the default project installation. If you installed elsewhere, use `bandit-scope/SKILL.md` under the skills directory printed by the installer. Ask the agent to apply that file to your task; refresh or start a new agent session if necessary.
 
 ## Skill commands and usage
 

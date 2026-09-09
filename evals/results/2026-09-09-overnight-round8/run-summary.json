@@ -1,0 +1,571 @@
+{
+  "format": 1,
+  "round": "2026-09-09-overnight-round8",
+  "purpose": "Facts-only audit of eight completed synthetic planning TASK executions; no semantic grades or recommendations.",
+  "audit_completed_at_utc": "2026-09-08T18:20:05.276Z",
+  "authorship_and_separation": "The auditor authored raw cases 18, 19 and 20. Arm names, receipts and author-side discussion were visible; this is not a blinded or independent semantic assessment. TASK agents received their own raw inputs and selected instruction snapshots, not this audit or grading rubrics.",
+  "roots": {
+    "original": "/TEMP/bandit-round8-9PIwDl",
+    "archive": "evals/results/2026-09-09-overnight-round8",
+    "mapping": "pre-19/ and pre-20/ archive runs map to original pre/; post/ maps to original post/."
+  },
+  "methods": {
+    "hashes": "SHA-256 over actual file bytes. Every retained archive file and every original run file was read, including unnormalized metadata/events, original-input, original-instructions and final workspace files. The provenance file itself was hashed separately.",
+    "map_digest": "SHA-256 of UTF-8 JSON.stringify(Object.entries(relativePathToSha256Map).sort()). Original/archive all-file maps are relative to each run root and include file instances, not unique content.",
+    "archive_transform": "Recomputed each archive-provenance.json original_sha256 and archived_sha256 against real files, then compared exact bytes after only the declared literal source-run-root replacement with <temporary-run-root>. One declared general-skill PNG omission was verified against original bytes.",
+    "scopes": "Recomputed raw and instruction before/after maps; compared receipt, original snapshots, final workspace, metadata maps and retained input/instructions/after files. Final workspaces contained only declared raw files and the selected skill snapshot.",
+    "reads": "A full-content read is recorded only where a completed command named the file and its returned text contained the complete original file contents. Listing or availability is not a read. No claim is made about unrecorded automatic host loading.",
+    "counts": "Whitespace-delimited words over the complete UTF-8 artifact, including Markdown syntax. For case 19 the capped artifact is after/docs/PRD.md, not output.md, which is the short final summary.",
+    "limits": "Local unsigned receipts and hash agreement establish byte consistency, not trusted execution attestation. CLI traces are not full syscall or hidden-context records; host model/default configuration was not fully pinned."
+  },
+  "receipts": [
+    {
+      "path": "case19-before-run.json",
+      "sha256": "0e7dbc48121a2c1d3e48dc0373291c82997eb956c02958580f57dadfdb36733a",
+      "recorded_at_utc": "2026-09-08T18:02:23.641Z"
+    },
+    {
+      "path": "case20-before-run.json",
+      "sha256": "ee4c0f59464a1a76ee1dc8e24d2b43ec30797a82492ca6ffd5a1817a04306989",
+      "recorded_at_utc": "2026-09-08T18:09:15.947Z"
+    },
+    {
+      "path": "post-before-run.json",
+      "sha256": "df3acb1b17a51f4fd32e66f6a5e6c4ef65d64b94317cf2bac03c790b15ff6417",
+      "recorded_at_utc": "2026-09-08T18:10:48.771Z"
+    }
+  ],
+  "instruction_epochs": {
+    "files_per_full_tree": 34,
+    "before": {
+      "source": "/TEMP/bandit-round8-9PIwDl/skills-before",
+      "map_sha256": "e49c9478eceaa6cd109ea2192d8bf71d4cc519b8f7d7e61bca0172356f0bb320"
+    },
+    "after": {
+      "source": "skills/",
+      "map_sha256": "471a85742d3858b5383ad9d51953f60cc755783af0e5b96495f7fe85c1cde7c7"
+    },
+    "changed_paths": [
+      "bandit-research/references/evidence-and-decisions.md",
+      "bandit-review/references/evidence-and-decisions.md",
+      "bandit-scope/references/evidence-and-decisions.md",
+      "bandit-specify/references/evidence-and-decisions.md",
+      "bandit/references/evidence-and-decisions.md"
+    ],
+    "evidence_reference": {
+      "before_sha256": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+      "after_sha256": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523",
+      "before_bytes": 4507,
+      "after_bytes": 4656,
+      "before_whitespace_words": 669,
+      "after_whitespace_words": 692
+    },
+    "check": "Both full-tree digests and all five changed paths match the receipts. The other 29 skill files are byte-unchanged. Each TASK snapshot stayed unchanged throughout that run and matched its assigned epoch.",
+    "overlap": "Pre case20 review finished after the post receipt was recorded; its retained and final workspace instructions still match the old epoch, not the concurrently changed repository tree."
+  },
+  "conditions": {
+    "task_executions": 8,
+    "distinct_thread_ids": 8,
+    "cli_version": "codex-cli 0.153.4",
+    "flags": [
+      "--ignore-user-config",
+      "--ephemeral",
+      "--skip-git-repo-check",
+      "-c web_search=\"disabled\""
+    ],
+    "model_override": null,
+    "model_selection": "host defaults; no pinned model identifier in these metadata",
+    "sandbox": "workspace-write for the two case19 PRD edits; read-only for the other six runs",
+    "instruction_layout": "Six standalone specialist runs have only their selected sibling under .agents/skills/. General case13 has only instructions/bandit/. Baseline has no PM instruction files.",
+    "baseline": "The same case20 raw request retains literal $bandit-review, but the baseline wrapper explicitly says normal product-planning reasoning and do not load a PM skill. Both baseline instruction maps are empty; no PM read is visible.",
+    "observed_activity": "All raw file contents were returned in completed local read commands. Visible commands are local listing/reads and the two authorized PRD editing/counting workflows. No web-search item, external action, supplied product code execution or product-test execution is visible.",
+    "terminal_state": "All eight original metadata records report exited/exit 0 and all eight traces end in turn.completed with valid JSON event lines. Each output.md is byte-identical to its final agent-message text. Completion is not a quality score."
+  },
+  "common_verification": {
+    "raw_and_rubric_receipt_bindings_match": true,
+    "all_receipts_precede_applicable_run_starts": true,
+    "original_and_archive_hash_or_transform_mismatches": [],
+    "instruction_before_after_changes": [],
+    "raw_changes": "Only docs/PRD.md changed, separately in pre19 and post19. All other raw inputs are byte-unchanged, with no extra final workspace files.",
+    "original_file_instances_hashed": 202,
+    "retained_archive_files_hashed": 136,
+    "original_to_archive_file_pairs_verified": 128,
+    "source_only_declared_png_records_verified": 1,
+    "provenance_files": "Per-file original and retained hashes remain in each run's archive-provenance.json; the summary records digests instead of duplicating those manifests."
+  },
+  "cases": [
+    {
+      "case": "19-library-pickup-reminders",
+      "raw_files": 4,
+      "raw_map_sha256": "3977454bf76012047d2081533750b3159998c89349657e61471cff81c27f3cc1",
+      "rubric_path": "evals/rubrics/19-library-pickup-reminders.md",
+      "rubric_sha256": "be5e9cf6f4f05ad2271f942535e755f97d4ede1d4a3f462f368489f3d7a74a85",
+      "artifact_word_cap": 800,
+      "editable_artifact": "input/docs/PRD.md"
+    },
+    {
+      "case": "20-transcript-delivery-review",
+      "raw_files": 5,
+      "raw_map_sha256": "5d69921f9ac503f6d0c66406cf4ca225774e6d47c1bc338cfc4b53ca4a031d82",
+      "rubric_path": "evals/rubrics/20-transcript-delivery-review.md",
+      "rubric_sha256": "a9a7f73c01351f1d8f669fbe6e6363ff3c141c3fb44e3bab8051203823239fed",
+      "artifact_word_cap": 600,
+      "editable_artifact": null
+    },
+    {
+      "case": "13-combined-issue-handoff",
+      "raw_files": 3,
+      "raw_map_sha256": "90041f644653cb96ea871de9a10007963920c2f3ca217ecf03babad54bb2c718",
+      "rubric_path": "evals/rubrics/13-combined-issue-handoff.md",
+      "rubric_sha256": "4cbddaab207ef99fb24d71e0fde36be8dc9faeb1711bdd48bae2458f349f397d",
+      "artifact_word_cap": 600,
+      "editable_artifact": null
+    },
+    {
+      "case": "17-reachable-market",
+      "raw_files": 2,
+      "raw_map_sha256": "b948f4aa070e0166d0b6912832fd8094c0afb524f307e6de02e686979d6509a6",
+      "rubric_path": "evals/rubrics/17-reachable-market.md",
+      "rubric_sha256": "4e7314ecba707e78b1b8dbba8af96d0064a2c897d9d4bc3f6f0b242f1c5e34dc",
+      "artifact_word_cap": 600,
+      "editable_artifact": null
+    },
+    {
+      "case": "18-onboarding-investment",
+      "raw_files": 3,
+      "raw_map_sha256": "1e9d006a122b0b4964912e76b79a35e7817864e7e9ac85a0536be8adc27cf60a",
+      "rubric_path": "evals/rubrics/18-onboarding-investment.md",
+      "rubric_sha256": "8bd6b0eac874960693b0d338c48586ab55efecfb987d015ae5b13d32ec788698",
+      "artifact_word_cap": 600,
+      "editable_artifact": null
+    }
+  ],
+  "runs": [
+    {
+      "archive": "pre-19/19-library-pickup-reminders--bandit-specify",
+      "instruction_epoch": "before",
+      "thread_id": "01a0822f-77c1-7ae0-9f70-d5ecfd56b59f",
+      "started_at_utc": "2026-09-08T18:02:23.901547+00:00",
+      "finished_at_utc": "2026-09-08T18:03:57.215403+00:00",
+      "terminal_event_line": 20,
+      "command_count": 7,
+      "source_and_archive_files": [
+        29,
+        22
+      ],
+      "all_source_files_map_sha256": "efc8be635c264cee8d0045dff9ab8f6e95f3e9f45954722c96864aac7fd9dcad",
+      "all_archive_files_map_sha256": "4634ff06ead07a7ffbeb2278d8f9d1e2d0026f8efbcb619fcfe6e2d58d1d5313",
+      "archive_provenance_sha256": "69627579ef1943b19a5d7b4fe638d8d01b4b3381428411327dfb10cd2926d59b",
+      "original_events_sha256": "41efafb2b8432f9c0ad2151243a25fb34132dcee103a0f4257a1e2e87f192473",
+      "archived_events_sha256": "85aea482efa71c79276c739ad1f28a159886ed9a73c09805b91e6e026402d6f0",
+      "normalized_files": "metadata.json, events.jsonl",
+      "instruction_files_available": 8,
+      "instruction_before_and_after_map_sha256": "59de066f973ee852b4f7dd1b2685845b68bdc43e9ca41baf7d66c647b86ee231",
+      "full_instruction_reads": [
+        "SKILL.md @ events.jsonl:7",
+        "references/changes.md @ events.jsonl:7",
+        "references/evidence-and-decisions.md @ events.jsonl:7",
+        "references/research.md @ events.jsonl:11",
+        "references/specification.md @ events.jsonl:7"
+      ],
+      "available_text_files_without_explicit_full_read": "agents/openai.yaml, assets/plan-template.md, references/review.md",
+      "all_raw_full_read_event_lines": [
+        9
+      ],
+      "output": {
+        "path": "output.md",
+        "bytes": 381,
+        "whitespace_words": 48,
+        "sha256": "e44f906dc3d9ce853dac69354f045c355a11ed50531b5142e255e1fc37de825b",
+        "final_event_line": 19
+      },
+      "edited_artifact": {
+        "path": "after/docs/PRD.md",
+        "bytes": 6043,
+        "whitespace_words": 791,
+        "sha256": "d19fc75879ba76a84f563225f0ff919887f1759ca3b606eae96e39bf289a30cb",
+        "raw_after_map_sha256": "7b62668d454daeb9982ed71a2ed8762654401668d2c2e0455f8d883490c775dd"
+      }
+    },
+    {
+      "archive": "pre-20/20-transcript-delivery-review--bandit-review",
+      "instruction_epoch": "before",
+      "thread_id": "01a08235-c29b-7d11-97d2-9c0a3ed04755",
+      "started_at_utc": "2026-09-08T18:09:16.324399+00:00",
+      "finished_at_utc": "2026-09-08T18:10:58.282734+00:00",
+      "terminal_event_line": 12,
+      "command_count": 3,
+      "source_and_archive_files": [
+        31,
+        19
+      ],
+      "all_source_files_map_sha256": "3bd89f3edfc3045240eb1a131b45d2bc81cc92535d349bd01ae392fdb43ef897",
+      "all_archive_files_map_sha256": "79f1b4a34331d1eb24880f17fcd3e77fe91cd7d38340b2f1f46da13719d3849c",
+      "archive_provenance_sha256": "d02876d28cfb5635dd5d59ee8c599574d7c6c5dfc146246417bbdbad9cbc8075",
+      "original_events_sha256": "8d0e9f0f333a53becdadaba2f677a61767c822f60d843735bf7fe8e95e208ae0",
+      "archived_events_sha256": "8d0e9f0f333a53becdadaba2f677a61767c822f60d843735bf7fe8e95e208ae0",
+      "normalized_files": "metadata.json",
+      "instruction_files_available": 8,
+      "instruction_before_and_after_map_sha256": "ad3c291dac5dcb978869c9be7f2bfd2313c9c0cdbfdf40b1130eb99386376b44",
+      "full_instruction_reads": [
+        "SKILL.md @ events.jsonl:5",
+        "references/evidence-and-decisions.md @ events.jsonl:5",
+        "references/review.md @ events.jsonl:5",
+        "references/specification.md @ events.jsonl:9"
+      ],
+      "available_text_files_without_explicit_full_read": "agents/openai.yaml, assets/plan-template.md, references/changes.md, references/research.md",
+      "all_raw_full_read_event_lines": [
+        5,
+        9
+      ],
+      "output": {
+        "path": "output.md",
+        "bytes": 3999,
+        "whitespace_words": 525,
+        "sha256": "541d62e6510d9f20376bf93669fd0747397897084ca9808baa23a9c537cc353b",
+        "final_event_line": 11
+      }
+    },
+    {
+      "archive": "pre-20/20-transcript-delivery-review--baseline",
+      "instruction_epoch": "none",
+      "thread_id": "01a08235-c739-7f02-b6b5-04661c2ba3c7",
+      "started_at_utc": "2026-09-08T18:09:17.511634+00:00",
+      "finished_at_utc": "2026-09-08T18:09:55.873116+00:00",
+      "terminal_event_line": 9,
+      "command_count": 2,
+      "source_and_archive_files": [
+        15,
+        11
+      ],
+      "all_source_files_map_sha256": "dc5c64b637b310b0afedeec4482959a9233ad297035a67ee6ec35987b06404da",
+      "all_archive_files_map_sha256": "ce96030248f79aabdffe8e27199660d8e2a6731c37bd03fade44936390116b6e",
+      "archive_provenance_sha256": "391b813608bc3953b59c596a8902d090f8440fc87d7d3a645e7954b51e0d9e66",
+      "original_events_sha256": "71f4f8a94e51f6b1c70de53f2b56d48b8fb800fa56a75dd6e4ae15c1cd1d648d",
+      "archived_events_sha256": "71f4f8a94e51f6b1c70de53f2b56d48b8fb800fa56a75dd6e4ae15c1cd1d648d",
+      "normalized_files": "metadata.json",
+      "instruction_files_available": 0,
+      "instruction_before_and_after_map_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "full_instruction_reads": [],
+      "available_text_files_without_explicit_full_read": null,
+      "all_raw_full_read_event_lines": [
+        7
+      ],
+      "output": {
+        "path": "output.md",
+        "bytes": 3872,
+        "whitespace_words": 533,
+        "sha256": "025288fb391c802cda6dbe7cddf86be75fca9a0aa7bea7c5721c89dc269abec6",
+        "final_event_line": 8
+      }
+    },
+    {
+      "archive": "post/19-library-pickup-reminders--bandit-specify",
+      "instruction_epoch": "after",
+      "thread_id": "01a08237-4089-7e33-91fd-13e10a4c6bb3",
+      "started_at_utc": "2026-09-08T18:10:54.044772+00:00",
+      "finished_at_utc": "2026-09-08T18:12:44.993393+00:00",
+      "terminal_event_line": 14,
+      "command_count": 4,
+      "source_and_archive_files": [
+        29,
+        22
+      ],
+      "all_source_files_map_sha256": "2e5ebf693068b16bc159a6f1cd7ced1bc15fdf677389f506632dd6085091e788",
+      "all_archive_files_map_sha256": "941e9f0236ac8fe6d2377ddacd0ad92b13daa942a1ca866d9a7528d27977fb1d",
+      "archive_provenance_sha256": "e025c684aa41ff063638f5d0291e4a4c1341d2657b0a5f7de885bda4f9330694",
+      "original_events_sha256": "da2a421c7aff84e3b019362b944446cb141a5f1bf48f40a0d5a118974c9908c1",
+      "archived_events_sha256": "da2a421c7aff84e3b019362b944446cb141a5f1bf48f40a0d5a118974c9908c1",
+      "normalized_files": "metadata.json",
+      "instruction_files_available": 8,
+      "instruction_before_and_after_map_sha256": "3e057f54a47869123e0e33486774841aff723c4a4493be776dc7a54ea2ae7545",
+      "full_instruction_reads": [
+        "SKILL.md @ events.jsonl:5",
+        "references/changes.md @ events.jsonl:5",
+        "references/evidence-and-decisions.md @ events.jsonl:5",
+        "references/specification.md @ events.jsonl:5"
+      ],
+      "available_text_files_without_explicit_full_read": "agents/openai.yaml, assets/plan-template.md, references/research.md, references/review.md",
+      "all_raw_full_read_event_lines": [
+        7
+      ],
+      "output": {
+        "path": "output.md",
+        "bytes": 384,
+        "whitespace_words": 50,
+        "sha256": "effaf2918047d5fd72ab959fabfd169078a44120765caa55733856249c9140b3",
+        "final_event_line": 13
+      },
+      "edited_artifact": {
+        "path": "after/docs/PRD.md",
+        "bytes": 5794,
+        "whitespace_words": 748,
+        "sha256": "298db6e48fc19a0f883033a3a7e5ea845d2e679d6b9d3400ecd3fb7e2e1a7e4a",
+        "raw_after_map_sha256": "ae2ef07bd17dd8a38519e544b1bb292e80b67488c6724f16fe28656d6f8c3473"
+      }
+    },
+    {
+      "archive": "post/20-transcript-delivery-review--bandit-review",
+      "instruction_epoch": "after",
+      "thread_id": "01a08237-44f3-7dd3-9104-ed24ecbf9ab9",
+      "started_at_utc": "2026-09-08T18:10:55.218625+00:00",
+      "finished_at_utc": "2026-09-08T18:12:09.900291+00:00",
+      "terminal_event_line": 9,
+      "command_count": 2,
+      "source_and_archive_files": [
+        31,
+        19
+      ],
+      "all_source_files_map_sha256": "cf72e1069f3039e33cad2dfc2cf01f48ea855ff4bd521cb636361c2108b607a6",
+      "all_archive_files_map_sha256": "c413c64051987c813efc7287ec08cdc999f661393a5745d55752e6352e5e868e",
+      "archive_provenance_sha256": "1d4b64b9d748a6fed1b4ca8279a60070e75427626c7dd6864f259ea057e09aae",
+      "original_events_sha256": "72004d771a1f1687961ca868ff73561c93b42ba67e5a9d90efe267720fe65687",
+      "archived_events_sha256": "72004d771a1f1687961ca868ff73561c93b42ba67e5a9d90efe267720fe65687",
+      "normalized_files": "metadata.json",
+      "instruction_files_available": 8,
+      "instruction_before_and_after_map_sha256": "37d83d30b351ffc6c4a8552fa2bb48f81462a89cbe67c661e131ae83a1d4b5f5",
+      "full_instruction_reads": [
+        "SKILL.md @ events.jsonl:5",
+        "references/evidence-and-decisions.md @ events.jsonl:5",
+        "references/review.md @ events.jsonl:5",
+        "references/specification.md @ events.jsonl:7"
+      ],
+      "available_text_files_without_explicit_full_read": "agents/openai.yaml, assets/plan-template.md, references/changes.md, references/research.md",
+      "all_raw_full_read_event_lines": [
+        5,
+        7
+      ],
+      "output": {
+        "path": "output.md",
+        "bytes": 3828,
+        "whitespace_words": 533,
+        "sha256": "3193e8af302418969be8fba88d37a3f7fd59b0533443f9b91924fc2ea1a13b3e",
+        "final_event_line": 8
+      }
+    },
+    {
+      "archive": "post/17-reachable-market--bandit-research",
+      "instruction_epoch": "after",
+      "thread_id": "01a08237-a755-7723-b8f6-65804c7f3553",
+      "started_at_utc": "2026-09-08T18:11:20.404480+00:00",
+      "finished_at_utc": "2026-09-08T18:12:31.244697+00:00",
+      "terminal_event_line": 9,
+      "command_count": 2,
+      "source_and_archive_files": [
+        17,
+        12
+      ],
+      "all_source_files_map_sha256": "4bb1beeca1c9fafdf474cece36e67661b6b07a4ad1964e31cc26320db6abd8f8",
+      "all_archive_files_map_sha256": "c8e12d916347456159e3998c03b28a30e08e828fb0797726c329e1fff7225bf7",
+      "archive_provenance_sha256": "7cd28683365c96db052bdb46ad9c7630159c6ceb1e94dfdc17f4eff2cb392506",
+      "original_events_sha256": "a55614f6c2f89f90b87fa251b9253449b9239ab2da397aa6704086939027726c",
+      "archived_events_sha256": "a55614f6c2f89f90b87fa251b9253449b9239ab2da397aa6704086939027726c",
+      "normalized_files": "metadata.json",
+      "instruction_files_available": 4,
+      "instruction_before_and_after_map_sha256": "98bf1a09459c1134e33e9e4d0c7348f11711c2ed6801bc5248e73277f4610691",
+      "full_instruction_reads": [
+        "references/evidence-and-decisions.md @ events.jsonl:5",
+        "references/research.md @ events.jsonl:5"
+      ],
+      "available_text_files_without_explicit_full_read": "SKILL.md, agents/openai.yaml",
+      "all_raw_full_read_event_lines": [
+        5,
+        7
+      ],
+      "output": {
+        "path": "output.md",
+        "bytes": 3671,
+        "whitespace_words": 405,
+        "sha256": "27ff5243ca432389f085999da6390c124ba331cd17f670ee11590996a10cca21",
+        "final_event_line": 8
+      }
+    },
+    {
+      "archive": "post/18-onboarding-investment--bandit-scope",
+      "instruction_epoch": "after",
+      "thread_id": "01a08237-abf7-76c0-bb41-a9aa4f81620e",
+      "started_at_utc": "2026-09-08T18:11:21.600815+00:00",
+      "finished_at_utc": "2026-09-08T18:12:18.836300+00:00",
+      "terminal_event_line": 19,
+      "command_count": 7,
+      "source_and_archive_files": [
+        19,
+        13
+      ],
+      "all_source_files_map_sha256": "a6592308502fb2dc75f1f17dda783cd02877956d4e60cb6c8ba694e5f143f148",
+      "all_archive_files_map_sha256": "268b1bb47e3cb243034fd158be1d49c7b9cf053ddabfddd53722de7f981262c9",
+      "archive_provenance_sha256": "74e12fa30cb2dac2bc620b18c2f8974c86ff8fc9a53e0d475797fd50d8692123",
+      "original_events_sha256": "4e443dcfafa11d73e1a3914728bbf9513e8c4fdee13a800d2073409dd902d5d3",
+      "archived_events_sha256": "e3726bf3af4dc67480b72536f40822392e5e29c3777ee81a004f12fb6d0e86ea",
+      "normalized_files": "metadata.json, events.jsonl",
+      "instruction_files_available": 4,
+      "instruction_before_and_after_map_sha256": "ad6fc9ba561332672bcbf1e6ff0ed3eb150dad501d1f66156fbd180c45ca1cd4",
+      "full_instruction_reads": [
+        "SKILL.md @ events.jsonl:8",
+        "references/decisions.md @ events.jsonl:9",
+        "references/evidence-and-decisions.md @ events.jsonl:13"
+      ],
+      "available_text_files_without_explicit_full_read": "agents/openai.yaml",
+      "all_raw_full_read_event_lines": [
+        11,
+        15,
+        17
+      ],
+      "output": {
+        "path": "output.md",
+        "bytes": 3814,
+        "whitespace_words": 540,
+        "sha256": "faddbc5b9ed6a3f65aa12f6d44e9329244114dd27902c576a4392fa7b86227c7",
+        "final_event_line": 18
+      }
+    },
+    {
+      "archive": "post/13-combined-issue-handoff--bandit",
+      "instruction_epoch": "after",
+      "thread_id": "01a08237-e90a-7f30-98dc-d17c9ffa0c4b",
+      "started_at_utc": "2026-09-08T18:11:37.230642+00:00",
+      "finished_at_utc": "2026-09-08T18:14:21.992418+00:00",
+      "terminal_event_line": 14,
+      "command_count": 4,
+      "source_and_archive_files": [
+        31,
+        18
+      ],
+      "all_source_files_map_sha256": "556027b3102e165c9e4f0d7900d252e9ea245dd1a141d75b9809c89af17048a4",
+      "all_archive_files_map_sha256": "e64687c030273a105b752fce66747ef310c41fab056f310f844fa8f2e334f5d4",
+      "archive_provenance_sha256": "aff1d156d9a349569c5a8b57228d2c808f70b90e326134930a9f6a7dbf4a51c8",
+      "original_events_sha256": "c9cb12de2ae2a81067abc7737df33b11ec13ce23d6b5f29f7020663cb3069899",
+      "archived_events_sha256": "5aa99e3e64ec4b3f30566bdbb7fcb1babe5dc14b368585a1daada788924858d2",
+      "normalized_files": "metadata.json, events.jsonl",
+      "instruction_files_available": 10,
+      "instruction_before_and_after_map_sha256": "49791d8a33fe3b36c4def479e08a7660b8fe06a439ee251a989aecf36711ef7b",
+      "full_instruction_reads": [
+        "SKILL.md @ events.jsonl:7",
+        "references/changes.md @ events.jsonl:12",
+        "references/decisions.md @ events.jsonl:9",
+        "references/evidence-and-decisions.md @ events.jsonl:9",
+        "references/specification.md @ events.jsonl:9"
+      ],
+      "available_text_files_without_explicit_full_read": "agents/openai.yaml, assets/plan-template.md, references/research.md, references/review.md",
+      "all_raw_full_read_event_lines": [
+        7
+      ],
+      "output": {
+        "path": "output.md",
+        "bytes": 5001,
+        "whitespace_words": 505,
+        "sha256": "1cd9266a05cb112545749e2d66ca8c940f07363a249bdaeb2a7b445cfd8515e0",
+        "final_event_line": 13
+      }
+    }
+  ],
+  "command_and_routing_observations": [
+    {
+      "run": "pre-19/19-library-pickup-reminders--bandit-specify",
+      "evidence": "events.jsonl:14,16,18",
+      "observation": "Initial shell write followed by wc reported 751 PRD words. A subsequent python command was unavailable (command not found), but its enclosing shell command exited 0 because the following wc succeeded at 751. The next python3 command completed the document edit and counted 791. Final saved PRD independently recounts to 791."
+    },
+    {
+      "run": "pre-20/20-transcript-delivery-review--baseline",
+      "evidence": "events.jsonl:5,7",
+      "observation": "rg --files input instructions returned exit 2 because no instructions directory exists, while listing the five input files. The next cat command successfully returned all five raw files. This is a recovered listing error, not a loaded skill or failed terminal TASK."
+    },
+    {
+      "run": "post/19-library-pickup-reminders--bandit-specify",
+      "evidence": "events.jsonl:10,12",
+      "observation": "An attempted python PRD write exited 127: command not found. A subsequent shell heredoc wrote the PRD and wc reported 748. Final saved PRD independently recounts to 748. The unavailable-python draft was not delivered or written by that failed command."
+    },
+    {
+      "run": "post/17-reachable-market--bandit-research",
+      "evidence": "events.jsonl:3,5,7",
+      "observation": "The agent announced bandit-research and explicitly read both research.md and the changed evidence-and-decisions.md plus all raw inputs. SKILL.md was available in the unchanged selected snapshot, but no separate entrypoint read appears in the retained command trace. This audit cannot establish any automatic entrypoint injection."
+    },
+    {
+      "run": "post/13-combined-issue-handoff--bandit",
+      "evidence": "events.jsonl:7,9,12; metadata.json standalone_specialist=false",
+      "observation": "Actual general routing read the general entrypoint, then decisions, specification and evidence references, then changes. No specialist sibling snapshot or specialist invocation is visible. Available research and review references were not explicitly read."
+    },
+    {
+      "run": "all",
+      "evidence": "completed command items in each events.jsonl",
+      "observation": "Only the case19 editing workflows show word-count commands. Other outputs happen to fall under their request caps by this audit's recount; this does not establish a counting mechanism or a causal effect of instructions. stderr.txt is empty for all eight runs, but command-level errors above remain visible inside events."
+    }
+  ],
+  "general_launch_correction": {
+    "receipt": "general-launch-correction.md",
+    "sha256": "8fda59deba4febadb283a60d1b75f8c49d24ee43b9730dc80fa4cedf9a3128d1",
+    "documented_event": "The initial general launch used --standalone and was rejected by runner preflight with exit 2 (--standalone requires a specialist arm), before a TASK thread. The accepted launch omitted that flag.",
+    "receipt_discrepancy": "post-before-run.json preserves the initial standalone=true general plan; the accepted run metadata records standalone_specialist=false. The correction is documented rather than silently rewriting the pre-run receipt.",
+    "provenance_limit": "The rejected command is described by the correction receipt, not an additional retained TASK events stream. It is excluded from the eight runs and the 44-execution total."
+  },
+  "binary_archive_limit": {
+    "run": "post/13-combined-issue-handoff--bandit",
+    "omitted_path": "instructions/bandit/assets/bandit-avatar.png",
+    "sha256": "091520edefe34c49af5c800f7073c53f602f23531ecab0a5f3ee46d0ef5afab2",
+    "verification": "Original before/after PNG bytes match the receipt, metadata and current skill source. The archive intentionally retains only its hash; the other nine instruction files are retained. No PNG read is visible. The archive is a complete text snapshot, not a byte-complete instruction bundle."
+  },
+  "preservation": {
+    "independent_current_source_comparison": {
+      "frozen_zip": "dist/overnight-round7/bandit-0.4.0.zip",
+      "zip_sha256": "8b034cccdf81d98aac2b1dd93f93d0f71dd9a4536b55d6f9d5b04bedd5889b5a",
+      "method": "Direct byte comparison with corresponding ZIP members without extracting or changing files.",
+      "files": [
+        {
+          "path": "lib/installer.mjs",
+          "sha256": "6c2555e1c09d3efa416ae63ab7870143271bfed7f035f91287d01580ff2456ec",
+          "byte_equal": true
+        },
+        {
+          "path": "install.py",
+          "sha256": "29e2ae73652dbba226a8f60889e995d4e70f07eab514513430e5a5aa26d8fe45",
+          "byte_equal": true
+        },
+        {
+          "path": "evals/run_local.py",
+          "sha256": "1d06a3878e62ca045ef5be05a8184fc95cbe379a9584faebb78139ba51d70298",
+          "byte_equal": true
+        },
+        {
+          "path": "evals/archive_run.mjs",
+          "sha256": "62cf0c7728d5116884910250a1ce44427e314bccfb3b2d1c968a543b7d4b1f17",
+          "byte_equal": true
+        }
+      ]
+    },
+    "separately_authored_receipt": {
+      "path": "checks/preservation.json",
+      "sha256": "e39f82e7d534908fbc4749c6c1c4de36a14ff00a38395848471b1d7593ead700",
+      "reported": "Root reports 876 prior result files unchanged against the frozen round7 ZIP, including 93 historical PM Craft files also checked against HEAD:f4a376e23b16f311931b4d06853a0943575e09e7. This audit read and hashed that receipt; it did not repeat the 876-file historical comparison."
+    },
+    "intermediate_pack_check": {
+      "receipt": "checks/pack-check-zip.json",
+      "receipt_sha256": "7cc425ae9fb6e0456ab983d429365cbb01df196c88255ca728bc8e8d784b07b8",
+      "zip_sha256": "feca2dd6bf24515ffab0ae59eba63d9cae03483c6c8294215f352beea7e3aea2",
+      "entries": 1171,
+      "bytes": 12020648,
+      "limit": "This pack-check ZIP predates the final case13 archive, grades, audit and documentation. It is not the final round8 source checkpoint; final packaging belongs to the separate engineering receipts."
+    }
+  },
+  "cumulative_overnight_execution_count": {
+    "count": 44,
+    "terminal_exit_zero": 44,
+    "by_round": {
+      "2026-09-08-overnight": 6,
+      "2026-09-09-overnight": 9,
+      "2026-09-09-overnight-round3": 11,
+      "2026-09-09-overnight-round4": 4,
+      "2026-09-09-overnight-round5": 2,
+      "2026-09-09-overnight-round7": 4,
+      "2026-09-09-overnight-round8": 8
+    },
+    "exceptions": [],
+    "excluded_check": "2026-09-09-overnight-round3/checks/missing-executable--baseline (runner engineering check; no completed TASK)",
+    "method": "Enumerated metadata/events under the 2026-09-08 and 2026-09-09 overnight archive families, excluding checks/. The eight current runs bring 36 prior completed TASKs to 44. Round6 added no TASK executions.",
+    "quality_inference": "None. Historical grades and failures are not changed by this count.",
+    "distinct_thread_ids": 44
+  },
+  "limitations": [
+    "Synthetic tasks, small non-random run set, unsigned local receipts and unpinned host defaults do not support reliability, business validation, superiority or causal-repair claims.",
+    "No fresh TASK, product test, installer probe or semantic grading was performed by this auditor. Engineering suite outcomes remain separate from TASK completion and behavioral grades."
+  ]
+}

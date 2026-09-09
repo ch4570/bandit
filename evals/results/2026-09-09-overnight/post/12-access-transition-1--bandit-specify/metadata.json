@@ -1,0 +1,65 @@
+{
+  "case": "12-access-transition-1",
+  "arm": "bandit-specify",
+  "codex_version": "codex-cli 0.153.4",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "<temporary-run-root>/workspace",
+    "-o",
+    "<temporary-run-root>/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host defaults",
+  "upstream_commit": null,
+  "input_sha256": {
+    "docs/PRD.md": "5126e0bec771e320ba9cdd89345ea7938311b8d182e058cb9d3326a586cf641d",
+    "docs/data-policy.md": "e371916336d6b6c082269af569ed99080e08ee6d987c9fb3b8ae0cd6e8a14c97",
+    "docs/private-intake-decision.md": "1f484fa70f1973b7514bf6ce4563395b94705e42a0a4440eb8a5a9a3bd00cd73",
+    "docs/public-pilot.md": "dfcafe06d0b6b396ed2c63f6d352ec41b32581c089e9a309a000178260901676",
+    "request.md": "356c61044959f7729eaabacf731c448e7a05eba1786f4ed275a0323e61c9b474"
+  },
+  "instruction_sha256": {
+    "bandit-specify/SKILL.md": "9862565be56488293dc0c726724328f2b4f4e818b2b941b6aeb5d8e51617a2d3",
+    "bandit-specify/agents/openai.yaml": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf",
+    "bandit-specify/assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "bandit-specify/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "bandit-specify/references/evidence-and-decisions.md": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+    "bandit-specify/references/research.md": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6",
+    "bandit-specify/references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "bandit-specify/references/specification.md": "056e30fac704a3f4cbcdb9cd5432a656193307be8d307a4f4941d3fa94478bb0"
+  },
+  "invocation": "$bandit-specify",
+  "standalone_specialist": true,
+  "custom_fixture": true,
+  "editable_artifact": "input/docs/PRD.md",
+  "exit_code": 0,
+  "elapsed_seconds": 247.251,
+  "input_after_sha256": {
+    "docs/PRD.md": "9f77e27882d4767098dcde25d769591f78df137e6c1194a26bb68d436856f162",
+    "docs/data-policy.md": "e371916336d6b6c082269af569ed99080e08ee6d987c9fb3b8ae0cd6e8a14c97",
+    "docs/private-intake-decision.md": "1f484fa70f1973b7514bf6ce4563395b94705e42a0a4440eb8a5a9a3bd00cd73",
+    "docs/public-pilot.md": "dfcafe06d0b6b396ed2c63f6d352ec41b32581c089e9a309a000178260901676",
+    "request.md": "356c61044959f7729eaabacf731c448e7a05eba1786f4ed275a0323e61c9b474"
+  },
+  "instruction_after_sha256": {
+    "bandit-specify/SKILL.md": "9862565be56488293dc0c726724328f2b4f4e818b2b941b6aeb5d8e51617a2d3",
+    "bandit-specify/agents/openai.yaml": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf",
+    "bandit-specify/assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "bandit-specify/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "bandit-specify/references/evidence-and-decisions.md": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+    "bandit-specify/references/research.md": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6",
+    "bandit-specify/references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "bandit-specify/references/specification.md": "056e30fac704a3f4cbcdb9cd5432a656193307be8d307a4f4941d3fa94478bb0"
+  }
+}

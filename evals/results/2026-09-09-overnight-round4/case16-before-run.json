@@ -1,0 +1,33 @@
+{
+  "format": 1,
+  "recorded_at_utc": "2026-09-08T16:19:22.708Z",
+  "purpose": "Pre-run receipt; no case16 task has been launched yet.",
+  "case": "16-conflicting-authority",
+  "arm": "bandit-specify",
+  "standalone": true,
+  "web_search": "disabled",
+  "editable_artifact": "input/docs/PRD.md",
+  "fixture_sha256": {
+    "docs/PRD.md": "53459c22e422c6eeccce7450936bed7cce45ccd723f2d81b0a54ced821de6685",
+    "policy/contribution-records.md": "b36bbf9dd813b90dc3bec1408f84f9ac0d3b3bfd25c3dd46c06ebc74dd590af6",
+    "policy/membership-departure.md": "852cf8391fea8e4a42733108859061a6d2cf58d42f5bc134c76ed19d9fcd8c5d",
+    "request.md": "4865bee80d131e9a3be3190e3d17f465a559ae3f7ee23a5b867712cf53f14aa4"
+  },
+  "rubric": "evals/rubrics/16-conflicting-authority.md",
+  "rubric_sha256": "1f4a6a67bfa52cd2df60fd4141ef7038454c2652d885e7f174ca15a69cb4e7d4",
+  "selected_instruction_sha256": {
+    "agents/openai.yaml": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf",
+    "assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "references/evidence-and-decisions.md": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+    "references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+    "references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "references/specification.md": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431",
+    "SKILL.md": "9862565be56488293dc0c726724328f2b4f4e818b2b941b6aeb5d8e51617a2d3"
+  },
+  "limitations": [
+    "Synthetic author-designed development check, not a held-out benchmark.",
+    "Task agent receives raw fixtures and selected skill only, not this receipt or rubric.",
+    "Local pre-run receipt is not an independently signed timestamp."
+  ]
+}

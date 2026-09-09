@@ -1,0 +1,110 @@
+{
+  "format": 1,
+  "archive_status": "archived",
+  "archived_at": "2026-09-08T17:46:18.846Z",
+  "source_format": "evals/run_local.py",
+  "run_status": "completed",
+  "source_exit_code": 0,
+  "terminal_event": "turn.completed",
+  "invalid_event_lines": 0,
+  "missing_or_empty_output": false,
+  "input_changes": [
+    "docs/PRD.md"
+  ],
+  "input_scope_respected": true,
+  "instruction_changes": [],
+  "original_input_missing": [],
+  "original_instruction_missing": [],
+  "original_text_snapshot_complete": true,
+  "instruction_restore_directory": null,
+  "omitted_png_files": [],
+  "temporary_path_replacement": "<temporary-run-root>",
+  "files": {
+    "metadata.json": {
+      "source": "metadata.json",
+      "original_sha256": "0c0ee2c96eda774c4bcd978f0db1cf9041853ffe039d304ef69be9debae126af",
+      "archived_sha256": "d3d2c5e0e049770f59fd860cc69b354962e1c27afcb62eadeec0c201b78cd392",
+      "temporary_path_normalized": true
+    },
+    "prompt.txt": {
+      "source": "prompt.txt",
+      "original_sha256": "faabe9d9b7502611b89c4cb82950a432a2016fb2a9c454034b2ee4b8dbad994f",
+      "archived_sha256": "faabe9d9b7502611b89c4cb82950a432a2016fb2a9c454034b2ee4b8dbad994f",
+      "temporary_path_normalized": false
+    },
+    "events.jsonl": {
+      "source": "events.jsonl",
+      "original_sha256": "68bfcbec72d2d99414007e55cf3c5c277d5c06c221229a37ac86e803e577add0",
+      "archived_sha256": "6f3a93d82e81e714b8f6762e65eb638a7ea84f2ee6b45756f5e86e30fca27ca2",
+      "temporary_path_normalized": true
+    },
+    "stderr.txt": {
+      "source": "stderr.txt",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "temporary_path_normalized": false
+    },
+    "output.md": {
+      "source": "output.md",
+      "original_sha256": "0db99a8a11d42b984be061aca2371602a1f0c421abfb7c6629d072db1407a85c",
+      "archived_sha256": "0db99a8a11d42b984be061aca2371602a1f0c421abfb7c6629d072db1407a85c",
+      "temporary_path_normalized": false
+    },
+    "input/docs/PRD.md": {
+      "source": "original-input/docs/PRD.md",
+      "original_sha256": "5fd0be7aa5319245bc6bbe002625cedd84569e16701b6b8d494a08248164009b",
+      "archived_sha256": "5fd0be7aa5319245bc6bbe002625cedd84569e16701b6b8d494a08248164009b",
+      "temporary_path_normalized": false
+    },
+    "input/pilot-notes.md": {
+      "source": "original-input/pilot-notes.md",
+      "original_sha256": "fa372be584310fb655b8f859b6e73016024e69e38d9f8757ff08440dc94e5b5d",
+      "archived_sha256": "fa372be584310fb655b8f859b6e73016024e69e38d9f8757ff08440dc94e5b5d",
+      "temporary_path_normalized": false
+    },
+    "input/reader-outcomes.csv": {
+      "source": "original-input/reader-outcomes.csv",
+      "original_sha256": "85fc053ee70b3028c36cf323e7066f11bd14fcd0f04cac5e777a09f39733b2cd",
+      "archived_sha256": "85fc053ee70b3028c36cf323e7066f11bd14fcd0f04cac5e777a09f39733b2cd",
+      "temporary_path_normalized": false
+    },
+    "input/request.md": {
+      "source": "original-input/request.md",
+      "original_sha256": "86f68101962d048d376e759df8f48e7fcf673f8b3d261dd277c4d88294f11555",
+      "archived_sha256": "86f68101962d048d376e759df8f48e7fcf673f8b3d261dd277c4d88294f11555",
+      "temporary_path_normalized": false
+    },
+    "after/docs/PRD.md": {
+      "source": "workspace/input/docs/PRD.md",
+      "original_sha256": "b12079536e3c179ad6402dea648769188d36cda1c08bc93696634485a0d7839d",
+      "archived_sha256": "b12079536e3c179ad6402dea648769188d36cda1c08bc93696634485a0d7839d",
+      "temporary_path_normalized": false
+    },
+    "after/pilot-notes.md": {
+      "source": "workspace/input/pilot-notes.md",
+      "original_sha256": "fa372be584310fb655b8f859b6e73016024e69e38d9f8757ff08440dc94e5b5d",
+      "archived_sha256": "fa372be584310fb655b8f859b6e73016024e69e38d9f8757ff08440dc94e5b5d",
+      "temporary_path_normalized": false
+    },
+    "after/reader-outcomes.csv": {
+      "source": "workspace/input/reader-outcomes.csv",
+      "original_sha256": "85fc053ee70b3028c36cf323e7066f11bd14fcd0f04cac5e777a09f39733b2cd",
+      "archived_sha256": "85fc053ee70b3028c36cf323e7066f11bd14fcd0f04cac5e777a09f39733b2cd",
+      "temporary_path_normalized": false
+    },
+    "after/request.md": {
+      "source": "workspace/input/request.md",
+      "original_sha256": "86f68101962d048d376e759df8f48e7fcf673f8b3d261dd277c4d88294f11555",
+      "archived_sha256": "86f68101962d048d376e759df8f48e7fcf673f8b3d261dd277c4d88294f11555",
+      "temporary_path_normalized": false
+    }
+  },
+  "limitations": [
+    "Process completion and hash agreement are not planning-quality grades or proof of compliance with every task instruction.",
+    "Original inputs and instruction bytes are unchanged; only the five run log/artifact files receive literal run-root path normalization.",
+    "PNG files are recorded by SHA256 only and must be restored separately for an identical image-bearing workspace.",
+    "Missing originals cannot be reconstructed from hashes. Partial original trees and available after-state are retained explicitly.",
+    "Path normalization is not a general secret scrubber. Only supplied run evidence is archived; other workspace files and host state are not retained.",
+    "Host-default model configuration and external services are not pinned by this archive; replay is not guaranteed to produce the same response."
+  ]
+}

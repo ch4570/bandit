@@ -1,0 +1,1 @@
+{"destination":"/WORKSPACE/bandit/evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-evidence/archives/default","archive_status":"archived","run_status":"completed","source_exit_code":0,"input_scope_respected":true,"original_text_snapshot_complete":true}

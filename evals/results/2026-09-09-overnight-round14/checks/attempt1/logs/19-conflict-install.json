@@ -1,0 +1,26 @@
+{
+  "label": "conflict-install",
+  "executable": "/TEMP/bandit-round14-lSJnNY/bin/npx",
+  "args": [
+    "--yes",
+    "--offline",
+    "--cache=/TEMP/bandit-round14-lSJnNY/cache-candidate",
+    "--package=/WORKSPACE/bandit/dist/overnight-round13/ch4570-bandit-0.4.0.tgz",
+    "--",
+    "bandit",
+    "--json"
+  ],
+  "cwd": "/TEMP/bandit-round14-lSJnNY/projects/migration customized",
+  "cache": "cache-candidate",
+  "started_at_utc": "2026-09-08T20:54:46.544Z",
+  "stdin": "closed",
+  "shell": false,
+  "available_bytes_before": 350248960,
+  "stdout": "{\"status\":\"error\",\"error\":\"Nothing installed. Preserve or move modified files in retired skill bandit-update before retrying:\\n  SKILL.md\"}\n",
+  "stderr": "",
+  "exit_code": 2,
+  "signal": null,
+  "launch_error": null,
+  "finished_at_utc": "2026-09-08T20:54:47.273Z",
+  "available_bytes_after": 350126080
+}

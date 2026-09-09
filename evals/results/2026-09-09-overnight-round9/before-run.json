@@ -1,0 +1,24 @@
+{
+  "recorded_at": "2026-09-08T18:34:13.040Z",
+  "phase": "before integration harness execution",
+  "scratch": "/TEMP/bandit-round9-pm62vi",
+  "harness": "checks/npx-flow.mjs",
+  "harness_sha256": "8e1a7533c2680febef603853f49b2f348c8b3e3145daa4ed56b236dbf40f4486",
+  "candidate": "dist/overnight-round8/ch4570-bandit-0.4.0.tgz",
+  "candidate_sha256": "a2fb5d29889010c2c0c8d0da3783be052667d6c295ffac72039ac99045655252",
+  "install_command": "npx --yes https://github.com/ch4570/bandit/releases/download/v0.4.0/bandit.tgz",
+  "old_bootstrap": "npx --yes https://github.com/ch4570/bandit/releases/download/v0.3.0/bandit.tgz",
+  "node": "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+  "npm_bin_directory": "/opt/homebrew/lib/node_modules/npm/bin",
+  "source_sha256": {
+    "INSTALL.md": "71dfdbb8fd11adcf6789e02c5df32bbceb26d01cdd4934d853953005ee21f3b0",
+    "lib/installer.mjs": "6c2555e1c09d3efa416ae63ab7870143271bfed7f035f91287d01580ff2456ec",
+    "install.py": "29e2ae73652dbba226a8f60889e995d4e70f07eab514513430e5a5aa26d8fe45",
+    "package.json": "8ac9a9f06d87d12121f80f9ff7b4a01b48bff1e1be86130d0611c753484ed604",
+    "tests-node/package.test.mjs": "b1507066a763278d741a5d6ab12548bee0b586c7ecc15614d11330d7e3f61bc6"
+  },
+  "scope": "Four new synthetic projects, three initially empty package-identity caches, empty npm configs, closed stdin, tool-only PATH. No actual project or personal discovery directory. HOME and CODEX_HOME are not overridden. No lifecycle hook is disabled to conceal package behavior; downloaded manifests are checked first.",
+  "assertions": "Exact public positional npx install; candidate preview no writes/install/repeat; actual 0.3 migration preserves notes; a customized retired managed file refuses whole upgrade with unchanged inventory. Actual cache package bytes must match separately downloaded/candidate archives, not merely their shared version.",
+  "history": "Fresh supported-runtime/candidate check, not first public npx proof; historical public-install.json remains unchanged.",
+  "limitations": "Local macOS Node22 integration; not Windows/Linux, host named discovery, planning quality, publication, or syscall tracing. Unsigned local timestamp."
+}

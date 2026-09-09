@@ -1,0 +1,84 @@
+r6sync (exit 0)
+Verified 16 specialist resources from skills/bandit.
+
+r6validateNode (exit 0)
+
+> @ch4570/bandit@0.4.0 validate
+> node scripts/validate-node.mjs
+
+{
+  "ok": true,
+  "version": "0.4.0",
+  "skillFiles": 34,
+  "skills": [
+    {
+      "name": "bandit",
+      "skillFiles": 10
+    },
+    {
+      "name": "bandit-research",
+      "skillFiles": 4
+    },
+    {
+      "name": "bandit-scope",
+      "skillFiles": 4
+    },
+    {
+      "name": "bandit-specify",
+      "skillFiles": 8
+    },
+    {
+      "name": "bandit-review",
+      "skillFiles": 8
+    }
+  ],
+  "errors": [],
+  "checks": "structure and references only; no claim of PM effectiveness"
+}
+
+r6validatePython (exit 0)
+{
+  "ok": true,
+  "version": "0.4.0",
+  "skill_files": 34,
+  "skills": [
+    {
+      "name": "bandit",
+      "skill_files": 10
+    },
+    {
+      "name": "bandit-research",
+      "skill_files": 4
+    },
+    {
+      "name": "bandit-scope",
+      "skill_files": 4
+    },
+    {
+      "name": "bandit-specify",
+      "skill_files": 8
+    },
+    {
+      "name": "bandit-review",
+      "skill_files": 8
+    }
+  ],
+  "errors": [],
+  "checks": "structure and references only; no claim of PM effectiveness"
+}
+
+r6metadata-bandit (exit 0)
+Skill is valid!
+
+r6metadata-bandit-research (exit 0)
+Skill is valid!
+
+r6metadata-bandit-scope (exit 0)
+Skill is valid!
+
+r6metadata-bandit-specify (exit 0)
+Skill is valid!
+
+r6metadata-bandit-review (exit 0)
+Skill is valid!
+

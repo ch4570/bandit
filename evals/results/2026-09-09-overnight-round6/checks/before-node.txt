@@ -1,0 +1,341 @@
+TAP version 13
+# Subtest: no-argument CLI installs five discoverable skills and preserves project files
+ok 1 - no-argument CLI installs five discoverable skills and preserves project files
+  ---
+  duration_ms: 389.087958
+  type: 'test'
+  ...
+# Subtest: plan and JSON output leave no installation directories
+ok 2 - plan and JSON output leave no installation directories
+  ---
+  duration_ms: 99.729833
+  type: 'test'
+  ...
+# Subtest: repeating installation is a true no-op, including the ownership marker
+ok 3 - repeating installation is a true no-op, including the ownership marker
+  ---
+  duration_ms: 91.623791
+  type: 'test'
+  ...
+# Subtest: managed update adds, updates and removes only managed files
+ok 4 - managed update adds, updates and removes only managed files
+  ---
+  duration_ms: 160.470958
+  type: 'test'
+  ...
+# Subtest: ownership marker key order from the Python helper remains a no-op
+ok 5 - ownership marker key order from the Python helper remains a no-op
+  ---
+  duration_ms: 102.493542
+  type: 'test'
+  ...
+# Subtest: a local edit blocks the whole operation before any files change
+ok 6 - a local edit blocks the whole operation before any files change
+  ---
+  duration_ms: 95.306125
+  type: 'test'
+  ...
+# Subtest: a locally deleted managed file blocks replacement
+ok 7 - a locally deleted managed file blocks replacement
+  ---
+  duration_ms: 90.941542
+  type: 'test'
+  ...
+# Subtest: unmanaged collisions are preserved even when their bytes match
+ok 8 - unmanaged collisions are preserved even when their bytes match
+  ---
+  duration_ms: 24.337875
+  type: 'test'
+  ...
+# Subtest: global, repo, and exact destination options route without modifying cwd
+ok 9 - global, repo, and exact destination options route without modifying cwd
+  ---
+  duration_ms: 1205.746833
+  type: 'test'
+  ...
+# Subtest: argument errors have exit 2 and parseable JSON when requested
+ok 10 - argument errors have exit 2 and parseable JSON when requested
+  ---
+  duration_ms: 11.132334
+  type: 'test'
+  ...
+# Subtest: an existing PM Craft installation is reported and left intact
+ok 11 - an existing PM Craft installation is reported and left intact
+  ---
+  duration_ms: 424.040292
+  type: 'test'
+  ...
+# Subtest: malformed and escaping ownership entries are rejected
+ok 12 - malformed and escaping ownership entries are rejected
+  ---
+  duration_ms: 145.896959
+  type: 'test'
+  ...
+# Subtest: source and destination overlap is rejected in both directions
+ok 13 - source and destination overlap is rejected in both directions
+  ---
+  duration_ms: 17.2195
+  type: 'test'
+  ...
+# Subtest: symlink and junction ancestors cannot redirect an installation
+ok 14 - symlink and junction ancestors cannot redirect an installation
+  ---
+  duration_ms: 14.261583
+  type: 'test'
+  ...
+# Subtest: source symlinks cannot include files outside the skill
+ok 15 - source symlinks cannot include files outside the skill
+  ---
+  duration_ms: 51.263417
+  type: 'test'
+  ...
+# Subtest: case-only managed directory renames stop before removing old files
+ok 16 - case-only managed directory renames stop before removing old files
+  ---
+  duration_ms: 128.456834
+  type: 'test'
+  ...
+# Subtest: unmanaged case aliases are not overwritten on any filesystem
+ok 17 - unmanaged case aliases are not overwritten on any filesystem
+  ---
+  duration_ms: 27.835834
+  type: 'test'
+  ...
+# Subtest: Unicode aliases are not treated as separate managed paths
+ok 18 - Unicode aliases are not treated as separate managed paths
+  ---
+  duration_ms: 141.063791
+  type: 'test'
+  ...
+# Subtest: a destination lock prevents concurrent writes
+ok 19 - a destination lock prevents concurrent writes
+  ---
+  duration_ms: 34.718708
+  type: 'test'
+  ...
+# Subtest: invalid source versions cannot become installed markers
+ok 20 - invalid source versions cannot become installed markers
+  ---
+  duration_ms: 27.663541
+  type: 'test'
+  ...
+# Subtest: an existing 0.2 core upgrades while all four independent specialists are added
+ok 21 - an existing 0.2 core upgrades while all four independent specialists are added
+  ---
+  duration_ms: 762.820333
+  type: 'test'
+  ...
+# Subtest: an edited 0.2 core prevents adding the four specialist skills
+ok 22 - an edited 0.2 core prevents adding the four specialist skills
+  ---
+  duration_ms: 140.586042
+  type: 'test'
+  ...
+# Subtest: a conflict in the last skill blocks all five updates before writing
+ok 23 - a conflict in the last skill blocks all five updates before writing
+  ---
+  duration_ms: 499.0905
+  type: 'test'
+  ...
+# Subtest: an unmanaged last-skill conflict leaves a fresh core uninstalled
+ok 24 - an unmanaged last-skill conflict leaves a fresh core uninstalled
+  ---
+  duration_ms: 103.248583
+  type: 'test'
+  ...
+# Subtest: a missing packaged specialist is rejected before creating any destination
+ok 25 - a missing packaged specialist is rejected before creating any destination
+  ---
+  duration_ms: 71.772583
+  type: 'test'
+  ...
+# Subtest: custom --dest cannot collide with another installed skill or any package source
+ok 26 - custom --dest cannot collide with another installed skill or any package source
+  ---
+  duration_ms: 6.651416
+  type: 'test'
+  ...
+# Subtest: a lock on any specialist prevents the entire package installation
+ok 27 - a lock on any specialist prevents the entire package installation
+  ---
+  duration_ms: 119.811334
+  type: 'test'
+  ...
+# Subtest: an I/O failure in the last skill rolls back updates across earlier skills
+ok 28 - an I/O failure in the last skill rolls back updates across earlier skills
+  ---
+  duration_ms: 785.411625
+  type: 'test'
+  ...
+# Subtest: a failed fresh package install removes only directories and files it created
+ok 29 - a failed fresh package install removes only directories and files it created
+  ---
+  duration_ms: 394.359666
+  type: 'test'
+  ...
+# Subtest: cross-skill recovery preserves an editor change made during the failed update
+ok 30 - cross-skill recovery preserves an editor change made during the failed update
+  ---
+  duration_ms: 842.0945
+  type: 'test'
+  ...
+# Subtest: an edit made while later skills are being preflighted cannot become an overwrite baseline
+ok 31 - an edit made while later skills are being preflighted cannot become an overwrite baseline
+  ---
+  duration_ms: 579.709958
+  type: 'test'
+  ...
+# Subtest: an edit made while a replacement is being staged is preserved with earlier writes rolled back
+ok 32 - an edit made while a replacement is being staged is preserved with earlier writes rolled back
+  ---
+  duration_ms: 732.169917
+  type: 'test'
+  ...
+# Subtest: 0.3 migration installs scope and retires both old commands without aliases
+ok 33 - 0.3 migration installs scope and retires both old commands without aliases
+  ---
+  duration_ms: 701.856625
+  type: 'test'
+  ...
+# Subtest: retirement keeps unrelated notes while removing old entrypoints and ownership
+ok 34 - retirement keeps unrelated notes while removing old entrypoints and ownership
+  ---
+  duration_ms: 631.592334
+  type: 'test'
+  ...
+# Subtest: already deleted managed files do not block retiring their old skill
+ok 35 - already deleted managed files do not block retiring their old skill
+  ---
+  duration_ms: 579.183083
+  type: 'test'
+  ...
+# Subtest: a modified retired reference blocks all active updates and both retirements
+ok 36 - a modified retired reference blocks all active updates and both retirements
+  ---
+  duration_ms: 158.838709
+  type: 'test'
+  ...
+# Subtest: an unmanaged retired entrypoint blocks migration even when other notes are safe
+ok 37 - an unmanaged retired entrypoint blocks migration even when other notes are safe
+  ---
+  duration_ms: 91.462917
+  type: 'test'
+  ...
+# Subtest: a marker cannot authorize removing an unlisted retired entrypoint
+ok 38 - a marker cannot authorize removing an unlisted retired entrypoint
+  ---
+  duration_ms: 167.071375
+  type: 'test'
+  ...
+# Subtest: unmanaged retired folders without an entrypoint are preserved
+ok 39 - unmanaged retired folders without an entrypoint are preserved
+  ---
+  duration_ms: 383.987542
+  type: 'test'
+  ...
+# Subtest: migration preview reports removals without changing any files or directories
+ok 40 - migration preview reports removals without changing any files or directories
+  ---
+  duration_ms: 154.797667
+  type: 'test'
+  ...
+# Subtest: retired target locks serialize migration with the 0.3 installer
+ok 41 - retired target locks serialize migration with the 0.3 installer
+  ---
+  duration_ms: 206.706125
+  type: 'test'
+  ...
+# Subtest: custom core destinations cannot overlap either retired command
+ok 42 - custom core destinations cannot overlap either retired command
+  ---
+  duration_ms: 6.764125
+  type: 'test'
+  ...
+# Subtest: an active write failure restores already retired files and markers
+ok 43 - an active write failure restores already retired files and markers
+  ---
+  duration_ms: 464.917708
+  type: 'test'
+  ...
+# Subtest: retirement recovery preserves an editor replacement of a deleted old file
+ok 44 - retirement recovery preserves an editor replacement of a deleted old file
+  ---
+  duration_ms: 495.120791
+  type: 'test'
+  ...
+# Subtest: retired file edits after their preflight stop every update and removal
+ok 45 - retired file edits after their preflight stop every update and removal
+  ---
+  duration_ms: 342.242833
+  type: 'test'
+  ...
+# Subtest: lock cleanup cannot follow a replaced parent into unrelated lock files
+ok 46 - lock cleanup cannot follow a replaced parent into unrelated lock files
+  ---
+  duration_ms: 222.154459
+  type: 'test'
+  ...
+# Subtest: lock cleanup preserves a replacement empty file with a different identity
+ok 47 - lock cleanup preserves a replacement empty file with a different identity
+  ---
+  duration_ms: 315.428125
+  type: 'test'
+  ...
+# Subtest: a removed lock does not prevent cleanup of the other acquired locks
+ok 48 - a removed lock does not prevent cleanup of the other acquired locks
+  ---
+  duration_ms: 316.378
+  type: 'test'
+  ...
+# Subtest: changed staged bytes are neither promoted nor deleted, and earlier writes roll back
+not ok 49 - changed staged bytes are neither promoted nor deleted, and earlier writes roll back
+  ---
+  duration_ms: 143.321417
+  type: 'test'
+  location: '/WORKSPACE/bandit/tests-node/staging.test.mjs:69:1'
+  failureType: 'testCodeFailure'
+  error: 'The changed staging file must remain at its own path'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///WORKSPACE/bandit/tests-node/staging.test.mjs:73:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: a different staged file with identical bytes is preserved rather than promoted
+not ok 50 - a different staged file with identical bytes is preserved rather than promoted
+  ---
+  duration_ms: 135.508959
+  type: 'test'
+  location: '/WORKSPACE/bandit/tests-node/staging.test.mjs:81:1'
+  failureType: 'testCodeFailure'
+  error: 'A replacement staging file must remain at its own path'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///WORKSPACE/bandit/tests-node/staging.test.mjs:91:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..50
+# tests 50
+# suites 0
+# pass 48
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 13635.434875
+

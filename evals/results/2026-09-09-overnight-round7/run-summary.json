@@ -1,0 +1,812 @@
+{
+  "format": 1,
+  "round": "2026-09-09-overnight-round7",
+  "audit_at_utc": "2026-09-08T17:52:23.090Z",
+  "scope": "Facts-only recomputation of four terminal run receipts, original and archived artifacts, changed-file scopes, and visible commands.",
+  "authorship": "The summary author authored the case19 fixtures and rubric. This author recomputed artifact facts but did not semantic-grade case19 or case02 in this summary. Semantic grades are separately authored by Galileo.",
+  "semantic_grade_claims_in_this_summary": false,
+  "run_counts": {
+    "total": 4,
+    "pre": 4,
+    "post": 0
+  },
+  "conditions": {
+    "cases": [
+      "02-offer-change",
+      "19-library-pickup-reminders"
+    ],
+    "arms": [
+      "bandit-specify (standalone)",
+      "baseline"
+    ],
+    "same_raw_fixture_bytes_within_each_pair": true,
+    "same_standalone_instruction_bytes_across_both_skill_runs": true,
+    "baseline_pm_instruction_files": 0,
+    "baseline_wrapper": "Use normal product-planning reasoning; do not load a PM skill.",
+    "case19_shared_raw_request_literal": "$bandit-specify",
+    "cli_version": "codex-cli 0.153.4",
+    "fresh_execution_arguments": [
+      "exec",
+      "--ephemeral",
+      "--ignore-user-config",
+      "--skip-git-repo-check"
+    ],
+    "resume_argument_present": false,
+    "four_distinct_thread_ids": true,
+    "web_search": "disabled",
+    "explicit_cli_setting_in_all_four": "web_search=\"disabled\"",
+    "model_override": null,
+    "model_and_host": "Unmodified host defaults; exact model configuration and wider host state are not pinned.",
+    "case02_scope": "read-only sandbox; final-answer PRD capped at 900 whitespace-delimited words.",
+    "case19_scope": "workspace-write sandbox; prompt authorizes only input/docs/PRD.md, whose complete edited content is capped at 800 words; final summary is separate."
+  },
+  "pre_run_receipt_bindings": [
+    {
+      "case": "02-offer-change",
+      "path": "case02-before-run.json",
+      "sha256": "d1675a15772b8ba16d849f4bbfa42b93b961fbaf2369ab4efd4befe84f2c3a33",
+      "recorded_at": "2026-09-08T17:36:11.025Z",
+      "raw_sha256": {
+        "current-plan.md": "18b60d49b72cb22b6b56584564498c5b3538dd5f9c603aa9634e946ccc498070",
+        "observations.md": "4b151192ebb1d397f7158d2f18afc3f110cc002d784733e047e6c0b2cea4b57f",
+        "request.md": "306372d5fbb3ec43970909b60f9e2f05d4d1513c9f113410b760bb88a1f063d0"
+      },
+      "raw_matches_receipt": true,
+      "rubric_path": "evals/RUBRIC.md",
+      "rubric_sha256": "ddf1dd003bb804f3bad7620215ab5f969fcf20ca669794c6eaec7a0167d87b3b",
+      "rubric_matches_receipt": true,
+      "instruction_files": 8,
+      "instruction_map_sha256": "148fa4879459dd212e31a59c2ff86947403078c4b22a57704148c89228f54016",
+      "instructions_match_receipt": true,
+      "full_tree_matches_receipt": true,
+      "receipt_signature_or_independent_time_attestation": false,
+      "instruction_map_key_basis": "Relative to skills/bandit-specify; unlike the per-run instruction maps, these keys omit the bandit-specify/ prefix."
+    },
+    {
+      "case": "19-library-pickup-reminders",
+      "path": "case19-before-run.json",
+      "sha256": "4e5cbc9bc5a7c87617cb96ef1458597b9e58acaa44b90a145e64b7facd4ae13f",
+      "recorded_at": "2026-09-08T17:44:57.809Z",
+      "raw_sha256": {
+        "docs/PRD.md": "5fd0be7aa5319245bc6bbe002625cedd84569e16701b6b8d494a08248164009b",
+        "pilot-notes.md": "fa372be584310fb655b8f859b6e73016024e69e38d9f8757ff08440dc94e5b5d",
+        "reader-outcomes.csv": "85fc053ee70b3028c36cf323e7066f11bd14fcd0f04cac5e777a09f39733b2cd",
+        "request.md": "86f68101962d048d376e759df8f48e7fcf673f8b3d261dd277c4d88294f11555"
+      },
+      "raw_matches_receipt": true,
+      "rubric_path": "evals/rubrics/19-library-pickup-reminders.md",
+      "rubric_sha256": "be5e9cf6f4f05ad2271f942535e755f97d4ede1d4a3f462f368489f3d7a74a85",
+      "rubric_matches_receipt": true,
+      "instruction_files": 8,
+      "instruction_map_sha256": "148fa4879459dd212e31a59c2ff86947403078c4b22a57704148c89228f54016",
+      "instructions_match_receipt": true,
+      "full_tree_matches_receipt": true,
+      "receipt_signature_or_independent_time_attestation": false,
+      "instruction_map_key_basis": "Relative to skills/bandit-specify; unlike the per-run instruction maps, these keys omit the bandit-specify/ prefix."
+    }
+  ],
+  "full_skill_tree": {
+    "snapshot": "/TEMP/bandit-round7-UmJkjg/skills-before",
+    "current_root": "skills/",
+    "directories": [
+      "bandit",
+      "bandit-research",
+      "bandit-review",
+      "bandit-scope",
+      "bandit-specify"
+    ],
+    "files": 34,
+    "before_files": 34,
+    "current_sha256": "e49c9478eceaa6cd109ea2192d8bf71d4cc519b8f7d7e61bca0172356f0bb320",
+    "before_sha256": "e49c9478eceaa6cd109ea2192d8bf71d4cc519b8f7d7e61bca0172356f0bb320",
+    "byte_identical_paths": true,
+    "same_file_set_and_hashes": true,
+    "binary_files_included": true,
+    "both_round7_receipts_match": true,
+    "method": "SHA256 of UTF-8 JSON.stringify(Object.entries(relative-path-to-SHA256-map).sort()); tree keys are relative to each skill-tree root.",
+    "interpretation": "All 34 paths and bytes match the before snapshot and both pre-run receipts at the audit endpoint; no skill change or post-condition run is represented in this round."
+  },
+  "installer_and_runner_preservation": {
+    "round6_preservation_receipt": {
+      "path": "evals/results/2026-09-09-overnight-round6/checks/preservation.json",
+      "sha256": "5cb2121d98fadbfeb74fa1e541f1f7631ca32785661c8b535e736741e4eb74d6",
+      "checked_at": "2026-09-08T17:28:39.583Z"
+    },
+    "installers": [
+      {
+        "path": "lib/installer.mjs",
+        "current_sha256": "6c2555e1c09d3efa416ae63ab7870143271bfed7f035f91287d01580ff2456ec",
+        "round6_sha256": "6c2555e1c09d3efa416ae63ab7870143271bfed7f035f91287d01580ff2456ec",
+        "matches": true
+      },
+      {
+        "path": "install.py",
+        "current_sha256": "29e2ae73652dbba226a8f60889e995d4e70f07eab514513430e5a5aa26d8fe45",
+        "round6_sha256": "29e2ae73652dbba226a8f60889e995d4e70f07eab514513430e5a5aa26d8fe45",
+        "matches": true
+      }
+    ],
+    "round6_zip": {
+      "path": "dist/overnight-round6/bandit-0.4.0.zip",
+      "sha256": "3da8e6f5f84adeb9d493f1a9fb8383fadff64fc9ff5c03e9675af7a5af792d83",
+      "matches_supplied_frozen_hash": true
+    },
+    "round5_runner_receipt": {
+      "path": "evals/results/2026-09-09-overnight-round5/case18-before-run.json",
+      "sha256": "5fb6ebb3311bfa01cf0dede85092142b30c1a49c49d453476b64b2b769fd2c6b",
+      "recorded_at": "2026-09-08T16:53:01.655Z"
+    },
+    "runners": [
+      {
+        "path": "evals/run_local.py",
+        "current_sha256": "1d06a3878e62ca045ef5be05a8184fc95cbe379a9584faebb78139ba51d70298",
+        "round5_receipt_sha256": "1d06a3878e62ca045ef5be05a8184fc95cbe379a9584faebb78139ba51d70298",
+        "round6_zip_member": "bandit-0.4.0/evals/run_local.py",
+        "round6_zip_member_sha256": "1d06a3878e62ca045ef5be05a8184fc95cbe379a9584faebb78139ba51d70298",
+        "current_bytes_equal_round6_member": true,
+        "matches_round5_receipt": true
+      },
+      {
+        "path": "evals/archive_run.mjs",
+        "current_sha256": "62cf0c7728d5116884910250a1ce44427e314bccfb3b2d1c968a543b7d4b1f17",
+        "round5_receipt_sha256": "62cf0c7728d5116884910250a1ce44427e314bccfb3b2d1c968a543b7d4b1f17",
+        "round6_zip_member": "bandit-0.4.0/evals/archive_run.mjs",
+        "round6_zip_member_sha256": "62cf0c7728d5116884910250a1ce44427e314bccfb3b2d1c968a543b7d4b1f17",
+        "current_bytes_equal_round6_member": true,
+        "matches_round5_receipt": true
+      }
+    ],
+    "round6_runner_digest_receipt_available": false,
+    "distinction": "Installer digests were compared with the round6 preservation receipt. Runner and archive-script bytes were compared directly with members read from the hash-verified round6 ZIP without extraction; they also match the separately dated round5 receipt. The ZIP comparison is not a fabricated round6 runner digest receipt."
+  },
+  "verification_method": {
+    "originals": "/TEMP/bandit-round7-UmJkjg/pre",
+    "retained": "pre/",
+    "original_source_files_hashed": 80,
+    "retained_files_hashed": 62,
+    "source_archive_file_pairs_checked": 58,
+    "all_recorded_original_and_archived_file_hashes_match_recomputed_bytes": true,
+    "all_allowed_path_normalizations_recomputed_and_match": true,
+    "comparison": "Hash every retained and original source file, including unnormalized logs and original after-workspaces; validate each archive-provenance file mapping. For normalized files compare exact literal run-root substitution; otherwise require byte equality.",
+    "retained_files_without_source_mapping": "Only each archive-provenance.json; all four were separately hashed.",
+    "maps": "Recompute raw and instruction before/after maps from actual files, not only metadata; compare current raw fixtures, current instructions, receipts, retained before/after files, metadata, and original workspace state.",
+    "word_count": "Complete UTF-8 artifact text: text.trim().split(/\\s+/).length, including Markdown tokens. For case19 count after/docs/PRD.md separately from output.md.",
+    "observation_limit": "All JSONL records and command bodies were inspected for actions, counts, and recovery. No product assertions or semantic recommendations were scored.",
+    "omitted_png_files_in_selected_run_archives": [],
+    "unexpected_file_or_hash_changes": []
+  },
+  "runs": [
+    {
+      "case": "02-offer-change",
+      "arm": "bandit-specify",
+      "archive": "pre/02-offer-change--bandit-specify",
+      "thread_id": "01a08217-7883-7060-8cb7-7877651168dd",
+      "started_at_utc": "2026-09-08T17:36:11.248189+00:00",
+      "finished_at_utc": "2026-09-08T17:39:30.973077+00:00",
+      "elapsed_seconds_reported": 199.749,
+      "pre_run_receipt_timestamp_precedes_start": true,
+      "sandbox": "read-only",
+      "editable_artifact": null,
+      "standalone_specialist": true,
+      "terminal": {
+        "exit_code": 0,
+        "event": "turn.completed",
+        "event_line": 12
+      },
+      "archive_provenance_sha256": "457cc95baf098e584f48dd73d44cbb6bb87d0cf32689875af9fd8c960cac4e90",
+      "events_sha256": {
+        "original": "3fc42a04721c11c227db8a83759c77d8492ee20b278c5ddac9959b9c311f7a2d",
+        "archived": "3fc42a04721c11c227db8a83759c77d8492ee20b278c5ddac9959b9c311f7a2d"
+      },
+      "verification_counts": {
+        "mapped_source_archive_pairs": 16,
+        "source_files_hashed": 27,
+        "archived_files_hashed": 17
+      },
+      "literal_run_root_normalization_applied_to": [
+        "metadata.json"
+      ],
+      "source_archive_hash_or_transform_mismatches": [],
+      "raw_inputs": {
+        "before_sha256": {
+          "current-plan.md": "18b60d49b72cb22b6b56584564498c5b3538dd5f9c603aa9634e946ccc498070",
+          "observations.md": "4b151192ebb1d397f7158d2f18afc3f110cc002d784733e047e6c0b2cea4b57f",
+          "request.md": "306372d5fbb3ec43970909b60f9e2f05d4d1513c9f113410b760bb88a1f063d0"
+        },
+        "after_sha256": {
+          "current-plan.md": "18b60d49b72cb22b6b56584564498c5b3538dd5f9c603aa9634e946ccc498070",
+          "observations.md": "4b151192ebb1d397f7158d2f18afc3f110cc002d784733e047e6c0b2cea4b57f",
+          "request.md": "306372d5fbb3ec43970909b60f9e2f05d4d1513c9f113410b760bb88a1f063d0"
+        },
+        "before_matches_receipt_metadata_original_and_archive": true,
+        "after_matches_original_workspace_metadata_and_archive": true,
+        "changed_paths": [],
+        "changed_paths_equal_allowed_artifact_scope": true
+      },
+      "instructions": {
+        "files": 8,
+        "before_map_sha256": "59de066f973ee852b4f7dd1b2685845b68bdc43e9ca41baf7d66c647b86ee231",
+        "after_map_sha256": "59de066f973ee852b4f7dd1b2685845b68bdc43e9ca41baf7d66c647b86ee231",
+        "original_after_receipt_metadata_archive_current_match": true,
+        "map_key_basis": "Relative to the instruction snapshot root, including bandit-specify/ when present; empty for baseline."
+      },
+      "no_extra_workspace_files": true,
+      "output": {
+        "bytes": 8889,
+        "words": 900,
+        "sha256": "9c396fe8ff43744f43917df23cb1af5d060f65d9335f858040a2b3179488be01",
+        "matches_final_event_exactly": true,
+        "final_event_line": 11,
+        "purpose": "Complete requested PRD returned in the final answer.",
+        "requested_cap": 900,
+        "within_requested_cap": true
+      },
+      "trace": {
+        "item_types": [
+          "agent_message",
+          "command_execution"
+        ],
+        "command_observations": [
+          {
+            "event_line": 5,
+            "operation": "'cat .agents/skills/bandit-specify/SKILL.md; rg --files input .agents/skills/bandit-specify'",
+            "exit_code": 0,
+            "status": "completed"
+          },
+          {
+            "event_line": 7,
+            "operation": "'cat input/request.md input/current-plan.md input/observations.md .agents/skills/bandit-specify/references/specification.md .agents/skills/bandit-specify/references/changes.md .agents/skills/bandit-specify/references/evidence-and-decisions.md'",
+            "exit_code": 0,
+            "status": "completed"
+          },
+          {
+            "event_line": 9,
+            "operation": "'cat .agents/skills/bandit-specify/references/research.md'",
+            "exit_code": 0,
+            "status": "completed"
+          }
+        ],
+        "raw_and_instruction_read_text_all_matches_snapshots": true,
+        "read_text_evidence": [
+          {
+            "event_line": 5,
+            "paths": [
+              "instructions/bandit-specify/SKILL.md"
+            ],
+            "mode": "exact prefix before listing",
+            "matches": true
+          },
+          {
+            "event_line": 7,
+            "paths": [
+              "input/request.md",
+              "input/current-plan.md",
+              "input/observations.md",
+              "instructions/bandit-specify/references/specification.md",
+              "instructions/bandit-specify/references/changes.md",
+              "instructions/bandit-specify/references/evidence-and-decisions.md"
+            ],
+            "mode": "exact complete concatenation",
+            "matches": true
+          },
+          {
+            "event_line": 9,
+            "paths": [
+              "instructions/bandit-specify/references/research.md"
+            ],
+            "mode": "exact complete concatenation",
+            "matches": true
+          }
+        ],
+        "explicitly_read_skill_files": [
+          "SKILL.md",
+          "references/specification.md",
+          "references/changes.md",
+          "references/evidence-and-decisions.md",
+          "references/research.md"
+        ],
+        "skill_files_not_explicitly_read_in_trace": [
+          "agents/openai.yaml",
+          "assets/plan-template.md",
+          "references/review.md"
+        ],
+        "general_router_or_other_specialist_reads_observed": false,
+        "web_search_events": 0,
+        "network_or_external_actions_observed": false,
+        "product_implementation_or_test_execution_observed": false,
+        "writes_observed": [],
+        "word_count_command_observed": false,
+        "count_observations": [],
+        "recoveries": [],
+        "retained_stderr_file_bytes": 0,
+        "stderr_visibility_note": "Empty stderr.txt does not imply error-free tool activity; tool diagnostics can be present inside events.jsonl."
+      }
+    },
+    {
+      "case": "02-offer-change",
+      "arm": "baseline",
+      "archive": "pre/02-offer-change--baseline",
+      "thread_id": "01a08217-7883-7082-bb12-42423b5a604f",
+      "started_at_utc": "2026-09-08T17:36:11.244184+00:00",
+      "finished_at_utc": "2026-09-08T17:37:17.496896+00:00",
+      "elapsed_seconds_reported": 66.251,
+      "pre_run_receipt_timestamp_precedes_start": true,
+      "sandbox": "read-only",
+      "editable_artifact": null,
+      "standalone_specialist": false,
+      "terminal": {
+        "exit_code": 0,
+        "event": "turn.completed",
+        "event_line": 9
+      },
+      "archive_provenance_sha256": "643444ea91386fb4107aa0a2147b51b8ed96ddf8936df7a8f7c16d9957e0a1b7",
+      "events_sha256": {
+        "original": "b21f18249a44e45e9994c3ee53252b1496757e6c082e237a3f292c43ab56efb3",
+        "archived": "b21f18249a44e45e9994c3ee53252b1496757e6c082e237a3f292c43ab56efb3"
+      },
+      "verification_counts": {
+        "mapped_source_archive_pairs": 8,
+        "source_files_hashed": 11,
+        "archived_files_hashed": 9
+      },
+      "literal_run_root_normalization_applied_to": [
+        "metadata.json"
+      ],
+      "source_archive_hash_or_transform_mismatches": [],
+      "raw_inputs": {
+        "before_sha256": {
+          "current-plan.md": "18b60d49b72cb22b6b56584564498c5b3538dd5f9c603aa9634e946ccc498070",
+          "observations.md": "4b151192ebb1d397f7158d2f18afc3f110cc002d784733e047e6c0b2cea4b57f",
+          "request.md": "306372d5fbb3ec43970909b60f9e2f05d4d1513c9f113410b760bb88a1f063d0"
+        },
+        "after_sha256": {
+          "current-plan.md": "18b60d49b72cb22b6b56584564498c5b3538dd5f9c603aa9634e946ccc498070",
+          "observations.md": "4b151192ebb1d397f7158d2f18afc3f110cc002d784733e047e6c0b2cea4b57f",
+          "request.md": "306372d5fbb3ec43970909b60f9e2f05d4d1513c9f113410b760bb88a1f063d0"
+        },
+        "before_matches_receipt_metadata_original_and_archive": true,
+        "after_matches_original_workspace_metadata_and_archive": true,
+        "changed_paths": [],
+        "changed_paths_equal_allowed_artifact_scope": true
+      },
+      "instructions": {
+        "files": 0,
+        "before_map_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "after_map_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "original_after_receipt_metadata_archive_current_match": true,
+        "map_key_basis": "Relative to the instruction snapshot root, including bandit-specify/ when present; empty for baseline."
+      },
+      "no_extra_workspace_files": true,
+      "output": {
+        "bytes": 6655,
+        "words": 722,
+        "sha256": "6259e42b085fee412c23164281b1e947216c1346e316e6d18f8820d4f24286e9",
+        "matches_final_event_exactly": true,
+        "final_event_line": 8,
+        "purpose": "Complete requested PRD returned in the final answer.",
+        "requested_cap": 900,
+        "within_requested_cap": true
+      },
+      "trace": {
+        "item_types": [
+          "agent_message",
+          "command_execution"
+        ],
+        "command_observations": [
+          {
+            "event_line": 5,
+            "operation": "'rg --files input instructions'",
+            "exit_code": 2,
+            "status": "failed"
+          },
+          {
+            "event_line": 7,
+            "operation": "'cat input/request.md input/current-plan.md input/observations.md'",
+            "exit_code": 0,
+            "status": "completed"
+          }
+        ],
+        "raw_and_instruction_read_text_all_matches_snapshots": true,
+        "read_text_evidence": [
+          {
+            "event_line": 7,
+            "paths": [
+              "input/request.md",
+              "input/current-plan.md",
+              "input/observations.md"
+            ],
+            "mode": "exact complete concatenation",
+            "matches": true
+          }
+        ],
+        "explicitly_read_skill_files": [],
+        "skill_files_not_explicitly_read_in_trace": [],
+        "general_router_or_other_specialist_reads_observed": false,
+        "web_search_events": 0,
+        "network_or_external_actions_observed": false,
+        "product_implementation_or_test_execution_observed": false,
+        "writes_observed": [],
+        "word_count_command_observed": false,
+        "count_observations": [],
+        "recoveries": [
+          {
+            "event_line": 5,
+            "command": "rg --files input instructions",
+            "command_exit_code": 2,
+            "retained_diagnostic": "rg: instructions: No such file or directory (os error 2)",
+            "recovery_event_line": 7,
+            "recovery_exit_code": 0,
+            "recovery": "Reads all three raw inputs."
+          }
+        ],
+        "retained_stderr_file_bytes": 0,
+        "stderr_visibility_note": "Empty stderr.txt does not imply error-free tool activity; tool diagnostics can be present inside events.jsonl."
+      }
+    },
+    {
+      "case": "19-library-pickup-reminders",
+      "arm": "bandit-specify",
+      "archive": "pre/19-library-pickup-reminders--bandit-specify",
+      "thread_id": "01a0821f-824d-7233-9f34-160a873e5bc6",
+      "started_at_utc": "2026-09-08T17:44:58.043498+00:00",
+      "finished_at_utc": "2026-09-08T17:46:25.638807+00:00",
+      "elapsed_seconds_reported": 87.594,
+      "pre_run_receipt_timestamp_precedes_start": true,
+      "sandbox": "workspace-write",
+      "editable_artifact": "input/docs/PRD.md",
+      "standalone_specialist": true,
+      "terminal": {
+        "exit_code": 0,
+        "event": "turn.completed",
+        "event_line": 18
+      },
+      "archive_provenance_sha256": "49b067d1751e2f83c79394d66501154964c224d5765607b6dbb77919916197d5",
+      "events_sha256": {
+        "original": "5952730a448ed5d21728db8688c585762f074a8e76827cbce444b6bd2db7ef76",
+        "archived": "5952730a448ed5d21728db8688c585762f074a8e76827cbce444b6bd2db7ef76"
+      },
+      "verification_counts": {
+        "mapped_source_archive_pairs": 21,
+        "source_files_hashed": 29,
+        "archived_files_hashed": 22
+      },
+      "literal_run_root_normalization_applied_to": [
+        "metadata.json"
+      ],
+      "source_archive_hash_or_transform_mismatches": [],
+      "raw_inputs": {
+        "before_sha256": {
+          "docs/PRD.md": "5fd0be7aa5319245bc6bbe002625cedd84569e16701b6b8d494a08248164009b",
+          "pilot-notes.md": "fa372be584310fb655b8f859b6e73016024e69e38d9f8757ff08440dc94e5b5d",
+          "reader-outcomes.csv": "85fc053ee70b3028c36cf323e7066f11bd14fcd0f04cac5e777a09f39733b2cd",
+          "request.md": "86f68101962d048d376e759df8f48e7fcf673f8b3d261dd277c4d88294f11555"
+        },
+        "after_sha256": {
+          "docs/PRD.md": "e177246d7c9a49bff299919c45228540797a13cf9a32fe38279ead73b558496c",
+          "pilot-notes.md": "fa372be584310fb655b8f859b6e73016024e69e38d9f8757ff08440dc94e5b5d",
+          "reader-outcomes.csv": "85fc053ee70b3028c36cf323e7066f11bd14fcd0f04cac5e777a09f39733b2cd",
+          "request.md": "86f68101962d048d376e759df8f48e7fcf673f8b3d261dd277c4d88294f11555"
+        },
+        "before_matches_receipt_metadata_original_and_archive": true,
+        "after_matches_original_workspace_metadata_and_archive": true,
+        "changed_paths": [
+          "docs/PRD.md"
+        ],
+        "changed_paths_equal_allowed_artifact_scope": true
+      },
+      "instructions": {
+        "files": 8,
+        "before_map_sha256": "59de066f973ee852b4f7dd1b2685845b68bdc43e9ca41baf7d66c647b86ee231",
+        "after_map_sha256": "59de066f973ee852b4f7dd1b2685845b68bdc43e9ca41baf7d66c647b86ee231",
+        "original_after_receipt_metadata_archive_current_match": true,
+        "map_key_basis": "Relative to the instruction snapshot root, including bandit-specify/ when present; empty for baseline."
+      },
+      "no_extra_workspace_files": true,
+      "output": {
+        "bytes": 376,
+        "words": 49,
+        "sha256": "ed1afcbe970a5e027c3ee79677b0bae8b1b11987c824553389e9ecee64d6747e",
+        "matches_final_event_exactly": true,
+        "final_event_line": 17,
+        "purpose": "Short final summary, not the capped edited PRD."
+      },
+      "edited_prd": {
+        "path": "after/docs/PRD.md",
+        "bytes": 5995,
+        "words": 795,
+        "sha256": "e177246d7c9a49bff299919c45228540797a13cf9a32fe38279ead73b558496c",
+        "byte_identical_to_original_workspace": true,
+        "requested_cap": 800,
+        "within_requested_cap": true
+      },
+      "trace": {
+        "item_types": [
+          "agent_message",
+          "command_execution"
+        ],
+        "command_observations": [
+          {
+            "event_line": 5,
+            "operation": "'cat .agents/skills/bandit-specify/SKILL.md; cat .agents/skills/bandit-specify/references/specification.md; cat .agents/skills/bandit-specify/references/changes.md; cat .agents/skills/bandit-specify/references/evidence-and-decisions.md; rg --files input'",
+            "exit_code": 0,
+            "status": "completed"
+          },
+          {
+            "event_line": 7,
+            "operation": "'cat input/docs/PRD.md; cat input/request.md; cat input/pilot-notes.md; cat input/reader-outcomes.csv'",
+            "exit_code": 0,
+            "status": "completed"
+          },
+          {
+            "event_line": 9,
+            "operation": "'cat .agents/skills/bandit-specify/references/research.md'",
+            "exit_code": 0,
+            "status": "completed"
+          },
+          {
+            "event_line": 12,
+            "operation": "Write only input/docs/PRD.md through a heredoc, then wc -w.",
+            "exit_code": 0,
+            "status": "completed"
+          },
+          {
+            "event_line": 14,
+            "operation": "Attempt the local PRD text replacement with missing python, then run wc -w.",
+            "exit_code": 0,
+            "status": "completed"
+          },
+          {
+            "event_line": 16,
+            "operation": "Run a local Python 3 text replacement on input/docs/PRD.md, save it, then print its whitespace word count.",
+            "exit_code": 0,
+            "status": "completed"
+          }
+        ],
+        "raw_and_instruction_read_text_all_matches_snapshots": true,
+        "read_text_evidence": [
+          {
+            "event_line": 5,
+            "paths": [
+              "instructions/bandit-specify/SKILL.md",
+              "instructions/bandit-specify/references/specification.md",
+              "instructions/bandit-specify/references/changes.md",
+              "instructions/bandit-specify/references/evidence-and-decisions.md"
+            ],
+            "mode": "exact prefix before listing",
+            "matches": true
+          },
+          {
+            "event_line": 7,
+            "paths": [
+              "input/docs/PRD.md",
+              "input/request.md",
+              "input/pilot-notes.md",
+              "input/reader-outcomes.csv"
+            ],
+            "mode": "exact complete concatenation",
+            "matches": true
+          },
+          {
+            "event_line": 9,
+            "paths": [
+              "instructions/bandit-specify/references/research.md"
+            ],
+            "mode": "exact complete concatenation",
+            "matches": true
+          }
+        ],
+        "explicitly_read_skill_files": [
+          "SKILL.md",
+          "references/specification.md",
+          "references/changes.md",
+          "references/evidence-and-decisions.md",
+          "references/research.md"
+        ],
+        "skill_files_not_explicitly_read_in_trace": [
+          "agents/openai.yaml",
+          "assets/plan-template.md",
+          "references/review.md"
+        ],
+        "general_router_or_other_specialist_reads_observed": false,
+        "web_search_events": 0,
+        "network_or_external_actions_observed": false,
+        "product_implementation_or_test_execution_observed": false,
+        "writes_observed": [
+          "input/docs/PRD.md"
+        ],
+        "word_count_command_observed": true,
+        "count_observations": [
+          {
+            "event_line": 12,
+            "method": "wc -w after initial saved PRD",
+            "reported_words": 774
+          },
+          {
+            "event_line": 14,
+            "method": "wc -w after missing-python edit attempt",
+            "reported_words": 774
+          },
+          {
+            "event_line": 16,
+            "method": "len(s.split()) after Python 3 replacement and save",
+            "reported_words": 795
+          }
+        ],
+        "recoveries": [
+          {
+            "event_line": 14,
+            "attempted_action": "A Python text replacement in input/docs/PRD.md.",
+            "retained_diagnostic": "zsh:1: command not found: python",
+            "enclosing_shell_exit_code": 0,
+            "why_shell_exit_does_not_mean_edit_succeeded": "The following wc command succeeded and reported the unchanged 774-word PRD.",
+            "recovery_event_line": 16,
+            "recovery": "python3 performed the text replacement, wrote the PRD, and printed 795 words.",
+            "recovery_exit_code": 0
+          }
+        ],
+        "retained_stderr_file_bytes": 0,
+        "stderr_visibility_note": "Empty stderr.txt does not imply error-free tool activity; tool diagnostics can be present inside events.jsonl."
+      }
+    },
+    {
+      "case": "19-library-pickup-reminders",
+      "arm": "baseline",
+      "archive": "pre/19-library-pickup-reminders--baseline",
+      "thread_id": "01a0821f-8241-7d60-a6db-39b2124053d9",
+      "started_at_utc": "2026-09-08T17:44:58.039306+00:00",
+      "finished_at_utc": "2026-09-08T17:46:00.490775+00:00",
+      "elapsed_seconds_reported": 62.451,
+      "pre_run_receipt_timestamp_precedes_start": true,
+      "sandbox": "workspace-write",
+      "editable_artifact": "input/docs/PRD.md",
+      "standalone_specialist": false,
+      "terminal": {
+        "exit_code": 0,
+        "event": "turn.completed",
+        "event_line": 12
+      },
+      "archive_provenance_sha256": "5415b0106f3bc4a9eddcb295ffc9ef4a3e4071803e60c2c5cab97dd464d3cd1c",
+      "events_sha256": {
+        "original": "68bfcbec72d2d99414007e55cf3c5c277d5c06c221229a37ac86e803e577add0",
+        "archived": "6f3a93d82e81e714b8f6762e65eb638a7ea84f2ee6b45756f5e86e30fca27ca2"
+      },
+      "verification_counts": {
+        "mapped_source_archive_pairs": 13,
+        "source_files_hashed": 13,
+        "archived_files_hashed": 14
+      },
+      "literal_run_root_normalization_applied_to": [
+        "metadata.json",
+        "events.jsonl"
+      ],
+      "source_archive_hash_or_transform_mismatches": [],
+      "raw_inputs": {
+        "before_sha256": {
+          "docs/PRD.md": "5fd0be7aa5319245bc6bbe002625cedd84569e16701b6b8d494a08248164009b",
+          "pilot-notes.md": "fa372be584310fb655b8f859b6e73016024e69e38d9f8757ff08440dc94e5b5d",
+          "reader-outcomes.csv": "85fc053ee70b3028c36cf323e7066f11bd14fcd0f04cac5e777a09f39733b2cd",
+          "request.md": "86f68101962d048d376e759df8f48e7fcf673f8b3d261dd277c4d88294f11555"
+        },
+        "after_sha256": {
+          "docs/PRD.md": "b12079536e3c179ad6402dea648769188d36cda1c08bc93696634485a0d7839d",
+          "pilot-notes.md": "fa372be584310fb655b8f859b6e73016024e69e38d9f8757ff08440dc94e5b5d",
+          "reader-outcomes.csv": "85fc053ee70b3028c36cf323e7066f11bd14fcd0f04cac5e777a09f39733b2cd",
+          "request.md": "86f68101962d048d376e759df8f48e7fcf673f8b3d261dd277c4d88294f11555"
+        },
+        "before_matches_receipt_metadata_original_and_archive": true,
+        "after_matches_original_workspace_metadata_and_archive": true,
+        "changed_paths": [
+          "docs/PRD.md"
+        ],
+        "changed_paths_equal_allowed_artifact_scope": true
+      },
+      "instructions": {
+        "files": 0,
+        "before_map_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "after_map_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "original_after_receipt_metadata_archive_current_match": true,
+        "map_key_basis": "Relative to the instruction snapshot root, including bandit-specify/ when present; empty for baseline."
+      },
+      "no_extra_workspace_files": true,
+      "output": {
+        "bytes": 291,
+        "words": 41,
+        "sha256": "0db99a8a11d42b984be061aca2371602a1f0c421abfb7c6629d072db1407a85c",
+        "matches_final_event_exactly": true,
+        "final_event_line": 11,
+        "purpose": "Short final summary, not the capped edited PRD."
+      },
+      "edited_prd": {
+        "path": "after/docs/PRD.md",
+        "bytes": 5313,
+        "words": 741,
+        "sha256": "b12079536e3c179ad6402dea648769188d36cda1c08bc93696634485a0d7839d",
+        "byte_identical_to_original_workspace": true,
+        "requested_cap": 800,
+        "within_requested_cap": true
+      },
+      "trace": {
+        "item_types": [
+          "agent_message",
+          "command_execution"
+        ],
+        "command_observations": [
+          {
+            "event_line": 5,
+            "operation": "'pwd; rg --files input instructions 2>/dev/null'",
+            "exit_code": 2,
+            "status": "failed"
+          },
+          {
+            "event_line": 7,
+            "operation": "'cat input/request.md input/docs/PRD.md input/pilot-notes.md input/reader-outcomes.csv'",
+            "exit_code": 0,
+            "status": "completed"
+          },
+          {
+            "event_line": 10,
+            "operation": "Write only input/docs/PRD.md through a heredoc, then wc -w.",
+            "exit_code": 0,
+            "status": "completed"
+          }
+        ],
+        "raw_and_instruction_read_text_all_matches_snapshots": true,
+        "read_text_evidence": [
+          {
+            "event_line": 7,
+            "paths": [
+              "input/request.md",
+              "input/docs/PRD.md",
+              "input/pilot-notes.md",
+              "input/reader-outcomes.csv"
+            ],
+            "mode": "exact complete concatenation",
+            "matches": true
+          }
+        ],
+        "explicitly_read_skill_files": [],
+        "skill_files_not_explicitly_read_in_trace": [],
+        "general_router_or_other_specialist_reads_observed": false,
+        "web_search_events": 0,
+        "network_or_external_actions_observed": false,
+        "product_implementation_or_test_execution_observed": false,
+        "writes_observed": [
+          "input/docs/PRD.md"
+        ],
+        "word_count_command_observed": true,
+        "count_observations": [
+          {
+            "event_line": 10,
+            "method": "wc -w after saved PRD",
+            "reported_words": 741
+          }
+        ],
+        "recoveries": [
+          {
+            "event_line": 5,
+            "command": "pwd; rg --files input instructions 2>/dev/null",
+            "command_exit_code": 2,
+            "diagnostic_visibility": "stderr was redirected, so the absent-directory message is not retained. The original workspace has no instructions directory; the command did list all four inputs.",
+            "interpretation": "Consistent with the missing optional instructions-directory listing error; the successful raw read follows.",
+            "recovery_event_line": 7,
+            "recovery_exit_code": 0
+          }
+        ],
+        "retained_stderr_file_bytes": 0,
+        "stderr_visibility_note": "Empty stderr.txt does not imply error-free tool activity; tool diagnostics can be present inside events.jsonl."
+      }
+    }
+  ],
+  "limitations": [
+    "These are synthetic, author-designed development runs, not a held-out benchmark or customer/business evidence.",
+    "The case19 fixture author produced this facts-only summary; it is not an independent semantic assessment. Galileo's grades are separate.",
+    "Process completion, matching hashes, permitted file scopes, and word counts are not planning-quality grades.",
+    "Both pre-run receipts are local and unsigned; their timestamps are not independently attested.",
+    "Fresh distinct ephemeral threads do not establish pinned model settings, independence of all host influences, or deterministic replay.",
+    "Hash equality establishes retained bytes at observed endpoints, not arbitrary intervening host state.",
+    "Case02 has no visible word-count command despite measured final artifact lengths; case19 has explicit saved-artifact count commands. Do not infer a counting mechanism where none is observed.",
+    "Case19 workspace-write sandbox is broader than the prompt's one-file permission; scope compliance here is based on original/after maps and visible commands, not a claim that the sandbox enforced a one-file allowlist.",
+    "Tool failures remain visible even when stderr.txt is empty or the enclosing shell exits zero.",
+    "No semantic recommendation, score advantage, reliability, causal instruction effect, or token-efficiency claim is made."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "label": "migration-conflict",
+  "executable": "/TEMP/bandit-round9-wwXdSO/bin/npx",
+  "args": [
+    "--yes",
+    "--package=/WORKSPACE/bandit/dist/overnight-round8/ch4570-bandit-0.4.0.tgz",
+    "--",
+    "bandit",
+    "--json"
+  ],
+  "cwd": "/TEMP/bandit-round9-wwXdSO/projects/migration customized",
+  "cache": "cache-candidate",
+  "started_at": "2026-09-08T18:37:44.507Z",
+  "stdin": "closed",
+  "stdout": "{\"status\":\"error\",\"error\":\"Nothing installed. Preserve or move modified files in retired skill bandit-update before retrying:\\n  SKILL.md\"}\n",
+  "stderr": "",
+  "exit_code": 2,
+  "signal": null,
+  "launchError": null,
+  "finished_at": "2026-09-08T18:37:45.163Z"
+}

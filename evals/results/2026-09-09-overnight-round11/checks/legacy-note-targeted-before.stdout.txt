@@ -1,0 +1,204 @@
+TAP version 13
+# Subtest: an existing PM Craft installation is reported and left intact
+ok 1 - an existing PM Craft installation is reported and left intact
+  ---
+  duration_ms: 438.0495
+  type: 'test'
+  ...
+# Subtest: custom PM Craft core destinations do not emit separate legacy installation notes
+not ok 2 - custom PM Craft core destinations do not emit separate legacy installation notes
+  ---
+  duration_ms: 1598.135
+  type: 'test'
+  location: '/WORKSPACE/bandit/tests-node/install.test.mjs:215:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    ... Skipped lines
+    
+      [
+        {
+          coreName: 'pm-craft',
+          notes: [],
+          stage: 'plan before'
+    ...
+          coreName: 'pm-craft',
+    +     notes: [
+    +       'A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.'
+    +     ],
+    -     notes: [],
+          stage: 'install'
+        },
+        {
+          coreName: 'pm-craft',
+    +     notes: [
+    +       'A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.'
+    +     ],
+    -     notes: [],
+          stage: 'repeat'
+        },
+        {
+          coreName: 'pm-craft',
+    +     notes: [
+    +       'A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.'
+    +     ],
+    -     notes: [],
+          stage: 'plan after'
+        },
+        {
+          coreName: 'pm-craft',
+    +     notes: [
+    +       'A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.'
+    +     ],
+    -     notes: [],
+          stage: 'text repeat'
+        },
+        {
+          coreName: 'PM-Craft',
+          notes: [],
+    ...
+          coreName: 'PM-Craft',
+    +     notes: [
+    +       'A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.'
+    +     ],
+    -     notes: [],
+          stage: 'install'
+        },
+        {
+          coreName: 'PM-Craft',
+    +     notes: [
+    +       'A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.'
+    +     ],
+    -     notes: [],
+          stage: 'repeat'
+        },
+        {
+          coreName: 'PM-Craft',
+    +     notes: [
+    +       'A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.'
+    +     ],
+    -     notes: [],
+          stage: 'plan after'
+        },
+        {
+          coreName: 'PM-Craft',
+    +     notes: [
+    +       'A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.'
+    +     ],
+    -     notes: [],
+          stage: 'text repeat'
+        }
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0:
+      coreName: 'pm-craft'
+      stage: 'plan before'
+      notes:
+    1:
+      coreName: 'pm-craft'
+      stage: 'install'
+      notes:
+    2:
+      coreName: 'pm-craft'
+      stage: 'repeat'
+      notes:
+    3:
+      coreName: 'pm-craft'
+      stage: 'plan after'
+      notes:
+    4:
+      coreName: 'pm-craft'
+      stage: 'text repeat'
+      notes:
+    5:
+      coreName: 'PM-Craft'
+      stage: 'plan before'
+      notes:
+    6:
+      coreName: 'PM-Craft'
+      stage: 'install'
+      notes:
+    7:
+      coreName: 'PM-Craft'
+      stage: 'repeat'
+      notes:
+    8:
+      coreName: 'PM-Craft'
+      stage: 'plan after'
+      notes:
+    9:
+      coreName: 'PM-Craft'
+      stage: 'text repeat'
+      notes:
+  actual:
+    0:
+      coreName: 'pm-craft'
+      stage: 'plan before'
+      notes:
+    1:
+      coreName: 'pm-craft'
+      stage: 'install'
+      notes:
+        0: 'A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.'
+    2:
+      coreName: 'pm-craft'
+      stage: 'repeat'
+      notes:
+        0: 'A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.'
+    3:
+      coreName: 'pm-craft'
+      stage: 'plan after'
+      notes:
+        0: 'A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.'
+    4:
+      coreName: 'pm-craft'
+      stage: 'text repeat'
+      notes:
+        0: 'A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.'
+    5:
+      coreName: 'PM-Craft'
+      stage: 'plan before'
+      notes:
+    6:
+      coreName: 'PM-Craft'
+      stage: 'install'
+      notes:
+        0: 'A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.'
+    7:
+      coreName: 'PM-Craft'
+      stage: 'repeat'
+      notes:
+        0: 'A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.'
+    8:
+      coreName: 'PM-Craft'
+      stage: 'plan after'
+      notes:
+        0: 'A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.'
+    9:
+      coreName: 'PM-Craft'
+      stage: 'text repeat'
+      notes:
+        0: 'A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///WORKSPACE/bandit/tests-node/install.test.mjs:244:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 1
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2093.669333

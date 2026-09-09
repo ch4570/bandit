@@ -1,0 +1,7 @@
+BANDIT is already up to date.
+/TEMP/SYSTEM/bandit-round11-legacy-after-YX8PKM/lowercase/skills
+
+Five skills installed: $bandit, $bandit-research, $bandit-scope, $bandit-specify, $bandit-review
+
+Open or restart your agent, then try:
+$bandit-scope Turn this app idea into a focused MVP plan.

@@ -1,0 +1,31 @@
+{
+  "recorded_at": "2026-09-08T17:36:11.025Z",
+  "phase": "before any round7 skill edits or case02 TASKs",
+  "case": "02-offer-change",
+  "raw_sha256": {
+    "current-plan.md": "18b60d49b72cb22b6b56584564498c5b3538dd5f9c603aa9634e946ccc498070",
+    "observations.md": "4b151192ebb1d397f7158d2f18afc3f110cc002d784733e047e6c0b2cea4b57f",
+    "request.md": "306372d5fbb3ec43970909b60f9e2f05d4d1513c9f113410b760bb88a1f063d0"
+  },
+  "rubric_sha256": "ddf1dd003bb804f3bad7620215ab5f969fcf20ca669794c6eaec7a0167d87b3b",
+  "rubric_anchor": "f4a376e23b16f311931b4d06853a0943575e09e7:evals/RUBRIC.md",
+  "standalone_skill_sha256": {
+    "SKILL.md": "9862565be56488293dc0c726724328f2b4f4e818b2b941b6aeb5d8e51617a2d3",
+    "agents/openai.yaml": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf",
+    "assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "references/evidence-and-decisions.md": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+    "references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+    "references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "references/specification.md": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431"
+  },
+  "all_skills_map_sha256": "e49c9478eceaa6cd109ea2192d8bf71d4cc519b8f7d7e61bca0172356f0bb320",
+  "planned_arms": [
+    "bandit-specify (standalone)",
+    "baseline"
+  ],
+  "web_search": "disabled",
+  "model": "unmodified host defaults",
+  "scope": "fresh isolated tasks receive only raw fixtures and assigned instructions; no rubric, prior outputs, or diagnosis",
+  "limitations": "synthetic author-designed development case; unsigned timestamp; not a held-out benchmark"
+}

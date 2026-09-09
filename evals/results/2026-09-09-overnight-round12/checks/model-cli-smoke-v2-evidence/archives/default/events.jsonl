@@ -1,0 +1,4 @@
+{"type": "thread.started", "thread_id": "fake-thread-default"}
+{"type": "turn.started"}
+{"type": "item.completed", "item": {"id": "fake-output", "type": "agent_message", "text": "SYNTHETIC FAKE OUTPUT; no model or backend was invoked.\n"}}
+{"type": "turn.completed", "usage": {"input_tokens": 0, "output_tokens": 0}}

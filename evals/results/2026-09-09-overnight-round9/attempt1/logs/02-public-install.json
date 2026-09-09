@@ -1,0 +1,18 @@
+{
+  "label": "public-install",
+  "executable": "/TEMP/bandit-round9-pm62vi/bin/npx",
+  "args": [
+    "--yes",
+    "https://github.com/ch4570/bandit/releases/download/v0.4.0/bandit.tgz"
+  ],
+  "cwd": "/TEMP/bandit-round9-pm62vi/projects/public 한글 project",
+  "cache": "cache-public",
+  "started_at": "2026-09-08T18:34:15.480Z",
+  "stdin": "closed",
+  "stdout": "BANDIT is ready.\n/TEMP/bandit-round9-pm62vi/projects/public 한글 project/.agents/skills\n\nFive skills installed: $bandit, $bandit-research, $bandit-scope, $bandit-specify, $bandit-review\n\nOpen or restart your agent, then try:\n$bandit-scope Turn this app idea into a focused MVP plan.\n",
+  "stderr": "",
+  "exit_code": 0,
+  "signal": null,
+  "launchError": null,
+  "finished_at": "2026-09-08T18:34:17.558Z"
+}

@@ -1,0 +1,44 @@
+{
+  "case": "10-reschedule-handoff",
+  "arm": "baseline",
+  "codex_version": "codex-cli 0.153.4",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "<temporary-run-root>/workspace",
+    "-o",
+    "<temporary-run-root>/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host defaults",
+  "upstream_commit": null,
+  "input_sha256": {
+    "booking-policy.md": "06eeedc993bb09647b4e057d68a4da558e76300faf688e05eabdac62a39c000d",
+    "draft.md": "8937358ab82bbf0e71f450a0bd288da1e0903d853168cc45cb5e82b2ed114580",
+    "request.md": "d29324bbc606658558e0c4ba455f937a863fa725477fe03cdb82f79b7cdd6942",
+    "support-notes.md": "682036561a80d90190b411f1bc43f93785d735a12652c9ad7f712c1a84f9b601"
+  },
+  "instruction_sha256": {},
+  "invocation": null,
+  "standalone_specialist": false,
+  "editable_artifact": null,
+  "exit_code": 0,
+  "elapsed_seconds": 55.181,
+  "input_after_sha256": {
+    "booking-policy.md": "06eeedc993bb09647b4e057d68a4da558e76300faf688e05eabdac62a39c000d",
+    "draft.md": "8937358ab82bbf0e71f450a0bd288da1e0903d853168cc45cb5e82b2ed114580",
+    "request.md": "d29324bbc606658558e0c4ba455f937a863fa725477fe03cdb82f79b7cdd6942",
+    "support-notes.md": "682036561a80d90190b411f1bc43f93785d735a12652c9ad7f712c1a84f9b601"
+  },
+  "instruction_after_sha256": {}
+}

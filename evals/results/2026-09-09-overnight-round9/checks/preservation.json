@@ -1,0 +1,15 @@
+{
+  "comparison_source": "dist/overnight-round8/bandit-0.4.0.zip",
+  "source_sha256": "27b042f5543c46e83e978ed158fc9f26d14ca50fa5e8f06b2350452d49427679",
+  "prior_result_files_checked": 1030,
+  "prior_result_changes": [],
+  "skill_files_checked": 34,
+  "skill_changes": [],
+  "historical_PM_Craft_files_checked_against_HEAD": 93,
+  "historical_changes": [],
+  "unchanged_from_round8_zip": [
+    "lib/installer.mjs", "install.py", "evals/run_local.py", "evals/archive_run.mjs",
+    "INSTALL.md", "README.md", "README.ko.md", "package.json"
+  ],
+  "method": "Direct byte comparison against the frozen previous ZIP and git show HEAD:path for tracked historical files. The 93 historical files are included in the 1030 result files, not additional files. No previous artifact or record rewritten."
+}

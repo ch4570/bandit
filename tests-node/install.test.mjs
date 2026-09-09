@@ -39,6 +39,24 @@ function snapshot(root) {
   }));
 }
 
+// Keep fault-injection boundaries independent of pathname versus descriptor writes.
+function afterWrites(callback, run) {
+  const open = fs.openSync, write = fs.writeFileSync;
+  const descriptors = new Map();
+  fs.openSync = (file, ...args) => {
+    const descriptor = open(file, ...args);
+    descriptors.set(descriptor, file);
+    return descriptor;
+  };
+  fs.writeFileSync = (file, data, ...args) => {
+    const result = write(file, data, ...args);
+    callback(typeof file === 'number' ? descriptors.get(file) : file, data, write);
+    return result;
+  };
+  try { return run(); }
+  finally { fs.openSync = open; fs.writeFileSync = write; }
+}
+
 function cli(args, f, options = {}) {
   let stdout = '', stderr = '';
   const code = runCli(args, { packageRoot: f.source, cwd: f.project, env: {}, home: path.join(f.root, 'home'),
@@ -192,6 +210,38 @@ test('an existing PM Craft installation is reported and left intact', (t) => {
   assert.equal(result.code, 0);
   assert.match(JSON.parse(result.stdout).notes[0], /pm-craft/);
   assert.deepEqual(snapshot(legacy), before);
+});
+
+test('custom PM Craft core destinations do not emit separate legacy installation notes', (t) => {
+  const observations = [];
+  // Separate parents also exercise the case alias on case-insensitive filesystems.
+  for (const coreName of ['pm-craft', 'PM-Craft']) {
+    const f = fixture(t);
+    const dest = path.join(f.root, 'custom-skills', coreName);
+    const parent = path.dirname(dest);
+    const before = snapshot(parent);
+    const run = (stage, options = []) => {
+      const result = cli(['--dest', dest, ...options, '--json'], f);
+      assert.equal(result.code, 0, `${coreName} ${stage}: ${result.stderr}`);
+      const report = JSON.parse(result.stdout);
+      observations.push({ coreName, stage, notes: report.notes ?? [] });
+      return report;
+    };
+    assert.equal(run('plan before', ['--plan']).status, 'plan');
+    assert.deepEqual(snapshot(parent), before);
+    assert.equal(run('install').status, 'installed');
+    assert.equal(JSON.parse(fs.readFileSync(path.join(dest, MARKER), 'utf8')).name, 'bandit');
+    const installed = snapshot(parent);
+    assert.equal(run('repeat').status, 'unchanged');
+    assert.deepEqual(snapshot(parent), installed);
+    assert.equal(run('plan after', ['--plan']).status, 'plan');
+    assert.deepEqual(snapshot(parent), installed);
+    const textRepeat = cli(['--dest', dest], f);
+    assert.equal(textRepeat.code, 0);
+    observations.push({ coreName, stage: 'text repeat', notes: textRepeat.stdout.match(/A separate pm-craft[^\n]*/g) ?? [] });
+    assert.deepEqual(snapshot(parent), installed);
+  }
+  assert.deepEqual(observations, observations.map((item) => ({ ...item, notes: [] })));
 });
 
 test('malformed and escaping ownership entries are rejected', (t) => {
@@ -405,6 +455,46 @@ test('cross-skill recovery preserves an editor change made during the failed upd
   assert.deepEqual(snapshot(path.dirname(f.dest)), expected);
 });
 
+test('an edit made while later skills are being preflighted cannot become an overwrite baseline', (t) => {
+  const f = fixture(t);
+  installBundle(f.source, f.dest);
+  for (const name of SKILL_NAMES) put(path.join(f.source, 'skills', name), 'SKILL.md', `Changed ${name}.`);
+  const before = snapshot(path.dirname(f.dest));
+  const edited = 'User edit while the final specialist is being checked.';
+  const read = fs.readFileSync;
+  const laterSource = path.join(f.source, 'skills', 'bandit-review', 'SKILL.md');
+  let reads = 0;
+  fs.readFileSync = (file, ...args) => {
+    const bytes = read(file, ...args);
+    if (file === laterSource && ++reads === 2) put(f.dest, 'SKILL.md', edited);
+    return bytes;
+  };
+  try { assert.throws(() => installBundle(f.source, f.dest), /Destination changed during installation/); }
+  finally { fs.readFileSync = read; }
+  assert.equal(reads, 2);
+  const expected = { ...before, [path.join('bandit', 'SKILL.md')]: Buffer.from(edited).toString('base64') };
+  assert.deepEqual(snapshot(path.dirname(f.dest)), expected);
+});
+
+test('an edit made while a replacement is being staged is preserved with earlier writes rolled back', (t) => {
+  const f = fixture(t);
+  installBundle(f.source, f.dest);
+  for (const name of SKILL_NAMES) put(path.join(f.source, 'skills', name), 'SKILL.md', `Changed ${name}.`);
+  const before = snapshot(path.dirname(f.dest));
+  const target = path.join(path.dirname(f.dest), 'bandit-review', 'SKILL.md');
+  const edited = 'User edit while the installer stages a replacement.';
+  let injected = false;
+  afterWrites((file, data, write) => {
+    if (!injected && path.dirname(file) === path.dirname(target) && path.basename(file).endsWith('.tmp')) {
+      injected = true;
+      write(target, edited);
+    }
+  }, () => assert.throws(() => installBundle(f.source, f.dest), /Destination changed during installation/));
+  assert.equal(injected, true);
+  const expected = { ...before, [path.join('bandit-review', 'SKILL.md')]: Buffer.from(edited).toString('base64') };
+  assert.deepEqual(snapshot(path.dirname(f.dest)), expected);
+});
+
 test('0.3 migration installs scope and retires both old commands without aliases', (t) => {
   const f = fixture(t);
   oldInstallation(f);
@@ -560,4 +650,92 @@ test('retirement recovery preserves an editor replacement of a deleted old file'
   finally { fs.renameSync = rename; }
   const expected = { ...before, [path.join('.agents', 'skills', 'bandit-update', 'SKILL.md')]: Buffer.from(edited).toString('base64') };
   assert.deepEqual(snapshot(f.project), expected);
+});
+
+test('retired file edits after their preflight stop every update and removal', (t) => {
+  const f = fixture(t);
+  oldInstallation(f);
+  const before = snapshot(f.project);
+  const edited = 'Edit the retiring skill while the next skill is checked.';
+  const retired = path.join(path.dirname(f.dest), 'bandit-decide');
+  const laterMarker = path.join(path.dirname(f.dest), 'bandit-update', MARKER);
+  const read = fs.readFileSync;
+  let reads = 0;
+  fs.readFileSync = (file, ...args) => {
+    const bytes = read(file, ...args);
+    if (file === laterMarker && ++reads === 2) put(retired, 'SKILL.md', edited);
+    return bytes;
+  };
+  try { assert.throws(() => installBundle(f.source, f.dest), /Destination changed during installation/); }
+  finally { fs.readFileSync = read; }
+  assert.equal(reads, 2);
+  const expected = { ...before, [path.join('.agents', 'skills', 'bandit-decide', 'SKILL.md')]: Buffer.from(edited).toString('base64') };
+  assert.deepEqual(snapshot(f.project), expected);
+});
+
+test('lock cleanup cannot follow a replaced parent into unrelated lock files', (t) => {
+  const f = fixture(t);
+  const parent = path.dirname(f.dest);
+  const moved = path.join(f.root, 'moved-skills');
+  const unrelated = path.join(f.root, 'unrelated-lock-owner');
+  const alias = path.join(f.root, 'prepared-parent-link');
+  const names = [...SKILL_NAMES, ...RETIRED_NAMES].map((name) => `.${name}.bandit.lock`);
+  for (const name of names) put(unrelated, name, `Another installation owns ${name}.`);
+  try { fs.symlinkSync(unrelated, alias, process.platform === 'win32' ? 'junction' : 'dir'); }
+  catch { t.skip('Symlink creation unavailable on this platform.'); return; }
+  const before = snapshot(unrelated);
+  let injected = false;
+  afterWrites((file) => {
+    if (!injected && path.dirname(file) === f.dest && path.basename(file).endsWith('.tmp')) {
+      injected = true;
+      fs.renameSync(parent, moved);
+      fs.renameSync(alias, parent);
+    }
+  }, () => assert.throws(() => installBundle(f.source, f.dest), /Symlink or junction/));
+  assert.equal(injected, true);
+  assert.deepEqual(snapshot(unrelated), before, 'Cleanup must preserve every unrelated lock byte');
+  for (const name of names) assert.equal(fs.readFileSync(path.join(moved, name)).length, 0);
+});
+
+test('lock cleanup preserves a replacement empty file with a different identity', (t) => {
+  const f = fixture(t);
+  const parent = path.dirname(f.dest);
+  const lock = path.join(parent, '.bandit-update.bandit.lock');
+  const saved = path.join(f.root, 'original-acquired-lock');
+  let injected = false, replacement;
+  afterWrites((file, data, write) => {
+    if (!injected && path.dirname(file) === f.dest && path.basename(file).endsWith('.tmp')) {
+      injected = true;
+      fs.renameSync(lock, saved);
+      write(lock, '', { flag: 'wx' });
+      replacement = fs.lstatSync(lock, { bigint: true });
+    }
+  }, () => installBundle(f.source, f.dest));
+  assert.equal(injected, true);
+  assert.notEqual(replacement.ino, fs.lstatSync(saved, { bigint: true }).ino);
+  assert.ok(fs.existsSync(lock), 'Another owner\'s replacement lock must survive');
+  assert.equal(fs.lstatSync(lock, { bigint: true }).ino, replacement.ino);
+  assert.equal(fs.readFileSync(lock).length, 0);
+  assert.deepEqual(fs.readdirSync(parent).filter((name) => name.endsWith('.bandit.lock')), [path.basename(lock)]);
+  assert.equal(fs.readFileSync(saved).length, 0);
+});
+
+test('a removed lock does not prevent cleanup of the other acquired locks', (t) => {
+  const f = fixture(t);
+  const parent = path.dirname(f.dest);
+  const lock = path.join(parent, '.bandit-update.bandit.lock');
+  let injected = false, error;
+  afterWrites((file) => {
+    if (!injected && path.dirname(file) === f.dest && path.basename(file).endsWith('.tmp')) {
+      injected = true;
+      fs.unlinkSync(lock);
+    }
+  }, () => {
+    try { installBundle(f.source, f.dest); }
+    catch (caught) { error = caught; }
+  });
+  assert.equal(injected, true);
+  assert.deepEqual(fs.readdirSync(parent).filter((name) => name.endsWith('.bandit.lock')), [],
+    `A removed lock must not strand unaffected owned locks: ${error?.message ?? 'no error'}`);
+  for (const name of SKILL_NAMES) assert.ok(fs.existsSync(path.join(parent, name, MARKER)));
 });

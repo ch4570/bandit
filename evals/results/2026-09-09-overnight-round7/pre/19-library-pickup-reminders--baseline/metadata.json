@@ -1,0 +1,51 @@
+{
+  "case": "19-library-pickup-reminders",
+  "arm": "baseline",
+  "codex_version": "codex-cli 0.153.4",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "-c",
+    "web_search=\"disabled\"",
+    "--sandbox",
+    "workspace-write",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "<temporary-run-root>/workspace",
+    "-o",
+    "<temporary-run-root>/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host model defaults; explicit web_search",
+  "web_search": "disabled",
+  "runner_status": "exited",
+  "started_at_utc": "2026-09-08T17:44:58.039306+00:00",
+  "upstream_commit": null,
+  "input_sha256": {
+    "docs/PRD.md": "5fd0be7aa5319245bc6bbe002625cedd84569e16701b6b8d494a08248164009b",
+    "pilot-notes.md": "fa372be584310fb655b8f859b6e73016024e69e38d9f8757ff08440dc94e5b5d",
+    "reader-outcomes.csv": "85fc053ee70b3028c36cf323e7066f11bd14fcd0f04cac5e777a09f39733b2cd",
+    "request.md": "86f68101962d048d376e759df8f48e7fcf673f8b3d261dd277c4d88294f11555"
+  },
+  "instruction_sha256": {},
+  "invocation": null,
+  "standalone_specialist": false,
+  "custom_fixture": false,
+  "editable_artifact": "input/docs/PRD.md",
+  "exit_code": 0,
+  "elapsed_seconds": 62.451,
+  "finished_at_utc": "2026-09-08T17:46:00.490775+00:00",
+  "input_after_sha256": {
+    "docs/PRD.md": "b12079536e3c179ad6402dea648769188d36cda1c08bc93696634485a0d7839d",
+    "pilot-notes.md": "fa372be584310fb655b8f859b6e73016024e69e38d9f8757ff08440dc94e5b5d",
+    "reader-outcomes.csv": "85fc053ee70b3028c36cf323e7066f11bd14fcd0f04cac5e777a09f39733b2cd",
+    "request.md": "86f68101962d048d376e759df8f48e7fcf673f8b3d261dd277c4d88294f11555"
+  },
+  "instruction_after_sha256": {}
+}

@@ -1,0 +1,69 @@
+{
+  "case": "16-conflicting-authority",
+  "arm": "bandit-specify",
+  "codex_version": "codex-cli 0.153.4",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "-c",
+    "web_search=\"disabled\"",
+    "--sandbox",
+    "workspace-write",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "<temporary-run-root>/workspace",
+    "-o",
+    "<temporary-run-root>/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host model defaults; explicit web_search",
+  "web_search": "disabled",
+  "runner_status": "exited",
+  "started_at_utc": "2026-09-08T16:19:23.110791+00:00",
+  "upstream_commit": null,
+  "input_sha256": {
+    "docs/PRD.md": "53459c22e422c6eeccce7450936bed7cce45ccd723f2d81b0a54ced821de6685",
+    "policy/contribution-records.md": "b36bbf9dd813b90dc3bec1408f84f9ac0d3b3bfd25c3dd46c06ebc74dd590af6",
+    "policy/membership-departure.md": "852cf8391fea8e4a42733108859061a6d2cf58d42f5bc134c76ed19d9fcd8c5d",
+    "request.md": "4865bee80d131e9a3be3190e3d17f465a559ae3f7ee23a5b867712cf53f14aa4"
+  },
+  "instruction_sha256": {
+    "bandit-specify/SKILL.md": "9862565be56488293dc0c726724328f2b4f4e818b2b941b6aeb5d8e51617a2d3",
+    "bandit-specify/agents/openai.yaml": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf",
+    "bandit-specify/assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "bandit-specify/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "bandit-specify/references/evidence-and-decisions.md": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+    "bandit-specify/references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+    "bandit-specify/references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "bandit-specify/references/specification.md": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431"
+  },
+  "invocation": "$bandit-specify",
+  "standalone_specialist": true,
+  "custom_fixture": false,
+  "editable_artifact": "input/docs/PRD.md",
+  "exit_code": 0,
+  "elapsed_seconds": 234.657,
+  "finished_at_utc": "2026-09-08T16:23:17.764536+00:00",
+  "input_after_sha256": {
+    "docs/PRD.md": "1483e253f53b773bb16bea3ba20b06a7838af70c92bd8d5b09061c3731b29422",
+    "policy/contribution-records.md": "b36bbf9dd813b90dc3bec1408f84f9ac0d3b3bfd25c3dd46c06ebc74dd590af6",
+    "policy/membership-departure.md": "852cf8391fea8e4a42733108859061a6d2cf58d42f5bc134c76ed19d9fcd8c5d",
+    "request.md": "4865bee80d131e9a3be3190e3d17f465a559ae3f7ee23a5b867712cf53f14aa4"
+  },
+  "instruction_after_sha256": {
+    "bandit-specify/SKILL.md": "9862565be56488293dc0c726724328f2b4f4e818b2b941b6aeb5d8e51617a2d3",
+    "bandit-specify/agents/openai.yaml": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf",
+    "bandit-specify/assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "bandit-specify/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "bandit-specify/references/evidence-and-decisions.md": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+    "bandit-specify/references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+    "bandit-specify/references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "bandit-specify/references/specification.md": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431"
+  }
+}

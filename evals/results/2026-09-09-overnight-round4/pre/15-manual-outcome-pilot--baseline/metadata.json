@@ -1,0 +1,47 @@
+{
+  "case": "15-manual-outcome-pilot",
+  "arm": "baseline",
+  "codex_version": "codex-cli 0.153.4",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "-c",
+    "web_search=\"disabled\"",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "<temporary-run-root>/workspace",
+    "-o",
+    "<temporary-run-root>/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host model defaults; explicit web_search",
+  "web_search": "disabled",
+  "runner_status": "exited",
+  "started_at_utc": "2026-09-08T16:11:26.834982+00:00",
+  "upstream_commit": null,
+  "input_sha256": {
+    "brief.md": "7008c1c54d6bedb508ea976b53234612362cc35674e1d623cf3380eb67b6caf5",
+    "request.md": "2e168106ce26114d37821883faf83ff46217035a94bf8d9aaf7ef155c0dde683"
+  },
+  "instruction_sha256": {},
+  "invocation": null,
+  "standalone_specialist": false,
+  "custom_fixture": false,
+  "editable_artifact": null,
+  "exit_code": 0,
+  "elapsed_seconds": 85.213,
+  "finished_at_utc": "2026-09-08T16:12:52.045919+00:00",
+  "input_after_sha256": {
+    "brief.md": "7008c1c54d6bedb508ea976b53234612362cc35674e1d623cf3380eb67b6caf5",
+    "request.md": "2e168106ce26114d37821883faf83ff46217035a94bf8d9aaf7ef155c0dde683"
+  },
+  "instruction_after_sha256": {}
+}

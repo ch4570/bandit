@@ -1,0 +1,50 @@
+{
+  "format": 1,
+  "recorded_at_utc": "2026-09-08T16:53:01.655Z",
+  "source_commit": "f4a376e23b16f311931b4d06853a0943575e09e7",
+  "purpose": "Declare case18 conditions and freeze raw fixtures/rubric/selected instructions before either fresh TASK launch. No result is claimed.",
+  "conditions": [
+    {
+      "case": "18-onboarding-investment",
+      "arm": "bandit-scope",
+      "standalone": true,
+      "web_search": "disabled",
+      "editable_artifact": null
+    },
+    {
+      "case": "18-onboarding-investment",
+      "arm": "baseline",
+      "standalone": false,
+      "web_search": "disabled",
+      "editable_artifact": null
+    }
+  ],
+  "fixture_sha256": {
+    "brief.md": "8544cf263d60c6b990fa8963cf0bfa70f7d9eaea03f1fb616341f45f0f5ed26f",
+    "onboarding.csv": "92e5c9ee2fe5c878320adcffcbe6652645aff9b51ee2359ba79f83e84a710f0b",
+    "request.md": "6459cabfee8bb16565b3542d1c4b28a11b6dccb6d6b780c3090c684b334bfede"
+  },
+  "rubric": "evals/rubrics/18-onboarding-investment.md",
+  "rubric_sha256": "8bd6b0eac874960693b0d338c48586ab55efecfb987d015ae5b13d32ec788698",
+  "selected_instruction_sha256": {
+    "agents/openai.yaml": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293",
+    "references/decisions.md": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+    "references/evidence-and-decisions.md": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+    "SKILL.md": "5c9fb2a0c9e555f9f716f89157a9f98025bcb342b5d0f718e3f86f59c67a7fda"
+  },
+  "full_skill_tree": {
+    "files": 34,
+    "sha256": "e49c9478eceaa6cd109ea2192d8bf71d4cc519b8f7d7e61bca0172356f0bb320",
+    "method": "SHA256 of UTF-8 JSON.stringify(Object.entries(relative-path-to-SHA256-map).sort()); includes binary files."
+  },
+  "source_sha256": {
+    "evals/run_local.py": "1d06a3878e62ca045ef5be05a8184fc95cbe379a9584faebb78139ba51d70298",
+    "evals/archive_run.mjs": "62cf0c7728d5116884910250a1ce44427e314bccfb3b2d1c968a543b7d4b1f17"
+  },
+  "limitations": [
+    "Synthetic author-designed development check, not a held-out benchmark.",
+    "TASKs receive only raw request/brief/CSV and assigned instructions, never this receipt, rubric, diagnoses or prior outputs.",
+    "Baseline has no PM instruction snapshot; host model defaults are not overridden or pinned.",
+    "Local receipt is unsigned and not independently time-attested."
+  ]
+}

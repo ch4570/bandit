@@ -1,0 +1,53 @@
+{
+  "case": "22-photo-export-consent",
+  "arm": "baseline",
+  "codex_version": "codex-cli 0.153.4",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "-c",
+    "web_search=\"disabled\"",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "<temporary-run-root>/workspace",
+    "-o",
+    "<temporary-run-root>/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host model defaults; explicit web_search",
+  "web_search": "disabled",
+  "runner_status": "exited",
+  "started_at_utc": "2026-09-08T20:11:33.823033+00:00",
+  "upstream_commit": null,
+  "input_sha256": {
+    "delivery-policy.md": "f059f11618d1a246d11e82fbf24eaff31c1c4d92d95304a9ddb36fe3a9131d9b",
+    "delivery-prd.md": "a3fa7f4c5439a2349347437544aadb189be40084d0fe9d881aa0bc51f335bcb3",
+    "export_snapshot.py": "1e2786d0faa6d37c9ba4787a49dff25d7815755ca22f0d285fe585351f0b82e4",
+    "request.md": "d8ddb5acacff094d730d7666e2adc47f0261e92d2d59e0af9ce25cfdf7f139a2",
+    "verification-note.md": "1957cc0a0a5db4907c82fe6d9f755ed8da841f201ac9244ae63dd9c0bc0610c5"
+  },
+  "instruction_sha256": {},
+  "invocation": null,
+  "standalone_specialist": false,
+  "custom_fixture": false,
+  "editable_artifact": null,
+  "exit_code": 0,
+  "elapsed_seconds": 38.181,
+  "finished_at_utc": "2026-09-08T20:12:12.003518+00:00",
+  "input_after_sha256": {
+    "delivery-policy.md": "f059f11618d1a246d11e82fbf24eaff31c1c4d92d95304a9ddb36fe3a9131d9b",
+    "delivery-prd.md": "a3fa7f4c5439a2349347437544aadb189be40084d0fe9d881aa0bc51f335bcb3",
+    "export_snapshot.py": "1e2786d0faa6d37c9ba4787a49dff25d7815755ca22f0d285fe585351f0b82e4",
+    "request.md": "d8ddb5acacff094d730d7666e2adc47f0261e92d2d59e0af9ce25cfdf7f139a2",
+    "verification-note.md": "1957cc0a0a5db4907c82fe6d9f755ed8da841f201ac9244ae63dd9c0bc0610c5"
+  },
+  "instruction_after_sha256": {}
+}

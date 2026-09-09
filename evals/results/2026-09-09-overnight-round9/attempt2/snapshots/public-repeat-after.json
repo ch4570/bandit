@@ -1,0 +1,442 @@
+{
+  ".agents": {
+    "type": "directory",
+    "mode": 16877,
+    "inode": "14784079",
+    "mtime_ns": "1788892653644383840"
+  },
+  ".agents/skills": {
+    "type": "directory",
+    "mode": 16877,
+    "inode": "14784080",
+    "mtime_ns": "1788892654256048317"
+  },
+  ".agents/skills/bandit": {
+    "type": "directory",
+    "mode": 16877,
+    "inode": "14784088",
+    "mtime_ns": "1788892654220802474"
+  },
+  ".agents/skills/bandit/.bandit-install.json": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784142",
+    "mtime_ns": "1788892654218675077",
+    "bytes": 1059,
+    "sha256": "e6bb4ff6ff3a6b1ccf973fef29e46586eef3b9d5fa94cd776b8c93d5143181aa"
+  },
+  ".agents/skills/bandit/SKILL.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784089",
+    "mtime_ns": "1788892653913719621",
+    "bytes": 4888,
+    "sha256": "746c8b76f096a3396363d6b1a17b0ca3f46c547827e0f639a8a45e4706198b0b"
+  },
+  ".agents/skills/bandit/agents": {
+    "type": "directory",
+    "mode": 16877,
+    "inode": "14784090",
+    "mtime_ns": "1788892653925060184"
+  },
+  ".agents/skills/bandit/agents/openai.yaml": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784091",
+    "mtime_ns": "1788892653922789789",
+    "bytes": 352,
+    "sha256": "1a24331976f7a257ad2aafba9c786c4dc5e5ddb25a98a8dbecdd0c1ae0ddc5f9"
+  },
+  ".agents/skills/bandit/assets": {
+    "type": "directory",
+    "mode": 16877,
+    "inode": "14784092",
+    "mtime_ns": "1788892653944819837"
+  },
+  ".agents/skills/bandit/assets/bandit-avatar.png": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784093",
+    "mtime_ns": "1788892653932870321",
+    "bytes": 2647123,
+    "sha256": "091520edefe34c49af5c800f7073c53f602f23531ecab0a5f3ee46d0ef5afab2"
+  },
+  ".agents/skills/bandit/assets/plan-template.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784095",
+    "mtime_ns": "1788892653942576607",
+    "bytes": 4844,
+    "sha256": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5"
+  },
+  ".agents/skills/bandit/references": {
+    "type": "directory",
+    "mode": 16877,
+    "inode": "14784096",
+    "mtime_ns": "1788892653998882633"
+  },
+  ".agents/skills/bandit/references/changes.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784097",
+    "mtime_ns": "1788892653951722398",
+    "bytes": 6476,
+    "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0"
+  },
+  ".agents/skills/bandit/references/decisions.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784098",
+    "mtime_ns": "1788892653960737899",
+    "bytes": 3381,
+    "sha256": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26"
+  },
+  ".agents/skills/bandit/references/evidence-and-decisions.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784099",
+    "mtime_ns": "1788892653970100897",
+    "bytes": 4460,
+    "sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6"
+  },
+  ".agents/skills/bandit/references/research.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784100",
+    "mtime_ns": "1788892653978697234",
+    "bytes": 4583,
+    "sha256": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6"
+  },
+  ".agents/skills/bandit/references/review.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784101",
+    "mtime_ns": "1788892653987598028",
+    "bytes": 5137,
+    "sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d"
+  },
+  ".agents/skills/bandit/references/specification.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784102",
+    "mtime_ns": "1788892653996542738",
+    "bytes": 7984,
+    "sha256": "056e30fac704a3f4cbcdb9cd5432a656193307be8d307a4f4941d3fa94478bb0"
+  },
+  ".agents/skills/bandit-research": {
+    "type": "directory",
+    "mode": 16877,
+    "inode": "14784104",
+    "mtime_ns": "1788892654229245480"
+  },
+  ".agents/skills/bandit-research/.bandit-install.json": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784143",
+    "mtime_ns": "1788892654227057750",
+    "bytes": 474,
+    "sha256": "9df5b2bdfffc496d0bbac006a5219790705fdd378ac97c4a56395f2f65ebc1f0"
+  },
+  ".agents/skills/bandit-research/SKILL.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784105",
+    "mtime_ns": "1788892654006196107",
+    "bytes": 1572,
+    "sha256": "be1313ca9679fec07b172fbdd5e2eda1f19bc6903b897934a3dec995696dcfd5"
+  },
+  ".agents/skills/bandit-research/agents": {
+    "type": "directory",
+    "mode": 16877,
+    "inode": "14784106",
+    "mtime_ns": "1788892654017036133"
+  },
+  ".agents/skills/bandit-research/agents/openai.yaml": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784107",
+    "mtime_ns": "1788892654014769654",
+    "bytes": 219,
+    "sha256": "af4da23d45df56346cd7f9924f440dc4d946ee9cf02f9130cd47b14f0ef0835c"
+  },
+  ".agents/skills/bandit-research/references": {
+    "type": "directory",
+    "mode": 16877,
+    "inode": "14784108",
+    "mtime_ns": "1788892654034909469"
+  },
+  ".agents/skills/bandit-research/references/evidence-and-decisions.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784109",
+    "mtime_ns": "1788892654023750155",
+    "bytes": 4460,
+    "sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6"
+  },
+  ".agents/skills/bandit-research/references/research.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784110",
+    "mtime_ns": "1788892654032737114",
+    "bytes": 4583,
+    "sha256": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6"
+  },
+  ".agents/skills/bandit-review": {
+    "type": "directory",
+    "mode": 16877,
+    "inode": "14784130",
+    "mtime_ns": "1788892654255744737"
+  },
+  ".agents/skills/bandit-review/.bandit-install.json": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784146",
+    "mtime_ns": "1788892654253587840",
+    "bytes": 867,
+    "sha256": "cc873e52773a91a18a54313971c09d229fca3f599bc63dbc560471973d2b73ce"
+  },
+  ".agents/skills/bandit-review/SKILL.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784131",
+    "mtime_ns": "1788892654147994433",
+    "bytes": 1582,
+    "sha256": "16373b70230cad31f65d5e0304938625261a4b1676b8893ec9881fefb37380bc"
+  },
+  ".agents/skills/bandit-review/agents": {
+    "type": "directory",
+    "mode": 16877,
+    "inode": "14784132",
+    "mtime_ns": "1788892654158637710"
+  },
+  ".agents/skills/bandit-review/agents/openai.yaml": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784133",
+    "mtime_ns": "1788892654156481938",
+    "bytes": 217,
+    "sha256": "4e4e969c8109f589d77ea687f3a9a5eeb6af82b0abff1bce2cf6906aa7bad2f2"
+  },
+  ".agents/skills/bandit-review/assets": {
+    "type": "directory",
+    "mode": 16877,
+    "inode": "14784134",
+    "mtime_ns": "1788892654167439921"
+  },
+  ".agents/skills/bandit-review/assets/plan-template.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784135",
+    "mtime_ns": "1788892654165268691",
+    "bytes": 4844,
+    "sha256": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5"
+  },
+  ".agents/skills/bandit-review/references": {
+    "type": "directory",
+    "mode": 16877,
+    "inode": "14784136",
+    "mtime_ns": "1788892654212098262"
+  },
+  ".agents/skills/bandit-review/references/changes.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784137",
+    "mtime_ns": "1788892654173985653",
+    "bytes": 6476,
+    "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0"
+  },
+  ".agents/skills/bandit-review/references/evidence-and-decisions.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784138",
+    "mtime_ns": "1788892654183104403",
+    "bytes": 4460,
+    "sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6"
+  },
+  ".agents/skills/bandit-review/references/research.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784139",
+    "mtime_ns": "1788892654191758448",
+    "bytes": 4583,
+    "sha256": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6"
+  },
+  ".agents/skills/bandit-review/references/review.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784140",
+    "mtime_ns": "1788892654200724783",
+    "bytes": 5137,
+    "sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d"
+  },
+  ".agents/skills/bandit-review/references/specification.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784141",
+    "mtime_ns": "1788892654209669034",
+    "bytes": 7984,
+    "sha256": "056e30fac704a3f4cbcdb9cd5432a656193307be8d307a4f4941d3fa94478bb0"
+  },
+  ".agents/skills/bandit-scope": {
+    "type": "directory",
+    "mode": 16877,
+    "inode": "14784111",
+    "mtime_ns": "1788892654237911192"
+  },
+  ".agents/skills/bandit-scope/.bandit-install.json": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784144",
+    "mtime_ns": "1788892654235705962",
+    "bytes": 472,
+    "sha256": "7bc8ad34fe702fc0fc9a0d54106650b5a54ed3ca39a1705901b025fc8e0fde53"
+  },
+  ".agents/skills/bandit-scope/SKILL.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784112",
+    "mtime_ns": "1788892654041821114",
+    "bytes": 1562,
+    "sha256": "5c9fb2a0c9e555f9f716f89157a9f98025bcb342b5d0f718e3f86f59c67a7fda"
+  },
+  ".agents/skills/bandit-scope/agents": {
+    "type": "directory",
+    "mode": 16877,
+    "inode": "14784113",
+    "mtime_ns": "1788892654052474558"
+  },
+  ".agents/skills/bandit-scope/agents/openai.yaml": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784114",
+    "mtime_ns": "1788892654050344078",
+    "bytes": 222,
+    "sha256": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293"
+  },
+  ".agents/skills/bandit-scope/references": {
+    "type": "directory",
+    "mode": 16877,
+    "inode": "14784115",
+    "mtime_ns": "1788892654070500476"
+  },
+  ".agents/skills/bandit-scope/references/decisions.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784116",
+    "mtime_ns": "1788892654059486286",
+    "bytes": 3381,
+    "sha256": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26"
+  },
+  ".agents/skills/bandit-scope/references/evidence-and-decisions.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784117",
+    "mtime_ns": "1788892654068323496",
+    "bytes": 4460,
+    "sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6"
+  },
+  ".agents/skills/bandit-specify": {
+    "type": "directory",
+    "mode": 16877,
+    "inode": "14784118",
+    "mtime_ns": "1788892654246966067"
+  },
+  ".agents/skills/bandit-specify/.bandit-install.json": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784145",
+    "mtime_ns": "1788892654244479340",
+    "bytes": 868,
+    "sha256": "24cf85971ac25f618303376300126c9fc740cfdd21ade3f4f399d128a973eacf"
+  },
+  ".agents/skills/bandit-specify/SKILL.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784119",
+    "mtime_ns": "1788892654077243456",
+    "bytes": 2601,
+    "sha256": "6d83ab40691407630b030dcbf64997c7de08c6e0be3b62b1330c056876637ce7"
+  },
+  ".agents/skills/bandit-specify/agents": {
+    "type": "directory",
+    "mode": 16877,
+    "inode": "14784120",
+    "mtime_ns": "1788892654088026358"
+  },
+  ".agents/skills/bandit-specify/agents/openai.yaml": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784121",
+    "mtime_ns": "1788892654085848461",
+    "bytes": 233,
+    "sha256": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf"
+  },
+  ".agents/skills/bandit-specify/assets": {
+    "type": "directory",
+    "mode": 16877,
+    "inode": "14784122",
+    "mtime_ns": "1788892654096823194"
+  },
+  ".agents/skills/bandit-specify/assets/plan-template.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784123",
+    "mtime_ns": "1788892654094641297",
+    "bytes": 4844,
+    "sha256": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5"
+  },
+  ".agents/skills/bandit-specify/references": {
+    "type": "directory",
+    "mode": 16877,
+    "inode": "14784124",
+    "mtime_ns": "1788892654141311911"
+  },
+  ".agents/skills/bandit-specify/references/changes.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784125",
+    "mtime_ns": "1788892654103586507",
+    "bytes": 6476,
+    "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0"
+  },
+  ".agents/skills/bandit-specify/references/evidence-and-decisions.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784126",
+    "mtime_ns": "1788892654112662048",
+    "bytes": 4460,
+    "sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6"
+  },
+  ".agents/skills/bandit-specify/references/research.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784127",
+    "mtime_ns": "1788892654121299053",
+    "bytes": 4583,
+    "sha256": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6"
+  },
+  ".agents/skills/bandit-specify/references/review.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784128",
+    "mtime_ns": "1788892654130100305",
+    "bytes": 5137,
+    "sha256": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d"
+  },
+  ".agents/skills/bandit-specify/references/specification.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14784129",
+    "mtime_ns": "1788892654138957182",
+    "bytes": 7984,
+    "sha256": "056e30fac704a3f4cbcdb9cd5432a656193307be8d307a4f4941d3fa94478bb0"
+  },
+  "project-note.md": {
+    "type": "file",
+    "mode": 33188,
+    "inode": "14783786",
+    "mtime_ns": "1788892652465430977",
+    "bytes": 52,
+    "sha256": "050fcd3be56e59226613bacab67e10ee051796ace0e0a80cf710d69e211f7704"
+  }
+}

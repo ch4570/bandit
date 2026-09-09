@@ -1,0 +1,33 @@
+
+> @ch4570/bandit@0.4.0 validate
+> node scripts/validate-node.mjs
+
+{
+  "ok": true,
+  "version": "0.4.0",
+  "skillFiles": 34,
+  "skills": [
+    {
+      "name": "bandit",
+      "skillFiles": 10
+    },
+    {
+      "name": "bandit-research",
+      "skillFiles": 4
+    },
+    {
+      "name": "bandit-scope",
+      "skillFiles": 4
+    },
+    {
+      "name": "bandit-specify",
+      "skillFiles": 8
+    },
+    {
+      "name": "bandit-review",
+      "skillFiles": 8
+    }
+  ],
+  "errors": [],
+  "checks": "structure and references only; no claim of PM effectiveness"
+}

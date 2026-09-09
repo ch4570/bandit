@@ -1,0 +1,170 @@
+{
+  "format": 1,
+  "kind": "Engineering smoke harness-contract correction; not a product fix or PM rubric change",
+  "recorded_at_utc": "2026-09-08T19:59:12.513Z",
+  "correction": "V1 demanded requested/unverified prose that was not part of the agreed metadata config contract. V2 checks the agreed explicit/default config values. The literal requested model, model_override, archived metadata and fake failure handling already satisfied their checks in v1.",
+  "changed_files": "Only a new v2 harness and distinct evidence prefix were introduced. The exact source diff is retained in model-cli-smoke-correction.md. No runner, archive CLI, unit test, skill, v1 source, v1 report or v1 result was changed for this correction.",
+  "attempts": [
+    {
+      "name": "model-cli-smoke",
+      "status": "failed",
+      "checks": 52,
+      "satisfied": 50,
+      "failed_checks": [
+        {
+          "check": "explicit: config distinguishes request from backend verification",
+          "passed": false,
+          "detail": "--ignore-user-config; explicit model override; explicit web_search"
+        },
+        {
+          "check": "child-failure: config distinguishes request from backend verification",
+          "passed": false,
+          "detail": "--ignore-user-config; explicit model override; explicit web_search"
+        }
+      ],
+      "started_at_utc": "2026-09-08T19:53:43.857976+00:00",
+      "finished_at_utc": "2026-09-08T19:53:44.833971+00:00",
+      "temporary_root_retained": "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh",
+      "harness_sha256": "a2540c6bbed61a120931c299a0d3903e7bb45b93a718ce0c237c7f9cdf34fe20",
+      "results_sha256": "3cf0831a086a840576ed89a8a47b577d68081e8571e92aef82a996c555a7486c",
+      "report_sha256": "83aa84c6a745f777328b9058d64f9928fd1e5d74f35c4535aac163b6ef40ee78",
+      "evidence_files_rehashed": 80,
+      "evidence_bytes": 34589,
+      "evidence_verification_errors": [],
+      "fake_invocations": 6,
+      "commands": [
+        {
+          "label": "runner-explicit",
+          "exit_code": 0,
+          "started_at_utc": "2026-09-08T19:53:43.859231+00:00",
+          "finished_at_utc": "2026-09-08T19:53:44.419656+00:00"
+        },
+        {
+          "label": "archive-explicit",
+          "exit_code": 0,
+          "started_at_utc": "2026-09-08T19:53:44.423234+00:00",
+          "finished_at_utc": "2026-09-08T19:53:44.559127+00:00"
+        },
+        {
+          "label": "runner-default",
+          "exit_code": 0,
+          "started_at_utc": "2026-09-08T19:53:44.560282+00:00",
+          "finished_at_utc": "2026-09-08T19:53:44.637906+00:00"
+        },
+        {
+          "label": "archive-default",
+          "exit_code": 0,
+          "started_at_utc": "2026-09-08T19:53:44.640822+00:00",
+          "finished_at_utc": "2026-09-08T19:53:44.684867+00:00"
+        },
+        {
+          "label": "runner-child-failure",
+          "exit_code": 23,
+          "started_at_utc": "2026-09-08T19:53:44.685755+00:00",
+          "finished_at_utc": "2026-09-08T19:53:44.761961+00:00"
+        },
+        {
+          "label": "archive-child-failure",
+          "exit_code": 0,
+          "started_at_utc": "2026-09-08T19:53:44.764715+00:00",
+          "finished_at_utc": "2026-09-08T19:53:44.803171+00:00"
+        },
+        {
+          "label": "runner-invalid-empty",
+          "exit_code": 2,
+          "started_at_utc": "2026-09-08T19:53:44.804185+00:00",
+          "finished_at_utc": "2026-09-08T19:53:44.832901+00:00"
+        }
+      ]
+    },
+    {
+      "name": "model-cli-smoke-v2",
+      "status": "pass",
+      "checks": 52,
+      "satisfied": 52,
+      "failed_checks": [],
+      "started_at_utc": "2026-09-08T19:55:42.393624+00:00",
+      "finished_at_utc": "2026-09-08T19:55:43.101026+00:00",
+      "temporary_root_retained": "/TEMP/bandit-round12-4a9iyv/fake-model-cli-pa_nce5k",
+      "harness_sha256": "6f629044d298a0f380624d0ba1235faa3c113267703679615d5fb7731d8e5ea2",
+      "results_sha256": "a5728acc726a9bd07480c04ec14bde7ca8cd15418ecd26aee559e851087e1e58",
+      "report_sha256": "d7431988223ebc56c1b4640b20609d0c61e83b5ded5ef4a9fa6741d3b703096e",
+      "evidence_files_rehashed": 80,
+      "evidence_bytes": 34598,
+      "evidence_verification_errors": [],
+      "fake_invocations": 6,
+      "commands": [
+        {
+          "label": "runner-explicit",
+          "exit_code": 0,
+          "started_at_utc": "2026-09-08T19:55:42.394778+00:00",
+          "finished_at_utc": "2026-09-08T19:55:42.790293+00:00"
+        },
+        {
+          "label": "archive-explicit",
+          "exit_code": 0,
+          "started_at_utc": "2026-09-08T19:55:42.793922+00:00",
+          "finished_at_utc": "2026-09-08T19:55:42.832887+00:00"
+        },
+        {
+          "label": "runner-default",
+          "exit_code": 0,
+          "started_at_utc": "2026-09-08T19:55:42.834006+00:00",
+          "finished_at_utc": "2026-09-08T19:55:42.911269+00:00"
+        },
+        {
+          "label": "archive-default",
+          "exit_code": 0,
+          "started_at_utc": "2026-09-08T19:55:42.914251+00:00",
+          "finished_at_utc": "2026-09-08T19:55:42.951978+00:00"
+        },
+        {
+          "label": "runner-child-failure",
+          "exit_code": 23,
+          "started_at_utc": "2026-09-08T19:55:42.952928+00:00",
+          "finished_at_utc": "2026-09-08T19:55:43.029623+00:00"
+        },
+        {
+          "label": "archive-child-failure",
+          "exit_code": 0,
+          "started_at_utc": "2026-09-08T19:55:43.032281+00:00",
+          "finished_at_utc": "2026-09-08T19:55:43.069859+00:00"
+        },
+        {
+          "label": "runner-invalid-empty",
+          "exit_code": 2,
+          "started_at_utc": "2026-09-08T19:55:43.070922+00:00",
+          "finished_at_utc": "2026-09-08T19:55:43.099967+00:00"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "smoke_attempts": 2,
+    "runner_cli_processes": 8,
+    "archive_cli_processes": 6,
+    "runner_and_archive_cli_processes": 14,
+    "fake_executable_calls": 12,
+    "fake_version_probes": 6,
+    "fake_exec_calls": 6,
+    "native_codex_calls": 0,
+    "model_backend_calls": 0,
+    "planning_tasks": 0,
+    "evidence_file_hashes_rechecked": 160
+  },
+  "preservation": {
+    "v1_files_rehashed_before_and_after_v2": 83,
+    "v1_changed_files": [],
+    "runner_sha256_both_attempts": "6243624462aae5ff9e9f9eff76c6692f6e3b63d3373cf328cc73a1e2be31be55",
+    "archive_cli_sha256_both_attempts": "62cf0c7728d5116884910250a1ce44427e314bccfb3b2d1c968a543b7d4b1f17",
+    "monitored_source_before_after_equal_both_attempts": true,
+    "raw_config_values_independently_checked": "Retained raw metadata strings also compare exactly (without case normalization) to the agreed explicit/default strings in both attempts."
+  },
+  "evidence_scope": "Both attempts retain complete raw CLI streams, fake stdin/stdout/stderr and invocation JSON, raw runner artifacts, normalized archives and per-file SHA-256 maps. Fake invocation IDs are qualified by attempt; labels repeat between attempts and are not native thread identifiers.",
+  "limits": [
+    "The synthetic-model.integration string is not a claimed available model or verified backend identity.",
+    "The smoke drives real local runner/archive CLIs with a fake executable on a controlled PATH; it does not call a real Codex executable, use auth, access a backend or assess planning quality.",
+    "V1 failed and remains failed. V2's corrected engineering contract checks do not erase that attempt or establish model availability/reliability.",
+    "Both small temporary roots are retained. No cleanup, additional smoke run or full gate was performed as part of this correction receipt."
+  ]
+}

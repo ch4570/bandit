@@ -1,0 +1,13 @@
+attempt_id,recording_id,submitted_at_utc,provider_result,artifact_saved,editor_export_confirmed
+T01,R01,2026-08-17T09:00:00Z,complete,1,1
+T02,R02,2026-08-17T10:00:00Z,timeout,0,0
+T03,R02,2026-08-17T10:15:00Z,complete,1,1
+T04,R03,2026-08-18T09:00:00Z,complete,0,0
+T05,R03,2026-08-18T09:30:00Z,complete,1,1
+T06,R04,2026-08-18T11:00:00Z,complete,1,0
+T07,R04,2026-08-19T09:00:00Z,complete,1,0
+T08,R05,2026-08-19T10:00:00Z,timeout,0,0
+T09,R05,2026-08-19T10:20:00Z,complete,1,1
+T10,R06,2026-08-20T09:00:00Z,complete,1,0
+T11,R06,2026-08-20T09:30:00Z,complete,1,0
+T12,R06,2026-08-21T09:00:00Z,timeout,0,0

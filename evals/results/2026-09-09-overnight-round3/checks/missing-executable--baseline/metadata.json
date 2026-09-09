@@ -1,0 +1,50 @@
+{
+  "case": "missing-executable",
+  "arm": "baseline",
+  "codex_version": null,
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "-c",
+    "web_search=\"disabled\"",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "<temporary-run-root>/workspace",
+    "-o",
+    "<temporary-run-root>/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host model defaults; explicit web_search",
+  "web_search": "disabled",
+  "runner_status": "launch_failed",
+  "started_at_utc": "2026-09-08T16:01:49.235876+00:00",
+  "upstream_commit": null,
+  "input_sha256": {
+    "request.md": "29708cc2eead4c5a19e054d1c5485d2b62451bf4c89826dec3f52ead47b9cd7a"
+  },
+  "instruction_sha256": {},
+  "invocation": null,
+  "standalone_specialist": false,
+  "custom_fixture": true,
+  "editable_artifact": null,
+  "exit_code": null,
+  "runner_error": {
+    "phase": "version_probe",
+    "type": "FileNotFoundError",
+    "message": "[Errno 2] No such file or directory: 'codex'"
+  },
+  "elapsed_seconds": 0.001,
+  "finished_at_utc": "2026-09-08T16:01:49.237558+00:00",
+  "input_after_sha256": {
+    "request.md": "29708cc2eead4c5a19e054d1c5485d2b62451bf4c89826dec3f52ead47b9cd7a"
+  },
+  "instruction_after_sha256": {}
+}

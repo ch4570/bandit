@@ -1,0 +1,8 @@
+test_changed_staged_bytes_are_preserved_without_promotion_and_prior_writes_roll_back (test_staging.StagingTests.test_changed_staged_bytes_are_preserved_without_promotion_and_prior_writes_roll_back) ... ok
+test_identical_bytes_in_a_different_staged_file_are_not_promoted (test_staging.StagingTests.test_identical_bytes_in_a_different_staged_file_are_not_promoted) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.075s
+
+OK
+

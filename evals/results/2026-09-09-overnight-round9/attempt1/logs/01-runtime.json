@@ -1,0 +1,18 @@
+{
+  "label": "runtime",
+  "executable": "/bin/sh",
+  "args": [
+    "-c",
+    "set -e; node --version; npm --version; command -v node; command -v npm; command -v npx; if command -v git || command -v python || command -v python3; then exit 9; fi"
+  ],
+  "cwd": "/TEMP/bandit-round9-pm62vi",
+  "cache": "cache-public",
+  "started_at": "2026-09-08T18:34:13.333Z",
+  "stdin": "closed",
+  "stdout": "v22.23.2\n11.19.0\n/TEMP/bandit-round9-pm62vi/bin/node\n/TEMP/bandit-round9-pm62vi/bin/npm\n/TEMP/bandit-round9-pm62vi/bin/npx\n",
+  "stderr": "",
+  "exit_code": 0,
+  "signal": null,
+  "launchError": null,
+  "finished_at": "2026-09-08T18:34:13.472Z"
+}

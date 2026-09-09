@@ -1,0 +1,3 @@
+variant,checkout_exposed_accounts,purchase_delivery_rows,purchase_distinct_event_ids,purchase_distinct_order_ids,purchase_distinct_account_ids
+A,950,95,95,95,95
+B,620,124,93,93,93
