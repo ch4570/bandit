@@ -93,8 +93,29 @@ To check a real artifact rewrite, permit the PRD named in case 06:
 python3 evals/run_local.py --case 06-existing-spec-rewrite --arm bandit-specify --edit-artifact input/docs/PRD.md --output-dir /absolute/path/to/new-runs
 ```
 
-The runner retains the original input files separately. Review the resulting
-PRD and the before/after hashes, not just the agent's final reply.
+The runner retains original inputs under `original-input/` for every arm and
+keeps the resulting workspace and raw logs, including failed runs. Review the
+resulting PRD and the before/after evidence, not just the agent's final reply.
+
+New runs distinguish `process_exit_code` (the Codex process result),
+`integrity_status` (`passed`, `failed`, or `unavailable`), and `quality_status`
+(`not_evaluated` until a separate assessment). The runner's `exit_code` is
+nonzero for a process failure, an unauthorized workspace change, or an unavailable
+snapshot. A successful process is not a passing planning assessment.
+
+Workspace snapshots record regular-file hashes, permission bits, directory entries,
+and link targets. POSIX hosts use descriptor-relative directory traversal and
+no-follow opens; other hosts record `portable-quiescent` traversal and require
+a workspace without concurrent writers. Observed changes during a snapshot make
+it unavailable. This does not provide an atomic snapshot against arbitrary
+background writers. Only content changes to the named existing
+`--edit-artifact` file are allowed; its deletion or replacement with a link is
+a violation. Other created, modified, deleted, or type-changed paths are listed
+in `violations`, including files outside `input/` and changed skill instructions.
+Snapshot errors and caught execution failures remain in metadata. No workspace
+paths are silently excluded. This is a post-run scope check, not an OS guarantee
+that the agent could never access paths outside that workspace. Historical
+metadata is preserved unchanged and does not retroactively gain these checks.
 
 For upstream, use a clean checkout at the pinned commit:
 
