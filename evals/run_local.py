@@ -3,16 +3,22 @@
 from __future__ import annotations
 
 import argparse
+from datetime import datetime, timezone
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import shutil
 import stat
 import subprocess
+import sys
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
+if __package__ in (None, ""):
+    sys.path.insert(0, str(ROOT))
+from evals.telemetry import summarize_events
 UPSTREAM_COMMIT = "18468a95b427e70e258b51389796367c6f684e7d"
 SPECIALISTS = ("bandit-research", "bandit-scope", "bandit-specify", "bandit-review")
 ROUTES = {
@@ -109,7 +115,21 @@ def integrity_result(before: dict, after: dict, edit_artifact: str | None) -> di
     return {"integrity_status": status, "violations": violations, "snapshot_errors": errors}
 
 
-def run_case(case: str, arm: str, output: Path, upstream: Path | None, edit_artifact: str | None = None) -> int:
+def run_case(case: str, arm: str, output: Path, upstream: Path | None, edit_artifact: str | None = None,
+             *, model: str | None = None, reasoning_effort: str | None = None,
+             timeout_seconds: float = 600, max_output_words: int | None = None,
+             skills_dir: Path | None = None, condition: str | None = None,
+             replicate: int = 1, attempt: int = 1) -> int:
+    if not math.isfinite(timeout_seconds) or timeout_seconds <= 0:
+        raise ValueError("--timeout-seconds must be finite and positive")
+    if max_output_words is not None and (type(max_output_words) is not int or max_output_words <= 0):
+        raise ValueError("--max-output-words must be a positive integer")
+    if any(type(value) is not int or value <= 0 for value in (replicate, attempt)):
+        raise ValueError("Replicate and attempt must be positive integers")
+    for name, value in (("model", model), ("reasoning effort", reasoning_effort), ("condition", condition)):
+        if value is not None and (not isinstance(value, str) or not value.strip() or any(ord(c) < 32 for c in value)):
+            raise ValueError(f"Invalid {name}")
+    skill_source = skills_dir.resolve() if skills_dir is not None else ROOT / "skills"
     fixture = ROOT / "evals" / "cases" / case
     run = output.resolve() / f"{case}--{arm}"
     if run.exists():
@@ -132,10 +152,10 @@ def run_case(case: str, arm: str, output: Path, upstream: Path | None, edit_arti
             raise ValueError("--edit-artifact must name an existing file under input/ in the temporary workspace")
         edit_artifact = target.relative_to(workspace).as_posix()
     if arm in SPECIALISTS:
-        shutil.copytree(ROOT / "skills", workspace / ".agents" / "skills")
+        shutil.copytree(skill_source, workspace / ".agents" / "skills")
         instruction = f"Use ${arm} for this task. The BANDIT skills are installed in this project."
     elif arm == "bandit":
-        shutil.copytree(ROOT / "skills" / "bandit", workspace / "instructions" / "bandit")
+        shutil.copytree(skill_source / "bandit", workspace / "instructions" / "bandit")
         instruction = "Use instructions/bandit/SKILL.md and the relevant references it routes to."
     elif arm == "upstream":
         # Preserve all dependencies. Routes identify the relevant entrypoints;
@@ -165,16 +185,32 @@ def run_case(case: str, arm: str, output: Path, upstream: Path | None, edit_arti
         f"Use only these task inputs and, if provided, the {instruction_scope}/ snapshot in this workspace. "
         "Do not inspect other repositories, AGENTS files, evaluation rubrics, examples, other outputs, "
         "or prior sessions. Do not browse or contact anyone. Do not execute the supplied product code "
-        "or tests. " + output_instruction + "This is the user's task, not a review of the instructions.\n"
+        "or tests. Do not spawn subagents or other model sessions. " + output_instruction
+        + "This is the user's task, not a review of the instructions.\n"
     )
+    if max_output_words is not None:
+        prompt += f"Keep the requested artifact and final response within {max_output_words} words in total.\n"
     (run / "prompt.txt").write_text(prompt, encoding="utf-8")
     command = ["codex", "exec", "--ignore-user-config", "--ephemeral", "--skip-git-repo-check",
                "--sandbox", "workspace-write" if edit_artifact else "read-only", "--color", "never", "--json", "-C", str(workspace),
-               "-o", str(run / "output.md"), "-"]
+               "--disable", "multi_agent", "-c", 'web_search="disabled"', "-c", 'approval_policy="never"']
+    if model is not None:
+        command.extend(["--model", model])
+    if reasoning_effort is not None:
+        command.extend(["-c", f"model_reasoning_effort={json.dumps(reasoning_effort)}"])
+    command.extend(["-o", str(run / "output.md"), "-"])
     before = workspace_snapshot(workspace)
-    metadata = {"case": case, "arm": arm,
+    metadata = {"schema": "bandit.run/v2", "case": case, "arm": arm,
+                "started_at": datetime.now(timezone.utc).isoformat(),
+                "condition": condition or arm, "replicate": replicate, "attempt": attempt,
                 "codex_version": None, "process_exit_code": None, "quality_status": "not_evaluated",
-                "command": command, "model_override": None, "config": "--ignore-user-config; host defaults",
+                "command": command, "model_override": model,
+                "config": "--ignore-user-config; explicit settings below; unspecified model/effort use host defaults",
+                "execution_settings": {"model": model, "reasoning_effort": reasoning_effort,
+                                       "timeout_seconds": timeout_seconds, "max_output_words": max_output_words,
+                                       "web_search": "disabled", "multi_agent": False,
+                                       "sandbox": "workspace-write" if edit_artifact else "read-only"},
+                "runner_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                 "upstream_commit": UPSTREAM_COMMIT if arm == "upstream" else None,
                 "input_sha256": file_hashes(before, "input"),
                 "instruction_sha256": file_hashes(before, instruction_scope) if arm != "baseline" else {},
@@ -188,12 +224,16 @@ def run_case(case: str, arm: str, output: Path, upstream: Path | None, edit_arti
                 metadata["execution_error"] = "Initial workspace snapshot is unavailable; model was not started"
             else:
                 metadata["codex_version"] = subprocess.check_output(["codex", "--version"], text=True).strip()
-                result = subprocess.run(command, input=prompt, text=True, stdout=events, stderr=errors)
+                result = subprocess.run(command, input=prompt, text=True, stdout=events, stderr=errors,
+                                        timeout=timeout_seconds)
                 metadata["process_exit_code"] = result.returncode
                 exit_code = result.returncode
     except KeyboardInterrupt:
         exit_code = 130
         metadata["execution_error"] = "Interrupted"
+    except subprocess.TimeoutExpired:
+        exit_code = 124
+        metadata["execution_error"] = "Time limit reached; direct CLI process stopped, descendant cleanup is unverified"
     except (OSError, subprocess.SubprocessError) as exc:
         metadata["execution_error"] = f"{type(exc).__name__}: {exc}"
     finally:
@@ -205,6 +245,7 @@ def run_case(case: str, arm: str, output: Path, upstream: Path | None, edit_arti
                         workspace_after=after,
                         input_after_sha256=file_hashes(after, "input"),
                         instruction_after_sha256=file_hashes(after, instruction_scope) if arm != "baseline" else {})
+        metadata["telemetry"] = summarize_events(run / "events.jsonl")
         (run / "metadata.json").write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"run": str(run), "exit_code": exit_code,
                       "integrity_status": metadata["integrity_status"]}), flush=True)
@@ -217,11 +258,23 @@ def main() -> int:
     parser.add_argument("--arm", choices=["baseline", "upstream", "bandit", *SPECIALISTS], required=True)
     parser.add_argument("--upstream", type=Path)
     parser.add_argument("--edit-artifact", help="Permit edits to this one existing input/ file in the isolated workspace")
+    parser.add_argument("--model", help="Explicit model request; recorded separately from observed runtime identity")
+    parser.add_argument("--reasoning-effort", help="Explicit reasoning effort supported by the selected model")
+    parser.add_argument("--timeout-seconds", type=float, default=600, help="CLI time limit (default: 600); not a billing cap")
+    parser.add_argument("--max-output-words", type=int, help="Same prompt-level output budget for matched runs")
+    parser.add_argument("--skills-dir", type=Path, help="Frozen skill bundle directory, e.g. another checkout's skills/")
+    parser.add_argument("--condition", help="Comparison condition label (default: arm)")
+    parser.add_argument("--replicate", type=int, default=1)
+    parser.add_argument("--attempt", type=int, default=1, help="Retry number; previous attempts remain part of cost accounting")
     parser.add_argument("--output-dir", type=Path, required=True,
                         help="New run artifacts are written here; your Codex account's usage applies")
     args = parser.parse_args()
     try:
-        return run_case(args.case, args.arm, args.output_dir, args.upstream, args.edit_artifact)
+        return run_case(args.case, args.arm, args.output_dir, args.upstream, args.edit_artifact,
+                        model=args.model, reasoning_effort=args.reasoning_effort,
+                        timeout_seconds=args.timeout_seconds, max_output_words=args.max_output_words,
+                        skills_dir=args.skills_dir, condition=args.condition,
+                        replicate=args.replicate, attempt=args.attempt)
     except (ValueError, OSError, subprocess.CalledProcessError) as exc:
         parser.exit(2, f"bandit eval: {exc}\n")
 
