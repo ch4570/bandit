@@ -29,7 +29,8 @@ requested direction requires that; specification includes revising old plans.
 A review does not
 require a rewrite; a small answer does not require a new file or a workshop.
 
-Choose the relevant mode and read its reference. Combine modes only when the
+Apply the shared [work boundaries](references/work-boundaries.md), then choose
+the relevant mode and read its reference. Combine modes only when the
 requested result needs them; this table is not a mandatory sequence.
 
 | Requested outcome | Reference |

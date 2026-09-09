@@ -83,6 +83,26 @@ Reviewing a PRD does not exercise the product. Source inspection, a screenshot, 
 
 ## Keep the output proportionate
 
+Start with the named specialist; research, scope, specify, and review are not a
+required sequence. BANDIT uses the request's inputs, deliverable, completion
+checks, and any time or search limits without asking you to fill in another form.
+You can bound the work in ordinary language:
+
+```text
+$bandit-review Check only permissions, duplicate requests, and failure recovery
+in docs/PRD.md and docs/approval-policy.md. Do not edit them. Follow links needed
+to resolve each finding, then report its location, trigger, impact, and correction.
+Separate unanswered questions that could change the conclusion.
+```
+
+Selected instructions are read fully; unrelated references are not preloaded.
+Once the requested checks are complete, unresolved details that cannot change
+the decision do not require more exploration. A changed request, material
+conflict, stale source, or failed check reopens the affected scope. Necessary
+permission, recovery, and evidence checks still apply. At a stated limit, expect
+confirmed results and remaining work, not a claim that everything is done.
+Time and search limits in a prompt are not provider billing caps.
+
 For a short decision, a paragraph or small table may be enough. For an ongoing plan, keep important evidence, decisions, requirements, and checks connected in the existing artifact. IDs and the optional plan template are useful when they improve traceability; they are not prerequisites for using the skill.
 
 Distinguish accepted goals from descriptions recovered from code. If the PRD says only the owner may edit and the code allows every signed-in user, report the mismatch. Do not redefine the goal to make the implementation appear correct.

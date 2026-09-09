@@ -7,7 +7,8 @@ description: Research product opportunities, customer problems, competitors, bus
 
 Investigate the product decision the user needs to make. Read the current request,
 available sources, and relevant existing decisions, then apply
-[research guidance](references/research.md). This skill works directly; it does
+[research guidance](references/research.md) and shared
+[work boundaries](references/work-boundaries.md). This skill works directly; it does
 not require invoking the general BANDIT skill first.
 
 Keep the user's chosen idea and requested scope. When a reversible segment,

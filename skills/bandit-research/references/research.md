@@ -19,6 +19,11 @@ Investigate only questions needed for this decision. Label a recommended segment
 price, or channel as a hypothesis if the user has delegated the draft without data.
 Avoid replacing the chosen idea with a broad ideation exercise.
 
+Finish when the decision-changing claims are supported within their limits or
+explicitly unresolved, and the next informative observation is clear. Seek more
+sources only when they could resolve a material conflict or change the choice;
+freshness-sensitive claims still require current verification.
+
 ## Collect evidence that can bear the claim
 
 For interviews, separate observed/reported past behavior from opinions about a

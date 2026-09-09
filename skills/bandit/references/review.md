@@ -81,3 +81,9 @@ If no material issue is supported, say so; do not invent defects to make the rev
 Distinguish a coherent plan from demonstrated demand, working software, and release readiness.
 For a narrow edit, a few findings or one paragraph can be the entire review.
 Leave the original artifacts unchanged and identify the next useful correction or check.
+
+Finish a narrow review when each requested lens has been checked against the
+applicable sources, with findings or a supported no-issue conclusion and material
+limits. Expand to a linked source when it could change a finding; do not add
+unrequested lenses merely because more documents exist. Reopen affected findings
+when new authority, evidence, or a failed check changes their basis.
