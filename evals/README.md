@@ -32,6 +32,11 @@ records 18 fresh runs plus a separate actual two-turn continuation. It preserves
 three failed quality grades, missing runtime identity, and unavailable monetary
 cost. It does not establish cost savings or superiority over baseline.
 
+The [review feedback loop](results/2026-09-09-merge-feedback/README.md) retains two
+corrective rounds: 2/4 then 4/4 blind task grades, including both initial failures.
+Its eight raw runs and unchanged criteria are preserved separately. Runtime
+identity and monetary cost remain unavailable; this is not a savings benchmark.
+
 ## Cases
 
 | Case | Planning task |
@@ -45,6 +50,7 @@ cost. It does not establish cost savings or superiority over baseline.
 | [07 — export review](cases/07-export-review/request.md) | Narrow access, idempotency, and recovery review with unrelated support material |
 | [08 — callback scope](cases/08-callback-scope/request.md) | Multiple delivery decisions constrained by evidence, capacity, and consent |
 | [09 — pickup PRD rewrite](cases/09-pickup-prd-rewrite/request.md) | Rewrite a changed pilot direction while preserving historical observations and operating constraints |
+| [10 — reservation review](cases/10-reservation-review/request.md) | Distinguish adopted organizer/revision rules from an unresolved withdrawal decision and interrupted ledger handoff |
 
 The [rubric](RUBRIC.md) for cases 01–05 was written before those recorded runs.
 It grades observable meaning, including failures, rather than matching headings.
@@ -62,6 +68,11 @@ outside the executing agent's inputs. Case 09 has a separately stored
 after the initial task, in the same conversation. The fresh-session runner does
 not implement resume; record an actual continuation separately and do not add
 its cumulative session snapshots together.
+
+Case 10 was authored independently of candidate instructions and prior grades.
+Its [criteria](criteria/2026-09-09-merge-feedback/10-reservation-review.md) remain
+outside the raw fixture directory. Once used for feedback, it is a public
+development case, not a held-out benchmark for subsequent instruction edits.
 
 ## Forward-test method
 

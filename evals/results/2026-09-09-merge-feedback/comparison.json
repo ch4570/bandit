@@ -1,0 +1,121 @@
+{
+  "schema": "bandit.comparison/v1",
+  "conditions": [
+    "merge-feedback",
+    "merge-feedback-round2"
+  ],
+  "runs": [
+    {
+      "id": "merge-feedback-07-export-review-r1-a1",
+      "directory": "runs/merge-feedback-07-export-review-r1-a1",
+      "condition": "merge-feedback",
+      "case": "07-export-review",
+      "replicate": 1,
+      "attempt": 1,
+      "blind_label": "B",
+      "quality": {
+        "status": "passed",
+        "output_sha256": "d855d3cebe3d63329eb2544e2e18257c8daa5226a6e5d5389716b23034adb800",
+        "evidence": "grades/merge-feedback/07-export-review/grades.md (B)"
+      }
+    },
+    {
+      "id": "merge-feedback-07-export-review-r2-a1",
+      "directory": "runs/merge-feedback-07-export-review-r2-a1",
+      "condition": "merge-feedback",
+      "case": "07-export-review",
+      "replicate": 2,
+      "attempt": 1,
+      "blind_label": "A",
+      "quality": {
+        "status": "passed",
+        "output_sha256": "5bd6f7555ba79848c8f56d905cf2e84bf54c877f0128b0842513dd6dfcf8cbcc",
+        "evidence": "grades/merge-feedback/07-export-review/grades.md (A)"
+      }
+    },
+    {
+      "id": "merge-feedback-10-reservation-review-r1-a1",
+      "directory": "runs/merge-feedback-10-reservation-review-r1-a1",
+      "condition": "merge-feedback",
+      "case": "10-reservation-review",
+      "replicate": 1,
+      "attempt": 1,
+      "blind_label": "B",
+      "quality": {
+        "status": "failed",
+        "output_sha256": "5ba6c1f1b87cb18f7c2e56b1712815ecbde1b5f2e97997a8251acb6b5ec9edb8",
+        "evidence": "grades/merge-feedback/10-reservation-review/grades.md (B)"
+      }
+    },
+    {
+      "id": "merge-feedback-10-reservation-review-r2-a1",
+      "directory": "runs/merge-feedback-10-reservation-review-r2-a1",
+      "condition": "merge-feedback",
+      "case": "10-reservation-review",
+      "replicate": 2,
+      "attempt": 1,
+      "blind_label": "A",
+      "quality": {
+        "status": "failed",
+        "output_sha256": "ed46d157e2c8e5c06622cc4dbb1be1148778d41a2ed61e00ff8c963bf92a96e5",
+        "evidence": "grades/merge-feedback/10-reservation-review/grades.md (A)"
+      }
+    },
+    {
+      "id": "merge-feedback-round2-07-export-review-r1-a1",
+      "directory": "runs/merge-feedback-round2-07-export-review-r1-a1",
+      "condition": "merge-feedback-round2",
+      "case": "07-export-review",
+      "replicate": 1,
+      "attempt": 1,
+      "blind_label": "A",
+      "quality": {
+        "status": "passed",
+        "output_sha256": "c9e1daa2b0a9cdc1be8cde25d0e3ebff2223d411a442e93d5e59a01c555ffb45",
+        "evidence": "grades/merge-feedback-round2/07-export-review/grades.md (A)"
+      }
+    },
+    {
+      "id": "merge-feedback-round2-07-export-review-r2-a1",
+      "directory": "runs/merge-feedback-round2-07-export-review-r2-a1",
+      "condition": "merge-feedback-round2",
+      "case": "07-export-review",
+      "replicate": 2,
+      "attempt": 1,
+      "blind_label": "B",
+      "quality": {
+        "status": "passed",
+        "output_sha256": "5ba5f8973b215ad33a224f915b95311a3108a4e5a7cc3360474a563e50df8aa4",
+        "evidence": "grades/merge-feedback-round2/07-export-review/grades.md (B)"
+      }
+    },
+    {
+      "id": "merge-feedback-round2-10-reservation-review-r1-a1",
+      "directory": "runs/merge-feedback-round2-10-reservation-review-r1-a1",
+      "condition": "merge-feedback-round2",
+      "case": "10-reservation-review",
+      "replicate": 1,
+      "attempt": 1,
+      "blind_label": "B",
+      "quality": {
+        "status": "passed",
+        "output_sha256": "f5aa8b55f62f4ba7d4f3e348bddaa2e9cee56041f75e253975c357104135b63c",
+        "evidence": "grades/merge-feedback-round2/10-reservation-review/grades.md (B)"
+      }
+    },
+    {
+      "id": "merge-feedback-round2-10-reservation-review-r2-a1",
+      "directory": "runs/merge-feedback-round2-10-reservation-review-r2-a1",
+      "condition": "merge-feedback-round2",
+      "case": "10-reservation-review",
+      "replicate": 2,
+      "attempt": 1,
+      "blind_label": "A",
+      "quality": {
+        "status": "passed",
+        "output_sha256": "9d78e526b94b3588a1c4f74a5d865c006da36eb77c64f9b5639e61b0259563c9",
+        "evidence": "grades/merge-feedback-round2/10-reservation-review/grades.md (A)"
+      }
+    }
+  ]
+}

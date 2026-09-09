@@ -1,0 +1,78 @@
+{
+  "grades": [
+    {
+      "id": "A",
+      "status": "failed",
+      "output_sha256": "ed46d157e2c8e5c06622cc4dbb1be1148778d41a2ed61e00ff8c963bf92a96e5",
+      "criteria": [
+        {
+          "id": "C1",
+          "status": "passed",
+          "evidence": "A:3 distinguishes adopted policy from proposals, not observed software behavior. A:15-23 applies the adopted revision-specific logical action without asking for a new product choice; A:21 leaves storage mechanics to engineering."
+        },
+        {
+          "id": "C2",
+          "status": "passed",
+          "evidence": "A:17 shows reviewed R2 replaying stored R1; A:19 shows retained R1 bypassing the superseded-revision response after R2 publication. A:21-23 connects current-revision validation and independent new-revision agreement to policy and checks appropriate exact reuse."
+        },
+        {
+          "id": "C3",
+          "status": "passed",
+          "evidence": "A:8 identifies same-workspace non-organizers/managers and acknowledges workspace isolation. A:10-12 requires assigned-organizer authority, including existing-row reuse, while preserving inactive and cross-workspace denial."
+        },
+        {
+          "id": "C4",
+          "status": "passed",
+          "evidence": "A:28 traces committed insertion, publication failure/503, and existing-row retry/200 without sending. A:30 explains that deduplication cannot recover an unsent event; A:30-34 ties Room secured to authoritative ledger confirmation and gives a bounded recovery check."
+        },
+        {
+          "id": "C5",
+          "status": "failed",
+          "evidence": "A:37 correctly names operations' pending overlap decision and rejects an invented winner/release rule, but acceptance guidance stops at 'then approve acceptance criteria.' No scenario-specific observable check or acceptance implication for the withdrawal/application overlap is supplied; the criterion explicitly requires that in addition to naming the decision."
+        },
+        {
+          "id": "C6",
+          "status": "passed",
+          "evidence": "A:12,23,34 give bounded actor, current-revision reuse, changed/superseded revision, and interrupted-handoff checks. A:39 discloses that no tests ran and outcomes remain unobserved. No excluded-scope analysis or broad redesign is proposed."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "status": "failed",
+      "output_sha256": "5ba6c1f1b87cb18f7c2e56b1712815ecbde1b5f2e97997a8251acb6b5ec9edb8",
+      "criteria": [
+        {
+          "id": "C1",
+          "status": "passed",
+          "evidence": "B:7-9,17-19 distinguish adopted rules from plan behavior. B:25 explicitly says the policy already determines revision/retry outcomes and no new product decision is needed. B:33 leaves implementation mechanism selection to engineering."
+        },
+        {
+          "id": "C2",
+          "status": "passed",
+          "evidence": "B:19 identifies member/reservation-only lookup before validation. B:21 traces both reviewed B replaying A and superseded retained A succeeding. B:23-25 gives policy-backed validation, fresh review, exact-current-revision reuse, and separate new/superseded-revision checks."
+        },
+        {
+          "id": "C3",
+          "status": "passed",
+          "evidence": "B:9 acknowledges membership/workspace checks, B:11 identifies wrongly permitted colleagues/managers, and B:13 adds organizer authority before acceptance or successful reuse while retaining existing checks. No unsupported authentication vulnerability is claimed."
+        },
+        {
+          "id": "C4",
+          "status": "passed",
+          "evidence": "B:29-31 traces committed insert, failed publication/503, and existing-row retry/200 with no ensured ledger delivery, explaining deduplication's limitation. B:35 tests interrupted handoff/lost acknowledgement in proposed checks; B:39-45 ties truthful room status to ledger application."
+        },
+        {
+          "id": "C5",
+          "status": "failed",
+          "evidence": "B:47 correctly identifies operations' unresolved withdrawal/application overlap decision and does not invent a winner or release right. However, it only says 'then add matching acceptance criteria' and supplies no scenario-specific acceptance implication or observable check for the overlap, omitting the dimension's explicit second requirement."
+        },
+        {
+          "id": "C6",
+          "status": "passed",
+          "evidence": "B:13,25,35,45 give bounded checks for actor authority, exact reuse, changed/superseded revisions, and interrupted handoff/status. B:3,49 disclose inspection-only findings and absent runtime evidence. Scope excludes unrelated signup, payments, and community analysis."
+        }
+      ]
+    }
+  ]
+}
