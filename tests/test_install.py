@@ -22,6 +22,34 @@ class InstallTests(DistributionTest):
         (target / install.MARKER).write_text(json.dumps(marker))
         return target
 
+    def assert_preflight_edit_preserved(self, target, edited, *, trigger=None, bundle=False):
+        expected = install.tree_files(self.destination.parent)
+        relative = target.relative_to(self.destination.parent).as_posix()
+        if edited is None:
+            del expected[relative]
+        else:
+            expected[relative] = edited
+        original = install.regular_bytes
+        reads = 0
+
+        def edit_after_read(path):
+            nonlocal reads
+            data = original(path)
+            if path == (trigger or target):
+                reads += 1
+                if reads == 2:
+                    if edited is None:
+                        target.unlink()
+                    else:
+                        target.write_bytes(edited)
+            return data
+
+        installer = install.install_bundle if bundle else install.install_into
+        with patch.object(install, "regular_bytes", side_effect=edit_after_read), self.assertRaisesRegex(install.InstallError, "changed during installation"):
+            installer(self.source, self.destination)
+        self.assertGreaterEqual(reads, 2, "the edit occurred after the locked preflight read")
+        self.assertEqual(install.tree_files(self.destination.parent), expected)
+
     def test_dry_run_creates_nothing(self):
         result = install.install_into(self.source, self.destination, dry_run=True)
         self.assertEqual(result["status"], "plan")
@@ -76,6 +104,38 @@ class InstallTests(DistributionTest):
         (self.destination / "references/rules.md").unlink()
         with self.assertRaisesRegex(install.InstallError, "deleted locally"):
             install.install_into(self.source, self.destination)
+
+    def test_update_saved_after_locked_preflight_is_preserved_without_partial_writes(self):
+        install.install_into(self.source, self.destination)
+        self.write("SKILL.md", "updated entrypoint")
+        self.write("references/rules.md", "updated rules")
+        self.assert_preflight_edit_preserved(self.destination / "references/rules.md", b"Editor save after locked preflight.\n")
+
+    def test_new_file_collision_after_locked_preflight_is_preserved(self):
+        install.install_into(self.source, self.destination)
+        self.write("SKILL.md", "updated entrypoint")
+        self.write("references/new.md", "new upstream reference")
+        # The absent addition is checked before the final existing reference is read.
+        self.assert_preflight_edit_preserved(self.destination / "references/new.md", b"My new local reference.\n",
+                                            trigger=self.destination / "references/rules.md")
+
+    def test_upstream_removal_after_locked_preflight_preserves_an_editor_save(self):
+        install.install_into(self.source, self.destination)
+        self.write("SKILL.md", "updated entrypoint")
+        (self.skill / "references/rules.md").unlink()
+        self.assert_preflight_edit_preserved(self.destination / "references/rules.md", b"Keep my edited reference.\n")
+
+    def test_local_deletion_after_locked_preflight_is_not_restored(self):
+        install.install_into(self.source, self.destination)
+        self.write("SKILL.md", "updated entrypoint")
+        self.write("references/rules.md", "updated rules")
+        self.assert_preflight_edit_preserved(self.destination / "references/rules.md", None)
+
+    def test_marker_byte_edit_after_locked_preflight_is_preserved(self):
+        install.install_into(self.source, self.destination)
+        self.write("SKILL.md", "updated entrypoint")
+        target = self.destination / install.MARKER
+        self.assert_preflight_edit_preserved(target, target.read_bytes() + b"\n")
 
     def test_modified_removed_upstream_file_is_preserved(self):
         install.install_into(self.source, self.destination)
@@ -467,3 +527,29 @@ class InstallTests(DistributionTest):
         self.assertEqual(len(report["skills"]), 5)
         self.assertEqual(install.tree_files(self.destination.parent), before)
         self.assertTrue((target / "SKILL.md").exists())
+
+    def test_retired_file_edit_after_locked_preflight_preserves_the_whole_bundle(self):
+        install.install_into(self.source, self.destination)
+        self.write("SKILL.md", "updated entrypoint")
+        for name in install.RETIRED_NAMES:
+            self.old_install(name)
+        target = self.destination.parent / "bandit-update/references/rules.md"
+        self.assert_preflight_edit_preserved(target, b"Keep this editor save in the retired skill.\n", bundle=True)
+
+    def test_retired_marker_byte_edit_after_locked_preflight_preserves_the_whole_bundle(self):
+        install.install_into(self.source, self.destination)
+        self.write("SKILL.md", "updated entrypoint")
+        for name in install.RETIRED_NAMES:
+            self.old_install(name)
+        target = self.destination.parent / "bandit-update" / install.MARKER
+        self.assert_preflight_edit_preserved(target, target.read_bytes() + b"\n", bundle=True)
+
+    def test_unmanaged_retired_entrypoint_created_after_locked_preflight_blocks_the_bundle(self):
+        install.install_into(self.source, self.destination)
+        self.write("SKILL.md", "updated entrypoint")
+        later = self.old_install("bandit-update")
+        retired = self.destination.parent / "bandit-decide"
+        retired.mkdir()
+        (retired / "notes.md").write_text("Keep these unrelated notes.")
+        self.assert_preflight_edit_preserved(retired / "SKILL.md", b"A new independent command.\n",
+                                            trigger=later / "references/rules.md", bundle=True)
