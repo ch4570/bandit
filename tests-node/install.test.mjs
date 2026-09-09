@@ -378,6 +378,124 @@ test('a lock on any specialist prevents the entire package installation', (t) =>
   assert.deepEqual(snapshot(path.dirname(f.dest)), before);
 });
 
+test('a successful atomic rename needs no temporary-file cleanup lookup', (t) => {
+  const f = fixture(t);
+  installInto(f.source, f.dest);
+  put(f.skill, 'references/research.md', 'Updated evidence.');
+  const target = path.join(f.dest, 'references', 'research.md');
+  const rename = fs.renameSync, lstat = fs.lstatSync;
+  let renamedTemporary, cleanupReads = 0;
+  t.mock.method(fs, 'renameSync', (from, to) => {
+    const result = rename(from, to);
+    if (to === target) renamedTemporary = from;
+    return result;
+  });
+  t.mock.method(fs, 'lstatSync', (file, ...args) => {
+    if (file === renamedTemporary && cleanupReads++ === 0) {
+      throw Object.assign(new Error('Post-rename temporary lookup failed'), { code: 'EIO' });
+    }
+    return lstat(file, ...args);
+  });
+  assert.equal(installInto(f.source, f.dest).status, 'updated');
+  assert.ok(renamedTemporary);
+  assert.equal(cleanupReads, 0);
+  assert.equal(fs.readFileSync(target, 'utf8'), 'Updated evidence.');
+  assert.equal(installInto(f.source, f.dest).status, 'unchanged');
+});
+
+for (const cleanup of ['lookup', 'unlink']) {
+  test(`temporary-file ${cleanup} failure preserves the original write error and rollback`, (t) => {
+    const f = fixture(t);
+    installInto(f.source, f.dest);
+    const before = snapshot(f.dest);
+    put(f.skill, 'SKILL.md', 'Updated entrypoint.');
+    put(f.skill, 'references/research.md', 'Updated evidence.');
+    const primary = Object.assign(new Error('Original rename failed'), { code: 'EIO', notes: ['Existing diagnostic note'] });
+    const target = path.join(f.dest, 'references', 'research.md');
+    const rename = fs.renameSync, lstat = fs.lstatSync, unlink = fs.unlinkSync;
+    let temporary, cleanupFailed = false;
+    t.mock.method(fs, 'renameSync', (from, to) => {
+      if (to === target) { temporary = from; throw primary; }
+      return rename(from, to);
+    });
+    const failCleanup = (file) => {
+      if (file === temporary && !cleanupFailed) {
+        cleanupFailed = true;
+        throw Object.assign(new Error('Temporary cleanup denied'), { code: 'EACCES' });
+      }
+    };
+    t.mock.method(fs, 'lstatSync', (file, ...args) => {
+      if (cleanup === 'lookup') failCleanup(file);
+      return lstat(file, ...args);
+    });
+    t.mock.method(fs, 'unlinkSync', (file) => {
+      if (cleanup === 'unlink') failCleanup(file);
+      return unlink(file);
+    });
+    assert.throws(() => installInto(f.source, f.dest), (error) => {
+      assert.equal(error, primary);
+      assert.equal(error.code, 'EIO');
+      assert.ok(error.notes.includes('Existing diagnostic note'));
+      assert.ok(error.notes.some((note) => note.includes(temporary) && note.includes('Temporary cleanup denied')));
+      return true;
+    });
+    assert.equal(cleanupFailed, true);
+    assert.deepEqual(snapshot(f.dest), { ...before, [path.relative(f.dest, temporary)]: Buffer.from('Updated evidence.').toString('base64') });
+    assert.deepEqual(fs.readdirSync(path.dirname(f.dest)).filter((name) => name.endsWith('.bandit.lock')), []);
+  });
+}
+
+for (const persistent of [false, true]) {
+  for (const replaced of [false, true]) {
+    test(`${persistent ? 'persistent' : 'transient'} lock fstat failure ${replaced ? 'preserves a foreign replacement' : 'handles the acquired lock'} and releases earlier locks`, (t) => {
+      const f = fixture(t);
+      installBundle(f.source, f.dest);
+      const before = snapshot(path.dirname(f.dest));
+      put(f.skill, 'SKILL.md', 'Updated entrypoint.');
+      const blocked = path.join(path.dirname(f.dest), '.bandit-review.bandit.lock');
+      const saved = path.join(f.root, 'acquired-lock');
+      const primary = Object.assign(new Error('Original lock fstat failed'), { code: 'EIO' });
+      const retryError = Object.assign(new Error('Lock fstat retry denied'), { code: 'EACCES' });
+      const open = fs.openSync, fstat = fs.fstatSync, close = fs.closeSync;
+      let descriptor, attempts = 0, closed = false;
+      t.mock.method(fs, 'openSync', (file, ...args) => {
+        const result = open(file, ...args);
+        if (file === blocked) descriptor = result;
+        return result;
+      });
+      t.mock.method(fs, 'fstatSync', (fd, ...args) => {
+        if (fd === descriptor) {
+          attempts++;
+          if (attempts === 1) throw primary;
+          if (persistent) throw retryError;
+        }
+        return fstat(fd, ...args);
+      });
+      t.mock.method(fs, 'closeSync', (fd) => {
+        const result = close(fd);
+        if (fd === descriptor) {
+          closed = true;
+          if (replaced) { fs.renameSync(blocked, saved); fs.writeFileSync(blocked, ''); }
+        }
+        return result;
+      });
+      assert.throws(() => installBundle(f.source, f.dest), (error) => {
+        assert.equal(error, primary);
+        assert.equal(error.code, 'EIO');
+        if (persistent || replaced) assert.ok(error.notes?.some((note) => note.includes(blocked)));
+        return true;
+      });
+      assert.equal(attempts, 2, 'ownership is retried exactly once through the open descriptor');
+      assert.equal(closed, true);
+      assert.throws(() => fstat(descriptor), { code: 'EBADF' });
+      t.mock.restoreAll();
+      assert.deepEqual(snapshot(path.dirname(f.dest)), persistent || replaced ? { ...before, [path.basename(blocked)]: '' } : before);
+      if (replaced) assert.equal(fs.readFileSync(saved, 'utf8'), '');
+      if (!persistent && !replaced) assert.equal(installBundle(f.source, f.dest).status, 'updated');
+    });
+  }
+}
+
 test('lock cleanup failure preserves the apply error and releases every other lock', (t) => {
   const f = fixture(t);
   installBundle(f.source, f.dest);
