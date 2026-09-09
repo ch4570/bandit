@@ -176,6 +176,9 @@ Use `--skills-dir /absolute/path/to/frozen-checkout/skills` to test a particular
 instruction snapshot with the same specialist invocation. The runner copies
 that snapshot and records hashes. Specialist runs still install the complete
 supplied bundle; they are not measurements of a standalone-only installation.
+The selected `<arm>/SKILL.md` must exist under that bundle root before the
+runner creates a run or launches the model. An empty directory or an individual
+skill folder passed as the bundle root is rejected.
 Keep fixtures identical, repeat each condition, and counterbalance execution
 order. Retain every attempt in a new run directory, including failed retries.
 The runner does not retry or upgrade models automatically.
@@ -241,6 +244,9 @@ quality unavailable. Metadata must also record a supported runner `arm` and its
 The arm, invocation, and instruction hashes must remain the same across
 replicates and retries within each condition/case; different cases and
 intentional conditions may use different routes.
+Instruction hashes must include the selected `<arm>/SKILL.md` for BANDIT runs;
+upstream runs require a nonempty inventory. Baseline runs may have an empty
+instruction inventory.
 
 ```sh
 python3 evals/compare.py /absolute/path/to/comparison.json --output /absolute/path/to/new-summary.json
@@ -251,6 +257,10 @@ unchanged. Different
 settings, fixtures, versions, unmatched cells, duplicate attempts, unbound
 grades, or missing usage/observed identity make the comparison incomplete with
 reasons. Descriptive observations remain available without a superiority claim.
+Nonfinite JSON numbers, including overflowed exponents, make a run's metadata
+unavailable while preserving other runs in the summary. Nonfinite manifest or
+pricing input is rejected. The result is serialized before creating the output,
+so a serialization failure does not leave an empty file at the requested path.
 
 For currency estimates, optionally supply `--pricing` with a recorded JSON
 object containing `model`, `currency`, `effective_date`, `source_url`,
