@@ -30,7 +30,7 @@ class EvalComparisonTests(unittest.TestCase):
         self.settings = {"model": "synthetic-model", "reasoning_effort": "high", "timeout_seconds": 60,
                          "max_output_words": 1000, "web_search": "disabled", "multi_agent": False}
 
-    def add_run(self, condition, *, case="synthetic-case", replicate=1, attempt=1, status="passed",
+    def add_run(self, condition, *, case="synthetic-case", replicate=1, attempt=1, status="passed", arm=None,
                 exit_code=0, integrity="passed", edited=False, events=None, metadata_changes=None):
         run_id = f"{condition}-{case}-{replicate}-{attempt}"
         directory = self.area / run_id
@@ -43,7 +43,10 @@ class EvalComparisonTests(unittest.TestCase):
                       {"type": "turn.completed", "usage": {"input_tokens": 100, "cached_input_tokens": 40,
                                                              "output_tokens": 20}}]
         (directory / "events.jsonl").write_text("".join(json.dumps(event) + "\n" for event in events))
-        metadata = {"case": case, "arm": condition, "condition": condition, "replicate": replicate, "attempt": attempt,
+        arm = arm or ("baseline" if condition == "baseline" else "bandit")
+        invocation = f"${arm}" if arm.startswith("bandit-") else None
+        metadata = {"case": case, "arm": arm, "invocation": invocation,
+                    "condition": condition, "replicate": replicate, "attempt": attempt,
                     "execution_settings": dict(self.settings), "codex_version": "codex synthetic-test-version",
                     "runner_sha256": digest("Synthetic frozen runner source"),
                     "input_sha256": {"request.md": digest("Synthetic task input")},
@@ -168,6 +171,97 @@ class EvalComparisonTests(unittest.TestCase):
         (_, directory), _ = self.pair(edited=True)
         self.change_metadata(directory, input_after_sha256={"docs/PRD.md": digest("Wrong recorded digest")})
         self.assertIn("recorded hash", " ".join(self.summarize()["reasons"]))
+
+    def test_missing_artifact_mode_cannot_turn_rewrites_into_answer_only_successes(self):
+        for entry, directory in self.pair(edited=True):
+            path = directory / "metadata.json"
+            metadata = json.loads(path.read_text())
+            metadata.pop("editable_artifact")
+            path.write_text(json.dumps(metadata))
+            entry["quality"].pop("artifact_sha256")
+        result = self.summarize()
+        self.assertEqual(result["status"], "incomplete")
+        self.assertEqual(sum("editable_artifact unavailable" in reason for reason in result["reasons"]), 2)
+        for condition in result["conditions"].values():
+            self.assertEqual(condition["successful_tasks"], 0)
+            self.assertEqual(condition["quality_unavailable_runs"], 1)
+            self.assertEqual(condition["unavailable_attempts"], 1)
+            self.assertIsNone(condition["cost_per_successful_task"])
+            self.assertEqual(condition["usage"]["total_tokens"], 120)
+
+    def test_explicit_null_artifact_mode_allows_answer_only_quality(self):
+        self.pair()
+        result = self.summarize()
+        self.assertEqual(result["status"], "complete", result["reasons"])
+        self.assertTrue(all(run["quality_status"] == "passed" for run in result["runs"]))
+
+    def test_malformed_artifact_mode_never_counts_as_quality_success(self):
+        runs = self.pair()
+        for artifact in ("", " ", False, 0, [], {}, "input/", "input/missing.md"):
+            with self.subTest(artifact=artifact):
+                for _, directory in runs:
+                    self.change_metadata(directory, editable_artifact=artifact)
+                result = self.summarize()
+                self.assertEqual(result["status"], "incomplete")
+                for condition in result["conditions"].values():
+                    self.assertEqual(condition["successful_tasks"], 0)
+                    self.assertEqual(condition["quality_unavailable_runs"], 1)
+
+    def test_specialist_route_cannot_change_within_condition_case_with_identical_bundle(self):
+        bundle = {f"{skill}/SKILL.md": digest(f"Synthetic {skill} instructions")
+                  for skill in ("bandit", "bandit-research", "bandit-scope", "bandit-specify", "bandit-review")}
+        self.add_run("baseline")
+        self.add_run("bandit", arm="bandit-specify", metadata_changes={"instruction_sha256": bundle})
+        self.add_run("baseline", replicate=2)
+        _, directory = self.add_run("bandit", arm="bandit-scope", replicate=2,
+                                    metadata_changes={"instruction_sha256": bundle})
+        result = self.summarize()
+        self.assertEqual(result["status"], "incomplete")
+        for field in ("arm", "invocation"):
+            self.assertIn(f"{field} differs within condition/case", " ".join(result["reasons"]))
+        self.change_metadata(directory, arm="bandit-specify", invocation="$bandit-specify")
+        self.assertEqual(self.summarize()["status"], "complete")
+        self.add_run("bandit", arm="bandit-review", attempt=2,
+                     metadata_changes={"instruction_sha256": bundle})
+        self.assertIn("arm differs within condition/case", " ".join(self.summarize()["reasons"]))
+
+    def test_routes_can_differ_between_cases_and_intentional_conditions(self):
+        self.manifest["conditions"] = ["baseline", "current", "candidate", "upstream"]
+        for replicate in (1, 2):
+            for case, current, candidate in (("scope-case", "bandit-scope", "bandit"),
+                                              ("specify-case", "bandit-specify", "bandit-review")):
+                for condition, arm in (("baseline", "baseline"), ("current", current),
+                                       ("candidate", candidate), ("upstream", "upstream")):
+                    self.add_run(condition, case=case, replicate=replicate, arm=arm)
+        result = self.summarize()
+        self.assertEqual(result["status"], "complete", result["reasons"])
+
+    def test_missing_arm_or_invocation_cannot_make_a_complete_comparison(self):
+        runs = self.pair()
+        originals = [(directory, (directory / "metadata.json").read_text()) for _, directory in runs]
+        for field in ("arm", "invocation"):
+            with self.subTest(field=field):
+                for directory, original in originals:
+                    metadata = json.loads(original)
+                    metadata.pop(field)
+                    (directory / "metadata.json").write_text(json.dumps(metadata))
+                result = self.summarize()
+                self.assertEqual(result["status"], "incomplete")
+                self.assertEqual(sum(f"{field} unavailable" in reason for reason in result["reasons"]), 2)
+
+    def test_malformed_or_mismatched_routes_cannot_make_a_complete_comparison(self):
+        runs = self.pair()
+        routes = [(arm, None) for arm in (None, "", " ", [], {}, "unknown", 1)]
+        routes += [("baseline", invocation) for invocation in ("", "$baseline", "$bandit-scope", [], 1)]
+        routes += [("bandit-scope", invocation) for invocation in (None, "", "$bandit-specify", [], 1)]
+        for arm, invocation in routes:
+            with self.subTest(arm=arm, invocation=invocation):
+                for _, directory in runs:
+                    self.change_metadata(directory, arm=arm, invocation=invocation)
+                result = self.summarize()
+                self.assertEqual(result["status"], "incomplete")
+                self.assertTrue(any("arm unavailable" in reason or "invocation" in reason
+                                    for reason in result["reasons"]))
 
     def test_missing_usage_is_not_zero_and_retains_observed_condition_totals(self):
         self.pair()
