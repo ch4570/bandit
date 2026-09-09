@@ -104,7 +104,8 @@ nonzero for a process failure, an unauthorized workspace change, or an unavailab
 snapshot. A successful process is not a passing planning assessment.
 
 Workspace snapshots record regular-file hashes, permission bits, directory entries,
-and link targets. POSIX hosts use descriptor-relative directory traversal and
+and link targets. The workspace root is recorded as `.` so its permission changes
+are violations too. POSIX hosts use descriptor-relative directory traversal and
 no-follow opens; other hosts record `portable-quiescent` traversal and require
 a workspace without concurrent writers. Observed changes during a snapshot make
 it unavailable. This does not provide an atomic snapshot against arbitrary
