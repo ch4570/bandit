@@ -378,6 +378,99 @@ test('a lock on any specialist prevents the entire package installation', (t) =>
   assert.deepEqual(snapshot(path.dirname(f.dest)), before);
 });
 
+test('lock cleanup failure preserves the apply error and releases every other lock', (t) => {
+  const f = fixture(t);
+  installBundle(f.source, f.dest);
+  const before = snapshot(path.dirname(f.dest));
+  for (const name of SKILL_NAMES) put(path.join(f.source, 'skills', name), 'SKILL.md', `Changed ${name}.`);
+  const blocked = path.join(path.dirname(f.dest), '.bandit-update.bandit.lock');
+  const primary = Object.assign(new Error('Original reviewer write failure'), { code: 'EIO', notes: ['Existing diagnostic note'] });
+  const rename = fs.renameSync, unlink = fs.unlinkSync;
+  const attempted = [];
+  t.mock.method(fs, 'renameSync', (from, to) => {
+    if (to === path.join(path.dirname(f.dest), 'bandit-review', 'SKILL.md')) throw primary;
+    return rename(from, to);
+  });
+  t.mock.method(fs, 'unlinkSync', (file) => {
+    if (file.endsWith('.bandit.lock')) attempted.push(file);
+    if (file === blocked) throw Object.assign(new Error('Lock unlink denied'), { code: 'EACCES' });
+    return unlink(file);
+  });
+  assert.throws(() => installBundle(f.source, f.dest), (error) => {
+    assert.equal(error, primary);
+    assert.equal(error.message, 'Original reviewer write failure');
+    assert.equal(error.code, 'EIO');
+    assert.ok(error.notes.includes('Existing diagnostic note'));
+    assert.ok(error.notes.some((note) => note.includes(blocked) && note.includes('Lock unlink denied')));
+    return true;
+  });
+  assert.equal(attempted[0], blocked);
+  assert.equal(attempted.length, SKILL_NAMES.length + RETIRED_NAMES.length);
+  assert.deepEqual(snapshot(path.dirname(f.dest)), { ...before, [path.basename(blocked)]: '' });
+});
+
+for (const applied of [false, true]) {
+  test(`CLI lock cleanup failure reports ${applied ? 'applied installation' : 'original failure'} in JSON`, (t) => {
+    const f = fixture(t);
+    const blocked = path.join(path.dirname(f.dest), '.bandit-update.bandit.lock');
+    const rename = fs.renameSync, unlink = fs.unlinkSync;
+    if (!applied) t.mock.method(fs, 'renameSync', (from, to) => {
+      if (to === path.join(path.dirname(f.dest), 'bandit-review', 'SKILL.md')) throw new Error('Original reviewer write failure');
+      return rename(from, to);
+    });
+    t.mock.method(fs, 'unlinkSync', (file) => {
+      if (file === blocked) throw Object.assign(new Error('Lock unlink denied'), { code: 'EACCES' });
+      return unlink(file);
+    });
+    const result = cli(['--json'], f);
+    assert.equal(result.code, 2);
+    assert.equal(result.stderr, '');
+    const report = JSON.parse(result.stdout);
+    assert.deepEqual(Object.keys(report).sort(), ['error', 'status']);
+    assert.equal(report.status, 'error');
+    assert.match(report.error, applied ? /Installation changes were applied/ : /Original reviewer write failure/);
+    assert.ok(report.error.includes(blocked));
+    assert.match(report.error, /Lock unlink denied/);
+    assert.deepEqual(fs.readdirSync(path.dirname(f.dest)).filter((name) => name.endsWith('.bandit.lock')), [path.basename(blocked)]);
+    if (applied) assert.deepEqual(installBundle(f.source, f.dest, true).changes, []);
+    else assert.deepEqual(snapshot(path.dirname(f.dest)), { [path.basename(blocked)]: '' });
+  });
+}
+
+for (const replacement of ['file', 'symlink', 'modified']) {
+  test(`lock cleanup preserves a ${replacement} replacement and releases the other locks`, (t) => {
+    const f = fixture(t);
+    const blocked = path.join(path.dirname(f.dest), '.bandit-update.bandit.lock');
+    const foreign = path.join(f.root, 'foreign-lock');
+    const replacementLink = path.join(f.root, 'replacement-lock');
+    put(f.root, 'foreign-lock', 'Another owner.');
+    if (replacement === 'symlink') {
+      try { fs.symlinkSync(foreign, replacementLink, 'file'); }
+      catch (error) { if (error.code === 'EPERM') return t.skip('Symlink privilege unavailable'); throw error; }
+    }
+    const rename = fs.renameSync;
+    t.mock.method(fs, 'renameSync', (from, to) => {
+      const result = rename(from, to);
+      if (to === path.join(f.dest, 'SKILL.md')) {
+        if (replacement !== 'modified') rename(blocked, path.join(f.root, 'acquired-lock'));
+        if (replacement === 'symlink') rename(replacementLink, blocked);
+        else fs.writeFileSync(blocked, replacement === 'file' ? '' : 'Another owner.');
+      }
+      return result;
+    });
+    assert.throws(() => installBundle(f.source, f.dest), (error) => {
+      assert.match(error.message, /Installation changes were applied/);
+      assert.ok(error.message.includes(blocked));
+      return true;
+    });
+    assert.equal(fs.readFileSync(blocked, 'utf8'), replacement === 'file' ? '' : 'Another owner.');
+    assert.equal(fs.lstatSync(blocked).isSymbolicLink(), replacement === 'symlink');
+    assert.equal(fs.readFileSync(foreign, 'utf8'), 'Another owner.');
+    assert.deepEqual(fs.readdirSync(path.dirname(f.dest)).filter((name) => name.endsWith('.bandit.lock')), [path.basename(blocked)]);
+    assert.deepEqual(installBundle(f.source, f.dest, true).changes, []);
+  });
+}
+
 test('an I/O failure in the last skill rolls back updates across earlier skills', (t) => {
   const f = fixture(t);
   installBundle(f.source, f.dest);
