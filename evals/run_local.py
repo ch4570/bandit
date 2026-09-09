@@ -31,6 +31,7 @@ ROUTES = {
     "07-export-review": ["pm-ai-shipping/skills/intended-vs-implemented/SKILL.md"],
     "08-callback-scope": ["pm-product-discovery/skills/prioritize-features/SKILL.md"],
     "09-pickup-prd-rewrite": ["pm-execution/commands/write-prd.md", "pm-execution/skills/create-prd/SKILL.md"],
+    "10-reservation-review": ["pm-ai-shipping/skills/intended-vs-implemented/SKILL.md"],
 }
 
 

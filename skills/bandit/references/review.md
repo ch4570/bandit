@@ -44,6 +44,13 @@ Choose relevant lenses; do not produce a checklist of irrelevant omissions.
 - Are assumptions, recommendations, adopted decisions, and completed checks distinguishable?
 - Does new information invalidate an old conclusion or leave a material claim untested?
 
+When repeated actions are in scope, establish what makes them the same operation:
+actor, target/version, intent, and content where relevant. Check exact retries
+separately from reuse of an identifier with changed content. If applicable sources
+do not decide whether that reuse replaces, conflicts, or starts another operation,
+name the unresolved policy and its consequence; do not silently adopt the
+implementation's behavior or report an already defined rule as missing.
+
 Treat an intentionally deferred capability as a defect only if its absence breaks the included promise.
 Do not report a rule as missing when another applicable source defines it.
 A declared uncertainty is not itself a defect; assess whether the plan makes an unjustified commitment despite it.
