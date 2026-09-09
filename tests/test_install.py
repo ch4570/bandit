@@ -469,6 +469,71 @@ class InstallTests(DistributionTest):
             install.install_bundle(self.source, self.destination)
         self.assertEqual(install.tree_files(self.destination.parent), before)
 
+    def assert_lock_fstat_failure(self, *, persistent=False, replaced=False):
+        install.install_bundle(self.source, self.destination)
+        before = install.tree_files(self.destination.parent)
+        self.write("SKILL.md", "updated core")
+        blocked = self.destination.parent / ".bandit-review.bandit.lock"
+        saved = self.area / "acquired-lock"
+        primary = OSError("original lock fstat failed")
+        retry_error = PermissionError("lock fstat retry denied")
+        open_file, fstat, close = install.os.open, install.os.fstat, install.os.close
+        descriptor, attempts, closed = None, 0, False
+
+        def capture_descriptor(path, *args, **kwargs):
+            nonlocal descriptor
+            result = open_file(path, *args, **kwargs)
+            if path == blocked:
+                descriptor = result
+            return result
+
+        def fail_fstat(fd):
+            nonlocal attempts
+            if fd == descriptor:
+                attempts += 1
+                if attempts == 1:
+                    raise primary
+                if persistent:
+                    raise retry_error
+            return fstat(fd)
+
+        def close_and_replace(fd):
+            nonlocal closed
+            result = close(fd)
+            if fd == descriptor:
+                closed = True
+                if replaced:
+                    blocked.rename(saved)
+                    blocked.write_bytes(b"")
+            return result
+
+        with patch.object(install.os, "open", side_effect=capture_descriptor), patch.object(install.os, "fstat", side_effect=fail_fstat), patch.object(install.os, "close", side_effect=close_and_replace), self.assertRaises(OSError) as failure:
+            install.install_bundle(self.source, self.destination)
+        self.assertIs(failure.exception, primary)
+        if persistent or replaced:
+            self.assertIn(str(blocked), "\n".join(getattr(primary, "__notes__", [])))
+        self.assertEqual(attempts, 2, "ownership is retried exactly once through the open descriptor")
+        self.assertTrue(closed)
+        with self.assertRaises(OSError):
+            fstat(descriptor)
+        self.assertEqual(install.tree_files(self.destination.parent), {**before, blocked.name: b""} if persistent or replaced else before)
+        if replaced:
+            self.assertEqual(saved.read_bytes(), b"")
+        if not persistent and not replaced:
+            self.assertEqual(install.install_bundle(self.source, self.destination)["status"], "updated")
+
+    def test_transient_lock_fstat_failure_releases_all_acquired_locks(self):
+        self.assert_lock_fstat_failure()
+
+    def test_persistent_lock_fstat_failure_reports_uncertain_lock_and_releases_other_locks(self):
+        self.assert_lock_fstat_failure(persistent=True)
+
+    def test_transient_lock_fstat_failure_preserves_foreign_replacement(self):
+        self.assert_lock_fstat_failure(replaced=True)
+
+    def test_persistent_lock_fstat_failure_preserves_foreign_replacement(self):
+        self.assert_lock_fstat_failure(persistent=True, replaced=True)
+
     def test_lock_cleanup_failure_preserves_apply_error_and_releases_other_locks(self):
         install.install_bundle(self.source, self.destination)
         before = install.tree_files(self.destination.parent)
