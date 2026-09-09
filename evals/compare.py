@@ -20,6 +20,7 @@ USAGE_FIELDS = ("input_tokens", "cached_input_tokens", "output_tokens", "total_t
                 "cache_write_input_tokens", "reasoning_output_tokens")
 SETTINGS_FIELDS = ("model", "reasoning_effort", "timeout_seconds", "max_output_words",
                    "web_search", "multi_agent")
+SPECIALISTS = ("bandit-research", "bandit-scope", "bandit-specify", "bandit-review")
 
 
 def _text(value) -> bool:
@@ -78,6 +79,9 @@ def _manifest_runs(manifest: dict, base_dir: Path) -> tuple[list[str], list[tupl
 
 
 def _quality(entry: dict, metadata: dict, directory: Path, reasons: list[str]) -> str:
+    if "editable_artifact" not in metadata:
+        reasons.append("editable_artifact unavailable; answer-only runs must record null")
+        return "unavailable"
     grade = entry.get("quality")
     if not isinstance(grade, dict) or grade.get("status") not in ("passed", "failed"):
         reasons.append("quality grade unavailable")
@@ -120,6 +124,13 @@ def _read_run(entry: dict, directory: Path, pricing: dict | None) -> tuple[dict,
         actual = metadata.get(key, metadata.get("arm") if key == "condition" else 1 if key in ("replicate", "attempt") else None)
         if actual != entry[key]:
             reasons.append(f"manifest {key} does not match metadata")
+    arm = metadata.get("arm")
+    if not _text(arm) or arm not in ("baseline", "upstream", "bandit", *SPECIALISTS):
+        reasons.append("arm unavailable or unsupported")
+    if "invocation" not in metadata:
+        reasons.append("invocation unavailable")
+    elif metadata["invocation"] != (f"${arm}" if arm in SPECIALISTS else None):
+        reasons.append("invocation does not match arm")
     settings = metadata.get("execution_settings")
     if not isinstance(settings, dict):
         reasons.append("execution_settings unavailable")
@@ -175,6 +186,7 @@ def _read_run(entry: dict, directory: Path, pricing: dict | None) -> tuple[dict,
               or metadata.get("integrity_status") == "failed" or quality == "failed")
     result = {key: entry[key] for key in ("id", "condition", "case", "replicate", "attempt")}
     result.update(directory=str(directory), quality_status=quality, quality=entry.get("quality"),
+                  arm=arm, invocation=metadata.get("invocation"),
                   successful=successful, failed=failed, elapsed_seconds=elapsed,
                   process_exit_code=metadata.get("process_exit_code"), exit_code=metadata.get("exit_code"),
                   integrity_status=metadata.get("integrity_status"), execution_settings=settings,
@@ -226,7 +238,7 @@ def summarize_comparison(manifest: dict, base_dir: Path, pricing: dict | None = 
     conditions, entries = _manifest_runs(manifest, Path(base_dir).resolve())
     reasons, runs = [], []
     seen_ids, seen_directories, seen_cells = set(), set(), set()
-    per_case, per_instruction, attempts = {}, {}, {}
+    per_case, per_route, attempts = {}, {}, {}
     cells = {condition: set() for condition in conditions}
     for entry, directory in entries:
         run_id = entry["id"]
@@ -253,9 +265,11 @@ def summarize_comparison(manifest: dict, base_dir: Path, pricing: dict | None = 
             if value != previous[key]:
                 reasons.append(f"{run_id}: {key} differs within case {entry['case']}")
         key = (entry["condition"], entry["case"])
-        instruction = metadata.get("instruction_sha256")
-        if instruction != per_instruction.setdefault(key, instruction):
-            reasons.append(f"{run_id}: instruction_sha256 differs within condition/case")
+        route = {field: metadata.get(field) for field in ("arm", "invocation", "instruction_sha256")}
+        previous = per_route.setdefault(key, route)
+        for field, value in route.items():
+            if value != previous[field]:
+                reasons.append(f"{run_id}: {field} differs within condition/case")
     for (condition, case, replicate), indices in attempts.items():
         previous = 0
         for current in sorted(indices):

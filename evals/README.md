@@ -122,7 +122,8 @@ nonzero for a process failure, an unauthorized workspace change, or an unavailab
 snapshot. A successful process is not a passing planning assessment.
 
 Workspace snapshots record regular-file hashes, permission bits, directory entries,
-and link targets. POSIX hosts use descriptor-relative directory traversal and
+and link targets. The workspace root is recorded as `.` so its permission changes
+are violations too. POSIX hosts use descriptor-relative directory traversal and
 no-follow opens; other hosts record `portable-quiescent` traversal and require
 a workspace without concurrent writers. Observed changes during a snapshot make
 it unavailable. This does not provide an atomic snapshot against arbitrary
@@ -222,6 +223,13 @@ example above alone is intentionally incomplete. Set quality to `unavailable`
 when it has not been assessed; process success is not a grade. Add
 `quality.artifact_sha256` for the named rewritten artifact. Relative run paths
 are resolved from the manifest's directory.
+Run metadata must explicitly record `editable_artifact`: `null` for answer-only
+tasks, or the relative `input/` path for rewrites. Missing artifact mode leaves
+quality unavailable. Metadata must also record a supported runner `arm` and its
+`invocation` (the exact `$bandit-*` command for specialists, otherwise `null`).
+The arm, invocation, and instruction hashes must remain the same across
+replicates and retries within each condition/case; different cases and
+intentional conditions may use different routes.
 
 ```sh
 python3 evals/compare.py /absolute/path/to/comparison.json --output /absolute/path/to/new-summary.json

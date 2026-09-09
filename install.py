@@ -281,7 +281,8 @@ def _install_plans(planner, dry_run: bool = False) -> list[dict]:
         return [report for report, _, _ in plans]
     if all(not report["changes"] and not report["marker_change"] for report, _, _ in plans):
         return [_completed_report(report) for report, _, _ in plans]
-    locks: list[Path] = []
+    locks: list[tuple[Path, os.stat_result]] = []
+    failure: BaseException | None = None
     try:
         destinations = sorted((Path(report["destination"]) for report, _, _ in plans), key=lambda item: canonical_name(str(item)))
         for destination in destinations:
@@ -293,8 +294,10 @@ def _install_plans(planner, dry_run: bool = False) -> list[dict]:
                 lock_fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
             except FileExistsError as exc:
                 raise InstallError(f"Install lock exists: {lock}; retry after the other installer finishes") from exc
-            os.close(lock_fd)
-            locks.append(lock)
+            try:
+                locks.append((lock, os.fstat(lock_fd)))
+            finally:
+                os.close(lock_fd)
         expected: dict[Path, bytes | None] = {}
         plans = planner(expected)
         # Validate against the bytes approved by preflight, not a later snapshot.
@@ -325,13 +328,13 @@ def _install_plans(planner, dry_run: bool = False) -> list[dict]:
                 else:
                     atomic_write(target, desired)
                 applied.append((target, desired))
-        except (OSError, InstallError) as failure:
+        except (OSError, InstallError) as apply_error:
             for target, installed in reversed(applied):
                 try:
                     check_path(target)
                     current = regular_bytes(target) if target.exists() else None
                     if current != installed:
-                        failure.add_note(f"Recovery preserved a concurrent change: {target}")
+                        apply_error.add_note(f"Recovery preserved a concurrent change: {target}")
                         continue
                     old = backups[target]
                     if old is None:
@@ -339,15 +342,37 @@ def _install_plans(planner, dry_run: bool = False) -> list[dict]:
                     else:
                         atomic_write(target, old)
                 except (OSError, InstallError) as recovery_error:
-                    failure.add_note(f"Recovery could not restore {target}: {recovery_error}")
+                    apply_error.add_note(f"Recovery could not restore {target}: {recovery_error}")
             raise
         for report, _, _ in plans:
             if report.get("retired") and report["managed"]:
                 marker_before = backups[Path(report["destination"]) / MARKER]
                 _prune_retired_directories(report, json.loads(marker_before)["files"])
+    except BaseException as error:
+        failure = error
+        raise
     finally:
-        for lock in reversed(locks):
-            lock.unlink()
+        cleanup_errors = []
+        for lock, acquired in reversed(locks):
+            try:
+                check_path(lock)
+                try:
+                    current = lock.lstat()
+                except FileNotFoundError:
+                    continue
+                if (not stat.S_ISREG(current.st_mode) or current.st_dev != acquired.st_dev
+                        or current.st_ino != acquired.st_ino or current.st_size != 0
+                        or current.st_mtime_ns != acquired.st_mtime_ns):
+                    raise InstallError("Lock changed during installation; preserving it")
+                lock.unlink(missing_ok=True)
+            except (OSError, InstallError) as cleanup_error:
+                cleanup_errors.append(f"Install lock cleanup could not release {lock}: {cleanup_error}")
+        if cleanup_errors:
+            if failure is not None:
+                for note in cleanup_errors:
+                    failure.add_note(note)
+            else:
+                raise InstallError("Installation changes were applied, but install lock cleanup failed:\n" + "\n".join(cleanup_errors))
     return [_completed_report(report) for report, _, _ in plans]
 
 

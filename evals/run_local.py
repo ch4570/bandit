@@ -55,7 +55,7 @@ def workspace_snapshot(directory: Path) -> dict:
             mode = stat.S_IMODE(info.st_mode)
             if (stat.S_ISLNK(info.st_mode)
                     or getattr(info, "st_file_attributes", 0) & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0x400)):
-                entries[relative] = {"kind": "symlink", "mode": mode, "target": os.readlink(path, dir_fd=parent_fd)}
+                entries[relative or "."] = {"kind": "symlink", "mode": mode, "target": os.readlink(path, dir_fd=parent_fd)}
             elif stat.S_ISREG(info.st_mode) or stat.S_ISDIR(info.st_mode) and descriptor_paths:
                 flags = (os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0) | getattr(os, "O_NONBLOCK", 0)
                          | getattr(os, "O_BINARY", 0))
@@ -66,8 +66,7 @@ def workspace_snapshot(directory: Path) -> dict:
                     if identity(os.fstat(fd)) != identity(info):
                         raise OSError("Path changed while opening snapshot entry")
                     if stat.S_ISDIR(info.st_mode):
-                        if relative:
-                            entries[relative] = {"kind": "directory", "mode": mode}
+                        entries[relative or "."] = {"kind": "directory", "mode": mode}
                         with os.scandir(fd) as children:
                             names = sorted(child.name for child in children)
                         for name in names:
@@ -75,15 +74,14 @@ def workspace_snapshot(directory: Path) -> dict:
                     else:
                         with os.fdopen(fd, "rb", closefd=False) as stream:
                             digest = hashlib.file_digest(stream, "sha256").hexdigest()
-                        entries[relative] = {"kind": "file", "mode": mode, "sha256": digest}
+                        entries[relative or "."] = {"kind": "file", "mode": mode, "sha256": digest}
                     if identity(os.fstat(fd)) != identity(info):
                         raise OSError("Entry changed while taking snapshot")
                 finally:
                     os.close(fd)
             elif stat.S_ISDIR(info.st_mode):
                 # Hosts without directory descriptors require a quiescent workspace.
-                if relative:
-                    entries[relative] = {"kind": "directory", "mode": mode}
+                entries[relative or "."] = {"kind": "directory", "mode": mode}
                 for child in sorted(Path(path).iterdir()):
                     if identity(os.stat(path, follow_symlinks=False)) != identity(info):
                         raise OSError("Directory changed while taking snapshot")
@@ -91,12 +89,12 @@ def workspace_snapshot(directory: Path) -> dict:
                 if identity(os.stat(path, follow_symlinks=False)) != identity(info):
                     raise OSError("Directory changed while taking snapshot")
             else:
-                entries[relative] = {"kind": "special", "mode": mode}
+                entries[relative or "."] = {"kind": "special", "mode": mode}
         except OSError as exc:
             errors.append({"path": relative or ".", "error": str(exc)})
 
     visit(directory)
-    if "" in entries:
+    if "." in entries and entries["."]["kind"] != "directory":
         errors.append({"path": ".", "error": "Workspace root is no longer a directory"})
     return {"entries": entries, "errors": errors,
             "traversal": "descriptor-relative" if descriptor_paths else "portable-quiescent"}
