@@ -142,6 +142,33 @@ class EvalIntegrityTests(unittest.TestCase):
         self.assertEqual(metadata["instruction_sha256"]["bandit-specify/SKILL.md"],
                          hashlib.sha256(entrypoint.read_bytes()).hexdigest())
 
+    def test_missing_selected_skill_fails_before_model_execution_or_run_creation(self):
+        for arm in ("bandit", "bandit-research", "bandit-scope", "bandit-specify", "bandit-review"):
+            for kind in ("empty", "individual-folder", "wrong-sibling", "directory-entrypoint"):
+                with self.subTest(arm=arm, kind=kind):
+                    frozen = self.area / f"{arm}-{kind}"
+                    frozen.mkdir()
+                    if kind == "individual-folder":
+                        (frozen / "SKILL.md").write_text("Synthetic individual skill folder.\n")
+                    elif kind == "wrong-sibling":
+                        (frozen / "other-skill").mkdir()
+                        (frozen / "other-skill/SKILL.md").write_text("Synthetic unrelated skill.\n")
+                    elif kind == "directory-entrypoint":
+                        (frozen / arm / "SKILL.md").mkdir(parents=True)
+                    output = self.area / f"results-{arm}-{kind}"
+                    with patch.object(runner.subprocess, "check_output", return_value="codex synthetic-test-version\n"), \
+                            patch.object(runner.subprocess, "run", return_value=subprocess.CompletedProcess([], 0)) as launch, \
+                            contextlib.redirect_stdout(io.StringIO()):
+                        with self.assertRaisesRegex(ValueError, "SKILL.md"):
+                            runner.run_case(self.case, arm, output, None, skills_dir=frozen)
+                    launch.assert_not_called()
+                    self.assertFalse(output.exists())
+
+    def test_baseline_does_not_require_a_skill_bundle(self):
+        code, metadata, _ = self.execute(skills_dir=self.area / "absent-skills")
+        self.assertEqual(code, 0)
+        self.assertEqual(metadata["instruction_sha256"], {})
+
     def test_only_the_allowed_existing_prd_may_be_rewritten(self):
         revised = b"# Revised synthetic PRD\nA clearer action.\n"
         code, metadata, run = self.execute(lambda workspace: (workspace / "input/docs/PRD.md").write_bytes(revised),

@@ -50,7 +50,7 @@ class EvalComparisonTests(unittest.TestCase):
                     "execution_settings": dict(self.settings), "codex_version": "codex synthetic-test-version",
                     "runner_sha256": digest("Synthetic frozen runner source"),
                     "input_sha256": {"request.md": digest("Synthetic task input")},
-                    "instruction_sha256": {} if condition == "baseline" else {"SKILL.md": digest("Synthetic instructions")},
+                    "instruction_sha256": {} if arm == "baseline" else {f"{arm}/SKILL.md": digest("Synthetic instructions")},
                     "editable_artifact": None, "input_after_sha256": {"request.md": digest("Synthetic task input")},
                     "exit_code": exit_code, "process_exit_code": exit_code, "integrity_status": integrity,
                     "elapsed_seconds": 10}
@@ -337,6 +337,34 @@ class EvalComparisonTests(unittest.TestCase):
         self.assertIsNone(result["conditions"]["baseline"]["elapsed_seconds"])
         self.assertIsNone(result["conditions"]["baseline"]["observed_elapsed_seconds"])
 
+    def test_selected_instruction_entrypoint_is_required_for_skill_arms(self):
+        self.add_run("baseline")
+        _, directory = self.add_run("bandit")
+        for arm in ("bandit", "bandit-research", "bandit-scope", "bandit-specify", "bandit-review"):
+            invocation = f"${arm}" if arm != "bandit" else None
+            for inventory in ({}, {"SKILL.md": digest("Wrong-level entrypoint")},
+                              {"other-skill/SKILL.md": digest("Wrong skill")},
+                              {f"{arm}/references/guide.md": digest("Missing entrypoint")}):
+                with self.subTest(arm=arm, inventory=inventory):
+                    self.change_metadata(directory, arm=arm, invocation=invocation, instruction_sha256=inventory)
+                    result = self.summarize()
+                    self.assertEqual(result["status"], "incomplete")
+                    self.assertTrue(any("instruction_sha256" in reason for reason in result["reasons"]))
+            self.change_metadata(directory, instruction_sha256={f"{arm}/SKILL.md": digest("Selected entrypoint")})
+            result = self.summarize()
+            self.assertEqual(result["status"], "complete", result["reasons"])
+
+    def test_upstream_needs_nonempty_instructions_while_baseline_allows_empty(self):
+        self.add_run("baseline")
+        _, directory = self.add_run("bandit", arm="upstream", metadata_changes={"instruction_sha256": {}})
+        result = self.summarize()
+        self.assertEqual(result["status"], "incomplete")
+        self.assertIn("instruction_sha256 unavailable or invalid", " ".join(result["reasons"]))
+        self.assertEqual(result["runs"][0]["reasons"], [])
+        self.change_metadata(directory, instruction_sha256={"upstream/skills/create-prd/SKILL.md": digest("Upstream skill")})
+        result = self.summarize()
+        self.assertEqual(result["status"], "complete", result["reasons"])
+
     def test_multi_agent_usage_is_never_assumed_to_cover_children(self):
         self.pair(metadata_changes={"execution_settings": {**self.settings, "multi_agent": True}})
         result = self.summarize()
@@ -517,6 +545,61 @@ class EvalComparisonTests(unittest.TestCase):
                                 cwd=ROOT, capture_output=True, text=True)
         self.assertEqual(result.returncode, 2)
         self.assertIn("outside every run directory", result.stderr)
+        self.assertFalse(output.exists())
+
+    def test_nonfinite_metadata_is_unavailable_without_losing_the_valid_companion(self):
+        (_, directory), _ = self.pair()
+        metadata_path = directory / "metadata.json"
+        original = metadata_path.read_text()
+        manifest_path = self.area / "comparison.json"
+        manifest_path.write_text(json.dumps(self.manifest))
+        for token in ("NaN", "Infinity", "-Infinity", "1e9999", "-1e9999"):
+            with self.subTest(token=token):
+                metadata_path.write_text(original.replace('"timeout_seconds": 60', f'"timeout_seconds": {token}'))
+                raw = metadata_path.read_bytes()
+                output = self.area / f"nonfinite-{token}.json"
+                command = [sys.executable, str(ROOT / "evals/compare.py"), str(manifest_path), "--output", str(output)]
+                completed = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
+                self.assertEqual(completed.returncode, 0, completed.stderr)
+                result = json.loads(output.read_text())
+                self.assertEqual(result["status"], "incomplete")
+                self.assertIn("metadata unavailable", " ".join(result["reasons"]))
+                self.assertEqual(result["conditions"]["baseline"]["successful_tasks"], 0)
+                self.assertEqual(result["conditions"]["baseline"]["quality_unavailable_runs"], 1)
+                self.assertEqual(result["conditions"]["bandit"]["successful_tasks"], 1)
+                self.assertEqual(result["conditions"]["bandit"]["usage"]["total_tokens"], 120)
+                json.dumps(result, allow_nan=False)
+                self.assertEqual(metadata_path.read_bytes(), raw)
+
+    def test_nonfinite_manifest_or_pricing_does_not_reserve_the_output_path(self):
+        self.pair()
+        manifest_path = self.area / "comparison.json"
+        pricing_path = self.area / "pricing.json"
+        for source in ("manifest", "pricing"):
+            for token in ("NaN", "Infinity", "-Infinity", "1e9999", "-1e9999"):
+                with self.subTest(source=source, token=token):
+                    manifest_path.write_text(json.dumps(self.manifest))
+                    pricing_path.write_text(json.dumps(self.pricing))
+                    target = manifest_path if source == "manifest" else pricing_path
+                    content = target.read_text()
+                    target.write_text(content[:-1] + f', "invalid_extra": {token}' + "}")
+                    output = self.area / f"{source}-{token}.json"
+                    command = [sys.executable, str(ROOT / "evals/compare.py"), str(manifest_path),
+                               "--pricing", str(pricing_path), "--output", str(output)]
+                    completed = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
+                    self.assertEqual(completed.returncode, 2, completed.stderr)
+                    self.assertFalse(output.exists())
+
+    def test_serialization_failure_does_not_reserve_the_output_path(self):
+        self.pair(metadata_changes={"elapsed_seconds": 1e308})
+        self.pair(replicate=2, metadata_changes={"elapsed_seconds": 1e308})
+        manifest_path = self.area / "comparison.json"
+        manifest_path.write_text(json.dumps(self.manifest))
+        output = self.area / "unserializable-summary.json"
+        command = [sys.executable, str(ROOT / "evals/compare.py"), str(manifest_path), "--output", str(output)]
+        completed = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
+        self.assertEqual(completed.returncode, 2)
+        self.assertIn("JSON compliant", completed.stderr)
         self.assertFalse(output.exists())
 
 
