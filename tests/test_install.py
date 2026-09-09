@@ -150,12 +150,12 @@ class InstallTests(DistributionTest):
         original = install.atomic_write
         failed = False
 
-        def fail_once(path, data):
+        def fail_once(path, data, **kwargs):
             nonlocal failed
             if path.name == "rules.md" and not failed:
                 failed = True
                 raise OSError("simulated disk failure")
-            return original(path, data)
+            return original(path, data, **kwargs)
 
         with patch.object(install, "atomic_write", side_effect=fail_once), self.assertRaisesRegex(OSError, "disk failure"):
             install.install_into(self.source, self.destination)
@@ -169,9 +169,9 @@ class InstallTests(DistributionTest):
         original = install.atomic_write
         edited = False
 
-        def edit_next_file(path, data):
+        def edit_next_file(path, data, **kwargs):
             nonlocal edited
-            result = original(path, data)
+            result = original(path, data, **kwargs)
             if path.name == "SKILL.md" and not edited:
                 edited = True
                 (self.destination / "references/rules.md").write_text("concurrent user edit")
@@ -205,6 +205,7 @@ class InstallTests(DistributionTest):
     def test_bundle_installs_every_skill_with_its_own_ownership_and_is_idempotent(self):
         report = install.install_bundle(self.source, self.destination)
         self.assertEqual(report["status"], "installed")
+        self.assertEqual(sorted(path.name for path in self.destination.parent.iterdir()), sorted(install.SKILL_NAMES))
         self.assertEqual(report["destination"], str(self.destination))
         self.assertEqual(report["commands"], ["$" + name for name in install.SKILL_NAMES])
         for name in install.SKILL_NAMES:
@@ -264,12 +265,12 @@ class InstallTests(DistributionTest):
         original = install.atomic_write
         failed = False
 
-        def fail_later(path, data):
+        def fail_later(path, data, **kwargs):
             nonlocal failed
             if "bandit-review" in path.parts and path.name == "rules.md" and not failed:
                 failed = True
                 raise OSError("simulated later-skill I/O failure")
-            return original(path, data)
+            return original(path, data, **kwargs)
 
         with patch.object(install, "atomic_write", side_effect=fail_later), self.assertRaisesRegex(OSError, "later-skill"):
             install.install_bundle(self.source, self.destination)
@@ -284,9 +285,9 @@ class InstallTests(DistributionTest):
         original = install.atomic_write
         edited = False
 
-        def edit_later(path, data):
+        def edit_later(path, data, **kwargs):
             nonlocal edited
-            result = original(path, data)
+            result = original(path, data, **kwargs)
             if path == self.destination / "SKILL.md" and not edited:
                 edited = True
                 later.write_text("concurrent specialist edit")
@@ -296,6 +297,75 @@ class InstallTests(DistributionTest):
             install.install_bundle(self.source, self.destination)
         self.assertEqual(install.tree_files(self.destination), before_core)
         self.assertEqual(later.read_text(), "concurrent specialist edit")
+
+    def test_edit_during_later_skill_preflight_cannot_become_an_overwrite_baseline(self):
+        install.install_bundle(self.source, self.destination)
+        self.write("SKILL.md", "updated core")
+        before = install.tree_files(self.destination.parent)
+        later_source = self.source / "skills/bandit-review/SKILL.md"
+        original = install.regular_bytes
+        reads = 0
+
+        def edit_during_preflight(path):
+            nonlocal reads
+            result = original(path)
+            if path == later_source:
+                reads += 1
+                if reads == 2:
+                    (self.destination / "SKILL.md").write_text("concurrent core edit")
+            return result
+
+        with patch.object(install, "regular_bytes", side_effect=edit_during_preflight), self.assertRaisesRegex(install.InstallError, "changed during"):
+            install.install_bundle(self.source, self.destination)
+        self.assertEqual(reads, 2)
+        self.assertEqual(install.tree_files(self.destination.parent), {**before, "bandit/SKILL.md": b"concurrent core edit"})
+
+    def test_edit_during_replacement_staging_is_preserved_and_prior_changes_are_rolled_back(self):
+        install.install_bundle(self.source, self.destination)
+        self.write("SKILL.md", "updated core")
+        self.write_skill("bandit-review", "SKILL.md", "updated specialist")
+        before = install.tree_files(self.destination.parent)
+        target = self.destination.parent / "bandit-review/SKILL.md"
+        original = install.tempfile.mkstemp
+        edited = False
+
+        def edit_while_staging(*args, **kwargs):
+            nonlocal edited
+            result = original(*args, **kwargs)
+            if kwargs.get("dir") == target.parent and not edited:
+                edited = True
+                target.write_text("edit during staging")
+            return result
+
+        with patch.object(install.tempfile, "mkstemp", side_effect=edit_while_staging), self.assertRaisesRegex(install.InstallError, "changed during"):
+            install.install_bundle(self.source, self.destination)
+        self.assertTrue(edited)
+        self.assertEqual(install.tree_files(self.destination.parent), {**before, "bandit-review/SKILL.md": b"edit during staging"})
+
+    def test_edit_during_rollback_preserves_that_file_and_restores_other_files(self):
+        install.install_into(self.source, self.destination)
+        before = install.tree_files(self.destination)
+        self.write("SKILL.md", "updated core")
+        self.write("references/rules.md", "updated rules")
+        target = self.destination / "references/rules.md"
+        original = install.atomic_write
+        failed = False
+        edited = False
+
+        def fail_then_edit_rollback(path, data, **kwargs):
+            nonlocal failed, edited
+            if path == self.destination / install.MARKER and not failed:
+                failed = True
+                raise OSError("simulated marker failure")
+            if failed and path == target and not edited:
+                edited = True
+                target.write_text("edit during rollback")
+            return original(path, data, **kwargs)
+
+        with patch.object(install, "atomic_write", side_effect=fail_then_edit_rollback), self.assertRaisesRegex(OSError, "marker failure"):
+            install.install_into(self.source, self.destination)
+        self.assertTrue(edited)
+        self.assertEqual(install.tree_files(self.destination), {**before, "references/rules.md": b"edit during rollback"})
 
     def test_custom_core_destination_keeps_specialists_as_fixed_siblings(self):
         destination = self.area / "custom skills/core-planner"
@@ -402,13 +472,13 @@ class InstallTests(DistributionTest):
         original = install.atomic_write
         failed = False
 
-        def fail_marker(path, data):
+        def fail_marker(path, data, **kwargs):
             nonlocal failed
             if path == self.destination / install.MARKER and not failed:
                 failed = True
                 self.assertTrue(all(not (target / "SKILL.md").exists() for target in old_targets))
                 raise OSError("simulated migration marker failure")
-            return original(path, data)
+            return original(path, data, **kwargs)
 
         with patch.object(install, "atomic_write", side_effect=fail_marker), self.assertRaisesRegex(OSError, "migration marker"):
             install.install_bundle(self.source, self.destination)
@@ -422,13 +492,13 @@ class InstallTests(DistributionTest):
         original = install.atomic_write
         failed = False
 
-        def fail_after_edit(path, data):
+        def fail_after_edit(path, data, **kwargs):
             nonlocal failed
             if path == self.destination / install.MARKER and not failed:
                 failed = True
                 (target / "SKILL.md").write_text("concurrent replacement")
                 raise OSError("migration failure after concurrent edit")
-            return original(path, data)
+            return original(path, data, **kwargs)
 
         with patch.object(install, "atomic_write", side_effect=fail_after_edit), self.assertRaisesRegex(OSError, "migration failure"):
             install.install_bundle(self.source, self.destination)
@@ -445,6 +515,111 @@ class InstallTests(DistributionTest):
             install.install_bundle(self.source, self.destination)
         self.assertEqual(install.tree_files(self.destination.parent), before)
         self.assertFalse(self.destination.exists())
+
+    def test_retired_file_edit_after_preflight_stops_every_update_and_removal(self):
+        target = self.old_install("bandit-decide")
+        self.old_install("bandit-update")
+        before = install.tree_files(self.destination.parent)
+        later_marker = self.destination.parent / "bandit-update" / install.MARKER
+        original = install.regular_bytes
+        reads = 0
+
+        def edit_after_preflight(path):
+            nonlocal reads
+            result = original(path)
+            if path == later_marker:
+                reads += 1
+                if reads == 2:
+                    (target / "SKILL.md").write_text("edit before retirement")
+            return result
+
+        with patch.object(install, "regular_bytes", side_effect=edit_after_preflight), self.assertRaisesRegex(install.InstallError, "changed during"):
+            install.install_bundle(self.source, self.destination)
+        self.assertEqual(reads, 2)
+        self.assertEqual(install.tree_files(self.destination.parent), {**before, "bandit-decide/SKILL.md": b"edit before retirement"})
+        for name in install.SKILL_NAMES:
+            self.assertFalse((self.destination.parent / name).exists())
+
+    def test_lock_cleanup_does_not_follow_a_replaced_parent_into_unrelated_locks(self):
+        parent = self.destination.parent
+        moved = self.area / "moved-skills"
+        unrelated = self.area / "unrelated-lock-owner"
+        unrelated.mkdir()
+        alias = self.area / "prepared-parent-link"
+        names = [f".{name}.bandit.lock" for name in (*install.SKILL_NAMES, *install.RETIRED_NAMES)]
+        for name in names:
+            (unrelated / name).write_text(f"Another installation owns {name}.")
+        self.link(alias, unrelated, directory=True)
+        before = install.tree_files(unrelated)
+        original = install.atomic_write
+        injected = False
+
+        def replace_parent(path, data, **kwargs):
+            nonlocal injected
+            if not injected:
+                injected = True
+                parent.rename(moved)
+                alias.rename(parent)
+            return original(path, data, **kwargs)
+
+        with patch.object(install, "atomic_write", side_effect=replace_parent), self.assertRaisesRegex(install.InstallError, "Symlink or junction"):
+            install.install_bundle(self.source, self.destination)
+        self.assertTrue(injected)
+        self.assertEqual(install.tree_files(unrelated), before, "Cleanup must preserve every unrelated lock byte")
+        for name in names:
+            self.assertEqual((moved / name).read_bytes(), b"")
+
+    def test_lock_cleanup_preserves_a_replacement_empty_file_with_a_different_identity(self):
+        parent = self.destination.parent
+        lock = parent / ".bandit-update.bandit.lock"
+        saved = self.area / "original-acquired-lock"
+        original = install.atomic_write
+        injected = False
+        replacement = None
+
+        def replace_lock(path, data, **kwargs):
+            nonlocal injected, replacement
+            if not injected:
+                injected = True
+                lock.rename(saved)
+                lock.write_bytes(b"")
+                replacement = lock.stat()
+            return original(path, data, **kwargs)
+
+        with patch.object(install, "atomic_write", side_effect=replace_lock):
+            install.install_bundle(self.source, self.destination)
+        self.assertTrue(injected)
+        self.assertNotEqual(replacement.st_ino, saved.stat().st_ino)
+        self.assertTrue(lock.exists(), "Another owner's replacement lock must survive")
+        self.assertEqual(lock.stat().st_ino, replacement.st_ino)
+        self.assertEqual(lock.read_bytes(), b"")
+        self.assertEqual(sorted(path.name for path in parent.glob("*.bandit.lock")), [lock.name])
+        self.assertEqual(saved.read_bytes(), b"")
+
+    def test_a_removed_lock_does_not_strand_other_acquired_locks(self):
+        parent = self.destination.parent
+        lock = parent / ".bandit-update.bandit.lock"
+        original = install.atomic_write
+        injected = False
+        error = None
+
+        def remove_lock(path, data, **kwargs):
+            nonlocal injected
+            if not injected:
+                injected = True
+                lock.unlink()
+            return original(path, data, **kwargs)
+
+        with patch.object(install, "atomic_write", side_effect=remove_lock):
+            try:
+                install.install_bundle(self.source, self.destination)
+            except (OSError, install.InstallError) as exc:
+                error = exc
+        self.assertTrue(injected)
+        self.assertEqual(sorted(path.name for path in parent.glob("*.bandit.lock")), [],
+                         f"A removed lock must not strand unaffected owned locks: {error}")
+        for name in install.SKILL_NAMES:
+            self.assertTrue((parent / name / install.MARKER).is_file())
 
     def test_custom_core_destination_cannot_use_a_retired_name(self):
         with self.assertRaisesRegex(install.InstallError, "collides"):
