@@ -1,0 +1,57 @@
+# Blind assessment
+
+Assessed only the four supplied raw fixtures, `criteria.md`, and anonymous answers A–D. All six original criteria are required. No extra requirements for headings, wording, numerical thresholds, or test mechanism were applied.
+
+**Result: 4 of 4 answers passed; 24 of 24 criterion assessments passed.** No material criterion failures or fabricated demand claims were found in the supplied answers.
+
+## A — passed
+
+SHA-256: `d4e2c0bdb1a6c35820d933305a8deb9c2271f5e048b595b348d9c1a13388173a`
+
+- **C1 — passed.** Lines 1 and 14–38 present an assessment and a proposed test, with conditional future decisions. Line 12 excludes the room notice. The answer contains no observed departure into execution, a product specification, or an open-ended program. This judgment concerns the supplied answer; actual tool use is not observable here.
+- **C2 — passed.** Lines 7–9 retain five of eight intercept participants, three of those five, nine incidents across five of twelve nights, and a median restricted to six timed incidents. The voluntary poll has 31 respondents, unknown exposure, separate questions, mixed membership, and overlap with the intercepts. None of the prohibited denominator conversions occurs.
+- **C3 — passed.** Lines 7 and 10 distinguish retrospective reports from the naming hypothesis and Len's competing rushed-return explanation. Lines 12 and 16 turn those uncertainties into a narrow question about unfamiliar volunteers interpreting locations, conditional on location accuracy.
+- **C4 — passed.** Lines 18–30 specify a paper comparison using six retired props, two facilitators, two preparation hours, £20, consent, anonymous handwriting, unchanged production stock/signs, and no additional recruitment. Two introductory minutes plus six three-minute turns fit the twenty-minute slot; wrap-up uses the extra five minutes. Task/condition rotation, an answer key, and non-observation by waiting participants make the contrast interpretable. Lines 34–36 give a prospective improvement rule and withhold commitment for contradictory results or fewer than three unfamiliar attendees. Ambiguous mappings explicitly block invented correctness (line 24).
+- **C5 — passed.** Lines 9–10 distinguish expressed interest from demand and reject Dev's universal payment and delay-reduction claims. Lines 34 and 38 identify the threshold as a proposed screening rule and limit the exercise to a local learning signal, excluding adoption, payment, and performance-night benefit.
+- **C6 — passed.** The recommendation is focused and understandable: test naming comprehension before choosing the weekends' work. Lines 34–38 connect improvement, successful baseline performance, conflicting results, and reduced attendance to concrete proceed/deprioritize/withhold decisions, while stating the key transfer and attribution limits.
+
+## B — passed
+
+SHA-256: `de1c2ee53d256e093c3b48de0f9e53ec03d8a232e3f27d845415fc482572ed4f`
+
+- **C1 — passed.** Lines 1 and 16–34 recommend a future research activity and future decisions; no research execution or new findings are presented. Line 12 excludes the room notice. The answer remains an assessment and bounded plan, not a specification or workshop. Actual execution history is unavailable.
+- **C2 — passed.** Lines 7, 9, and 10 preserve the intercept denominators, nine incidents across five of twelve nights, and the median/range for only six timed incidents. The poll is self-selected with 31 respondents; the 240-member group is not treated as known exposure or an eligible-crew sample. The absent cross-tabulation and participant overlap are explicit.
+- **C3 — passed.** Lines 8 and 14 juxtapose interpretation difficulties with rushed returns, leaving upkeep, use, payment, and wider relevance open. The selected uncertainty is explicitly interpretation 'when the recorded location is correct,' so uncertainty shapes the test rather than serving only as a disclaimer.
+- **C4 — passed.** Lines 18–26 describe a single offline paper comparison, six short tasks per participant, retired props, verified destinations, two preparation hours, £20, two independent observers, consent, and anonymous handwriting without production changes or recordings. Three introductory minutes, three five-minute waves, and two buffer minutes fit twenty minutes, with a separate five-minute wrap-up. Lines 30–32 define a prospective accuracy rule, check task/order explanations, and treat insufficient attendance or contradictory/ambiguous evidence as insufficient. The design requires no new recruitment, software, or second session.
+- **C5 — passed.** Line 12 calls universal demand, £25/month, and halved delays unsupported. Lines 10 and 34 limit poll evidence to stated interest and the exercise to local comprehension, explicitly excluding adoption, payment, demand, and live operational benefit. The proposed threshold is not reported as a result.
+- **C6 — passed.** Lines 1, 14, and 30–34 explain why naming is the immediate learning target and map improvement, no benefit, or weak evidence to further naming research, return-habit priority, or insufficient evidence. Even a positive result is explicitly insufficient to justify building or selling.
+
+## C — passed
+
+SHA-256: `5fa8d33958a0c3787866525d93f24f06ac28092135e55d0a85d96c8d3dbd26c1`
+
+- **C1 — passed.** Lines 1 and 15–33 provide a recommendation and future test plan, with no claimed execution, invented session results, or product specification. The unrelated room notice is not used as evidence. Its explicit mention is not required. Actual execution history is unavailable.
+- **C2 — passed.** Lines 7–9 accurately separate the local intercept reports, self-selected poll, and historical performance log. Counts remain attached to eight volunteers, 31 poll respondents, nine incidents, five of twelve nights, and six timed incidents for the median. Unknown poll exposure, missing cross-tabulation, overlap, incomplete timings, and absent retrieval totals constrain inference.
+- **C3 — passed.** Lines 7 and 13 treat confusing names and incorrect rushed returns as potentially coexisting causes. Wording improvement, location accuracy, system maintenance, live benefit, and payment remain assumptions. The ability to isolate interpretation in the permitted exercise explains the next learning target.
+- **C4 — passed.** Lines 19–25 specify one paper exercise using six retired props, validated unambiguous destinations, identical destination cards, balanced task variants, two preparation hours, £20, consent, two facilitators, and anonymous handwritten observations. Two introductory minutes plus six three-minute turns fit the twenty-minute slot, followed by five-minute wrap-up. Production stock/signs remain untouched; no internet, software, recordings, or identifiers are used. Lines 29–31 give a prospective rule, correctly calculate nine newcomer choices per condition if all attend, and withhold commitment for low attendance, conflicting results, or an uninformative baseline.
+- **C5 — passed.** Line 11 rejects unsupported payment, wider demand, and delay-reduction claims. Line 29 labels its numerical target a decision threshold, not proof; line 33 bounds any outcome to the tested volunteers and tabletop destinations and excludes live benefits, adoption, and willingness to pay. No outcomes are fabricated.
+- **C6 — passed.** Lines 1 and 13 make the choice of uncertainty understandable. Lines 29–33 connect a directional signal to further naming and transfer research, lack of improvement to another priority, and inconclusive evidence to withholding the two-weekend commitment. Limits remain brief and relevant.
+
+## D — passed
+
+SHA-256: `6beebc842719e1eebcd28beb16084e9afb0d8fa60021c4e5f069a80324e3b77d`
+
+- **C1 — passed.** Lines 1 and 15–33 present a proposed research step and conditional interpretation, with no new empirical results, specification, or workshop. Line 11 excludes the room notice. Line 33 says outcomes remain unobserved; this is consistent with the text, but cannot independently establish execution history.
+- **C2 — passed.** Lines 7–9 preserve the local volunteer counts, nine incidents across five of twelve nights, and six timed searches for the range and median. Poll answers have a 31-respondent denominator; the text rejects treating 240 members as observed exposure or an eligible-crew sample and disallows combining overlapping samples. No prohibited numerical inference occurs.
+- **C3 — passed.** Lines 7 and 13 distinguish attributed reports, unknown causes, confusing names, and potentially inaccurate locations from rushed returns. Buyer authority and maintenance are also uncertain. Specific local naming reports and the permitted tabletop format explain why interpretation is selected now.
+- **C4 — passed.** Lines 17–23 describe one paper comparison with available opt-in volunteers, six retired props, two facilitators, two preparation hours, £20, consent, anonymous handwritten notes, and unchanged production stock/signs. Two introductory minutes, fifteen minutes for turns, and three buffer minutes fit twenty minutes; each choice is capped at fifteen seconds, with five minutes reserved for wrap-up. Lines 27–31 specify observable accuracy, paired counts, separate missed tasks/timeouts, a prospective improvement rule, and inconclusive handling of attendance and order/item dependence. The explicit warning about illustrative descriptions (line 19) bounds their use to tabletop interpretation; the rubric does not require real-room transfer to be established by this test.
+- **C5 — passed.** Lines 9 and 11 reject poll-to-demand inference and Dev's unsupported universal payment and halved-delay beliefs. Line 29 identifies its threshold as provisional learning, and lines 31–33 withhold building for weak evidence and exclude real-world returns, delay reduction, adoption, payment, and wider benefits. No new purchasing or research evidence appears.
+- **C6 — passed.** Lines 3 and 13 frame a narrow opportunity and explain the selected uncertainty. Lines 29–33 link improvement to two weekends exploring a location aid and upkeep, equal difficulty to reconsidering causes, and weak evidence to withholding a build commitment. The relevant local-exercise limits are clear and concise.
+
+## Unsupported claims and integrity limits
+
+The universal-adoption, £25/month, and halved-delay claims originate in Dev's supplied belief. Every answer identifies them as unsupported; none endorses them as findings. All proposed success thresholds and session measurements are prospective, including C's conditional counts of available task opportunities.
+
+All four tests are small tabletop comparisons. Counterbalancing does not remove every item/order effect, and illustrative destinations in D particularly limit real-room inference. These are bounded learning limitations, not material violations of the six criteria: the answers do not claim adoption, commercial validation, or performance-night improvement from the exercise.
+
+Only the anonymous answer texts and raw packet were available for assessing the original responses. No run traces, tool histories, hidden identities, prior evaluations, or other session evidence were inspected. Accordingly, C1 passes reflect the observable scope and claims of each supplied answer; statements that execution did not occur are not independent proof of the original process. SHA-256 values identify the actual supplied output bytes hashed during this assessment. Original outputs, fixtures, and criteria were preserved.

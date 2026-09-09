@@ -1,0 +1,65 @@
+{
+  "schema": "bandit.comparison/v1",
+  "conditions": [
+    "baseline",
+    "research"
+  ],
+  "runs": [
+    {
+      "id": "baseline-11-backstage-research-r1-a1",
+      "directory": "runs/baseline-11-backstage-research-r1-a1",
+      "case": "11-backstage-research",
+      "condition": "baseline",
+      "replicate": 1,
+      "attempt": 1,
+      "blind_label": "C",
+      "quality": {
+        "status": "passed",
+        "output_sha256": "5fa8d33958a0c3787866525d93f24f06ac28092135e55d0a85d96c8d3dbd26c1",
+        "evidence": "grades/grades.md (C)"
+      }
+    },
+    {
+      "id": "baseline-11-backstage-research-r2-a1",
+      "directory": "runs/baseline-11-backstage-research-r2-a1",
+      "case": "11-backstage-research",
+      "condition": "baseline",
+      "replicate": 2,
+      "attempt": 1,
+      "blind_label": "B",
+      "quality": {
+        "status": "passed",
+        "output_sha256": "de1c2ee53d256e093c3b48de0f9e53ec03d8a232e3f27d845415fc482572ed4f",
+        "evidence": "grades/grades.md (B)"
+      }
+    },
+    {
+      "id": "research-11-backstage-research-r1-a1",
+      "directory": "runs/research-11-backstage-research-r1-a1",
+      "case": "11-backstage-research",
+      "condition": "research",
+      "replicate": 1,
+      "attempt": 1,
+      "blind_label": "A",
+      "quality": {
+        "status": "passed",
+        "output_sha256": "d4e2c0bdb1a6c35820d933305a8deb9c2271f5e048b595b348d9c1a13388173a",
+        "evidence": "grades/grades.md (A)"
+      }
+    },
+    {
+      "id": "research-11-backstage-research-r2-a1",
+      "directory": "runs/research-11-backstage-research-r2-a1",
+      "case": "11-backstage-research",
+      "condition": "research",
+      "replicate": 2,
+      "attempt": 1,
+      "blind_label": "D",
+      "quality": {
+        "status": "passed",
+        "output_sha256": "6beebc842719e1eebcd28beb16084e9afb0d8fa60021c4e5f069a80324e3b77d",
+        "evidence": "grades/grades.md (D)"
+      }
+    }
+  ]
+}
