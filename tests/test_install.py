@@ -528,10 +528,13 @@ class InstallTests(DistributionTest):
         blocked = self.destination.parent / ".bandit-update.bandit.lock"
         saved = self.area / "acquired-lock"
         foreign = self.area / "foreign-lock"
+        replacement_link = self.area / "replacement-lock"
         foreign.write_bytes(b"another owner's lock")
         write = install.atomic_write
         for replacement in ("file", "symlink", "modified"):
             with self.subTest(replacement=replacement):
+                if replacement == "symlink":
+                    self.link(replacement_link, foreign)
                 self.write("SKILL.md", "updated core " + replacement)
 
                 def replace_lock(path, data):
@@ -540,7 +543,7 @@ class InstallTests(DistributionTest):
                         if replacement != "modified":
                             blocked.rename(saved)
                         if replacement == "symlink":
-                            self.link(blocked, foreign)
+                            replacement_link.rename(blocked)
                         else:
                             blocked.write_bytes(b"" if replacement == "file" else b"another owner's lock")
                     return result
