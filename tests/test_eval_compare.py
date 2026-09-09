@@ -36,7 +36,7 @@ class EvalComparisonTests(unittest.TestCase):
         directory = self.area / run_id
         directory.mkdir()
         output = "Synthetic evaluation output.\n"
-        (directory / "output.md").write_text(output)
+        (directory / "output.md").write_bytes(output.encode("utf-8"))
         if events is None:
             events = [{"type": "thread.started", "thread_id": run_id, "model": "synthetic-model", "reasoning_effort": "high"},
                       {"type": "turn.started"},
@@ -56,7 +56,7 @@ class EvalComparisonTests(unittest.TestCase):
         if edited:
             artifact = directory / "workspace/input/docs/PRD.md"
             artifact.parent.mkdir(parents=True)
-            artifact.write_text("Synthetic revised PRD\n")
+            artifact.write_bytes(b"Synthetic revised PRD\n")
             metadata["editable_artifact"] = "input/docs/PRD.md"
             metadata["input_after_sha256"]["docs/PRD.md"] = digest("Synthetic revised PRD\n")
             quality["artifact_sha256"] = metadata["input_after_sha256"]["docs/PRD.md"]
