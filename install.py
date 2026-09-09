@@ -112,13 +112,16 @@ def version(root: Path) -> str:
     return value
 
 
-def read_marker(destination: Path, skill_name: str = NAME) -> dict | None:
+def read_marker(destination: Path, skill_name: str = NAME, *, expected: dict | None = None) -> dict | None:
     path = destination / MARKER
     check_path(path)
-    if not path.exists():
+    data = regular_bytes(path) if path.exists() else None
+    if expected is not None:
+        expected[path] = data
+    if data is None:
         return None
     try:
-        value = json.loads(regular_bytes(path))
+        value = json.loads(data)
     except (UnicodeDecodeError, json.JSONDecodeError) as exc:
         raise InstallError(f"Invalid ownership marker: {path}") from exc
     if not isinstance(value, dict) or value.get("format") != 1 or value.get("name") != skill_name or not isinstance(value.get("files"), dict):
@@ -132,7 +135,7 @@ def read_marker(destination: Path, skill_name: str = NAME) -> dict | None:
     return value
 
 
-def make_plan(source_root: Path, destination: Path, skill_name: str = NAME) -> tuple[dict, dict[str, bytes], bytes]:
+def make_plan(source_root: Path, destination: Path, skill_name: str = NAME, *, expected: dict | None = None) -> tuple[dict, dict[str, bytes], bytes]:
     if skill_name not in SKILL_NAMES:
         raise InstallError(f"Unknown BANDIT skill: {skill_name}")
     source_root, destination = absolute(source_root), absolute(destination)
@@ -145,7 +148,7 @@ def make_plan(source_root: Path, destination: Path, skill_name: str = NAME) -> t
     payload = tree_files(source)
     if "SKILL.md" not in payload or MARKER in payload:
         raise InstallError("Source must contain SKILL.md and must not contain an installation marker")
-    installed = read_marker(destination, skill_name)
+    installed = read_marker(destination, skill_name, expected=expected)
     previous = installed["files"] if installed else {}
     previous_case = {canonical_name(name): name for name in previous}
     for name in payload:
@@ -164,7 +167,10 @@ def make_plan(source_root: Path, destination: Path, skill_name: str = NAME) -> t
         if target.exists() and not target.is_file():
             conflicts.append(f"not a regular file: {name}")
             continue
-        current = digest(regular_bytes(target)) if target.exists() else None
+        data = regular_bytes(target) if target.exists() else None
+        if expected is not None:
+            expected[target] = data
+        current = digest(data) if data is not None else None
         old, new = previous.get(name), desired["files"].get(name)
         if new is not None and current == new:
             unchanged += 1
@@ -206,7 +212,7 @@ def atomic_write(path: Path, data: bytes) -> None:
             os.unlink(temporary)
 
 
-def make_retirement_plan(destination: Path, skill_name: str) -> tuple[dict, dict[str, bytes], None]:
+def make_retirement_plan(destination: Path, skill_name: str, *, expected: dict | None = None) -> tuple[dict, dict[str, bytes], None]:
     """Remove only unchanged files proven to belong to an obsolete installation."""
     if skill_name not in RETIRED_NAMES:
         raise InstallError(f"Unknown retired BANDIT skill: {skill_name}")
@@ -214,18 +220,24 @@ def make_retirement_plan(destination: Path, skill_name: str) -> tuple[dict, dict
     check_path(destination)
     if destination.exists() and not destination.is_dir():
         raise InstallError(f"Retired skill destination is not a directory: {destination}")
-    installed = read_marker(destination, skill_name)
+    installed = read_marker(destination, skill_name, expected=expected)
     previous = installed["files"] if installed else {}
     changes = []
     entrypoint = destination / "SKILL.md"
     check_path(entrypoint)
-    if entrypoint.exists() and "SKILL.md" not in previous:
+    entrypoint_exists = entrypoint.exists()
+    if entrypoint_exists and "SKILL.md" not in previous:
         raise InstallError(f"Nothing installed; unmanaged retired SKILL.md must be preserved or moved: {entrypoint}")
+    if not entrypoint_exists and expected is not None:
+        expected[entrypoint] = None
     for name, checksum in sorted(previous.items()):
         target = destination / name
         check_path(target)
-        if target.exists():
-            if digest(regular_bytes(target)) != checksum:
+        data = regular_bytes(target) if target.exists() else None
+        if expected is not None:
+            expected[target] = data
+        if data is not None:
+            if digest(data) != checksum:
                 raise InstallError(f"Nothing installed; local modification in retired skill must be preserved or moved: {target}")
             changes.append({"action": "remove", "path": name})
     report = {"name": skill_name, "retired": True, "status": "plan", "destination": str(destination),
@@ -264,7 +276,7 @@ def _prune_retired_directories(report: dict, owned_paths) -> None:
 
 def _install_plans(planner, dry_run: bool = False) -> list[dict]:
     """Preflight every destination, then apply one rollback journal under all locks."""
-    plans = planner()
+    plans = planner({})
     if dry_run:
         return [report for report, _, _ in plans]
     if all(not report["changes"] and not report["marker_change"] for report, _, _ in plans):
@@ -283,7 +295,14 @@ def _install_plans(planner, dry_run: bool = False) -> list[dict]:
                 raise InstallError(f"Install lock exists: {lock}; retry after the other installer finishes") from exc
             os.close(lock_fd)
             locks.append(lock)
-        plans = planner()
+        expected: dict[Path, bytes | None] = {}
+        plans = planner(expected)
+        # Validate against the bytes approved by preflight, not a later snapshot.
+        for target, approved in expected.items():
+            check_path(target)
+            current = regular_bytes(target) if target.exists() else None
+            if current != approved:
+                raise InstallError(f"Destination changed during installation; preserving the edit: {target}")
         changes: list[tuple[Path, bytes | None]] = []
         markers: list[tuple[Path, bytes | None]] = []
         for report, payload, marker in plans:
@@ -293,7 +312,7 @@ def _install_plans(planner, dry_run: bool = False) -> list[dict]:
             if report["marker_change"]:
                 markers.append((destination / MARKER, marker))
         changes.extend(markers)
-        backups = {target: regular_bytes(target) if target.exists() else None for target, _ in changes}
+        backups = {target: expected[target] for target, _ in changes}
         applied: list[tuple[Path, bytes | None]] = []
         try:
             for target, desired in changes:
@@ -331,7 +350,7 @@ def _install_plans(planner, dry_run: bool = False) -> list[dict]:
 
 def install_into(source_root: Path, destination: Path, dry_run: bool = False, skill_name: str = NAME) -> dict:
     """Single-skill API retained for existing callers; the CLI installs the bundle."""
-    return _install_plans(lambda: [make_plan(source_root, destination, skill_name)], dry_run)[0]
+    return _install_plans(lambda expected: [make_plan(source_root, destination, skill_name, expected=expected)], dry_run)[0]
 
 
 def install_bundle(source_root: Path, destination: Path, dry_run: bool = False) -> dict:
@@ -347,11 +366,11 @@ def install_bundle(source_root: Path, destination: Path, dry_run: bool = False) 
             if is_within(target, source) or is_within(source, target):
                 raise InstallError("Source and installation destination must not overlap")
 
-    def planner():
-        plans = [make_plan(source_root, destinations[name], name) for name in SKILL_NAMES]
+    def planner(expected):
+        plans = [make_plan(source_root, destinations[name], name, expected=expected) for name in SKILL_NAMES]
         if len({report["version"] for report, _, _ in plans}) != 1:
             raise InstallError("Source version changed during installation; retry with a stable package")
-        return plans + [make_retirement_plan(destinations[name], name) for name in RETIRED_NAMES]
+        return plans + [make_retirement_plan(destinations[name], name, expected=expected) for name in RETIRED_NAMES]
 
     reports = _install_plans(planner, dry_run)
     active = [report for report in reports if not report.get("retired")]

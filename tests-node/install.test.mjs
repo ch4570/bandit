@@ -148,6 +148,39 @@ test('a locally deleted managed file blocks replacement', (t) => {
   assert.equal(fs.existsSync(path.join(f.dest, 'SKILL.md')), false);
 });
 
+for (const change of ['update', 'new-file collision', 'upstream removal', 'local deletion', 'ownership marker']) {
+  test(`${change} after locked preflight is preserved without partial writes`, (t) => {
+    const f = fixture(t);
+    installInto(f.source, f.dest);
+    put(f.skill, 'SKILL.md', 'Updated entrypoint.');
+    const relative = change === 'ownership marker' ? MARKER
+      : change === 'new-file collision' ? 'references/new.md' : 'references/research.md';
+    if (change === 'upstream removal') fs.unlinkSync(path.join(f.skill, relative));
+    else if (change !== 'ownership marker') put(f.skill, relative, 'Updated reference.');
+    const target = path.join(f.dest, relative);
+    // The absent addition is checked before the final existing reference is read.
+    const trigger = change === 'new-file collision' ? path.join(f.dest, 'references/research.md') : target;
+    const edited = change === 'ownership marker'
+      ? Buffer.concat([fs.readFileSync(target), Buffer.from('\n')])
+      : Buffer.from('Editor save after locked preflight.\n');
+    const expected = { ...snapshot(f.dest), [relative]: edited.toString('base64') };
+    if (change === 'local deletion') delete expected[relative];
+    const read = fs.readFileSync;
+    let reads = 0;
+    t.mock.method(fs, 'readFileSync', (file, ...args) => {
+      const bytes = read(file, ...args);
+      if (file === trigger && ++reads === 2) {
+        if (change === 'local deletion') fs.unlinkSync(target);
+        else fs.writeFileSync(target, edited);
+      }
+      return bytes;
+    });
+    assert.throws(() => installInto(f.source, f.dest), /changed during installation/);
+    assert.ok(reads >= 2, 'the edit occurred after the locked preflight read');
+    assert.deepEqual(snapshot(f.dest), expected);
+  });
+}
+
 test('unmanaged collisions are preserved even when their bytes match', (t) => {
   const f = fixture(t);
   put(f.dest, 'SKILL.md', fs.readFileSync(path.join(f.skill, 'SKILL.md')));
@@ -560,4 +593,49 @@ test('retirement recovery preserves an editor replacement of a deleted old file'
   finally { fs.renameSync = rename; }
   const expected = { ...before, [path.join('.agents', 'skills', 'bandit-update', 'SKILL.md')]: Buffer.from(edited).toString('base64') };
   assert.deepEqual(snapshot(f.project), expected);
+});
+
+for (const relative of ['references/old.md', MARKER]) {
+  test(`a retired ${relative} edit after locked preflight preserves the whole bundle`, (t) => {
+    const f = fixture(t);
+    oldInstallation(f);
+    const parent = path.dirname(f.dest);
+    const target = path.join(parent, 'bandit-update', relative);
+    const edited = relative === MARKER
+      ? Buffer.concat([fs.readFileSync(target), Buffer.from('\n')])
+      : Buffer.from('Keep this editor save in the retired skill.\n');
+    const expected = { ...snapshot(parent), [path.join('bandit-update', relative)]: edited.toString('base64') };
+    const read = fs.readFileSync;
+    let reads = 0;
+    t.mock.method(fs, 'readFileSync', (file, ...args) => {
+      const bytes = read(file, ...args);
+      if (file === target && ++reads === 2) fs.writeFileSync(target, edited);
+      return bytes;
+    });
+    assert.throws(() => installBundle(f.source, f.dest), /changed during installation/);
+    assert.ok(reads >= 2, 'the edit occurred after the locked retirement preflight read');
+    assert.deepEqual(snapshot(parent), expected);
+  });
+}
+
+test('an unmanaged retired entrypoint created after locked preflight blocks the bundle', (t) => {
+  const f = fixture(t);
+  oldInstallation(f);
+  const parent = path.dirname(f.dest);
+  const retired = path.join(parent, 'bandit-decide');
+  fs.unlinkSync(path.join(retired, 'SKILL.md'));
+  fs.unlinkSync(path.join(retired, MARKER));
+  const edited = 'A new independent command.\n';
+  const expected = { ...snapshot(parent), [path.join('bandit-decide', 'SKILL.md')]: Buffer.from(edited).toString('base64') };
+  const trigger = path.join(parent, 'bandit-update', 'references/old.md');
+  const read = fs.readFileSync;
+  let reads = 0;
+  t.mock.method(fs, 'readFileSync', (file, ...args) => {
+    const bytes = read(file, ...args);
+    if (file === trigger && ++reads === 2) put(retired, 'SKILL.md', edited);
+    return bytes;
+  });
+  assert.throws(() => installBundle(f.source, f.dest), /changed during installation/);
+  assert.ok(reads >= 2, 'the new command appeared after its locked preflight check');
+  assert.deepEqual(snapshot(parent), expected);
 });
