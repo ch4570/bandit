@@ -65,6 +65,10 @@ For each material finding, provide the shortest sufficient account of:
 4. The evidence supporting that conclusion and its limits.
 5. A specific correction, or the decision that must be resolved.
 
+If acceptance guidance is requested, connect an unresolved decision to a concrete
+scenario and observable check. Keep any policy-dependent expectation conditional;
+do not invent an outcome or merely defer writing criteria.
+
 Use exact quotes sparingly; a faithful paraphrase with a locator usually suffices.
 State an inference as an inference rather than an observed failure.
 When code and intended behavior differ, cite both sides and identify whether execution was observed.
