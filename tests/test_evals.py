@@ -43,12 +43,12 @@ class EvalIntegrityTests(unittest.TestCase):
         self.addCleanup(root_patch.stop)
         self.runs = 0
 
-    def execute(self, change=None, *, arm="baseline", edit_artifact=None, process_exit_code=0, error=None):
+    def execute(self, change=None, *, arm="baseline", edit_artifact=None, process_exit_code=0, error=None, **settings):
         self.runs += 1
         output = self.area / f"results-{self.runs}"
         run = output / f"{self.case}--{arm}"
 
-        def fake_process(command, *, input, text, stdout, stderr):
+        def fake_process(command, *, input, text, stdout, stderr, timeout):
             workspace = Path(command[command.index("-C") + 1])
             if isinstance(error, OSError):
                 raise error
@@ -62,7 +62,7 @@ class EvalIntegrityTests(unittest.TestCase):
             return subprocess.CompletedProcess(command, process_exit_code)
 
         with patch.object(runner.subprocess, "check_output", return_value="codex synthetic-test-version\n"), patch.object(runner.subprocess, "run", side_effect=fake_process), contextlib.redirect_stdout(io.StringIO()):
-            code = runner.run_case(self.case, arm, output, None, edit_artifact)
+            code = runner.run_case(self.case, arm, output, None, edit_artifact, **settings)
         return code, json.loads((run / "metadata.json").read_text()), run
 
     def assert_run_retained(self, metadata, run, *, process_started=True):
@@ -93,6 +93,54 @@ class EvalIntegrityTests(unittest.TestCase):
         self.assertEqual(metadata["integrity_status"], "passed")
         self.assertEqual(metadata["violations"], [])
         self.assert_run_retained(metadata, run)
+
+    def test_explicit_execution_settings_are_recorded_without_inventing_observed_identity(self):
+        code, metadata, run = self.execute(model="synthetic-model", reasoning_effort="low",
+                                           timeout_seconds=17, max_output_words=350,
+                                           condition="candidate", replicate=2, attempt=3)
+        self.assertEqual(code, 0)
+        self.assertEqual(metadata["condition"], "candidate")
+        self.assertEqual((metadata["replicate"], metadata["attempt"]), (2, 3))
+        self.assertEqual(metadata["execution_settings"]["model"], "synthetic-model")
+        self.assertEqual(metadata["execution_settings"]["reasoning_effort"], "low")
+        self.assertEqual(metadata["execution_settings"]["timeout_seconds"], 17)
+        self.assertIn("synthetic-model", metadata["command"])
+        self.assertIn('model_reasoning_effort="low"', metadata["command"])
+        self.assertIn('web_search="disabled"', metadata["command"])
+        self.assertIn("350 words", (run / "prompt.txt").read_text())
+        self.assertIsNone(metadata["telemetry"]["observed_model"])
+        self.assertEqual(metadata["telemetry"]["usage_status"], "unavailable")
+
+    def test_timeout_retains_partial_evidence_without_claiming_a_billing_cap(self):
+        timeout = subprocess.TimeoutExpired("synthetic codex", 1)
+        code, metadata, run = self.execute(error=timeout, timeout_seconds=1)
+        self.assertEqual(code, 124)
+        self.assertIsNone(metadata["process_exit_code"])
+        self.assertIn("descendant cleanup is unverified", metadata["execution_error"])
+        self.assertEqual(metadata["telemetry"]["usage_status"], "unavailable")
+        self.assert_run_retained(metadata, run)
+
+    def test_invalid_run_limits_fail_before_model_execution_or_run_creation(self):
+        for settings in ({"timeout_seconds": 0}, {"timeout_seconds": float("nan")},
+                         {"timeout_seconds": float("inf")}, {"max_output_words": -1},
+                         {"replicate": 0}, {"attempt": -1}, {"model": ""}):
+            with self.subTest(settings=settings), patch.object(runner.subprocess, "run") as launch:
+                output = self.area / "invalid-run"
+                with self.assertRaises(ValueError):
+                    runner.run_case(self.case, "baseline", output, None, **settings)
+                launch.assert_not_called()
+                self.assertFalse(output.exists())
+
+    def test_a_frozen_skill_directory_is_copied_and_hashed_for_the_selected_condition(self):
+        frozen = self.area / "frozen-skills"
+        entrypoint = frozen / "bandit-specify" / "SKILL.md"
+        entrypoint.parent.mkdir(parents=True)
+        entrypoint.write_bytes(b"Frozen synthetic instructions.\n")
+        code, metadata, run = self.execute(arm="bandit-specify", skills_dir=frozen, condition="current")
+        self.assertEqual(code, 0)
+        self.assertEqual((run / "workspace/.agents/skills/bandit-specify/SKILL.md").read_bytes(), entrypoint.read_bytes())
+        self.assertEqual(metadata["instruction_sha256"]["bandit-specify/SKILL.md"],
+                         hashlib.sha256(entrypoint.read_bytes()).hexdigest())
 
     def test_only_the_allowed_existing_prd_may_be_rewritten(self):
         revised = b"# Revised synthetic PRD\nA clearer action.\n"

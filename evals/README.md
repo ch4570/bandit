@@ -132,13 +132,117 @@ never reused. Review full outputs against the applicable rubric or case request
 before revising the skill. Report partial results and failed runs alongside
 successes.
 
+## Controlled usage comparisons
+
+Pin the model, its supported reasoning effort, output budget, and timeout for
+every condition. Replace `MODEL_ID` with an available model; no model or price
+is baked into BANDIT. For example:
+
+```sh
+python3 evals/run_local.py --case 04-incomparable-scores --arm bandit-scope --condition current --model MODEL_ID --reasoning-effort low --timeout-seconds 600 --max-output-words 700 --replicate 1 --attempt 1 --output-dir /absolute/path/to/current-r1
+python3 evals/run_local.py --case 04-incomparable-scores --arm baseline --condition baseline --model MODEL_ID --reasoning-effort low --timeout-seconds 600 --max-output-words 700 --replicate 1 --attempt 1 --output-dir /absolute/path/to/baseline-r1
+```
+
+Use `--skills-dir /absolute/path/to/frozen-checkout/skills` to test a particular
+instruction snapshot with the same specialist invocation. The runner copies
+that snapshot and records hashes. Specialist runs still install the complete
+supplied bundle; they are not measurements of a standalone-only installation.
+Keep fixtures identical, repeat each condition, and counterbalance execution
+order. Retain every attempt in a new run directory, including failed retries.
+The runner does not retry or upgrade models automatically.
+
+The requested `execution_settings` are separate from runtime-observed model and
+effort in `telemetry`. Missing observations remain null. The parser reads Codex
+CLI lifecycle/usage events and retains diagnostics for incomplete streams.
+CLI `turn.completed.usage` is a cumulative session snapshot: retain the last
+valid total, never add successive snapshots. Direct App Server notifications
+are a separate unsupported event format. Input
+already includes cached input; output includes reasoning. Optional missing
+breakdowns remain unknown and are never added to input/output totals again.
+The [Codex non-interactive documentation](https://learn.chatgpt.com/docs/non-interactive-mode.md)
+describes the JSONL lifecycle. The checked CLI `0.153.4`
+[emits the session's total usage](https://github.com/openai/codex/blob/3d2ee51ca2d5db578f328aa75e20aa22c0197c9a/codex-rs/exec/src/event_processor_with_jsonl_output.rs#L122).
+A schema change requires parser validation, not inferred counters. This runner
+starts fresh ephemeral sessions; it does not resume threads. A resumed session's
+total must not be treated as the incremental cost of that invocation.
+
+Web search and native multi-agent execution are disabled equally across these
+controlled runs. Usage covers top-level CLI events; it is not automatic billing
+accounting for every descendant or external service. The timeout stops the
+direct CLI process and reports unverified descendant cleanup. The word limit is
+a prompt instruction, not a token cap. Neither limit enforces provider billing.
+
+Grade saved outputs separately, without revealing condition names to the
+reviewer or giving the executing model the rubric. Bind each grade to the actual
+output hash and, for rewrites, the edited artifact hash. Use a manifest such as
+this **synthetic schema example**, replacing IDs, paths, and hashes with recorded
+evidence:
+
+```json
+{
+  "schema": "bandit.comparison/v1",
+  "conditions": ["baseline", "current", "candidate"],
+  "runs": [
+    {
+      "id": "current-scope-r1-a1",
+      "directory": "current-r1/04-incomparable-scores--bandit-scope",
+      "condition": "current",
+      "case": "04-incomparable-scores",
+      "replicate": 1,
+      "attempt": 1,
+      "quality": {
+        "status": "passed",
+        "evidence": "grades/scope-r1.md: acceptance checks and limitations",
+        "output_sha256": "REPLACE_WITH_RECORDED_SHA256"
+      }
+    }
+  ]
+}
+```
+
+Include the matching baseline/candidate rows and all replicates/attempts. The
+example above alone is intentionally incomplete. Set quality to `unavailable`
+when it has not been assessed; process success is not a grade. Add
+`quality.artifact_sha256` for the named rewritten artifact. Relative run paths
+are resolved from the manifest's directory.
+Run metadata must explicitly record `editable_artifact`: `null` for answer-only
+tasks, or the relative `input/` path for rewrites. Missing artifact mode leaves
+quality unavailable. Metadata must also record a supported runner `arm` and its
+`invocation` (the exact `$bandit-*` command for specialists, otherwise `null`).
+The arm, invocation, and instruction hashes must remain the same across
+replicates and retries within each condition/case; different cases and
+intentional conditions may use different routes.
+
+```sh
+python3 evals/compare.py /absolute/path/to/comparison.json --output /absolute/path/to/new-summary.json
+```
+
+The output must be new and outside every listed run directory; raw runs remain
+unchanged. Different
+settings, fixtures, versions, unmatched cells, duplicate attempts, unbound
+grades, or missing usage/observed identity make the comparison incomplete with
+reasons. Descriptive observations remain available without a superiority claim.
+
+For currency estimates, optionally supply `--pricing` with a recorded JSON
+object containing `model`, `currency`, `effective_date`, `source_url`,
+`input_per_million`, `cached_input_per_million`, and `output_per_million`.
+Use verified rates applicable to the observed model and run date. Missing or
+incompatible pricing leaves cost unavailable; BANDIT does not invent prices.
+Cost per successful task includes all attempts in the numerator and counts each
+task/replicate once in the denominator only when its bound quality grade passes,
+both exit codes are zero, and integrity passes. Zero successful tasks
+have no finite cost-per-success result. Report success rate, usage, elapsed time,
+and task mix alongside this number; keep development grading costs separate.
+
 ## Interpretation limits
 
 These tasks do not test fresh market research, real stakeholder negotiation,
 longitudinal decisions, enterprise strategy, games, or statistical expertise.
 One run per condition cannot measure reliability or establish causal performance
-differences. Host-default model settings and shared-system overhead also limit
-comparisons of usage and elapsed time. A correct baseline is evidence that the
+differences. Historical host-default settings, unavailable runtime observations,
+cache conditions, and shared-system overhead also limit comparisons of usage
+and elapsed time. Explicit requested settings improve control but do not attest
+the provider's backend identity. A correct baseline is evidence that the
 model can already perform that task; it is not a reason to hide its result.
 
 See [Validation](../VALIDATION.md) for packaging checks and [Comparison](../docs/comparison.md)
