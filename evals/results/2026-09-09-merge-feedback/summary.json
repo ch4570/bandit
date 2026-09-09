@@ -1,0 +1,676 @@
+{
+  "schema": "bandit.comparison-result/v1",
+  "status": "incomplete",
+  "reasons": [
+    "merge-feedback-07-export-review-r1-a1: observed_model unavailable in raw events",
+    "merge-feedback-07-export-review-r1-a1: observed_reasoning_effort unavailable in raw events",
+    "merge-feedback-07-export-review-r2-a1: observed_model unavailable in raw events",
+    "merge-feedback-07-export-review-r2-a1: observed_reasoning_effort unavailable in raw events",
+    "merge-feedback-10-reservation-review-r1-a1: observed_model unavailable in raw events",
+    "merge-feedback-10-reservation-review-r1-a1: observed_reasoning_effort unavailable in raw events",
+    "merge-feedback-10-reservation-review-r2-a1: observed_model unavailable in raw events",
+    "merge-feedback-10-reservation-review-r2-a1: observed_reasoning_effort unavailable in raw events",
+    "merge-feedback-round2-07-export-review-r1-a1: observed_model unavailable in raw events",
+    "merge-feedback-round2-07-export-review-r1-a1: observed_reasoning_effort unavailable in raw events",
+    "merge-feedback-round2-07-export-review-r2-a1: observed_model unavailable in raw events",
+    "merge-feedback-round2-07-export-review-r2-a1: observed_reasoning_effort unavailable in raw events",
+    "merge-feedback-round2-10-reservation-review-r1-a1: observed_model unavailable in raw events",
+    "merge-feedback-round2-10-reservation-review-r1-a1: observed_reasoning_effort unavailable in raw events",
+    "merge-feedback-round2-10-reservation-review-r2-a1: observed_model unavailable in raw events",
+    "merge-feedback-round2-10-reservation-review-r2-a1: observed_reasoning_effort unavailable in raw events"
+  ],
+  "manifest_run_count": 8,
+  "run_count": 8,
+  "usage_scope": "top-level-cli-events",
+  "pricing": null,
+  "conditions": {
+    "merge-feedback": {
+      "run_count": 4,
+      "task_count": 4,
+      "retry_count": 0,
+      "successful_tasks": 2,
+      "successful_attempts": 2,
+      "failed_attempts": 2,
+      "unavailable_attempts": 0,
+      "quality_unavailable_runs": 0,
+      "usage_scope": "top-level-cli-events",
+      "usage_status": "available",
+      "usage": {
+        "input_tokens": 316850,
+        "cached_input_tokens": 206464,
+        "output_tokens": 4767,
+        "total_tokens": 321617,
+        "cache_write_input_tokens": 0,
+        "reasoning_output_tokens": 48
+      },
+      "observed_usage": {
+        "input_tokens": 316850,
+        "cached_input_tokens": 206464,
+        "output_tokens": 4767,
+        "total_tokens": 321617,
+        "cache_write_input_tokens": 0,
+        "reasoning_output_tokens": 48
+      },
+      "usage_available_runs": 4,
+      "usage_unavailable_runs": 0,
+      "elapsed_seconds": 206.72899999999998,
+      "observed_elapsed_seconds": 206.72899999999998,
+      "cost_status": "unavailable",
+      "cost": null,
+      "currency": null,
+      "observed_costs": {},
+      "cost_available_runs": 0,
+      "cost_per_successful_task": null,
+      "elapsed_seconds_per_successful_task": 103.36449999999999
+    },
+    "merge-feedback-round2": {
+      "run_count": 4,
+      "task_count": 4,
+      "retry_count": 0,
+      "successful_tasks": 4,
+      "successful_attempts": 4,
+      "failed_attempts": 0,
+      "unavailable_attempts": 0,
+      "quality_unavailable_runs": 0,
+      "usage_scope": "top-level-cli-events",
+      "usage_status": "available",
+      "usage": {
+        "input_tokens": 315396,
+        "cached_input_tokens": 216960,
+        "output_tokens": 4753,
+        "total_tokens": 320149,
+        "cache_write_input_tokens": 0,
+        "reasoning_output_tokens": 61
+      },
+      "observed_usage": {
+        "input_tokens": 315396,
+        "cached_input_tokens": 216960,
+        "output_tokens": 4753,
+        "total_tokens": 320149,
+        "cache_write_input_tokens": 0,
+        "reasoning_output_tokens": 61
+      },
+      "usage_available_runs": 4,
+      "usage_unavailable_runs": 0,
+      "elapsed_seconds": 212.676,
+      "observed_elapsed_seconds": 212.676,
+      "cost_status": "unavailable",
+      "cost": null,
+      "currency": null,
+      "observed_costs": {},
+      "cost_available_runs": 0,
+      "cost_per_successful_task": null,
+      "elapsed_seconds_per_successful_task": 53.169
+    }
+  },
+  "runs": [
+    {
+      "id": "merge-feedback-07-export-review-r1-a1",
+      "condition": "merge-feedback",
+      "case": "07-export-review",
+      "replicate": 1,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-merge-feedback/runs/merge-feedback-07-export-review-r1-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "output_sha256": "d855d3cebe3d63329eb2544e2e18257c8daa5226a6e5d5389716b23034adb800",
+        "evidence": "grades/merge-feedback/07-export-review/grades.md (B)"
+      },
+      "arm": "bandit-review",
+      "invocation": "$bandit-review",
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 54.573,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "1eb17258cdbf08ba5f3b452ea16cd599775b58482ad98a47cb4a0bc39de22beb",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 81077,
+          "cached_input_tokens": 51200,
+          "output_tokens": 1218,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 48,
+          "total_tokens": 82295
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "merge-feedback-07-export-review-r2-a1",
+      "condition": "merge-feedback",
+      "case": "07-export-review",
+      "replicate": 2,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-merge-feedback/runs/merge-feedback-07-export-review-r2-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "output_sha256": "5bd6f7555ba79848c8f56d905cf2e84bf54c877f0128b0842513dd6dfcf8cbcc",
+        "evidence": "grades/merge-feedback/07-export-review/grades.md (A)"
+      },
+      "arm": "bandit-review",
+      "invocation": "$bandit-review",
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 50.607,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "1eb17258cdbf08ba5f3b452ea16cd599775b58482ad98a47cb4a0bc39de22beb",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 78129,
+          "cached_input_tokens": 58752,
+          "output_tokens": 1130,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 79259
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "merge-feedback-10-reservation-review-r1-a1",
+      "condition": "merge-feedback",
+      "case": "10-reservation-review",
+      "replicate": 1,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-merge-feedback/runs/merge-feedback-10-reservation-review-r1-a1",
+      "quality_status": "failed",
+      "quality": {
+        "status": "failed",
+        "output_sha256": "5ba6c1f1b87cb18f7c2e56b1712815ecbde1b5f2e97997a8251acb6b5ec9edb8",
+        "evidence": "grades/merge-feedback/10-reservation-review/grades.md (B)"
+      },
+      "arm": "bandit-review",
+      "invocation": "$bandit-review",
+      "successful": false,
+      "failed": true,
+      "elapsed_seconds": 51.929,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "1eb17258cdbf08ba5f3b452ea16cd599775b58482ad98a47cb4a0bc39de22beb",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 78785,
+          "cached_input_tokens": 48256,
+          "output_tokens": 1237,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 80022
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "merge-feedback-10-reservation-review-r2-a1",
+      "condition": "merge-feedback",
+      "case": "10-reservation-review",
+      "replicate": 2,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-merge-feedback/runs/merge-feedback-10-reservation-review-r2-a1",
+      "quality_status": "failed",
+      "quality": {
+        "status": "failed",
+        "output_sha256": "ed46d157e2c8e5c06622cc4dbb1be1148778d41a2ed61e00ff8c963bf92a96e5",
+        "evidence": "grades/merge-feedback/10-reservation-review/grades.md (A)"
+      },
+      "arm": "bandit-review",
+      "invocation": "$bandit-review",
+      "successful": false,
+      "failed": true,
+      "elapsed_seconds": 49.62,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "1eb17258cdbf08ba5f3b452ea16cd599775b58482ad98a47cb4a0bc39de22beb",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 78859,
+          "cached_input_tokens": 48256,
+          "output_tokens": 1182,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 80041
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "merge-feedback-round2-07-export-review-r1-a1",
+      "condition": "merge-feedback-round2",
+      "case": "07-export-review",
+      "replicate": 1,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-merge-feedback/runs/merge-feedback-round2-07-export-review-r1-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "output_sha256": "c9e1daa2b0a9cdc1be8cde25d0e3ebff2223d411a442e93d5e59a01c555ffb45",
+        "evidence": "grades/merge-feedback-round2/07-export-review/grades.md (A)"
+      },
+      "arm": "bandit-review",
+      "invocation": "$bandit-review",
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 55.302,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "1eb17258cdbf08ba5f3b452ea16cd599775b58482ad98a47cb4a0bc39de22beb",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 79569,
+          "cached_input_tokens": 58624,
+          "output_tokens": 1275,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 61,
+          "total_tokens": 80844
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "merge-feedback-round2-07-export-review-r2-a1",
+      "condition": "merge-feedback-round2",
+      "case": "07-export-review",
+      "replicate": 2,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-merge-feedback/runs/merge-feedback-round2-07-export-review-r2-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "output_sha256": "5ba5f8973b215ad33a224f915b95311a3108a4e5a7cc3360474a563e50df8aa4",
+        "evidence": "grades/merge-feedback-round2/07-export-review/grades.md (B)"
+      },
+      "arm": "bandit-review",
+      "invocation": "$bandit-review",
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 47.701,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "1eb17258cdbf08ba5f3b452ea16cd599775b58482ad98a47cb4a0bc39de22beb",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 78236,
+          "cached_input_tokens": 58752,
+          "output_tokens": 1131,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 79367
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "merge-feedback-round2-10-reservation-review-r1-a1",
+      "condition": "merge-feedback-round2",
+      "case": "10-reservation-review",
+      "replicate": 1,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-merge-feedback/runs/merge-feedback-round2-10-reservation-review-r1-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "output_sha256": "f5aa8b55f62f4ba7d4f3e348bddaa2e9cee56041f75e253975c357104135b63c",
+        "evidence": "grades/merge-feedback-round2/10-reservation-review/grades.md (B)"
+      },
+      "arm": "bandit-review",
+      "invocation": "$bandit-review",
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 61.474,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "1eb17258cdbf08ba5f3b452ea16cd599775b58482ad98a47cb4a0bc39de22beb",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 77599,
+          "cached_input_tokens": 48384,
+          "output_tokens": 1198,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 78797
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "merge-feedback-round2-10-reservation-review-r2-a1",
+      "condition": "merge-feedback-round2",
+      "case": "10-reservation-review",
+      "replicate": 2,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-merge-feedback/runs/merge-feedback-round2-10-reservation-review-r2-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "output_sha256": "9d78e526b94b3588a1c4f74a5d865c006da36eb77c64f9b5639e61b0259563c9",
+        "evidence": "grades/merge-feedback-round2/10-reservation-review/grades.md (A)"
+      },
+      "arm": "bandit-review",
+      "invocation": "$bandit-review",
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 48.199,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "1eb17258cdbf08ba5f3b452ea16cd599775b58482ad98a47cb4a0bc39de22beb",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 79992,
+          "cached_input_tokens": 51200,
+          "output_tokens": 1149,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 81141
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    }
+  ]
+}

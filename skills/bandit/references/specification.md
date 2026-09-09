@@ -121,3 +121,9 @@ Expose open decisions that could change behavior, with a proposed default when a
 Separate implementation-blocking decisions from details that can remain flexible.
 Report the resulting artifact, the material assumptions, and what has actually been checked.
 Specification completeness does not establish customer demand, implementation completion, or release readiness.
+
+For a narrow edit, finish after checking the changed rules and immediate
+dependencies. For a direction rewrite, check the whole current specification
+for conflicting old rules and preserve historical evidence under its original
+conditions. Expand beyond it only for a material dependency, and report any
+out-of-scope artifact needing follow-up instead of editing it without authority.

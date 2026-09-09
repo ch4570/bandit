@@ -60,3 +60,9 @@ scope to an acceptance outcome or next experiment so the decision can be used.
 Match scale to the request: a three-sentence recommendation can be enough for
 a narrow choice; a delivery handoff needs a clear boundary and dependencies.
 Do not add a mandatory strategy workshop, full roadmap, or new approval gate.
+
+For several decisions, check their shared constraints and dependencies together.
+Finish when each requested choice has a usable boundary, tradeoff, and acceptance
+outcome or next experiment. Do not generate a full specification for every choice.
+Reopen affected choices when capacity, adopted constraints, or material evidence
+changes; retain the other decisions and their supporting work.

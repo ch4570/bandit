@@ -1,0 +1,78 @@
+{
+  "grades": [
+    {
+      "id": "A",
+      "status": "passed",
+      "output_sha256": "5bd6f7555ba79848c8f56d905cf2e84bf54c877f0128b0842513dd6dfcf8cbcc",
+      "criteria": [
+        {
+          "id": "scope-control",
+          "status": "passed",
+          "evidence": "A:1 states 'static inspection, not observed execution'; A:3-21 confines the review to access, repeated requests, recovery, and completion visibility. A:23 says 'No files changed and no code or tests ran' and excludes the support handoff. No PRD rewrite, CSV/marketing expansion, or executed-test claim."
+        },
+        {
+          "id": "access",
+          "status": "passed",
+          "evidence": "A:3: 'an active B member knowing A’s export ID can retrieve that same view without a workspace check.' Supported by raw/implementation.py:47-49 and the fields exposed by _view at 22-29; A:5 requires ownership and non-disclosure checks."
+        },
+        {
+          "id": "idempotency",
+          "status": "passed",
+          "evidence": "A:3 identifies global keys and B receiving A's export on key reuse; A:5 requires workspace-scoped lookup and distinct exports for equal keys across workspaces. A:7-9 distinguishes operation identity from changed-filter reuse. A:23 limits existing retry evidence to sequential identical retries."
+        },
+        {
+          "id": "recovery",
+          "status": "passed",
+          "evidence": "A:11 traces saved job/key before enqueue, failed submission/503, and retry returning pending without dispatch. A:15 explains at-most-once removal, failed timeout state, interrupted running state, and no supplied worker retry trigger. A:13,17 propose recovery for the original job without claiming an approved mechanism."
+        },
+        {
+          "id": "actionability",
+          "status": "passed",
+          "evidence": "A:5 provides cross-workspace and inactive-member checks; A:9 covers exact/conflicting retries; A:13 covers queue failure and uncertain acknowledgement under one ID; A:17 checks timeout, restart, and duplicate completed delivery without another renderer call; A:21 checks hidden locations on noncomplete jobs."
+        },
+        {
+          "id": "calibration",
+          "status": "passed",
+          "evidence": "A anchors findings to supplied code/contracts. A:9 calls conflict handling 'a proposed policy, not an existing requirement.' A:21 explicitly makes intermediate-state exposure conditional on unavailable adapter atomicity. A:23 respects shared durable-store stand-ins and distinguishes static test inspection from execution."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "status": "passed",
+      "output_sha256": "d855d3cebe3d63329eb2544e2e18257c8daa5226a6e5d5389716b23034adb800",
+      "criteria": [
+        {
+          "id": "scope-control",
+          "status": "passed",
+          "evidence": "B:3 says 'No code or tests were executed' and identifies synthetic artifacts with no runtime results. B:5-30 stays within access, repeated requests, recovery, and completion visibility; B:32 excludes support distractions. No PRD rewrite, CSV/marketing expansion, or executed-result claim."
+        },
+        {
+          "id": "access",
+          "status": "passed",
+          "evidence": "B:6 identifies any-known-ID lookup after only active membership; B:8 explicitly requires B to be denied A's pending/completed exports with no cross-workspace fields. Supported by raw/implementation.py:47-49 and _view at 22-29."
+        },
+        {
+          "id": "idempotency",
+          "status": "passed",
+          "evidence": "B:6 states 'If workspace A submits a key and workspace B reuses it, B receives A’s export view.' B:8 requires authenticated-workspace lookup/storage, separate exports across workspaces, and same-workspace retries. B:25-28 separates same-operation retry from changed-filter policy; B:30 limits existing evidence to sequential retry."
+        },
+        {
+          "id": "recovery",
+          "status": "passed",
+          "evidence": "B:11 follows stored job/key before push, RuntimeError/503, and exact retry returning unqueued pending work. B:16 addresses failed/interrupted workers under at-most-once delivery and absence of a new worker invocation. B:13,18 propose bounded original-job recovery without prescribing an already-approved or implemented mechanism."
+        },
+        {
+          "id": "actionability",
+          "status": "passed",
+          "evidence": "B:8 covers unauthorized reads and key isolation; B:13 queue failure/retry and persistence-dispatch interruption; B:18 timeout and restart under the original identity; B:23 noncomplete location visibility; B:28 exact/conflicting reuse; B:30 renderer-call-count checks on completed duplicate delivery and conditional concurrency checks."
+        },
+        {
+          "id": "calibration",
+          "status": "passed",
+          "evidence": "B cites supplied code/contracts, labels conflict handling 'a proposed policy' (28), labels concurrency 'unverified' under chosen durable-store behavior (30), and rejects inferring a durability defect from dictionaries (32). The intermediate-location scenario in 21 follows separate snapshot assignments; atomic publication is qualified 'where supported' (23). Its adapter dependence could be clearer, but no live observation or unsupported definite adapter behavior is claimed."
+        }
+      ]
+    }
+  ]
+}

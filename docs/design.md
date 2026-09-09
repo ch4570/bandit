@@ -63,6 +63,15 @@ When a user delegates a reversible draft choice, make a reasoned recommendation 
 
 BANDIT's responsibilities end at the requested product artifact or assessment. It can hand accepted rules and open decisions to implementation or UI work. It does not require another specialist skill, and its use does not authorize customer outreach, purchases, account mutations, code changes, or deployment.
 
+The shared [work boundaries](../skills/bandit/references/work-boundaries.md) connect
+the requested result to relevant sources, completion checks, and user limits.
+Stage-specific references define when to finish or revisit a narrow review,
+several scope decisions, or a specification rewrite. Material unknowns can be
+reported with their decision impact; they do not force an endless investigation.
+The instructions preserve required checks and do not claim to enforce billing
+limits or reduce cost. Repeated raw-fixture execution and separate quality
+grading are needed to evaluate that hypothesis.
+
 ## A recognizable partner, a plain working voice
 
 BANDIT's cowboy hat, red bandana, pencil, and map give the project a recognizable character. The working voice stays direct and useful: recommend a next move, explain the trade-off, and be precise about uncertainty. Product documents use the user's language and terminology. Western roleplay is optional and belongs only where the user requests it. See [the brand guide](brand.md).

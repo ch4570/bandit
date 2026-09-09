@@ -44,6 +44,13 @@ Choose relevant lenses; do not produce a checklist of irrelevant omissions.
 - Are assumptions, recommendations, adopted decisions, and completed checks distinguishable?
 - Does new information invalidate an old conclusion or leave a material claim untested?
 
+When repeated actions are in scope, establish what makes them the same operation:
+actor, target/version, intent, and content where relevant. Check exact retries
+separately from reuse of an identifier with changed content. If applicable sources
+do not decide whether that reuse replaces, conflicts, or starts another operation,
+name the unresolved policy and its consequence; do not silently adopt the
+implementation's behavior or report an already defined rule as missing.
+
 Treat an intentionally deferred capability as a defect only if its absence breaks the included promise.
 Do not report a rule as missing when another applicable source defines it.
 A declared uncertainty is not itself a defect; assess whether the plan makes an unjustified commitment despite it.
@@ -57,6 +64,10 @@ For each material finding, provide the shortest sufficient account of:
 3. The missing or conflicting decision and a plausible consequence.
 4. The evidence supporting that conclusion and its limits.
 5. A specific correction, or the decision that must be resolved.
+
+If acceptance guidance is requested, connect an unresolved decision to a concrete
+scenario and observable check. Keep any policy-dependent expectation conditional;
+do not invent an outcome or merely defer writing criteria.
 
 Use exact quotes sparingly; a faithful paraphrase with a locator usually suffices.
 State an inference as an inference rather than an observed failure.
@@ -81,3 +92,9 @@ If no material issue is supported, say so; do not invent defects to make the rev
 Distinguish a coherent plan from demonstrated demand, working software, and release readiness.
 For a narrow edit, a few findings or one paragraph can be the entire review.
 Leave the original artifacts unchanged and identify the next useful correction or check.
+
+Finish a narrow review when each requested lens has been checked against the
+applicable sources, with findings or a supported no-issue conclusion and material
+limits. Expand to a linked source when it could change a finding; do not add
+unrequested lenses merely because more documents exist. Reopen affected findings
+when new authority, evidence, or a failed check changes their basis.

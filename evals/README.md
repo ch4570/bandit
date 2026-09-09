@@ -27,6 +27,16 @@ record three fresh tasks: scope selection, a new specification, and an actual
 existing-PRD rewrite. Original inputs and the rewritten artifact are preserved
 separately. These are development checks, not a new comparative benchmark.
 
+The [bounded-workflow development comparison](results/2026-09-09-bounded-workflows/README.md)
+records 18 fresh runs plus a separate actual two-turn continuation. It preserves
+three failed quality grades, missing runtime identity, and unavailable monetary
+cost. It does not establish cost savings or superiority over baseline.
+
+The [review feedback loop](results/2026-09-09-merge-feedback/README.md) retains two
+corrective rounds: 2/4 then 4/4 blind task grades, including both initial failures.
+Its eight raw runs and unchanged criteria are preserved separately. Runtime
+identity and monetary cost remain unavailable; this is not a savings benchmark.
+
 ## Cases
 
 | Case | Planning task |
@@ -37,6 +47,10 @@ separately. These are development checks, not a new comparative benchmark.
 | [04 — incomparable scores](cases/04-incomparable-scores/request.md) | Scope priorities when RICE units, confidence, and effort are incompatible |
 | [05 — small research](cases/05-small-research/request.md) | Recommend one cheap test without customer data or a workshop |
 | [06 — existing spec rewrite](cases/06-existing-spec-rewrite/request.md) | Rewrite an existing PRD for free team collaboration while preserving approval rules and historical evidence conditions |
+| [07 — export review](cases/07-export-review/request.md) | Narrow access, idempotency, and recovery review with unrelated support material |
+| [08 — callback scope](cases/08-callback-scope/request.md) | Multiple delivery decisions constrained by evidence, capacity, and consent |
+| [09 — pickup PRD rewrite](cases/09-pickup-prd-rewrite/request.md) | Rewrite a changed pilot direction while preserving historical observations and operating constraints |
+| [10 — reservation review](cases/10-reservation-review/request.md) | Distinguish adopted organizer/revision rules from an unresolved withdrawal decision and interrupted ledger handoff |
 
 The [rubric](RUBRIC.md) for cases 01–05 was written before those recorded runs.
 It grades observable meaning, including failures, rather than matching headings.
@@ -44,6 +58,21 @@ Case 06 is checked against its request and the original and rewritten artifacts;
 it has no independent rubric score. The cases reflect
 design concerns already used to create the skill: they are development checks,
 not a hidden or representative benchmark of all PM work.
+
+Cases 07–09 were authored independently of the bounded-workflow candidate, with
+ordinary noise documents. They were held out from that instruction-authoring
+pass, not from future development now that they are public. Their
+[meaning-based criteria](criteria/2026-09-09-bounded-workflows/README.md) stay
+outside the executing agent's inputs. Case 09 has a separately stored
+[second user message](follow-ups/09-pickup-prd-rewrite/request.md); deliver it only
+after the initial task, in the same conversation. The fresh-session runner does
+not implement resume; record an actual continuation separately and do not add
+its cumulative session snapshots together.
+
+Case 10 was authored independently of candidate instructions and prior grades.
+Its [criteria](criteria/2026-09-09-merge-feedback/10-reservation-review.md) remain
+outside the raw fixture directory. Once used for feedback, it is a public
+development case, not a held-out benchmark for subsequent instruction edits.
 
 ## Forward-test method
 

@@ -6,7 +6,8 @@ description: Review existing product plans and PRDs for consequential gaps, conf
 # BANDIT Review
 
 Review the requested planning artifact directly using
-[review guidance](references/review.md). Read the relevant source sections and
+[review guidance](references/review.md) and shared
+[work boundaries](references/work-boundaries.md). Read the relevant source sections and
 linked domain decisions before reporting an omission. This skill does not
 require the general BANDIT router or a new discovery workshop.
 

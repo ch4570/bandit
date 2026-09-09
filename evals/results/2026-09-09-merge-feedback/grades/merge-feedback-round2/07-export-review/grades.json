@@ -1,0 +1,78 @@
+{
+  "grades": [
+    {
+      "id": "A",
+      "status": "passed",
+      "output_sha256": "c9e1daa2b0a9cdc1be8cde25d0e3ebff2223d411a442e93d5e59a01c555ffb45",
+      "criteria": [
+        {
+          "id": "C1",
+          "status": "passed",
+          "evidence": "A:3: 'No code or tests were executed, and no files were changed.' A:5–38 remains within export access, repeated requests, and recovery; no replacement PRD, unrelated CSV/marketing work, or implied executed result. Historical actions are not independently verifiable from this packet."
+        },
+        {
+          "id": "C2",
+          "status": "passed",
+          "evidence": "A:6 identifies retrieval after 'checking only active membership'; A:8 describes workspace B requesting A's known export ID and receiving A's view, including a populated location. Supported by raw/implementation.py:22–29,47–49."
+        },
+        {
+          "id": "C3",
+          "status": "passed",
+          "evidence": "A:6 says keys resolve 'globally'; A:8 connects independently selected cross-workspace keys to foreign view disclosure. A:10 requires distinct exports for the same key across workspaces; A:13,17 distinguish the same logical operation and original-ID retries. A:40 limits existing tests to sequential retry coverage rather than isolation proof."
+        },
+        {
+          "id": "C4",
+          "status": "passed",
+          "evidence": "A:20–22 traces persisted job/key before queue push, 503 on a pre-acceptance failure, and retry returning the saved job 'without enqueueing.' A:27–29 explains failed/running jobs after at-most-once consumption and absent recovery trigger. A:24,31 propose recovery retaining the ID without asserting an approved mechanism."
+        },
+        {
+          "id": "C5",
+          "status": "passed",
+          "evidence": "A:10 provides foreign-ID, same-key cross-workspace, and inactive-read checks; A:17 provides exact retry and policy-conditional conflict checks; A:24,31 provide queue, renderer, and interruption recovery checks. A:31 requires no renderer invocation on completed redelivery and acknowledges the existing guard."
+        },
+        {
+          "id": "C6",
+          "status": "passed",
+          "evidence": "A:13 identifies unspecified changed-filter semantics; A:17 labels rejection a 'proposed resolution' with 'If adopted.' A:36 qualifies the location-before-complete scenario because storage atomicity is unavailable. A:40 limits adapter and test evidence. Demonstrated defects are source-backed; no accidental local-memory durability claim."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "status": "passed",
+      "output_sha256": "5ba5f8973b215ad33a224f915b95311a3108a4e5a7cc3360474a563e50df8aa4",
+      "criteria": [
+        {
+          "id": "C1",
+          "status": "passed",
+          "evidence": "B:1 explicitly limits scope to access, repeated requests, and recovery. B:31: 'No code or tests were run; no files changed,' and tests are definitions rather than passing evidence. No replacement PRD or unrelated CSV/marketing work. Historical actions are not independently verifiable from this packet."
+        },
+        {
+          "id": "C2",
+          "status": "passed",
+          "evidence": "B:4 says get_export 'checks only active membership'; B:6 describes workspace B requesting A's export ID and receiving A's export view with possible download location. Supported by raw/implementation.py:22–29,47–49."
+        },
+        {
+          "id": "C3",
+          "status": "passed",
+          "evidence": "B:4 identifies globally indexed keys; B:6 describes independent cross-workspace key reuse returning A's view. B:8 requires separate exports for identical keys across workspaces; B:11,15 distinguish same-operation retries and preserve the original ID. B:31 says existing sequential retry tests do not cover these failures."
+        },
+        {
+          "id": "C4",
+          "status": "passed",
+          "evidence": "B:18–20 follows saved job/key before enqueue, RuntimeError/503, and a retry returning pending work with no queued message. B:25–27 follows at-most-once removal to failed or interrupted running work, explains why restart with the shared store is insufficient, and identifies the absent retry trigger. B:22,29 propose same-ID recovery without asserting an approved implementation."
+        },
+        {
+          "id": "C5",
+          "status": "passed",
+          "evidence": "B:8 provides foreign-ID, cross-workspace key, disclosure, and inactive-session checks. B:15 supplies exact retry and policy-conditional changed-filter checks; B:22 covers enqueue failure and ambiguous outcome; B:29 covers timeout/interruption recovery, location visibility, and 'zero additional renderer calls' for completed redelivery while acknowledging the existing guard."
+        },
+        {
+          "id": "C6",
+          "status": "passed",
+          "evidence": "B:11 identifies undefined changed-content semantics; B:15 calls rejection 'a conservative proposed policy,' conditions checks on adoption, and allows alternatives. B:22 presents accepted-before-error push as a scenario to check. B:27 respects restart access to the shared store; B:31 limits claims to static synthetic evidence and excludes adapters. No invented local-memory durability defect."
+        }
+      ]
+    }
+  ]
+}

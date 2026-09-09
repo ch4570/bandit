@@ -28,6 +28,10 @@ ROUTES = {
     "04-incomparable-scores": ["pm-product-discovery/skills/prioritize-features/SKILL.md", "pm-execution/skills/prioritization-frameworks/SKILL.md"],
     "05-small-research": ["pm-product-discovery/skills/brainstorm-experiments-new/SKILL.md", "pm-product-discovery/skills/identify-assumptions-new/SKILL.md"],
     "06-existing-spec-rewrite": ["pm-execution/commands/write-prd.md", "pm-execution/skills/create-prd/SKILL.md"],
+    "07-export-review": ["pm-ai-shipping/skills/intended-vs-implemented/SKILL.md"],
+    "08-callback-scope": ["pm-product-discovery/skills/prioritize-features/SKILL.md"],
+    "09-pickup-prd-rewrite": ["pm-execution/commands/write-prd.md", "pm-execution/skills/create-prd/SKILL.md"],
+    "10-reservation-review": ["pm-ai-shipping/skills/intended-vs-implemented/SKILL.md"],
 }
 
 

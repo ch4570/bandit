@@ -7,7 +7,8 @@ description: Create, rewrite, or refine PRDs and product specifications from an 
 
 Turn the requested direction into product requirements someone can implement
 and verify. Read the user's current decisions and relevant domain documents,
-then apply [specification guidance](references/specification.md). Start directly
+then apply [specification guidance](references/specification.md) and shared
+[work boundaries](references/work-boundaries.md). Start directly
 with this skill; a general BANDIT planning pass is not a prerequisite.
 
 Look for an existing specification among the relevant project documents before

@@ -1,0 +1,174 @@
+{
+  "schema": "bandit.run/v2",
+  "case": "07-export-review",
+  "arm": "baseline",
+  "started_at": "2026-09-09T07:01:46.501713+00:00",
+  "condition": "baseline",
+  "replicate": 1,
+  "attempt": 1,
+  "codex_version": "codex-cli 0.153.4",
+  "process_exit_code": 0,
+  "quality_status": "not_evaluated",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "/private/tmp/bandit-issue6-runs.CpDCvP/baseline-r1/07-export-review--baseline/workspace",
+    "--disable",
+    "multi_agent",
+    "-c",
+    "web_search=\"disabled\"",
+    "-c",
+    "approval_policy=\"never\"",
+    "--model",
+    "gpt-6-astra",
+    "-c",
+    "model_reasoning_effort=\"low\"",
+    "-o",
+    "/private/tmp/bandit-issue6-runs.CpDCvP/baseline-r1/07-export-review--baseline/output.md",
+    "-"
+  ],
+  "model_override": "gpt-6-astra",
+  "config": "--ignore-user-config; explicit settings below; unspecified model/effort use host defaults",
+  "execution_settings": {
+    "model": "gpt-6-astra",
+    "reasoning_effort": "low",
+    "timeout_seconds": 240.0,
+    "max_output_words": 800,
+    "web_search": "disabled",
+    "multi_agent": false,
+    "sandbox": "read-only"
+  },
+  "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+  "upstream_commit": null,
+  "input_sha256": {
+    "implementation.py": "c50fb44ae24fb545d2fb7c545f6d2df6ef62b8ba9742879b4783241556d270ab",
+    "product-notes.md": "88bdbdf3822d3e4beb3ded25ee2fc601a6215751451abf336b0b2e4f3e41b8ed",
+    "request.md": "9c48560690d6ae39293cf61f51a7845d9baaeb8489bef9f4282ce8a84d1cb6f0",
+    "support-handoff.md": "077d318077e1ea5ff9c87ef65b94689d5e1fbd7e0059bf11b785b306d9ce42c1",
+    "test_existing.py": "b6eabbc8d28cd2f4173b40ab5b27b1518b879d515c969244c14c7814af16c8b3"
+  },
+  "instruction_sha256": {},
+  "invocation": null,
+  "editable_artifact": null,
+  "workspace_before": {
+    "entries": {
+      "input": {
+        "kind": "directory",
+        "mode": 493
+      },
+      "input/implementation.py": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "c50fb44ae24fb545d2fb7c545f6d2df6ef62b8ba9742879b4783241556d270ab"
+      },
+      "input/product-notes.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "88bdbdf3822d3e4beb3ded25ee2fc601a6215751451abf336b0b2e4f3e41b8ed"
+      },
+      "input/request.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "9c48560690d6ae39293cf61f51a7845d9baaeb8489bef9f4282ce8a84d1cb6f0"
+      },
+      "input/support-handoff.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "077d318077e1ea5ff9c87ef65b94689d5e1fbd7e0059bf11b785b306d9ce42c1"
+      },
+      "input/test_existing.py": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "b6eabbc8d28cd2f4173b40ab5b27b1518b879d515c969244c14c7814af16c8b3"
+      }
+    },
+    "errors": [],
+    "traversal": "descriptor-relative"
+  },
+  "integrity_status": "passed",
+  "violations": [],
+  "snapshot_errors": {
+    "before": [],
+    "after": []
+  },
+  "exit_code": 0,
+  "elapsed_seconds": 46.775,
+  "workspace_after": {
+    "entries": {
+      "input": {
+        "kind": "directory",
+        "mode": 493
+      },
+      "input/implementation.py": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "c50fb44ae24fb545d2fb7c545f6d2df6ef62b8ba9742879b4783241556d270ab"
+      },
+      "input/product-notes.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "88bdbdf3822d3e4beb3ded25ee2fc601a6215751451abf336b0b2e4f3e41b8ed"
+      },
+      "input/request.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "9c48560690d6ae39293cf61f51a7845d9baaeb8489bef9f4282ce8a84d1cb6f0"
+      },
+      "input/support-handoff.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "077d318077e1ea5ff9c87ef65b94689d5e1fbd7e0059bf11b785b306d9ce42c1"
+      },
+      "input/test_existing.py": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "b6eabbc8d28cd2f4173b40ab5b27b1518b879d515c969244c14c7814af16c8b3"
+      }
+    },
+    "errors": [],
+    "traversal": "descriptor-relative"
+  },
+  "input_after_sha256": {
+    "implementation.py": "c50fb44ae24fb545d2fb7c545f6d2df6ef62b8ba9742879b4783241556d270ab",
+    "product-notes.md": "88bdbdf3822d3e4beb3ded25ee2fc601a6215751451abf336b0b2e4f3e41b8ed",
+    "request.md": "9c48560690d6ae39293cf61f51a7845d9baaeb8489bef9f4282ce8a84d1cb6f0",
+    "support-handoff.md": "077d318077e1ea5ff9c87ef65b94689d5e1fbd7e0059bf11b785b306d9ce42c1",
+    "test_existing.py": "b6eabbc8d28cd2f4173b40ab5b27b1518b879d515c969244c14c7814af16c8b3"
+  },
+  "instruction_after_sha256": {},
+  "telemetry": {
+    "schema": "bandit.telemetry/v1",
+    "usage_scope": "top-level-cli-events",
+    "usage_semantics": "cumulative-session-snapshot",
+    "usage_status": "available",
+    "usage": {
+      "input_tokens": 73344,
+      "cached_input_tokens": 47232,
+      "output_tokens": 1059,
+      "cache_write_input_tokens": 0,
+      "reasoning_output_tokens": 0,
+      "total_tokens": 74403
+    },
+    "partial_usage": null,
+    "errors": [],
+    "turns_started": 1,
+    "turns_completed": 1,
+    "turns_failed": 0,
+    "duplicate_terminal_events": 0,
+    "nonzero_cache_write_tokens_observed": false,
+    "observed_model": null,
+    "observed_reasoning_effort": null,
+    "observed_models": [],
+    "observed_reasoning_efforts": [],
+    "unknown_event_types": []
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "grades": [
+    {
+      "id": "A",
+      "status": "passed",
+      "output_sha256": "9d78e526b94b3588a1c4f74a5d865c006da36eb77c64f9b5639e61b0259563c9",
+      "criteria": [
+        {
+          "id": "C1",
+          "status": "passed",
+          "evidence": "A.md:19–23 distinguishes the planned replay from policy and states 'The logical action is the same organizer, reservation, and revision' and 'This rule is already decided.' It preserves changed-content and superseded-revision rules without reopening them or treating retry-token details as missing product rules."
+        },
+        {
+          "id": "C2",
+          "status": "passed",
+          "evidence": "A.md:17 identifies the one-row constraint; :19 explains that submitting B returns A's stored acceptance and retrying A succeeds before superseded-revision validation. :21–25 connects revision-aware correction to policy and distinguishes current-revision lost-response reuse, stale rejection, and fresh acceptance of B."
+        },
+        {
+          "id": "C3",
+          "status": "passed",
+          "evidence": "A.md:9 describes another active workspace member, including a manager, accepting without assigned-organizer authority. :11 requires the assignment check 'alongside active membership and workspace ownership'; :13 provides authorized and denied actor checks. Existing access checks are acknowledged and no external authentication flaw is invented."
+        },
+        {
+          "id": "C4",
+          "status": "passed",
+          "evidence": "A.md:31 traces commit, failed publication, 503, and retry returning 200 without publication, with no persisted delivery or repair. :35 states 'Consumer deduplication alone does not establish this recovery.' :41–43 explains misleading 'Room secured' status and requires authoritative ledger evidence before that label."
+        },
+        {
+          "id": "C5",
+          "status": "passed",
+          "evidence": "A.md:45 assigns pending withdrawal to Operations, asks for the adopted outcome and checks before delivery and racing application. 'If withdrawal wins' and 'if application wins' are useful conditional implications rather than adopted winners, and 'Do not infer automatic release' preserves the policy boundary."
+        },
+        {
+          "id": "C6",
+          "status": "passed",
+          "evidence": "A.md:13,25,35,43 provides actor, exact-reuse, revision-change, interrupted-delivery, duplicate-effect, and ledger-status checks; :23,33 proposes bounded changes with engineering choice. :3 says 'This is document inspection only' and :47 says 'None is currently a verified pass.' No broad redesign or unrelated pilot scope is added."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "status": "passed",
+      "output_sha256": "f5aa8b55f62f4ba7d4f3e348bddaa2e9cee56041f75e253975c357104135b63c",
+      "criteria": [
+        {
+          "id": "C1",
+          "status": "passed",
+          "evidence": "B.md:17 states 'The same organizer, reservation, and revision constitute one logical action,' requires fresh changed-content acceptance, and rejects superseded requests. :19–23 contrasts policy with the one-row lookup while leaving storage an engineering choice. No adopted rule is reported missing or reopened."
+        },
+        {
+          "id": "C2",
+          "status": "passed",
+          "evidence": "B.md:19 identifies the member/reservation lookup before revision validation and its one-row constraint. :21 traces B replaying A and stale A succeeding without a changed-offer explanation. :23–29 supplies policy-linked revision-aware reuse, current-A retries after lost responses, stale handling, and fresh acceptance of B. :17 explicitly prohibits accepting superseded requests, so :26's narrower check about no acceptance for B is not permission to accept stale A."
+        },
+        {
+          "id": "C3",
+          "status": "passed",
+          "evidence": "B.md:9 acknowledges 'The endpoint checks membership and workspace ownership' and identifies omitted organizer assignment. :7,11–13 covers unauthorized same-workspace members and managers, authorized organizers, and denial without acceptance or an event. It does not claim all access checks are absent or invent an external authentication vulnerability."
+        },
+        {
+          "id": "C4",
+          "status": "passed",
+          "evidence": "B.md:35–37 traces the durable acceptance, publication error/503, existing-row retry without republishing, unavailable repair, and falsely secured room. :33,39 establishes ledger authority and requires truthful pending status plus recovery without duplicate allocation. :39 explicitly says 'Consumer deduplication alone does not recover an event never delivered.'"
+        },
+        {
+          "id": "C5",
+          "status": "passed",
+          "evidence": "B.md:41 identifies pending withdrawal as explicitly unresolved and Operations-owned. Late-delivery checks are conditional: 'if withdrawal cancels pending allocation' and 'if cancellation is unavailable at that stage.' It prescribes neither as adopted and requires the interface to explain the outcome 'without claiming release.'"
+        },
+        {
+          "id": "C6",
+          "status": "passed",
+          "evidence": "B.md:13,23–29,39 provides bounded actor, exact-retry, changed/stale-revision, interrupted-handoff, duplicate-allocation, and status checks. :3 says checks are 'proposed, not verified results'; :43 distinguishes documented behavior from working software or readiness. It stays within the requested pilot review and adds no broad redesign or unrelated work."
+        }
+      ]
+    }
+  ]
+}

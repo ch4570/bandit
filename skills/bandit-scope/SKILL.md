@@ -7,7 +7,8 @@ description: Define MVP scope and feature priorities under time, team, and produ
 
 Define what the team should build now and what can wait. Read existing decisions, the deadline,
 capacity, and relevant evidence, then apply
-[scope and priority guidance](references/decisions.md). Work directly from this
+[scope and priority guidance](references/decisions.md) and shared
+[work boundaries](references/work-boundaries.md). Work directly from this
 skill without invoking the general BANDIT router.
 
 Recommend a reversible choice when delegated and identify its assumptions.

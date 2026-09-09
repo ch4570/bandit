@@ -1,0 +1,174 @@
+{
+  "schema": "bandit.run/v2",
+  "case": "08-callback-scope",
+  "arm": "baseline",
+  "started_at": "2026-09-09T07:05:18.857844+00:00",
+  "condition": "baseline",
+  "replicate": 1,
+  "attempt": 1,
+  "codex_version": "codex-cli 0.153.4",
+  "process_exit_code": 0,
+  "quality_status": "not_evaluated",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "/private/tmp/bandit-issue6-runs.CpDCvP/baseline-r1/08-callback-scope--baseline/workspace",
+    "--disable",
+    "multi_agent",
+    "-c",
+    "web_search=\"disabled\"",
+    "-c",
+    "approval_policy=\"never\"",
+    "--model",
+    "gpt-6-astra",
+    "-c",
+    "model_reasoning_effort=\"low\"",
+    "-o",
+    "/private/tmp/bandit-issue6-runs.CpDCvP/baseline-r1/08-callback-scope--baseline/output.md",
+    "-"
+  ],
+  "model_override": "gpt-6-astra",
+  "config": "--ignore-user-config; explicit settings below; unspecified model/effort use host defaults",
+  "execution_settings": {
+    "model": "gpt-6-astra",
+    "reasoning_effort": "low",
+    "timeout_seconds": 240,
+    "max_output_words": 900,
+    "web_search": "disabled",
+    "multi_agent": false,
+    "sandbox": "read-only"
+  },
+  "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+  "upstream_commit": null,
+  "input_sha256": {
+    "delivery-constraints.md": "ea9cc442b72a71c395048a047ce97e8dc476be15678a5df1f4b3544a5c8f4ff1",
+    "evidence.md": "e2109014472dbc8e6491e56b8909ce5553dfa6f368c5e23ef64e534420477d18",
+    "homepage-refresh.md": "dceb3cdeea0b3f266128ffc8d23b327148ed4d11dd613ab37548b31c397e4a43",
+    "request.md": "2adc6540b5630ff06638c182d98a0fd7279617f221e6b95d885a8cba081c27f5",
+    "stakeholder-notes.md": "a272879966fa60b22d0753ca452d07523d3923f64133bc523113c1b4128eb462"
+  },
+  "instruction_sha256": {},
+  "invocation": null,
+  "editable_artifact": null,
+  "workspace_before": {
+    "entries": {
+      "input": {
+        "kind": "directory",
+        "mode": 493
+      },
+      "input/delivery-constraints.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "ea9cc442b72a71c395048a047ce97e8dc476be15678a5df1f4b3544a5c8f4ff1"
+      },
+      "input/evidence.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "e2109014472dbc8e6491e56b8909ce5553dfa6f368c5e23ef64e534420477d18"
+      },
+      "input/homepage-refresh.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "dceb3cdeea0b3f266128ffc8d23b327148ed4d11dd613ab37548b31c397e4a43"
+      },
+      "input/request.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "2adc6540b5630ff06638c182d98a0fd7279617f221e6b95d885a8cba081c27f5"
+      },
+      "input/stakeholder-notes.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "a272879966fa60b22d0753ca452d07523d3923f64133bc523113c1b4128eb462"
+      }
+    },
+    "errors": [],
+    "traversal": "descriptor-relative"
+  },
+  "integrity_status": "passed",
+  "violations": [],
+  "snapshot_errors": {
+    "before": [],
+    "after": []
+  },
+  "exit_code": 0,
+  "elapsed_seconds": 53.717,
+  "workspace_after": {
+    "entries": {
+      "input": {
+        "kind": "directory",
+        "mode": 493
+      },
+      "input/delivery-constraints.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "ea9cc442b72a71c395048a047ce97e8dc476be15678a5df1f4b3544a5c8f4ff1"
+      },
+      "input/evidence.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "e2109014472dbc8e6491e56b8909ce5553dfa6f368c5e23ef64e534420477d18"
+      },
+      "input/homepage-refresh.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "dceb3cdeea0b3f266128ffc8d23b327148ed4d11dd613ab37548b31c397e4a43"
+      },
+      "input/request.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "2adc6540b5630ff06638c182d98a0fd7279617f221e6b95d885a8cba081c27f5"
+      },
+      "input/stakeholder-notes.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "a272879966fa60b22d0753ca452d07523d3923f64133bc523113c1b4128eb462"
+      }
+    },
+    "errors": [],
+    "traversal": "descriptor-relative"
+  },
+  "input_after_sha256": {
+    "delivery-constraints.md": "ea9cc442b72a71c395048a047ce97e8dc476be15678a5df1f4b3544a5c8f4ff1",
+    "evidence.md": "e2109014472dbc8e6491e56b8909ce5553dfa6f368c5e23ef64e534420477d18",
+    "homepage-refresh.md": "dceb3cdeea0b3f266128ffc8d23b327148ed4d11dd613ab37548b31c397e4a43",
+    "request.md": "2adc6540b5630ff06638c182d98a0fd7279617f221e6b95d885a8cba081c27f5",
+    "stakeholder-notes.md": "a272879966fa60b22d0753ca452d07523d3923f64133bc523113c1b4128eb462"
+  },
+  "instruction_after_sha256": {},
+  "telemetry": {
+    "schema": "bandit.telemetry/v1",
+    "usage_scope": "top-level-cli-events",
+    "usage_semantics": "cumulative-session-snapshot",
+    "usage_status": "available",
+    "usage": {
+      "input_tokens": 72862,
+      "cached_input_tokens": 57600,
+      "output_tokens": 1228,
+      "cache_write_input_tokens": 0,
+      "reasoning_output_tokens": 75,
+      "total_tokens": 74090
+    },
+    "partial_usage": null,
+    "errors": [],
+    "turns_started": 1,
+    "turns_completed": 1,
+    "turns_failed": 0,
+    "duplicate_terminal_events": 0,
+    "nonzero_cache_write_tokens_observed": false,
+    "observed_model": null,
+    "observed_reasoning_effort": null,
+    "observed_models": [],
+    "observed_reasoning_efforts": [],
+    "unknown_event_types": []
+  }
+}
