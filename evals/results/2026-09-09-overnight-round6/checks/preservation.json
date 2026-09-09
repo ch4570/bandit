@@ -1,0 +1,18 @@
+{
+  "checked_at": "2026-09-08T17:28:39.583Z",
+  "skill_files": 34,
+  "skill_map_sha256": "e49c9478eceaa6cd109ea2192d8bf71d4cc519b8f7d7e61bca0172356f0bb320",
+  "skill_snapshot_unchanged": true,
+  "historical_files": 93,
+  "historical_unchanged": true,
+  "implementation_sha256": {
+    "lib/installer.mjs": "6c2555e1c09d3efa416ae63ab7870143271bfed7f035f91287d01580ff2456ec",
+    "install.py": "29e2ae73652dbba226a8f60889e995d4e70f07eab514513430e5a5aa26d8fe45"
+  },
+  "frozen_test_sha256": {
+    "tests-node/install.test.mjs": "5da411562fd908da8511f23267cb62a2221a16cc2debcda481f768fbff4c0acb",
+    "tests-node/staging.test.mjs": "fe47a50a154c2c06d74c5b04150a34007e5754c6b7fb8582ad49d5346f1a1691",
+    "tests/test_staging.py": "b58fd55cb73efe3a529760920b03cb11f50c552fdb50f18300164d72e1f5d891"
+  }
+}
+

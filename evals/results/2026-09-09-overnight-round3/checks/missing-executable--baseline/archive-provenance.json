@@ -1,0 +1,60 @@
+{
+  "format": 1,
+  "archive_status": "archived",
+  "archived_at": "2026-09-08T16:01:49.397Z",
+  "source_format": "evals/run_local.py",
+  "run_status": "launch-failed",
+  "source_exit_code": null,
+  "terminal_event": null,
+  "invalid_event_lines": 0,
+  "missing_or_empty_output": true,
+  "input_changes": [],
+  "input_scope_respected": true,
+  "instruction_changes": [],
+  "original_input_missing": [],
+  "original_instruction_missing": [],
+  "original_text_snapshot_complete": true,
+  "instruction_restore_directory": null,
+  "omitted_png_files": [],
+  "temporary_path_replacement": "<temporary-run-root>",
+  "files": {
+    "metadata.json": {
+      "source": "metadata.json",
+      "original_sha256": "5cb079aa1071a9a8dd797bcd62d4cad984b7e8df473b1481c16bd6c7dd282c14",
+      "archived_sha256": "1d98e9b51c0c1c19c381961694b9858c614c451f458ce4b80dc4e6ca434a3005",
+      "temporary_path_normalized": true
+    },
+    "prompt.txt": {
+      "source": "prompt.txt",
+      "original_sha256": "aaaa1f0f7ab7dab8380bbbb9ebe02a46147471a3b501ebc502ea5d7767f8326e",
+      "archived_sha256": "aaaa1f0f7ab7dab8380bbbb9ebe02a46147471a3b501ebc502ea5d7767f8326e",
+      "temporary_path_normalized": false
+    },
+    "events.jsonl": {
+      "source": "events.jsonl",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "temporary_path_normalized": false
+    },
+    "stderr.txt": {
+      "source": "stderr.txt",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "temporary_path_normalized": false
+    },
+    "input/request.md": {
+      "source": "original-input/request.md",
+      "original_sha256": "29708cc2eead4c5a19e054d1c5485d2b62451bf4c89826dec3f52ead47b9cd7a",
+      "archived_sha256": "29708cc2eead4c5a19e054d1c5485d2b62451bf4c89826dec3f52ead47b9cd7a",
+      "temporary_path_normalized": false
+    }
+  },
+  "limitations": [
+    "Process completion and hash agreement are not planning-quality grades or proof of compliance with every task instruction.",
+    "Original inputs and instruction bytes are unchanged; only the five run log/artifact files receive literal run-root path normalization.",
+    "PNG files are recorded by SHA256 only and must be restored separately for an identical image-bearing workspace.",
+    "Missing originals cannot be reconstructed from hashes. Partial original trees and available after-state are retained explicitly.",
+    "Path normalization is not a general secret scrubber. Only supplied run evidence is archived; other workspace files and host state are not retained.",
+    "Host-default model configuration and external services are not pinned by this archive; replay is not guaranteed to produce the same response."
+  ]
+}

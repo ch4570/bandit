@@ -1,0 +1,61 @@
+{
+  "case": "11-experiment-integrity",
+  "arm": "bandit-research",
+  "codex_version": "codex-cli 0.153.4",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "<temporary-run-root>/workspace",
+    "-o",
+    "<temporary-run-root>/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host defaults",
+  "upstream_commit": null,
+  "input_sha256": {
+    "experiment-plan.md": "677581354f344f141df04ddaca49a426cf7385bf7ca0e4ea41947c7f9a1395a4",
+    "exports/assignments.csv": "d895a8f536a279758c207701a5b50dab6681cb76a2c1bc7949ea07c12cd850d6",
+    "exports/backend-outcomes.csv": "d03ba517d3d3cfdd0b404586d5c997cc6bef181b98dfa9476d60ef2cb54f514d",
+    "exports/client-events.csv": "b271e747a09fc996350400c10a695cb7426f171d2477500f1e9faa01822d0768",
+    "instrumentation.md": "7aff1036618870b18ef7fadca7bca2b1a44d5c4d4ea636f34bcb4e49ff15ac9d",
+    "pm-note.md": "5f4656e6efde30c71b11edb834e70e56f97c2f17ed4944e83478cca903be900a",
+    "request.md": "6209b752cf3ddffa8abeca1b68a1e258b678759b6dba4ec91aaf6d96f2391ed4"
+  },
+  "instruction_sha256": {
+    "bandit-research/SKILL.md": "be1313ca9679fec07b172fbdd5e2eda1f19bc6903b897934a3dec995696dcfd5",
+    "bandit-research/agents/openai.yaml": "af4da23d45df56346cd7f9924f440dc4d946ee9cf02f9130cd47b14f0ef0835c",
+    "bandit-research/references/evidence-and-decisions.md": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+    "bandit-research/references/research.md": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6"
+  },
+  "invocation": "$bandit-research",
+  "standalone_specialist": true,
+  "custom_fixture": false,
+  "editable_artifact": null,
+  "exit_code": 0,
+  "elapsed_seconds": 43.877,
+  "input_after_sha256": {
+    "experiment-plan.md": "677581354f344f141df04ddaca49a426cf7385bf7ca0e4ea41947c7f9a1395a4",
+    "exports/assignments.csv": "d895a8f536a279758c207701a5b50dab6681cb76a2c1bc7949ea07c12cd850d6",
+    "exports/backend-outcomes.csv": "d03ba517d3d3cfdd0b404586d5c997cc6bef181b98dfa9476d60ef2cb54f514d",
+    "exports/client-events.csv": "b271e747a09fc996350400c10a695cb7426f171d2477500f1e9faa01822d0768",
+    "instrumentation.md": "7aff1036618870b18ef7fadca7bca2b1a44d5c4d4ea636f34bcb4e49ff15ac9d",
+    "pm-note.md": "5f4656e6efde30c71b11edb834e70e56f97c2f17ed4944e83478cca903be900a",
+    "request.md": "6209b752cf3ddffa8abeca1b68a1e258b678759b6dba4ec91aaf6d96f2391ed4"
+  },
+  "instruction_after_sha256": {
+    "bandit-research/SKILL.md": "be1313ca9679fec07b172fbdd5e2eda1f19bc6903b897934a3dec995696dcfd5",
+    "bandit-research/agents/openai.yaml": "af4da23d45df56346cd7f9924f440dc4d946ee9cf02f9130cd47b14f0ef0835c",
+    "bandit-research/references/evidence-and-decisions.md": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+    "bandit-research/references/research.md": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6"
+  }
+}

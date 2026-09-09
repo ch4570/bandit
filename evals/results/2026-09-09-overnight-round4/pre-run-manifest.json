@@ -1,0 +1,25 @@
+{
+  "format": 1,
+  "recorded_at_utc": "2026-09-08T15:59:05Z",
+  "purpose": "Pre-run receipt for case 15; no task has been launched and no result is claimed at this checkpoint.",
+  "case": "15-manual-outcome-pilot",
+  "synthetic": true,
+  "author_designed_development_check": true,
+  "planned_arm": "bandit-research",
+  "planned_standalone": true,
+  "planned_web_search": "disabled",
+  "task_context": "Only raw request/brief and the complete selected skill folder; exclude this receipt, rubric, author diagnoses and prior outputs.",
+  "fixture_sha256": {
+    "request.md": "2e168106ce26114d37821883faf83ff46217035a94bf8d9aaf7ef155c0dde683",
+    "brief.md": "7008c1c54d6bedb508ea976b53234612362cc35674e1d623cf3380eb67b6caf5"
+  },
+  "rubric": "evals/rubrics/15-manual-outcome-pilot.md",
+  "rubric_sha256": "fb6b96b148ed91dfc10b60161e3e908d820e495a6a26289fb7e68b142dfa588a",
+  "selected_instruction_sha256": {
+    "SKILL.md": "be1313ca9679fec07b172fbdd5e2eda1f19bc6903b897934a3dec995696dcfd5",
+    "references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+    "references/evidence-and-decisions.md": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+    "agents/openai.yaml": "af4da23d45df56346cd7f9924f440dc4d946ee9cf02f9130cd47b14f0ef0835c"
+  },
+  "limitation": "This local pre-run receipt is not a signed or independently timestamped attestation. Preserve it unchanged and record later runs separately."
+}

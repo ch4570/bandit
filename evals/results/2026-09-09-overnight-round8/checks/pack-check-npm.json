@@ -1,0 +1,231 @@
+[
+  {
+    "id": "@ch4570/bandit@0.4.0",
+    "name": "@ch4570/bandit",
+    "version": "0.4.0",
+    "size": 2677442,
+    "unpackedSize": 2848953,
+    "shasum": "348ea3d616f207c80c1c714280316b4aa3a84691",
+    "integrity": "sha512-KHhfqcI3ovqquoxk2zZzWZ+3yiJNL8bnBod1s1NP67Zto5pVYe4uioCeqrYpQYDUMxm12QlEUukTRIXK/vx1tA==",
+    "filename": "ch4570-bandit-0.4.0.tgz",
+    "files": [
+      {
+        "path": "INSTALL.md",
+        "size": 8049,
+        "mode": 420
+      },
+      {
+        "path": "LICENSE",
+        "size": 1063,
+        "mode": 420
+      },
+      {
+        "path": "README.ko.md",
+        "size": 10067,
+        "mode": 420
+      },
+      {
+        "path": "README.md",
+        "size": 8105,
+        "mode": 420
+      },
+      {
+        "path": "VERSION",
+        "size": 6,
+        "mode": 420
+      },
+      {
+        "path": "bin/bandit.mjs",
+        "size": 299,
+        "mode": 493
+      },
+      {
+        "path": "lib/installer.mjs",
+        "size": 25056,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 959,
+        "mode": 420
+      },
+      {
+        "path": "scripts/validate-node.mjs",
+        "size": 11108,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-research/agents/openai.yaml",
+        "size": 219,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-research/references/evidence-and-decisions.md",
+        "size": 4656,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-research/references/research.md",
+        "size": 4813,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-research/SKILL.md",
+        "size": 1572,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-review/agents/openai.yaml",
+        "size": 217,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-review/assets/plan-template.md",
+        "size": 4898,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-review/references/changes.md",
+        "size": 6476,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-review/references/evidence-and-decisions.md",
+        "size": 4656,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-review/references/research.md",
+        "size": 4813,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-review/references/review.md",
+        "size": 5137,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-review/references/specification.md",
+        "size": 8434,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-review/SKILL.md",
+        "size": 1582,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-scope/agents/openai.yaml",
+        "size": 222,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-scope/references/decisions.md",
+        "size": 3381,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-scope/references/evidence-and-decisions.md",
+        "size": 4656,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-scope/SKILL.md",
+        "size": 1562,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-specify/agents/openai.yaml",
+        "size": 233,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-specify/assets/plan-template.md",
+        "size": 4898,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-specify/references/changes.md",
+        "size": 6476,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-specify/references/evidence-and-decisions.md",
+        "size": 4656,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-specify/references/research.md",
+        "size": 4813,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-specify/references/review.md",
+        "size": 5137,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-specify/references/specification.md",
+        "size": 8434,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit-specify/SKILL.md",
+        "size": 2142,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit/agents/openai.yaml",
+        "size": 352,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit/assets/bandit-avatar.png",
+        "size": 2647123,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit/assets/plan-template.md",
+        "size": 4898,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit/references/changes.md",
+        "size": 6476,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit/references/decisions.md",
+        "size": 3381,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit/references/evidence-and-decisions.md",
+        "size": 4656,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit/references/research.md",
+        "size": 4813,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit/references/review.md",
+        "size": 5137,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit/references/specification.md",
+        "size": 8434,
+        "mode": 420
+      },
+      {
+        "path": "skills/bandit/SKILL.md",
+        "size": 4888,
+        "mode": 420
+      }
+    ],
+    "entryCount": 43,
+    "bundled": []
+  }
+]

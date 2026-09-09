@@ -1,0 +1,27 @@
+{
+  "label": "lowercase-repeat",
+  "executable": "/TEMP/bandit-round14-lSJnNY/bin/npx",
+  "args": [
+    "--yes",
+    "--offline",
+    "--cache=/TEMP/bandit-round14-lSJnNY/cache-candidate",
+    "--package=/WORKSPACE/bandit/dist/overnight-round13/ch4570-bandit-0.4.0.tgz",
+    "--",
+    "bandit",
+    "--dest",
+    "/TEMP/bandit-round14-lSJnNY/projects/lowercase/custom skills/pm-craft"
+  ],
+  "cwd": "/TEMP/bandit-round14-lSJnNY/projects/lowercase",
+  "cache": "cache-candidate",
+  "started_at_utc": "2026-09-08T20:54:33.961Z",
+  "stdin": "closed",
+  "shell": false,
+  "available_bytes_before": 370151424,
+  "stdout": "BANDIT is already up to date.\n/TEMP/bandit-round14-lSJnNY/projects/lowercase/custom skills\n\nFive skills installed: $bandit, $bandit-research, $bandit-scope, $bandit-specify, $bandit-review\n\nOpen or restart your agent, then try:\n$bandit-scope Turn this app idea into a focused MVP plan.\n",
+  "stderr": "",
+  "exit_code": 0,
+  "signal": null,
+  "launch_error": null,
+  "finished_at_utc": "2026-09-08T20:54:34.638Z",
+  "available_bytes_after": 370118656
+}

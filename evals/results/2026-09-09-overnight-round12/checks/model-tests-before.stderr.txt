@@ -1,0 +1,281 @@
+test_model_cli_argument_is_forwarded_after_web_search (test_eval_runner.EvalRunnerTests.test_model_cli_argument_is_forwarded_after_web_search) ... ERROR
+test_model_cli_default_remains_unset (test_eval_runner.EvalRunnerTests.test_model_cli_default_remains_unset) ... FAIL
+test_model_default_keeps_host_selection_and_existing_permissions (test_eval_runner.EvalRunnerTests.test_model_default_keeps_host_selection_and_existing_permissions) ... ok
+test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) ... 
+  test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='') ... ERROR
+  test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model=' ') ... ERROR
+  test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model=' synthetic') ... ERROR
+  test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='synthetic ') ... ERROR
+  test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='two models') ... ERROR
+  test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='synthetic\tmodel') ... ERROR
+  test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='synthetic\nmodel') ... ERROR
+  test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='synthetic\xa0model') ... ERROR
+  test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='-synthetic') ... ERROR
+  test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='--model=other') ... ERROR
+  test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='synthetic\x00model') ... ERROR
+  test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='synthetic\x1fmodel') ... ERROR
+  test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='synthetic\x7fmodel') ... ERROR
+  test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='synthetic\x80model') ... ERROR
+  test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='synthetic\x9fmodel') ... ERROR
+  test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model=0) ... ERROR
+  test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model=True) ... ERROR
+  test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model=b'synthetic-model') ... ERROR
+test_model_override_is_forwarded_without_changing_web_or_sandbox_scope (test_eval_runner.EvalRunnerTests.test_model_override_is_forwarded_without_changing_web_or_sandbox_scope) ... 
+  test_model_override_is_forwarded_without_changing_web_or_sandbox_scope (test_eval_runner.EvalRunnerTests.test_model_override_is_forwarded_without_changing_web_or_sandbox_scope) (model='synthetic-model', web_search='disabled') ... ERROR
+  test_model_override_is_forwarded_without_changing_web_or_sandbox_scope (test_eval_runner.EvalRunnerTests.test_model_override_is_forwarded_without_changing_web_or_sandbox_scope) (model='vendor/model:vNext+canary', web_search='live') ... ERROR
+test_model_override_is_retained_after_launch_failures (test_eval_runner.EvalRunnerTests.test_model_override_is_retained_after_launch_failures) ... 
+  test_model_override_is_retained_after_launch_failures (test_eval_runner.EvalRunnerTests.test_model_override_is_retained_after_launch_failures) (phase='task_launch', error='FileNotFoundError') ... ERROR
+  test_model_override_is_retained_after_launch_failures (test_eval_runner.EvalRunnerTests.test_model_override_is_retained_after_launch_failures) (phase='version_probe', error='FileNotFoundError') ... ERROR
+  test_model_override_is_retained_after_launch_failures (test_eval_runner.EvalRunnerTests.test_model_override_is_retained_after_launch_failures) (phase='version_probe', error='CalledProcessError') ... ERROR
+test_model_override_is_retained_after_nonzero_task_exit (test_eval_runner.EvalRunnerTests.test_model_override_is_retained_after_nonzero_task_exit) ... ERROR
+
+======================================================================
+ERROR: test_model_cli_argument_is_forwarded_after_web_search (test_eval_runner.EvalRunnerTests.test_model_cli_argument_is_forwarded_after_web_search)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 148, in test_model_cli_argument_is_forwarded_after_web_search
+    self.assertEqual(run_local.main(), 9)
+                     ^^^^^^^^^^^^^^^^
+  File "/WORKSPACE/bandit/evals/run_local.py", line 208, in main
+    args = parser.parse_args()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/DEVELOPER/.local/share/uv/python/cpython-3.11.16-macos-aarch64-none/lib/python3.11/argparse.py", line 1877, in parse_args
+    self.error(msg % ' '.join(argv))
+  File "/Users/DEVELOPER/.local/share/uv/python/cpython-3.11.16-macos-aarch64-none/lib/python3.11/argparse.py", line 2640, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/Users/DEVELOPER/.local/share/uv/python/cpython-3.11.16-macos-aarch64-none/lib/python3.11/argparse.py", line 2627, in exit
+    _sys.exit(status)
+SystemExit: 2
+
+======================================================================
+ERROR: test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 89, in test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess
+    run_local.run_case("staged-task", "bandit-specify", output, None,
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model=' ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 89, in test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess
+    run_local.run_case("staged-task", "bandit-specify", output, None,
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model=' synthetic')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 89, in test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess
+    run_local.run_case("staged-task", "bandit-specify", output, None,
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='synthetic ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 89, in test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess
+    run_local.run_case("staged-task", "bandit-specify", output, None,
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='two models')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 89, in test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess
+    run_local.run_case("staged-task", "bandit-specify", output, None,
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='synthetic\tmodel')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 89, in test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess
+    run_local.run_case("staged-task", "bandit-specify", output, None,
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='synthetic\nmodel')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 89, in test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess
+    run_local.run_case("staged-task", "bandit-specify", output, None,
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='synthetic\xa0model')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 89, in test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess
+    run_local.run_case("staged-task", "bandit-specify", output, None,
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='-synthetic')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 89, in test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess
+    run_local.run_case("staged-task", "bandit-specify", output, None,
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='--model=other')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 89, in test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess
+    run_local.run_case("staged-task", "bandit-specify", output, None,
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='synthetic\x00model')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 89, in test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess
+    run_local.run_case("staged-task", "bandit-specify", output, None,
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='synthetic\x1fmodel')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 89, in test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess
+    run_local.run_case("staged-task", "bandit-specify", output, None,
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='synthetic\x7fmodel')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 89, in test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess
+    run_local.run_case("staged-task", "bandit-specify", output, None,
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='synthetic\x80model')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 89, in test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess
+    run_local.run_case("staged-task", "bandit-specify", output, None,
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model='synthetic\x9fmodel')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 89, in test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess
+    run_local.run_case("staged-task", "bandit-specify", output, None,
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 89, in test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess
+    run_local.run_case("staged-task", "bandit-specify", output, None,
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 89, in test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess
+    run_local.run_case("staged-task", "bandit-specify", output, None,
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess (test_eval_runner.EvalRunnerTests.test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess) (model=b'synthetic-model')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 89, in test_model_invalid_identifiers_are_rejected_before_staging_or_subprocess
+    run_local.run_case("staged-task", "bandit-specify", output, None,
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_override_is_forwarded_without_changing_web_or_sandbox_scope (test_eval_runner.EvalRunnerTests.test_model_override_is_forwarded_without_changing_web_or_sandbox_scope) (model='synthetic-model', web_search='disabled')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 70, in test_model_override_is_forwarded_without_changing_web_or_sandbox_scope
+    self.assertEqual(self.invoke(task, model=model, web_search=web_search), 0)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 29, in invoke
+    return run_local.run_case("staged-task", "bandit-specify", self.output, None,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_override_is_forwarded_without_changing_web_or_sandbox_scope (test_eval_runner.EvalRunnerTests.test_model_override_is_forwarded_without_changing_web_or_sandbox_scope) (model='vendor/model:vNext+canary', web_search='live')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 70, in test_model_override_is_forwarded_without_changing_web_or_sandbox_scope
+    self.assertEqual(self.invoke(task, model=model, web_search=web_search), 0)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 29, in invoke
+    return run_local.run_case("staged-task", "bandit-specify", self.output, None,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_override_is_retained_after_launch_failures (test_eval_runner.EvalRunnerTests.test_model_override_is_retained_after_launch_failures) (phase='task_launch', error='FileNotFoundError')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 128, in test_model_override_is_retained_after_launch_failures
+    self.invoke(task, model="synthetic-model",
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 29, in invoke
+    return run_local.run_case("staged-task", "bandit-specify", self.output, None,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_override_is_retained_after_launch_failures (test_eval_runner.EvalRunnerTests.test_model_override_is_retained_after_launch_failures) (phase='version_probe', error='FileNotFoundError')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 128, in test_model_override_is_retained_after_launch_failures
+    self.invoke(task, model="synthetic-model",
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 29, in invoke
+    return run_local.run_case("staged-task", "bandit-specify", self.output, None,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_override_is_retained_after_launch_failures (test_eval_runner.EvalRunnerTests.test_model_override_is_retained_after_launch_failures) (phase='version_probe', error='CalledProcessError')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 128, in test_model_override_is_retained_after_launch_failures
+    self.invoke(task, model="synthetic-model",
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 29, in invoke
+    return run_local.run_case("staged-task", "bandit-specify", self.output, None,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+ERROR: test_model_override_is_retained_after_nonzero_task_exit (test_eval_runner.EvalRunnerTests.test_model_override_is_retained_after_nonzero_task_exit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 101, in test_model_override_is_retained_after_nonzero_task_exit
+    self.assertEqual(self.invoke(task, model="synthetic-model"), 9)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 29, in invoke
+    return run_local.run_case("staged-task", "bandit-specify", self.output, None,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_case() got an unexpected keyword argument 'model'
+
+======================================================================
+FAIL: test_model_cli_default_remains_unset (test_eval_runner.EvalRunnerTests.test_model_cli_default_remains_unset)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/WORKSPACE/bandit/tests/test_eval_runner.py", line 158, in test_model_cli_default_remains_unset
+    invoke.assert_called_once_with("staged-task", "bandit-specify", self.output, None,
+  File "/Users/DEVELOPER/.local/share/uv/python/cpython-3.11.16-macos-aarch64-none/lib/python3.11/unittest/mock.py", line 951, in assert_called_once_with
+    return self.assert_called_with(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/DEVELOPER/.local/share/uv/python/cpython-3.11.16-macos-aarch64-none/lib/python3.11/unittest/mock.py", line 939, in assert_called_with
+    raise AssertionError(_error_message()) from cause
+AssertionError: expected call not found.
+Expected: run_case('staged-task', 'bandit-specify', PosixPath('/TEMP/SYSTEM/bandit tests sktgw4vn/runs'), None, None, False, PosixPath('/TEMP/SYSTEM/bandit tests sktgw4vn/sequence/stage-1'), 'disabled', None)
+  Actual: run_case('staged-task', 'bandit-specify', PosixPath('/TEMP/SYSTEM/bandit tests sktgw4vn/runs'), None, None, False, PosixPath('/TEMP/SYSTEM/bandit tests sktgw4vn/sequence/stage-1'), 'disabled')
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.059s
+
+FAILED (failures=1, errors=25)

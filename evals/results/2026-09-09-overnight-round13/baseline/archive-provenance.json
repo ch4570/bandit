@@ -1,0 +1,90 @@
+{
+  "format": 1,
+  "archive_status": "archived",
+  "archived_at": "2026-09-08T20:12:36.395Z",
+  "source_format": "evals/run_local.py",
+  "run_status": "completed",
+  "source_exit_code": 0,
+  "terminal_event": "turn.completed",
+  "invalid_event_lines": 0,
+  "missing_or_empty_output": false,
+  "input_changes": [],
+  "input_scope_respected": true,
+  "instruction_changes": [],
+  "original_input_missing": [],
+  "original_instruction_missing": [],
+  "original_text_snapshot_complete": true,
+  "instruction_restore_directory": null,
+  "omitted_png_files": [],
+  "temporary_path_replacement": "<temporary-run-root>",
+  "files": {
+    "metadata.json": {
+      "source": "metadata.json",
+      "original_sha256": "e2400323421e449d3465fe7cab1b7dc7b9708672b498c709d054ab25b04ff969",
+      "archived_sha256": "04fe1914e728b0deadb5ba642d3a841c6790fde4b487e5a4b593be1d18a6764a",
+      "temporary_path_normalized": true
+    },
+    "prompt.txt": {
+      "source": "prompt.txt",
+      "original_sha256": "aaaa1f0f7ab7dab8380bbbb9ebe02a46147471a3b501ebc502ea5d7767f8326e",
+      "archived_sha256": "aaaa1f0f7ab7dab8380bbbb9ebe02a46147471a3b501ebc502ea5d7767f8326e",
+      "temporary_path_normalized": false
+    },
+    "events.jsonl": {
+      "source": "events.jsonl",
+      "original_sha256": "586cc1ff325b46d24142e81928f3308d731820416ef2f0f8b5003a8a08a05005",
+      "archived_sha256": "586cc1ff325b46d24142e81928f3308d731820416ef2f0f8b5003a8a08a05005",
+      "temporary_path_normalized": false
+    },
+    "stderr.txt": {
+      "source": "stderr.txt",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "temporary_path_normalized": false
+    },
+    "output.md": {
+      "source": "output.md",
+      "original_sha256": "84b3fc71b0db1258c727087e0e19ad656308232026ce2ab8804313c211e5ca3e",
+      "archived_sha256": "84b3fc71b0db1258c727087e0e19ad656308232026ce2ab8804313c211e5ca3e",
+      "temporary_path_normalized": false
+    },
+    "input/delivery-policy.md": {
+      "source": "original-input/delivery-policy.md",
+      "original_sha256": "f059f11618d1a246d11e82fbf24eaff31c1c4d92d95304a9ddb36fe3a9131d9b",
+      "archived_sha256": "f059f11618d1a246d11e82fbf24eaff31c1c4d92d95304a9ddb36fe3a9131d9b",
+      "temporary_path_normalized": false
+    },
+    "input/delivery-prd.md": {
+      "source": "original-input/delivery-prd.md",
+      "original_sha256": "a3fa7f4c5439a2349347437544aadb189be40084d0fe9d881aa0bc51f335bcb3",
+      "archived_sha256": "a3fa7f4c5439a2349347437544aadb189be40084d0fe9d881aa0bc51f335bcb3",
+      "temporary_path_normalized": false
+    },
+    "input/export_snapshot.py": {
+      "source": "original-input/export_snapshot.py",
+      "original_sha256": "1e2786d0faa6d37c9ba4787a49dff25d7815755ca22f0d285fe585351f0b82e4",
+      "archived_sha256": "1e2786d0faa6d37c9ba4787a49dff25d7815755ca22f0d285fe585351f0b82e4",
+      "temporary_path_normalized": false
+    },
+    "input/request.md": {
+      "source": "original-input/request.md",
+      "original_sha256": "d8ddb5acacff094d730d7666e2adc47f0261e92d2d59e0af9ce25cfdf7f139a2",
+      "archived_sha256": "d8ddb5acacff094d730d7666e2adc47f0261e92d2d59e0af9ce25cfdf7f139a2",
+      "temporary_path_normalized": false
+    },
+    "input/verification-note.md": {
+      "source": "original-input/verification-note.md",
+      "original_sha256": "1957cc0a0a5db4907c82fe6d9f755ed8da841f201ac9244ae63dd9c0bc0610c5",
+      "archived_sha256": "1957cc0a0a5db4907c82fe6d9f755ed8da841f201ac9244ae63dd9c0bc0610c5",
+      "temporary_path_normalized": false
+    }
+  },
+  "limitations": [
+    "Process completion and hash agreement are not planning-quality grades or proof of compliance with every task instruction.",
+    "Original inputs and instruction bytes are unchanged; only the five run log/artifact files receive literal run-root path normalization.",
+    "PNG files are recorded by SHA256 only and must be restored separately for an identical image-bearing workspace.",
+    "Missing originals cannot be reconstructed from hashes. Partial original trees and available after-state are retained explicitly.",
+    "Path normalization is not a general secret scrubber. Only supplied run evidence is archived; other workspace files and host state are not retained.",
+    "Host-default model configuration and external services are not pinned by this archive; replay is not guaranteed to produce the same response."
+  ]
+}

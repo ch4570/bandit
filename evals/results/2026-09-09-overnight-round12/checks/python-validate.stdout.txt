@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "version": "0.4.0",
+  "skill_files": 34,
+  "skills": [
+    {
+      "name": "bandit",
+      "skill_files": 10
+    },
+    {
+      "name": "bandit-research",
+      "skill_files": 4
+    },
+    {
+      "name": "bandit-scope",
+      "skill_files": 4
+    },
+    {
+      "name": "bandit-specify",
+      "skill_files": 8
+    },
+    {
+      "name": "bandit-review",
+      "skill_files": 8
+    }
+  ],
+  "errors": [],
+  "checks": "structure and references only; no claim of PM effectiveness"
+}

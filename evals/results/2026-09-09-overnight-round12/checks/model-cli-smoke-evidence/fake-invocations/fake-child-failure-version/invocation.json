@@ -1,0 +1,13 @@
+{
+  "kind": "synthetic fake executable, not a native Codex invocation",
+  "id": "fake-child-failure-version",
+  "mode": "version",
+  "label": "child-failure",
+  "argv": [
+    "--version"
+  ],
+  "cwd": "/WORKSPACE/bandit",
+  "started_at_utc": "2026-09-08T19:53:44.731438+00:00",
+  "finished_at_utc": "2026-09-08T19:53:44.732021+00:00",
+  "exit_code": 0
+}

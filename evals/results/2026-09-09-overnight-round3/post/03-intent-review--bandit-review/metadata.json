@@ -1,0 +1,72 @@
+{
+  "case": "03-intent-review",
+  "arm": "bandit-review",
+  "codex_version": "codex-cli 0.153.4",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "-c",
+    "web_search=\"disabled\"",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "<temporary-run-root>/workspace",
+    "-o",
+    "<temporary-run-root>/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host model defaults; explicit web_search",
+  "web_search": "disabled",
+  "started_at_utc": "2026-09-08T15:37:31.497612+00:00",
+  "upstream_commit": null,
+  "input_sha256": {
+    "approval-policy.md": "6a68f726c584005774c0da78d4619a4474bf236bcbea0f194ce6f202cf7814bf",
+    "generated-prd.md": "f82bb234a2f932b1c69fbffc015e959a6b6841a1b629a6c996f187bfc210f45c",
+    "implementation.py": "5e3c3384694d0095cc93ea30aecf70459b453243c3e8916b86c4648222a97631",
+    "master.md": "1e9513c53b2a776b108a7c02bd151df3a54199528ff2862f0b3667227b51cd44",
+    "request.md": "82dff95eb7702dc6525697938e4ef99c05c021162a2d8028cffc6daf759f2da7",
+    "test_acceptance.py": "3d2ae7227d175233737745fc405a4420b1ddce7a297b6220fd042f813c2713f2"
+  },
+  "instruction_sha256": {
+    "bandit-review/SKILL.md": "16373b70230cad31f65d5e0304938625261a4b1676b8893ec9881fefb37380bc",
+    "bandit-review/agents/openai.yaml": "4e4e969c8109f589d77ea687f3a9a5eeb6af82b0abff1bce2cf6906aa7bad2f2",
+    "bandit-review/assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "bandit-review/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "bandit-review/references/evidence-and-decisions.md": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+    "bandit-review/references/research.md": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6",
+    "bandit-review/references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "bandit-review/references/specification.md": "4c05c35ae324b15eb1141b544c870d69c94988a8214a61e772714500fbb75e04"
+  },
+  "invocation": "$bandit-review",
+  "standalone_specialist": true,
+  "custom_fixture": false,
+  "editable_artifact": null,
+  "exit_code": 0,
+  "elapsed_seconds": 37.339,
+  "finished_at_utc": "2026-09-08T15:38:08.836869+00:00",
+  "input_after_sha256": {
+    "approval-policy.md": "6a68f726c584005774c0da78d4619a4474bf236bcbea0f194ce6f202cf7814bf",
+    "generated-prd.md": "f82bb234a2f932b1c69fbffc015e959a6b6841a1b629a6c996f187bfc210f45c",
+    "implementation.py": "5e3c3384694d0095cc93ea30aecf70459b453243c3e8916b86c4648222a97631",
+    "master.md": "1e9513c53b2a776b108a7c02bd151df3a54199528ff2862f0b3667227b51cd44",
+    "request.md": "82dff95eb7702dc6525697938e4ef99c05c021162a2d8028cffc6daf759f2da7",
+    "test_acceptance.py": "3d2ae7227d175233737745fc405a4420b1ddce7a297b6220fd042f813c2713f2"
+  },
+  "instruction_after_sha256": {
+    "bandit-review/SKILL.md": "16373b70230cad31f65d5e0304938625261a4b1676b8893ec9881fefb37380bc",
+    "bandit-review/agents/openai.yaml": "4e4e969c8109f589d77ea687f3a9a5eeb6af82b0abff1bce2cf6906aa7bad2f2",
+    "bandit-review/assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "bandit-review/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "bandit-review/references/evidence-and-decisions.md": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+    "bandit-review/references/research.md": "01ea179281b99fe0088e2851b9197c6fecbc4fd2b56adeee4e157a834c464fd6",
+    "bandit-review/references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "bandit-review/references/specification.md": "4c05c35ae324b15eb1141b544c870d69c94988a8214a61e772714500fbb75e04"
+  }
+}

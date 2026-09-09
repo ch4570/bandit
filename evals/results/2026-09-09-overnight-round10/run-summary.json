@@ -1,0 +1,298 @@
+{
+  "format": 1,
+  "round": "2026-09-09-overnight-round10",
+  "audit": "Facts-only mechanical audit; no semantic grading.",
+  "checked_at_utc": "2026-09-08T19:08:24.908Z",
+  "authorship_limit": "This auditor authored case21 and its pre-run rubric and knew both arm names. The audit is separate from TASK execution, not blinded or independent semantic grading. It makes no recommendation-quality, superiority, reliability or causal claim.",
+  "roots": {
+    "original": "/TEMP/bandit-round10-dRtdhw",
+    "archive": "evals/results/2026-09-09-overnight-round10"
+  },
+  "receipt": {
+    "path": "before-run.json",
+    "sha256": "be910b403e4bb56c1beeee3eba3cea423fedafd2901245ed18f6a6a714fddf8e",
+    "written_at_utc": "2026-09-08T19:05:45.009Z",
+    "precedes_both_run_starts": true
+  },
+  "hash_methods": {
+    "bytes": "SHA-256 over actual bytes, including original unnormalized logs, original-input/original-instructions, final workspace files and every retained archive file. archive-provenance.json was also hashed.",
+    "sorted_object": "SHA-256 of UTF-8 JSON.stringify(Object.fromEntries(Object.entries(relativePathToSha256Map).sort())). This is the before-run.json convention and the default for this summary's map digests.",
+    "sorted_entries": "SHA-256 of UTF-8 JSON.stringify(Object.entries(relativePathToSha256Map).sort()). Earlier receipts used this array serialization.",
+    "distinction": "The two serializations encode the same relative-path/hash mappings but produce different digest bytes. Both were independently recomputed below; the original receipt was not rewritten.",
+    "provenance": "Recomputed every archive-provenance.json original_sha256 and archived_sha256 against real source and retained files, then compared exact transformed bytes. Only metadata.json in each run required literal source-run-root replacement with <temporary-run-root>; all other mapped files were byte-identical. No omitted files or missing original snapshots were found.",
+    "word_count": "Whitespace-delimited words in the complete UTF-8 output.md, including Markdown syntax. No word-count command is visible in either TASK trace."
+  },
+  "frozen_materials": {
+    "raw": {
+      "files": 4,
+      "bytes": 5657,
+      "words": 835,
+      "map_sha256_sorted_object": "7d060e1f6ce59f6fa46b5ea54a72ec4e588af1fe98ded9cd0a9af76fade5152d",
+      "map_sha256_sorted_entries": "05eaf239055591e8288fd998e0d32e146b1160f173c5bf2c6c7969eaffff9ad1",
+      "matches_receipt_files": true,
+      "matches_receipt_digest": true
+    },
+    "rubric": {
+      "path": "evals/rubrics/21-standby-admission.md",
+      "sha256": "cd43adfb483bc64f1c4d3a5efd833f418fbd56578735bbd83d19c660fa67d846",
+      "matches_receipt": true
+    },
+    "all_skills": {
+      "files": 34,
+      "map_sha256_sorted_object": "4634919471aa2cfc02dea87d24cbb8eb56f6c55005dfe54ee09af5103cbe1bd4",
+      "map_sha256_sorted_entries": "471a85742d3858b5383ad9d51953f60cc755783af0e5b96495f7fe85c1cde7c7",
+      "matches_receipt_files": true,
+      "matches_receipt_digest": true
+    },
+    "tooling": [
+      {
+        "path": "evals/run_local.py",
+        "sha256": "1d06a3878e62ca045ef5be05a8184fc95cbe379a9584faebb78139ba51d70298",
+        "matches_receipt": true
+      },
+      {
+        "path": "evals/archive_run.mjs",
+        "sha256": "62cf0c7728d5116884910250a1ce44427e314bccfb3b2d1c968a543b7d4b1f17",
+        "matches_receipt": true
+      }
+    ]
+  },
+  "common_conditions": {
+    "executions": 2,
+    "distinct_thread_ids": 2,
+    "cli": "codex-cli 0.153.4",
+    "sandbox": "read-only",
+    "flags": [
+      "--ignore-user-config",
+      "--ephemeral",
+      "--skip-git-repo-check",
+      "-c web_search=\"disabled\""
+    ],
+    "model_override": null,
+    "model_configuration": "Host defaults; actual model identifier and full host context are not pinned by these records.",
+    "task_context": "Each wrapper limits work to local raw inputs and the supplied selected instruction snapshot, forbids rubrics, other outputs/repositories, AGENTS files, browsing, external actions, file edits, implementation and product-test execution.",
+    "skill_layout": "Scope has only four bandit-scope files under .agents/skills/. Baseline has no PM instruction snapshot and its wrapper explicitly says do not load a PM skill. Both arms retain the same raw request, including literal $bandit-scope.",
+    "observed_actions": "All completed command items are local cat/rg reads or listings of input and the selected instruction path. No web, external action, product execution, product test, or write command is visible.",
+    "scope": "Both final workspaces contain only the declared raw and instruction files; all raw and instruction bytes are unchanged. Current raw fixtures, rubric, all 34 skill files, runner and archiver match the before-run receipt.",
+    "completion": "Both source metadata records report exited with exit_code 0; both valid-JSON traces end in turn.completed. Output files equal their final agent-message text exactly. These are process facts, not quality grades."
+  },
+  "verification_totals": {
+    "original_file_instances_hashed": 34,
+    "retained_archive_files_hashed": 24,
+    "original_archive_pairs_verified": 22,
+    "omitted_files": 0,
+    "hash_or_transform_mismatches": [],
+    "changed_raw_files": [],
+    "changed_instruction_files": [],
+    "note": "Counts include separately stored copies, not only unique content. Per-file mappings remain in the two archive-provenance.json files; this summary does not duplicate them."
+  },
+  "runs": [
+    {
+      "archive": "current/21-standby-admission--bandit-scope",
+      "thread_id": "01a08269-7851-7201-9c7c-ca986cf3cec2",
+      "started_at_utc": "2026-09-08T19:05:45.171418+00:00",
+      "finished_at_utc": "2026-09-08T19:06:27.152577+00:00",
+      "elapsed_seconds_reported": 41.981,
+      "terminal": {
+        "type": "turn.completed",
+        "event_line": 9,
+        "source_exit_code": 0,
+        "runner_status": "exited"
+      },
+      "counts": {
+        "source_files": 21,
+        "archived_files": 14,
+        "mapped_pairs": 13
+      },
+      "hashes": {
+        "all_source_files_sorted_object_map": "2b302e461ff2c6e472ee8344e2cce1a7a7f16766dc731c839cdab3ae53c695dd",
+        "all_archive_files_sorted_object_map": "95f9b169d3a12129ebab219c7aa93eaf8e07b9f011eb14793b196640ac54dbe9",
+        "archive_provenance": "2c482ce78583ca2c5a8e22afde27a27346a5f0447a94598b20e9db09916e1e60",
+        "original_metadata": "480375df88d270e7afc54327768bfbaa6bc66299976d5dfd6fa8980f3bc45558",
+        "archived_metadata": "5d5897f1b4517645fa163014c6451883d9c6aa713c6bcc0bccf7e2a3262c1d8e",
+        "original_and_archived_events": "52a3ee2e40dae5721ab9cd571b5e13f69f743e0d1b2254b5ac50f83a1172259f",
+        "prompt": "cd828cfb4129186232401cbcbc78c04a21eeb16688188a65757b159759133098"
+      },
+      "input_before_and_after_map_sha256": "7d060e1f6ce59f6fa46b5ea54a72ec4e588af1fe98ded9cd0a9af76fade5152d",
+      "instruction_files_available": 4,
+      "instruction_before_and_after_map_sha256": "8d298f6f31894b4b347c386dadc2bf700c5bcfc02183fb18b3e548cba67f2384",
+      "full_content_reads": [
+        {
+          "path": "input/adopted-rules.md",
+          "event_lines": [
+            7
+          ]
+        },
+        {
+          "path": "input/engineering-notes.md",
+          "event_lines": [
+            7
+          ]
+        },
+        {
+          "path": "input/pilot-brief.md",
+          "event_lines": [
+            7
+          ]
+        },
+        {
+          "path": "input/request.md",
+          "event_lines": [
+            5
+          ]
+        },
+        {
+          "path": "instructions/bandit-scope/SKILL.md",
+          "event_lines": [
+            7
+          ]
+        },
+        {
+          "path": "instructions/bandit-scope/references/decisions.md",
+          "event_lines": [
+            7
+          ]
+        },
+        {
+          "path": "instructions/bandit-scope/references/evidence-and-decisions.md",
+          "event_lines": [
+            7
+          ]
+        }
+      ],
+      "available_without_explicit_full_read": [
+        "bandit-scope/agents/openai.yaml"
+      ],
+      "output": {
+        "path": "output.md",
+        "bytes": 3596,
+        "whitespace_words": 502,
+        "sha256": "8a149de9181378a0d40e8fc45a71c8260401ece83e1f12d6c3bca755aeed44a3",
+        "identical_to_final_agent_message": true,
+        "final_event_line": 8,
+        "request_word_cap": 600,
+        "within_word_cap": true
+      },
+      "command_events": [
+        {
+          "event_line": 5,
+          "command": "/bin/zsh -lc 'cat input/request.md; rg --files input .agents/skills/bandit-scope'",
+          "exit_code": 0,
+          "status": "completed"
+        },
+        {
+          "event_line": 7,
+          "command": "/bin/zsh -lc 'cat .agents/skills/bandit-scope/SKILL.md .agents/skills/bandit-scope/references/decisions.md .agents/skills/bandit-scope/references/evidence-and-decisions.md input/pilot-brief.md input/adopted-rules.md input/engineering-notes.md'",
+          "exit_code": 0,
+          "status": "completed"
+        }
+      ],
+      "stderr_bytes": 0
+    },
+    {
+      "archive": "current/21-standby-admission--baseline",
+      "thread_id": "01a08269-7cf2-7a43-8ab7-a96d49d15853",
+      "started_at_utc": "2026-09-08T19:05:46.354612+00:00",
+      "finished_at_utc": "2026-09-08T19:06:16.823212+00:00",
+      "elapsed_seconds_reported": 30.469,
+      "terminal": {
+        "type": "turn.completed",
+        "event_line": 9,
+        "source_exit_code": 0,
+        "runner_status": "exited"
+      },
+      "counts": {
+        "source_files": 13,
+        "archived_files": 10,
+        "mapped_pairs": 9
+      },
+      "hashes": {
+        "all_source_files_sorted_object_map": "ebb985cf7782ff84cf5a649decb3cb507783e31d8843f625a97424a3b72e8f72",
+        "all_archive_files_sorted_object_map": "852a32657389b1a6032a788eb1a25304b66d1865802a36b48b769e18b55246e8",
+        "archive_provenance": "266d4e692b17fbf28dadd375024f48dfef0ffbb5a27dc53d972100ec79581e39",
+        "original_metadata": "103d2dd8734579c211c12a4a632063f259906d780b7389f7719ce6f4ce6d3b4f",
+        "archived_metadata": "72da82fc52ba56ff77ab69127c78da6c9690c9d77110f77403dab0a4132f7287",
+        "original_and_archived_events": "92ce762b6cc6190cca450bb4e9815ccdca5dfc51fc97499d2eaddf38aa4703c4",
+        "prompt": "aaaa1f0f7ab7dab8380bbbb9ebe02a46147471a3b501ebc502ea5d7767f8326e"
+      },
+      "input_before_and_after_map_sha256": "7d060e1f6ce59f6fa46b5ea54a72ec4e588af1fe98ded9cd0a9af76fade5152d",
+      "instruction_files_available": 0,
+      "instruction_before_and_after_map_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "full_content_reads": [
+        {
+          "path": "input/adopted-rules.md",
+          "event_lines": [
+            7
+          ]
+        },
+        {
+          "path": "input/engineering-notes.md",
+          "event_lines": [
+            7
+          ]
+        },
+        {
+          "path": "input/pilot-brief.md",
+          "event_lines": [
+            7
+          ]
+        },
+        {
+          "path": "input/request.md",
+          "event_lines": [
+            7
+          ]
+        }
+      ],
+      "available_without_explicit_full_read": [],
+      "output": {
+        "path": "output.md",
+        "bytes": 3253,
+        "whitespace_words": 472,
+        "sha256": "0b7fa8f990dec036f2e67b36d05a6210a5efec60144a4b18a4134e1b45f67544",
+        "identical_to_final_agent_message": true,
+        "final_event_line": 8,
+        "request_word_cap": 600,
+        "within_word_cap": true
+      },
+      "command_events": [
+        {
+          "event_line": 5,
+          "command": "/bin/zsh -lc 'rg --files input instructions'",
+          "exit_code": 2,
+          "status": "failed"
+        },
+        {
+          "event_line": 7,
+          "command": "/bin/zsh -lc 'cat input/request.md input/adopted-rules.md input/pilot-brief.md input/engineering-notes.md'",
+          "exit_code": 0,
+          "status": "completed"
+        }
+      ],
+      "stderr_bytes": 0
+    }
+  ],
+  "trace_observations": [
+    {
+      "run": "current/21-standby-admission--bandit-scope",
+      "evidence": "events.jsonl:5,7",
+      "observation": "The first completed command returned the request and listed local paths. The second returned the complete entrypoint, decisions reference, evidence-and-decisions reference and all three supporting raw files. The available agents/openai.yaml was not explicitly read."
+    },
+    {
+      "run": "current/21-standby-admission--baseline",
+      "evidence": "events.jsonl:5,7",
+      "observation": "rg --files input instructions exited 2 with 'instructions: No such file or directory' while listing the four input files. The next cat command exited 0 and returned all four raw files completely. No PM snapshot or PM read is visible. This recovered listing error is retained, not confused with the terminal exit0."
+    },
+    {
+      "run": "both",
+      "evidence": "events.jsonl:8,9",
+      "observation": "The final agent artifact is at line8 and turn.completed at line9 in each trace. Empty stderr.txt does not erase the baseline command-level error stored in events. Counts below 600 establish observed cap compliance only, not a counting mechanism."
+    }
+  ],
+  "limits": [
+    "The raw task is synthetic and author-designed; two fresh threads are not a quality benchmark, customer evidence or a reliability estimate.",
+    "Local unsigned receipts, metadata UTC timestamps and hash consistency are not trusted execution attestation. Ephemeral flags and distinct thread IDs do not prove absence of all hidden host context.",
+    "Read evidence means complete source text appeared in recorded command output, not proof that every instruction was applied. No automatic host-loading behavior is inferred.",
+    "No semantic grades, instruction edits, rubric edits, raw-output edits, new TASKs or product tests were performed for this audit."
+  ]
+}

@@ -1,0 +1,331 @@
+{
+  "status": "pass",
+  "finished_at_utc": "2026-09-08T19:07:23.709260+00:00",
+  "environment": {
+    "npm_config_call_removed": true,
+    "node_bin_prepended_to_path": "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin",
+    "stdin": "closed",
+    "python_bytecode_writes_disabled": true
+  },
+  "commands": [
+    {
+      "label": "node-version",
+      "command": [
+        "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+        "--version"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:07:08.935818+00:00",
+      "exit_code": 0,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:07:08.992932+00:00",
+      "stdout_file": "node-version.stdout.txt",
+      "stdout_sha256": "c42fcf0db5a550bda2f566fcdc21955df3e5a8ec3aeb90ac533f3776e7fce32a",
+      "stderr_file": "node-version.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "npm-version",
+      "command": [
+        "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+        "/opt/homebrew/lib/node_modules/npm/bin/npm-cli.js",
+        "--version"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:07:08.936016+00:00",
+      "exit_code": 0,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:07:09.136102+00:00",
+      "stdout_file": "npm-version.stdout.txt",
+      "stdout_sha256": "005206ab803f8881d8227540b7980b37e723b69a8849edb31734a90b7e7964e2",
+      "stderr_file": "npm-version.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "python-version",
+      "command": [
+        "/Users/DEVELOPER/.local/bin/python3.11",
+        "--version"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:07:08.936155+00:00",
+      "exit_code": 0,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:07:08.945267+00:00",
+      "stdout_file": "python-version.stdout.txt",
+      "stdout_sha256": "a653f483c16545a1c15153c784d7cf4e2d13dcda5a0668977e56d27b98c41eb3",
+      "stderr_file": "python-version.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "validator-python-version",
+      "command": [
+        "/TEMP/bandit-round2-jumhQp/validator-venv/bin/python",
+        "--version"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:07:08.945351+00:00",
+      "exit_code": 0,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:07:08.953300+00:00",
+      "stdout_file": "validator-python-version.stdout.txt",
+      "stdout_sha256": "a653f483c16545a1c15153c784d7cf4e2d13dcda5a0668977e56d27b98c41eb3",
+      "stderr_file": "validator-python-version.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "sync",
+      "command": [
+        "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+        "scripts/sync-skills.mjs",
+        "--check"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:07:08.953393+00:00",
+      "exit_code": 0,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:07:09.075421+00:00",
+      "stdout_file": "sync.stdout.txt",
+      "stdout_sha256": "37e607b86368ba9a66740981cec40b7bfa927117e69605fd625bef2a3956e2f7",
+      "stderr_file": "sync.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "node-validate",
+      "command": [
+        "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+        "/opt/homebrew/lib/node_modules/npm/bin/npm-cli.js",
+        "run",
+        "validate"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:07:08.993056+00:00",
+      "exit_code": 0,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:07:09.255452+00:00",
+      "stdout_file": "node-validate.stdout.txt",
+      "stdout_sha256": "7ef58c6ab2dbb5b1b98a6dc980766d9754b742385024dd4391d58cc9f3233566",
+      "stderr_file": "node-validate.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "node-tests",
+      "command": [
+        "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+        "/opt/homebrew/lib/node_modules/npm/bin/npm-cli.js",
+        "test"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:07:09.075529+00:00",
+      "exit_code": 0,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:07:23.702751+00:00",
+      "stdout_file": "node-tests.stdout.txt",
+      "stdout_sha256": "2ba5bcb350310bbf99950e206cf43061c323a382c0e2c415dd3a50b8dc01a434",
+      "stderr_file": "node-tests.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "python-validate",
+      "command": [
+        "/Users/DEVELOPER/.local/bin/python3.11",
+        "scripts/validate.py"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:07:09.136217+00:00",
+      "exit_code": 0,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:07:09.188534+00:00",
+      "stdout_file": "python-validate.stdout.txt",
+      "stdout_sha256": "369f101370462233efb5361a4acce4337579d708ab61716fa18972aa6a819c34",
+      "stderr_file": "python-validate.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "python-tests",
+      "command": [
+        "/Users/DEVELOPER/.local/bin/python3.11",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:07:09.188616+00:00",
+      "exit_code": 0,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:07:12.132039+00:00",
+      "stdout_file": "python-tests.stdout.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_file": "python-tests.stderr.txt",
+      "stderr_sha256": "208a4ffd648aa83c9307f133deac9161559d6767f1d9ea630ddc6df69f25694c"
+    },
+    {
+      "label": "metadata-bandit",
+      "command": [
+        "/TEMP/bandit-round2-jumhQp/validator-venv/bin/python",
+        "/Users/DEVELOPER/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "skills/bandit"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:07:09.255561+00:00",
+      "exit_code": 0,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:07:09.306583+00:00",
+      "stdout_file": "metadata-bandit.stdout.txt",
+      "stdout_sha256": "db349825903d66adffea3ecf1bd8e1803043e8a71cf1a051235dabc5371f5bb0",
+      "stderr_file": "metadata-bandit.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "metadata-bandit-research",
+      "command": [
+        "/TEMP/bandit-round2-jumhQp/validator-venv/bin/python",
+        "/Users/DEVELOPER/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "skills/bandit-research"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:07:09.306725+00:00",
+      "exit_code": 0,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:07:09.348326+00:00",
+      "stdout_file": "metadata-bandit-research.stdout.txt",
+      "stdout_sha256": "db349825903d66adffea3ecf1bd8e1803043e8a71cf1a051235dabc5371f5bb0",
+      "stderr_file": "metadata-bandit-research.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "metadata-bandit-scope",
+      "command": [
+        "/TEMP/bandit-round2-jumhQp/validator-venv/bin/python",
+        "/Users/DEVELOPER/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "skills/bandit-scope"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:07:09.348412+00:00",
+      "exit_code": 0,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:07:09.406378+00:00",
+      "stdout_file": "metadata-bandit-scope.stdout.txt",
+      "stdout_sha256": "db349825903d66adffea3ecf1bd8e1803043e8a71cf1a051235dabc5371f5bb0",
+      "stderr_file": "metadata-bandit-scope.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "metadata-bandit-specify",
+      "command": [
+        "/TEMP/bandit-round2-jumhQp/validator-venv/bin/python",
+        "/Users/DEVELOPER/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "skills/bandit-specify"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:07:09.406538+00:00",
+      "exit_code": 0,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:07:09.452834+00:00",
+      "stdout_file": "metadata-bandit-specify.stdout.txt",
+      "stdout_sha256": "db349825903d66adffea3ecf1bd8e1803043e8a71cf1a051235dabc5371f5bb0",
+      "stderr_file": "metadata-bandit-specify.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "metadata-bandit-review",
+      "command": [
+        "/TEMP/bandit-round2-jumhQp/validator-venv/bin/python",
+        "/Users/DEVELOPER/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "skills/bandit-review"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:07:09.452930+00:00",
+      "exit_code": 0,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:07:09.500688+00:00",
+      "stdout_file": "metadata-bandit-review.stdout.txt",
+      "stdout_sha256": "db349825903d66adffea3ecf1bd8e1803043e8a71cf1a051235dabc5371f5bb0",
+      "stderr_file": "metadata-bandit-review.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "product_before_sha256": {
+    "bin/bandit.mjs": "d130ff708b11c22d7129be6349d619c0001327fa092141eb74ae2b56e6fa6cd6",
+    "install.py": "29e2ae73652dbba226a8f60889e995d4e70f07eab514513430e5a5aa26d8fe45",
+    "lib/installer.mjs": "6c2555e1c09d3efa416ae63ab7870143271bfed7f035f91287d01580ff2456ec",
+    "skills/bandit/SKILL.md": "746c8b76f096a3396363d6b1a17b0ca3f46c547827e0f639a8a45e4706198b0b",
+    "skills/bandit/agents/openai.yaml": "1a24331976f7a257ad2aafba9c786c4dc5e5ddb25a98a8dbecdd0c1ae0ddc5f9",
+    "skills/bandit/assets/bandit-avatar.png": "091520edefe34c49af5c800f7073c53f602f23531ecab0a5f3ee46d0ef5afab2",
+    "skills/bandit/assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "skills/bandit/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "skills/bandit/references/decisions.md": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+    "skills/bandit/references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523",
+    "skills/bandit/references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+    "skills/bandit/references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "skills/bandit/references/specification.md": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431",
+    "skills/bandit-research/SKILL.md": "be1313ca9679fec07b172fbdd5e2eda1f19bc6903b897934a3dec995696dcfd5",
+    "skills/bandit-research/agents/openai.yaml": "af4da23d45df56346cd7f9924f440dc4d946ee9cf02f9130cd47b14f0ef0835c",
+    "skills/bandit-research/references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523",
+    "skills/bandit-research/references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+    "skills/bandit-review/SKILL.md": "16373b70230cad31f65d5e0304938625261a4b1676b8893ec9881fefb37380bc",
+    "skills/bandit-review/agents/openai.yaml": "4e4e969c8109f589d77ea687f3a9a5eeb6af82b0abff1bce2cf6906aa7bad2f2",
+    "skills/bandit-review/assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "skills/bandit-review/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "skills/bandit-review/references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523",
+    "skills/bandit-review/references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+    "skills/bandit-review/references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "skills/bandit-review/references/specification.md": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431",
+    "skills/bandit-scope/SKILL.md": "5c9fb2a0c9e555f9f716f89157a9f98025bcb342b5d0f718e3f86f59c67a7fda",
+    "skills/bandit-scope/agents/openai.yaml": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293",
+    "skills/bandit-scope/references/decisions.md": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+    "skills/bandit-scope/references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523",
+    "skills/bandit-specify/SKILL.md": "9862565be56488293dc0c726724328f2b4f4e818b2b941b6aeb5d8e51617a2d3",
+    "skills/bandit-specify/agents/openai.yaml": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf",
+    "skills/bandit-specify/assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "skills/bandit-specify/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "skills/bandit-specify/references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523",
+    "skills/bandit-specify/references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+    "skills/bandit-specify/references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "skills/bandit-specify/references/specification.md": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431"
+  },
+  "product_after_sha256": {
+    "bin/bandit.mjs": "d130ff708b11c22d7129be6349d619c0001327fa092141eb74ae2b56e6fa6cd6",
+    "install.py": "29e2ae73652dbba226a8f60889e995d4e70f07eab514513430e5a5aa26d8fe45",
+    "lib/installer.mjs": "6c2555e1c09d3efa416ae63ab7870143271bfed7f035f91287d01580ff2456ec",
+    "skills/bandit/SKILL.md": "746c8b76f096a3396363d6b1a17b0ca3f46c547827e0f639a8a45e4706198b0b",
+    "skills/bandit/agents/openai.yaml": "1a24331976f7a257ad2aafba9c786c4dc5e5ddb25a98a8dbecdd0c1ae0ddc5f9",
+    "skills/bandit/assets/bandit-avatar.png": "091520edefe34c49af5c800f7073c53f602f23531ecab0a5f3ee46d0ef5afab2",
+    "skills/bandit/assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "skills/bandit/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "skills/bandit/references/decisions.md": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+    "skills/bandit/references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523",
+    "skills/bandit/references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+    "skills/bandit/references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "skills/bandit/references/specification.md": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431",
+    "skills/bandit-research/SKILL.md": "be1313ca9679fec07b172fbdd5e2eda1f19bc6903b897934a3dec995696dcfd5",
+    "skills/bandit-research/agents/openai.yaml": "af4da23d45df56346cd7f9924f440dc4d946ee9cf02f9130cd47b14f0ef0835c",
+    "skills/bandit-research/references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523",
+    "skills/bandit-research/references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+    "skills/bandit-review/SKILL.md": "16373b70230cad31f65d5e0304938625261a4b1676b8893ec9881fefb37380bc",
+    "skills/bandit-review/agents/openai.yaml": "4e4e969c8109f589d77ea687f3a9a5eeb6af82b0abff1bce2cf6906aa7bad2f2",
+    "skills/bandit-review/assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "skills/bandit-review/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "skills/bandit-review/references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523",
+    "skills/bandit-review/references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+    "skills/bandit-review/references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "skills/bandit-review/references/specification.md": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431",
+    "skills/bandit-scope/SKILL.md": "5c9fb2a0c9e555f9f716f89157a9f98025bcb342b5d0f718e3f86f59c67a7fda",
+    "skills/bandit-scope/agents/openai.yaml": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293",
+    "skills/bandit-scope/references/decisions.md": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+    "skills/bandit-scope/references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523",
+    "skills/bandit-specify/SKILL.md": "9862565be56488293dc0c726724328f2b4f4e818b2b941b6aeb5d8e51617a2d3",
+    "skills/bandit-specify/agents/openai.yaml": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf",
+    "skills/bandit-specify/assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "skills/bandit-specify/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "skills/bandit-specify/references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523",
+    "skills/bandit-specify/references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+    "skills/bandit-specify/references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "skills/bandit-specify/references/specification.md": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431"
+  },
+  "product_bytes_unchanged": true,
+  "limitations": "Local structural/unit/package-test evidence, not planning behavior, network integration, host discovery, or final release packaging."
+}

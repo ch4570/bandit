@@ -1,0 +1,13 @@
+{
+  "recorded_at": "2026-09-08T18:37:31.181Z",
+  "phase": "before corrected integration execution",
+  "scratch": "/TEMP/bandit-round9-wwXdSO",
+  "original_receipt_sha256": "42271ba8f99876b6dde37fafd276d3758ae9a65e142b3541b0b895b13427def0",
+  "original_harness_sha256": "8e1a7533c2680febef603853f49b2f348c8b3e3145daa4ed56b236dbf40f4486",
+  "harness": "checks/npx-flow-v2.mjs",
+  "harness_sha256": "f3a966b532b9fb39ca0ef214a27dd2b80067623e06e9cf9b7d4eb07b7f3c26e1",
+  "candidate_sha256": "a2fb5d29889010c2c0c8d0da3783be052667d6c295ffac72039ac99045655252",
+  "only_behavioral_change_to_harness": "Local candidate uses explicit --package=<absolute archive> -- bandit; public URL argv and all expected assertions are unchanged.",
+  "scope_and_assertions": "Same four-fixture integration plan as before-run.json, in new scratch and fresh caches. First attempt and its assertions/failure are preserved.",
+  "expected_outcome_not_yet_observed": true
+}

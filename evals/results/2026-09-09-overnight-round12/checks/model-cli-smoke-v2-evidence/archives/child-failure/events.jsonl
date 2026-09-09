@@ -1,0 +1,3 @@
+{"type": "thread.started", "thread_id": "fake-thread-child-failure"}
+{"type": "turn.started"}
+{"type": "turn.failed", "error": {"message": "Synthetic fake child exit"}}

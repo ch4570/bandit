@@ -1,0 +1,126 @@
+v22.23.2
+TAP version 13
+# npm error code EUSAGE
+# npm error
+# npm error Run a command from a local or remote npm package
+# npm error
+# npm error Usage:
+# npm error npm exec -- <pkg>[@<version>] [args...]
+# npm error npm exec --package=<pkg>[@<version>] -- <cmd> [args...]
+# npm error npm exec -c '<cmd> [args...]'
+# npm error npm exec --package=foo -c '<cmd> [args...]'
+# npm error
+# npm error Options:
+# npm error [--package <package-spec> [--package <package-spec> ...]] [-c|--call <call>]
+# npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+# npm error [--workspaces] [--include-workspace-root]
+# npm error [--allow-scripts <package-list> [--allow-scripts <package-list> ...]]
+# npm error [--strict-allow-scripts] [--dangerously-allow-all-scripts]
+# npm error
+# npm error   --package
+# npm error     The package or packages to install for [`npm exec`](/commands/npm-exec)
+# npm error
+# npm error   -c|--call
+# npm error     Optional companion option for `npm exec`, `npx` that allows for
+# npm error
+# npm error   -w|--workspace
+# npm error     Enable running a command in the context of the configured workspaces of the
+# npm error
+# npm error   --workspaces
+# npm error     Set to true to run the command in the context of **all** configured
+# npm error
+# npm error   --include-workspace-root
+# npm error     Include the workspace root when workspaces are enabled for a command.
+# npm error
+# npm error   --allow-scripts
+# npm error     Comma-separated list of packages whose install-time lifecycle scripts
+# npm error
+# npm error   --strict-allow-scripts
+# npm error     If `true`, turn the install-script policy from a warning into a hard
+# npm error
+# npm error   --dangerously-allow-all-scripts
+# npm error     If `true`, bypass the `allowScripts` policy entirely and run every
+# npm error
+# npm error
+# npm error alias: x
+# npm error
+# npm error Run "npm help exec" for more info
+# npm error A complete log of this run can be found in: /TEMP/SYSTEM/bandit-pack-9cy3DP/npm-cache/_logs/2026-09-08T15_12_32_262Z-debug-0.log
+# Subtest: the npm artifact is complete and its extracted CLI works without the checkout
+not ok 1 - the npm artifact is complete and its extracted CLI works without the checkout
+  ---
+  duration_ms: 1905.379167
+  type: 'test'
+  location: '/WORKSPACE/bandit/tests-node/package.test.mjs:19:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Command failed: /Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node /opt/homebrew/lib/node_modules/npm/bin/npm-cli.js exec --offline --yes --cache /TEMP/SYSTEM/bandit-pack-9cy3DP/npm-cache --package=/TEMP/SYSTEM/bandit-pack-9cy3DP/ch4570-bandit-0.4.0.tgz -- bandit --json
+    npm error code EUSAGE
+    npm error
+    npm error Run a command from a local or remote npm package
+    npm error
+    npm error Usage:
+    npm error npm exec -- <pkg>[@<version>] [args...]
+    npm error npm exec --package=<pkg>[@<version>] -- <cmd> [args...]
+    npm error npm exec -c '<cmd> [args...]'
+    npm error npm exec --package=foo -c '<cmd> [args...]'
+    npm error
+    npm error Options:
+    npm error [--package <package-spec> [--package <package-spec> ...]] [-c|--call <call>]
+    npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+    npm error [--workspaces] [--include-workspace-root]
+    npm error [--allow-scripts <package-list> [--allow-scripts <package-list> ...]]
+    npm error [--strict-allow-scripts] [--dangerously-allow-all-scripts]
+    npm error
+    npm error   --package
+    npm error     The package or packages to install for [`npm exec`](/commands/npm-exec)
+    npm error
+    npm error   -c|--call
+    npm error     Optional companion option for `npm exec`, `npx` that allows for
+    npm error
+    npm error   -w|--workspace
+    npm error     Enable running a command in the context of the configured workspaces of the
+    npm error
+    npm error   --workspaces
+    npm error     Set to true to run the command in the context of **all** configured
+    npm error
+    npm error   --include-workspace-root
+    npm error     Include the workspace root when workspaces are enabled for a command.
+    npm error
+    npm error   --allow-scripts
+    npm error     Comma-separated list of packages whose install-time lifecycle scripts
+    npm error
+    npm error   --strict-allow-scripts
+    npm error     If `true`, turn the install-script policy from a warning into a hard
+    npm error
+    npm error   --dangerously-allow-all-scripts
+    npm error     If `true`, bypass the `allowScripts` policy entirely and run every
+    npm error
+    npm error
+    npm error alias: x
+    npm error
+    npm error Run "npm help exec" for more info
+    npm error A complete log of this run can be found in: /TEMP/SYSTEM/bandit-pack-9cy3DP/npm-cache/_logs/2026-09-08T15_12_32_262Z-debug-0.log
+    
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    genericNodeError (node:internal/errors:983:15)
+    wrappedFn (node:internal/errors:537:14)
+    checkExecSyncError (node:child_process:916:11)
+    execFileSync (node:child_process:952:15)
+    npm (file:///WORKSPACE/bandit/tests-node/package.test.mjs:14:19)
+    TestContext.<anonymous> (file:///WORKSPACE/bandit/tests-node/package.test.mjs:72:32)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 0
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1970.263

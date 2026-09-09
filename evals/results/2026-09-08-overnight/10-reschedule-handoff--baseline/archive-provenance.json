@@ -1,0 +1,84 @@
+{
+  "format": 1,
+  "archive_status": "archived",
+  "archived_at": "2026-09-08T14:46:19.277Z",
+  "source_format": "evals/run_local.py",
+  "run_status": "completed",
+  "source_exit_code": 0,
+  "terminal_event": "turn.completed",
+  "invalid_event_lines": 0,
+  "missing_or_empty_output": false,
+  "input_changes": [],
+  "input_scope_respected": true,
+  "instruction_changes": [],
+  "original_input_missing": [],
+  "original_instruction_missing": [],
+  "original_text_snapshot_complete": true,
+  "instruction_restore_directory": null,
+  "omitted_png_files": [],
+  "temporary_path_replacement": "<temporary-run-root>",
+  "files": {
+    "metadata.json": {
+      "source": "metadata.json",
+      "original_sha256": "e879279c73c6b4cbe7ea70ca83cdd66789d19b785d3880e287b306af5958fd35",
+      "archived_sha256": "5e279dfad95c046c796c8fd7bb04e259fd58d09d7eef491afb27735cd6718077",
+      "temporary_path_normalized": true
+    },
+    "prompt.txt": {
+      "source": "prompt.txt",
+      "original_sha256": "962cce75415ee966c093f7587f73377870ae5b2c5cc0ad9ebbd75bbaec0880c8",
+      "archived_sha256": "962cce75415ee966c093f7587f73377870ae5b2c5cc0ad9ebbd75bbaec0880c8",
+      "temporary_path_normalized": false
+    },
+    "events.jsonl": {
+      "source": "events.jsonl",
+      "original_sha256": "ba3078193aa58c9c8e9715bd3b4d9e84c06d610049c80fd949eac7a672fe8eeb",
+      "archived_sha256": "ba3078193aa58c9c8e9715bd3b4d9e84c06d610049c80fd949eac7a672fe8eeb",
+      "temporary_path_normalized": false
+    },
+    "stderr.txt": {
+      "source": "stderr.txt",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "temporary_path_normalized": false
+    },
+    "output.md": {
+      "source": "output.md",
+      "original_sha256": "eb0793b943dd70cd4561db94817bb49e511b94d3f498f9da2b216c4b1933aa56",
+      "archived_sha256": "eb0793b943dd70cd4561db94817bb49e511b94d3f498f9da2b216c4b1933aa56",
+      "temporary_path_normalized": false
+    },
+    "input/booking-policy.md": {
+      "source": "original-input/booking-policy.md",
+      "original_sha256": "06eeedc993bb09647b4e057d68a4da558e76300faf688e05eabdac62a39c000d",
+      "archived_sha256": "06eeedc993bb09647b4e057d68a4da558e76300faf688e05eabdac62a39c000d",
+      "temporary_path_normalized": false
+    },
+    "input/draft.md": {
+      "source": "original-input/draft.md",
+      "original_sha256": "8937358ab82bbf0e71f450a0bd288da1e0903d853168cc45cb5e82b2ed114580",
+      "archived_sha256": "8937358ab82bbf0e71f450a0bd288da1e0903d853168cc45cb5e82b2ed114580",
+      "temporary_path_normalized": false
+    },
+    "input/request.md": {
+      "source": "original-input/request.md",
+      "original_sha256": "d29324bbc606658558e0c4ba455f937a863fa725477fe03cdb82f79b7cdd6942",
+      "archived_sha256": "d29324bbc606658558e0c4ba455f937a863fa725477fe03cdb82f79b7cdd6942",
+      "temporary_path_normalized": false
+    },
+    "input/support-notes.md": {
+      "source": "original-input/support-notes.md",
+      "original_sha256": "682036561a80d90190b411f1bc43f93785d735a12652c9ad7f712c1a84f9b601",
+      "archived_sha256": "682036561a80d90190b411f1bc43f93785d735a12652c9ad7f712c1a84f9b601",
+      "temporary_path_normalized": false
+    }
+  },
+  "limitations": [
+    "Process completion and hash agreement are not planning-quality grades or proof of compliance with every task instruction.",
+    "Original inputs and instruction bytes are unchanged; only the five run log/artifact files receive literal run-root path normalization.",
+    "PNG files are recorded by SHA256 only and must be restored separately for an identical image-bearing workspace.",
+    "Missing originals cannot be reconstructed from hashes. Partial original trees and available after-state are retained explicitly.",
+    "Path normalization is not a general secret scrubber. Only supplied run evidence is archived; other workspace files and host state are not retained.",
+    "Host-default model configuration and external services are not pinned by this archive; replay is not guaranteed to produce the same response."
+  ]
+}

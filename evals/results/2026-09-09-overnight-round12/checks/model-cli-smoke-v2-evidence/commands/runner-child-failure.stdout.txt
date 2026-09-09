@@ -1,0 +1,1 @@
+{"run": "/TEMP/bandit-round12-4a9iyv/fake-model-cli-pa_nce5k/runs/child-failure/fake-model-child-failure--baseline", "exit_code": 23}

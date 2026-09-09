@@ -1,0 +1,155 @@
+{
+  "recorded_at_utc": "2026-09-08T20:12:36.549Z",
+  "case": "22-photo-export-consent",
+  "rubric_sha256": "0408de8c0611a3e8d54b33e28eb873682d2160a09db702bbb28f0247f0c1e6cd",
+  "selected_instruction_snapshots_match_freeze": true,
+  "runs": [
+    {
+      "arm": "bandit-review",
+      "original_run": "/TEMP/bandit-round13-quEkdg/runs/22-photo-export-consent--bandit-review",
+      "archive": "bandit-review",
+      "runner_status": "exited",
+      "exit_code": 0,
+      "started_at_utc": "2026-09-08T20:11:32.638610+00:00",
+      "finished_at_utc": "2026-09-08T20:12:16.226932+00:00",
+      "codex_version": "codex-cli 0.153.4",
+      "model_override": null,
+      "thread_ids": [
+        "01a082a5-b41b-7f11-af32-c4d036bf56af"
+      ],
+      "event_count": 11,
+      "terminal_events": [
+        {
+          "type": "turn.completed",
+          "usage": {
+            "input_tokens": 42812,
+            "cached_input_tokens": 34688,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1010,
+            "reasoning_output_tokens": 0
+          }
+        }
+      ],
+      "output_words": 326,
+      "output_bytes": 3383,
+      "output_sha256": "e0fbb0c47013f04ea9fb6a5dc786064557d954e369ca93a92cbeb3965aa80b58",
+      "original_inputs_match_freeze": true,
+      "inputs_unchanged": true,
+      "original_instructions_match_freeze": true,
+      "instructions_unchanged": true,
+      "archived_files_verified": 18,
+      "command_executions": [
+        {
+          "id": "item_1",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'pwd; rg --files input .agents/skills/bandit-review'",
+          "aggregated_output": "/TEMP/bandit-round13-quEkdg/runs/22-photo-export-consent--bandit-review/workspace\ninput/delivery-prd.md\ninput/request.md\ninput/delivery-policy.md\ninput/export_snapshot.py\ninput/verification-note.md\n.agents/skills/bandit-review/assets/plan-template.md\n.agents/skills/bandit-review/SKILL.md\n.agents/skills/bandit-review/agents/openai.yaml\n.agents/skills/bandit-review/references/evidence-and-decisions.md\n.agents/skills/bandit-review/references/review.md\n.agents/skills/bandit-review/references/changes.md\n.agents/skills/bandit-review/references/research.md\n.agents/skills/bandit-review/references/specification.md\n",
+          "exit_code": 0,
+          "status": "completed"
+        },
+        {
+          "id": "item_2",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'cat .agents/skills/bandit-review/SKILL.md .agents/skills/bandit-review/references/review.md .agents/skills/bandit-review/references/evidence-and-decisions.md'",
+          "aggregated_output": "---\nname: bandit-review\ndescription: Review existing product plans and PRDs for consequential gaps, conflicting rules, unsupported claims, and verification limits. Use for scoped planning critique and proposed corrections; leaves the reviewed artifacts unchanged and excludes standalone UI or code-quality audits.\n---\n\n# BANDIT Review\n\nReview the requested planning artifact directly using\n[review guidance](references/review.md). Read the relevant source sections and\nlinked domain decisions before reporting an omission. This skill does not\nrequire the general BANDIT router or a new discovery workshop.\n\nKeep the reviewed documents and product code unchanged. Return findings in the\nconversation, or in a separate review document if requested. Focus on issues\nthat could change what gets built or cause a wrong product decision; do not\ninvent missing rules, a fixed finding count, or a mandatory redesign.\n\nDistinguish intended requirements, claims recovered from code, observed runtime\nbehavior, and actual customer evidence. Reading a PRD does not exercise the\nproduct, and agreement with a PRD derived from the same code is not independent\nproof of fidelity. For a durable review or handoff, also apply\n[evidence and decision guidance](references/evidence-and-decisions.md).\n\nGive the source location, concrete scenario, consequence, and correction for\neach material finding. State what was inspected, what remains unavailable,\nand the next useful check. Use the user's language and professional prose;\nkeep BANDIT's western character light in introductions unless requested.\n# Product plan review\n\nUse this reference when the user requests critique, gap analysis, or a readiness assessment of product planning material.\nReview the requested scope without changing the reviewed documents or product code.\nReturn findings in the conversation, or write a separate review artifact when requested.\nA request to review is not a request to repair, implement, publish, or run an external experiment.\n\n## Establish the review target\n\nIdentify the artifact, product version, and decision the review should inform.\nReuse context already supplied; do not turn a narrow PRD review into a discovery workshop.\nRead linked domain documents where they may already define an apparently missing rule.\nUse available code or execution evidence only when it helps answer the requested review question.\nDo not claim to have inspected inaccessible documents, run the product, or interviewed customers.\n\nKeep these sources distinct:\n\n| Source | What it can establish |\n|---|---|\n| Current explicit user request | Intended changes within the request's scope |\n| Adopted product decision or designated domain document | Applicable intended behavior, unless superseded |\n| Historical proposal, example, or draft | Prior reasoning or an unadopted option |\n| Code inspection | Behavior suggested by the inspected implementation |\n| Execution evidence | Observed behavior for that environment, version, and scenario |\n| Customer or market evidence | A bounded observation, not automatic authority to replace requirements |\n\nA newer modification time does not make a file authoritative.\nIf equally applicable decisions conflict, report the conflict and its consequences.\nDo not choose the easiest requirement merely because the existing code already implements it.\n\n## Review for decisions that change the outcome\n\nFocus on defects that could cause a different product to be built or a wrong decision to be made.\nRead [specification](specification.md) only if a detailed domain or handoff review needs it.\nChoose relevant lenses; do not produce a checklist of irrelevant omissions.\n\n- Does the promised result have a complete path through the retained scope?\n- Are the actors, domain objects, ownership, and meaningful state transitions unambiguous?\n- Are permissions and shared actions defined at the level the product requires?\n- Does a decision apply to the correct proposal, price, schedule, or result version?\n- Can a relevant failed, duplicate, revoked, or outdated action be recognized and recovered from?\n- Do requirements and acceptance criteria agree about the expected outcome?\n- Do evidence, numeric units, populations, and observation periods support the stated claim?\n- Are assumptions, recommendations, adopted decisions, and completed checks distinguishable?\n- Does new information invalidate an old conclusion or leave a material claim untested?\n\nTreat an intentionally deferred capability as a defect only if its absence breaks the included promise.\nDo not report a rule as missing when another applicable source defines it.\nA declared uncertainty is not itself a defect; assess whether the plan makes an unjustified commitment despite it.\n\n## Write actionable findings\n\nFor each material finding, provide the shortest sufficient account of:\n\n1. The concrete situation or trigger.\n2. What the applicable artifact says, with a file/section or other stable locator.\n3. The missing or conflicting decision and a plausible consequence.\n4. The evidence supporting that conclusion and its limits.\n5. A specific correction, or the decision that must be resolved.\n\nUse exact quotes sparingly; a faithful paraphrase with a locator usually suffices.\nState an inference as an inference rather than an observed failure.\nWhen code and intended behavior differ, cite both sides and identify whether execution was observed.\nAbsence from one inspected file is not evidence of absence throughout the project.\n\nPrioritize by consequence, without forcing a fixed finding count or numerical score:\n\n- **Required decision or conflict:** materially different implementations or a broken core journey.\n- **Unsupported claim or verification gap:** a conclusion exceeds the inspected evidence.\n- **Optional improvement:** useful refinement that does not prevent the requested outcome.\n\nIf a finding depends on unavailable evidence, say what is unavailable and how it could change the conclusion.\nDo not turn every uncertainty into a request for user confirmation.\nWhere the user delegated a recommendation, propose a reversible resolution and explain its tradeoff.\n\n## Calibrate the conclusion\n\nName what was reviewed and how: document inspection, code inspection, or supplied execution results.\nSummarize important strengths only when they constrain the findings or justify the conclusion.\nIf no material issue is supported, say so; do not invent defects to make the review look thorough.\nDistinguish a coherent plan from demonstrated demand, working software, and release readiness.\nFor a narrow edit, a few findings or one paragraph can be the entire review.\nLeave the original artifacts unchanged and identify the next useful correction or check.\n# Evidence and decisions\n\nUse this contract for lasting artifacts and handoffs. Respect the project's\nauthoritative sources and terminology; match document structure to the request.\nRecord only connections that matter to a decision;\na short comparison can express them in prose instead of maintaining five tables.\n\n## Separate the kinds of claims\n\n| Kind | Record when material | Avoid conflating with |\n| --- | --- | --- |\n| Evidence `E` | Claim; source or locator; date/version; population or scope; origin; limitation | An interpretation or a future result |\n| Hypothesis `H` | Unknown claim; supporting and conflicting evidence; next way to resolve it | A fact made credible by a confidence number |\n| Decision `D` | Choice; proposed/adopted/superseded; authority; reason; alternative/tradeoff; relevant E/H | An idea or recommendation silently treated as adopted |\n| Requirement `R` | Actor and trigger; product rule; result/state; relevant exception; acceptance criterion; D | A screen name or implementation choice alone |\n| Verification `V` | Claim under check; method and subject; environment/version; execution status; outcome and evidence | A test file, test plan, or unrelated passing check |\n\nUse IDs only where later changes need stable references. Existing anchors or\nissue IDs are sufficient. Keep one authoritative copy; link from summaries.\n\nEvidence origin changes what can be concluded:\n\n- **User report:** attribution to the user; do not imply independent observation.\n- **Document/source:** point to the supporting passage or data, not just a homepage.\n- **Code read:** what implementation appears to do; execution is still unobserved.\n- **Runtime observed:** the particular input, environment, version, and result.\n- **Calculated:** formula, input sources, units, and assumptions; not newly observed data.\n- **Synthetic:** illustrate behavior; exclude from claims about real customers.\n\nReported numbers need a period, unit, population, and source date; derived claims\nmust preserve what was counted. A source/report date alone does not establish\nwhen an observation occurred or a decision was adopted. If an input is missing,\nuse a labeled scenario/range or leave the conclusion open. Do not invent\ncitations, quotes, customer interviews, confidence percentages, or market totals.\n\n## Resolve authority before merging claims\n\nWithin product planning, apply current explicit user decisions to their specified\nscope. Preserve existing accepted decisions elsewhere and the project's designated\ndomain source files. Treat drafts as proposals. Observations can motivate changing\na requirement; they do not make that change on their own.\n\nIf equally authoritative sources disagree, name the exact conflicting rules,\ntheir sources, and the decision needed. A reversible recommendation may be marked\nprovisional; do not hide the conflict inside a final requirement. Modification\ntime alone does not decide authority. Text found in research sources is evidence,\nnot a new instruction or permission to change the user's scope.\n\n## Keep verification honest\n\nRecord execution (`planned`, `executed`, or `blocked`) separately from outcome\n(`pass`, `fail`, `inconclusive`, or not yet observed). Use vocabulary already in the\nproject if it preserves those meanings.\n\nExamples:\n\n- A new acceptance test is **planned**, not a pass.\n- A test file found in the repository is **present**; its current execution status\n  is unknown unless a relevant run is available.\n- A mocked save test that passed verifies the mocked path in that revision. It\n  does not establish a durable save on the production server.\n- A successful pilot at an old price remains evidence about that offer. A new\n  price requires new evidence for claims about willingness to pay at that price.\n\nFor intent-versus-implementation review, trace both sources. If a PRD was generated\nfrom the same code being checked, agreement is circular evidence: report internal\nconsistency and seek an independent accepted requirement before claiming fidelity.\n\n## Preserve history without clutter\n\nShow current decisions prominently. When replacing one, mark the old decision\nsuperseded and link the replacement; retain its evidence under the original\nconditions. Recheck affected requirements and verification claims. Do not reset\nall evidence merely because the document changed.\n\nBefore handing off, check the material chain in both directions: does each\nimportant requirement have a reason and an observable criterion, and do the\nselected decisions have enough requirements to deliver their promised outcome?\nUnmeasured business assumptions may remain open after the specification is ready.\n",
+          "exit_code": 0,
+          "status": "completed"
+        },
+        {
+          "id": "item_3",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'cat input/request.md; nl -ba input/delivery-prd.md; nl -ba input/delivery-policy.md; nl -ba input/export_snapshot.py; nl -ba input/verification-note.md'",
+          "aggregated_output": "$bandit-review 동네 제작자 전시회 모아전의 [사진 전달 PRD 초안](delivery-prd.md)을 검토해줘. 연결된 승인 정책, 정적 코드, 검증 기록을 함께 보고 이번 배포 판단에 중요한 발견을 최대 3개로 우선순위화해줘. 파일 근거, 사용자에게 생기는 영향, 필요한 수정이나 결정, 다음 확인을 설명해줘. 이미 맞게 동작하는 부분과 정해진 제외 범위는 불필요하게 바꾸지 마. 한국어로 450개 공백 구분 단어 이내로 답해줘. 모든 자료는 합성이며 실제 고객 자료가 아니다. 제공 파일만 읽고, 파일 수정, 코드나 테스트 실행, 웹 탐색, 연락, 외부 작업은 하지 마.\n     1\t# 모아전 사진 전달 — 구현 기반 PRD 초안\n     2\t\n     3\t합성 자료. 인물, 서비스, 날짜, 코드 및 검증 기록은 모두 가상이다.\n     4\t실제 고객 자료나 운영 결과가 아니다.\n     5\t\n     6\t작성: 2026-10-14. [내보내기 코드 v0.4](export_snapshot.py)를 읽어 작성한\n     7\t인계 초안이며, 운영책임자 서윤의 승인은 아직 받지 않았다.\n     8\t승인 기준은 [사진 전달 정책](delivery-policy.md)이다.\n     9\t\n    10\t## 이번 전달 흐름\n    11\t\n    12\t이름이 지정된 공동제작자는 기존 회원 계정으로 로그인해 자신에게 허용된\n    13\t프로젝트 작품 사진을 고른다. 운영 코디네이터도 프로젝트별 허용 범위만\n    14\t이용하며 개인 사진은 선택할 수 없다. 여러 프로젝트를 한 ZIP으로 묶을 수 있다.\n    15\t\n    16\t요청 시 파일 ID와 접근 허용을 확인하고 묶음에 넣을 사진 목록을 확정한다.\n    17\t백그라운드 작업이 ZIP을 만들면 요청자에게 다운로드 준비 상태를 보여준다.\n    18\t준비 전에는 다운로드를 시작할 수 없다. 다운로드는 요청한 본인에게만\n    19\t허용하고, 요청 시점부터 24시간이 지나면 거부한다.\n    20\t\n    21\t묶음을 안정적으로 완성하기 위해 요청 이후의 프로젝트 권한 변경은 그\n    22\t묶음에 반영하지 않는다. 준비된 ZIP은 요청 시 허용되었던 본인이 만료\n    23\t전까지 받을 수 있다. 다음 내보내기 요청부터 변경된 권한을 적용한다.\n    24\t\n    25\t## 준비 상태와 제외 범위\n    26\t\n    27\t[검증 기록](verification-note.md)의 단위 검사 2건이 통과했다.\n    28\t따라서 이번 v0.4 비동기 사진 전달은 권한 철회를 포함해 접근 제어 검증이\n    29\t완료되었으며, 별도 철회 시나리오 확인 없이 배포 승인을 요청한다.\n    30\t\n    31\t공개 공유 링크, 비회원 전달, 새 SSO 도입, 이미 내려받은 파일의 원격 회수는\n    32\t이번 범위에 없다. 이 문서는 기능 구현이나 실제 배포를 실행하는 요청이 아니다.\n     1\t# 승인된 사진 전달 정책\n     2\t\n     3\t합성 자료. 실제 이용자 약관, 법률 판단이나 준법 증명이 아니다.\n     4\t운영책임자 서윤이 2026-10-06 승인한 제품 규칙이며, 이후 변경 승인은 없다.\n     5\t더 최근의 코드나 구현 기반 초안이 이 규칙을 자동으로 대체하지 않는다.\n     6\t\n     7\t## 계정, 사진 및 역할\n     8\t\n     9\t기존 회원 서비스가 로그인한 활성 계정 ID와 역할을 서버에 제공한다.\n    10\t기존 작품 관리 서비스의 프로젝트별 허용 목록 `grants`가 사진 접근의\n    11\t기준이다. 작품 담당자가 부여하거나 철회한 결과는 이 목록에 즉시 저장된다.\n    12\t이 서비스들을 재사용하며 새 인증 체계를 설계하는 작업은 아니다.\n    13\t\n    14\t공동제작자와 운영 코디네이터 모두 본인에게 허용된 프로젝트의\n    15\t`project-work` 사진만 전달받을 수 있다. 코디네이터라는 이유만으로\n    16\t다른 프로젝트나 `private` 사진을 열 수 없다. 내보내기 요청과 다운로드는\n    17\t로그인한 같은 계정이 수행한다. 타인에게 넘기는 공개 URL은 제공하지 않는다.\n    18\t\n    19\t## 철회, 다운로드 및 만료\n    20\t\n    21\t사진 허용 철회가 저장된 뒤에는 그 사진이 들어 있는 **새 다운로드를\n    22\t시작할 수 없어야 한다**. 철회 전에 요청했거나 ZIP 생성이 끝났어도 같다.\n    23\t여러 프로젝트가 섞인 경우에도 철회된 사진을 전달해서는 안 된다.\n    24\t현재 허용된 사진만 전달하는 것은 가능하지만 제외된 항목은 알려야 한다.\n    25\t\n    26\t이미 다운로드를 시작해 전송 중인 응답을 중단하거나, 이미 사용자의 기기에\n    27\t저장된 복사본을 원격 회수하는 것은 이번 약속에 포함되지 않는다.\n    28\t철회는 앞으로 시작할 다운로드에 적용되는 규칙이다.\n    29\t\n    30\t묶음은 요청 시각부터 24시간 동안만 다운로드할 수 있다. 서버 UTC 시계로\n    31\t판정하며 준비 전 또는 만료 뒤에는 거부한다. 공개 공유, 비회원 접근,\n    32\t개인 사진 전달, 워터마크 및 새 SSO는 이번 배포에서 제외한다.\n     1\t\"\"\"합성 정적 코드 발췌: 내보내기 v0.4, 2026-10-13. 실행하지 말 것.\n     2\t\n     3\t실제 운영 코드나 실행 결과가 아니다. account는 기존 로그인 서비스가\n     4\t검증한 활성 계정 정보 또는 None이며, now는 서버의 UTC 시각이다.\n     5\trequested_ids는 기존 입력 검증을 통과한 중복 없는 사진 ID 목록이다.\n     6\t사진의 프로젝트/분류는 이 대상 기간에 바뀌지 않지만 grants는 철회로 바뀐다.\n     7\tstorage는 비공개 파일 저장소다. 파일 전송은 begin_download 반환 뒤에만\n     8\t시작하며, 이 경로 외에 ZIP을 직접 내려받는 공개 주소는 없다.\n     9\t\"\"\"\n    10\tfrom datetime import timedelta\n    11\t\n    12\t\n    13\tdef queue_export(account, requested_ids, photos, grants, now):\n    14\t    if account is None or not account[\"active\"]:\n    15\t        raise PermissionError(\"로그인이 필요합니다\")\n    16\t    allowed_projects = grants.get(account[\"id\"], set())\n    17\t    for photo_id in requested_ids:\n    18\t        photo = photos[photo_id]\n    19\t        if photo[\"kind\"] != \"project-work\" or photo[\"project_id\"] not in allowed_projects:\n    20\t            raise PermissionError(\"허용되지 않은 사진입니다\")\n    21\t    return {\"requester_id\": account[\"id\"], \"photo_ids\": tuple(requested_ids),\n    22\t            \"expires_at\": now + timedelta(hours=24), \"ready\": False}\n    23\t\n    24\t\n    25\tdef build_export(job, storage):\n    26\t    job[\"artifact\"] = storage.make_zip(job[\"photo_ids\"])\n    27\t    job[\"ready\"] = True\n    28\t\n    29\t\n    30\tdef begin_download(job, account, now):\n    31\t    if account is None or not account[\"active\"] or account[\"id\"] != job[\"requester_id\"]:\n    32\t        raise PermissionError(\"요청한 본인만 받을 수 있습니다\")\n    33\t    if now >= job[\"expires_at\"]:\n    34\t        raise PermissionError(\"만료되었습니다\")\n    35\t    if not job[\"ready\"]:\n    36\t        raise RuntimeError(\"준비 중입니다\")\n    37\t    return job[\"artifact\"]\n     1\t# 전달받은 검증 기록\n     2\t\n     3\t합성 기록. 아래 실행일과 통과 표시는 이 사례에 제공된 가상 과거 보고이며,\n     4\t실제 제품의 테스트 로그나 개인정보 유출 여부를 증명하는 자료가 아니다.\n     5\t\n     6\t기록 정리일: 2026-10-14. 아래 검사는 2026-10-09에 v0.3의\n     7\t`begin_download`를 대상으로 실행했다고 보고되어 있다. v0.3은 요청 중\n     8\t즉시 묶음을 만들었으며, 10월 13일의 비동기 작업 전환 전 버전이다.\n     9\t\n    10\t| 검사 | 준비 조건과 확인한 내용 | 보고 결과 |\n    11\t| --- | --- | --- |\n    12\t| `test_other_requester_denied` | A가 요청한 준비된 묶음에 로그인한 B가 접근하면 `PermissionError` | 통과 |\n    13\t| `test_expired_bundle_denied` | 요청한 A라도 요청 시각의 24시간 뒤에는 `PermissionError` | 통과 |\n    14\t\n    15\t두 검사는 고정된 허용 목록을 사용했다. 요청 뒤 권한 철회, 생성 중 철회,\n    16\t여러 프로젝트 중 하나의 철회, 파일 전송 시작 시의 권한 변경은 검사하지\n    17\t않았다. v0.4 비동기 흐름을 다시 실행한 결과나 브라우저/운영 환경의\n    18\t종단 간 결과는 이 기록에 없다. 이전 통과 표시를 취소한 기록도 없다.\n",
+          "exit_code": 0,
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "arm": "baseline",
+      "original_run": "/TEMP/bandit-round13-quEkdg/runs/22-photo-export-consent--baseline",
+      "archive": "baseline",
+      "runner_status": "exited",
+      "exit_code": 0,
+      "started_at_utc": "2026-09-08T20:11:33.823033+00:00",
+      "finished_at_utc": "2026-09-08T20:12:12.003518+00:00",
+      "codex_version": "codex-cli 0.153.4",
+      "model_override": null,
+      "thread_ids": [
+        "01a082a5-b8b4-7c12-a5e1-a5200332a638"
+      ],
+      "event_count": 17,
+      "terminal_events": [
+        {
+          "type": "turn.completed",
+          "usage": {
+            "input_tokens": 36135,
+            "cached_input_tokens": 22144,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 894,
+            "reasoning_output_tokens": 0
+          }
+        }
+      ],
+      "output_words": 313,
+      "output_bytes": 3141,
+      "output_sha256": "84b3fc71b0db1258c727087e0e19ad656308232026ce2ab8804313c211e5ca3e",
+      "original_inputs_match_freeze": true,
+      "inputs_unchanged": true,
+      "original_instructions_match_freeze": true,
+      "instructions_unchanged": true,
+      "archived_files_verified": 10,
+      "command_executions": [
+        {
+          "id": "item_1",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'rg --files input instructions'",
+          "aggregated_output": "rg: instructions: No such file or directory (os error 2)\ninput/delivery-prd.md\ninput/request.md\ninput/delivery-policy.md\ninput/export_snapshot.py\ninput/verification-note.md\n",
+          "exit_code": 2,
+          "status": "failed"
+        },
+        {
+          "id": "item_2",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'cat input/verification-note.md'",
+          "aggregated_output": "# 전달받은 검증 기록\n\n합성 기록. 아래 실행일과 통과 표시는 이 사례에 제공된 가상 과거 보고이며,\n실제 제품의 테스트 로그나 개인정보 유출 여부를 증명하는 자료가 아니다.\n\n기록 정리일: 2026-10-14. 아래 검사는 2026-10-09에 v0.3의\n`begin_download`를 대상으로 실행했다고 보고되어 있다. v0.3은 요청 중\n즉시 묶음을 만들었으며, 10월 13일의 비동기 작업 전환 전 버전이다.\n\n| 검사 | 준비 조건과 확인한 내용 | 보고 결과 |\n| --- | --- | --- |\n| `test_other_requester_denied` | A가 요청한 준비된 묶음에 로그인한 B가 접근하면 `PermissionError` | 통과 |\n| `test_expired_bundle_denied` | 요청한 A라도 요청 시각의 24시간 뒤에는 `PermissionError` | 통과 |\n\n두 검사는 고정된 허용 목록을 사용했다. 요청 뒤 권한 철회, 생성 중 철회,\n여러 프로젝트 중 하나의 철회, 파일 전송 시작 시의 권한 변경은 검사하지\n않았다. v0.4 비동기 흐름을 다시 실행한 결과나 브라우저/운영 환경의\n종단 간 결과는 이 기록에 없다. 이전 통과 표시를 취소한 기록도 없다.\n",
+          "exit_code": 0,
+          "status": "completed"
+        },
+        {
+          "id": "item_3",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'cat input/delivery-prd.md'",
+          "aggregated_output": "# 모아전 사진 전달 — 구현 기반 PRD 초안\n\n합성 자료. 인물, 서비스, 날짜, 코드 및 검증 기록은 모두 가상이다.\n실제 고객 자료나 운영 결과가 아니다.\n\n작성: 2026-10-14. [내보내기 코드 v0.4](export_snapshot.py)를 읽어 작성한\n인계 초안이며, 운영책임자 서윤의 승인은 아직 받지 않았다.\n승인 기준은 [사진 전달 정책](delivery-policy.md)이다.\n\n## 이번 전달 흐름\n\n이름이 지정된 공동제작자는 기존 회원 계정으로 로그인해 자신에게 허용된\n프로젝트 작품 사진을 고른다. 운영 코디네이터도 프로젝트별 허용 범위만\n이용하며 개인 사진은 선택할 수 없다. 여러 프로젝트를 한 ZIP으로 묶을 수 있다.\n\n요청 시 파일 ID와 접근 허용을 확인하고 묶음에 넣을 사진 목록을 확정한다.\n백그라운드 작업이 ZIP을 만들면 요청자에게 다운로드 준비 상태를 보여준다.\n준비 전에는 다운로드를 시작할 수 없다. 다운로드는 요청한 본인에게만\n허용하고, 요청 시점부터 24시간이 지나면 거부한다.\n\n묶음을 안정적으로 완성하기 위해 요청 이후의 프로젝트 권한 변경은 그\n묶음에 반영하지 않는다. 준비된 ZIP은 요청 시 허용되었던 본인이 만료\n전까지 받을 수 있다. 다음 내보내기 요청부터 변경된 권한을 적용한다.\n\n## 준비 상태와 제외 범위\n\n[검증 기록](verification-note.md)의 단위 검사 2건이 통과했다.\n따라서 이번 v0.4 비동기 사진 전달은 권한 철회를 포함해 접근 제어 검증이\n완료되었으며, 별도 철회 시나리오 확인 없이 배포 승인을 요청한다.\n\n공개 공유 링크, 비회원 전달, 새 SSO 도입, 이미 내려받은 파일의 원격 회수는\n이번 범위에 없다. 이 문서는 기능 구현이나 실제 배포를 실행하는 요청이 아니다.\n",
+          "exit_code": 0,
+          "status": "completed"
+        },
+        {
+          "id": "item_4",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'cat input/request.md'",
+          "aggregated_output": "$bandit-review 동네 제작자 전시회 모아전의 [사진 전달 PRD 초안](delivery-prd.md)을 검토해줘. 연결된 승인 정책, 정적 코드, 검증 기록을 함께 보고 이번 배포 판단에 중요한 발견을 최대 3개로 우선순위화해줘. 파일 근거, 사용자에게 생기는 영향, 필요한 수정이나 결정, 다음 확인을 설명해줘. 이미 맞게 동작하는 부분과 정해진 제외 범위는 불필요하게 바꾸지 마. 한국어로 450개 공백 구분 단어 이내로 답해줘. 모든 자료는 합성이며 실제 고객 자료가 아니다. 제공 파일만 읽고, 파일 수정, 코드나 테스트 실행, 웹 탐색, 연락, 외부 작업은 하지 마.\n",
+          "exit_code": 0,
+          "status": "completed"
+        },
+        {
+          "id": "item_6",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'cat input/delivery-policy.md'",
+          "aggregated_output": "# 승인된 사진 전달 정책\n\n합성 자료. 실제 이용자 약관, 법률 판단이나 준법 증명이 아니다.\n운영책임자 서윤이 2026-10-06 승인한 제품 규칙이며, 이후 변경 승인은 없다.\n더 최근의 코드나 구현 기반 초안이 이 규칙을 자동으로 대체하지 않는다.\n\n## 계정, 사진 및 역할\n\n기존 회원 서비스가 로그인한 활성 계정 ID와 역할을 서버에 제공한다.\n기존 작품 관리 서비스의 프로젝트별 허용 목록 `grants`가 사진 접근의\n기준이다. 작품 담당자가 부여하거나 철회한 결과는 이 목록에 즉시 저장된다.\n이 서비스들을 재사용하며 새 인증 체계를 설계하는 작업은 아니다.\n\n공동제작자와 운영 코디네이터 모두 본인에게 허용된 프로젝트의\n`project-work` 사진만 전달받을 수 있다. 코디네이터라는 이유만으로\n다른 프로젝트나 `private` 사진을 열 수 없다. 내보내기 요청과 다운로드는\n로그인한 같은 계정이 수행한다. 타인에게 넘기는 공개 URL은 제공하지 않는다.\n\n## 철회, 다운로드 및 만료\n\n사진 허용 철회가 저장된 뒤에는 그 사진이 들어 있는 **새 다운로드를\n시작할 수 없어야 한다**. 철회 전에 요청했거나 ZIP 생성이 끝났어도 같다.\n여러 프로젝트가 섞인 경우에도 철회된 사진을 전달해서는 안 된다.\n현재 허용된 사진만 전달하는 것은 가능하지만 제외된 항목은 알려야 한다.\n\n이미 다운로드를 시작해 전송 중인 응답을 중단하거나, 이미 사용자의 기기에\n저장된 복사본을 원격 회수하는 것은 이번 약속에 포함되지 않는다.\n철회는 앞으로 시작할 다운로드에 적용되는 규칙이다.\n\n묶음은 요청 시각부터 24시간 동안만 다운로드할 수 있다. 서버 UTC 시계로\n판정하며 준비 전 또는 만료 뒤에는 거부한다. 공개 공유, 비회원 접근,\n개인 사진 전달, 워터마크 및 새 SSO는 이번 배포에서 제외한다.\n",
+          "exit_code": 0,
+          "status": "completed"
+        },
+        {
+          "id": "item_5",
+          "type": "command_execution",
+          "command": "/bin/zsh -lc 'cat input/export_snapshot.py'",
+          "aggregated_output": "\"\"\"합성 정적 코드 발췌: 내보내기 v0.4, 2026-10-13. 실행하지 말 것.\n\n실제 운영 코드나 실행 결과가 아니다. account는 기존 로그인 서비스가\n검증한 활성 계정 정보 또는 None이며, now는 서버의 UTC 시각이다.\nrequested_ids는 기존 입력 검증을 통과한 중복 없는 사진 ID 목록이다.\n사진의 프로젝트/분류는 이 대상 기간에 바뀌지 않지만 grants는 철회로 바뀐다.\nstorage는 비공개 파일 저장소다. 파일 전송은 begin_download 반환 뒤에만\n시작하며, 이 경로 외에 ZIP을 직접 내려받는 공개 주소는 없다.\n\"\"\"\nfrom datetime import timedelta\n\n\ndef queue_export(account, requested_ids, photos, grants, now):\n    if account is None or not account[\"active\"]:\n        raise PermissionError(\"로그인이 필요합니다\")\n    allowed_projects = grants.get(account[\"id\"], set())\n    for photo_id in requested_ids:\n        photo = photos[photo_id]\n        if photo[\"kind\"] != \"project-work\" or photo[\"project_id\"] not in allowed_projects:\n            raise PermissionError(\"허용되지 않은 사진입니다\")\n    return {\"requester_id\": account[\"id\"], \"photo_ids\": tuple(requested_ids),\n            \"expires_at\": now + timedelta(hours=24), \"ready\": False}\n\n\ndef build_export(job, storage):\n    job[\"artifact\"] = storage.make_zip(job[\"photo_ids\"])\n    job[\"ready\"] = True\n\n\ndef begin_download(job, account, now):\n    if account is None or not account[\"active\"] or account[\"id\"] != job[\"requester_id\"]:\n        raise PermissionError(\"요청한 본인만 받을 수 있습니다\")\n    if now >= job[\"expires_at\"]:\n        raise PermissionError(\"만료되었습니다\")\n    if not job[\"ready\"]:\n        raise RuntimeError(\"준비 중입니다\")\n    return job[\"artifact\"]\n",
+          "exit_code": 0,
+          "status": "completed"
+        }
+      ]
+    }
+  ],
+  "limitations": "Mechanical run/archive accounting, not semantic grades, verified backend identity, a held-out benchmark, or proof of instruction effect. Inspect all outputs and traces before judging quality."
+}

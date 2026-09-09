@@ -1,0 +1,29 @@
+{
+  "format": 1,
+  "recorded_at_utc": "2026-09-08T16:11:25.426Z",
+  "purpose": "Declare case 15 transfer-check conditions before launching either task. No result is claimed.",
+  "conditions": [
+    {
+      "case": "15-manual-outcome-pilot",
+      "arm": "bandit-research",
+      "standalone": true,
+      "web_search": "disabled"
+    },
+    {
+      "case": "15-manual-outcome-pilot",
+      "arm": "baseline",
+      "standalone": false,
+      "web_search": "disabled"
+    }
+  ],
+  "raw_fixture_and_rubric_receipt": "pre-run-manifest.json",
+  "source_sha256": {
+    "evals/run_local.py": "1d06a3878e62ca045ef5be05a8184fc95cbe379a9584faebb78139ba51d70298",
+    "evals/archive_run.mjs": "62cf0c7728d5116884910250a1ce44427e314bccfb3b2d1c968a543b7d4b1f17",
+    "evals/results/2026-09-09-overnight-round4/pre-run-manifest.json": "a25c10713a684a665e1cd042f3e303381ea8a3ac11116fd3d79b0a4b12037621"
+  },
+  "limits": [
+    "Fresh independent tasks receive raw request/brief and only the assigned instruction snapshot; never rubrics, diagnoses or prior outputs.",
+    "Baseline has no PM instruction snapshot. Single runs are development diagnostics, not reliable or causal performance estimates."
+  ]
+}

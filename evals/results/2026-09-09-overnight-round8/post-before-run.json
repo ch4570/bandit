@@ -1,0 +1,131 @@
+{
+  "recorded_at": "2026-09-08T18:10:48.771Z",
+  "phase": "after instruction edit and sync; before all post-edit executions",
+  "change": {
+    "canonical": "skills/bandit/references/evidence-and-decisions.md",
+    "before_sha256": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+    "after_sha256": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523",
+    "before_bytes": 4507,
+    "after_bytes": 4656,
+    "before_whitespace_words": 669,
+    "after_whitespace_words": 692,
+    "changed_skill_paths": [
+      "bandit-research/references/evidence-and-decisions.md",
+      "bandit-review/references/evidence-and-decisions.md",
+      "bandit-scope/references/evidence-and-decisions.md",
+      "bandit-specify/references/evidence-and-decisions.md",
+      "bandit/references/evidence-and-decisions.md"
+    ],
+    "rationale": "Preserve what a number counted and avoid turning a source/report date into an observation or adoption date. Narrow response to two unsupported claims preserved in round7; not a new output format or a repair demonstrated by scores."
+  },
+  "before_all_skills_map_sha256": "e49c9478eceaa6cd109ea2192d8bf71d4cc519b8f7d7e61bca0172356f0bb320",
+  "after_all_skills_map_sha256": "471a85742d3858b5383ad9d51953f60cc755783af0e5b96495f7fe85c1cde7c7",
+  "all_skills_sha256": {
+    "bandit-research/SKILL.md": "be1313ca9679fec07b172fbdd5e2eda1f19bc6903b897934a3dec995696dcfd5",
+    "bandit-research/agents/openai.yaml": "af4da23d45df56346cd7f9924f440dc4d946ee9cf02f9130cd47b14f0ef0835c",
+    "bandit-research/references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523",
+    "bandit-research/references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+    "bandit-review/SKILL.md": "16373b70230cad31f65d5e0304938625261a4b1676b8893ec9881fefb37380bc",
+    "bandit-review/agents/openai.yaml": "4e4e969c8109f589d77ea687f3a9a5eeb6af82b0abff1bce2cf6906aa7bad2f2",
+    "bandit-review/assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "bandit-review/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "bandit-review/references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523",
+    "bandit-review/references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+    "bandit-review/references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "bandit-review/references/specification.md": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431",
+    "bandit-scope/SKILL.md": "5c9fb2a0c9e555f9f716f89157a9f98025bcb342b5d0f718e3f86f59c67a7fda",
+    "bandit-scope/agents/openai.yaml": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293",
+    "bandit-scope/references/decisions.md": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+    "bandit-scope/references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523",
+    "bandit-specify/SKILL.md": "9862565be56488293dc0c726724328f2b4f4e818b2b941b6aeb5d8e51617a2d3",
+    "bandit-specify/agents/openai.yaml": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf",
+    "bandit-specify/assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "bandit-specify/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "bandit-specify/references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523",
+    "bandit-specify/references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+    "bandit-specify/references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "bandit-specify/references/specification.md": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431",
+    "bandit/SKILL.md": "746c8b76f096a3396363d6b1a17b0ca3f46c547827e0f639a8a45e4706198b0b",
+    "bandit/agents/openai.yaml": "1a24331976f7a257ad2aafba9c786c4dc5e5ddb25a98a8dbecdd0c1ae0ddc5f9",
+    "bandit/assets/bandit-avatar.png": "091520edefe34c49af5c800f7073c53f602f23531ecab0a5f3ee46d0ef5afab2",
+    "bandit/assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "bandit/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "bandit/references/decisions.md": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+    "bandit/references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523",
+    "bandit/references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+    "bandit/references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "bandit/references/specification.md": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431"
+  },
+  "cases": [
+    {
+      "name": "19-library-pickup-reminders",
+      "arm": "bandit-specify",
+      "standalone": true,
+      "word_cap": 800,
+      "editable_artifact": "input/docs/PRD.md",
+      "raw_sha256": {
+        "docs/PRD.md": "5fd0be7aa5319245bc6bbe002625cedd84569e16701b6b8d494a08248164009b",
+        "pilot-notes.md": "fa372be584310fb655b8f859b6e73016024e69e38d9f8757ff08440dc94e5b5d",
+        "reader-outcomes.csv": "85fc053ee70b3028c36cf323e7066f11bd14fcd0f04cac5e777a09f39733b2cd",
+        "request.md": "86f68101962d048d376e759df8f48e7fcf673f8b3d261dd277c4d88294f11555"
+      },
+      "rubric_sha256": "be5e9cf6f4f05ad2271f942535e755f97d4ede1d4a3f462f368489f3d7a74a85"
+    },
+    {
+      "name": "20-transcript-delivery-review",
+      "arm": "bandit-review",
+      "standalone": true,
+      "word_cap": 600,
+      "editable_artifact": null,
+      "raw_sha256": {
+        "delivery-policy.md": "4d6fd103d22eb0ea033d0a789491cc3197a8bbece70bf86bc3738419658b83b5",
+        "handoff.md": "b66a05e4a3d1f676c13168b664cdb590d77ba065db03fad213c28ca638b5f026",
+        "pilot-attempts.csv": "dd9214feafca874e8e2ab51ed61cb4b1fe6ecd6e4c083aca2e282a31c1579fa3",
+        "request.md": "c97625f3b5a17bc1fc6b3e0cce48d359fdde0e9e13028767abdeadfd63ebe39c",
+        "verification-note.md": "d013ad6a790e7d55b014e54cfb49386e60e1d9d9a078b658cb0bb65535601349"
+      },
+      "rubric_sha256": "a9a7f73c01351f1d8f669fbe6e6363ff3c141c3fb44e3bab8051203823239fed"
+    },
+    {
+      "name": "13-combined-issue-handoff",
+      "arm": "bandit",
+      "standalone": true,
+      "word_cap": 600,
+      "editable_artifact": null,
+      "raw_sha256": {
+        "brief.md": "3d7c26189beb016fb4dac119f55c7a3dd3820e77f485140b964e15623801aa0b",
+        "draft.md": "b6fad16b2d5d07446bc839e2787f6f48899704c5e9b97aa99976052c7a86b43e",
+        "request.md": "7d8dbe017ebad548e044bd4457a5a48098a57f52bffd0c0489b7b558536c8634"
+      },
+      "rubric_sha256": "4cbddaab207ef99fb24d71e0fde36be8dc9faeb1711bdd48bae2458f349f397d"
+    },
+    {
+      "name": "17-reachable-market",
+      "arm": "bandit-research",
+      "standalone": true,
+      "word_cap": 600,
+      "editable_artifact": null,
+      "raw_sha256": {
+        "brief.md": "28712bfe0a9386f8d981f0f6121ae9889123f37b9fd49433cb243d541b91cfb0",
+        "request.md": "0bb5c289708e5f5942bd9293ab763e6b8db14519d375967262178fcfe3f6541e"
+      },
+      "rubric_sha256": "4e7314ecba707e78b1b8dbba8af96d0064a2c897d9d4bc3f6f0b242f1c5e34dc"
+    },
+    {
+      "name": "18-onboarding-investment",
+      "arm": "bandit-scope",
+      "standalone": true,
+      "word_cap": 600,
+      "editable_artifact": null,
+      "raw_sha256": {
+        "brief.md": "8544cf263d60c6b990fa8963cf0bfa70f7d9eaea03f1fb616341f45f0f5ed26f",
+        "onboarding.csv": "92e5c9ee2fe5c878320adcffcbe6652645aff9b51ee2359ba79f83e84a710f0b",
+        "request.md": "6459cabfee8bb16565b3542d1c4b28a11b6dccb6d6b780c3090c684b334bfede"
+      },
+      "rubric_sha256": "8bd6b0eac874960693b0d338c48586ab55efecfb987d015ae5b13d32ec788698"
+    }
+  ],
+  "web_search": "disabled",
+  "model": "unmodified host defaults",
+  "limitations": "Author-designed synthetic development checks. TASK contexts contain raw fixtures and selected instruction snapshot only, never rubrics, diagnoses, or previous outputs. Local unsigned timestamp; no causal or reliability estimate."
+}

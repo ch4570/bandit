@@ -1,0 +1,488 @@
+
+> @ch4570/bandit@0.4.0 test
+> node --test tests-node/*.test.mjs
+
+TAP version 13
+# Subtest: archives older read-only runs with exact originals, normalized logs, and PNG hash receipts
+ok 1 - archives older read-only runs with exact originals, normalized logs, and PNG hash receipts
+  ---
+  duration_ms: 33.512833
+  type: 'test'
+  ...
+# Subtest: preserves edited inputs and changed instructions separately using pre-run snapshots
+ok 2 - preserves edited inputs and changed instructions separately using pre-run snapshots
+  ---
+  duration_ms: 20.298833
+  type: 'test'
+  ...
+# Subtest: keeps completed failures with missing output and corrupt event lines without fabricating success
+ok 3 - keeps completed failures with missing output and corrupt event lines without fabricating success
+  ---
+  duration_ms: 7.377166
+  type: 'test'
+  ...
+# Subtest: archives terminal launch failures separately without inventing a child exit or event
+ok 4 - archives terminal launch failures separately without inventing a child exit or event
+  ---
+  duration_ms: 40.036709
+  type: 'test'
+  ...
+# Subtest: a launch-failure label cannot turn unfinished or contradictory evidence into a terminal archive
+ok 5 - a launch-failure label cannot turn unfinished or contradictory evidence into a terminal archive
+  ---
+  duration_ms: 152.317125
+  type: 'test'
+  ...
+# Subtest: records lost originals and out-of-scope changes from older runners honestly
+ok 6 - records lost originals and out-of-scope changes from older runners honestly
+  ---
+  duration_ms: 12.586333
+  type: 'test'
+  ...
+# Subtest: a zero exit without a completed turn is retained as an incomplete response
+ok 7 - a zero exit without a completed turn is retained as an incomplete response
+  ---
+  duration_ms: 12.117416
+  type: 'test'
+  ...
+# Subtest: refuses unfinished or inconsistent metadata before creating an archive
+ok 8 - refuses unfinished or inconsistent metadata before creating an archive
+  ---
+  duration_ms: 79.525541
+  type: 'test'
+  ...
+# Subtest: refuses existing destinations and source overlap without replacing files
+ok 9 - refuses existing destinations and source overlap without replacing files
+  ---
+  duration_ms: 6.02175
+  type: 'test'
+  ...
+# Subtest: does not follow a linked workspace directory outside the raw run
+ok 10 - does not follow a linked workspace directory outside the raw run
+  ---
+  duration_ms: 10.245916
+  type: 'test'
+  ...
+# Subtest: normalizes Python Unicode-escaped run paths while keeping JSON valid
+ok 11 - normalizes Python Unicode-escaped run paths while keeping JSON valid
+  ---
+  duration_ms: 15.17275
+  type: 'test'
+  ...
+# Subtest: CLI reports archive success independently from the source process failure
+ok 12 - CLI reports archive success independently from the source process failure
+  ---
+  duration_ms: 105.297542
+  type: 'test'
+  ...
+# Subtest: no-argument CLI installs five discoverable skills and preserves project files
+ok 13 - no-argument CLI installs five discoverable skills and preserves project files
+  ---
+  duration_ms: 572.4465
+  type: 'test'
+  ...
+# Subtest: plan and JSON output leave no installation directories
+ok 14 - plan and JSON output leave no installation directories
+  ---
+  duration_ms: 98.727791
+  type: 'test'
+  ...
+# Subtest: repeating installation is a true no-op, including the ownership marker
+ok 15 - repeating installation is a true no-op, including the ownership marker
+  ---
+  duration_ms: 123.343791
+  type: 'test'
+  ...
+# Subtest: managed update adds, updates and removes only managed files
+ok 16 - managed update adds, updates and removes only managed files
+  ---
+  duration_ms: 175.639167
+  type: 'test'
+  ...
+# Subtest: ownership marker key order from the Python helper remains a no-op
+ok 17 - ownership marker key order from the Python helper remains a no-op
+  ---
+  duration_ms: 105.966958
+  type: 'test'
+  ...
+# Subtest: a local edit blocks the whole operation before any files change
+ok 18 - a local edit blocks the whole operation before any files change
+  ---
+  duration_ms: 109.126125
+  type: 'test'
+  ...
+# Subtest: a locally deleted managed file blocks replacement
+ok 19 - a locally deleted managed file blocks replacement
+  ---
+  duration_ms: 111.442625
+  type: 'test'
+  ...
+# Subtest: unmanaged collisions are preserved even when their bytes match
+ok 20 - unmanaged collisions are preserved even when their bytes match
+  ---
+  duration_ms: 23.329792
+  type: 'test'
+  ...
+# Subtest: global, repo, and exact destination options route without modifying cwd
+ok 21 - global, repo, and exact destination options route without modifying cwd
+  ---
+  duration_ms: 1254.760209
+  type: 'test'
+  ...
+# Subtest: argument errors have exit 2 and parseable JSON when requested
+ok 22 - argument errors have exit 2 and parseable JSON when requested
+  ---
+  duration_ms: 8.939291
+  type: 'test'
+  ...
+# Subtest: an existing PM Craft installation is reported and left intact
+ok 23 - an existing PM Craft installation is reported and left intact
+  ---
+  duration_ms: 422.891
+  type: 'test'
+  ...
+# Subtest: malformed and escaping ownership entries are rejected
+ok 24 - malformed and escaping ownership entries are rejected
+  ---
+  duration_ms: 102.583041
+  type: 'test'
+  ...
+# Subtest: source and destination overlap is rejected in both directions
+ok 25 - source and destination overlap is rejected in both directions
+  ---
+  duration_ms: 10.158625
+  type: 'test'
+  ...
+# Subtest: symlink and junction ancestors cannot redirect an installation
+ok 26 - symlink and junction ancestors cannot redirect an installation
+  ---
+  duration_ms: 7.343875
+  type: 'test'
+  ...
+# Subtest: source symlinks cannot include files outside the skill
+ok 27 - source symlinks cannot include files outside the skill
+  ---
+  duration_ms: 16.362875
+  type: 'test'
+  ...
+# Subtest: case-only managed directory renames stop before removing old files
+ok 28 - case-only managed directory renames stop before removing old files
+  ---
+  duration_ms: 130.561042
+  type: 'test'
+  ...
+# Subtest: unmanaged case aliases are not overwritten on any filesystem
+ok 29 - unmanaged case aliases are not overwritten on any filesystem
+  ---
+  duration_ms: 19.544041
+  type: 'test'
+  ...
+# Subtest: Unicode aliases are not treated as separate managed paths
+ok 30 - Unicode aliases are not treated as separate managed paths
+  ---
+  duration_ms: 112.06975
+  type: 'test'
+  ...
+# Subtest: a destination lock prevents concurrent writes
+ok 31 - a destination lock prevents concurrent writes
+  ---
+  duration_ms: 23.239791
+  type: 'test'
+  ...
+# Subtest: invalid source versions cannot become installed markers
+ok 32 - invalid source versions cannot become installed markers
+  ---
+  duration_ms: 14.423833
+  type: 'test'
+  ...
+# Subtest: an existing 0.2 core upgrades while all four independent specialists are added
+ok 33 - an existing 0.2 core upgrades while all four independent specialists are added
+  ---
+  duration_ms: 525.371666
+  type: 'test'
+  ...
+# Subtest: an edited 0.2 core prevents adding the four specialist skills
+ok 34 - an edited 0.2 core prevents adding the four specialist skills
+  ---
+  duration_ms: 88.808917
+  type: 'test'
+  ...
+# Subtest: a conflict in the last skill blocks all five updates before writing
+ok 35 - a conflict in the last skill blocks all five updates before writing
+  ---
+  duration_ms: 448.031959
+  type: 'test'
+  ...
+# Subtest: an unmanaged last-skill conflict leaves a fresh core uninstalled
+ok 36 - an unmanaged last-skill conflict leaves a fresh core uninstalled
+  ---
+  duration_ms: 76.563042
+  type: 'test'
+  ...
+# Subtest: a missing packaged specialist is rejected before creating any destination
+ok 37 - a missing packaged specialist is rejected before creating any destination
+  ---
+  duration_ms: 66.720417
+  type: 'test'
+  ...
+# Subtest: custom --dest cannot collide with another installed skill or any package source
+ok 38 - custom --dest cannot collide with another installed skill or any package source
+  ---
+  duration_ms: 5.085458
+  type: 'test'
+  ...
+# Subtest: a lock on any specialist prevents the entire package installation
+ok 39 - a lock on any specialist prevents the entire package installation
+  ---
+  duration_ms: 92.982292
+  type: 'test'
+  ...
+# Subtest: an I/O failure in the last skill rolls back updates across earlier skills
+ok 40 - an I/O failure in the last skill rolls back updates across earlier skills
+  ---
+  duration_ms: 701.105792
+  type: 'test'
+  ...
+# Subtest: a failed fresh package install removes only directories and files it created
+ok 41 - a failed fresh package install removes only directories and files it created
+  ---
+  duration_ms: 332.2285
+  type: 'test'
+  ...
+# Subtest: cross-skill recovery preserves an editor change made during the failed update
+ok 42 - cross-skill recovery preserves an editor change made during the failed update
+  ---
+  duration_ms: 683.9745
+  type: 'test'
+  ...
+# Subtest: an edit made while later skills are being preflighted cannot become an overwrite baseline
+ok 43 - an edit made while later skills are being preflighted cannot become an overwrite baseline
+  ---
+  duration_ms: 584.467
+  type: 'test'
+  ...
+# Subtest: an edit made while a replacement is being staged is preserved with earlier writes rolled back
+ok 44 - an edit made while a replacement is being staged is preserved with earlier writes rolled back
+  ---
+  duration_ms: 709.226875
+  type: 'test'
+  ...
+# Subtest: 0.3 migration installs scope and retires both old commands without aliases
+ok 45 - 0.3 migration installs scope and retires both old commands without aliases
+  ---
+  duration_ms: 622.293417
+  type: 'test'
+  ...
+# Subtest: retirement keeps unrelated notes while removing old entrypoints and ownership
+ok 46 - retirement keeps unrelated notes while removing old entrypoints and ownership
+  ---
+  duration_ms: 623.563166
+  type: 'test'
+  ...
+# Subtest: already deleted managed files do not block retiring their old skill
+ok 47 - already deleted managed files do not block retiring their old skill
+  ---
+  duration_ms: 514.675208
+  type: 'test'
+  ...
+# Subtest: a modified retired reference blocks all active updates and both retirements
+ok 48 - a modified retired reference blocks all active updates and both retirements
+  ---
+  duration_ms: 132.233416
+  type: 'test'
+  ...
+# Subtest: an unmanaged retired entrypoint blocks migration even when other notes are safe
+ok 49 - an unmanaged retired entrypoint blocks migration even when other notes are safe
+  ---
+  duration_ms: 77.526042
+  type: 'test'
+  ...
+# Subtest: a marker cannot authorize removing an unlisted retired entrypoint
+ok 50 - a marker cannot authorize removing an unlisted retired entrypoint
+  ---
+  duration_ms: 114.209375
+  type: 'test'
+  ...
+# Subtest: unmanaged retired folders without an entrypoint are preserved
+ok 51 - unmanaged retired folders without an entrypoint are preserved
+  ---
+  duration_ms: 350.382583
+  type: 'test'
+  ...
+# Subtest: migration preview reports removals without changing any files or directories
+ok 52 - migration preview reports removals without changing any files or directories
+  ---
+  duration_ms: 134.219542
+  type: 'test'
+  ...
+# Subtest: retired target locks serialize migration with the 0.3 installer
+ok 53 - retired target locks serialize migration with the 0.3 installer
+  ---
+  duration_ms: 158.57125
+  type: 'test'
+  ...
+# Subtest: custom core destinations cannot overlap either retired command
+ok 54 - custom core destinations cannot overlap either retired command
+  ---
+  duration_ms: 5.473417
+  type: 'test'
+  ...
+# Subtest: an active write failure restores already retired files and markers
+ok 55 - an active write failure restores already retired files and markers
+  ---
+  duration_ms: 404.128625
+  type: 'test'
+  ...
+# Subtest: retirement recovery preserves an editor replacement of a deleted old file
+ok 56 - retirement recovery preserves an editor replacement of a deleted old file
+  ---
+  duration_ms: 388.509167
+  type: 'test'
+  ...
+# Subtest: retired file edits after their preflight stop every update and removal
+ok 57 - retired file edits after their preflight stop every update and removal
+  ---
+  duration_ms: 291.941625
+  type: 'test'
+  ...
+# Subtest: lock cleanup cannot follow a replaced parent into unrelated lock files
+ok 58 - lock cleanup cannot follow a replaced parent into unrelated lock files
+  ---
+  duration_ms: 196.962458
+  type: 'test'
+  ...
+# Subtest: lock cleanup preserves a replacement empty file with a different identity
+ok 59 - lock cleanup preserves a replacement empty file with a different identity
+  ---
+  duration_ms: 348.854541
+  type: 'test'
+  ...
+# Subtest: a removed lock does not prevent cleanup of the other acquired locks
+ok 60 - a removed lock does not prevent cleanup of the other acquired locks
+  ---
+  duration_ms: 355.992958
+  type: 'test'
+  ...
+# npm notice
+# npm notice New major version of npm available! 11.19.0 -> 12.0.2
+# npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.2
+# npm notice To update run: npm install -g npm@12.0.2
+# npm notice
+# Subtest: the npm artifact is complete and its extracted CLI works without the checkout
+ok 61 - the npm artifact is complete and its extracted CLI works without the checkout
+  ---
+  duration_ms: 3384.8815
+  type: 'test'
+  ...
+# Subtest: changed staged bytes are neither promoted nor deleted, and earlier writes roll back
+ok 62 - changed staged bytes are neither promoted nor deleted, and earlier writes roll back
+  ---
+  duration_ms: 218.424792
+  type: 'test'
+  ...
+# Subtest: a different staged file with identical bytes is preserved rather than promoted
+ok 63 - a different staged file with identical bytes is preserved rather than promoted
+  ---
+  duration_ms: 203.693958
+  type: 'test'
+  ...
+# Subtest: Node alone validates the distributable and excludes historical evidence from identity checks
+ok 64 - Node alone validates the distributable and excludes historical evidence from identity checks
+  ---
+  duration_ms: 47.793708
+  type: 'test'
+  ...
+# Subtest: package version and command metadata must match the shipped skill
+ok 65 - package version and command metadata must match the shipped skill
+  ---
+  duration_ms: 46.753334
+  type: 'test'
+  ...
+# Subtest: missing references and references outside the skill fail validation
+ok 66 - missing references and references outside the skill fail validation
+  ---
+  duration_ms: 48.764709
+  type: 'test'
+  ...
+# Subtest: external links and fenced examples are not required local files
+ok 67 - external links and fenced examples are not required local files
+  ---
+  duration_ms: 43.3205
+  type: 'test'
+  ...
+# Subtest: duplicate metadata keys cannot silently override the skill identity
+ok 68 - duplicate metadata keys cannot silently override the skill identity
+  ---
+  duration_ms: 39.903917
+  type: 'test'
+  ...
+# Subtest: UI prompt and icons must point to the current packaged skill
+ok 69 - UI prompt and icons must point to the current packaged skill
+  ---
+  duration_ms: 29.764834
+  type: 'test'
+  ...
+# Subtest: source identity and installation lifecycle hooks cannot drift unnoticed
+ok 70 - source identity and installation lifecycle hooks cannot drift unnoticed
+  ---
+  duration_ms: 37.573166
+  type: 'test'
+  ...
+# Subtest: symlinked skill references are rejected before packaging
+ok 71 - symlinked skill references are rejected before packaging
+  ---
+  duration_ms: 31.414917
+  type: 'test'
+  ...
+# Subtest: missing distribution root produces a structured failure
+ok 72 - missing distribution root produces a structured failure
+  ---
+  duration_ms: 27.790333
+  type: 'test'
+  ...
+# Subtest: a valid core cannot hide a missing specialist
+ok 73 - a valid core cannot hide a missing specialist
+  ---
+  duration_ms: 34.143708
+  type: 'test'
+  ...
+# Subtest: specialists must keep their exact metadata and invocation identity
+ok 74 - specialists must keep their exact metadata and invocation identity
+  ---
+  duration_ms: 46.88025
+  type: 'test'
+  ...
+# Subtest: core invocation does not accept a specialist as its own default prompt
+ok 75 - core invocation does not accept a specialist as its own default prompt
+  ---
+  duration_ms: 35.961917
+  type: 'test'
+  ...
+# Subtest: specialists cannot depend on a sibling skill even when that file exists
+ok 76 - specialists cannot depend on a sibling skill even when that file exists
+  ---
+  duration_ms: 31.698291
+  type: 'test'
+  ...
+# Subtest: retired commands cannot remain in the packaged skill tree
+ok 77 - retired commands cannot remain in the packaged skill tree
+  ---
+  duration_ms: 11.858584
+  type: 'test'
+  ...
+# Subtest: unknown skills cannot bypass the canonical package inventory
+ok 78 - unknown skills cannot bypass the canonical package inventory
+  ---
+  duration_ms: 17.837334
+  type: 'test'
+  ...
+1..78
+# tests 78
+# suites 0
+# pass 78
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 12549.216375
+

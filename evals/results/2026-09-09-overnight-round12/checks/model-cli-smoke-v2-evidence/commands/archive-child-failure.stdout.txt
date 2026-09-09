@@ -1,0 +1,1 @@
+{"destination":"/WORKSPACE/bandit/evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-v2-evidence/archives/child-failure","archive_status":"archived","run_status":"failed","source_exit_code":23,"input_scope_respected":true,"original_text_snapshot_complete":true}

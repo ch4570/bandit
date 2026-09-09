@@ -1,0 +1,266 @@
+{
+  "format": 1,
+  "source_commit": "f4a376e23b16f311931b4d06853a0943575e09e7",
+  "unreleased_skill_source_changed": true,
+  "archive_file_hashes_verified": true,
+  "specify_entrypoint": {
+    "before": {
+      "bytes": 2601,
+      "whitespace_words": 354,
+      "sha256": "6d83ab40691407630b030dcbf64997c7de08c6e0be3b62b1330c056876637ce7"
+    },
+    "after": {
+      "bytes": 2142,
+      "whitespace_words": 284,
+      "sha256": "9862565be56488293dc0c726724328f2b4f4e818b2b941b6aeb5d8e51617a2d3"
+    },
+    "measurement": "Source length, not model tokens or quality."
+  },
+  "rubric_sha256": {
+    "07-08-operations-and-evidence.md": "518105bdafa0355f511d09d0dc05b570951e318f552becc3a95e4332a0b54f84",
+    "09-linked-policy-review.md": "39bad4d8b5f8e2ea864c5dccfc454a0b7a90d944907e0f39562cef7c24fe38a8",
+    "11-experiment-integrity.md": "e63d9d267a56087da815edd43c315459599a2185db60463392abe0f91fe2c91d",
+    "12-access-transition.md": "ff348bf0858d4d9ba9feb59e3983a89bbe35cbaedaa21853c1f2dcd05e34dfb9",
+    "13-combined-issue-handoff.md": "4cbddaab207ef99fb24d71e0fde36be8dc9faeb1711bdd48bae2458f349f397d"
+  },
+  "checks_log_sha256": {
+    "node22-nested-npm-environment.txt": "0549d1a4646e2d11d17b9f81a49ef38d5ac2767b5c55367f6cef58689fb0c279",
+    "node22-package-clean-call.txt": "c8ac7ab0906e90ce8f3f2ea35ae07a307a0c2790f0e998f5f5a00bb4655681c0",
+    "node22-package-failure.txt": "ae0a33f363d205876c9d7ff71d3633ffc80478192a78b62e56e68a7781fb3c08",
+    "node26-package-injected-call.txt": "44ddeb291822e0b0692986f5eda215a67240addcc3efac34f1a26e5b3a3504e6"
+  },
+  "same_raw_inputs_before_after": [
+    "11-experiment-integrity",
+    "12-access-transition stage 1"
+  ],
+  "sequences": [
+    {
+      "phase": "pre",
+      "predecessor": "pre/12-access-transition-1--bandit-specify",
+      "successor": "pre/12-access-transition-2--bandit-specify",
+      "carried_prd_sha256": "1b2007e5b87311f0362f1709ff7ca7db43502fb6ecf459e9caf302a09d106f8e",
+      "exact_prior_sources_preserved": true,
+      "only_declared_stage2_overlay": true,
+      "same_instruction_snapshot": true,
+      "fresh_agent_per_stage": true
+    },
+    {
+      "phase": "post",
+      "predecessor": "post/12-access-transition-1--bandit-specify",
+      "successor": "post/12-access-transition-2--bandit-specify",
+      "carried_prd_sha256": "9f77e27882d4767098dcde25d769591f78df137e6c1194a26bb68d436856f162",
+      "exact_prior_sources_preserved": true,
+      "only_declared_stage2_overlay": true,
+      "same_instruction_snapshot": true,
+      "fresh_agent_per_stage": true
+    }
+  ],
+  "runs": [
+    {
+      "run": "pre/11-experiment-integrity--bandit-research",
+      "arm": "bandit-research",
+      "standalone_specialist": true,
+      "codex_version": "codex-cli 0.153.4",
+      "model_override": null,
+      "exit_code": 0,
+      "run_status": "completed",
+      "input_files": 7,
+      "instruction_files": 4,
+      "input_changes": [],
+      "instruction_changes": [],
+      "input_scope_respected": true,
+      "original_text_snapshot_complete": true,
+      "instruction_source_verified": "starting commit",
+      "artifact": "output.md",
+      "artifact_words": 299,
+      "artifact_sha256": "2900f8895aa9764a8b0cd5a306f617b1074b4d0dc55cc0f3dc8a45bad5cd9dfa",
+      "archive_provenance_sha256": "ba3cd47a3d9e0c7ed5027bc3c201a46e1abe09fb98d25fd04fa6971e33950a41",
+      "hash_only_png_files": []
+    },
+    {
+      "run": "pre/12-access-transition-1--bandit-specify",
+      "arm": "bandit-specify",
+      "standalone_specialist": true,
+      "codex_version": "codex-cli 0.153.4",
+      "model_override": null,
+      "exit_code": 0,
+      "run_status": "completed",
+      "input_files": 5,
+      "instruction_files": 8,
+      "input_changes": [
+        "docs/PRD.md"
+      ],
+      "instruction_changes": [],
+      "input_scope_respected": true,
+      "original_text_snapshot_complete": true,
+      "instruction_source_verified": "starting commit",
+      "artifact": "after/docs/PRD.md",
+      "artifact_words": 757,
+      "artifact_sha256": "1b2007e5b87311f0362f1709ff7ca7db43502fb6ecf459e9caf302a09d106f8e",
+      "archive_provenance_sha256": "29d96d2d2aa3744213ced90015ee23f6f8299bf2d25d79539b73b5af26192b06",
+      "hash_only_png_files": []
+    },
+    {
+      "run": "pre/12-access-transition-2--bandit-specify",
+      "arm": "bandit-specify",
+      "standalone_specialist": true,
+      "codex_version": "codex-cli 0.153.4",
+      "model_override": null,
+      "exit_code": 0,
+      "run_status": "completed",
+      "input_files": 7,
+      "instruction_files": 8,
+      "input_changes": [
+        "docs/PRD.md"
+      ],
+      "instruction_changes": [],
+      "input_scope_respected": true,
+      "original_text_snapshot_complete": true,
+      "instruction_source_verified": "starting commit",
+      "artifact": "after/docs/PRD.md",
+      "artifact_words": 859,
+      "artifact_sha256": "3d1a625e58af434fd2bc7695c131565f0d39c04324acdc19d7e92250f8740448",
+      "archive_provenance_sha256": "3f73bee3017c6919cc019e13bd8fdefe1aaa48f8edd56377aa6e9d5d0dcc383d",
+      "hash_only_png_files": []
+    },
+    {
+      "run": "post/07-concierge-capacity--bandit-scope",
+      "arm": "bandit-scope",
+      "standalone_specialist": true,
+      "codex_version": "codex-cli 0.153.4",
+      "model_override": null,
+      "exit_code": 0,
+      "run_status": "completed",
+      "input_files": 2,
+      "instruction_files": 4,
+      "input_changes": [],
+      "instruction_changes": [],
+      "input_scope_respected": true,
+      "original_text_snapshot_complete": true,
+      "instruction_source_verified": "current unreleased source",
+      "artifact": "output.md",
+      "artifact_words": 410,
+      "artifact_sha256": "0adce2f8e60073f8dd84a735f6ce777a56e0bb8d998fc19a6607c025b22b2779",
+      "archive_provenance_sha256": "1bba3a7c7cb42e45184669617bf2357c0699acc02fb0f4c298189bda985d0719",
+      "hash_only_png_files": []
+    },
+    {
+      "run": "post/09-linked-policy-review--bandit-review",
+      "arm": "bandit-review",
+      "standalone_specialist": true,
+      "codex_version": "codex-cli 0.153.4",
+      "model_override": null,
+      "exit_code": 0,
+      "run_status": "completed",
+      "input_files": 4,
+      "instruction_files": 8,
+      "input_changes": [],
+      "instruction_changes": [],
+      "input_scope_respected": true,
+      "original_text_snapshot_complete": true,
+      "instruction_source_verified": "current unreleased source",
+      "artifact": "output.md",
+      "artifact_words": 209,
+      "artifact_sha256": "fc9ffc05cbc5b15142fea4f6934195f08f929ae8eb8dfe120213577a9595bb32",
+      "archive_provenance_sha256": "1833422d2430fb9372d9b61123b6b7cace76d40f88a9b54264793de71dbe3421",
+      "hash_only_png_files": []
+    },
+    {
+      "run": "post/11-experiment-integrity--bandit-research",
+      "arm": "bandit-research",
+      "standalone_specialist": true,
+      "codex_version": "codex-cli 0.153.4",
+      "model_override": null,
+      "exit_code": 0,
+      "run_status": "completed",
+      "input_files": 7,
+      "instruction_files": 4,
+      "input_changes": [],
+      "instruction_changes": [],
+      "input_scope_respected": true,
+      "original_text_snapshot_complete": true,
+      "instruction_source_verified": "current unreleased source",
+      "artifact": "output.md",
+      "artifact_words": 282,
+      "artifact_sha256": "ff356527f36056bdb37136185d2118dfb8c4f2cc28344899c37de259d76d6e9f",
+      "archive_provenance_sha256": "af94ec8cdc3c087bb334709b99e9dc61e6c50c8c5c43c3437433ea806b3ee026",
+      "hash_only_png_files": []
+    },
+    {
+      "run": "post/12-access-transition-1--bandit-specify",
+      "arm": "bandit-specify",
+      "standalone_specialist": true,
+      "codex_version": "codex-cli 0.153.4",
+      "model_override": null,
+      "exit_code": 0,
+      "run_status": "completed",
+      "input_files": 5,
+      "instruction_files": 8,
+      "input_changes": [
+        "docs/PRD.md"
+      ],
+      "instruction_changes": [],
+      "input_scope_respected": true,
+      "original_text_snapshot_complete": true,
+      "instruction_source_verified": "current unreleased source",
+      "artifact": "after/docs/PRD.md",
+      "artifact_words": 773,
+      "artifact_sha256": "9f77e27882d4767098dcde25d769591f78df137e6c1194a26bb68d436856f162",
+      "archive_provenance_sha256": "7d92abecf8813be4f04253e6132c810a2eb7a3f42de6dfa4712870861d800034",
+      "hash_only_png_files": []
+    },
+    {
+      "run": "post/12-access-transition-2--bandit-specify",
+      "arm": "bandit-specify",
+      "standalone_specialist": true,
+      "codex_version": "codex-cli 0.153.4",
+      "model_override": null,
+      "exit_code": 0,
+      "run_status": "completed",
+      "input_files": 7,
+      "instruction_files": 8,
+      "input_changes": [
+        "docs/PRD.md"
+      ],
+      "instruction_changes": [],
+      "input_scope_respected": true,
+      "original_text_snapshot_complete": true,
+      "instruction_source_verified": "current unreleased source",
+      "artifact": "after/docs/PRD.md",
+      "artifact_words": 866,
+      "artifact_sha256": "dab24ed2ba990b75b563f20cebd49f02ec871430efaffa4c2959bdb6ecc19b9c",
+      "archive_provenance_sha256": "814007a6b5bd772d49a69e37fc26acaf720de61f15cf0e19ad71d14400d4a3d1",
+      "hash_only_png_files": []
+    },
+    {
+      "run": "post/13-combined-issue-handoff--bandit",
+      "arm": "bandit",
+      "standalone_specialist": false,
+      "codex_version": "codex-cli 0.153.4",
+      "model_override": null,
+      "exit_code": 0,
+      "run_status": "completed",
+      "input_files": 3,
+      "instruction_files": 10,
+      "input_changes": [],
+      "instruction_changes": [],
+      "input_scope_respected": true,
+      "original_text_snapshot_complete": true,
+      "instruction_source_verified": "current unreleased source",
+      "artifact": "output.md",
+      "artifact_words": 543,
+      "artifact_sha256": "7b35b7bc74e26c8d50e38f545482502af8cc94374e502b2be52919682eac79a1",
+      "archive_provenance_sha256": "0f11782e14d0cbfd95d08b549ed9fd7f8084deff319997cd0f3d637b6c8b87db",
+      "hash_only_png_files": [
+        "instructions/bandit/assets/bandit-avatar.png"
+      ]
+    }
+  ],
+  "limitations": [
+    "Author-designed single runs are development diagnostics, not reliability or superiority estimates.",
+    "Each sequence uses fresh agents and actual artifact carry-forward, not same-conversation memory.",
+    "Stage 2 predecessor PRDs differ across pre/post sequences, so stage 2 is not a controlled same-input comparison.",
+    "Host-default model configuration was not pinned. Meaning-based grades are recorded separately.",
+    "PNG instruction assets are archived by hash only; source hashes including those assets were verified."
+  ]
+}

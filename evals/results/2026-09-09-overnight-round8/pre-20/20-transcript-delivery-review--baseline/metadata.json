@@ -1,0 +1,53 @@
+{
+  "case": "20-transcript-delivery-review",
+  "arm": "baseline",
+  "codex_version": "codex-cli 0.153.4",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "-c",
+    "web_search=\"disabled\"",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "<temporary-run-root>/workspace",
+    "-o",
+    "<temporary-run-root>/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host model defaults; explicit web_search",
+  "web_search": "disabled",
+  "runner_status": "exited",
+  "started_at_utc": "2026-09-08T18:09:17.511634+00:00",
+  "upstream_commit": null,
+  "input_sha256": {
+    "delivery-policy.md": "4d6fd103d22eb0ea033d0a789491cc3197a8bbece70bf86bc3738419658b83b5",
+    "handoff.md": "b66a05e4a3d1f676c13168b664cdb590d77ba065db03fad213c28ca638b5f026",
+    "pilot-attempts.csv": "dd9214feafca874e8e2ab51ed61cb4b1fe6ecd6e4c083aca2e282a31c1579fa3",
+    "request.md": "c97625f3b5a17bc1fc6b3e0cce48d359fdde0e9e13028767abdeadfd63ebe39c",
+    "verification-note.md": "d013ad6a790e7d55b014e54cfb49386e60e1d9d9a078b658cb0bb65535601349"
+  },
+  "instruction_sha256": {},
+  "invocation": null,
+  "standalone_specialist": false,
+  "custom_fixture": false,
+  "editable_artifact": null,
+  "exit_code": 0,
+  "elapsed_seconds": 38.389,
+  "finished_at_utc": "2026-09-08T18:09:55.873116+00:00",
+  "input_after_sha256": {
+    "delivery-policy.md": "4d6fd103d22eb0ea033d0a789491cc3197a8bbece70bf86bc3738419658b83b5",
+    "handoff.md": "b66a05e4a3d1f676c13168b664cdb590d77ba065db03fad213c28ca638b5f026",
+    "pilot-attempts.csv": "dd9214feafca874e8e2ab51ed61cb4b1fe6ecd6e4c083aca2e282a31c1579fa3",
+    "request.md": "c97625f3b5a17bc1fc6b3e0cce48d359fdde0e9e13028767abdeadfd63ebe39c",
+    "verification-note.md": "d013ad6a790e7d55b014e54cfb49386e60e1d9d9a078b658cb0bb65535601349"
+  },
+  "instruction_after_sha256": {}
+}

@@ -1,0 +1,214 @@
+{
+  "format": 1,
+  "round": "2026-09-09-overnight-round5",
+  "scope": "Facts-only receipt, archive, and trace audit of the two terminal case18 pre-condition runs.",
+  "audited_at_utc": "2026-09-08T17:04:34.259Z",
+  "authorship": "The summary author also authored case18 fixtures and rubric. Hashes and trace facts were recomputed from the artifacts; this is not independent semantic grading.",
+  "semantic_assessment": "Kept separately in grades.md; no semantic grades or recommendation comparison are included here.",
+  "run_counts": {
+    "total": 2,
+    "pre": 2,
+    "post": 0
+  },
+  "conditions": {
+    "case": "18-onboarding-investment",
+    "synthetic": true,
+    "codex_version_reported_by_both": "codex-cli 0.153.4",
+    "execution": "Two separate codex exec invocations with --ephemeral, --ignore-user-config, --skip-git-repo-check, and read-only sandbox.",
+    "distinct_thread_ids": true,
+    "resume_argument_present": false,
+    "model_override": null,
+    "model_configuration": "Host defaults; no model identity or configuration is pinned by these records.",
+    "web_search": "disabled",
+    "explicit_cli_setting_in_both": "web_search=\"disabled\"",
+    "editable_artifact": null,
+    "output_word_cap": 600,
+    "shared_raw_request_literal": "$bandit-scope",
+    "baseline_condition": "Same raw request, with a wrapper directing normal product-planning reasoning and no PM skill; no instruction snapshot was supplied.",
+    "post_model_runs_in_this_round": 0
+  },
+  "pre_run_receipt": {
+    "path": "case18-before-run.json",
+    "sha256": "5fb6ebb3311bfa01cf0dede85092142b30c1a49c49d453476b64b2b769fd2c6b",
+    "recorded_at_utc": "2026-09-08T16:53:01.655Z",
+    "source_commit_recorded": "f4a376e23b16f311931b4d06853a0943575e09e7",
+    "recorded_timestamp_precedes_both_run_starts": true,
+    "signature_or_independent_time_attestation": false
+  },
+  "frozen_source_checks": {
+    "raw_fixture_files": 3,
+    "current_raw_and_both_original_retained_and_after_snapshots_match_receipt": true,
+    "rubric_path": "../../rubrics/18-onboarding-investment.md",
+    "rubric_sha256": "8bd6b0eac874960693b0d338c48586ab55efecfb987d015ae5b13d32ec788698",
+    "current_rubric_matches_receipt": true,
+    "scope_instruction_files": 4,
+    "current_scope_and_original_retained_and_after_instruction_snapshots_match_receipt": true,
+    "full_skill_tree": {
+      "skill_directories": [
+        "bandit",
+        "bandit-research",
+        "bandit-review",
+        "bandit-scope",
+        "bandit-specify"
+      ],
+      "files_including_binary": 34,
+      "sha256": "e49c9478eceaa6cd109ea2192d8bf71d4cc519b8f7d7e61bca0172356f0bb320",
+      "method": "SHA256 of UTF-8 JSON.stringify(Object.entries(relative-path-to-SHA256-map).sort()), with paths relative to skills/.",
+      "current_tree_matches_pre_run_receipt": true,
+      "interpretation": "All five skill trees have identical bytes at the recorded pre-run and audit endpoints. No skill-change or post-condition model run is part of this round."
+    },
+    "receipt_source_script_hashes_rechecked": [
+      "evals/run_local.py",
+      "evals/archive_run.mjs"
+    ],
+    "both_current_source_scripts_match_receipt": true
+  },
+  "audit_method": {
+    "original_source_root": "/TEMP/bandit-round5-WDXmd0/pre",
+    "archive_root": "pre/",
+    "mapped_source_archive_file_pairs": 20,
+    "original_source_files_hashed_including_after_workspaces": 30,
+    "retained_files_hashed_including_archive_provenance": 22,
+    "all_recorded_original_and_archived_hashes_match_recomputed_bytes": true,
+    "actual_after_workspace_files_match_metadata_before_after_and_original_snapshots": true,
+    "current_fixtures_and_selected_instructions_also_match": true,
+    "archive_transform": "For each normalized file, independently compare archived text with original text after literal replacement of that run's original root by <temporary-run-root>. All other mapped files must be byte-identical.",
+    "actual_normalized_files": [
+      "metadata.json in each run"
+    ],
+    "mismatches": [],
+    "retained_files_without_source_mapping": "Only each archive-provenance.json itself; both were separately hashed.",
+    "omitted_png_files_in_these_archives": [],
+    "output_count_method": "Complete output.md UTF-8 text: text.trim().split(/\\s+/).length, including Markdown tokens.",
+    "trace_check": "Read each complete JSONL trace; compared returned raw-input and scope-guidance text with retained snapshots and final message text with output.md."
+  },
+  "runs": [
+    {
+      "arm": "bandit-scope",
+      "archive": "pre/18-onboarding-investment--bandit-scope",
+      "source_directory_name": "18-onboarding-investment--bandit-scope",
+      "archive_provenance_sha256": "2859649231dec09b921d0cdddcf68868c83d97ed599b1662e67438fc33764cd5",
+      "thread_id": "01a081f0-1bad-7c91-908d-8a04240f23ed",
+      "started_at_utc": "2026-09-08T16:53:11.430798+00:00",
+      "finished_at_utc": "2026-09-08T16:54:05.454559+00:00",
+      "elapsed_seconds_reported": 54.024,
+      "process_exit_code": 0,
+      "terminal_event": "turn.completed",
+      "terminal_event_line": 11,
+      "event_lines": 11,
+      "invalid_event_lines": 0,
+      "mapped_source_archive_file_pairs": 12,
+      "original_source_files_hashed": 19,
+      "retained_files_hashed": 13,
+      "raw_input_files_unchanged": 3,
+      "instruction_files_unchanged": 4,
+      "output": {
+        "bytes": 3776,
+        "words": 534,
+        "requested_cap": 600,
+        "within_requested_cap": true,
+        "sha256": "9647def59bf06fc05ca25f082d35c4755674f5ccf51b142f8decc52280ec4a87",
+        "byte_identical_to_original_output": true,
+        "exactly_matches_final_agent_message": true,
+        "final_agent_message_event_line": 10
+      },
+      "trace_observations": {
+        "request_read_event_line": 5,
+        "supporting_brief_and_csv_read_event_line": 9,
+        "entrypoint_and_reference_read_event_line": 7,
+        "explicitly_read_instruction_files": [
+          ".agents/skills/bandit-scope/SKILL.md",
+          ".agents/skills/bandit-scope/references/decisions.md",
+          ".agents/skills/bandit-scope/references/evidence-and-decisions.md"
+        ],
+        "listed_but_not_explicitly_read": [
+          ".agents/skills/bandit-scope/agents/openai.yaml"
+        ],
+        "returned_raw_and_instruction_text_matches_retained_snapshots": true,
+        "general_router_or_other_specialist_reads_observed": false,
+        "command_executions": 3,
+        "command_exit_codes": [
+          0,
+          0,
+          0
+        ],
+        "tool_recoveries": [],
+        "web_search_events": 0,
+        "network_or_external_actions_observed": false,
+        "file_writes_observed": false,
+        "product_execution_or_tests_observed": false,
+        "word_count_command_observed": false,
+        "activity_scope": "The complete trace contains local listing/reading commands and agent messages only."
+      }
+    },
+    {
+      "arm": "baseline",
+      "archive": "pre/18-onboarding-investment--baseline",
+      "source_directory_name": "18-onboarding-investment--baseline",
+      "archive_provenance_sha256": "03588886874f3c87ff2ebf5b1ae39ad58e87ef5466429267b2936e2cc621aa28",
+      "thread_id": "01a081f0-1bae-7aa2-8db7-012370cfce5b",
+      "started_at_utc": "2026-09-08T16:53:11.425677+00:00",
+      "finished_at_utc": "2026-09-08T16:53:59.428412+00:00",
+      "elapsed_seconds_reported": 48.003,
+      "process_exit_code": 0,
+      "terminal_event": "turn.completed",
+      "terminal_event_line": 9,
+      "event_lines": 9,
+      "invalid_event_lines": 0,
+      "mapped_source_archive_file_pairs": 8,
+      "original_source_files_hashed": 11,
+      "retained_files_hashed": 9,
+      "raw_input_files_unchanged": 3,
+      "instruction_files_supplied": 0,
+      "instruction_hash_maps_before_and_after_empty": true,
+      "output": {
+        "bytes": 3560,
+        "words": 514,
+        "requested_cap": 600,
+        "within_requested_cap": true,
+        "sha256": "17f2c57b1aa04d8bdec8e01f8b96b3c23097166eaf4abbda2b316bc3f2b077ba",
+        "byte_identical_to_original_output": true,
+        "exactly_matches_final_agent_message": true,
+        "final_agent_message_event_line": 8
+      },
+      "trace_observations": {
+        "all_raw_inputs_read_event_line": 7,
+        "returned_raw_text_matches_retained_snapshots": true,
+        "pm_instruction_reads_observed": false,
+        "command_executions": 2,
+        "command_exit_codes": [
+          2,
+          0
+        ],
+        "tool_recoveries": [
+          {
+            "failed_event_line": 5,
+            "command": "rg --files input instructions",
+            "exit_code": 2,
+            "message": "rg: instructions: No such file or directory (os error 2)",
+            "recovery_event_line": 7,
+            "recovery_command": "cat input/request.md input/brief.md input/onboarding.csv",
+            "recovery_exit_code": 0,
+            "interpretation": "The absent optional instruction directory caused the listing error; the next command read all three supplied raw files successfully."
+          }
+        ],
+        "web_search_events": 0,
+        "network_or_external_actions_observed": false,
+        "file_writes_observed": false,
+        "product_execution_or_tests_observed": false,
+        "word_count_command_observed": false,
+        "activity_scope": "The complete trace contains local listing/reading commands and agent messages only."
+      }
+    }
+  ],
+  "limitations": [
+    "Synthetic, author-designed development evidence, not a held-out benchmark or customer/business validation.",
+    "The summary author authored the fixtures and rubric; no claim of independent semantic grading is made here.",
+    "Exit zero, terminal events, matching hashes, and output lengths are artifact/process facts, not quality grades.",
+    "The receipt is local and unsigned; its timestamp is not independently attested.",
+    "Host-default model configuration and wider host state are not pinned; fresh distinct threads do not establish identical effective model settings or deterministic replay.",
+    "Observed cap compliance does not prove that either task used a counting mechanism; no count command appears in either trace.",
+    "Only supplied artifacts and visible traces are audited. Byte agreement at the before/after endpoints does not establish arbitrary historical host state.",
+    "No quality advantage, reliability, instruction-caused improvement, token savings, or causal arm comparison is inferred."
+  ]
+}

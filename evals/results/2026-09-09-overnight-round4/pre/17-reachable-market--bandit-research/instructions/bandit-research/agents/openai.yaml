@@ -1,0 +1,4 @@
+interface:
+  display_name: "BANDIT Research"
+  short_description: "Investigate product evidence and demand"
+  default_prompt: "Use $bandit-research to assess this product idea and recommend the next useful experiment."

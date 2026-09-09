@@ -1,0 +1,57 @@
+{
+  "case": "17-reachable-market",
+  "arm": "bandit-research",
+  "codex_version": "codex-cli 0.153.4",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "-c",
+    "web_search=\"disabled\"",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "<temporary-run-root>/workspace",
+    "-o",
+    "<temporary-run-root>/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host model defaults; explicit web_search",
+  "web_search": "disabled",
+  "runner_status": "exited",
+  "started_at_utc": "2026-09-08T16:20:44.957887+00:00",
+  "upstream_commit": null,
+  "input_sha256": {
+    "brief.md": "28712bfe0a9386f8d981f0f6121ae9889123f37b9fd49433cb243d541b91cfb0",
+    "request.md": "0bb5c289708e5f5942bd9293ab763e6b8db14519d375967262178fcfe3f6541e"
+  },
+  "instruction_sha256": {
+    "bandit-research/SKILL.md": "be1313ca9679fec07b172fbdd5e2eda1f19bc6903b897934a3dec995696dcfd5",
+    "bandit-research/agents/openai.yaml": "af4da23d45df56346cd7f9924f440dc4d946ee9cf02f9130cd47b14f0ef0835c",
+    "bandit-research/references/evidence-and-decisions.md": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+    "bandit-research/references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3"
+  },
+  "invocation": "$bandit-research",
+  "standalone_specialist": true,
+  "custom_fixture": false,
+  "editable_artifact": null,
+  "exit_code": 0,
+  "elapsed_seconds": 68.31,
+  "finished_at_utc": "2026-09-08T16:21:53.267484+00:00",
+  "input_after_sha256": {
+    "brief.md": "28712bfe0a9386f8d981f0f6121ae9889123f37b9fd49433cb243d541b91cfb0",
+    "request.md": "0bb5c289708e5f5942bd9293ab763e6b8db14519d375967262178fcfe3f6541e"
+  },
+  "instruction_after_sha256": {
+    "bandit-research/SKILL.md": "be1313ca9679fec07b172fbdd5e2eda1f19bc6903b897934a3dec995696dcfd5",
+    "bandit-research/agents/openai.yaml": "af4da23d45df56346cd7f9924f440dc4d946ee9cf02f9130cd47b14f0ef0835c",
+    "bandit-research/references/evidence-and-decisions.md": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+    "bandit-research/references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3"
+  }
+}

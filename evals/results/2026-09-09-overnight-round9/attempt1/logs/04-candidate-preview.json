@@ -1,0 +1,20 @@
+{
+  "label": "candidate-preview",
+  "executable": "/TEMP/bandit-round9-pm62vi/bin/npx",
+  "args": [
+    "--yes",
+    "/WORKSPACE/bandit/dist/overnight-round8/ch4570-bandit-0.4.0.tgz",
+    "--plan",
+    "--json"
+  ],
+  "cwd": "/TEMP/bandit-round9-pm62vi/projects/candidate 한글 project",
+  "cache": "cache-candidate",
+  "started_at": "2026-09-08T18:34:18.328Z",
+  "stdin": "closed",
+  "stdout": "",
+  "stderr": "/bin/sh: /WORKSPACE/bandit/dist/overnight-round8/ch4570-bandit-0.4.0.tgz: Permission denied\n",
+  "exit_code": 126,
+  "signal": null,
+  "launchError": null,
+  "finished_at": "2026-09-08T18:34:18.530Z"
+}

@@ -1,0 +1,14 @@
+--- evals/results/2026-09-09-overnight-round11/checks/installer-before.mjs	2026-09-09 04:22:14
++++ lib/installer.mjs	2026-09-09 04:25:28
+@@ -462,7 +462,10 @@
+     }
+     const report = installBundle(packageRoot, destination, Boolean(options.plan));
+     const legacy = path.join(path.dirname(destination), 'pm-craft');
+-    if (info(legacy)?.isDirectory()) report.notes = ['A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.'];
++    // A custom core directory may itself be named pm-craft.
++    if (canonical(legacy) !== canonical(report.destination) && info(legacy)?.isDirectory()) {
++      report.notes = ['A separate pm-craft installation exists. BANDIT leaves it untouched; remove it manually if you no longer need it.'];
++    }
+     if (json) stdout.write(`${JSON.stringify(report, null, 2)}\n`);
+     else {
+       const label = { installed: 'BANDIT is ready.', updated: 'BANDIT is updated.', unchanged: 'BANDIT is already up to date.', plan: 'BANDIT installation preview.' }[report.status];

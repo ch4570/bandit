@@ -1,0 +1,30 @@
+{
+  "kind": "synthetic fake executable, not a native Codex invocation",
+  "id": "fake-explicit-exec",
+  "mode": "exec",
+  "label": "explicit",
+  "argv": [
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "-c",
+    "web_search=\"disabled\"",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "/TEMP/bandit-round12-4a9iyv/fake-model-cli-pa_nce5k/runs/explicit/fake-model-explicit--baseline/workspace",
+    "-o",
+    "/TEMP/bandit-round12-4a9iyv/fake-model-cli-pa_nce5k/runs/explicit/fake-model-explicit--baseline/output.md",
+    "--model",
+    "synthetic-model.integration",
+    "-"
+  ],
+  "cwd": "/WORKSPACE/bandit",
+  "started_at_utc": "2026-09-08T19:55:42.781166+00:00",
+  "finished_at_utc": "2026-09-08T19:55:42.782028+00:00",
+  "exit_code": 0
+}

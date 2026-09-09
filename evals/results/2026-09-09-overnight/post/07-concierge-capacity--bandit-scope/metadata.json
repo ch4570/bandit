@@ -1,0 +1,51 @@
+{
+  "case": "07-concierge-capacity",
+  "arm": "bandit-scope",
+  "codex_version": "codex-cli 0.153.4",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "<temporary-run-root>/workspace",
+    "-o",
+    "<temporary-run-root>/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host defaults",
+  "upstream_commit": null,
+  "input_sha256": {
+    "brief.md": "eb9d40490a2e5bfe37d884b7d0e9d5ffe388a501682d5a50d418d8d128838cf1",
+    "request.md": "f41c548f1cb5a1dac91b3268fc7b6523a1987d4e047e629295d4ac251b8ecc5a"
+  },
+  "instruction_sha256": {
+    "bandit-scope/SKILL.md": "5c9fb2a0c9e555f9f716f89157a9f98025bcb342b5d0f718e3f86f59c67a7fda",
+    "bandit-scope/agents/openai.yaml": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293",
+    "bandit-scope/references/decisions.md": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+    "bandit-scope/references/evidence-and-decisions.md": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e"
+  },
+  "invocation": "$bandit-scope",
+  "standalone_specialist": true,
+  "custom_fixture": false,
+  "editable_artifact": null,
+  "exit_code": 0,
+  "elapsed_seconds": 62.768,
+  "input_after_sha256": {
+    "brief.md": "eb9d40490a2e5bfe37d884b7d0e9d5ffe388a501682d5a50d418d8d128838cf1",
+    "request.md": "f41c548f1cb5a1dac91b3268fc7b6523a1987d4e047e629295d4ac251b8ecc5a"
+  },
+  "instruction_after_sha256": {
+    "bandit-scope/SKILL.md": "5c9fb2a0c9e555f9f716f89157a9f98025bcb342b5d0f718e3f86f59c67a7fda",
+    "bandit-scope/agents/openai.yaml": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293",
+    "bandit-scope/references/decisions.md": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+    "bandit-scope/references/evidence-and-decisions.md": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e"
+  }
+}

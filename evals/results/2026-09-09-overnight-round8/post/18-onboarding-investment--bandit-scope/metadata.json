@@ -1,0 +1,59 @@
+{
+  "case": "18-onboarding-investment",
+  "arm": "bandit-scope",
+  "codex_version": "codex-cli 0.153.4",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "-c",
+    "web_search=\"disabled\"",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "<temporary-run-root>/workspace",
+    "-o",
+    "<temporary-run-root>/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host model defaults; explicit web_search",
+  "web_search": "disabled",
+  "runner_status": "exited",
+  "started_at_utc": "2026-09-08T18:11:21.600815+00:00",
+  "upstream_commit": null,
+  "input_sha256": {
+    "brief.md": "8544cf263d60c6b990fa8963cf0bfa70f7d9eaea03f1fb616341f45f0f5ed26f",
+    "onboarding.csv": "92e5c9ee2fe5c878320adcffcbe6652645aff9b51ee2359ba79f83e84a710f0b",
+    "request.md": "6459cabfee8bb16565b3542d1c4b28a11b6dccb6d6b780c3090c684b334bfede"
+  },
+  "instruction_sha256": {
+    "bandit-scope/SKILL.md": "5c9fb2a0c9e555f9f716f89157a9f98025bcb342b5d0f718e3f86f59c67a7fda",
+    "bandit-scope/agents/openai.yaml": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293",
+    "bandit-scope/references/decisions.md": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+    "bandit-scope/references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523"
+  },
+  "invocation": "$bandit-scope",
+  "standalone_specialist": true,
+  "custom_fixture": false,
+  "editable_artifact": null,
+  "exit_code": 0,
+  "elapsed_seconds": 57.235,
+  "finished_at_utc": "2026-09-08T18:12:18.836300+00:00",
+  "input_after_sha256": {
+    "brief.md": "8544cf263d60c6b990fa8963cf0bfa70f7d9eaea03f1fb616341f45f0f5ed26f",
+    "onboarding.csv": "92e5c9ee2fe5c878320adcffcbe6652645aff9b51ee2359ba79f83e84a710f0b",
+    "request.md": "6459cabfee8bb16565b3542d1c4b28a11b6dccb6d6b780c3090c684b334bfede"
+  },
+  "instruction_after_sha256": {
+    "bandit-scope/SKILL.md": "5c9fb2a0c9e555f9f716f89157a9f98025bcb342b5d0f718e3f86f59c67a7fda",
+    "bandit-scope/agents/openai.yaml": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293",
+    "bandit-scope/references/decisions.md": "6222b23b0d6218f363bb35536597016f4c1417ba0efa486cebb95f57f4ed1b26",
+    "bandit-scope/references/evidence-and-decisions.md": "9d09233e89db1c6f66cb3fa999eddbadaf539046d5d2bba04d40f6f566641523"
+  }
+}

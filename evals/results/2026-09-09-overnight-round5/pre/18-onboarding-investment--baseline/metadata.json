@@ -1,0 +1,49 @@
+{
+  "case": "18-onboarding-investment",
+  "arm": "baseline",
+  "codex_version": "codex-cli 0.153.4",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "-c",
+    "web_search=\"disabled\"",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "<temporary-run-root>/workspace",
+    "-o",
+    "<temporary-run-root>/output.md",
+    "-"
+  ],
+  "model_override": null,
+  "config": "--ignore-user-config; host model defaults; explicit web_search",
+  "web_search": "disabled",
+  "runner_status": "exited",
+  "started_at_utc": "2026-09-08T16:53:11.425677+00:00",
+  "upstream_commit": null,
+  "input_sha256": {
+    "brief.md": "8544cf263d60c6b990fa8963cf0bfa70f7d9eaea03f1fb616341f45f0f5ed26f",
+    "onboarding.csv": "92e5c9ee2fe5c878320adcffcbe6652645aff9b51ee2359ba79f83e84a710f0b",
+    "request.md": "6459cabfee8bb16565b3542d1c4b28a11b6dccb6d6b780c3090c684b334bfede"
+  },
+  "instruction_sha256": {},
+  "invocation": null,
+  "standalone_specialist": false,
+  "custom_fixture": false,
+  "editable_artifact": null,
+  "exit_code": 0,
+  "elapsed_seconds": 48.003,
+  "finished_at_utc": "2026-09-08T16:53:59.428412+00:00",
+  "input_after_sha256": {
+    "brief.md": "8544cf263d60c6b990fa8963cf0bfa70f7d9eaea03f1fb616341f45f0f5ed26f",
+    "onboarding.csv": "92e5c9ee2fe5c878320adcffcbe6652645aff9b51ee2359ba79f83e84a710f0b",
+    "request.md": "6459cabfee8bb16565b3542d1c4b28a11b6dccb6d6b780c3090c684b334bfede"
+  },
+  "instruction_after_sha256": {}
+}

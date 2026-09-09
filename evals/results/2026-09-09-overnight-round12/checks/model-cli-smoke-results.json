@@ -1,0 +1,746 @@
+{
+  "kind": "fake-executable engineering integration smoke; zero real Codex/model/TASK executions",
+  "status": "failed",
+  "started_at_utc": "2026-09-08T19:53:43.857976+00:00",
+  "finished_at_utc": "2026-09-08T19:53:44.833971+00:00",
+  "temporary_root_retained": "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh",
+  "python": "/Users/DEVELOPER/.local/bin/python3.11",
+  "python_version": "3.11.16 (main, Aug 14 2026, 15:24:25) [Clang 22.1.3 ]",
+  "node": "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+  "controlled_path": "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/bin:/Users/DEVELOPER/.local/bin:/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin",
+  "environment": "Minimal allowlist; no inherited auth/config variables; fake codex is the only codex on PATH.",
+  "requested_model_test_string": "synthetic-model.integration",
+  "model_identity_verified": false,
+  "fake_version_string": "fake-codex model-cli-smoke 0 (no backend)",
+  "fake_executable_sha256": "6e42c954aca7029c4a4ac601008fd9c21e13b22758892e1ebbbf7710558ced64",
+  "fake_invocation_count": 6,
+  "fake_invocations": [
+    {
+      "kind": "synthetic fake executable, not a native Codex invocation",
+      "id": "fake-child-failure-exec",
+      "mode": "exec",
+      "label": "child-failure",
+      "argv": [
+        "exec",
+        "--ignore-user-config",
+        "--ephemeral",
+        "--skip-git-repo-check",
+        "-c",
+        "web_search=\"disabled\"",
+        "--sandbox",
+        "read-only",
+        "--color",
+        "never",
+        "--json",
+        "-C",
+        "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/runs/child-failure/fake-model-child-failure--baseline/workspace",
+        "-o",
+        "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/runs/child-failure/fake-model-child-failure--baseline/output.md",
+        "--model",
+        "synthetic-model.integration",
+        "-"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:53:44.754302+00:00",
+      "finished_at_utc": "2026-09-08T19:53:44.754953+00:00",
+      "exit_code": 23
+    },
+    {
+      "kind": "synthetic fake executable, not a native Codex invocation",
+      "id": "fake-child-failure-version",
+      "mode": "version",
+      "label": "child-failure",
+      "argv": [
+        "--version"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:53:44.731438+00:00",
+      "finished_at_utc": "2026-09-08T19:53:44.732021+00:00",
+      "exit_code": 0
+    },
+    {
+      "kind": "synthetic fake executable, not a native Codex invocation",
+      "id": "fake-default-exec",
+      "mode": "exec",
+      "label": "default",
+      "argv": [
+        "exec",
+        "--ignore-user-config",
+        "--ephemeral",
+        "--skip-git-repo-check",
+        "-c",
+        "web_search=\"disabled\"",
+        "--sandbox",
+        "read-only",
+        "--color",
+        "never",
+        "--json",
+        "-C",
+        "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/runs/default/fake-model-default--baseline/workspace",
+        "-o",
+        "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/runs/default/fake-model-default--baseline/output.md",
+        "-"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:53:44.629959+00:00",
+      "finished_at_utc": "2026-09-08T19:53:44.630714+00:00",
+      "exit_code": 0
+    },
+    {
+      "kind": "synthetic fake executable, not a native Codex invocation",
+      "id": "fake-default-version",
+      "mode": "version",
+      "label": "default",
+      "argv": [
+        "--version"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:53:44.608019+00:00",
+      "finished_at_utc": "2026-09-08T19:53:44.608622+00:00",
+      "exit_code": 0
+    },
+    {
+      "kind": "synthetic fake executable, not a native Codex invocation",
+      "id": "fake-explicit-exec",
+      "mode": "exec",
+      "label": "explicit",
+      "argv": [
+        "exec",
+        "--ignore-user-config",
+        "--ephemeral",
+        "--skip-git-repo-check",
+        "-c",
+        "web_search=\"disabled\"",
+        "--sandbox",
+        "read-only",
+        "--color",
+        "never",
+        "--json",
+        "-C",
+        "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/runs/explicit/fake-model-explicit--baseline/workspace",
+        "-o",
+        "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/runs/explicit/fake-model-explicit--baseline/output.md",
+        "--model",
+        "synthetic-model.integration",
+        "-"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:53:44.410041+00:00",
+      "finished_at_utc": "2026-09-08T19:53:44.411087+00:00",
+      "exit_code": 0
+    },
+    {
+      "kind": "synthetic fake executable, not a native Codex invocation",
+      "id": "fake-explicit-version",
+      "mode": "version",
+      "label": "explicit",
+      "argv": [
+        "--version"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:53:44.377718+00:00",
+      "finished_at_utc": "2026-09-08T19:53:44.378863+00:00",
+      "exit_code": 0
+    }
+  ],
+  "commands": [
+    {
+      "label": "runner-explicit",
+      "argv": [
+        "/Users/DEVELOPER/.local/bin/python3.11",
+        "/WORKSPACE/bandit/evals/run_local.py",
+        "--case",
+        "fake-model-explicit",
+        "--arm",
+        "baseline",
+        "--fixture-dir",
+        "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/raw",
+        "--web-search",
+        "disabled",
+        "--output-dir",
+        "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/runs/explicit",
+        "--model",
+        "synthetic-model.integration"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:53:43.859231+00:00",
+      "exit_code": 0,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:53:44.419656+00:00",
+      "stdout": {
+        "path": "model-cli-smoke-evidence/commands/runner-explicit.stdout.txt",
+        "sha256": "86c1fde48b903b48c7cede188fc85bcb721322ee35d04bb6261abb98da7c0fc8",
+        "bytes": 130
+      },
+      "stderr": {
+        "path": "model-cli-smoke-evidence/commands/runner-explicit.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "label": "archive-explicit",
+      "argv": [
+        "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+        "/WORKSPACE/bandit/evals/archive_run.mjs",
+        "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/runs/explicit/fake-model-explicit--baseline",
+        "/WORKSPACE/bandit/evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-evidence/archives/explicit"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:53:44.423234+00:00",
+      "exit_code": 0,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:53:44.559127+00:00",
+      "stdout": {
+        "path": "model-cli-smoke-evidence/commands/archive-explicit.stdout.txt",
+        "sha256": "01e1017decc97643ec4dbd3015856a6acffd1108e1ad82b8ef568536fa072f16",
+        "bytes": 288
+      },
+      "stderr": {
+        "path": "model-cli-smoke-evidence/commands/archive-explicit.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "label": "runner-default",
+      "argv": [
+        "/Users/DEVELOPER/.local/bin/python3.11",
+        "/WORKSPACE/bandit/evals/run_local.py",
+        "--case",
+        "fake-model-default",
+        "--arm",
+        "baseline",
+        "--fixture-dir",
+        "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/raw",
+        "--web-search",
+        "disabled",
+        "--output-dir",
+        "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/runs/default"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:53:44.560282+00:00",
+      "exit_code": 0,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:53:44.637906+00:00",
+      "stdout": {
+        "path": "model-cli-smoke-evidence/commands/runner-default.stdout.txt",
+        "sha256": "d07408ff76b0a990b654ae050d7b880c2e89755a59cde54ae0b16ca795e08076",
+        "bytes": 128
+      },
+      "stderr": {
+        "path": "model-cli-smoke-evidence/commands/runner-default.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "label": "archive-default",
+      "argv": [
+        "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+        "/WORKSPACE/bandit/evals/archive_run.mjs",
+        "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/runs/default/fake-model-default--baseline",
+        "/WORKSPACE/bandit/evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-evidence/archives/default"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:53:44.640822+00:00",
+      "exit_code": 0,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:53:44.684867+00:00",
+      "stdout": {
+        "path": "model-cli-smoke-evidence/commands/archive-default.stdout.txt",
+        "sha256": "20eddf17253eea4bbfd1ad2388f611bb1b81a1199425e6faeaf1208cac5c819b",
+        "bytes": 287
+      },
+      "stderr": {
+        "path": "model-cli-smoke-evidence/commands/archive-default.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "label": "runner-child-failure",
+      "argv": [
+        "/Users/DEVELOPER/.local/bin/python3.11",
+        "/WORKSPACE/bandit/evals/run_local.py",
+        "--case",
+        "fake-model-child-failure",
+        "--arm",
+        "baseline",
+        "--fixture-dir",
+        "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/raw",
+        "--web-search",
+        "disabled",
+        "--output-dir",
+        "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/runs/child-failure",
+        "--model",
+        "synthetic-model.integration"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:53:44.685755+00:00",
+      "exit_code": 23,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:53:44.761961+00:00",
+      "stdout": {
+        "path": "model-cli-smoke-evidence/commands/runner-child-failure.stdout.txt",
+        "sha256": "74a74f0152a00adc3e4a1d779e7e37e7ad9a2fc4fad7447adab0749102613023",
+        "bytes": 141
+      },
+      "stderr": {
+        "path": "model-cli-smoke-evidence/commands/runner-child-failure.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "label": "archive-child-failure",
+      "argv": [
+        "/Users/DEVELOPER/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+        "/WORKSPACE/bandit/evals/archive_run.mjs",
+        "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/runs/child-failure/fake-model-child-failure--baseline",
+        "/WORKSPACE/bandit/evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-evidence/archives/child-failure"
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:53:44.764715+00:00",
+      "exit_code": 0,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:53:44.803171+00:00",
+      "stdout": {
+        "path": "model-cli-smoke-evidence/commands/archive-child-failure.stdout.txt",
+        "sha256": "ae8ae8bea18d2097037ac6eca938ff01527ee0379e288f838f390c602ed13c51",
+        "bytes": 291
+      },
+      "stderr": {
+        "path": "model-cli-smoke-evidence/commands/archive-child-failure.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "label": "runner-invalid-empty",
+      "argv": [
+        "/Users/DEVELOPER/.local/bin/python3.11",
+        "/WORKSPACE/bandit/evals/run_local.py",
+        "--case",
+        "fake-model-empty",
+        "--arm",
+        "baseline",
+        "--fixture-dir",
+        "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/raw",
+        "--output-dir",
+        "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/invalid-output",
+        "--model",
+        ""
+      ],
+      "cwd": "/WORKSPACE/bandit",
+      "started_at_utc": "2026-09-08T19:53:44.804185+00:00",
+      "exit_code": 2,
+      "launch_error": null,
+      "finished_at_utc": "2026-09-08T19:53:44.832901+00:00",
+      "stdout": {
+        "path": "model-cli-smoke-evidence/commands/runner-invalid-empty.stdout.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "stderr": {
+        "path": "model-cli-smoke-evidence/commands/runner-invalid-empty.stderr.txt",
+        "sha256": "f745b73ff50cac5ebafb0adc3a9c27c60794186d72e1e7ba841861b8e7fa3165",
+        "bytes": 105
+      }
+    }
+  ],
+  "cases": [
+    {
+      "label": "explicit",
+      "requested_model": "synthetic-model.integration",
+      "expected_fake_child_exit": 0,
+      "original_run": "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/runs/explicit/fake-model-explicit--baseline",
+      "archive": "model-cli-smoke-evidence/archives/explicit",
+      "fake_thread_id": "fake-thread-explicit",
+      "archive_mapping_count": 6,
+      "original_metadata_sha256": "b89f023e2047dbe3cc769454ade2d4d1e7476b6f575688f41a9a0acb036df32f",
+      "archived_metadata_sha256": "0207c87040665cb6d880222e5a80ca90d255b1898b2c58b3bcfad2b03df981d1"
+    },
+    {
+      "label": "default",
+      "requested_model": null,
+      "expected_fake_child_exit": 0,
+      "original_run": "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/runs/default/fake-model-default--baseline",
+      "archive": "model-cli-smoke-evidence/archives/default",
+      "fake_thread_id": "fake-thread-default",
+      "archive_mapping_count": 6,
+      "original_metadata_sha256": "32004744ee6851824af214d60a47436b154c05e671cf4cdd472793bc51b46408",
+      "archived_metadata_sha256": "2a5713fd954a0701c138223aa7f080364553c32518e4ef03c873abf596e02e73"
+    },
+    {
+      "label": "child-failure",
+      "requested_model": "synthetic-model.integration",
+      "expected_fake_child_exit": 23,
+      "original_run": "/TEMP/bandit-round12-4a9iyv/fake-model-cli-kel72fjh/runs/child-failure/fake-model-child-failure--baseline",
+      "archive": "model-cli-smoke-evidence/archives/child-failure",
+      "fake_thread_id": "fake-thread-child-failure",
+      "archive_mapping_count": 5,
+      "original_metadata_sha256": "673abaf9ff25b48a74a2c338b4673fdb388cef52d9fe12ef855601feadabd89d",
+      "archived_metadata_sha256": "417afa91734367f22834c3c0ef282c8194b36a51015c3ff4e4f44663e5baad61"
+    }
+  ],
+  "checks": [
+    {
+      "check": "explicit: runner returns fake child exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "explicit: captured argv equals metadata command",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "explicit: prompt bytes preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "explicit: fake version and one exec",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "explicit: explicit request or default metadata",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "explicit: literal model argv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "explicit: config distinguishes request from backend verification",
+      "passed": false,
+      "detail": "--ignore-user-config; explicit model override; explicit web_search"
+    },
+    {
+      "check": "explicit: unchanged sandbox and web flags",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "explicit: raw-only unchanged baseline workspace",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "explicit: exited metadata keeps nonzero distinct from launch failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "explicit: archive CLI succeeds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "explicit: archive retains exact requested model",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "explicit: exact metadata path normalization",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "explicit: all archive hashes and transformations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "explicit: archive preserves completed versus failed child",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "default: runner returns fake child exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "default: captured argv equals metadata command",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "default: prompt bytes preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "default: fake version and one exec",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "default: explicit request or default metadata",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "default: literal model argv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "default: config distinguishes request from backend verification",
+      "passed": true,
+      "detail": "--ignore-user-config; host model defaults; explicit web_search"
+    },
+    {
+      "check": "default: unchanged sandbox and web flags",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "default: raw-only unchanged baseline workspace",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "default: exited metadata keeps nonzero distinct from launch failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "default: archive CLI succeeds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "default: archive retains exact requested model",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "default: exact metadata path normalization",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "default: all archive hashes and transformations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "default: archive preserves completed versus failed child",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "child-failure: runner returns fake child exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "child-failure: captured argv equals metadata command",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "child-failure: prompt bytes preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "child-failure: fake version and one exec",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "child-failure: explicit request or default metadata",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "child-failure: literal model argv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "child-failure: config distinguishes request from backend verification",
+      "passed": false,
+      "detail": "--ignore-user-config; explicit model override; explicit web_search"
+    },
+    {
+      "check": "child-failure: unchanged sandbox and web flags",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "child-failure: raw-only unchanged baseline workspace",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "child-failure: exited metadata keeps nonzero distinct from launch failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "child-failure: archive CLI succeeds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "child-failure: archive retains exact requested model",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "child-failure: exact metadata path normalization",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "child-failure: all archive hashes and transformations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "child-failure: archive preserves completed versus failed child",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "invalid empty: CLI exits 2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "invalid empty: no fake child or version probe",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "invalid empty: no output/run directory",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "six distinct fake invocations: three version probes plus three execs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all expected fake invocation identities, no fallback exec",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "runner, archiver and harness unchanged during smoke",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "synthetic fixture unchanged",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "source_before_sha256": {
+    "evals/run_local.py": "6243624462aae5ff9e9f9eff76c6692f6e3b63d3373cf328cc73a1e2be31be55",
+    "evals/archive_run.mjs": "62cf0c7728d5116884910250a1ce44427e314bccfb3b2d1c968a543b7d4b1f17",
+    "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke.py": "a2540c6bbed61a120931c299a0d3903e7bb45b93a718ce0c237c7f9cdf34fe20"
+  },
+  "source_after_sha256": {
+    "evals/run_local.py": "6243624462aae5ff9e9f9eff76c6692f6e3b63d3373cf328cc73a1e2be31be55",
+    "evals/archive_run.mjs": "62cf0c7728d5116884910250a1ce44427e314bccfb3b2d1c968a543b7d4b1f17",
+    "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke.py": "a2540c6bbed61a120931c299a0d3903e7bb45b93a718ce0c237c7f9cdf34fe20"
+  },
+  "evidence_file_sha256": {
+    "archives/child-failure/archive-provenance.json": "1e78aa225dd17dddf2df29393125d0f9c350064ef1d3acc9c6868967cfbf8a0c",
+    "archives/child-failure/events.jsonl": "27660e27b5e261de6c3af753cfd3959fa1edaae722b1ca296bb2099505cbe101",
+    "archives/child-failure/input/request.md": "9c0a03e2931b6e50e18a51e5c54aee12c2c76bcf83e4cb7cdef143901e31cc9e",
+    "archives/child-failure/metadata.json": "417afa91734367f22834c3c0ef282c8194b36a51015c3ff4e4f44663e5baad61",
+    "archives/child-failure/prompt.txt": "aaaa1f0f7ab7dab8380bbbb9ebe02a46147471a3b501ebc502ea5d7767f8326e",
+    "archives/child-failure/stderr.txt": "58ba3c4731b358a2ce7d0d1c71a862f24c2221d97639c8e8a94f5bd1cc1d2841",
+    "archives/default/archive-provenance.json": "be8ab8f475b9d3e0ce1e3c88abebb360f459be7d592f999a7c8b21208b2f91b6",
+    "archives/default/events.jsonl": "729eb12778aeddafa592a188a6ed0adaca03952ec4d0f9954558924fc3080dfa",
+    "archives/default/input/request.md": "9c0a03e2931b6e50e18a51e5c54aee12c2c76bcf83e4cb7cdef143901e31cc9e",
+    "archives/default/metadata.json": "2a5713fd954a0701c138223aa7f080364553c32518e4ef03c873abf596e02e73",
+    "archives/default/output.md": "c4ce0a4aefc6082bf077d30be50f93765a0a035b9c4970938c407cfb3ed3de91",
+    "archives/default/prompt.txt": "aaaa1f0f7ab7dab8380bbbb9ebe02a46147471a3b501ebc502ea5d7767f8326e",
+    "archives/default/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archives/explicit/archive-provenance.json": "67b49ca193ffc374370d7155fb2311b325b5d96b3c308031184a524e89ed5655",
+    "archives/explicit/events.jsonl": "b61a84c110ee506a66018670c048bcb35dbdf19698e27a12b105468c8efba4b3",
+    "archives/explicit/input/request.md": "9c0a03e2931b6e50e18a51e5c54aee12c2c76bcf83e4cb7cdef143901e31cc9e",
+    "archives/explicit/metadata.json": "0207c87040665cb6d880222e5a80ca90d255b1898b2c58b3bcfad2b03df981d1",
+    "archives/explicit/output.md": "c4ce0a4aefc6082bf077d30be50f93765a0a035b9c4970938c407cfb3ed3de91",
+    "archives/explicit/prompt.txt": "aaaa1f0f7ab7dab8380bbbb9ebe02a46147471a3b501ebc502ea5d7767f8326e",
+    "archives/explicit/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "commands/archive-child-failure.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "commands/archive-child-failure.stdout.txt": "ae8ae8bea18d2097037ac6eca938ff01527ee0379e288f838f390c602ed13c51",
+    "commands/archive-default.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "commands/archive-default.stdout.txt": "20eddf17253eea4bbfd1ad2388f611bb1b81a1199425e6faeaf1208cac5c819b",
+    "commands/archive-explicit.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "commands/archive-explicit.stdout.txt": "01e1017decc97643ec4dbd3015856a6acffd1108e1ad82b8ef568536fa072f16",
+    "commands/runner-child-failure.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "commands/runner-child-failure.stdout.txt": "74a74f0152a00adc3e4a1d779e7e37e7ad9a2fc4fad7447adab0749102613023",
+    "commands/runner-default.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "commands/runner-default.stdout.txt": "d07408ff76b0a990b654ae050d7b880c2e89755a59cde54ae0b16ca795e08076",
+    "commands/runner-explicit.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "commands/runner-explicit.stdout.txt": "86c1fde48b903b48c7cede188fc85bcb721322ee35d04bb6261abb98da7c0fc8",
+    "commands/runner-invalid-empty.stderr.txt": "f745b73ff50cac5ebafb0adc3a9c27c60794186d72e1e7ba841861b8e7fa3165",
+    "commands/runner-invalid-empty.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fake-codex.py": "6e42c954aca7029c4a4ac601008fd9c21e13b22758892e1ebbbf7710558ced64",
+    "fake-invocations/fake-child-failure-exec/invocation.json": "9da020a4af5f77ebfb5f67a291c694f76a54bc34b99edbcb55bdcb8cc10daf7e",
+    "fake-invocations/fake-child-failure-exec/stderr.txt": "58ba3c4731b358a2ce7d0d1c71a862f24c2221d97639c8e8a94f5bd1cc1d2841",
+    "fake-invocations/fake-child-failure-exec/stdin.txt": "aaaa1f0f7ab7dab8380bbbb9ebe02a46147471a3b501ebc502ea5d7767f8326e",
+    "fake-invocations/fake-child-failure-exec/stdout.txt": "27660e27b5e261de6c3af753cfd3959fa1edaae722b1ca296bb2099505cbe101",
+    "fake-invocations/fake-child-failure-version/invocation.json": "e3c84c8d090765a843d5d06cbf6f90d2e5d5c88a95338d0e0421df983cf50f9f",
+    "fake-invocations/fake-child-failure-version/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fake-invocations/fake-child-failure-version/stdin.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fake-invocations/fake-child-failure-version/stdout.txt": "9cabb409e0f933de7db72afc3e3c05d6a96b130c626b3df62ae28139ee66914f",
+    "fake-invocations/fake-default-exec/invocation.json": "3d967f9a3ef017b5a7a5bc5fa181834957187b00c26d93f57cd272821f8c6e04",
+    "fake-invocations/fake-default-exec/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fake-invocations/fake-default-exec/stdin.txt": "aaaa1f0f7ab7dab8380bbbb9ebe02a46147471a3b501ebc502ea5d7767f8326e",
+    "fake-invocations/fake-default-exec/stdout.txt": "729eb12778aeddafa592a188a6ed0adaca03952ec4d0f9954558924fc3080dfa",
+    "fake-invocations/fake-default-version/invocation.json": "021d720313c3a2b52767fa7fbd2fb52e5773d09a79caf81247e8917993850f02",
+    "fake-invocations/fake-default-version/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fake-invocations/fake-default-version/stdin.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fake-invocations/fake-default-version/stdout.txt": "9cabb409e0f933de7db72afc3e3c05d6a96b130c626b3df62ae28139ee66914f",
+    "fake-invocations/fake-explicit-exec/invocation.json": "ea1adf1d44ec06b4e2c320fddf2936a51b0885672cd6b3dcb098187744398f74",
+    "fake-invocations/fake-explicit-exec/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fake-invocations/fake-explicit-exec/stdin.txt": "aaaa1f0f7ab7dab8380bbbb9ebe02a46147471a3b501ebc502ea5d7767f8326e",
+    "fake-invocations/fake-explicit-exec/stdout.txt": "b61a84c110ee506a66018670c048bcb35dbdf19698e27a12b105468c8efba4b3",
+    "fake-invocations/fake-explicit-version/invocation.json": "44273f58631bca7f77f3c7b5bd02a9d75a832214989e25ce2b848f8e14074df2",
+    "fake-invocations/fake-explicit-version/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fake-invocations/fake-explicit-version/stdin.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fake-invocations/fake-explicit-version/stdout.txt": "9cabb409e0f933de7db72afc3e3c05d6a96b130c626b3df62ae28139ee66914f",
+    "originals/child-failure/events.jsonl": "27660e27b5e261de6c3af753cfd3959fa1edaae722b1ca296bb2099505cbe101",
+    "originals/child-failure/metadata.json": "673abaf9ff25b48a74a2c338b4673fdb388cef52d9fe12ef855601feadabd89d",
+    "originals/child-failure/original-input/request.md": "9c0a03e2931b6e50e18a51e5c54aee12c2c76bcf83e4cb7cdef143901e31cc9e",
+    "originals/child-failure/prompt.txt": "aaaa1f0f7ab7dab8380bbbb9ebe02a46147471a3b501ebc502ea5d7767f8326e",
+    "originals/child-failure/stderr.txt": "58ba3c4731b358a2ce7d0d1c71a862f24c2221d97639c8e8a94f5bd1cc1d2841",
+    "originals/child-failure/workspace/input/request.md": "9c0a03e2931b6e50e18a51e5c54aee12c2c76bcf83e4cb7cdef143901e31cc9e",
+    "originals/default/events.jsonl": "729eb12778aeddafa592a188a6ed0adaca03952ec4d0f9954558924fc3080dfa",
+    "originals/default/metadata.json": "32004744ee6851824af214d60a47436b154c05e671cf4cdd472793bc51b46408",
+    "originals/default/original-input/request.md": "9c0a03e2931b6e50e18a51e5c54aee12c2c76bcf83e4cb7cdef143901e31cc9e",
+    "originals/default/output.md": "c4ce0a4aefc6082bf077d30be50f93765a0a035b9c4970938c407cfb3ed3de91",
+    "originals/default/prompt.txt": "aaaa1f0f7ab7dab8380bbbb9ebe02a46147471a3b501ebc502ea5d7767f8326e",
+    "originals/default/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "originals/default/workspace/input/request.md": "9c0a03e2931b6e50e18a51e5c54aee12c2c76bcf83e4cb7cdef143901e31cc9e",
+    "originals/explicit/events.jsonl": "b61a84c110ee506a66018670c048bcb35dbdf19698e27a12b105468c8efba4b3",
+    "originals/explicit/metadata.json": "b89f023e2047dbe3cc769454ade2d4d1e7476b6f575688f41a9a0acb036df32f",
+    "originals/explicit/original-input/request.md": "9c0a03e2931b6e50e18a51e5c54aee12c2c76bcf83e4cb7cdef143901e31cc9e",
+    "originals/explicit/output.md": "c4ce0a4aefc6082bf077d30be50f93765a0a035b9c4970938c407cfb3ed3de91",
+    "originals/explicit/prompt.txt": "aaaa1f0f7ab7dab8380bbbb9ebe02a46147471a3b501ebc502ea5d7767f8326e",
+    "originals/explicit/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "originals/explicit/workspace/input/request.md": "9c0a03e2931b6e50e18a51e5c54aee12c2c76bcf83e4cb7cdef143901e31cc9e",
+    "request.md": "9c0a03e2931b6e50e18a51e5c54aee12c2c76bcf83e4cb7cdef143901e31cc9e"
+  },
+  "limitations": [
+    "Synthetic fake events and fake thread IDs do not prove native TASK behavior or backend/model identity.",
+    "Tests exercise literal CLI forwarding, metadata, isolation flags, failure propagation and archival only.",
+    "Unsigned local receipts; no network, auth, planning-quality assessment or full engineering gates."
+  ]
+}

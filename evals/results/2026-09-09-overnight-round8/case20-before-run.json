@@ -1,0 +1,32 @@
+{
+  "recorded_at": "2026-09-08T18:09:15.947Z",
+  "phase": "before case20 executions and round8 instruction edit",
+  "raw_sha256": {
+    "delivery-policy.md": "4d6fd103d22eb0ea033d0a789491cc3197a8bbece70bf86bc3738419658b83b5",
+    "handoff.md": "b66a05e4a3d1f676c13168b664cdb590d77ba065db03fad213c28ca638b5f026",
+    "pilot-attempts.csv": "dd9214feafca874e8e2ab51ed61cb4b1fe6ecd6e4c083aca2e282a31c1579fa3",
+    "request.md": "c97625f3b5a17bc1fc6b3e0cce48d359fdde0e9e13028767abdeadfd63ebe39c",
+    "verification-note.md": "d013ad6a790e7d55b014e54cfb49386e60e1d9d9a078b658cb0bb65535601349"
+  },
+  "rubric_sha256": "a9a7f73c01351f1d8f669fbe6e6363ff3c141c3fb44e3bab8051203823239fed",
+  "standalone_skill_sha256": {
+    "SKILL.md": "16373b70230cad31f65d5e0304938625261a4b1676b8893ec9881fefb37380bc",
+    "agents/openai.yaml": "4e4e969c8109f589d77ea687f3a9a5eeb6af82b0abff1bce2cf6906aa7bad2f2",
+    "assets/plan-template.md": "61477776b585adb7983de9610c4eab0473638d5d99be03496419f6d5752ffe2e",
+    "references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "references/evidence-and-decisions.md": "bc6cbd01dff045f0da860cd2c774857ff912b78e123ecd1eb57bad523352b51e",
+    "references/research.md": "fa8c35903a0d421794a8356e505240f0b6e00c77c922f2b171c26e0084d53bf3",
+    "references/review.md": "493ff287afd7c1a8647d608d3d4bc4e03ac7cade622e05a16c6a929d4f33d96d",
+    "references/specification.md": "27cd4824babacc64bdc6c1a543ce2700aa454f903451622a4fcdf31025c01431"
+  },
+  "all_skills_map_sha256": "e49c9478eceaa6cd109ea2192d8bf71d4cc519b8f7d7e61bca0172356f0bb320",
+  "planned_arms": [
+    "bandit-review standalone",
+    "baseline with no PM skill"
+  ],
+  "word_cap": 600,
+  "web_search": "disabled",
+  "model": "unmodified host defaults",
+  "case_author": "grade_new_cases; not the semantic grader",
+  "limitations": "Synthetic author-designed development case, not held out. Raw fixtures and selected skill only; no rubric, diagnosis, or earlier answer is supplied. Unsigned local timestamp."
+}

@@ -1,0 +1,2253 @@
+{
+  "format": 1,
+  "purpose": "Path-only publication normalization of previously local development evidence; not a rerun or regrading.",
+  "base_commit": "f4a376e23b16f311931b4d06853a0943575e09e7",
+  "original_checkpoint": {
+    "zip": "dist/overnight-round14/bandit-0.4.0.zip",
+    "zip_sha256": "bb5e7b1b5fd67d2cbe13a592426a755862417dcc7abd65397bbfc7e7e50c5642",
+    "receipt_sha256": "8d414d19d2397a0b6c2e2a18ad16f66784623ae8c98fd3aa2a946a857ec77ac1"
+  },
+  "substitutions": [
+    {
+      "label": "personal_checkout_root",
+      "replacement": "/WORKSPACE/bandit"
+    },
+    {
+      "label": "personal_home_root",
+      "replacement": "/Users/DEVELOPER"
+    },
+    {
+      "label": "local_scratch_root",
+      "replacement": "/TEMP"
+    },
+    {
+      "label": "darwin_scratch_root",
+      "replacement": "/TEMP/SYSTEM"
+    }
+  ],
+  "copied_task_files": 1538,
+  "normalized_files": 164,
+  "files": [
+    {
+      "file": "VALIDATION.md",
+      "original_sha256": "7a045bec77f593e146b6fdd4375da8b697448eeff33088faec47c45578c50dde",
+      "published_sha256": "8296f837bf5fce3f495fa42fe6685319808be1576fc608c02d7f4ce4202707af",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-08-overnight/README.md",
+      "original_sha256": "6df37a26a4732b5b906c5779c4573c298d848e73c50416c292c5a13d645e161d",
+      "published_sha256": "5b3ae650752f701be084cd0667084a3b13c530c0a1ff2201392da9ba4249dd9c",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round10/checks/npm-pack.json",
+      "original_sha256": "7b05113b943955ec8b18a3a92e11f5d1925132154191cf76e2bb6a1d29ddb621",
+      "published_sha256": "30ff238b7699e7656db099cbd88a2842e5c3449ad885878c9206e4acd6a12226",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 2
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round10/checks/results.json",
+      "original_sha256": "fdd8f5477ad20ef275d1f151f20cf9d8a5bfa0f573bbaccf30d0580b7dd9d6d0",
+      "published_sha256": "2ca372e1bcb44d36a8a6967f1c614ad02f490332ffccd965cc19a8f60d508b42",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 14
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 14
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 6
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round10/checks/run-checks.py",
+      "original_sha256": "dd04a83b32458e26a2b62d50c44b198f7c47b6f66feb0827d6239cad72e2b722",
+      "published_sha256": "f510b7cd1d62ec42291961f95441d08b596e62c1c7446c07ef2b7bcf8fcb87d9",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 3
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round10/run-summary.json",
+      "original_sha256": "a897f477152640e0a32b1b7559400200e35a19af3c77f7077499f58e4704b22c",
+      "published_sha256": "2217f590bdfbf2423a662b072f7bea00734c623b9ed0e84dce8ab8cd808262a1",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/01-lowercase-plan-before.stdout.txt",
+      "original_sha256": "3d021d6aa01c5175559fdf1592c956445c31d436089f39d2fcdd7f4d62e99d71",
+      "published_sha256": "1dfa0730efdc16cd7db1d4975d63d6ee07f00da501adad87d499be7f77a41769",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 6
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 9
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/02-lowercase-install.stdout.txt",
+      "original_sha256": "acfa943dc98bd1d4a944083fde8fbffc27aecd6c058263acee7f652ef3a3c909",
+      "published_sha256": "58c3615122f2f22f926c268f41d49e59241a94aeb30968ad7e04dd9b7f76c168",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 6
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 9
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/03-lowercase-repeat.stdout.txt",
+      "original_sha256": "f69a59699947b2a7d7935ba4ce317fd2f08d9ee8aa11aee766cfa490b448dd1e",
+      "published_sha256": "ea15eef8a2c99fe6d97c5d12ce87fa0a716fcc271060c691678b38cb6c65b99c",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 6
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 9
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/04-lowercase-plan-after.stdout.txt",
+      "original_sha256": "c0b7353f73f500fbc0dc9512015fbdf63089689306f87465927884e8de4a7b3a",
+      "published_sha256": "6452a3b1ea193540de890b8aa04d8204b9485f006f23fbefc09700f272db4532",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 6
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 9
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/05-lowercase-text-repeat.stdout.txt",
+      "original_sha256": "1410d4febdc23c5b530ca1b8c3d41e7ff6c4939e3348351d93b28d7ed5e268ad",
+      "published_sha256": "d88e713e545af76e44b28e59bd18b4f7417f2e1b384c74923c8a1bacb3b85c80",
+      "substitutions": [
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/06-mixed-case-plan-before.stdout.txt",
+      "original_sha256": "63f24b0aa2d442153e0ea9ed5db75a128121f614d07eb1085475cd3317de1ae5",
+      "published_sha256": "a5512f8d5955ebc0fab0183bd3619e2e664b9c3f1d3e3428525e0b63f1b2801f",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 6
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 9
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/07-mixed-case-install.stdout.txt",
+      "original_sha256": "bfd472a9342670ef1b68b84d9388620a80f450f184b4ff2bf4a90ed2a9b4fd2b",
+      "published_sha256": "9089a9f576458e330e901b2953ae8963946201cf2b78e0773938bd07e9f3a73b",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 6
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 9
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/08-mixed-case-repeat.stdout.txt",
+      "original_sha256": "5f28730ee4fcac540ff5c6db4f677ec4c19969c67903dfaefee4586a6ada9ae8",
+      "published_sha256": "edd35a9c545b13b2ff1120b4ef0535115d5960b02aa4c02be0937e99368d671d",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 6
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 9
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/09-mixed-case-plan-after.stdout.txt",
+      "original_sha256": "2ef4e4511e246f2f2843a056bf790fe762da62237091a4bb4a5965b2663f48ec",
+      "published_sha256": "1a43422ab9f5c25951323c9074d2b6974ee5ee10d85d1bb9463978d19ef4ba82",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 6
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 9
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/10-mixed-case-text-repeat.stdout.txt",
+      "original_sha256": "07f8d8ce1e9aa7c72db367e8d969df2dcca50d81b7456e85a1f49c614335cf01",
+      "published_sha256": "487ccfb43d6382ed6f8f718b0ff66a8006f401bfd74e5e06ab39233c6204aece",
+      "substitutions": [
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/11-genuine-sibling-plan.stdout.txt",
+      "original_sha256": "402a98fdab14ce765e83a0d55ee02f812a38a821d70fb9378f3cd08473350e66",
+      "published_sha256": "f828c89560ea223c9d5be4035c72863cf60e1b4b6a1909a12a169ea8bad90a13",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 6
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 9
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/12-genuine-sibling-install.stdout.txt",
+      "original_sha256": "2f4a65c8c657cda9f43556ee2dea2fb54d2be2913484cae28bbe1906bbd06915",
+      "published_sha256": "af91cbeff3c359cd9cd1712844ce4ed7501be714da8ffbb4dcd9365475e4a9cf",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 6
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 9
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/after-01-lowercase-plan-before.stdout.txt",
+      "original_sha256": "7e9b07d916006a62171fed54bdbcbd88c0c4a90fe1e7b397bd1b2d78b78afd47",
+      "published_sha256": "7ad1f5ab69de4141d737ed896b2909da774bc26a66824e49408021182ed8414d",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 6
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 9
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/after-02-lowercase-install.stdout.txt",
+      "original_sha256": "eecf9b52e2ebbd7405ae377e8b2823b8dd1a64be14fa1de67d2164270aafce40",
+      "published_sha256": "0b8bfda02589920ad3d5bcbff02e5c843dbb6d32a4105dc4ded997ffbae1a045",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 6
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 9
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/after-03-lowercase-repeat.stdout.txt",
+      "original_sha256": "ec60e7fa443783ec261a2d32cd94d5ad56f4cd239744524f45fef9ff96ec6054",
+      "published_sha256": "378ae1322da29fe1ca879cddcf43b87a84fe0cc5a1dc11f5920057e4ae05ee4d",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 6
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 9
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/after-04-lowercase-plan-after.stdout.txt",
+      "original_sha256": "11f70b21f5718c350091210eb2c2aff18cf45d6d8c03ad0be707543d9e5b36e0",
+      "published_sha256": "ea74f83f7ea4b6f9eaa3abb07060acd414155bb4d81973472c2bb87a0ee7794f",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 6
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 9
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/after-05-lowercase-text-repeat.stdout.txt",
+      "original_sha256": "39ca370eb7477023e7c58bdc1ebf6e5a77a8af17cdf95fbec4b1408096c99d06",
+      "published_sha256": "680201172f3a967d84ba9222e1c3b28498558d20c1dedffcee1ef3dbb0283679",
+      "substitutions": [
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/after-06-mixed-case-plan-before.stdout.txt",
+      "original_sha256": "add9d0f483d2b2a4fcc393e559e9bd52e9fcda16f2a36cc3bfda2c01fd4c029e",
+      "published_sha256": "1a4068c89129e3fa4651563d517b7f6af88896048f8af5aa92230d5a610bf96f",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 6
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 9
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/after-07-mixed-case-install.stdout.txt",
+      "original_sha256": "5be419cf56030abb5528aafe632511200f9688b351c47a80e379522b6afd650e",
+      "published_sha256": "eea9821e7f118c47f48386036caf6c48ee47bbd47f8321c82703d15eb6e3a07f",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 6
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 9
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/after-08-mixed-case-repeat.stdout.txt",
+      "original_sha256": "7f497c3115fb674a9472cdfff78c3cd8b3e049c14abfc780e2c4d3cf720f11ee",
+      "published_sha256": "dcfe778c0193ff9d2ad23c09de1d0079dc62f4020148fa6e14d1f8f7ab27e817",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 6
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 9
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/after-09-mixed-case-plan-after.stdout.txt",
+      "original_sha256": "ca98ccc4e0199712614c63a29234ef253152d8c2dee5c11f09607bd266f72c07",
+      "published_sha256": "e9033f8208496d1954495e85b7daeb5cfcc43a2768227bbf794185780c448a1c",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 6
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 9
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/after-10-mixed-case-text-repeat.stdout.txt",
+      "original_sha256": "00214da1b210653a417588f575046910cc7de5df4ce8602d8f930a927fe0a280",
+      "published_sha256": "055715ec58dbebe03213910471ec49649e84979ac9b12af27cf4559b93428e62",
+      "substitutions": [
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/after-11-genuine-sibling-plan.stdout.txt",
+      "original_sha256": "95deb41f109f29b057469ac23c2ad7ad93402389bb3ed97efb1f591d735b3dd2",
+      "published_sha256": "6fd61d8efb522f9e8ddd5ca29abdbfb587a35946b98f618950f1b5bcf907d12e",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 6
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 9
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/after-12-genuine-sibling-install.stdout.txt",
+      "original_sha256": "8e2fcb83864c1deabc5ef464b66457ad0ec1968270cffcb9970cb29c6d4d3e7d",
+      "published_sha256": "37a7cd10e61269c951c35d1702804b0c57ad2966754040f8624e5d4e836a3fe3",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 6
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 9
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/legacy-note-after-results.json",
+      "original_sha256": "ecd0eecd369960a2c713c36115a1431fdd9e9cbd136e89af5cf8655f7e89a285",
+      "published_sha256": "b2f3dbeab0de35b0d0363b4e46dfa73305245b6cd7bd14c4893ad89be2af31c5",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 73
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 13
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 120
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/legacy-note-before-results.json",
+      "original_sha256": "4f6a8c35aa2378279dfc7cb166d0163712d4fb582ce9bc3c45cb97a5182ee3c5",
+      "published_sha256": "4c168ee56e89e1503a51352838f02207a721faa6ef93c1db7277792b3f14aaf7",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 73
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 13
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 120
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/legacy-note-before.md",
+      "original_sha256": "8a03ccdf6700837db585c096becdcc9d3d9c684f45e915759df51a9d494cfc1a",
+      "published_sha256": "0621d62555e579e2c598d96fd0173414564941953e37a9f21e1fd829f08d3283",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 1
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/legacy-note-regression.md",
+      "original_sha256": "80674920a1cec7dc66307080668678b443eda663fa8a1d49a11b8b52f14634e7",
+      "published_sha256": "5e0dd6c1b603e42dcbc7c844c73f4f38cd621de6b3cc5d7adbcbd871ca9d4471",
+      "substitutions": [
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/legacy-note-targeted-after-results.json",
+      "original_sha256": "f9f10cccf33295827a1d5953b9d3a6901102d718748abf5d20d0a2203072b100",
+      "published_sha256": "f753adf6ff4e9e85d3ca7a7090b1b2b5cb407838fc74ed707655f9be5626bc7a",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/legacy-note-targeted-before-results.json",
+      "original_sha256": "680ac23349295539fd90897233c3f0df83e72cf2cf517b711a371a196c3b0872",
+      "published_sha256": "393f29d3217600056065650fcc04a51f994aa9312fecd6a346c88f8062424ac3",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/legacy-note-targeted-before.stdout.txt",
+      "original_sha256": "a4a47401f077044c734352e8a0601f8e3bea1cfc97c543a278c3e141bf8e66c8",
+      "published_sha256": "9c396f601957530e564d529fca1202f170ba21b7a1da2349cf69baf5a8d718d3",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/npm-pack.json",
+      "original_sha256": "6c3da838aed369c7c95dc6e38df17bbacb3195bfe7707b9c863f1f85b5e40e7f",
+      "published_sha256": "0a84ae2e55c1d6daf58dee682cac98ddecdcb4cc3e6d69300cbce27eb2f23849",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 2
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/results.json",
+      "original_sha256": "3dd6a16c584373d1ec34094beae7d4e2c7cccaf99f33e5e92fd4b1fb0842110b",
+      "published_sha256": "e3a0b4ed0f28fc1441bf5fb757c296944c5df1ba0ccbaa2f4652fbdd8934b2a6",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 14
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 14
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 6
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round11/checks/run-checks.py",
+      "original_sha256": "22d154997b128e257ab1155a2a4e233a3b845c979d8702514db185203d1e93d9",
+      "published_sha256": "4d48180645dfe88d066b7110c7bb802fe9022d33c0b7e33f419d98e0cfe4e9ac",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 3
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-correction.json",
+      "original_sha256": "36169d550503fe8a934ed8bd40585bd131d2f38d2a6ec74a224e6209f5bf03d5",
+      "published_sha256": "1a090650e48b2376d4e83b2bc6c783007b2dffb5ac5ef1594bedda061f5ae1bf",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-correction.md",
+      "original_sha256": "ae00fb5a7107dcb8583695fa131733a0efaf88014420a61262ee18112a9dc722",
+      "published_sha256": "e9ba190e2a40c986c8f3ac59ecd38538c736392594b14ed3fba76828e3408fc1",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-evidence/commands/archive-child-failure.stdout.txt",
+      "original_sha256": "ae8ae8bea18d2097037ac6eca938ff01527ee0379e288f838f390c602ed13c51",
+      "published_sha256": "76a8b06bba5efa8014c21070fe091ecc93cde8bd867bb3852294538a68b119f9",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-evidence/commands/archive-default.stdout.txt",
+      "original_sha256": "20eddf17253eea4bbfd1ad2388f611bb1b81a1199425e6faeaf1208cac5c819b",
+      "published_sha256": "d0e76b12990de0233829fc60fae14537cd64e28d6b7b61469b21483b95d9156f",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-evidence/commands/archive-explicit.stdout.txt",
+      "original_sha256": "01e1017decc97643ec4dbd3015856a6acffd1108e1ad82b8ef568536fa072f16",
+      "published_sha256": "8caf71b37089fcb1b1730826ecf3ec64cfcee35ad98cfc236fee8c56c6c14c48",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-evidence/commands/runner-child-failure.stdout.txt",
+      "original_sha256": "74a74f0152a00adc3e4a1d779e7e37e7ad9a2fc4fad7447adab0749102613023",
+      "published_sha256": "6b9261237f93a35da7cbb1b52dacd4ab51b80ebbda41683e4b5bff288f26aec2",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-evidence/commands/runner-default.stdout.txt",
+      "original_sha256": "d07408ff76b0a990b654ae050d7b880c2e89755a59cde54ae0b16ca795e08076",
+      "published_sha256": "892f45e69397967747cab672d5543d74bd63e6185ab0224f54666d7007c21307",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-evidence/commands/runner-explicit.stdout.txt",
+      "original_sha256": "86c1fde48b903b48c7cede188fc85bcb721322ee35d04bb6261abb98da7c0fc8",
+      "published_sha256": "12304b1adf50332ca45d90f1e774a108e8c6403e0698e940842a01325e76afb7",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-evidence/fake-codex.py",
+      "original_sha256": "6e42c954aca7029c4a4ac601008fd9c21e13b22758892e1ebbbf7710558ced64",
+      "published_sha256": "1943447f5d60c5a2005a1336a5750c1279a3f78b357eb82b91f602a8e6ff8e4e",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-evidence/fake-invocations/fake-child-failure-exec/invocation.json",
+      "original_sha256": "9da020a4af5f77ebfb5f67a291c694f76a54bc34b99edbcb55bdcb8cc10daf7e",
+      "published_sha256": "2b228cd85108bf9b4835f7603958fb928024e14c73b4fb3c888a7d00b4ba9c16",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-evidence/fake-invocations/fake-child-failure-version/invocation.json",
+      "original_sha256": "e3c84c8d090765a843d5d06cbf6f90d2e5d5c88a95338d0e0421df983cf50f9f",
+      "published_sha256": "cb374d9d3f0aa8cb733ae64db414d464b2935ccd9c88376152e5b336935accda",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-evidence/fake-invocations/fake-default-exec/invocation.json",
+      "original_sha256": "3d967f9a3ef017b5a7a5bc5fa181834957187b00c26d93f57cd272821f8c6e04",
+      "published_sha256": "e541896326379ad2cf3641b0bd02712853f8d81e5979dc0f6e268f5d97604416",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-evidence/fake-invocations/fake-default-version/invocation.json",
+      "original_sha256": "021d720313c3a2b52767fa7fbd2fb52e5773d09a79caf81247e8917993850f02",
+      "published_sha256": "c1b34c12265b281852c9ab36981eb4da31c89cb5f701301441485019acc42a7f",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-evidence/fake-invocations/fake-explicit-exec/invocation.json",
+      "original_sha256": "ea1adf1d44ec06b4e2c320fddf2936a51b0885672cd6b3dcb098187744398f74",
+      "published_sha256": "d1f1cc3a90d6f44289610a13bc599d19c57638b3eab02a0513cdf07600efb1cc",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-evidence/fake-invocations/fake-explicit-version/invocation.json",
+      "original_sha256": "44273f58631bca7f77f3c7b5bd02a9d75a832214989e25ce2b848f8e14074df2",
+      "published_sha256": "e740893ded097f0ac369c168993b552bbf0b640303a9c66ff94c930a980ee5bd",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-evidence/originals/child-failure/metadata.json",
+      "original_sha256": "673abaf9ff25b48a74a2c338b4673fdb388cef52d9fe12ef855601feadabd89d",
+      "published_sha256": "7eb61c0de9ea3a496cb5820aa82b23ea7b8aa84d89a82f7563c39f6d5149b70a",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-evidence/originals/default/metadata.json",
+      "original_sha256": "32004744ee6851824af214d60a47436b154c05e671cf4cdd472793bc51b46408",
+      "published_sha256": "9b1afe330f29326f9e33918446a28be8796541dff05d94622e345306ea631cc0",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-evidence/originals/explicit/metadata.json",
+      "original_sha256": "b89f023e2047dbe3cc769454ade2d4d1e7476b6f575688f41a9a0acb036df32f",
+      "published_sha256": "c6d65ab6fcab54e2369bd94c92557683375f334873c2f1f577a00135f5e7bbc0",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-results.json",
+      "original_sha256": "3cf0831a086a840576ed89a8a47b577d68081e8571e92aef82a996c555a7486c",
+      "published_sha256": "0641df4e6998bcce3c0c4da8c86dc5bda90f6a4e17460ff844cbd7d735909d02",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 23
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 11
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 22
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-v2-evidence/commands/archive-child-failure.stdout.txt",
+      "original_sha256": "a5edcfdcb6200546c11b6e21945671d6e4cb520d1813f59c53a8588bfd28ee79",
+      "published_sha256": "d9ccb38b5d25ecb80f4e54a680f4cf5c6805d028af972a37c404de0271df366c",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-v2-evidence/commands/archive-default.stdout.txt",
+      "original_sha256": "25aa7fa306c87ef275bf7b61c2b7a42e1420e93a55ba3f810be8297e2741f32b",
+      "published_sha256": "413c45149251fe82ecb55c7da9e7ac4b75c3433307323f5170bb3779720bc3ba",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-v2-evidence/commands/archive-explicit.stdout.txt",
+      "original_sha256": "1f5493e9a98771583ea33c9e9ceef35ede62c1c99be133696db1cf0ffd055bdb",
+      "published_sha256": "bf981e1c3a3cbcdaa24d9edad38f2bb1e229223990c5a432af15b01f316d7623",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-v2-evidence/commands/runner-child-failure.stdout.txt",
+      "original_sha256": "d7c18f3aad4a4b992a9944c12c849c3213cd73e762a344980268b10abd1dc642",
+      "published_sha256": "0dba7f0fab557f22a571015ab5c6367377d9cb3c5248e299475558dbe9e2e47c",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-v2-evidence/commands/runner-default.stdout.txt",
+      "original_sha256": "830f50cc322b549ede9bc62c5a2b557b8b5bbf9aae7254d776cd6f5d396a9496",
+      "published_sha256": "23c3f1344cb5b0833035537f4110209c4ce8747678af65c3c447ff5d2490494f",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-v2-evidence/commands/runner-explicit.stdout.txt",
+      "original_sha256": "493faab19e859c68c4237d9eecb0bfdf6091c9bd9aa0baca82719f2e7302146f",
+      "published_sha256": "036ec4afa57a7036278fe869fa6ccaab71055b1f9349115d09432e24f35185d4",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-v2-evidence/fake-codex.py",
+      "original_sha256": "6e42c954aca7029c4a4ac601008fd9c21e13b22758892e1ebbbf7710558ced64",
+      "published_sha256": "1943447f5d60c5a2005a1336a5750c1279a3f78b357eb82b91f602a8e6ff8e4e",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-v2-evidence/fake-invocations/fake-child-failure-exec/invocation.json",
+      "original_sha256": "9aacb62b0c7c418cf283815cb393b0b685371c9564a252e1b1080f497235b221",
+      "published_sha256": "816c559c91215e174283a24d74cb6f16c28e60ca3efbf1055f6c78b444093892",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-v2-evidence/fake-invocations/fake-child-failure-version/invocation.json",
+      "original_sha256": "4b4478c663023af54293fe0c6b0754fdbe2d4bd4600b88fe4b77139c207384ba",
+      "published_sha256": "63690e296a60bffe555047d4a14bb250a8930e4cfa9ef282ab34150df31669ca",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-v2-evidence/fake-invocations/fake-default-exec/invocation.json",
+      "original_sha256": "83d88e8da02f56364c04ae6b23502ebcb4c1115e48cb75b0a362676ee841473e",
+      "published_sha256": "5314381aab571bfcf9b70ee8dddb8253a95db41f34a80b9fc3af5615835e2ede",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-v2-evidence/fake-invocations/fake-default-version/invocation.json",
+      "original_sha256": "d803b113bacbd7dffef6aadda4faf5757007f7dcfbad1cfbc087280550977477",
+      "published_sha256": "4557fd3d23a8c17a1ff530a8a52eb5bdd087052c03b0828cd5793c42d44b246e",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-v2-evidence/fake-invocations/fake-explicit-exec/invocation.json",
+      "original_sha256": "c166c10a4d595475895047205801a00721fea3de2b5a5ec0096d30d2a565602f",
+      "published_sha256": "dee1b9392a91aefccf1b46f4381255b645bdb124f697a939411e7c92c0f7f5d5",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-v2-evidence/fake-invocations/fake-explicit-version/invocation.json",
+      "original_sha256": "48e0045783716eda722e7358b41dfc72b487d762045ed0189ea3bb860919cf9a",
+      "published_sha256": "ef67c8f049d830756265c5d3fd990746de3115cd37bcdf1d07cf4ee40799ea89",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-v2-evidence/originals/child-failure/metadata.json",
+      "original_sha256": "5ba5ac3c2ace219e208458c9176d8560ada1c53f32075ee51af30c06af6ea6fd",
+      "published_sha256": "9cd2a4269b92702ca9c469dbdf213ad9c7ddee8e7a729fd5e84666a8533b8917",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-v2-evidence/originals/default/metadata.json",
+      "original_sha256": "e8e7bf5ab734d1bf79cbc2f6efe89a2acbe93f6a0e1d374c244b17c1964dc557",
+      "published_sha256": "8d220c50c5c21e1920fe2d3da6cda6cacfcb080461994eed554ef497273e007c",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-v2-evidence/originals/explicit/metadata.json",
+      "original_sha256": "9e9801571c03023f1c6d9428e8b8fccdce62871b7639a3b2c80a29fb1c771ebb",
+      "published_sha256": "e64a413a4a4ceac3979a6fcadcfc0b83aad0ed2bcf183bfa42e4587d01a8e91e",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-v2-results.json",
+      "original_sha256": "a5728acc726a9bd07480c04ec14bde7ca8cd15418ecd26aee559e851087e1e58",
+      "published_sha256": "f45e003b071bef5e0aced3acfc660361a1f06e4327a1f20bd21ead7fff3debc7",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 23
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 11
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 22
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke-v2.py",
+      "original_sha256": "6f629044d298a0f380624d0ba1235faa3c113267703679615d5fb7731d8e5ea2",
+      "published_sha256": "e315787c370c6742f5bf9640f978bbfd6dd711b33d8643a09ac3f322fdb313a8",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 2
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-cli-smoke.py",
+      "original_sha256": "a2540c6bbed61a120931c299a0d3903e7bb45b93a718ce0c237c7f9cdf34fe20",
+      "published_sha256": "5a6d6fe70d8e7228ce9da5ba97d39130d2d8b1a4628e03f6e35fec17b433a778",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 2
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-tests-after.json",
+      "original_sha256": "a2c5b88da9c12aa896c731301138c17fc921cc437ad7cea2c5466b23be30b973",
+      "published_sha256": "5eb4edc6fa2124ba4b119c9438e093165d52b71fe0c91aee0aeffdc8f72c2aaf",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-tests-before.json",
+      "original_sha256": "c638f4b88416655e601341471f20da1991346de01d9f5caba09cb3798fb43343",
+      "published_sha256": "1ef35c2e8f3d050a1bbad92b60a286f64cf68f5d1531128aecc7acfda973339c",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-tests-before.md",
+      "original_sha256": "0c6afce30ff20322cdd345af385f829930c10d5cc6a8fa56a59509a30758d9ed",
+      "published_sha256": "947a0e0585d05ac184f56754c140ecafc8263c9f8d817fd090900cc7f4849917",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/model-tests-before.stderr.txt",
+      "original_sha256": "deedf65ac3cf4b5ed3e2b9f92327a860224f8393b4937c3a4a5225c92d3e3102",
+      "published_sha256": "5f7264be0b78198b242c31aa3cc8ba2639a010766922fb447314829f3a664110",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 33
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 5
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 4
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/npm-pack.json",
+      "original_sha256": "d24b0eead5b9f8f4716ec91da03287d55c637e23b444f96c42dd7448f2375b33",
+      "published_sha256": "9220b6d1c59c737eec0fb94ae85a2e9551b6fb27440796159479845f84e1d514",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 2
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/results.json",
+      "original_sha256": "a19710c82fe592c09d36c0bcc34719096fef0e809e785e546ca48ba9ada2a2a1",
+      "published_sha256": "9c0db27ba6f734f039e091f9b03c9f38dd627b739bb95495a96b303cef1cc6c9",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 14
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 14
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 6
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round12/checks/run-checks.py",
+      "original_sha256": "a8263ac6eef98f4cc60778e8a7f4e63e8e3669e245324701d13c036a2f36bd6f",
+      "published_sha256": "5eb6c0048517c2127fcd3cfa42c1bf403f6b5b6e07795058652307e071b78c88",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 3
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round13/checks/npm-pack.json",
+      "original_sha256": "571bb013e71051d6e34d12544c2e0f0a42565f6dd48606501697c9ea07334f19",
+      "published_sha256": "8b47b31fe810a996ce7dfcd9dface4b4d67b6f2295b2321139c7fb16179a9167",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 2
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round13/checks/results.json",
+      "original_sha256": "d1d11d06a4ad4ca8dbe1c3ddf75310dcc219dc14e92533e1127be2e75807fb82",
+      "published_sha256": "86261447ebfabd5f53a5f2de91c6d85d7e1730f1b3327c29d5427b46bf887db5",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 14
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 14
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 6
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round13/checks/run-checks.py",
+      "original_sha256": "a8263ac6eef98f4cc60778e8a7f4e63e8e3669e245324701d13c036a2f36bd6f",
+      "published_sha256": "5eb6c0048517c2127fcd3cfa42c1bf403f6b5b6e07795058652307e071b78c88",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 3
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round13/run-summary.json",
+      "original_sha256": "13d0b8a7fa18d35b6f2d40ce54d9479510e5e0b564efad292e9180374af9dc57",
+      "published_sha256": "e91f4654ec700474ed81f25fd0525ff62d693777eb003a9d9e65f2f7fa62a7a7",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 3
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/logs/01-runtime.json",
+      "original_sha256": "6c1c662004eb5955d43ca4041f41650af2ef9c50a6f59371416ba65d3e0beaa7",
+      "published_sha256": "e83ee05cae77dd1586d26a5e21f4288293b026c14bd9e953a7376bacffb8a0b0",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 4
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/logs/02-default-plan.json",
+      "original_sha256": "4a609c775ba266f479d91dd6e90afd6d882583b2a64606092d49a29578d6a874",
+      "published_sha256": "561eaee1de9af8561d622f255d62b9f2734e4ade08bad85409952a2becaf5054",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 18
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/logs/03-default-install.json",
+      "original_sha256": "17e6bd1b528847d7223df14191e511bdf90513fc5eac70ad8547c9fcdaed63ee",
+      "published_sha256": "68d45ddbf4c40dc6a4295d8e638bc1dc3a5310bc1151f366edc72a96842829a8",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 18
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/logs/04-default-repeat.json",
+      "original_sha256": "f91d0d7ac92d168171bf28c5b8dc18397231e943b4c0e1df7d07550c477d5a8d",
+      "published_sha256": "48bece43df082253feee852db5c91c98ccf8509f0afa8ea3a0fce4d9f1afefe4",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 18
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/logs/05-lowercase-install.json",
+      "original_sha256": "b03710ecda507c3cbf88e8671f2adf205aa55c0afab28ad9546c9c9a026da3bc",
+      "published_sha256": "48ed309bc8d6a8e33e1346068e516fd7cdbcee7c6d3ec3abb1a463f2910b1d07",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 19
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/logs/06-lowercase-repeat.json",
+      "original_sha256": "8281b73923108e2f87089b618c434759361ca977780867a3d41b27f9b3d25487",
+      "published_sha256": "6e80871473c802f6427658e639aeb5248bc981346e076499924d0474a32a2caa",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 5
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/logs/07-lowercase-plan.json",
+      "original_sha256": "cb36d8a57262e14d744ccc38a81db8cde92ddc8c8b081200d86866412bb8fcdf",
+      "published_sha256": "647785fb9aced8a50f7dfcd6bab78223b15cf469e9661772bc4d85c16ce66016",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 19
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/logs/08-mixed-case-install.json",
+      "original_sha256": "e5b9b061cf47e88982f05bb8bade00135841e52e4e0539c355334246e3ea3a0e",
+      "published_sha256": "6727234b9b5bec4f459a35f97962ce16ebcf0cbf3c2c684f25d18be127999395",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 19
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/logs/09-mixed-case-repeat.json",
+      "original_sha256": "15e2300ef751bb1befc20fc726fac4046815840f7b6aa50c8f1b22bb1cc3aabb",
+      "published_sha256": "47312a1fb269ed72e82b1a3b22f3f946efe9b76145dca38b286ded11317c034b",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 5
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/logs/10-mixed-case-plan.json",
+      "original_sha256": "9de584ee090c886965a6b4ad3e8eac3065feacda5dde8bb315ac179f498bd205",
+      "published_sha256": "31b36ac45726464c173fcaa95192c973ec4ba3a14d7b417a1b974c1f2300c9b3",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 19
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/logs/11-sibling-plan.json",
+      "original_sha256": "9c946f29ef5ff471481d7d91a7650bfd0bba73b90ec1c88c3c7a263e9df00391",
+      "published_sha256": "035273c4ec2290550e85a96da4642a78d1bae9ce897718de9af5df30c77d79dc",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 19
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/logs/12-sibling-install.json",
+      "original_sha256": "63c9950e450790190f6a5444d08857db0e091e89c9b73ab48863a225631e3cfc",
+      "published_sha256": "1a5c254a204b14e7d1af7e733095757d348bbb09e9b16c94a63e13ac6da84993",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 19
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/logs/13-old-clean-install.json",
+      "original_sha256": "de48b21d69bdf5e07875063c4f8a203cacff2ee82099b8ee3fef0a4949242e40",
+      "published_sha256": "068f9df340d5df0183d3dc855b76a73ec18feb6fd8503b0fbc423c63586c094f",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 18
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/logs/14-migration-plan.json",
+      "original_sha256": "6a41207d6c854321565fe26eeafff5aadf5d84d5026bd2a814b251b9ff60274c",
+      "published_sha256": "2204f4fac6350965f69ad7059aee14c59b582ffd7f10ea4e80fe5d9d7be68bf4",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 18
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/logs/15-migration-install.json",
+      "original_sha256": "ba3a186cf77a65bd78bc8a0f6c866057def569ce2bc891b56b3b878abb6fbe83",
+      "published_sha256": "c3c955172f87724bdf87da2fe3248272a1a9d6b40b55fe74507e7bf775bc05c5",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 18
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/logs/16-migration-repeat.json",
+      "original_sha256": "2824f64f016310c242eac97ab56e844a2e6a23f6982d544ed529340f00c51801",
+      "published_sha256": "053b26d0cc5917ee7a14fba300f44b79ea254172b43d1deee3fbcad498cd4bdd",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 18
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/logs/17-old-customized-install.json",
+      "original_sha256": "bd8bfba34a32900fb12adc0e2c954c6d223d68bc233987dc4263a4290602c589",
+      "published_sha256": "c96cb0e5ac716f489cfbc1b4348e4a58681a0ff9f8ff0a039b7330b6f40235cf",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 18
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/logs/18-conflict-plan.json",
+      "original_sha256": "0236dd64538e959ccb6728cb945d81d58a1cee707a41d6cb7a362822f8423b54",
+      "published_sha256": "c010e1e8f5e7c8aba68a1d8b6cd11cc7f5281fd4e62a658fd3618fa37798d6eb",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 3
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/logs/19-conflict-install.json",
+      "original_sha256": "b3e978de40fedfbc476261e6dc6b6d63924eb481e356ccc56114aa7c1a7f0374",
+      "published_sha256": "0bad999b00791c13e127168c4bebf232615b70b3970d9814b2815b9dcbcb1e8f",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 3
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/result.json",
+      "original_sha256": "6169e65786485f50cc8446bef9adc2e45cd059b624b310efb042cda16221268f",
+      "published_sha256": "2bd1f1067350ba0c536fe11e8e23f2bfaa699d1f10e8c34db9854d2a7964220d",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 11
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/attempt1/sources.json",
+      "original_sha256": "c9836809e6f6f869df2f4a182a8ab05cdedda4a26206755d222f1e92ac082797",
+      "published_sha256": "5414c491d663c19fe9458a6c33a8b3219faaff5f3efd5661039cc2be15ae421b",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 2
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 6
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/before-run.json",
+      "original_sha256": "3597b863c473d39e3f80b395a6999f9f8f17d451190506eaaec58c56e47feccf",
+      "published_sha256": "5f7085d31f905dc306ab7ae7c96a04ac54792b01f5ffbd55b6fd20707d533ba1",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 3
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/integration-audit.md",
+      "original_sha256": "6318e239bd5d538f0d966ae63f22475aa20a56af80ecadfe17e099e0a882faae",
+      "published_sha256": "e010a46848e9f87eca08279ae193c6ae63f13b0d052088d9c5d7fc206604dd2b",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/npm-pack.json",
+      "original_sha256": "e70e85563233eace4dba2a361920709d378f9f046067d0922e8b5db993a63ce4",
+      "published_sha256": "4171604fcec46e2d216fb5eaf135c8ef42b4932549aaf2387ade1cd4f5c7da63",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 2
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/offline-npx-flow.mjs",
+      "original_sha256": "1e2a5e332a4b5a76173f530857de1645fe8f522bbe953a49a961ea346ee1bb97",
+      "published_sha256": "fc57b5594ac11db5190822dff56a6ead40a97fb98334b79387fae7b8e23b71b0",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/results.json",
+      "original_sha256": "920e8f999e93d8da69ee0bbaef4a7b16b3f894e4c3b16f7a0605fb278c14d94e",
+      "published_sha256": "23fcf97e363237238d955cca5a5218b6d649117ed03184644d53b930f6dea271",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 14
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 14
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 6
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round14/checks/run-checks.py",
+      "original_sha256": "a8263ac6eef98f4cc60778e8a7f4e63e8e3669e245324701d13c036a2f36bd6f",
+      "published_sha256": "5eb6c0048517c2127fcd3cfa42c1bf403f6b5b6e07795058652307e071b78c88",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 3
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round5/checks/discovery-paths.md",
+      "original_sha256": "2e8233887367124a942bf2875241b76d977bdcbf035eb81bb3ae460ec125e580",
+      "published_sha256": "29fb78dec2c235cf29b5c13ba9ae94a13a3aac2134f72ea4f7914fed5b3a6b02",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round5/checks/lock-cleanup-after.md",
+      "original_sha256": "62f7ac07b4ac9d62e9f9de1993e4fe9ff7455973668466b6e6413abf7cc4d122",
+      "published_sha256": "0ada0fe7ac552c2aea713fef51ea7ca034fb0c584502db8ad1b9df8add05f623",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round5/run-summary.json",
+      "original_sha256": "abf9cd2282f3b854ad245ee6d85175ee9fb42bd7316789ef8ab845b8102fa499",
+      "published_sha256": "dac111f21001b15c5058f8430fab6de1b65d5c4df74b1bd546ee456aaab3584a",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round6/README.md",
+      "original_sha256": "c298f75cc1b458198c9c361ee003325c35cd06151f6094e5288b85768e2eae1e",
+      "published_sha256": "2ef89c1b5f82365974cbbd7c53396c3deff572f91ecdae4480b7e4f03b49a5ff",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round6/checks/before-node.txt",
+      "original_sha256": "8a0b93412329663d4203c9e024c734ae5783cece8f4bb3fcd4a99227c8cb6abc",
+      "published_sha256": "9e596b8e783f7b4053d3008a36e06a7a4166bdbf2c874de74068440c53d6149a",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 4
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round6/checks/before-python.txt",
+      "original_sha256": "5699796cfd4eaed91e612ec7f63236f9e9df9e50aa4e9d6be040be027f1ecee3",
+      "published_sha256": "0f00b6892200a1a736fbe4237d7428ecf039086124cb4da47090f02a05ebe04a",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round6/checks/before.md",
+      "original_sha256": "47c9eb5e994661b90170f4a0216eaa1bc55b9cda2807f4221771f2e86b52e659",
+      "published_sha256": "c075828e32737003372e653fc35147c9138bcf9c80a71ba3fbef685a22d57d37",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round6/checks/packaging.md",
+      "original_sha256": "ebf36a34118a6bc2e77bcdd00ee34a473e7c3ae85ca1c341d96b719a9fbfe7e1",
+      "published_sha256": "b39da4968b073845d6af5039753e4f1bcfa78abd22f758326c3d47771c07015b",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 2
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round7/checks/README.md",
+      "original_sha256": "d4d68142f6ded9d7c73b7d5f665e40aed7a28a0f1bfa41ac1fa926c593902e4c",
+      "published_sha256": "72d0efc1688b4f74a1a7584b14b72869a74dffd92f577eefade1de124e5ca057",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 3
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 3
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round7/run-summary.json",
+      "original_sha256": "480e4204f1cde4fce22913a3dd48f26eaaa1f7d2285d2117461260dcc6affacd",
+      "published_sha256": "93913214e13271856d953760a401d01084a79c46ec2297da843b2248f8038095",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round8/checks/README.md",
+      "original_sha256": "8c9584c6e0fc8e1fcca6eb41073681f26f743a197421b08bf5e20b574f2cb608",
+      "published_sha256": "402cc91c8d06a0c016a7e5cd797a7a8ae4c01f23fd4b540529c1115240846e6f",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 3
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 3
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round8/checks/full-python.txt",
+      "original_sha256": "f720ac93eb1d982b6d86f40abbba850ffe1a53cb05d96736df01f6836104a81d",
+      "published_sha256": "7e7ad222f9435b69ba559def349a07768b3771fedaedaaa76d910644663f1023",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round8/checks/pack-check-zip.json",
+      "original_sha256": "7cc425ae9fb6e0456ab983d429365cbb01df196c88255ca728bc8e8d784b07b8",
+      "published_sha256": "f7e338040be1e178a222f6dc40f4b9cb98b3a1acacce77070d3c69a594014fed",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 3
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round8/checks/validation.txt",
+      "original_sha256": "402b8595b509f99557368864c4404daa414c42154a765c1dd4420bf8b9e0604a",
+      "published_sha256": "17d2b495a9eab3851a4f676a3c1cf4b0c017eec6a5e8839f8d749dad537def3b",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 2
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round8/run-summary.json",
+      "original_sha256": "6258600e9556f1a52708f8fd9d939508b54d16bf54d56116a57d09844fcee49c",
+      "published_sha256": "d7d6eeb1d336189ca5706c19e799f2ee9026aa162eb92c0c9d84a1e389122cb7",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/archive-provenance.json",
+      "original_sha256": "f3d464871606f93d3df09a743934ebf02cc64f7d7408f8cda697df0e730f85ac",
+      "published_sha256": "905f1bad5c0b9ab3fc84f4cc3e1a2997b27c305a6e67eac70540ee6bd5f3d75c",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 37
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/attempt1/failure.json",
+      "original_sha256": "3907f27004b2e38b9dfd8db8ceceffe75c215cdea2273285e2e299e1e7cb3056",
+      "published_sha256": "9ed4606ab4de559e937ddf0f7357bb5888f0c2b8db898cc43f2516cb7cac0763",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 4
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/attempt1/logs/01-runtime.json",
+      "original_sha256": "44cadb8d7eba2ace54295dbc5db1a6b2a677fdbc4a61a91fe7012743f4821e35",
+      "published_sha256": "ca506137cb02ba98833a5f93d90aafd4f44f1538c28aa2bb762ec557e54a7afe",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 4
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/attempt1/logs/02-public-install.json",
+      "original_sha256": "036b4114f33b6c38c115365c96e9541449761cba79da8248e6e038e5bf891368",
+      "published_sha256": "6e8902fdb1e02c2e9cdd00dd5c46dd33a44eec15f1c9042f64bef619aee3fac6",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 3
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/attempt1/logs/03-public-repeat.json",
+      "original_sha256": "897966e9c1bfdb050b96e3996654d8e8054c841dc07c7823ec0aea18f87d8f8c",
+      "published_sha256": "2ae7dead4ea109b0f10ce1ff49f4260cfadd490d43f1967f88e00e0defc7958e",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 17
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/attempt1/logs/04-candidate-preview.json",
+      "original_sha256": "d254df9c70d11fa0b6ff9f8248e51ccf8c9dbed600275ce8b2a4dbf0a184c0e3",
+      "published_sha256": "11792647b32e65d8101166ca5076e06f6394962978d569823e92b478e0a22f9b",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 2
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/attempt1/sources.json",
+      "original_sha256": "439d58a7a44267377ee1cea7e960ea78982b051f7e0266ed2cb448ca11d8aafd",
+      "published_sha256": "11dd2b1e927739d2c0c084e23b0c97a00398dc177245b93283243ff9b06d2f6f",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/attempt2/logs/01-runtime.json",
+      "original_sha256": "d6f42dcd7ba24dc799db587109e7464205cffeaba944c45e09e7e592a41e3434",
+      "published_sha256": "17b2141b0b8e6a0e136ea441ced4dfa1fef72d2d0d4caa26bc51616c995aeb64",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 4
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/attempt2/logs/02-public-install.json",
+      "original_sha256": "8c83af255364a962e7e589cbdc0bcd3448b21a5a88309aaf3364105fcc1900c8",
+      "published_sha256": "53ad46b158d5a01ba40e5602d9a5daafb9087333987f2e5be9625584ffe24322",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 3
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/attempt2/logs/03-public-repeat.json",
+      "original_sha256": "2de4b54e607a9ada7727c2a2510f5aa38efd5a691daa0cb784013a1ba0a2af24",
+      "published_sha256": "a4011ddd207f97d797ac522a8b060d8ae13eba26b616e5d0feeb76aea1f8f34b",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 17
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/attempt2/logs/04-candidate-preview.json",
+      "original_sha256": "03d40dd4674836f7078b95edb97a3c23030c160caafa64ed81d8e1103318dd3a",
+      "published_sha256": "a5a8a11ed5675725bdba38f1d9e6ce19d4c9f34f2e3ca57ad61d817ea462ab15",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 17
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/attempt2/logs/05-candidate-install.json",
+      "original_sha256": "a284beede8b601960bccb53c0a5e925e49448c51b3c50886ffbf76e56974952a",
+      "published_sha256": "8748e6cf80ca2f1fd88bddc6eaf09ee5c904ced3d4ccfeae78c3018371a3d057",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 17
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/attempt2/logs/06-candidate-repeat.json",
+      "original_sha256": "d96821de476c297dd7c2fce6d4068751fa379de19f7aaee1b65109ac37fd0dd0",
+      "published_sha256": "6f14572c18fd382bcd6f2b258b94a577fc1d4cc4db7bd85f467b2961571a372e",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 17
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/attempt2/logs/07-old-clean-install.json",
+      "original_sha256": "a9880c9b68c96ed7f3d0e307fd0eb2331675accd762c81bb0b68bec7d6db90ce",
+      "published_sha256": "075e17e757029c328114f83ba7e221c0d7042f24273c25f62b09b98016ce5777",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 17
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/attempt2/logs/08-migration-preview.json",
+      "original_sha256": "dd7a374d3e33f36d35199e67a42ccc212fbf9c53ab01b2276ebf4ebe76bd3012",
+      "published_sha256": "3400a6297f30a448f16a480eb9b20b32f2443fbc9ff51d52de918b82a1b3f710",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 17
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/attempt2/logs/09-migration-install.json",
+      "original_sha256": "d505c4192c88b57c2e35c74af0709f96e58d3a9021b02072b7899b63d01bffd6",
+      "published_sha256": "89a4623d3f31b86aa935ea561391f466fb3a542cf7d722f68fd626d4996c0d6b",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 17
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/attempt2/logs/10-migration-repeat.json",
+      "original_sha256": "cfed5d1aa4b37c6988cccd5694be9eadec1b620232194dea6fb06b234ef37855",
+      "published_sha256": "1767fb6a0f844fd9c097ef4523c53fc6712b9a13cc4086cc9537e687d5e47023",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 17
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/attempt2/logs/11-old-customized-install.json",
+      "original_sha256": "8f3d509f1c787875c917fe04de08ec36f943d7bf0cd398a5881482f3f839f442",
+      "published_sha256": "5d5cc1afb98d75fefec334a35b53b4f55f98be66a6a2eb0fd3f4f491fe8c4693",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 17
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/attempt2/logs/12-migration-conflict.json",
+      "original_sha256": "f2aa59a78a8c121150515897493152770d84b747e8da0cabb7c72983adfe4588",
+      "published_sha256": "f39386bea424a93cfd629b7ac1899f9a4c4c01862430125db06657a7b7dfcd51",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/attempt2/result.json",
+      "original_sha256": "b8b217620f01c938db05f089213b1268036efa0cd08978f583b46bc2c6bc453a",
+      "published_sha256": "74c7ba1ab7c2b4121bfb6a7dcf8352c1e4a1f65d957e55c56a32e18db9417984",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 6
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/attempt2/sources.json",
+      "original_sha256": "439d58a7a44267377ee1cea7e960ea78982b051f7e0266ed2cb448ca11d8aafd",
+      "published_sha256": "11dd2b1e927739d2c0c084e23b0c97a00398dc177245b93283243ff9b06d2f6f",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/before-run.json",
+      "original_sha256": "42271ba8f99876b6dde37fafd276d3758ae9a65e142b3541b0b895b13427def0",
+      "published_sha256": "9a13cdc1427d78a7691ffd2ca5ecb42084750ae520180abf7fc8a663e06874c3",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 1
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/checks/README.md",
+      "original_sha256": "684eac6cc024ef7669dc21eb05b5733899965d66f8b318342ddb9c5146708e96",
+      "published_sha256": "4789cc7bd15a0b8433c96e54e6826a3cdd43ec0d086f3a0cfd2f869a8920f8b2",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/checks/full-python.txt",
+      "original_sha256": "fd4b19fff2a15cf787f77743e394c3cdd4174ddf0a9ed8c782cce8eaebbe3a60",
+      "published_sha256": "3f8854005ab2bb58e24a478cff52d85d0acfc739bb1e21106e86736e8fdd3507",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/checks/npx-flow-v2.mjs",
+      "original_sha256": "f3a966b532b9fb39ca0ef214a27dd2b80067623e06e9cf9b7d4eb07b7f3c26e1",
+      "published_sha256": "560682d1927cb92e91308c2473fed405ff9c91bc50cb9b08fb772f46d40fc4ee",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/checks/npx-flow.mjs",
+      "original_sha256": "8e1a7533c2680febef603853f49b2f348c8b3e3145daa4ed56b236dbf40f4486",
+      "published_sha256": "a2812116edb03aaf5372896617e56ea1dde182870e4487dbb3e08ae1cf7a666f",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/checks/validation.txt",
+      "original_sha256": "e46f3905fb2fa3e7cba1d6047f4ee9da77433b5896b5a8eb9c34c1a4561d0655",
+      "published_sha256": "c3378eb99525f25db5a111224db3772783afe303d88779eb78cced30e93beab0",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 2
+        },
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/integration-audit.md",
+      "original_sha256": "3ba48b188251e6dcc4205b1a2d302895b70a6fdc81e63a0643f4ac6f7ca9ff23",
+      "published_sha256": "adbeade421173fee403a47afeb0094741f2474f389e24e7f0fbc519ff5a7b619",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight-round9/v2-before-run.json",
+      "original_sha256": "bc97782ba1c9878f14314970aacee0a9ce7e23c9325f22d1f996152e2cd003c9",
+      "published_sha256": "caf51860c0bea0f0cbe741655458a7f01bd4d396d3f2b06d95096e3b68fe8a42",
+      "substitutions": [
+        {
+          "label": "local_scratch_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight/checks/README.md",
+      "original_sha256": "befbd8c32806513ec476b410603d62959359f7862553a65d49c290c22a68802c",
+      "published_sha256": "f20ea3c1b798e51c466f619d67067b9d54ca143dda189c0936ded9c700d1cdeb",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight/checks/node22-nested-npm-environment.txt",
+      "original_sha256": "0549d1a4646e2d11d17b9f81a49ef38d5ac2767b5c55367f6cef58689fb0c279",
+      "published_sha256": "326021411f37b672951478afc0b3b11a0cd062765b406cb5ce8e3ad20d4da84b",
+      "substitutions": [
+        {
+          "label": "personal_home_root",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight/checks/node22-package-failure.txt",
+      "original_sha256": "ae0a33f363d205876c9d7ff71d3633ffc80478192a78b62e56e68a7781fb3c08",
+      "published_sha256": "3f586681a14b021e085bf6bfb00aff8ce46900c2581bda488bc320f0c3f31691",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 3
+        },
+        {
+          "label": "personal_home_root",
+          "occurrences": 1
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 4
+        }
+      ]
+    },
+    {
+      "file": "evals/results/2026-09-09-overnight/checks/node26-package-injected-call.txt",
+      "original_sha256": "44ddeb291822e0b0692986f5eda215a67240addcc3efac34f1a26e5b3a3504e6",
+      "published_sha256": "2055e642fdc6df79d13ae2c73fad7569ee5db1ca9aae5ecf18f627a9c809a8a7",
+      "substitutions": [
+        {
+          "label": "personal_checkout_root",
+          "occurrences": 2
+        },
+        {
+          "label": "darwin_scratch_root",
+          "occurrences": 6
+        }
+      ]
+    }
+  ],
+  "limitations": "Original private prefixes are intentionally omitted. Original receipt hashes and outcome text are not relabeled as hashes of normalized copies. Original working tree and ignored checkpoint remain unchanged. Previously committed historical PM Craft evidence is not transformed."
+}

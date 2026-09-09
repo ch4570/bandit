@@ -1,0 +1,522 @@
+{
+  "format": 1,
+  "generated_at_utc": "2026-09-08T16:40:46.953Z",
+  "source_commit": "f4a376e23b16f311931b4d06853a0943575e09e7",
+  "purpose": "Evidence integrity, artifact counts, and observed execution scope only; semantic grades are recorded separately.",
+  "terminal_task_runs": 4,
+  "phases": [
+    "pre"
+  ],
+  "post_change_runs": 0,
+  "skill_source_changed_this_round": false,
+  "archive_file_hashes_verified": true,
+  "original_source_record_hashes_verified": true,
+  "total_retained_archive_files_verified": 50,
+  "total_original_source_records_verified": 50,
+  "all_instruction_before_after_equal": true,
+  "only_authorized_input_changes": true,
+  "completed_web_calls_total": 0,
+  "source_epoch": {
+    "name": "round3-final/current unreleased skills",
+    "full_tree_files": 34,
+    "full_tree_sha256": "e49c9478eceaa6cd109ea2192d8bf71d4cc519b8f7d7e61bca0172356f0bb320",
+    "matches_round4_before_tree": true,
+    "round3_summary": "evals/results/2026-09-09-overnight-round3/run-summary.json",
+    "round3_summary_sha256": "7ce991a1d4c15876f1ebc88b11182b49f375494fa710c07592bfc3ac0eb86cfa",
+    "matches_round3_final_epoch": true,
+    "manifest_hash_method": "SHA256 of UTF-8 JSON.stringify(Object.entries(relative-path-to-SHA256-map).sort()); full tree includes all skill files."
+  },
+  "pre_run_receipts": [
+    {
+      "file": "pre-run-manifest.json",
+      "sha256": "a25c10713a684a665e1cd042f3e303381ea8a3ac11116fd3d79b0a4b12037621",
+      "recorded_at_utc": "2026-09-08T15:59:05Z",
+      "local_unsigned_timestamp": true
+    },
+    {
+      "file": "conditions-before-run.json",
+      "sha256": "0c990450d9e67dedd951e2df884b7439919a077bcc8d8cccd714cfd79bee369f",
+      "recorded_at_utc": "2026-09-08T16:11:25.426Z",
+      "local_unsigned_timestamp": true
+    },
+    {
+      "file": "case16-before-run.json",
+      "sha256": "1fa0ee9718d939eb81d67483c3fadade26b0daa022df19ae6b019e833578debe",
+      "recorded_at_utc": "2026-09-08T16:19:22.708Z",
+      "local_unsigned_timestamp": true
+    },
+    {
+      "file": "case17-before-run.json",
+      "sha256": "0aa3fae376e984bfefde2adbe5a28cda22bc42fae6242b94d4d8d80a96defda2",
+      "recorded_at_utc": "2026-09-08T16:20:44.694Z",
+      "local_unsigned_timestamp": true
+    }
+  ],
+  "conditions_source_sha256": {
+    "evals/run_local.py": "1d06a3878e62ca045ef5be05a8184fc95cbe379a9584faebb78139ba51d70298",
+    "evals/archive_run.mjs": "62cf0c7728d5116884910250a1ce44427e314bccfb3b2d1c968a543b7d4b1f17",
+    "evals/results/2026-09-09-overnight-round4/pre-run-manifest.json": "a25c10713a684a665e1cd042f3e303381ea8a3ac11116fd3d79b0a4b12037621"
+  },
+  "conditions_sources_match_current_bytes": true,
+  "pre_run_manifest_preserved_since_conditions_receipt": true,
+  "receipt_timestamps_precede_applicable_task_starts": true,
+  "rubric_provenance": {
+    "evals/rubrics/15-manual-outcome-pilot.md": {
+      "sha256": "fb6b96b148ed91dfc10b60161e3e908d820e495a6a26289fb7e68b142dfa588a",
+      "pre_run_receipt": "pre-run-manifest.json",
+      "unchanged_from_recorded_digest": true
+    },
+    "evals/rubrics/16-conflicting-authority.md": {
+      "sha256": "1f4a6a67bfa52cd2df60fd4141ef7038454c2652d885e7f174ca15a69cb4e7d4",
+      "pre_run_receipt": "case16-before-run.json",
+      "unchanged_from_recorded_digest": true
+    },
+    "evals/rubrics/17-reachable-market.md": {
+      "sha256": "4e7314ecba707e78b1b8dbba8af96d0064a2c897d9d4bc3f6f0b242f1c5e34dc",
+      "pre_run_receipt": "case17-before-run.json",
+      "unchanged_from_recorded_digest": true
+    }
+  },
+  "paired_case15": {
+    "runs": [
+      "pre/15-manual-outcome-pilot--bandit-research",
+      "pre/15-manual-outcome-pilot--baseline"
+    ],
+    "identical_raw_input_manifest": true,
+    "fixture_sha256": {
+      "request.md": "2e168106ce26114d37821883faf83ff46217035a94bf8d9aaf7ef155c0dde683",
+      "brief.md": "7008c1c54d6bedb508ea976b53234612362cc35674e1d623cf3380eb67b6caf5"
+    },
+    "baseline_instruction_snapshot_empty": true,
+    "distinct_task_threads": true,
+    "model_override": null,
+    "limitation": "One run per arm with host model defaults; this does not establish superiority, reliability, or causal effect."
+  },
+  "case16_preserved_sections": {
+    "artifact": "pre/16-conflicting-authority--bandit-specify/after/docs/PRD.md",
+    "only_changed_input": "docs/PRD.md",
+    "changed_region": "Sections 3 and 4 only",
+    "prefix_before_section3_byte_identical": true,
+    "prefix_bytes": 961,
+    "prefix_sha256": "d7e8f5c4c1d368332c23ae089bc77e71574bb38a1615fdb3950d556f9c7f7fce",
+    "suffix_from_section5_byte_identical": true,
+    "suffix_bytes": 733,
+    "suffix_sha256": "0a298ed4737ecc12c73d016e054b8922b86a7d48c1acd9f48441525e57fb20b1",
+    "final_prd_whitespace_words": 596,
+    "separate_final_response_whitespace_words": 38
+  },
+  "runs": [
+    {
+      "run": "pre/15-manual-outcome-pilot--bandit-research",
+      "case": "15-manual-outcome-pilot",
+      "arm": "bandit-research",
+      "standalone_specialist": true,
+      "codex_version": "codex-cli 0.153.4",
+      "model_override": null,
+      "config": "--ignore-user-config; host model defaults; explicit web_search",
+      "thread_id": "01a081c9-ded3-7f41-88f8-cc5d4049f091",
+      "sandbox": "read-only",
+      "web_search": "disabled",
+      "completed_web_calls": 0,
+      "started_at_utc": "2026-09-08T16:11:25.654815+00:00",
+      "finished_at_utc": "2026-09-08T16:12:37.927306+00:00",
+      "elapsed_seconds": 72.273,
+      "archived_at_utc": "2026-09-08T16:13:13.145Z",
+      "runner_status": "exited",
+      "exit_code": 0,
+      "run_status": "completed",
+      "terminal_event": "turn.completed",
+      "pre_run_receipt": "pre-run-manifest.json",
+      "input_files": 2,
+      "instruction_files": 4,
+      "input_manifest_sha256": "d14f2ad68cf95b6900de40ccf755e40c4031eafd642e1f66afb50de8bdfd99fe",
+      "instruction_manifest_sha256": "a4263c1261a54ed5e2380f8699bc50a0b63c8187b6221fece3a800717813e195",
+      "input_before_after_equal": true,
+      "input_changes": [],
+      "instruction_before_after_equal": true,
+      "instruction_changes": [],
+      "input_scope_respected": true,
+      "original_text_snapshot_complete": true,
+      "raw_fixture_receipt_verified": true,
+      "instruction_source_verified": "pre-run receipt, round4 before tree, round3-final/current source",
+      "archive_files_verified": 11,
+      "original_source_records_verified": 11,
+      "hash_only_png_files": [],
+      "output_bytes": 5043,
+      "output_whitespace_words": 491,
+      "output_sha256": "f1dde758a43da06de04daa66b820624a2945ab6e1dab698e1a96396964e04ab7",
+      "output_original_sha256": "f1dde758a43da06de04daa66b820624a2945ab6e1dab698e1a96396964e04ab7",
+      "final_artifact": "output.md",
+      "artifact_bytes": 5043,
+      "artifact_whitespace_words": 491,
+      "artifact_sha256": "f1dde758a43da06de04daa66b820624a2945ab6e1dab698e1a96396964e04ab7",
+      "requested_artifact_word_cap": 600,
+      "artifact_within_word_cap": true,
+      "archive_provenance_sha256": "11509027f59131401577ab124119d9e29ac14a14fbfc77199865f2dec3b4714d",
+      "events_sha256": "86e3ae00bbf24445935e5517992974770e9994ec08ae764a46c0fc9ad6964e86",
+      "trace_observations": {
+        "complete_trace_inspected": true,
+        "event_lines": 11,
+        "commands": [
+          {
+            "event_line": 5,
+            "item_id": "item_1",
+            "exit_code": 0,
+            "status": "completed",
+            "operation": "List local input/instruction paths",
+            "command_sha256": "4a19bcf0c60bbc1ff1f2596766543861421bc6364719077d0c31f257652710d7"
+          },
+          {
+            "event_line": 7,
+            "item_id": "item_2",
+            "exit_code": 0,
+            "status": "completed",
+            "operation": "Read local task inputs and/or selected instruction text",
+            "command_sha256": "e8cb58a718f929f9ab372503b2a1180f583234f659251739c7701af7dac6b636"
+          },
+          {
+            "event_line": 9,
+            "item_id": "item_3",
+            "exit_code": 0,
+            "status": "completed",
+            "operation": "Read local task inputs and/or selected instruction text",
+            "command_sha256": "15ac126dfb63f730b67e1fa38981479a8cecff5f132d4a08ea68e24e50326a09"
+          }
+        ],
+        "observed_scope": "Local file listing and supplied-input/instruction reads only; final artifact returned as text.",
+        "rubric_or_prior_output_reads_observed": false,
+        "external_actions_observed": false,
+        "product_implementation_or_product_tests_observed": false
+      }
+    },
+    {
+      "run": "pre/15-manual-outcome-pilot--baseline",
+      "case": "15-manual-outcome-pilot",
+      "arm": "baseline",
+      "standalone_specialist": false,
+      "codex_version": "codex-cli 0.153.4",
+      "model_override": null,
+      "config": "--ignore-user-config; host model defaults; explicit web_search",
+      "thread_id": "01a081c9-e368-7492-81c9-7abf6c4bfcf0",
+      "sandbox": "read-only",
+      "web_search": "disabled",
+      "completed_web_calls": 0,
+      "started_at_utc": "2026-09-08T16:11:26.834982+00:00",
+      "finished_at_utc": "2026-09-08T16:12:52.045919+00:00",
+      "elapsed_seconds": 85.213,
+      "archived_at_utc": "2026-09-08T16:13:13.315Z",
+      "runner_status": "exited",
+      "exit_code": 0,
+      "run_status": "completed",
+      "terminal_event": "turn.completed",
+      "pre_run_receipt": "pre-run-manifest.json",
+      "input_files": 2,
+      "instruction_files": 0,
+      "input_manifest_sha256": "d14f2ad68cf95b6900de40ccf755e40c4031eafd642e1f66afb50de8bdfd99fe",
+      "instruction_manifest_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "input_before_after_equal": true,
+      "input_changes": [],
+      "instruction_before_after_equal": true,
+      "instruction_changes": [],
+      "input_scope_respected": true,
+      "original_text_snapshot_complete": true,
+      "raw_fixture_receipt_verified": true,
+      "instruction_source_verified": "not applicable: no instruction snapshot",
+      "archive_files_verified": 7,
+      "original_source_records_verified": 7,
+      "hash_only_png_files": [],
+      "output_bytes": 4445,
+      "output_whitespace_words": 451,
+      "output_sha256": "0b13b7972dcfe92ae4e311ab89b026122f5df37799895e9663de5128c2eab4af",
+      "output_original_sha256": "0b13b7972dcfe92ae4e311ab89b026122f5df37799895e9663de5128c2eab4af",
+      "final_artifact": "output.md",
+      "artifact_bytes": 4445,
+      "artifact_whitespace_words": 451,
+      "artifact_sha256": "0b13b7972dcfe92ae4e311ab89b026122f5df37799895e9663de5128c2eab4af",
+      "requested_artifact_word_cap": 600,
+      "artifact_within_word_cap": true,
+      "archive_provenance_sha256": "af0464d473485923ab5d0d5722d9a11ebdb7d674593511f220fac8b04f473f47",
+      "events_sha256": "a3c23897a8ff8342bbaeaf379cabe157fe0c600a9a2e9436fda84a4c770a9684",
+      "trace_observations": {
+        "complete_trace_inspected": true,
+        "event_lines": 9,
+        "commands": [
+          {
+            "event_line": 5,
+            "item_id": "item_1",
+            "exit_code": 2,
+            "status": "failed",
+            "operation": "List local input/instruction paths",
+            "command_sha256": "98907aca155ffd2ae7a87c9fa26f56d7c4403ffbf0f1fad5b0d012185b3e685f"
+          },
+          {
+            "event_line": 7,
+            "item_id": "item_2",
+            "exit_code": 0,
+            "status": "completed",
+            "operation": "Read local task inputs and/or selected instruction text",
+            "command_sha256": "a0aa11aa466340bfb7d4802500edc1e8d6f6d188530f6e10db3796e0757414d0"
+          }
+        ],
+        "observed_scope": "Local file listing and supplied-input/instruction reads only; final artifact returned as text.",
+        "rubric_or_prior_output_reads_observed": false,
+        "external_actions_observed": false,
+        "product_implementation_or_product_tests_observed": false
+      }
+    },
+    {
+      "run": "pre/16-conflicting-authority--bandit-specify",
+      "case": "16-conflicting-authority",
+      "arm": "bandit-specify",
+      "standalone_specialist": true,
+      "codex_version": "codex-cli 0.153.4",
+      "model_override": null,
+      "config": "--ignore-user-config; host model defaults; explicit web_search",
+      "thread_id": "01a081d1-2873-7cb2-9643-8a0141beda9b",
+      "sandbox": "workspace-write",
+      "web_search": "disabled",
+      "completed_web_calls": 0,
+      "started_at_utc": "2026-09-08T16:19:23.110791+00:00",
+      "finished_at_utc": "2026-09-08T16:23:17.764536+00:00",
+      "elapsed_seconds": 234.657,
+      "archived_at_utc": "2026-09-08T16:25:00.395Z",
+      "runner_status": "exited",
+      "exit_code": 0,
+      "run_status": "completed",
+      "terminal_event": "turn.completed",
+      "pre_run_receipt": "case16-before-run.json",
+      "input_files": 4,
+      "instruction_files": 8,
+      "input_manifest_sha256": "4136a8b31a4594f439cf026c0c805edbb2f8839ddbad9c1fc97ddcaa3569b412",
+      "instruction_manifest_sha256": "59de066f973ee852b4f7dd1b2685845b68bdc43e9ca41baf7d66c647b86ee231",
+      "input_before_after_equal": false,
+      "input_changes": [
+        "docs/PRD.md"
+      ],
+      "instruction_before_after_equal": true,
+      "instruction_changes": [],
+      "input_scope_respected": true,
+      "original_text_snapshot_complete": true,
+      "raw_fixture_receipt_verified": true,
+      "instruction_source_verified": "pre-run receipt, round4 before tree, round3-final/current source",
+      "archive_files_verified": 21,
+      "original_source_records_verified": 21,
+      "hash_only_png_files": [],
+      "output_bytes": 381,
+      "output_whitespace_words": 38,
+      "output_sha256": "132824a8cb16567c8701d1463e7ce1b048fecca738e96cdca4b2ad078c8d2174",
+      "output_original_sha256": "132824a8cb16567c8701d1463e7ce1b048fecca738e96cdca4b2ad078c8d2174",
+      "final_artifact": "after/docs/PRD.md",
+      "artifact_bytes": 5590,
+      "artifact_whitespace_words": 596,
+      "artifact_sha256": "1483e253f53b773bb16bea3ba20b06a7838af70c92bd8d5b09061c3731b29422",
+      "requested_artifact_word_cap": 600,
+      "artifact_within_word_cap": true,
+      "archive_provenance_sha256": "996786d837247a73ca4fe4a1d9a7d43a72988f5c1dbf928307822496b9c4ad35",
+      "events_sha256": "8f2c1f557357eff3d3306a25755c53aa16ef175381f7569331d2e49b83f4d95b",
+      "trace_observations": {
+        "complete_trace_inspected": true,
+        "event_lines": 20,
+        "commands": [
+          {
+            "event_line": 5,
+            "item_id": "item_1",
+            "exit_code": 0,
+            "status": "completed",
+            "operation": "Read local task inputs and/or selected instruction text",
+            "command_sha256": "27efadf762d85405bcae2a17668802e327ccd76ae75958293bc213b6694dd810"
+          },
+          {
+            "event_line": 7,
+            "item_id": "item_2",
+            "exit_code": 0,
+            "status": "completed",
+            "operation": "Read local task inputs and/or selected instruction text",
+            "command_sha256": "828c5e0e8587287ba44e30e902b5170b2e28091915559ce78332eaf8e825aef0"
+          },
+          {
+            "event_line": 10,
+            "item_id": "item_4",
+            "exit_code": 1,
+            "status": "failed",
+            "operation": "Count candidate; pre-write cap assertion rejected draft",
+            "command_sha256": "f552dd4c5dd3aba367e547213731412ce993311a975fa06d5ae08e79fa50285c"
+          },
+          {
+            "event_line": 12,
+            "item_id": "item_5",
+            "exit_code": 1,
+            "status": "failed",
+            "operation": "Count candidate; pre-write cap assertion rejected draft",
+            "command_sha256": "2fb4eecbb19c28580664944b72e42f215e73f391bfd3c893a6de95c54b558718"
+          },
+          {
+            "event_line": 14,
+            "item_id": "item_6",
+            "exit_code": 1,
+            "status": "failed",
+            "operation": "Count candidate; pre-write cap assertion rejected draft",
+            "command_sha256": "13c17911f8501d0daefe80ed793b248fd6a42eb97dfd0b0863807938d6d791c7"
+          },
+          {
+            "event_line": 16,
+            "item_id": "item_7",
+            "exit_code": 1,
+            "status": "failed",
+            "operation": "Count candidate; pre-write cap assertion rejected draft",
+            "command_sha256": "275c6e6ff0df81e3acf00df48f107ab76e38a3493fd4c727d0aa4208a27675d6"
+          },
+          {
+            "event_line": 18,
+            "item_id": "item_8",
+            "exit_code": 0,
+            "status": "completed",
+            "operation": "Count candidate, assert cap/protected text, save only input/docs/PRD.md",
+            "command_sha256": "dee58c14a13ae7d2e79668e04dc647468896b2bdef952e87598996051d181b8a"
+          }
+        ],
+        "observed_scope": "Local instruction/raw-document reads and candidate drafting/counting; one successful write to the authorized PRD.",
+        "rubric_or_prior_output_reads_observed": false,
+        "external_actions_observed": false,
+        "product_implementation_or_product_tests_observed": false
+      }
+    },
+    {
+      "run": "pre/17-reachable-market--bandit-research",
+      "case": "17-reachable-market",
+      "arm": "bandit-research",
+      "standalone_specialist": true,
+      "codex_version": "codex-cli 0.153.4",
+      "model_override": null,
+      "config": "--ignore-user-config; host model defaults; explicit web_search",
+      "thread_id": "01a081d2-67b3-70d3-9ffa-d7a7b9dcdb2b",
+      "sandbox": "read-only",
+      "web_search": "disabled",
+      "completed_web_calls": 0,
+      "started_at_utc": "2026-09-08T16:20:44.957887+00:00",
+      "finished_at_utc": "2026-09-08T16:21:53.267484+00:00",
+      "elapsed_seconds": 68.31,
+      "archived_at_utc": "2026-09-08T16:22:30.488Z",
+      "runner_status": "exited",
+      "exit_code": 0,
+      "run_status": "completed",
+      "terminal_event": "turn.completed",
+      "pre_run_receipt": "case17-before-run.json",
+      "input_files": 2,
+      "instruction_files": 4,
+      "input_manifest_sha256": "b948f4aa070e0166d0b6912832fd8094c0afb524f307e6de02e686979d6509a6",
+      "instruction_manifest_sha256": "a4263c1261a54ed5e2380f8699bc50a0b63c8187b6221fece3a800717813e195",
+      "input_before_after_equal": true,
+      "input_changes": [],
+      "instruction_before_after_equal": true,
+      "instruction_changes": [],
+      "input_scope_respected": true,
+      "original_text_snapshot_complete": true,
+      "raw_fixture_receipt_verified": true,
+      "instruction_source_verified": "pre-run receipt, round4 before tree, round3-final/current source",
+      "archive_files_verified": 11,
+      "original_source_records_verified": 11,
+      "hash_only_png_files": [],
+      "output_bytes": 3919,
+      "output_whitespace_words": 432,
+      "output_sha256": "7eaef52a7c1143a4da7fa6085f728a5d4116ecaa40cf10836821954629b76331",
+      "output_original_sha256": "7eaef52a7c1143a4da7fa6085f728a5d4116ecaa40cf10836821954629b76331",
+      "final_artifact": "output.md",
+      "artifact_bytes": 3919,
+      "artifact_whitespace_words": 432,
+      "artifact_sha256": "7eaef52a7c1143a4da7fa6085f728a5d4116ecaa40cf10836821954629b76331",
+      "requested_artifact_word_cap": 600,
+      "artifact_within_word_cap": true,
+      "archive_provenance_sha256": "a5dcae1f7c650fcd41a4d8eed884f8faf921f9365b86ab5172814eadebb30b5e",
+      "events_sha256": "8c3d3b664780a563a8dc44d5b5a2071917f126b8914eb06e9a1ce41929373e45",
+      "trace_observations": {
+        "complete_trace_inspected": true,
+        "event_lines": 9,
+        "commands": [
+          {
+            "event_line": 5,
+            "item_id": "item_1",
+            "exit_code": 0,
+            "status": "completed",
+            "operation": "List local input/instruction paths",
+            "command_sha256": "4a19bcf0c60bbc1ff1f2596766543861421bc6364719077d0c31f257652710d7"
+          },
+          {
+            "event_line": 7,
+            "item_id": "item_2",
+            "exit_code": 0,
+            "status": "completed",
+            "operation": "Read local task inputs and/or selected instruction text",
+            "command_sha256": "9b8298c6d7cecf1a82512e86c4d865adf2dcad631ee5d7d9e93a675529206f20"
+          }
+        ],
+        "observed_scope": "Local file listing and supplied-input/instruction reads only; final artifact returned as text.",
+        "rubric_or_prior_output_reads_observed": false,
+        "external_actions_observed": false,
+        "product_implementation_or_product_tests_observed": false
+      }
+    }
+  ],
+  "limitations": [
+    "Local receipts and timestamps are unsigned and not independently time-attested; hash matches bind the retained bytes, not a trusted external chronology.",
+    "Exit zero, preserved bytes, complete traces, and word-cap agreement are not semantic grades, implementation verification, real customer evidence, or proof of compliance outside the observed traces.",
+    "Counts are whitespace-delimited artifact text including Markdown tokens, not model-token measurements. Case16 is graded on the edited PRD, not its separate short final response.",
+    "Case16 draft count-guard failures are retained intermediate command outcomes, not failed final deliveries. Candidate commands were inspected and reconstructed without re-executing them.",
+    "Baseline15 first listed a nonexistent instruction directory and received command exit2, then read raw inputs and completed normally. This is not a failed TASK or an installed baseline skill.",
+    "All four tasks explicitly disabled web search; no live-source retrieval, outreach, pilot execution, product-code execution, or product-test execution appears in their complete traces.",
+    "Per-run archives retain original input/instruction bytes and available after-state; only run log/artifact paths are normalized. No PNG omission applies to these selected arms.",
+    "Current skills match the round3-final epoch and round4 before snapshot. There are no post-change runs or new skill edits in this round.",
+    "Original temporary runner directories were available for original-hash verification but are not retained by this summary. Host-default model configuration is not pinned, so replay is not guaranteed.",
+    "These synthetic author-designed development probes and a single baseline pair do not establish general reliability, business validity, or skill superiority."
+  ],
+  "case16_draft_word_guard": {
+    "case16_draft_attempts": [
+      {
+        "event_line": 10,
+        "item_id": "item_4",
+        "exit_code": 1,
+        "independently_reconstructed_words": 692,
+        "pre_write_word_cap_guard_verified": true,
+        "saved": false,
+        "candidate_sha256": "71dabc32a5bdd03ef48ddfd314463a4c54eb5c59edd5695ef8ec6e2e5304f20f"
+      },
+      {
+        "event_line": 12,
+        "item_id": "item_5",
+        "exit_code": 1,
+        "independently_reconstructed_words": 640,
+        "pre_write_word_cap_guard_verified": true,
+        "saved": false,
+        "candidate_sha256": "1f6d8e11afc2fe8288ffe8972751ac965f42b246bb757d0a8667cd020339c55e"
+      },
+      {
+        "event_line": 14,
+        "item_id": "item_6",
+        "exit_code": 1,
+        "independently_reconstructed_words": 607,
+        "pre_write_word_cap_guard_verified": true,
+        "saved": false,
+        "candidate_sha256": "6c6b4c733c476865bac8b79a79b96cf282cd1f93b1b6529885f5ac8716c0cc6b"
+      },
+      {
+        "event_line": 16,
+        "item_id": "item_7",
+        "exit_code": 1,
+        "independently_reconstructed_words": 603,
+        "pre_write_word_cap_guard_verified": true,
+        "saved": false,
+        "candidate_sha256": "cc63b78943b1460b464ae626bf24e15175a7b1c08508c8bcfc588e3bfb0d03fe"
+      },
+      {
+        "event_line": 18,
+        "item_id": "item_8",
+        "exit_code": 0,
+        "independently_reconstructed_words": 596,
+        "pre_write_word_cap_guard_verified": true,
+        "saved": true,
+        "candidate_sha256": "1483e253f53b773bb16bea3ba20b06a7838af70c92bd8d5b09061c3731b29422"
+      }
+    ],
+    "candidate_reconstruction": "Parsed recorded shell quoting and Python AST string literals; no recorded command was executed. Candidates combine original prefix/suffix with literal replacement. Final literal candidate matches archived after/docs/PRD.md bytes."
+  }
+}
