@@ -163,8 +163,9 @@ for (const change of ['update', 'new-file collision', 'upstream removal', 'local
     const edited = change === 'ownership marker'
       ? Buffer.concat([fs.readFileSync(target), Buffer.from('\n')])
       : Buffer.from('Editor save after locked preflight.\n');
-    const expected = { ...snapshot(f.dest), [relative]: edited.toString('base64') };
-    if (change === 'local deletion') delete expected[relative];
+    const snapshotPath = path.normalize(relative);
+    const expected = { ...snapshot(f.dest), [snapshotPath]: edited.toString('base64') };
+    if (change === 'local deletion') delete expected[snapshotPath];
     const read = fs.readFileSync;
     let reads = 0;
     t.mock.method(fs, 'readFileSync', (file, ...args) => {
