@@ -119,6 +119,8 @@ If you also installed the optional global CLI, remove it with `npm uninstall -g 
 | Registry package cannot be found | Use the GitHub archive command; registry publication is deferred |
 | Old commands still appear | Run the 0.4.0 installer, then refresh or restart your agent session |
 | Upgrade reports a retired-skill conflict | Preserve the old customized skill and move it outside discovery before retrying |
+| Python helper reports `Recovery could not restore` or `Recovery preserved a concurrent change` | The original installation failed and the listed paths need inspection. Keep local edits, compare those paths with the ownership marker, and resolve the remaining conflict before retrying. Other recoverable files were still processed. |
+| Installer reports `Install lock cleanup could not release` | Other acquired locks were still processed. Inspect the listed lock paths and permissions; remove a leftover lock only after confirming no installer is running and it is not another owner's file or link. If the error says `Installation changes were applied`, the update completed before cleanup failed. Otherwise, the original installation error remains first, followed by cleanup details. |
 | Installer rejects a linked path | Use the real directory path |
 | A reference cannot be loaded | Check that the complete skill folder was copied |
 | Installation works but the plan is poor | Share a sanitized task and actual output through [Support](SUPPORT.md) |
