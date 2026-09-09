@@ -1,0 +1,56 @@
+{
+  "grades": [
+    {
+      "id": "A",
+      "status": "passed",
+      "output_sha256": "d4e2c0bdb1a6c35820d933305a8deb9c2271f5e048b595b348d9c1a13388173a",
+      "criteria": [
+        {"id": "C1", "status": "passed", "evidence": "L1: 'proposed research plan'; L12 excludes the room notice. The supplied answer stays within assessment and future planning, with no observed execution or specification; original tool history is unavailable."},
+        {"id": "C2", "status": "passed", "evidence": "L7–9 retain 5/8 volunteers, 3/5 of them, nine incidents across five of twelve nights, a median for six timed incidents, and 31 self-selected poll respondents; unknown exposure and overlap prevent combining samples."},
+        {"id": "C3", "status": "passed", "evidence": "L10: 'rushed returns'; L12 and L16 select uncertain naming comprehension while leaving location accuracy and payment unresolved. Retrospective reports are distinguished from observed retrievals."},
+        {"id": "C4", "status": "passed", "evidence": "L18–30 specify a £20 paper comparison with six retired props, two preparation hours, two facilitators, consent, anonymous notes, and twenty minutes plus five-minute wrap-up. L34–36 give a prospective falsifiable rule and withhold commitment on low attendance or conflicting evidence."},
+        {"id": "C5", "status": "passed", "evidence": "L9–10 reject demand, payment, and delay-reduction inference. L34 calls the threshold a screening rule; L38 excludes adoption, payment, and performance-night benefits. No invented outcomes appear."},
+        {"id": "C6", "status": "passed", "evidence": "L34–38 map improvement to further naming validation, good baseline accuracy to deprioritization, and weak results to withholding commitment; limits remain relevant to the immediate two-weekend decision."}
+      ]
+    },
+    {
+      "id": "B",
+      "status": "passed",
+      "output_sha256": "de1c2ee53d256e093c3b48de0f9e53ec03d8a232e3f27d845415fc482572ed4f",
+      "criteria": [
+        {"id": "C1", "status": "passed", "evidence": "L1 and L16–34 recommend a future research activity and conditional decisions; L12 excludes the room notice. No execution or specification is presented. Original tool history is unavailable."},
+        {"id": "C2", "status": "passed", "evidence": "L7–10 separate 5/8 intercept volunteers, nine incidents across five of twelve nights, six timed incidents, and self-selected poll responses of 22/31 and 18/31; overlap, unknown views, and absent cross-tabulation are explicit."},
+        {"id": "C3", "status": "passed", "evidence": "L8 contrasts rushed returns with naming; L14 targets interpretation 'when the recorded location is correct' and explains why this uncertainty fits the available exercise."},
+        {"id": "C4", "status": "passed", "evidence": "L18–26 specify verified paper destinations, six retired props, two observers, £20, two preparation hours, consent, anonymous handwritten notes, and a 3+15+2-minute schedule plus wrap-up. L30–32 provide an improvement rule and inconclusive handling of low attendance or contradictory evidence."},
+        {"id": "C5", "status": "passed", "evidence": "L12: universal demand, £25/month, and halving delays 'are unsupported.' L34 excludes live benefit, adoption, payment, and demand. Future thresholds are not presented as measured results."},
+        {"id": "C6", "status": "passed", "evidence": "L14 explains the priority; L30–34 link outcomes to further naming research, return-habit research, or insufficient evidence. Even a positive exercise does not authorize building or selling."}
+      ]
+    },
+    {
+      "id": "C",
+      "status": "passed",
+      "output_sha256": "5fa8d33958a0c3787866525d93f24f06ac28092135e55d0a85d96c8d3dbd26c1",
+      "criteria": [
+        {"id": "C1", "status": "passed", "evidence": "L1 and L15–33 provide analysis and a proposed future exercise, with no claimed execution or invented outcomes. The room notice is unused. Original tool history is unavailable."},
+        {"id": "C2", "status": "passed", "evidence": "L7–9 preserve the intercept, self-selected poll, and performance-log units: 5/8 volunteers, 31 respondents, nine incidents over five of twelve nights, and the median for only six timed incidents. Overlap and incomplete records limit inference."},
+        {"id": "C3", "status": "passed", "evidence": "L7 and L13 distinguish naming confusion from incorrect returns and select interpretation because the allowed exercise can isolate it; maintenance, live benefit, and payment remain uncertain."},
+        {"id": "C4", "status": "passed", "evidence": "L19–25 provide a counterbalanced paper comparison using six retired props, validated destinations, £20, two preparation hours, consent, two facilitators, a 2+18-minute slot, and five-minute wrap-up. L29–31 make the threshold prospective and withhold commitment for low attendance or conflicting/uninformative results."},
+        {"id": "C5", "status": "passed", "evidence": "L11 rejects unsupported price, demand, and halved-delay claims. L29 calls the planned target a decision threshold; L33 excludes real searches, live benefits, adoption, and payment. Conditional task-opportunity counts are not observed outcomes."},
+        {"id": "C6", "status": "passed", "evidence": "L29–33 map improvement to naming and transfer research, little improvement to other causes, and inconclusive evidence to withholding both weekends. The recommendation and its limits are concise and actionable."}
+      ]
+    },
+    {
+      "id": "D",
+      "status": "passed",
+      "output_sha256": "6beebc842719e1eebcd28beb16084e9afb0d8fa60021c4e5f069a80324e3b77d",
+      "criteria": [
+        {"id": "C1", "status": "passed", "evidence": "L1 and L15–33 present a proposed research step, with no new results or specification; L11 excludes the room notice. L33's no-execution statement is consistent with the text but does not independently prove original process history."},
+        {"id": "C2", "status": "passed", "evidence": "L7–9 correctly separate volunteer counts, nine incidents across five of twelve nights, six timed searches, and 31 poll respondents. Unknown exposure, mixed membership, absent cross-tabulation, and overlap block improper sample combination."},
+        {"id": "C3", "status": "passed", "evidence": "L7 and L13 contrast confusing names with inaccurate locations from rushed returns. Naming is selected on specific local accounts and tabletop feasibility; maintenance and buyer authority remain unknown."},
+        {"id": "C4", "status": "passed", "evidence": "L17–23 use existing volunteers, six retired props, two facilitators, £20, two preparation hours, consent, anonymous paper notes, and a 2+15+3-minute slot plus wrap-up. L27–31 specify accuracy, timeouts, a prospective improvement rule, and insufficient-evidence handling. L19 bounds illustrative mappings to tabletop inference."},
+        {"id": "C5", "status": "passed", "evidence": "L9 and L11 reject unsupported demand/payment/delay claims; L29 labels the threshold provisional learning. L33 excludes reliable returns, halved delays, adoption, payment, and wider benefits. No invented measurements are reported."},
+        {"id": "C6", "status": "passed", "evidence": "L29–33 connect improvement to exploring a naming aid and upkeep, equal difficulty to reconsidering causes, and low attendance/order-dependent evidence to withholding a build. The scope and limitations support the immediate decision."}
+      ]
+    }
+  ]
+}

@@ -37,6 +37,11 @@ corrective rounds: 2/4 then 4/4 blind task grades, including both initial failur
 Its eight raw runs and unchanged criteria are preserved separately. Runtime
 identity and monetary cost remain unavailable; this is not a savings benchmark.
 
+The [continued research check](results/2026-09-09-continued-research/README.md)
+records two fresh baseline and two research-skill runs on an independently
+authored task. Both conditions passed 2/2 grades; research instructions were
+left unchanged. More reported usage and time do not support a savings claim.
+
 ## Cases
 
 | Case | Planning task |
@@ -51,6 +56,7 @@ identity and monetary cost remain unavailable; this is not a savings benchmark.
 | [08 — callback scope](cases/08-callback-scope/request.md) | Multiple delivery decisions constrained by evidence, capacity, and consent |
 | [09 — pickup PRD rewrite](cases/09-pickup-prd-rewrite/request.md) | Rewrite a changed pilot direction while preserving historical observations and operating constraints |
 | [10 — reservation review](cases/10-reservation-review/request.md) | Distinguish adopted organizer/revision rules from an unresolved withdrawal decision and interrupted ledger handoff |
+| [11 — backstage research](cases/11-backstage-research/request.md) | Assess mixed-provenance evidence and propose one feasible test within a small venue's operating constraints |
 
 The [rubric](RUBRIC.md) for cases 01–05 was written before those recorded runs.
 It grades observable meaning, including failures, rather than matching headings.
@@ -73,6 +79,11 @@ Case 10 was authored independently of candidate instructions and prior grades.
 Its [criteria](criteria/2026-09-09-merge-feedback/10-reservation-review.md) remain
 outside the raw fixture directory. Once used for feedback, it is a public
 development case, not a held-out benchmark for subsequent instruction edits.
+
+Case 11 and its [criteria](criteria/2026-09-09-continued-loop/11-backstage-research.md)
+were authored independently of the research instructions and earlier grades.
+The criteria are separate from the raw fixture. Its published results are a
+development check, not representative customer research.
 
 ## Forward-test method
 

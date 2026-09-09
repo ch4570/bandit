@@ -1,0 +1,800 @@
+{
+  "schema": "bandit.run/v2",
+  "case": "11-backstage-research",
+  "arm": "bandit-research",
+  "started_at": "2026-09-09T08:18:13.841994+00:00",
+  "condition": "research",
+  "replicate": 1,
+  "attempt": 1,
+  "codex_version": "codex-cli 0.153.4",
+  "process_exit_code": 0,
+  "quality_status": "not_evaluated",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "/private/tmp/bandit-research-loop.b1PeA7/research-r1/11-backstage-research--bandit-research/workspace",
+    "--disable",
+    "multi_agent",
+    "-c",
+    "web_search=\"disabled\"",
+    "-c",
+    "approval_policy=\"never\"",
+    "--model",
+    "gpt-6-astra",
+    "-c",
+    "model_reasoning_effort=\"low\"",
+    "-o",
+    "/private/tmp/bandit-research-loop.b1PeA7/research-r1/11-backstage-research--bandit-research/output.md",
+    "-"
+  ],
+  "model_override": "gpt-6-astra",
+  "config": "--ignore-user-config; explicit settings below; unspecified model/effort use host defaults",
+  "execution_settings": {
+    "model": "gpt-6-astra",
+    "reasoning_effort": "low",
+    "timeout_seconds": 240,
+    "max_output_words": 800,
+    "web_search": "disabled",
+    "multi_agent": false,
+    "sandbox": "read-only"
+  },
+  "runner_sha256": "b4ca8b3647319ad669bc7d7aeadba93b1aa014bc4fdb6026294bec2417929426",
+  "upstream_commit": null,
+  "input_sha256": {
+    "decision-and-capacity.md": "29730f978b703d18f62a151b7fa3850cb182455f761e06f6020cfb5405ddb598",
+    "field-notes.md": "be336a162d79a1e4abcb35ec2ddf8159e9e75d75d8c609b863115ed9a4827e33",
+    "request.md": "ce6c31ad3db93201cfc4f74453d8796407a86edf9deb18b52b30110dbb08e955",
+    "room-notice.md": "05732e70a9caa2c1dc8c16e310739160f5c0a948adb9fb954be27fada1420557"
+  },
+  "instruction_sha256": {
+    "bandit/SKILL.md": "03b8d5a855ab3dd7ccb86ecfd9c7ea78b1f6da83b539edc3a7357bc531f7569b",
+    "bandit/agents/openai.yaml": "1a24331976f7a257ad2aafba9c786c4dc5e5ddb25a98a8dbecdd0c1ae0ddc5f9",
+    "bandit/assets/bandit-avatar.png": "091520edefe34c49af5c800f7073c53f602f23531ecab0a5f3ee46d0ef5afab2",
+    "bandit/assets/plan-template.md": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5",
+    "bandit/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "bandit/references/decisions.md": "103806ce62a04edb509b1e3a7b636bed0e6304bd211fb8e4c68144b52242ca8e",
+    "bandit/references/evidence-and-decisions.md": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+    "bandit/references/research.md": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a",
+    "bandit/references/review.md": "095a019a405b0adb3237d8efa99dff0878b14945eb1989adf2018356d161c203",
+    "bandit/references/specification.md": "689c43ddc7d3e6b88139c97a72150844f7669e3fd288b34d9fdec70912e9f0b8",
+    "bandit/references/work-boundaries.md": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da",
+    "bandit-research/SKILL.md": "b0e8123ce9e09483f73f5950d68d50a7409bea8fa9e16a65c80d2af077111eb7",
+    "bandit-research/agents/openai.yaml": "af4da23d45df56346cd7f9924f440dc4d946ee9cf02f9130cd47b14f0ef0835c",
+    "bandit-research/references/evidence-and-decisions.md": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+    "bandit-research/references/research.md": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a",
+    "bandit-research/references/work-boundaries.md": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da",
+    "bandit-review/SKILL.md": "1002f369d2da6c807c229ef660f1baed6178899bf3ce0793f21f3d5bc6e37a70",
+    "bandit-review/agents/openai.yaml": "4e4e969c8109f589d77ea687f3a9a5eeb6af82b0abff1bce2cf6906aa7bad2f2",
+    "bandit-review/assets/plan-template.md": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5",
+    "bandit-review/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "bandit-review/references/evidence-and-decisions.md": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+    "bandit-review/references/research.md": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a",
+    "bandit-review/references/review.md": "095a019a405b0adb3237d8efa99dff0878b14945eb1989adf2018356d161c203",
+    "bandit-review/references/specification.md": "689c43ddc7d3e6b88139c97a72150844f7669e3fd288b34d9fdec70912e9f0b8",
+    "bandit-review/references/work-boundaries.md": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da",
+    "bandit-scope/SKILL.md": "276cdf045cd8aa0dc12f22aaa1e64c7edfb1fdd284f9db5a589e08bb5ee5b338",
+    "bandit-scope/agents/openai.yaml": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293",
+    "bandit-scope/references/decisions.md": "103806ce62a04edb509b1e3a7b636bed0e6304bd211fb8e4c68144b52242ca8e",
+    "bandit-scope/references/evidence-and-decisions.md": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+    "bandit-scope/references/work-boundaries.md": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da",
+    "bandit-specify/SKILL.md": "8b51566dc16c77b49733c80fa9bbe21d9583fac21dda9096880071def7b242e3",
+    "bandit-specify/agents/openai.yaml": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf",
+    "bandit-specify/assets/plan-template.md": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5",
+    "bandit-specify/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "bandit-specify/references/evidence-and-decisions.md": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+    "bandit-specify/references/research.md": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a",
+    "bandit-specify/references/review.md": "095a019a405b0adb3237d8efa99dff0878b14945eb1989adf2018356d161c203",
+    "bandit-specify/references/specification.md": "689c43ddc7d3e6b88139c97a72150844f7669e3fd288b34d9fdec70912e9f0b8",
+    "bandit-specify/references/work-boundaries.md": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da"
+  },
+  "invocation": "$bandit-research",
+  "editable_artifact": null,
+  "workspace_before": {
+    "entries": {
+      ".": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit/SKILL.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "03b8d5a855ab3dd7ccb86ecfd9c7ea78b1f6da83b539edc3a7357bc531f7569b"
+      },
+      ".agents/skills/bandit/agents": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit/agents/openai.yaml": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "1a24331976f7a257ad2aafba9c786c4dc5e5ddb25a98a8dbecdd0c1ae0ddc5f9"
+      },
+      ".agents/skills/bandit/assets": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit/assets/bandit-avatar.png": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "091520edefe34c49af5c800f7073c53f602f23531ecab0a5f3ee46d0ef5afab2"
+      },
+      ".agents/skills/bandit/assets/plan-template.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5"
+      },
+      ".agents/skills/bandit/references": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit/references/changes.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0"
+      },
+      ".agents/skills/bandit/references/decisions.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "103806ce62a04edb509b1e3a7b636bed0e6304bd211fb8e4c68144b52242ca8e"
+      },
+      ".agents/skills/bandit/references/evidence-and-decisions.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6"
+      },
+      ".agents/skills/bandit/references/research.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a"
+      },
+      ".agents/skills/bandit/references/review.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "095a019a405b0adb3237d8efa99dff0878b14945eb1989adf2018356d161c203"
+      },
+      ".agents/skills/bandit/references/specification.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "689c43ddc7d3e6b88139c97a72150844f7669e3fd288b34d9fdec70912e9f0b8"
+      },
+      ".agents/skills/bandit/references/work-boundaries.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da"
+      },
+      ".agents/skills/bandit-research": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-research/SKILL.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "b0e8123ce9e09483f73f5950d68d50a7409bea8fa9e16a65c80d2af077111eb7"
+      },
+      ".agents/skills/bandit-research/agents": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-research/agents/openai.yaml": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "af4da23d45df56346cd7f9924f440dc4d946ee9cf02f9130cd47b14f0ef0835c"
+      },
+      ".agents/skills/bandit-research/references": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-research/references/evidence-and-decisions.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6"
+      },
+      ".agents/skills/bandit-research/references/research.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a"
+      },
+      ".agents/skills/bandit-research/references/work-boundaries.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da"
+      },
+      ".agents/skills/bandit-review": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-review/SKILL.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "1002f369d2da6c807c229ef660f1baed6178899bf3ce0793f21f3d5bc6e37a70"
+      },
+      ".agents/skills/bandit-review/agents": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-review/agents/openai.yaml": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "4e4e969c8109f589d77ea687f3a9a5eeb6af82b0abff1bce2cf6906aa7bad2f2"
+      },
+      ".agents/skills/bandit-review/assets": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-review/assets/plan-template.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5"
+      },
+      ".agents/skills/bandit-review/references": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-review/references/changes.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0"
+      },
+      ".agents/skills/bandit-review/references/evidence-and-decisions.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6"
+      },
+      ".agents/skills/bandit-review/references/research.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a"
+      },
+      ".agents/skills/bandit-review/references/review.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "095a019a405b0adb3237d8efa99dff0878b14945eb1989adf2018356d161c203"
+      },
+      ".agents/skills/bandit-review/references/specification.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "689c43ddc7d3e6b88139c97a72150844f7669e3fd288b34d9fdec70912e9f0b8"
+      },
+      ".agents/skills/bandit-review/references/work-boundaries.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da"
+      },
+      ".agents/skills/bandit-scope": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-scope/SKILL.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "276cdf045cd8aa0dc12f22aaa1e64c7edfb1fdd284f9db5a589e08bb5ee5b338"
+      },
+      ".agents/skills/bandit-scope/agents": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-scope/agents/openai.yaml": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293"
+      },
+      ".agents/skills/bandit-scope/references": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-scope/references/decisions.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "103806ce62a04edb509b1e3a7b636bed0e6304bd211fb8e4c68144b52242ca8e"
+      },
+      ".agents/skills/bandit-scope/references/evidence-and-decisions.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6"
+      },
+      ".agents/skills/bandit-scope/references/work-boundaries.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da"
+      },
+      ".agents/skills/bandit-specify": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-specify/SKILL.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "8b51566dc16c77b49733c80fa9bbe21d9583fac21dda9096880071def7b242e3"
+      },
+      ".agents/skills/bandit-specify/agents": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-specify/agents/openai.yaml": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf"
+      },
+      ".agents/skills/bandit-specify/assets": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-specify/assets/plan-template.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5"
+      },
+      ".agents/skills/bandit-specify/references": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-specify/references/changes.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0"
+      },
+      ".agents/skills/bandit-specify/references/evidence-and-decisions.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6"
+      },
+      ".agents/skills/bandit-specify/references/research.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a"
+      },
+      ".agents/skills/bandit-specify/references/review.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "095a019a405b0adb3237d8efa99dff0878b14945eb1989adf2018356d161c203"
+      },
+      ".agents/skills/bandit-specify/references/specification.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "689c43ddc7d3e6b88139c97a72150844f7669e3fd288b34d9fdec70912e9f0b8"
+      },
+      ".agents/skills/bandit-specify/references/work-boundaries.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da"
+      },
+      "input": {
+        "kind": "directory",
+        "mode": 493
+      },
+      "input/decision-and-capacity.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "29730f978b703d18f62a151b7fa3850cb182455f761e06f6020cfb5405ddb598"
+      },
+      "input/field-notes.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "be336a162d79a1e4abcb35ec2ddf8159e9e75d75d8c609b863115ed9a4827e33"
+      },
+      "input/request.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "ce6c31ad3db93201cfc4f74453d8796407a86edf9deb18b52b30110dbb08e955"
+      },
+      "input/room-notice.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "05732e70a9caa2c1dc8c16e310739160f5c0a948adb9fb954be27fada1420557"
+      }
+    },
+    "errors": [],
+    "traversal": "descriptor-relative"
+  },
+  "integrity_status": "passed",
+  "violations": [],
+  "snapshot_errors": {
+    "before": [],
+    "after": []
+  },
+  "exit_code": 0,
+  "elapsed_seconds": 63.867,
+  "workspace_after": {
+    "entries": {
+      ".": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit/SKILL.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "03b8d5a855ab3dd7ccb86ecfd9c7ea78b1f6da83b539edc3a7357bc531f7569b"
+      },
+      ".agents/skills/bandit/agents": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit/agents/openai.yaml": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "1a24331976f7a257ad2aafba9c786c4dc5e5ddb25a98a8dbecdd0c1ae0ddc5f9"
+      },
+      ".agents/skills/bandit/assets": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit/assets/bandit-avatar.png": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "091520edefe34c49af5c800f7073c53f602f23531ecab0a5f3ee46d0ef5afab2"
+      },
+      ".agents/skills/bandit/assets/plan-template.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5"
+      },
+      ".agents/skills/bandit/references": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit/references/changes.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0"
+      },
+      ".agents/skills/bandit/references/decisions.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "103806ce62a04edb509b1e3a7b636bed0e6304bd211fb8e4c68144b52242ca8e"
+      },
+      ".agents/skills/bandit/references/evidence-and-decisions.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6"
+      },
+      ".agents/skills/bandit/references/research.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a"
+      },
+      ".agents/skills/bandit/references/review.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "095a019a405b0adb3237d8efa99dff0878b14945eb1989adf2018356d161c203"
+      },
+      ".agents/skills/bandit/references/specification.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "689c43ddc7d3e6b88139c97a72150844f7669e3fd288b34d9fdec70912e9f0b8"
+      },
+      ".agents/skills/bandit/references/work-boundaries.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da"
+      },
+      ".agents/skills/bandit-research": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-research/SKILL.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "b0e8123ce9e09483f73f5950d68d50a7409bea8fa9e16a65c80d2af077111eb7"
+      },
+      ".agents/skills/bandit-research/agents": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-research/agents/openai.yaml": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "af4da23d45df56346cd7f9924f440dc4d946ee9cf02f9130cd47b14f0ef0835c"
+      },
+      ".agents/skills/bandit-research/references": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-research/references/evidence-and-decisions.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6"
+      },
+      ".agents/skills/bandit-research/references/research.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a"
+      },
+      ".agents/skills/bandit-research/references/work-boundaries.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da"
+      },
+      ".agents/skills/bandit-review": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-review/SKILL.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "1002f369d2da6c807c229ef660f1baed6178899bf3ce0793f21f3d5bc6e37a70"
+      },
+      ".agents/skills/bandit-review/agents": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-review/agents/openai.yaml": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "4e4e969c8109f589d77ea687f3a9a5eeb6af82b0abff1bce2cf6906aa7bad2f2"
+      },
+      ".agents/skills/bandit-review/assets": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-review/assets/plan-template.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5"
+      },
+      ".agents/skills/bandit-review/references": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-review/references/changes.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0"
+      },
+      ".agents/skills/bandit-review/references/evidence-and-decisions.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6"
+      },
+      ".agents/skills/bandit-review/references/research.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a"
+      },
+      ".agents/skills/bandit-review/references/review.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "095a019a405b0adb3237d8efa99dff0878b14945eb1989adf2018356d161c203"
+      },
+      ".agents/skills/bandit-review/references/specification.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "689c43ddc7d3e6b88139c97a72150844f7669e3fd288b34d9fdec70912e9f0b8"
+      },
+      ".agents/skills/bandit-review/references/work-boundaries.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da"
+      },
+      ".agents/skills/bandit-scope": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-scope/SKILL.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "276cdf045cd8aa0dc12f22aaa1e64c7edfb1fdd284f9db5a589e08bb5ee5b338"
+      },
+      ".agents/skills/bandit-scope/agents": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-scope/agents/openai.yaml": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293"
+      },
+      ".agents/skills/bandit-scope/references": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-scope/references/decisions.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "103806ce62a04edb509b1e3a7b636bed0e6304bd211fb8e4c68144b52242ca8e"
+      },
+      ".agents/skills/bandit-scope/references/evidence-and-decisions.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6"
+      },
+      ".agents/skills/bandit-scope/references/work-boundaries.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da"
+      },
+      ".agents/skills/bandit-specify": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-specify/SKILL.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "8b51566dc16c77b49733c80fa9bbe21d9583fac21dda9096880071def7b242e3"
+      },
+      ".agents/skills/bandit-specify/agents": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-specify/agents/openai.yaml": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf"
+      },
+      ".agents/skills/bandit-specify/assets": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-specify/assets/plan-template.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5"
+      },
+      ".agents/skills/bandit-specify/references": {
+        "kind": "directory",
+        "mode": 493
+      },
+      ".agents/skills/bandit-specify/references/changes.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0"
+      },
+      ".agents/skills/bandit-specify/references/evidence-and-decisions.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6"
+      },
+      ".agents/skills/bandit-specify/references/research.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a"
+      },
+      ".agents/skills/bandit-specify/references/review.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "095a019a405b0adb3237d8efa99dff0878b14945eb1989adf2018356d161c203"
+      },
+      ".agents/skills/bandit-specify/references/specification.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "689c43ddc7d3e6b88139c97a72150844f7669e3fd288b34d9fdec70912e9f0b8"
+      },
+      ".agents/skills/bandit-specify/references/work-boundaries.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da"
+      },
+      "input": {
+        "kind": "directory",
+        "mode": 493
+      },
+      "input/decision-and-capacity.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "29730f978b703d18f62a151b7fa3850cb182455f761e06f6020cfb5405ddb598"
+      },
+      "input/field-notes.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "be336a162d79a1e4abcb35ec2ddf8159e9e75d75d8c609b863115ed9a4827e33"
+      },
+      "input/request.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "ce6c31ad3db93201cfc4f74453d8796407a86edf9deb18b52b30110dbb08e955"
+      },
+      "input/room-notice.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "05732e70a9caa2c1dc8c16e310739160f5c0a948adb9fb954be27fada1420557"
+      }
+    },
+    "errors": [],
+    "traversal": "descriptor-relative"
+  },
+  "input_after_sha256": {
+    "decision-and-capacity.md": "29730f978b703d18f62a151b7fa3850cb182455f761e06f6020cfb5405ddb598",
+    "field-notes.md": "be336a162d79a1e4abcb35ec2ddf8159e9e75d75d8c609b863115ed9a4827e33",
+    "request.md": "ce6c31ad3db93201cfc4f74453d8796407a86edf9deb18b52b30110dbb08e955",
+    "room-notice.md": "05732e70a9caa2c1dc8c16e310739160f5c0a948adb9fb954be27fada1420557"
+  },
+  "instruction_after_sha256": {
+    "bandit/SKILL.md": "03b8d5a855ab3dd7ccb86ecfd9c7ea78b1f6da83b539edc3a7357bc531f7569b",
+    "bandit/agents/openai.yaml": "1a24331976f7a257ad2aafba9c786c4dc5e5ddb25a98a8dbecdd0c1ae0ddc5f9",
+    "bandit/assets/bandit-avatar.png": "091520edefe34c49af5c800f7073c53f602f23531ecab0a5f3ee46d0ef5afab2",
+    "bandit/assets/plan-template.md": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5",
+    "bandit/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "bandit/references/decisions.md": "103806ce62a04edb509b1e3a7b636bed0e6304bd211fb8e4c68144b52242ca8e",
+    "bandit/references/evidence-and-decisions.md": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+    "bandit/references/research.md": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a",
+    "bandit/references/review.md": "095a019a405b0adb3237d8efa99dff0878b14945eb1989adf2018356d161c203",
+    "bandit/references/specification.md": "689c43ddc7d3e6b88139c97a72150844f7669e3fd288b34d9fdec70912e9f0b8",
+    "bandit/references/work-boundaries.md": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da",
+    "bandit-research/SKILL.md": "b0e8123ce9e09483f73f5950d68d50a7409bea8fa9e16a65c80d2af077111eb7",
+    "bandit-research/agents/openai.yaml": "af4da23d45df56346cd7f9924f440dc4d946ee9cf02f9130cd47b14f0ef0835c",
+    "bandit-research/references/evidence-and-decisions.md": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+    "bandit-research/references/research.md": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a",
+    "bandit-research/references/work-boundaries.md": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da",
+    "bandit-review/SKILL.md": "1002f369d2da6c807c229ef660f1baed6178899bf3ce0793f21f3d5bc6e37a70",
+    "bandit-review/agents/openai.yaml": "4e4e969c8109f589d77ea687f3a9a5eeb6af82b0abff1bce2cf6906aa7bad2f2",
+    "bandit-review/assets/plan-template.md": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5",
+    "bandit-review/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "bandit-review/references/evidence-and-decisions.md": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+    "bandit-review/references/research.md": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a",
+    "bandit-review/references/review.md": "095a019a405b0adb3237d8efa99dff0878b14945eb1989adf2018356d161c203",
+    "bandit-review/references/specification.md": "689c43ddc7d3e6b88139c97a72150844f7669e3fd288b34d9fdec70912e9f0b8",
+    "bandit-review/references/work-boundaries.md": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da",
+    "bandit-scope/SKILL.md": "276cdf045cd8aa0dc12f22aaa1e64c7edfb1fdd284f9db5a589e08bb5ee5b338",
+    "bandit-scope/agents/openai.yaml": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293",
+    "bandit-scope/references/decisions.md": "103806ce62a04edb509b1e3a7b636bed0e6304bd211fb8e4c68144b52242ca8e",
+    "bandit-scope/references/evidence-and-decisions.md": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+    "bandit-scope/references/work-boundaries.md": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da",
+    "bandit-specify/SKILL.md": "8b51566dc16c77b49733c80fa9bbe21d9583fac21dda9096880071def7b242e3",
+    "bandit-specify/agents/openai.yaml": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf",
+    "bandit-specify/assets/plan-template.md": "1f56be42f38ea7ade0058e84328634c1d376a1b52c6610e957f60daccdf664c5",
+    "bandit-specify/references/changes.md": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+    "bandit-specify/references/evidence-and-decisions.md": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+    "bandit-specify/references/research.md": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a",
+    "bandit-specify/references/review.md": "095a019a405b0adb3237d8efa99dff0878b14945eb1989adf2018356d161c203",
+    "bandit-specify/references/specification.md": "689c43ddc7d3e6b88139c97a72150844f7669e3fd288b34d9fdec70912e9f0b8",
+    "bandit-specify/references/work-boundaries.md": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da"
+  },
+  "telemetry": {
+    "schema": "bandit.telemetry/v1",
+    "usage_scope": "top-level-cli-events",
+    "usage_semantics": "cumulative-session-snapshot",
+    "usage_status": "available",
+    "usage": {
+      "input_tokens": 77196,
+      "cached_input_tokens": 48128,
+      "output_tokens": 1335,
+      "cache_write_input_tokens": 0,
+      "reasoning_output_tokens": 173,
+      "total_tokens": 78531
+    },
+    "partial_usage": null,
+    "errors": [],
+    "turns_started": 1,
+    "turns_completed": 1,
+    "turns_failed": 0,
+    "duplicate_terminal_events": 0,
+    "nonzero_cache_write_tokens_observed": false,
+    "observed_model": null,
+    "observed_reasoning_effort": null,
+    "observed_models": [],
+    "observed_reasoning_efforts": [],
+    "unknown_event_types": []
+  }
+}
