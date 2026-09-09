@@ -469,6 +469,92 @@ class InstallTests(DistributionTest):
             install.install_bundle(self.source, self.destination)
         self.assertEqual(install.tree_files(self.destination.parent), before)
 
+    def test_lock_cleanup_failure_preserves_apply_error_and_releases_other_locks(self):
+        install.install_bundle(self.source, self.destination)
+        before = install.tree_files(self.destination.parent)
+        self.write("SKILL.md", "updated core")
+        self.write_skill("bandit-review", "SKILL.md", "updated reviewer")
+        blocked = self.destination.parent / ".bandit-update.bandit.lock"
+        primary = OSError("original reviewer write failure")
+        primary.add_note("Existing diagnostic note")
+        write, unlink = install.atomic_write, Path.unlink
+        attempted = []
+
+        def fail_apply(path, data):
+            if path == self.destination.parent / "bandit-review/SKILL.md":
+                raise primary
+            return write(path, data)
+
+        def fail_cleanup(path, *args, **kwargs):
+            if path.name.endswith(".bandit.lock"):
+                attempted.append(path)
+            if path == blocked:
+                raise PermissionError("lock unlink denied")
+            return unlink(path, *args, **kwargs)
+
+        with patch.object(install, "atomic_write", side_effect=fail_apply), patch.object(Path, "unlink", fail_cleanup), self.assertRaises(OSError) as failure:
+            install.install_bundle(self.source, self.destination)
+        self.assertIs(failure.exception, primary)
+        notes = "\n".join(failure.exception.__notes__)
+        self.assertIn("Existing diagnostic note", notes)
+        self.assertIn(str(blocked), notes)
+        self.assertIn("lock unlink denied", notes)
+        self.assertEqual(attempted[0], blocked)
+        self.assertEqual(len(attempted), len(install.SKILL_NAMES) + len(install.RETIRED_NAMES))
+        self.assertEqual(install.tree_files(self.destination.parent), {**before, blocked.name: b""})
+
+    def test_cli_lock_cleanup_failure_reports_applied_installation_and_releases_other_locks(self):
+        blocked = self.destination.parent / ".bandit-update.bandit.lock"
+        unlink = Path.unlink
+
+        def fail_cleanup(path, *args, **kwargs):
+            if path == blocked:
+                raise PermissionError("lock unlink denied")
+            return unlink(path, *args, **kwargs)
+
+        output, errors = io.StringIO(), io.StringIO()
+        with patch.object(install, "ROOT", self.source), patch.object(Path, "unlink", fail_cleanup), contextlib.redirect_stdout(output), contextlib.redirect_stderr(errors):
+            code = install.main(["--dest", str(self.destination)])
+        self.assertEqual(code, 2)
+        self.assertEqual(output.getvalue(), "")
+        self.assertIn("Installation changes were applied", errors.getvalue())
+        self.assertIn(str(blocked), errors.getvalue())
+        self.assertIn("lock unlink denied", errors.getvalue())
+        self.assertEqual(list(self.destination.parent.glob("*.bandit.lock")), [blocked])
+        self.assertEqual(install.install_bundle(self.source, self.destination, dry_run=True)["changes"], [])
+
+    def test_lock_cleanup_preserves_replaced_files_and_symlinks(self):
+        install.install_bundle(self.source, self.destination)
+        blocked = self.destination.parent / ".bandit-update.bandit.lock"
+        saved = self.area / "acquired-lock"
+        foreign = self.area / "foreign-lock"
+        foreign.write_bytes(b"another owner's lock")
+        write = install.atomic_write
+        for replacement in ("file", "symlink", "modified"):
+            with self.subTest(replacement=replacement):
+                self.write("SKILL.md", "updated core " + replacement)
+
+                def replace_lock(path, data):
+                    result = write(path, data)
+                    if path == self.destination / "SKILL.md":
+                        if replacement != "modified":
+                            blocked.rename(saved)
+                        if replacement == "symlink":
+                            self.link(blocked, foreign)
+                        else:
+                            blocked.write_bytes(b"" if replacement == "file" else b"another owner's lock")
+                    return result
+
+                with patch.object(install, "atomic_write", side_effect=replace_lock), self.assertRaises(install.InstallError) as failure:
+                    install.install_bundle(self.source, self.destination)
+                self.assertIn(str(blocked), str(failure.exception))
+                self.assertEqual(list(self.destination.parent.glob("*.bandit.lock")), [blocked])
+                self.assertEqual(blocked.read_bytes(), b"" if replacement == "file" else b"another owner's lock")
+                self.assertEqual(blocked.is_symlink(), replacement == "symlink")
+                self.assertEqual(foreign.read_bytes(), b"another owner's lock")
+                blocked.unlink()
+                saved.unlink(missing_ok=True)
+
     def test_managed_retired_skills_are_removed_while_five_active_skills_are_installed(self):
         for name in install.RETIRED_NAMES:
             self.old_install(name)

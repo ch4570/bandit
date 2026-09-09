@@ -197,6 +197,38 @@ class EvalIntegrityTests(unittest.TestCase):
                 self.assertIn({"path": relative, "change": "modified"}, metadata["violations"])
                 self.assert_run_retained(metadata, run)
 
+    def assert_workspace_root_mode_change_rejected(self, traversal):
+        def mutate(workspace):
+            workspace.chmod(stat.S_IMODE(workspace.stat().st_mode) ^ stat.S_IWOTH)
+
+        code, metadata, run = self.execute(mutate, arm="bandit")
+        self.assertNotEqual(code, 0)
+        self.assertEqual(metadata["process_exit_code"], 0)
+        self.assertEqual(metadata["integrity_status"], "failed")
+        self.assertEqual(metadata["violations"], [{"path": ".", "change": "modified"}])
+        before, after = metadata["workspace_before"], metadata["workspace_after"]
+        for snapshot in (before, after):
+            self.assertEqual(snapshot["traversal"], traversal)
+            self.assertEqual(snapshot["entries"]["."]["kind"], "directory")
+        self.assertEqual(before["entries"]["."]["mode"] ^ stat.S_IWOTH, after["entries"]["."]["mode"])
+        self.assertEqual(metadata["input_sha256"], {name: hashlib.sha256(data).hexdigest()
+                                                   for name, data in self.inputs.items()})
+        self.assertEqual(metadata["input_sha256"], metadata["input_after_sha256"])
+        self.assertEqual(set(metadata["instruction_sha256"]), {"bandit/SKILL.md"})
+        self.assertEqual(metadata["instruction_sha256"], metadata["instruction_after_sha256"])
+        self.assert_run_retained(metadata, run)
+
+    @unittest.skipIf(os.name == "nt", "Windows chmod does not expose POSIX permission bits")
+    @unittest.skipUnless(os.open in os.supports_dir_fd and os.scandir in os.supports_fd,
+                         "Descriptor-relative traversal is unavailable")
+    def test_descriptor_snapshot_detects_workspace_root_permission_changes(self):
+        self.assert_workspace_root_mode_change_rejected("descriptor-relative")
+
+    @unittest.skipIf(os.name == "nt", "Windows chmod does not expose POSIX permission bits")
+    def test_portable_snapshot_detects_workspace_root_permission_changes(self):
+        with patch.object(runner.os, "supports_dir_fd", set()):
+            self.assert_workspace_root_mode_change_rejected("portable-quiescent")
+
     def test_new_files_and_empty_directories_outside_input_are_violations(self):
         for relative in ("agent-notes.md", "empty-agent-output"):
             with self.subTest(relative=relative):
@@ -318,6 +350,7 @@ class EvalIntegrityTests(unittest.TestCase):
         result = runner.workspace_snapshot(workspace)
         self.assertEqual(result["errors"], [])
         expected = {
+            ".": {"kind": "directory"},
             "empty": {"kind": "directory"},
             "document.bin": {"kind": "file", "sha256": hashlib.sha256(content).hexdigest()},
             **{name: {"kind": "symlink", "target": target} for name, target in link_targets.items()},
@@ -327,6 +360,31 @@ class EvalIntegrityTests(unittest.TestCase):
             entry = result["entries"][relative]
             self.assertEqual({key: entry[key] for key in fields}, fields)
             self.assertEqual(entry["mode"], stat.S_IMODE((workspace / relative).lstat().st_mode))
+
+    @unittest.skipIf(os.name == "nt", "This root symlink fixture requires POSIX link privileges")
+    def test_missing_or_nondirectory_workspace_root_never_passes_integrity(self):
+        external = self.area / "external-root-target"
+        external.mkdir()
+        (external / "outside.txt").write_text("Do not traverse this external tree.")
+        for kind in ("file", "symlink", "missing"):
+            workspace = self.area / f"workspace-root-{kind}"
+            if kind == "file":
+                workspace.write_text("The workspace directory was replaced.")
+            elif kind == "symlink":
+                workspace.symlink_to(external, target_is_directory=True)
+            for supports_dir_fd in (os.supports_dir_fd, set()):
+                with self.subTest(kind=kind, portable=not supports_dir_fd):
+                    with patch.object(runner.os, "supports_dir_fd", supports_dir_fd):
+                        snapshot = runner.workspace_snapshot(workspace)
+                    self.assertTrue(snapshot["errors"])
+                    self.assertEqual({error["path"] for error in snapshot["errors"]}, {"."})
+                    self.assertEqual(runner.integrity_result(snapshot, snapshot, None)["integrity_status"], "unavailable")
+                    self.assertEqual(set(snapshot["entries"]), set() if kind == "missing" else {"."})
+                    if kind != "missing":
+                        self.assertEqual(snapshot["entries"]["."]["kind"], kind)
+                        self.assertIn({"path": ".", "error": "Workspace root is no longer a directory"}, snapshot["errors"])
+                    if kind == "symlink":
+                        self.assertEqual(snapshot["entries"]["."]["target"], str(external))
 
     @unittest.skipIf(os.name == "nt", "This symlink replacement fixture requires POSIX link privileges")
     def test_portable_snapshot_rejects_a_file_swapped_to_a_symlink_at_open(self):
