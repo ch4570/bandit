@@ -1,0 +1,40 @@
+{
+  "grades": [
+    {
+      "id": "Q01",
+      "status": "passed",
+      "evidence": "Q01/output.md:5-13 identifies both A/B disclosure paths; :17-33 traces saved-index-before-enqueue and at-most-once worker stranding, with same-ID recovery checks; :37-47 covers duplicate completion, conditional atomicity risks, test limits, and undefined changed-filter policy. Supported by source/implementation.py:22-62 and source/product-notes.md:3-26. No material core miss or scope expansion identified; integrity/execution not independently assessed.",
+      "output_sha256": "e723022abc463f35bd4bf076172cebdb3b005ba7df4c4e9f42fd37d2a2ab76d0"
+    },
+    {
+      "id": "Q02",
+      "status": "failed",
+      "evidence": "Core access and recovery findings/checks are supported at Q02/output.md:5-24, but :33-38 generalizes the same-operation promise to repeated submissions and omits undefined same-key/different-filter behavior. source/product-notes.md:9-12 limits reuse to the same operation; source/implementation.py:33-38 silently ignores changed filters. This misses criteria.md:22-24 calibration. Publication exposure at output :26-31 also lacks an explicit unknown-atomicity qualification. Integrity/execution not independently assessed.",
+      "output_sha256": "d136a49331d56ab8afa0124081b48bca05c3d09a173301224447c0f5652b2f84"
+    },
+    {
+      "id": "Q03",
+      "status": "passed",
+      "evidence": "Q03/output.md:3-22 covers both isolation paths, persist/index-before-enqueue failure, and consumed-worker recovery with concrete checks. :24-34 qualifies atomicity assumptions, distinguishes timeout from publication exposure, explicitly states changed-filter policy is undefined, and checks completed-worker suppression. :36 accurately bounds tests and adapters. Supported by source/implementation.py:22-62 and source/product-notes.md:3-26. Integrity/execution not independently assessed.",
+      "output_sha256": "daff444af81c47745b9b2efda390c3bb684211626f1aebe8d0b6dcb21cfca846"
+    },
+    {
+      "id": "Q04",
+      "status": "passed",
+      "evidence": "Q04/output.md:7-30 identifies both A/B leaks, rejected/ambiguous enqueue stranding, and timeout/interruption recovery under at-most-once delivery, with same-ID acceptance checks. :34-42 separates unproven concurrency, undefined filter-conflict policy, completed-job protection, and test limits. source/implementation.py:22-62 and source/product-notes.md:3-26 support the findings; no material scope expansion identified. Integrity/execution not independently assessed.",
+      "output_sha256": "6cf548aa6e41e58e1fdf4dd2bc093bc5eac6ef5041df0ee505b8d2fcc3bb5fb0"
+    },
+    {
+      "id": "Q05",
+      "status": "failed",
+      "evidence": "Q05/output.md:5-32 covers the core isolation, enqueue, worker-recovery and duplicate-delivery obligations with useful checks, but :11-15,29-32 never addresses same-key/different-filter reuse. source/implementation.py:33-38 ignores new filters, while source/product-notes.md:9-12 only guarantees reuse for the same operation and leaves conflict behavior unspecified. The explicit policy-gap distinction required by criteria.md:22-24 is missing. Other adapter/test claims are appropriately qualified. Integrity/execution not independently assessed.",
+      "output_sha256": "d962528ff2cd8cbefa8ac89c63f8f50114662e8a0a5fd0310b8a07908bb94e73"
+    },
+    {
+      "id": "Q06",
+      "status": "failed",
+      "evidence": "Q06/output.md:3-35 covers the core A/B leaks, enqueue and consumed-worker stranding, same-ID recovery, conditional publication checks, and completed-delivery suppression. However, same-workspace reuse at :9 and overlap discussion at :37 omit changed-filter conflict policy: source/implementation.py:33-38 returns the first filters; source/product-notes.md:9-12 promises reuse only for the same operation. This misses criteria.md:22-24 calibration. Adapter uncertainty is otherwise acknowledged. Integrity/execution not independently assessed.",
+      "output_sha256": "45853509ee3f16de42f48a2d32d6d54519e28337d268d852007f75cb6a8667fe"
+    }
+  ]
+}

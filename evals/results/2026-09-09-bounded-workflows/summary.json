@@ -1,0 +1,1415 @@
+{
+  "schema": "bandit.comparison-result/v1",
+  "status": "incomplete",
+  "reasons": [
+    "baseline-07-export-review-r1-a1: observed_model unavailable in raw events",
+    "baseline-07-export-review-r1-a1: observed_reasoning_effort unavailable in raw events",
+    "baseline-07-export-review-r2-a1: observed_model unavailable in raw events",
+    "baseline-07-export-review-r2-a1: observed_reasoning_effort unavailable in raw events",
+    "baseline-08-callback-scope-r1-a1: observed_model unavailable in raw events",
+    "baseline-08-callback-scope-r1-a1: observed_reasoning_effort unavailable in raw events",
+    "baseline-08-callback-scope-r2-a1: observed_model unavailable in raw events",
+    "baseline-08-callback-scope-r2-a1: observed_reasoning_effort unavailable in raw events",
+    "baseline-09-pickup-prd-rewrite-r1-a1: observed_model unavailable in raw events",
+    "baseline-09-pickup-prd-rewrite-r1-a1: observed_reasoning_effort unavailable in raw events",
+    "baseline-09-pickup-prd-rewrite-r2-a1: observed_model unavailable in raw events",
+    "baseline-09-pickup-prd-rewrite-r2-a1: observed_reasoning_effort unavailable in raw events",
+    "candidate-07-export-review-r1-a1: observed_model unavailable in raw events",
+    "candidate-07-export-review-r1-a1: observed_reasoning_effort unavailable in raw events",
+    "candidate-07-export-review-r2-a1: observed_model unavailable in raw events",
+    "candidate-07-export-review-r2-a1: observed_reasoning_effort unavailable in raw events",
+    "candidate-08-callback-scope-r1-a1: observed_model unavailable in raw events",
+    "candidate-08-callback-scope-r1-a1: observed_reasoning_effort unavailable in raw events",
+    "candidate-08-callback-scope-r2-a1: observed_model unavailable in raw events",
+    "candidate-08-callback-scope-r2-a1: observed_reasoning_effort unavailable in raw events",
+    "candidate-09-pickup-prd-rewrite-r1-a1: observed_model unavailable in raw events",
+    "candidate-09-pickup-prd-rewrite-r1-a1: observed_reasoning_effort unavailable in raw events",
+    "candidate-09-pickup-prd-rewrite-r2-a1: observed_model unavailable in raw events",
+    "candidate-09-pickup-prd-rewrite-r2-a1: observed_reasoning_effort unavailable in raw events",
+    "current-07-export-review-r1-a1: observed_model unavailable in raw events",
+    "current-07-export-review-r1-a1: observed_reasoning_effort unavailable in raw events",
+    "current-07-export-review-r2-a1: observed_model unavailable in raw events",
+    "current-07-export-review-r2-a1: observed_reasoning_effort unavailable in raw events",
+    "current-08-callback-scope-r1-a1: observed_model unavailable in raw events",
+    "current-08-callback-scope-r1-a1: observed_reasoning_effort unavailable in raw events",
+    "current-08-callback-scope-r2-a1: observed_model unavailable in raw events",
+    "current-08-callback-scope-r2-a1: observed_reasoning_effort unavailable in raw events",
+    "current-09-pickup-prd-rewrite-r1-a1: observed_model unavailable in raw events",
+    "current-09-pickup-prd-rewrite-r1-a1: observed_reasoning_effort unavailable in raw events",
+    "current-09-pickup-prd-rewrite-r2-a1: observed_model unavailable in raw events",
+    "current-09-pickup-prd-rewrite-r2-a1: observed_reasoning_effort unavailable in raw events"
+  ],
+  "manifest_run_count": 18,
+  "run_count": 18,
+  "usage_scope": "top-level-cli-events",
+  "pricing": null,
+  "conditions": {
+    "baseline": {
+      "run_count": 6,
+      "task_count": 6,
+      "retry_count": 0,
+      "successful_tasks": 6,
+      "successful_attempts": 6,
+      "failed_attempts": 0,
+      "unavailable_attempts": 0,
+      "quality_unavailable_runs": 0,
+      "usage_scope": "top-level-cli-events",
+      "usage_status": "available",
+      "usage": {
+        "input_tokens": 555683,
+        "cached_input_tokens": 412928,
+        "output_tokens": 8436,
+        "total_tokens": 564119,
+        "cache_write_input_tokens": 0,
+        "reasoning_output_tokens": 300
+      },
+      "observed_usage": {
+        "input_tokens": 555683,
+        "cached_input_tokens": 412928,
+        "output_tokens": 8436,
+        "total_tokens": 564119,
+        "cache_write_input_tokens": 0,
+        "reasoning_output_tokens": 300
+      },
+      "usage_available_runs": 6,
+      "usage_unavailable_runs": 0,
+      "elapsed_seconds": 356.869,
+      "observed_elapsed_seconds": 356.869,
+      "cost_status": "unavailable",
+      "cost": null,
+      "currency": null,
+      "observed_costs": {},
+      "cost_available_runs": 0,
+      "cost_per_successful_task": null,
+      "elapsed_seconds_per_successful_task": 59.478166666666674
+    },
+    "current": {
+      "run_count": 6,
+      "task_count": 6,
+      "retry_count": 0,
+      "successful_tasks": 4,
+      "successful_attempts": 4,
+      "failed_attempts": 2,
+      "unavailable_attempts": 0,
+      "quality_unavailable_runs": 0,
+      "usage_scope": "top-level-cli-events",
+      "usage_status": "available",
+      "usage": {
+        "input_tokens": 648558,
+        "cached_input_tokens": 447872,
+        "output_tokens": 9339,
+        "total_tokens": 657897,
+        "cache_write_input_tokens": 0,
+        "reasoning_output_tokens": 175
+      },
+      "observed_usage": {
+        "input_tokens": 648558,
+        "cached_input_tokens": 447872,
+        "output_tokens": 9339,
+        "total_tokens": 657897,
+        "cache_write_input_tokens": 0,
+        "reasoning_output_tokens": 175
+      },
+      "usage_available_runs": 6,
+      "usage_unavailable_runs": 0,
+      "elapsed_seconds": 390.31,
+      "observed_elapsed_seconds": 390.31,
+      "cost_status": "unavailable",
+      "cost": null,
+      "currency": null,
+      "observed_costs": {},
+      "cost_available_runs": 0,
+      "cost_per_successful_task": null,
+      "elapsed_seconds_per_successful_task": 97.5775
+    },
+    "candidate": {
+      "run_count": 6,
+      "task_count": 6,
+      "retry_count": 0,
+      "successful_tasks": 5,
+      "successful_attempts": 5,
+      "failed_attempts": 1,
+      "unavailable_attempts": 0,
+      "quality_unavailable_runs": 0,
+      "usage_scope": "top-level-cli-events",
+      "usage_status": "available",
+      "usage": {
+        "input_tokens": 626533,
+        "cached_input_tokens": 404864,
+        "output_tokens": 9694,
+        "total_tokens": 636227,
+        "cache_write_input_tokens": 0,
+        "reasoning_output_tokens": 256
+      },
+      "observed_usage": {
+        "input_tokens": 626533,
+        "cached_input_tokens": 404864,
+        "output_tokens": 9694,
+        "total_tokens": 636227,
+        "cache_write_input_tokens": 0,
+        "reasoning_output_tokens": 256
+      },
+      "usage_available_runs": 6,
+      "usage_unavailable_runs": 0,
+      "elapsed_seconds": 442.87,
+      "observed_elapsed_seconds": 442.87,
+      "cost_status": "unavailable",
+      "cost": null,
+      "currency": null,
+      "observed_costs": {},
+      "cost_available_runs": 0,
+      "cost_per_successful_task": null,
+      "elapsed_seconds_per_successful_task": 88.574
+    }
+  },
+  "runs": [
+    {
+      "id": "baseline-07-export-review-r1-a1",
+      "condition": "baseline",
+      "case": "07-export-review",
+      "replicate": 1,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-bounded-workflows/runs/baseline-07-export-review-r1-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "evidence": "grades/07-export-review/grades.md (Q04)",
+        "output_sha256": "6cf548aa6e41e58e1fdf4dd2bc093bc5eac6ef5041df0ee505b8d2fcc3bb5fb0"
+      },
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 46.775,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240.0,
+        "max_output_words": 800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 73344,
+          "cached_input_tokens": 47232,
+          "output_tokens": 1059,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 74403
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "baseline-07-export-review-r2-a1",
+      "condition": "baseline",
+      "case": "07-export-review",
+      "replicate": 2,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-bounded-workflows/runs/baseline-07-export-review-r2-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "evidence": "grades/07-export-review/grades.md (Q01)",
+        "output_sha256": "e723022abc463f35bd4bf076172cebdb3b005ba7df4c4e9f42fd37d2a2ab76d0"
+      },
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 44.944,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 73100,
+          "cached_input_tokens": 47232,
+          "output_tokens": 1034,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 74134
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "baseline-08-callback-scope-r1-a1",
+      "condition": "baseline",
+      "case": "08-callback-scope",
+      "replicate": 1,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-bounded-workflows/runs/baseline-08-callback-scope-r1-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "evidence": "grades/08-callback-scope/grades.md (Q04)",
+        "output_sha256": "3b6121cc49665dae294b80f94bf1e1fd235341ca0b8bd774a32007f80d7a664f"
+      },
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 53.717,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 900,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 72862,
+          "cached_input_tokens": 57600,
+          "output_tokens": 1228,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 75,
+          "total_tokens": 74090
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "baseline-08-callback-scope-r2-a1",
+      "condition": "baseline",
+      "case": "08-callback-scope",
+      "replicate": 2,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-bounded-workflows/runs/baseline-08-callback-scope-r2-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "evidence": "grades/08-callback-scope/grades.md (Q01)",
+        "output_sha256": "ad9b6942bb8f3c926de8df27f0e30b7922d394addb269c17bfc523662420ee56"
+      },
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 52.588,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 900,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 72865,
+          "cached_input_tokens": 47232,
+          "output_tokens": 1263,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 73,
+          "total_tokens": 74128
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "baseline-09-pickup-prd-rewrite-r1-a1",
+      "condition": "baseline",
+      "case": "09-pickup-prd-rewrite",
+      "replicate": 1,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-bounded-workflows/runs/baseline-09-pickup-prd-rewrite-r1-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "evidence": "grades/09-pickup-prd-rewrite/grades.md (Q04)",
+        "output_sha256": "9d6c3722905f536c63666bcfab3c4d976b1242cd18ab7c23e08259f2e6c30a13",
+        "artifact_sha256": "3024c96bb1ef75979929c8e171f8fbe7a9cb375a9cc1c0536441a8ced2b0196b"
+      },
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 81.365,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 1300,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "workspace-write"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 131878,
+          "cached_input_tokens": 101632,
+          "output_tokens": 1954,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 97,
+          "total_tokens": 133832
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "baseline-09-pickup-prd-rewrite-r2-a1",
+      "condition": "baseline",
+      "case": "09-pickup-prd-rewrite",
+      "replicate": 2,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-bounded-workflows/runs/baseline-09-pickup-prd-rewrite-r2-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "evidence": "grades/09-pickup-prd-rewrite/grades.md (Q01)",
+        "output_sha256": "c2b26f90126f9822aea2b48790582c6e684276468f71a3e59a0718043f421a74",
+        "artifact_sha256": "07031eae8f72ff644d3c500b48b8fde99ab2b0a1e4f8a8696ad8778f15e3ee79"
+      },
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 77.48,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 1300,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "workspace-write"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 131634,
+          "cached_input_tokens": 112000,
+          "output_tokens": 1898,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 55,
+          "total_tokens": 133532
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "candidate-07-export-review-r1-a1",
+      "condition": "candidate",
+      "case": "07-export-review",
+      "replicate": 1,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-bounded-workflows/runs/candidate-07-export-review-r1-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "evidence": "grades/07-export-review/grades.md (Q03)",
+        "output_sha256": "daff444af81c47745b9b2efda390c3bb684211626f1aebe8d0b6dcb21cfca846"
+      },
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 60.043,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 80639,
+          "cached_input_tokens": 50944,
+          "output_tokens": 1189,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 81828
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "candidate-07-export-review-r2-a1",
+      "condition": "candidate",
+      "case": "07-export-review",
+      "replicate": 2,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-bounded-workflows/runs/candidate-07-export-review-r2-a1",
+      "quality_status": "failed",
+      "quality": {
+        "status": "failed",
+        "evidence": "grades/07-export-review/grades.md (Q06)",
+        "output_sha256": "45853509ee3f16de42f48a2d32d6d54519e28337d268d852007f75cb6a8667fe"
+      },
+      "successful": false,
+      "failed": true,
+      "elapsed_seconds": 55.135,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 79046,
+          "cached_input_tokens": 48256,
+          "output_tokens": 1232,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 60,
+          "total_tokens": 80278
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "candidate-08-callback-scope-r1-a1",
+      "condition": "candidate",
+      "case": "08-callback-scope",
+      "replicate": 1,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-bounded-workflows/runs/candidate-08-callback-scope-r1-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "evidence": "grades/08-callback-scope/grades.md (Q03)",
+        "output_sha256": "b9c53264f259860f19d7471e39643d97852a1ad6feed963bd12b3bc8a5055ad5"
+      },
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 59.393,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 900,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 79466,
+          "cached_input_tokens": 50816,
+          "output_tokens": 1348,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 80814
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "candidate-08-callback-scope-r2-a1",
+      "condition": "candidate",
+      "case": "08-callback-scope",
+      "replicate": 2,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-bounded-workflows/runs/candidate-08-callback-scope-r2-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "evidence": "grades/08-callback-scope/grades.md (Q06)",
+        "output_sha256": "fddc7b140529fd52206a7005f08cf7bb15543f7b5e5e5f459e53104bf4a4d154"
+      },
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 56.962,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 900,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 77300,
+          "cached_input_tokens": 48128,
+          "output_tokens": 1458,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 98,
+          "total_tokens": 78758
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "candidate-09-pickup-prd-rewrite-r1-a1",
+      "condition": "candidate",
+      "case": "09-pickup-prd-rewrite",
+      "replicate": 1,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-bounded-workflows/runs/candidate-09-pickup-prd-rewrite-r1-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "evidence": "grades/09-pickup-prd-rewrite/grades.md (Q03)",
+        "output_sha256": "3ffb248aa9a329c5531d9db7f6df3696a9658294b5bcb3ce9b08b8b24a1b3853",
+        "artifact_sha256": "08190a220e76b3b7713e3787ceeb9bb6fe303004f8342fc6d5b74fd41b5e4ed4"
+      },
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 121.61,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240.0,
+        "max_output_words": 1300,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "workspace-write"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 154605,
+          "cached_input_tokens": 87296,
+          "output_tokens": 2211,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 44,
+          "total_tokens": 156816
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "candidate-09-pickup-prd-rewrite-r2-a1",
+      "condition": "candidate",
+      "case": "09-pickup-prd-rewrite",
+      "replicate": 2,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-bounded-workflows/runs/candidate-09-pickup-prd-rewrite-r2-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "evidence": "grades/09-pickup-prd-rewrite/grades.md (Q06)",
+        "output_sha256": "3ac6e3a8c8b9619a555ee798f21e16fd9fa99cf7c590b35e76d0a6a2390dd9f4",
+        "artifact_sha256": "821e9057a67b5b06ad4e5e6ee95ba1e23c86a9178083120d7f4d4fd15e341a82"
+      },
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 89.727,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 1300,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "workspace-write"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 155477,
+          "cached_input_tokens": 119424,
+          "output_tokens": 2256,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 54,
+          "total_tokens": 157733
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "current-07-export-review-r1-a1",
+      "condition": "current",
+      "case": "07-export-review",
+      "replicate": 1,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-bounded-workflows/runs/current-07-export-review-r1-a1",
+      "quality_status": "failed",
+      "quality": {
+        "status": "failed",
+        "evidence": "grades/07-export-review/grades.md (Q05)",
+        "output_sha256": "d962528ff2cd8cbefa8ac89c63f8f50114662e8a0a5fd0310b8a07908bb94e73"
+      },
+      "successful": false,
+      "failed": true,
+      "elapsed_seconds": 47.431,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240.0,
+        "max_output_words": 800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 77361,
+          "cached_input_tokens": 48128,
+          "output_tokens": 1180,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 22,
+          "total_tokens": 78541
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "current-07-export-review-r2-a1",
+      "condition": "current",
+      "case": "07-export-review",
+      "replicate": 2,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-bounded-workflows/runs/current-07-export-review-r2-a1",
+      "quality_status": "failed",
+      "quality": {
+        "status": "failed",
+        "evidence": "grades/07-export-review/grades.md (Q02)",
+        "output_sha256": "d136a49331d56ab8afa0124081b48bca05c3d09a173301224447c0f5652b2f84"
+      },
+      "successful": false,
+      "failed": true,
+      "elapsed_seconds": 51.775,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 78521,
+          "cached_input_tokens": 48128,
+          "output_tokens": 1198,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 48,
+          "total_tokens": 79719
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "current-08-callback-scope-r1-a1",
+      "condition": "current",
+      "case": "08-callback-scope",
+      "replicate": 1,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-bounded-workflows/runs/current-08-callback-scope-r1-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "evidence": "grades/08-callback-scope/grades.md (Q05)",
+        "output_sha256": "2c69c0761c13413ed9687ba5e9f24ed4da51a65350cae71fe91fd310b06d44a2"
+      },
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 55.588,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240.0,
+        "max_output_words": 900,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 77376,
+          "cached_input_tokens": 49664,
+          "output_tokens": 1256,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 78632
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "current-08-callback-scope-r2-a1",
+      "condition": "current",
+      "case": "08-callback-scope",
+      "replicate": 2,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-bounded-workflows/runs/current-08-callback-scope-r2-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "evidence": "grades/08-callback-scope/grades.md (Q02)",
+        "output_sha256": "92d9f73f17065e1226589e9686739f07a1fb83bd4fcf7087b6bff8fdc0e4a266"
+      },
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 62.092,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 900,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 78030,
+          "cached_input_tokens": 26112,
+          "output_tokens": 1272,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 79302
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "current-09-pickup-prd-rewrite-r1-a1",
+      "condition": "current",
+      "case": "09-pickup-prd-rewrite",
+      "replicate": 1,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-bounded-workflows/runs/current-09-pickup-prd-rewrite-r1-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "evidence": "grades/09-pickup-prd-rewrite/grades.md (Q05)",
+        "output_sha256": "3e3e7f4959d14246bd919528343f4dafb0b64fd8e23020c94287f4510888f01e",
+        "artifact_sha256": "9a932d914759ed7f0bbdbdfa9970d21472971016dae9e27aed6b5f618f69eb7a"
+      },
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 93.274,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 1300,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "workspace-write"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 188364,
+          "cached_input_tokens": 162560,
+          "output_tokens": 2343,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 74,
+          "total_tokens": 190707
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    },
+    {
+      "id": "current-09-pickup-prd-rewrite-r2-a1",
+      "condition": "current",
+      "case": "09-pickup-prd-rewrite",
+      "replicate": 2,
+      "attempt": 1,
+      "directory": "/Users/ch4570/orca/bandit/evals/results/2026-09-09-bounded-workflows/runs/current-09-pickup-prd-rewrite-r2-a1",
+      "quality_status": "passed",
+      "quality": {
+        "status": "passed",
+        "evidence": "grades/09-pickup-prd-rewrite/grades.md (Q02)",
+        "output_sha256": "08ccb82fdf0268a296643f1af8f0ee55e29a7ded552d1fa90dde1babeb8e798b",
+        "artifact_sha256": "f373696042e1e42fdd0dbe27911fad210f627a721e73b88c0c3f796f58a451f6"
+      },
+      "successful": true,
+      "failed": false,
+      "elapsed_seconds": 80.15,
+      "process_exit_code": 0,
+      "exit_code": 0,
+      "integrity_status": "passed",
+      "execution_settings": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "timeout_seconds": 240,
+        "max_output_words": 1300,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "workspace-write"
+      },
+      "codex_version": "codex-cli 0.153.4",
+      "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+      "telemetry": {
+        "schema": "bandit.telemetry/v1",
+        "usage_scope": "top-level-cli-events",
+        "usage_semantics": "cumulative-session-snapshot",
+        "usage_status": "available",
+        "usage": {
+          "input_tokens": 148906,
+          "cached_input_tokens": 113280,
+          "output_tokens": 2090,
+          "cache_write_input_tokens": 0,
+          "reasoning_output_tokens": 31,
+          "total_tokens": 150996
+        },
+        "partial_usage": null,
+        "errors": [],
+        "turns_started": 1,
+        "turns_completed": 1,
+        "turns_failed": 0,
+        "duplicate_terminal_events": 0,
+        "nonzero_cache_write_tokens_observed": false,
+        "observed_model": null,
+        "observed_reasoning_effort": null,
+        "observed_models": [],
+        "observed_reasoning_efforts": [],
+        "unknown_event_types": []
+      },
+      "cost": {
+        "status": "unavailable",
+        "amount": null,
+        "currency": null,
+        "reasons": [
+          "No pricing supplied"
+        ]
+      },
+      "reasons": [
+        "observed_model unavailable in raw events",
+        "observed_reasoning_effort unavailable in raw events"
+      ]
+    }
+  ]
+}

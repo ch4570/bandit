@@ -1,0 +1,40 @@
+{
+  "grades": [
+    {
+      "id": "Q01",
+      "status": "passed",
+      "evidence": "Q01/output.md:3–13 separates willing small-desk selection from the queue/report test and avoids causal or market claims (source/evidence.md:6–20; source/stakeholder-notes.md:3–13). Lines 17–46 enforce access, ownership, enrollment, disablement, consent/provider and pricing boundaries and correctly budget 3.5 backend / 3 frontend / 1.5 QA including measurement (source/delivery-constraints.md:3–26). Lines 52–64 define per-desk mature-cohort comparisons, operational confusion/workload evidence and conditional expansion. No material omissions, feasibility contradictions or unsupported validation claims.",
+      "output_sha256": "ad9b6942bb8f3c926de8df27f0e30b7922d394addb269c17bfc523662420ee56"
+    },
+    {
+      "id": "Q02",
+      "status": "passed",
+      "evidence": "Q02/output.md:1–11 makes cohort/intervention and reopening decisions using the offered pilots and handoff/ownership evidence without inventing validation (source/evidence.md:6–20; source/stakeholder-notes.md:3–13). Lines 17–35 preserve access/ownership and customer-success stopping authority, correctly include measurement in 3.5 / 3 / 1.5 effort, and gate deferred SMS on consent/provider approval (source/delivery-constraints.md:3–25). Lines 41–45 give per-desk 14-day comparisons, overdue pending work, confusion/failure evidence and managing-director expansion review. Pricing exclusions are not repeated explicitly, but no pricing change is included. No material failure, feasibility contradiction or unsupported validation claim.",
+      "output_sha256": "92d9f73f17065e1226589e9686739f07a1fb83bd4fcf7087b6bff8fdc0e4a266"
+    },
+    {
+      "id": "Q03",
+      "status": "passed",
+      "evidence": "Q03/output.md:1–11 selects named voluntary small desks and queue/report scope, and distinguishes prospect interest from commitment (source/evidence.md:17–20; source/stakeholder-notes.md:3–13). Lines 17–39 enforce branch/ownership/stopping and consent/pricing constraints, include reporting in the correct 3.5 / 3 / 1.5 estimate, and condition recovery on confirmed feasibility (source/delivery-constraints.md:3–26). Lines 43–47 label the operational reasons as unproven, compare each desk with its own period including unresolved callbacks and duplicate-work evidence, and require an outcome-based managing-director review. No material omissions, feasibility contradictions or unsupported validation claims.",
+      "output_sha256": "b9c53264f259860f19d7471e39643d97852a1ad6feed963bd12b3bc8a5055ad5"
+    },
+    {
+      "id": "Q04",
+      "status": "passed",
+      "evidence": "Q04/output.md:3–13 gives distinct cohort/intervention/review decisions and calibrates review/interview evidence; participation remains subject to confirmation despite the word committed at line 11 (source/stakeholder-notes.md:3–4; source/evidence.md:6–20). Lines 19–45 preserve access, ownership, voluntary enrollment, disablement and consent/pricing limits, with a correct 3.5 / 3 / 1.5 budget including measurement (source/delivery-constraints.md:3–26). Lines 49–61 define mature per-desk comparisons, confusion/adoption evidence, safe-operation expansion gates and realistic observation timing. No material omissions, feasibility contradictions or unsupported validation claims.",
+      "output_sha256": "3b6121cc49665dae294b80f94bf1e1fd235341ca0b8bd774a32007f80d7a664f"
+    },
+    {
+      "id": "Q05",
+      "status": "passed",
+      "evidence": "Q05/output.md:1–11 selects a bounded queue/report pilot and voluntary small-desk cohort while acknowledging that pooled reason counts do not establish its improvement opportunity (source/evidence.md:6–20; source/stakeholder-notes.md:3–13). Lines 17–46 enforce access/ownership/customer-success disablement and consent/provider/pricing constraints, and correctly total 3.5 / 3 / 1.5 including measurement with estimate checks (source/delivery-constraints.md:3–26). Lines 50–54 define comparable desk-level observations, overdue pending cases, ownership confusion, support burden and managing-director expansion review. Baseline mechanics could be more precise but no material obligation is missing. No feasibility contradictions or unsupported validation claims.",
+      "output_sha256": "2c69c0761c13413ed9687ba5e9f24ed4da51a65350cae71fe91fd310b06d44a2"
+    },
+    {
+      "id": "Q06",
+      "status": "passed",
+      "evidence": "Q06/output.md:1–11 distinguishes cohort, queue/report intervention and a manual alternative, grounding the choice in operational counts, interview preferences and offered participation without claiming prevention (source/evidence.md:6–20; source/stakeholder-notes.md:3–13). Lines 15–45 enforce branch/ownership/enrollment/disablement and consent/provider/pricing limits and correctly include measurement in a 3.5 / 3 / 1.5 budget (source/delivery-constraints.md:3–26). Lines 49–59 specify per-desk mature-cohort baselines, overdue pending work, confusion and manual-effort evidence, outcome-based review and bounded release/observation timing. No material omissions, feasibility contradictions or unsupported validation claims.",
+      "output_sha256": "fddc7b140529fd52206a7005f08cf7bb15543f7b5e5e5f459e53104bf4a4d154"
+    }
+  ]
+}

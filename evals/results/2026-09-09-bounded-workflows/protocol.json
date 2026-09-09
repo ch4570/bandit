@@ -1,0 +1,48 @@
+{
+  "schema": "bandit.development-protocol/v1",
+  "purpose": "Issue 5 measurement contract and issue 6 bounded-workflow candidate check; not a representative quality benchmark",
+  "synthetic": true,
+  "current_skill_commit": "a2d52c5",
+  "candidate_skill_source": "This result directory's containing commit; metadata instruction hashes bind each run",
+  "conditions": ["baseline", "current", "candidate"],
+  "installation": "Both skill conditions copy all five sibling skills and invoke only the selected specialist; baseline receives no BANDIT instruction snapshot",
+  "requested_settings": {
+    "model": "gpt-6-astra",
+    "reasoning_effort": "low",
+    "timeout_seconds": 240,
+    "web_search": "disabled",
+    "multi_agent": false,
+    "session": "fresh ephemeral CLI session per matched run"
+  },
+  "execution": "Three independent case lanes may overlap on one host; conditions within each case run sequentially. Six permutations across case/replicate cells counterbalance order; this does not eliminate cache or shared-system effects.",
+  "cases": [
+    {
+      "case": "07-export-review",
+      "specialist": "bandit-review",
+      "max_output_words": 800,
+      "editable_artifact": null,
+      "replicate_1_order": ["baseline", "current", "candidate"],
+      "replicate_2_order": ["candidate", "current", "baseline"]
+    },
+    {
+      "case": "08-callback-scope",
+      "specialist": "bandit-scope",
+      "max_output_words": 900,
+      "editable_artifact": null,
+      "replicate_1_order": ["current", "candidate", "baseline"],
+      "replicate_2_order": ["baseline", "candidate", "current"]
+    },
+    {
+      "case": "09-pickup-prd-rewrite",
+      "specialist": "bandit-specify",
+      "max_output_words": 1300,
+      "editable_artifact": "input/docs/PRD.md",
+      "replicate_1_order": ["candidate", "baseline", "current"],
+      "replicate_2_order": ["current", "baseline", "candidate"]
+    }
+  ],
+  "grading": "Raw fixtures and versioned skill only for execution. Independent graders see anonymous Q labels, raw sources and prewritten meaning criteria, not conditions, instructions, logs or author diagnoses. Grade every output and preserve failures before any rubric revision. Integrity is assessed separately.",
+  "supplement": "One additional candidate-only case 09 session is persisted, then resumed by exact thread ID with the separately held follow-up request. Preserve both artifacts and prompts. Report final session cumulative usage once, outside the matched comparison. This checks actual continuation, not comparative efficiency.",
+  "accounting": "Retain every attempt. Never infer observed model/effort from requested settings; unknown monetary cost stays unavailable. Top-level CLI event totals cover the controlled sessions, not the development graders or external services. No automatic retry or model escalation.",
+  "limits": "Three synthetic held-out-at-authoring tasks and two replicates cannot establish population reliability or causal savings. Public fixtures are no longer hidden. Prompt word/time limits are not provider billing caps. A material code or instruction change during execution requires a new frozen condition, not overwriting old runs."
+}

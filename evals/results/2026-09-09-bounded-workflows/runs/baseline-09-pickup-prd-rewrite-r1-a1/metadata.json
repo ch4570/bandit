@@ -1,0 +1,182 @@
+{
+  "schema": "bandit.run/v2",
+  "case": "09-pickup-prd-rewrite",
+  "arm": "baseline",
+  "started_at": "2026-09-09T07:05:25.436610+00:00",
+  "condition": "baseline",
+  "replicate": 1,
+  "attempt": 1,
+  "codex_version": "codex-cli 0.153.4",
+  "process_exit_code": 0,
+  "quality_status": "not_evaluated",
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "/private/tmp/bandit-issue6-runs.CpDCvP/baseline-r1/09-pickup-prd-rewrite--baseline/workspace",
+    "--disable",
+    "multi_agent",
+    "-c",
+    "web_search=\"disabled\"",
+    "-c",
+    "approval_policy=\"never\"",
+    "--model",
+    "gpt-6-astra",
+    "-c",
+    "model_reasoning_effort=\"low\"",
+    "-o",
+    "/private/tmp/bandit-issue6-runs.CpDCvP/baseline-r1/09-pickup-prd-rewrite--baseline/output.md",
+    "-"
+  ],
+  "model_override": "gpt-6-astra",
+  "config": "--ignore-user-config; explicit settings below; unspecified model/effort use host defaults",
+  "execution_settings": {
+    "model": "gpt-6-astra",
+    "reasoning_effort": "low",
+    "timeout_seconds": 240,
+    "max_output_words": 1300,
+    "web_search": "disabled",
+    "multi_agent": false,
+    "sandbox": "workspace-write"
+  },
+  "runner_sha256": "45217ff954500986f0ac95d1d277b1244b7fdf4dca4c65fbb760aecf88a1b08e",
+  "upstream_commit": null,
+  "input_sha256": {
+    "brand-calendar.md": "8cf92e87030204e3c0e7862d97df34990f1245de4c240489c764c9eaa0f4d220",
+    "current-constraints.md": "ec8aefc05f144666c2e6de0121727124363d33f82faf8bd05120f935f7083f76",
+    "decisions-and-observations.md": "668ac5bd0e603ee2a09b838728c3e5b1d6d039d63b716d7ba9da8db00c0ab4a1",
+    "docs/PRD.md": "6ebb23cfc11b41665d7adb195e4761b337d69243c55167c20b27b06fdb3d24a6",
+    "request.md": "8b3410e3f7be468e7533d0c6a3962993303fb08aaa0ff914174e7d9d69e83b79"
+  },
+  "instruction_sha256": {},
+  "invocation": null,
+  "editable_artifact": "input/docs/PRD.md",
+  "workspace_before": {
+    "entries": {
+      "input": {
+        "kind": "directory",
+        "mode": 493
+      },
+      "input/brand-calendar.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "8cf92e87030204e3c0e7862d97df34990f1245de4c240489c764c9eaa0f4d220"
+      },
+      "input/current-constraints.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "ec8aefc05f144666c2e6de0121727124363d33f82faf8bd05120f935f7083f76"
+      },
+      "input/decisions-and-observations.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "668ac5bd0e603ee2a09b838728c3e5b1d6d039d63b716d7ba9da8db00c0ab4a1"
+      },
+      "input/docs": {
+        "kind": "directory",
+        "mode": 493
+      },
+      "input/docs/PRD.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "6ebb23cfc11b41665d7adb195e4761b337d69243c55167c20b27b06fdb3d24a6"
+      },
+      "input/request.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "8b3410e3f7be468e7533d0c6a3962993303fb08aaa0ff914174e7d9d69e83b79"
+      }
+    },
+    "errors": [],
+    "traversal": "descriptor-relative"
+  },
+  "integrity_status": "passed",
+  "violations": [],
+  "snapshot_errors": {
+    "before": [],
+    "after": []
+  },
+  "exit_code": 0,
+  "elapsed_seconds": 81.365,
+  "workspace_after": {
+    "entries": {
+      "input": {
+        "kind": "directory",
+        "mode": 493
+      },
+      "input/brand-calendar.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "8cf92e87030204e3c0e7862d97df34990f1245de4c240489c764c9eaa0f4d220"
+      },
+      "input/current-constraints.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "ec8aefc05f144666c2e6de0121727124363d33f82faf8bd05120f935f7083f76"
+      },
+      "input/decisions-and-observations.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "668ac5bd0e603ee2a09b838728c3e5b1d6d039d63b716d7ba9da8db00c0ab4a1"
+      },
+      "input/docs": {
+        "kind": "directory",
+        "mode": 493
+      },
+      "input/docs/PRD.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "3024c96bb1ef75979929c8e171f8fbe7a9cb375a9cc1c0536441a8ced2b0196b"
+      },
+      "input/request.md": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "8b3410e3f7be468e7533d0c6a3962993303fb08aaa0ff914174e7d9d69e83b79"
+      }
+    },
+    "errors": [],
+    "traversal": "descriptor-relative"
+  },
+  "input_after_sha256": {
+    "brand-calendar.md": "8cf92e87030204e3c0e7862d97df34990f1245de4c240489c764c9eaa0f4d220",
+    "current-constraints.md": "ec8aefc05f144666c2e6de0121727124363d33f82faf8bd05120f935f7083f76",
+    "decisions-and-observations.md": "668ac5bd0e603ee2a09b838728c3e5b1d6d039d63b716d7ba9da8db00c0ab4a1",
+    "docs/PRD.md": "3024c96bb1ef75979929c8e171f8fbe7a9cb375a9cc1c0536441a8ced2b0196b",
+    "request.md": "8b3410e3f7be468e7533d0c6a3962993303fb08aaa0ff914174e7d9d69e83b79"
+  },
+  "instruction_after_sha256": {},
+  "telemetry": {
+    "schema": "bandit.telemetry/v1",
+    "usage_scope": "top-level-cli-events",
+    "usage_semantics": "cumulative-session-snapshot",
+    "usage_status": "available",
+    "usage": {
+      "input_tokens": 131878,
+      "cached_input_tokens": 101632,
+      "output_tokens": 1954,
+      "cache_write_input_tokens": 0,
+      "reasoning_output_tokens": 97,
+      "total_tokens": 133832
+    },
+    "partial_usage": null,
+    "errors": [],
+    "turns_started": 1,
+    "turns_completed": 1,
+    "turns_failed": 0,
+    "duplicate_terminal_events": 0,
+    "nonzero_cache_write_tokens_observed": false,
+    "observed_model": null,
+    "observed_reasoning_effort": null,
+    "observed_models": [],
+    "observed_reasoning_efforts": [],
+    "unknown_event_types": []
+  }
+}
