@@ -255,8 +255,10 @@ class InstallTests(DistributionTest):
             editor_target.write_bytes(b"editor content outside the installation")
         original = install.atomic_write
         disk_failure = OSError("original z.md write failure")
+        editor_link = None
 
         def fail_after_editor_replacement(path, data):
+            nonlocal editor_link
             if path == self.destination / "z.md":
                 self.assertEqual(replaced.read_text(), "updated a.md")
                 replaced.unlink()
@@ -265,6 +267,7 @@ class InstallTests(DistributionTest):
                     (replaced / "notes.txt").write_bytes(b"editor notes")
                 else:
                     self.link(replaced, editor_target)
+                    editor_link = replaced.readlink()
                 raise disk_failure
             return original(path, data)
 
@@ -278,7 +281,7 @@ class InstallTests(DistributionTest):
             self.assertEqual(install.tree_files(self.destination), {**before, "a.md/notes.txt": b"editor notes"})
         else:
             self.assertTrue(replaced.is_symlink())
-            self.assertEqual(replaced.readlink(), editor_target)
+            self.assertEqual(replaced.readlink(), editor_link)
             for relative, data in before.items():
                 if relative != "a.md":
                     self.assertEqual((self.destination / relative).read_bytes(), data, relative)
