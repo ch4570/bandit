@@ -110,6 +110,13 @@ Expect linked deliverables at the requested depth:
 
 Keep the customer, promise, eligibility, price/unit, delivery timing, capacity, and cancellation terms consistent. Compare the business model's break-even needs with both reachable demand and delivery capacity. Calculations based on assumptions remain estimates; a coherent plan does not establish paid demand. A product design brief describes what to prototype and check; it is not a rendered or tested interface.
 
+For consequential derived budgets, fees, capacity, or economic figures, expect a
+calculation check with an available tool and a compact note of the method and
+returned result. Showing a formula alone does not demonstrate execution. If a
+calculation is prohibited, skipped, or unavailable, verification stays incomplete.
+Quoting a source number or answering a qualitative question does not require
+artificial arithmetic.
+
 Use a specialist directly when you need only one part.
 
 Evidence for an offer decision:

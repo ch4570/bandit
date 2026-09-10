@@ -1,0 +1,33 @@
+from pathlib import Path
+import hashlib
+import json
+import sys
+
+root = Path('/Users/ch4570/orca/bandit')
+sys.path.insert(0, str(root))
+from evals.session_tools import capture_session_tools
+
+temp = Path('/private/tmp/bandit-numeric.omLk2y')
+out = temp / 'reextracted'
+out.mkdir()
+records = []
+for name in ('05-small-research--bandit-research', '08-callback-scope--bandit-scope',
+             '12-launch-handoff--bandit', '12-launch-handoff--bandit-specify',
+             '13-offer-consistency-review--bandit-review'):
+    run = temp / 'captured' / name
+    original = json.loads((run / 'metadata.json').read_text())
+    actual = capture_session_tools(run / 'events.jsonl', run / 'workspace', out / (name + '.jsonl'),
+                                   started_at=original['started_at'])
+    if actual['status'] != 'captured':
+        raise RuntimeError((name, actual['errors']))
+    if (actual['source_sha256'] != original['session_tools']['source_sha256']
+            or actual['export_sha256'] != original['session_tools']['export_sha256']
+            or (out / (name + '.jsonl')).read_bytes() != (run / 'session-tools.jsonl').read_bytes()):
+        raise RuntimeError('Source or export differs: ' + name)
+    records.append({'run':name, 'original_capture_module_sha256':original['session_tools']['capture_module_sha256'],
+                    'same_source':True, 'byte_identical_tool_export':True, 'final_capture':actual})
+receipt = {'schema':'bandit.reextraction-check/v1',
+           'reason':'Unbuffered header read prevents source-body prefetch before binding; no task rerun or changed grading inputs.',
+           'runs':records}
+(root / 'evals/results/2026-09-10-calculation-evidence/attempt-3/reextraction-check.json').write_text(json.dumps(receipt,indent=2)+'\n')
+print(json.dumps({'reextracted':len(records),'all_byte_identical':True}))

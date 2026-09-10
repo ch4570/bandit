@@ -1,0 +1,4 @@
+interface:
+  display_name: "BANDIT Review"
+  short_description: "Find consequential gaps in product plans"
+  default_prompt: "Use $bandit-review to review this PRD and propose corrections without editing the source."

@@ -1,4 +1,5 @@
 import contextlib
+from datetime import datetime, timezone
 import hashlib
 import importlib.util
 import io
@@ -43,7 +44,8 @@ class EvalIntegrityTests(unittest.TestCase):
         self.addCleanup(root_patch.stop)
         self.runs = 0
 
-    def execute(self, change=None, *, arm="baseline", edit_artifact=None, process_exit_code=0, error=None, **settings):
+    def execute(self, change=None, *, arm="baseline", edit_artifact=None, process_exit_code=0, error=None,
+                stdout_events=None, **settings):
         self.runs += 1
         output = self.area / f"results-{self.runs}"
         run = output / f"{self.case}--{arm}"
@@ -53,6 +55,8 @@ class EvalIntegrityTests(unittest.TestCase):
             if isinstance(error, OSError):
                 raise error
             stdout.write('{"type":"synthetic-event"}\n')
+            for event in stdout_events or []:
+                stdout.write(json.dumps(event) + "\n")
             stderr.write("synthetic process diagnostic\n")
             if change:
                 change(workspace)
@@ -126,6 +130,95 @@ class EvalIntegrityTests(unittest.TestCase):
         self.assertEqual(metadata["integrity_status"], "passed")
         self.assertEqual(metadata["violations"], [])
         self.assert_run_retained(metadata, run)
+
+    def test_session_capture_default_remains_ephemeral_and_discloses_cli_coverage(self):
+        with patch.object(runner, "collect_session_tools") as collect:
+            code, metadata, run = self.execute()
+        collect.assert_not_called()
+        self.assertEqual(code, 0)
+        self.assertIn("--ephemeral", metadata["command"])
+        self.assertEqual(metadata["session_tools"]["status"], "not_requested")
+        self.assertFalse(metadata["session_tools"]["requested"])
+        self.assertIn("not a complete tool trace", metadata["session_tools"]["cli_event_coverage"])
+        self.assertFalse((run / "session-tools.jsonl").exists())
+
+    @unittest.skipUnless(hasattr(os, "O_NOFOLLOW") and hasattr(os, "O_DIRECTORY")
+                         and os.open in os.supports_dir_fd and os.scandir in os.supports_fd,
+                         "Safe descriptor-relative session traversal is unavailable on this host")
+    def test_opt_in_capture_uses_persisted_exact_session_and_preserves_separate_verdicts(self):
+        thread = "01a089b5-ad9f-7803-8a4c-bdccf12cb79c"
+        home = self.area / "synthetic-codex-home"
+
+        def persist_session(workspace):
+            source = home / "sessions/2026/09/10" / f"rollout-synthetic-{thread}.jsonl"
+            source.parent.mkdir(parents=True)
+            rows = [
+                {"type": "session_meta", "payload": {"id": thread, "cwd": str(workspace), "source": "exec",
+                                                        "timestamp": datetime.now(timezone.utc).isoformat()}},
+                {"type": "event_msg", "payload": {"type": "task_started", "turn_id": "turn-1"}},
+                {"type": "response_item", "payload": {"type": "custom_tool_call", "call_id": "call-1", "name": "exec", "input": "text(1+1);"}},
+                {"type": "response_item", "payload": {"type": "custom_tool_call_output", "call_id": "call-1", "output": "2"}},
+                {"type": "event_msg", "payload": {"type": "task_complete", "turn_id": "turn-1"}},
+            ]
+            source.write_text("".join(json.dumps(row) + "\n" for row in rows))
+
+        with patch.dict(os.environ, {"CODEX_HOME": str(home)}):
+            code, metadata, run = self.execute(persist_session, capture_session_tools=True,
+                                               stdout_events=[{"type": "thread.started", "thread_id": thread}])
+        self.assertEqual(code, 0)
+        self.assertNotIn("--ephemeral", metadata["command"])
+        self.assertTrue(metadata["execution_settings"]["capture_session_tools"])
+        self.assertEqual(metadata["session_tools"]["status"], "captured")
+        self.assertEqual(metadata["session_tools"]["record_count"], 2)
+        self.assertEqual(metadata["session_tools"]["export_sha256"], hashlib.sha256((run / "session-tools.jsonl").read_bytes()).hexdigest())
+        self.assertEqual(metadata["session_tools"]["capture_module_sha256"], hashlib.sha256((ROOT / "evals/session_tools.py").read_bytes()).hexdigest())
+        self.assertEqual(metadata["process_exit_code"], 0)
+        self.assertEqual(metadata["integrity_status"], "passed")
+        self.assert_run_retained(metadata, run)
+
+    def test_requested_capture_failure_retains_outputs_and_fails_independently(self):
+        for process_exit_code in (0, 17):
+            with self.subTest(process_exit_code=process_exit_code):
+                code, metadata, run = self.execute(capture_session_tools=True, process_exit_code=process_exit_code)
+                self.assertEqual(code, process_exit_code or 2)
+                self.assertEqual(metadata["process_exit_code"], process_exit_code)
+                self.assertEqual(metadata["integrity_status"], "passed")
+                self.assertEqual(metadata["session_tools"]["status"], "unavailable")
+                self.assertIn("Missing stdout", metadata["session_tools"]["errors"][0])
+                self.assertTrue((run / "output.md").is_file())
+                self.assertTrue((run / "session-tools.jsonl").is_file())
+                self.assert_run_retained(metadata, run)
+
+    def test_unsupported_capture_fails_runner_without_opening_host_sources_or_losing_outputs(self):
+        thread = "01a089b5-ad9f-7803-8a4c-bdccf12cb79c"
+        home = self.area / "synthetic-codex-home"
+        source = home / "sessions" / f"rollout-synthetic-{thread}.jsonl"
+        source.parent.mkdir(parents=True)
+        source.write_bytes(b"Synthetic private session must not be read.\n")
+        with patch.dict(os.environ, {"CODEX_HOME": str(home)}), \
+                patch.object(runner.os, "supports_dir_fd", set()), \
+                patch("evals.session_tools._directory") as host_directory:
+            code, metadata, run = self.execute(capture_session_tools=True,
+                                               stdout_events=[{"type": "thread.started", "thread_id": thread}])
+        host_directory.assert_not_called()
+        self.assertEqual(code, 2)
+        self.assertEqual(metadata["process_exit_code"], 0)
+        self.assertEqual(metadata["integrity_status"], "passed")
+        self.assertEqual(metadata["session_tools"]["status"], "unavailable")
+        self.assertIn("Safe session traversal is unavailable", metadata["session_tools"]["errors"][0])
+        self.assertIsNone(metadata["session_tools"]["source_sha256"])
+        self.assertEqual(metadata["session_tools"]["record_count"], 0)
+        self.assertEqual((run / "session-tools.jsonl").read_bytes(), b"")
+        self.assertEqual((run / "output.md").read_text(), "Unscored synthetic answer.\n")
+        self.assertEqual(source.read_bytes(), b"Synthetic private session must not be read.\n")
+        self.assert_run_retained(metadata, run)
+
+    def test_cli_capture_flag_reaches_runner(self):
+        arguments = ["run_local.py", "--case", self.case, "--arm", "baseline", "--output-dir", str(self.area),
+                     "--capture-session-tools"]
+        with patch.object(runner.sys, "argv", arguments), patch.object(runner, "run_case", return_value=0) as run:
+            self.assertEqual(runner.main(), 0)
+        self.assertTrue(run.call_args.kwargs["capture_session_tools"])
 
     def test_explicit_execution_settings_are_recorded_without_inventing_observed_identity(self):
         code, metadata, run = self.execute(model="synthetic-model", reasoning_effort="low",

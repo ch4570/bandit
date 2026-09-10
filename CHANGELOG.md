@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Require an executed calculation and retained result for consequential derived figures; keep quoted numbers and qualitative requests lightweight.
+- Add opt-in task-bound tool-transcript capture for development evaluations; disclose CLI JSON's missing direct JavaScript events without inferring non-execution.
+
 - Connect research, planning, marketing, product-design handoffs, and business-model decisions through optional shared guidance in the existing five skills.
 - Carry one offer through acquisition copy, UX states, delivery capacity, pricing, and economic assumptions; review conflicts across those artifacts.
 - Align improvement Issue and PR fields and document repeatable behavioral checks alongside package verification.

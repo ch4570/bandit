@@ -30,6 +30,30 @@ External numbers need a period, unit, population, and source date. If an input i
 missing, use a labeled scenario/range or leave the conclusion open. Do not invent
 citations, quotes, customer interviews, confidence percentages, or market totals.
 
+## Verify consequential calculations
+
+When a recommendation depends on derived budget, fee, capacity, or economic
+figures, complete this sequence before writing the final recommendation:
+
+1. Gather the inputs, sources or assumptions, formulas, and units. Batch related
+   sums, alternatives, and remaining capacity so the same inputs stay consistent.
+2. Send an actual call through an available, permitted calculator or code tool
+   and wait for its result. A read-only shell calculation with an existing
+   interpreter is sufficient; install nothing and do not run product code.
+   Writing a command or its expected output in prose does not perform this step.
+3. Compare the returned numbers with the final tables and claims. Correct any
+   mismatch; rerun affected calculations if inputs change. Retain the actual
+   expression or method and returned values in a compact note or existing
+   artifact, not a separate mandatory log.
+
+Before saying "executed", "verified", or "returned", locate the completed tool
+call and its response in this task. If no such call exists, do not write an
+execution claim or invent a plausible tool result: perform the check now, or
+label the arithmetic **not tool-verified** and state why it was skipped or failed.
+Continue unaffected work without presenting incomplete verification as a pass.
+Simply quoting a source number or making a qualitative recommendation needs no
+artificial calculation. Correct arithmetic does not validate input assumptions.
+
 ## Resolve authority before merging claims
 
 Within product planning, apply current explicit user decisions to their specified
