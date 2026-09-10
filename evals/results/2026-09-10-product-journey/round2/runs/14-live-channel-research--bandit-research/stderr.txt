@@ -1,0 +1,5 @@
+2026-09-10T04:30:34.716405Z ERROR codex_skills_extension::host_service: failed to install system skills: io error while remove existing system skills dir: Directory not empty (os error 66)
+2026-09-10T04:30:39.719987Z ERROR codex_models_manager::manager: failed to refresh available models: timeout waiting for child process to exit
+2026-09-10T04:30:39.817837Z ERROR codex_models_manager::manager: failed to refresh available models: timeout waiting for child process to exit
+2026-09-10T04:30:44.821105Z ERROR codex_models_manager::manager: failed to refresh available models: timeout waiting for child process to exit
+2026-09-10T04:30:57.784330Z ERROR codex_models_manager::manager: failed to refresh available models: timeout waiting for child process to exit

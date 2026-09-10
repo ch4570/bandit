@@ -1,0 +1,181 @@
+{
+  "schema": "bandit.journey-execution/v1",
+  "baseline": "f3ae10e",
+  "comparison": "none; descriptive development runs only",
+  "runs": [
+    {
+      "id": "08-callback-scope--bandit-scope",
+      "grade_label": "A",
+      "artifact": "runs/08-callback-scope--bandit-scope/output.md",
+      "output_sha256": "f51a8e8038d0f9b511425aa3518b6645301fa387af394c51308bf2eb61245b1a",
+      "case": "08-callback-scope",
+      "arm": "bandit-scope",
+      "process_exit_code": 0,
+      "integrity_status": "passed",
+      "quality_status": "see independent grade reports",
+      "elapsed_seconds": 72.491,
+      "execution_settings": {
+        "model": null,
+        "reasoning_effort": null,
+        "timeout_seconds": 600,
+        "max_output_words": 1000,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.154.0",
+      "usage": [
+        {
+          "input_tokens": 110013,
+          "cached_input_tokens": 78336,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1576,
+          "reasoning_output_tokens": 10
+        }
+      ],
+      "completed_commands": 3,
+      "command_failures": []
+    },
+    {
+      "id": "11-backstage-research--bandit-research",
+      "grade_label": "B",
+      "artifact": "runs/11-backstage-research--bandit-research/output.md",
+      "output_sha256": "e43aaf841c45911ed236df7e2eeeced51f6c7dd6383248f812c93a726628ac01",
+      "case": "11-backstage-research",
+      "arm": "bandit-research",
+      "process_exit_code": 0,
+      "integrity_status": "passed",
+      "quality_status": "see independent grade reports",
+      "elapsed_seconds": 73.199,
+      "execution_settings": {
+        "model": null,
+        "reasoning_effort": null,
+        "timeout_seconds": 600,
+        "max_output_words": 1000,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.154.0",
+      "usage": [
+        {
+          "input_tokens": 79241,
+          "cached_input_tokens": 48384,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1506,
+          "reasoning_output_tokens": 145
+        }
+      ],
+      "completed_commands": 10,
+      "command_failures": []
+    },
+    {
+      "id": "12-launch-handoff--bandit",
+      "grade_label": "C",
+      "artifact": "runs/12-launch-handoff--bandit/output.md",
+      "output_sha256": "760fdd75f50bd1814744e89272f7322a7447ad28670d3feaf5afece0efb63fba",
+      "case": "12-launch-handoff",
+      "arm": "bandit",
+      "process_exit_code": 0,
+      "integrity_status": "passed",
+      "quality_status": "see independent grade reports",
+      "elapsed_seconds": 170.592,
+      "execution_settings": {
+        "model": null,
+        "reasoning_effort": null,
+        "timeout_seconds": 600,
+        "max_output_words": 1800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.154.0",
+      "usage": [
+        {
+          "input_tokens": 146391,
+          "cached_input_tokens": 110080,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4505,
+          "reasoning_output_tokens": 389
+        }
+      ],
+      "completed_commands": 3,
+      "command_failures": [
+        {
+          "command": "/bin/zsh -lc 'cat input/request.md input/founder-brief.md input/research-records.md input/costs-and-delivery.md instructions/bandit/SILL.md instructions/bandit/SKILL.md'",
+          "exit_code": 1
+        }
+      ]
+    },
+    {
+      "id": "12-launch-handoff--bandit-specify",
+      "grade_label": "D",
+      "artifact": "runs/12-launch-handoff--bandit-specify/output.md",
+      "output_sha256": "a9eae1d18b67d70ab84c201e244228a720be46bc29be4170453fd0001157f67b",
+      "case": "12-launch-handoff",
+      "arm": "bandit-specify",
+      "process_exit_code": 0,
+      "integrity_status": "passed",
+      "quality_status": "see independent grade reports",
+      "elapsed_seconds": 188.203,
+      "execution_settings": {
+        "model": null,
+        "reasoning_effort": null,
+        "timeout_seconds": 600,
+        "max_output_words": 1800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.154.0",
+      "usage": [
+        {
+          "input_tokens": 156419,
+          "cached_input_tokens": 118656,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5144,
+          "reasoning_output_tokens": 439
+        }
+      ],
+      "completed_commands": 4,
+      "command_failures": []
+    },
+    {
+      "id": "13-offer-consistency-review--bandit-review",
+      "grade_label": "E",
+      "artifact": "runs/13-offer-consistency-review--bandit-review/output.md",
+      "output_sha256": "c179caacdaf66fb863df56bc61497680d63280d75f06f63ccf818fe2e641360c",
+      "case": "13-offer-consistency-review",
+      "arm": "bandit-review",
+      "process_exit_code": 0,
+      "integrity_status": "passed",
+      "quality_status": "see independent grade reports",
+      "elapsed_seconds": 101.313,
+      "execution_settings": {
+        "model": null,
+        "reasoning_effort": null,
+        "timeout_seconds": 600,
+        "max_output_words": 1400,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.154.0",
+      "usage": [
+        {
+          "input_tokens": 83166,
+          "cached_input_tokens": 48512,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2546,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "completed_commands": 10,
+      "command_failures": []
+    }
+  ],
+  "native_live_task": "live-research/receipt.json",
+  "frozen_criteria_verified": true,
+  "source_instruction_hashes_verified": true,
+  "omitted_from_export": "Duplicate instruction/assets snapshots only; metadata preserves their hashes and current source was checked against them."
+}

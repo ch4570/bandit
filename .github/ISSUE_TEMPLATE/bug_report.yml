@@ -9,7 +9,14 @@ body:
     id: version
     attributes:
       label: BANDIT version
-      placeholder: "0.2.0 or commit"
+      placeholder: "Release version or commit SHA"
+    validations:
+      required: true
+  - type: textarea
+    id: task
+    attributes:
+      label: Task and stage
+      description: "What were you trying to accomplish? Name the skill command and relevant stage: research, product planning, marketing planning, design handoff, business-model planning, or installation."
     validations:
       required: true
   - type: textarea
@@ -27,14 +34,29 @@ body:
   - type: textarea
     id: actual
     attributes:
-      label: Actual result
-      description: "Paste relevant output and distinguish what you ran from what you inferred."
+      label: Observed gap and raw evidence
+      description: "Paste or link the actual output or logs for the version above. Explain the failure, separating observed results from your interpretation. Preserve failed output."
     validations:
       required: true
   - type: textarea
     id: expected
     attributes:
-      label: Expected result
-      description: "Name the product rule or installer behavior that should hold."
+      label: Expected behavior and acceptance criteria
+      description: "Name the product rule or installer behavior that should hold and how a reviewer can tell the fix works."
     validations:
       required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: Change and alternatives
+      description: "Optional: suggest a fix or workaround and explain its trade-offs. A diagnosis is not required to report a bug."
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation and limits
+      description: "List checks actually run with results, then planned checks and known limits. If none were run beyond the reproduction, say so."
+  - type: textarea
+    id: related
+    attributes:
+      label: Related issue and branches
+      description: "Optional: link related issues or PRs and give the proposed base and head branch if work has started."

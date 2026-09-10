@@ -2,27 +2,50 @@ name: Improvement proposal
 description: Propose a focused improvement using a concrete task.
 title: "[Proposal] "
 body:
+  - type: markdown
+    attributes:
+      value: "English and Korean are welcome. Use fictional or sanitized inputs; omit secrets and private customer information."
   - type: textarea
     id: task
     attributes:
-      label: Product task
-      description: "What were you trying to decide, write, review, or change? English and Korean are welcome."
+      label: Task and stage
+      description: "What were you trying to decide, write, review, or change? Name the skill command and relevant stage: research, product planning, marketing planning, design handoff, business-model planning, or installation."
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: BANDIT version
+      description: "For an observed gap, name the release or commit tested. For an untested proposal, say untested."
+      placeholder: "Release version, commit SHA, or untested"
     validations:
       required: true
   - type: textarea
     id: gap
     attributes:
-      label: Current gap
-      description: "Explain the missing behavior and why the existing workflow is insufficient."
+      label: Observed gap and raw evidence
+      description: "Explain why the current workflow is insufficient. Link the request, raw fixtures, and actual output if a task was run; include host/model if known. If untested, label the gap as a hypothesis and provide a fictional scenario."
     validations:
       required: true
   - type: textarea
-    id: proposal
+    id: expected
     attributes:
-      label: Proposed change
-      description: "Describe the smallest useful improvement and a fictional example that would demonstrate it."
+      label: Expected behavior and acceptance criteria
+      description: "Describe the useful outcome and observable criteria a reviewer can use to judge it. Do not rely only on headings or exact wording."
+    validations:
+      required: true
   - type: textarea
-    id: alternatives
+    id: change
     attributes:
-      label: Alternatives and trade-offs
-      description: "Could an existing mode or a separate tool handle the task?"
+      label: Change and alternatives
+      description: "Describe the smallest useful improvement and its trade-offs. Could an existing skill or a separate tool handle the task?"
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation and limits
+      description: "Separate checks actually run and their results from planned checks. Name a realistic task for a fresh skill trial and any limits of the available evidence. Untested proposals are welcome."
+  - type: textarea
+    id: related
+    attributes:
+      label: Related issue and branches
+      description: "Optional: link related issues or PRs and give the proposed base and head branch if work has started."

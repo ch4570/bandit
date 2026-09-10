@@ -20,6 +20,9 @@ An uncertain estimate remains an estimate, not a delivery commitment.
 
 For a lasting decision or a development handoff, also apply
 [evidence and decision guidance](references/evidence-and-decisions.md).
+When scope affects an acquisition promise, design handoff, or viable delivery
+model, apply the relevant [product journey guidance](references/product-journey.md)
+to keep channel, price, capacity, and the retained outcome consistent.
 Lead with the recommended or adopted choice, its strongest alternative, the
 material trade-off, and what would reopen the decision. Use existing planning
 documents; only edit them when the request includes that work.

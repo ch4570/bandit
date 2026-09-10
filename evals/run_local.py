@@ -21,6 +21,8 @@ if __package__ in (None, ""):
 from evals.telemetry import summarize_events
 UPSTREAM_COMMIT = "18468a95b427e70e258b51389796367c6f684e7d"
 SPECIALISTS = ("bandit-research", "bandit-scope", "bandit-specify", "bandit-review")
+LIVE_CASES = ("14-live-channel-research",)
+LOCAL_CASES = ("12-launch-handoff", "13-offer-consistency-review", *LIVE_CASES)
 ROUTES = {
     "01-multiple-decisions": ["pm-execution/commands/write-prd.md", "pm-execution/skills/create-prd/SKILL.md"],
     "02-offer-change": ["pm-execution/commands/write-prd.md", "pm-execution/skills/create-prd/SKILL.md", "pm-data-analytics/skills/ab-test-analysis/SKILL.md"],
@@ -122,7 +124,7 @@ def run_case(case: str, arm: str, output: Path, upstream: Path | None, edit_arti
              *, model: str | None = None, reasoning_effort: str | None = None,
              timeout_seconds: float = 600, max_output_words: int | None = None,
              skills_dir: Path | None = None, condition: str | None = None,
-             replicate: int = 1, attempt: int = 1) -> int:
+             replicate: int = 1, attempt: int = 1, allow_web: bool = False) -> int:
     if not math.isfinite(timeout_seconds) or timeout_seconds <= 0:
         raise ValueError("--timeout-seconds must be finite and positive")
     if max_output_words is not None and (type(max_output_words) is not int or max_output_words <= 0):
@@ -140,6 +142,8 @@ def run_case(case: str, arm: str, output: Path, upstream: Path | None, edit_arti
     if arm in ("bandit", *SPECIALISTS) and not (skill_source / arm / "SKILL.md").is_file():
         raise ValueError(f"Skill bundle must contain {arm}/SKILL.md: {skill_source}")
     if arm == "upstream":
+        if case not in ROUTES:
+            raise ValueError(f"No pinned upstream route for case: {case}; use a local arm")
         if upstream is None:
             raise ValueError("--upstream is required for the upstream arm")
         commit = subprocess.check_output(["git", "-C", str(upstream), "rev-parse", "HEAD"], text=True).strip()
@@ -147,6 +151,9 @@ def run_case(case: str, arm: str, output: Path, upstream: Path | None, edit_arti
             raise ValueError(f"Expected upstream commit {UPSTREAM_COMMIT}, got {commit}")
         if subprocess.check_output(["git", "-C", str(upstream), "status", "--porcelain"], text=True).strip():
             raise ValueError("Upstream checkout must be clean")
+    if type(allow_web) is not bool or allow_web != (case in LIVE_CASES):
+        raise ValueError("Live research cases require --allow-web; offline cases must leave it disabled")
+    web_search_mode = "live" if allow_web else "disabled"
     workspace = run / "workspace"
     workspace.mkdir(parents=True)
     shutil.copytree(fixture, workspace / "input")
@@ -184,12 +191,16 @@ def run_case(case: str, arm: str, output: Path, upstream: Path | None, edit_arti
         if edit_artifact else
         "Do not change files. Put the requested artifact in your final answer; the runner will save it. "
     )
+    research_instruction = (
+        "Retrieve the official sources requested by the task using live web search. Do not contact anyone. "
+        if allow_web else "Do not browse or contact anyone. "
+    )
     prompt = (
         "Perform the user's product-planning task in input/request.md. Read the other files in input/ "
         "as its raw supporting artifacts. " + instruction + "\n"
         f"Use only these task inputs and, if provided, the {instruction_scope}/ snapshot in this workspace. "
         "Do not inspect other repositories, AGENTS files, evaluation rubrics, examples, other outputs, "
-        "or prior sessions. Do not browse or contact anyone. Do not execute the supplied product code "
+        "or prior sessions. " + research_instruction + "Do not execute the supplied product code "
         "or tests. Do not spawn subagents or other model sessions. " + output_instruction
         + "This is the user's task, not a review of the instructions.\n"
     )
@@ -198,7 +209,7 @@ def run_case(case: str, arm: str, output: Path, upstream: Path | None, edit_arti
     (run / "prompt.txt").write_text(prompt, encoding="utf-8")
     command = ["codex", "exec", "--ignore-user-config", "--ephemeral", "--skip-git-repo-check",
                "--sandbox", "workspace-write" if edit_artifact else "read-only", "--color", "never", "--json", "-C", str(workspace),
-               "--disable", "multi_agent", "-c", 'web_search="disabled"', "-c", 'approval_policy="never"']
+               "--disable", "multi_agent", "-c", f'web_search="{web_search_mode}"', "-c", 'approval_policy="never"']
     if model is not None:
         command.extend(["--model", model])
     if reasoning_effort is not None:
@@ -213,7 +224,7 @@ def run_case(case: str, arm: str, output: Path, upstream: Path | None, edit_arti
                 "config": "--ignore-user-config; explicit settings below; unspecified model/effort use host defaults",
                 "execution_settings": {"model": model, "reasoning_effort": reasoning_effort,
                                        "timeout_seconds": timeout_seconds, "max_output_words": max_output_words,
-                                       "web_search": "disabled", "multi_agent": False,
+                                       "web_search": web_search_mode, "multi_agent": False,
                                        "sandbox": "workspace-write" if edit_artifact else "read-only"},
                 "runner_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                 "upstream_commit": UPSTREAM_COMMIT if arm == "upstream" else None,
@@ -259,9 +270,10 @@ def run_case(case: str, arm: str, output: Path, upstream: Path | None, edit_arti
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--case", choices=ROUTES, required=True)
+    parser.add_argument("--case", choices=(*ROUTES, *LOCAL_CASES), required=True)
     parser.add_argument("--arm", choices=["baseline", "upstream", "bandit", *SPECIALISTS], required=True)
     parser.add_argument("--upstream", type=Path)
+    parser.add_argument("--allow-web", action="store_true", help="Opt in to live official-source retrieval for case 14 only")
     parser.add_argument("--edit-artifact", help="Permit edits to this one existing input/ file in the isolated workspace")
     parser.add_argument("--model", help="Explicit model request; recorded separately from observed runtime identity")
     parser.add_argument("--reasoning-effort", help="Explicit reasoning effort supported by the selected model")
@@ -279,7 +291,7 @@ def main() -> int:
                         model=args.model, reasoning_effort=args.reasoning_effort,
                         timeout_seconds=args.timeout_seconds, max_output_words=args.max_output_words,
                         skills_dir=args.skills_dir, condition=args.condition,
-                        replicate=args.replicate, attempt=args.attempt)
+                        replicate=args.replicate, attempt=args.attempt, allow_web=args.allow_web)
     except (ValueError, OSError, subprocess.CalledProcessError) as exc:
         parser.exit(2, f"bandit eval: {exc}\n")
 

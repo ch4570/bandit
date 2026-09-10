@@ -1,0 +1,220 @@
+{
+  "schema": "bandit.journey-execution/v1",
+  "baseline": "f3ae10e",
+  "comparison": "none; descriptive development runs only",
+  "runs": [
+    {
+      "id": "08-callback-scope--bandit-scope",
+      "grade_label": "A",
+      "artifact": "runs/08-callback-scope--bandit-scope/output.md",
+      "output_sha256": "55b816973c5531f3787d0cfea131ce83d27c5728ebf94227871c9fd2ef29a695",
+      "case": "08-callback-scope",
+      "arm": "bandit-scope",
+      "process_exit_code": 0,
+      "integrity_status": "passed",
+      "quality_status": "see independent grade reports",
+      "elapsed_seconds": 80.185,
+      "execution_settings": {
+        "model": null,
+        "reasoning_effort": null,
+        "timeout_seconds": 600,
+        "max_output_words": 1000,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.154.0",
+      "usage": [
+        {
+          "input_tokens": 83210,
+          "cached_input_tokens": 63104,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1509,
+          "reasoning_output_tokens": 79
+        }
+      ],
+      "completed_commands": 3,
+      "command_failures": [],
+      "completed_web_events": 0
+    },
+    {
+      "id": "11-backstage-research--bandit-research",
+      "grade_label": "B",
+      "artifact": "runs/11-backstage-research--bandit-research/output.md",
+      "output_sha256": "0e0be738b4dfc5afcdb19ee687622df5ac1bb391d33d42b78dd62659c65bb22d",
+      "case": "11-backstage-research",
+      "arm": "bandit-research",
+      "process_exit_code": 0,
+      "integrity_status": "passed",
+      "quality_status": "see independent grade reports",
+      "elapsed_seconds": 91.588,
+      "execution_settings": {
+        "model": null,
+        "reasoning_effort": null,
+        "timeout_seconds": 600,
+        "max_output_words": 1000,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.154.0",
+      "usage": [
+        {
+          "input_tokens": 79074,
+          "cached_input_tokens": 48384,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1462,
+          "reasoning_output_tokens": 201
+        }
+      ],
+      "completed_commands": 2,
+      "command_failures": [],
+      "completed_web_events": 0
+    },
+    {
+      "id": "12-launch-handoff--bandit",
+      "grade_label": "C",
+      "artifact": "runs/12-launch-handoff--bandit/output.md",
+      "output_sha256": "fe033b9bf14063a10c7903653070f9f6d6399ffcd4253a2de79323633271d44f",
+      "case": "12-launch-handoff",
+      "arm": "bandit",
+      "process_exit_code": 0,
+      "integrity_status": "passed",
+      "quality_status": "see independent grade reports",
+      "elapsed_seconds": 207.014,
+      "execution_settings": {
+        "model": null,
+        "reasoning_effort": null,
+        "timeout_seconds": 600,
+        "max_output_words": 1800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.154.0",
+      "usage": [
+        {
+          "input_tokens": 210217,
+          "cached_input_tokens": 172928,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5122,
+          "reasoning_output_tokens": 397
+        }
+      ],
+      "completed_commands": 4,
+      "command_failures": [
+        {
+          "command": "/bin/zsh -lc 'cat input/request.md input/founder-brief.md input/research-records.md input/costs-and-delivery.md instructions/bandit/SILL.md'",
+          "exit_code": 1
+        }
+      ],
+      "completed_web_events": 0
+    },
+    {
+      "id": "12-launch-handoff--bandit-specify",
+      "grade_label": "D",
+      "artifact": "runs/12-launch-handoff--bandit-specify/output.md",
+      "output_sha256": "9de784acb419a51a7076e7eba2b05aa46811d4d58475e4ecf38d9215c942417a",
+      "case": "12-launch-handoff",
+      "arm": "bandit-specify",
+      "process_exit_code": 0,
+      "integrity_status": "passed",
+      "quality_status": "see independent grade reports",
+      "elapsed_seconds": 172.729,
+      "execution_settings": {
+        "model": null,
+        "reasoning_effort": null,
+        "timeout_seconds": 600,
+        "max_output_words": 1800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.154.0",
+      "usage": [
+        {
+          "input_tokens": 118210,
+          "cached_input_tokens": 81920,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4453,
+          "reasoning_output_tokens": 282
+        }
+      ],
+      "completed_commands": 3,
+      "command_failures": [],
+      "completed_web_events": 0
+    },
+    {
+      "id": "13-offer-consistency-review--bandit-review",
+      "grade_label": "E",
+      "artifact": "runs/13-offer-consistency-review--bandit-review/output.md",
+      "output_sha256": "c3c811407ae6245bb58f422537e19ee17af32e9c57bc79c90143ac9786a6bca5",
+      "case": "13-offer-consistency-review",
+      "arm": "bandit-review",
+      "process_exit_code": 0,
+      "integrity_status": "passed",
+      "quality_status": "see independent grade reports",
+      "elapsed_seconds": 111.258,
+      "execution_settings": {
+        "model": null,
+        "reasoning_effort": null,
+        "timeout_seconds": 600,
+        "max_output_words": 1400,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.154.0",
+      "usage": [
+        {
+          "input_tokens": 117563,
+          "cached_input_tokens": 82688,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2609,
+          "reasoning_output_tokens": 18
+        }
+      ],
+      "completed_commands": 2,
+      "command_failures": [],
+      "completed_web_events": 0
+    },
+    {
+      "id": "14-live-channel-research--bandit-research",
+      "grade_label": "F",
+      "artifact": "runs/14-live-channel-research--bandit-research/output.md",
+      "output_sha256": "bf1a9e518bad94fe068ddc09b59e92dfc54a9403b999b168205566bae65a5aae",
+      "case": "14-live-channel-research",
+      "arm": "bandit-research",
+      "process_exit_code": 0,
+      "integrity_status": "passed",
+      "quality_status": "see independent grade reports",
+      "elapsed_seconds": 166.466,
+      "execution_settings": {
+        "model": null,
+        "reasoning_effort": null,
+        "timeout_seconds": 600,
+        "max_output_words": 1800,
+        "web_search": "live",
+        "multi_agent": false,
+        "sandbox": "read-only"
+      },
+      "codex_version": "codex-cli 0.154.0",
+      "usage": [
+        {
+          "input_tokens": 342265,
+          "cached_input_tokens": 269696,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 3203,
+          "reasoning_output_tokens": 46
+        }
+      ],
+      "completed_commands": 2,
+      "command_failures": [],
+      "completed_web_events": 5
+    }
+  ],
+  "native_live_task": null,
+  "frozen_criteria_verified": true,
+  "source_instruction_hashes_verified": true,
+  "omitted_from_export": "Duplicate instruction/assets snapshots only; metadata preserves their hashes and current source was checked against them."
+}

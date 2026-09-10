@@ -20,6 +20,9 @@ what remains unchecked.
 
 For a lasting brief or a handoff, also apply
 [evidence and decision guidance](references/evidence-and-decisions.md).
+For market, channel, pricing, or business-model decisions, also use the relevant
+parts of [product journey guidance](references/product-journey.md) to connect
+findings to the offer and next test; keep a research-only request bounded.
 Finish with what the evidence supports, consequential unknowns, and the next
 observation that could change the decision. Match the depth to the request.
 

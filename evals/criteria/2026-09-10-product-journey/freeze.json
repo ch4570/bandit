@@ -1,0 +1,71 @@
+{
+  "schema": "bandit.criteria-freeze/v1",
+  "date": "2026-09-10",
+  "frozen_at": "2026-09-10T04:19:13.838Z",
+  "frozen_before_product_runs": true,
+  "independence": {
+    "product_skill_instructions_read": false,
+    "prior_outputs_or_grades_read": false,
+    "product_trials_run_by_author": false
+  },
+  "validator": {
+    "kind": "static-qa-plan-contract",
+    "plan": "evals/criteria/2026-09-10-product-journey/test-design.qa-plan.json",
+    "exit_code": 0,
+    "quality_verdict": false
+  },
+  "files": [
+    {
+      "path": "evals/cases/12-launch-handoff/costs-and-delivery.md",
+      "sha256": "16f36d1314d151bfbb0e8939a0454a817a868a922678b944e8636da313e5fcd5"
+    },
+    {
+      "path": "evals/cases/12-launch-handoff/founder-brief.md",
+      "sha256": "9fe09a2be550d96900b6bfe2b15935a055c597069bfbfa64a22681c4a6e12453"
+    },
+    {
+      "path": "evals/cases/12-launch-handoff/request.md",
+      "sha256": "a4011d3ad4a61ef0e6dbcbececf1249314c2890a1a9bf7e52e4f655923f692dd"
+    },
+    {
+      "path": "evals/cases/12-launch-handoff/research-records.md",
+      "sha256": "ec4e2d2dddde09cfef4753cba6501a0493a59542f166bc8eaca22a320d937e34"
+    },
+    {
+      "path": "evals/cases/13-offer-consistency-review/approved-offer.md",
+      "sha256": "73ce7d1792c57651ed3efa6918bd227571e1d912e91bdbd6936feb2ca4273df5"
+    },
+    {
+      "path": "evals/cases/13-offer-consistency-review/launch-artifacts.md",
+      "sha256": "02c98402a274368f8a8bbc462e1decc59b4b3b5fb6b42501715fd16307580f51"
+    },
+    {
+      "path": "evals/cases/13-offer-consistency-review/request.md",
+      "sha256": "cafe99eea88d8722c6b740e3b45020473ba601cc08548ec0f43702bd800afe2c"
+    },
+    {
+      "path": "evals/cases/13-offer-consistency-review/trial-record.md",
+      "sha256": "11cfc4ef8a66f5703dc6118b268bbc60dda754b420c5508cedb574c948508848"
+    },
+    {
+      "path": "evals/criteria/2026-09-10-product-journey/12-launch-handoff.md",
+      "sha256": "bae6ee4dec94d83922c33e73d42791aa9622d5316bd6138bd6b88cb578f862f8"
+    },
+    {
+      "path": "evals/criteria/2026-09-10-product-journey/13-offer-consistency-review.md",
+      "sha256": "adfa4b08880c7b383c662633c9dc9a271214467f5b6dd7bf60b11056fd025422"
+    },
+    {
+      "path": "evals/criteria/2026-09-10-product-journey/README.md",
+      "sha256": "b5c769187c35946090bd41a22696a43bcdfa0bb65ea475d206d8c9db9986a462"
+    },
+    {
+      "path": "evals/criteria/2026-09-10-product-journey/test-design.md",
+      "sha256": "e3f64572ad2c0f39fc66c4b63c42c3668b2f5697105a248b19792108a7195049"
+    },
+    {
+      "path": "evals/criteria/2026-09-10-product-journey/test-design.qa-plan.json",
+      "sha256": "27b50a105f2a6f2cde2f78f36ae10e1f83bd69130f5b9fafb867a5f429540f99"
+    }
+  ]
+}

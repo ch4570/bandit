@@ -42,6 +42,12 @@ records two fresh baseline and two research-skill runs on an independently
 authored task. Both conditions passed 2/2 grades; research instructions were
 left unchanged. More reported usage and time do not support a savings claim.
 
+The [product-journey corrective checks](results/2026-09-10-product-journey/README.md)
+preserve two rounds across all five skills plus live official-source research,
+including the first budget-total defect and partial currency/retrieval grade.
+They exercise marketing, design handoffs, and business-model consistency as
+development tasks, not customer or business validation.
+
 ## Cases
 
 | Case | Planning task |
@@ -57,6 +63,9 @@ left unchanged. More reported usage and time do not support a savings claim.
 | [09 — pickup PRD rewrite](cases/09-pickup-prd-rewrite/request.md) | Rewrite a changed pilot direction while preserving historical observations and operating constraints |
 | [10 — reservation review](cases/10-reservation-review/request.md) | Distinguish adopted organizer/revision rules from an unresolved withdrawal decision and interrupted ledger handoff |
 | [11 — backstage research](cases/11-backstage-research/request.md) | Assess mixed-provenance evidence and propose one feasible test within a small venue's operating constraints |
+| [12 — launch handoff](cases/12-launch-handoff/request.md) | Connect research, planning, marketing, product design, and a capacity-aware business model |
+| [13 — offer consistency review](cases/13-offer-consistency-review/request.md) | Review whether public promises, UX, pricing, and fulfillment describe the same offer |
+| [14 — live channel research](cases/14-live-channel-research/request.md) | Retrieve current official competitor evidence and recommend a bounded message and next test |
 
 The [rubric](RUBRIC.md) for cases 01–05 was written before those recorded runs.
 It grades observable meaning, including failures, rather than matching headings.
@@ -86,6 +95,29 @@ The criteria are separate from the raw fixture. Its published results are a
 development check, not representative customer research.
 
 ## Forward-test method
+
+Cases 12–13 have [separate frozen criteria](criteria/2026-09-10-product-journey/README.md)
+authored independently of the product-journey instructions. Run case 12 with
+`--arm bandit` or `--arm bandit-specify`, and case 13 with `--arm bandit-review`.
+They have no pinned upstream route; the runner refuses that arm rather than
+inventing a comparison. Their [execution protocol](results/2026-09-10-product-journey/protocol.md)
+also includes research and scope regressions.
+
+Case 14 is a separate live-research task requiring explicit `--allow-web`:
+
+```sh
+python3 evals/run_local.py --case 14-live-channel-research --arm bandit-research --allow-web --output-dir /absolute/path/to/new-live-runs
+```
+
+Other cases remain offline and reject this flag. The runner saves web events,
+raw inputs, output, and integrity evidence; keep the
+[criteria](criteria/2026-09-10-live-research/14-live-channel-research.md) outside
+the task context and independently check source correspondence. A native host
+can also run the request, but disclose unavailable event/usage instrumentation.
+This primary-authored case is a development check, not
+an independently held-out benchmark. See the contributor
+[repeat-check procedure](../CONTRIBUTING.md#repeat-skill-quality-checks) for when
+to rerun behavior checks and link failures to improvement Issues and PRs.
 
 An independent agent receives only the user's request, raw fixtures, and the
 skill with its relevant references. It receives no rubric, desired answer,

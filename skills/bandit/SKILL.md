@@ -1,6 +1,6 @@
 ---
 name: bandit
-description: Coordinate product planning with BANDIT when the user asks for general planning or a task spanning research, MVP scope, specification creation or rewriting, and review. Use a named BANDIT specialist directly when the user selects one; excludes standalone UI styling, code implementation, and personal task scheduling.
+description: Coordinate product planning with BANDIT for general or combined research, MVP scope, marketing strategy, product design handoff, business model (BM) design, specification creation or rewriting, and review. Use a named BANDIT specialist directly when selected; excludes standalone UI styling, code implementation, and personal task scheduling.
 ---
 
 # BANDIT
@@ -39,6 +39,12 @@ requested result needs them; this table is not a mandatory sequence.
 | Choose what to build now, prioritize, or cut an MVP to fit constraints | [Scope](references/decisions.md) |
 | Create or rewrite a specification, including changed decisions or new results | [Specify](references/specification.md) |
 | Find consequential gaps or conflicts in an existing plan | [Review](references/review.md) |
+| Connect planning, marketing, product design, and business model decisions, or draft one of these business briefs | [Product journey](references/product-journey.md) |
+
+For a requested planning → marketing → design → BM sequence, use the product
+journey guidance to produce the linked deliverables and reconcile the offer
+across them. Research feeds the decisions; later economic or design constraints
+can reopen affected earlier choices. Do not stop after the PRD alone.
 
 For a lasting plan, a handoff, or work spanning decisions, also read
 [Evidence and decisions](references/evidence-and-decisions.md). Use stable links

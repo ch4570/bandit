@@ -107,6 +107,27 @@ BANDIT selects the relevant planning workflow. [General skill instructions](skil
 
 For an ongoing plan or development handoff, the shared [evidence and decision guidance](skills/bandit/references/evidence-and-decisions.md) connects sources, assumptions, decisions, requirements, and checks. Small requests can remain a paragraph or short table. An optional [plan template](skills/bandit/assets/plan-template.md) helps when starting a new plan; [Usage](docs/usage.md) has more examples.
 
+## Upcoming: connect the whole product offer
+
+**Unreleased branch guidance.** The v0.4.0 installation command above installs the published release; it does not include this new product-journey guidance.
+
+The branch extends the same five commands to connect research → product planning → marketing → product design handoff → business model (BM). Research informs the chosen audience and problem; scope sets the outcome you can deliver; marketing explains that offer; design describes how someone reaches it; the business model checks who pays and what delivery costs. Later price or capacity findings can reopen earlier promises and flows.
+
+For a combined request, use `$bandit`. This synthetic example is a prompt, not an evaluated product result:
+
+```text
+$bandit Use the supplied sources to assess a scope-change approval service
+for freelancers. Recommend a two-week MVP for one developer, then connect
+a marketing brief, a product flow/content and text-wireframe brief, and
+a business model with explicit price, cost, and delivery-capacity assumptions.
+Keep the audience, promise, and offer terms consistent. Label proposed
+choices and unverified claims, and suggest the next useful test.
+```
+
+The expected handoff connects evidence, scope, draft copy and a channel test, product flows and states, and revenue/cost assumptions. Product design here means a flow, content, and wireframe brief for the next contributor; it does not mean a rendered interface or completed usability test. Planning does not authorize publication, outreach, spending, or implementation.
+
+For a focused task, use `$bandit-research` for offer evidence, `$bandit-scope` for delivery scope, `$bandit-specify` for a UX or commercial brief, and `$bandit-review` for consistency across the documents. See the [upcoming usage examples](docs/usage.md#upcoming-connect-research-planning-marketing-design-and-bm) and [product journey guidance](skills/bandit/references/product-journey.md). A narrow request still stays narrow.
+
 ## A character with good judgment
 
 BANDIT is direct, curious, and willing to make a recommendation. The hat stays on the cover; your PRDs stay clear and professional. It separates evidence from assumptions, keeps proposed decisions distinct from accepted ones, and checks the rules behind a feature.

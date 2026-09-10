@@ -86,6 +86,39 @@ class EvalIntegrityTests(unittest.TestCase):
         self.assertIn({"path": "input/observations.md", "change": "modified"}, metadata["violations"])
         self.assert_run_retained(metadata, run)
 
+    def test_local_cases_reject_unconfigured_upstream_before_launch(self):
+        output = self.area / "unsupported-upstream"
+        with patch.object(runner.subprocess, "check_output") as probe, patch.object(runner.subprocess, "run") as launch:
+            for case in runner.LOCAL_CASES:
+                with self.subTest(case=case), self.assertRaisesRegex(ValueError, "No pinned upstream route"):
+                    runner.run_case(case, "upstream", output, self.area / "upstream")
+            probe.assert_not_called()
+            launch.assert_not_called()
+        self.assertFalse(output.exists())
+
+    def test_live_research_requires_explicit_opt_in_and_keeps_offline_cases_offline(self):
+        output = self.area / "web-mode-mismatch"
+        with patch.object(runner.subprocess, "run") as launch:
+            for case, allow_web in ((runner.LIVE_CASES[0], False), (self.case, True)):
+                with self.subTest(case=case), self.assertRaisesRegex(ValueError, "require --allow-web"):
+                    runner.run_case(case, "baseline", output, None, allow_web=allow_web)
+            launch.assert_not_called()
+        self.assertFalse(output.exists())
+
+    def test_live_research_records_web_setting_and_preserves_inputs(self):
+        original_case = self.case
+        self.case = runner.LIVE_CASES[0]
+        (self.root / "evals/cases" / original_case).rename(self.root / "evals/cases" / self.case)
+        code, metadata, run = self.execute(arm="bandit", allow_web=True)
+        self.assertEqual(code, 0)
+        self.assertEqual(metadata["integrity_status"], "passed")
+        self.assertEqual(metadata["execution_settings"]["web_search"], "live")
+        self.assertIn('web_search="live"', metadata["command"])
+        prompt = (run / "prompt.txt").read_text()
+        self.assertIn("using live web search", prompt)
+        self.assertNotIn("Do not browse", prompt)
+        self.assertEqual(metadata["input_sha256"], metadata["input_after_sha256"])
+
     def test_unchanged_baseline_passes_integrity_without_a_quality_verdict(self):
         code, metadata, run = self.execute()
         self.assertEqual(code, 0)

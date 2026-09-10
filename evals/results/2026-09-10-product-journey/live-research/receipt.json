@@ -1,0 +1,23 @@
+{
+  "schema": "bandit.native-task-evidence/v1",
+  "child_handle": "/root/live_research_task",
+  "fork_turns": "none",
+  "model_override": null,
+  "observed_model": null,
+  "observed_reasoning_effort": null,
+  "raw_event_log": "unavailable for this native transport",
+  "usage": null,
+  "integrity_status": "not instrumented",
+  "input_sha256": "ebf7ec60cc81118643a4e8db97de365e89edb720d3a896a58791498962074ec8",
+  "output_sha256": "12e88fee1d6a47b548177ba78da34c666eb773ffcef29d41d8ddb5c1b53a8fd1",
+  "instruction_sha256": {
+    "SKILL.md": "f6955d66dc31f183c1ff1f861d01ddead6523072f05fd56ff8bde2fa0dbd5697",
+    "agents/openai.yaml": "af4da23d45df56346cd7f9924f440dc4d946ee9cf02f9130cd47b14f0ef0835c",
+    "references/evidence-and-decisions.md": "13b5d1e1b652eae8d947b03fcc4d93b76465b541b362815fb9fdc4ef44a472d6",
+    "references/product-journey.md": "8a0a98afbc247f937b907c190a985694b39ca7ab10296fb5b73a2f6f7e4d2add",
+    "references/research.md": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a",
+    "references/work-boundaries.md": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da"
+  },
+  "artifact": "output.md",
+  "evidence_limit": "Native child completion and returned artifact; cited sources are independently checked in the grade report. No CLI telemetry claim."
+}
