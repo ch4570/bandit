@@ -1,0 +1,639 @@
+{
+  "schema": "bandit.dependent-handoff-execution/v1",
+  "base_commit": "7afdd224097eb6852639f81ff51c57506e5b2e98",
+  "comparison": "none; descriptive development tasks",
+  "instruction_snapshot": {
+    "bandit/SKILL.md": {
+      "sha256": "5f6b19591cedb41c03259281a7c05652d091873545907ebd329ea15e57e7e607",
+      "artifact": "instructions/bandit/SKILL.md.txt"
+    },
+    "bandit/agents/openai.yaml": {
+      "sha256": "1a24331976f7a257ad2aafba9c786c4dc5e5ddb25a98a8dbecdd0c1ae0ddc5f9",
+      "artifact": "instructions/bandit/agents/openai.yaml.txt"
+    },
+    "bandit/assets/bandit-avatar.png": {
+      "sha256": "091520edefe34c49af5c800f7073c53f602f23531ecab0a5f3ee46d0ef5afab2",
+      "artifact": "instructions/bandit/assets/bandit-avatar.png.bin"
+    },
+    "bandit/assets/plan-template.md": {
+      "sha256": "0b1f6381172778640eceb9eea97b45a7e37070897ea85b159f9df5947bf8833e",
+      "artifact": "instructions/bandit/assets/plan-template.md.txt"
+    },
+    "bandit/references/changes.md": {
+      "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+      "artifact": "instructions/bandit/references/changes.md.txt"
+    },
+    "bandit/references/decisions.md": {
+      "sha256": "103806ce62a04edb509b1e3a7b636bed0e6304bd211fb8e4c68144b52242ca8e",
+      "artifact": "instructions/bandit/references/decisions.md.txt"
+    },
+    "bandit/references/evidence-and-decisions.md": {
+      "sha256": "e4b2231af40395f417aba82a423d96ad8f493a307e0e0132549c7a41496e4bd5",
+      "artifact": "instructions/bandit/references/evidence-and-decisions.md.txt"
+    },
+    "bandit/references/product-journey.md": {
+      "sha256": "97ef06a5f5e8873665e311a38e3af42d3c39ed0f4693eaae64797a103964b749",
+      "artifact": "instructions/bandit/references/product-journey.md.txt"
+    },
+    "bandit/references/research.md": {
+      "sha256": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a",
+      "artifact": "instructions/bandit/references/research.md.txt"
+    },
+    "bandit/references/review.md": {
+      "sha256": "095a019a405b0adb3237d8efa99dff0878b14945eb1989adf2018356d161c203",
+      "artifact": "instructions/bandit/references/review.md.txt"
+    },
+    "bandit/references/specification.md": {
+      "sha256": "dba048cdf700b46f4e1a18918b6ba0cd260a6d37bea9c3dbf88e35c21faf7e02",
+      "artifact": "instructions/bandit/references/specification.md.txt"
+    },
+    "bandit/references/work-boundaries.md": {
+      "sha256": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da",
+      "artifact": "instructions/bandit/references/work-boundaries.md.txt"
+    },
+    "bandit-research/SKILL.md": {
+      "sha256": "ec22aa6ee09c04a9ba3c549607aa66cbd90015161a46e44042bb1d6adc396e1a",
+      "artifact": "instructions/bandit-research/SKILL.md.txt"
+    },
+    "bandit-research/agents/openai.yaml": {
+      "sha256": "af4da23d45df56346cd7f9924f440dc4d946ee9cf02f9130cd47b14f0ef0835c",
+      "artifact": "instructions/bandit-research/agents/openai.yaml.txt"
+    },
+    "bandit-research/references/evidence-and-decisions.md": {
+      "sha256": "e4b2231af40395f417aba82a423d96ad8f493a307e0e0132549c7a41496e4bd5",
+      "artifact": "instructions/bandit-research/references/evidence-and-decisions.md.txt"
+    },
+    "bandit-research/references/product-journey.md": {
+      "sha256": "97ef06a5f5e8873665e311a38e3af42d3c39ed0f4693eaae64797a103964b749",
+      "artifact": "instructions/bandit-research/references/product-journey.md.txt"
+    },
+    "bandit-research/references/research.md": {
+      "sha256": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a",
+      "artifact": "instructions/bandit-research/references/research.md.txt"
+    },
+    "bandit-research/references/work-boundaries.md": {
+      "sha256": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da",
+      "artifact": "instructions/bandit-research/references/work-boundaries.md.txt"
+    },
+    "bandit-review/SKILL.md": {
+      "sha256": "1a9248179de716c928e51d04c19b46b9cd6b4acd9eb58aa2a9d4791c02c71ee9",
+      "artifact": "instructions/bandit-review/SKILL.md.txt"
+    },
+    "bandit-review/agents/openai.yaml": {
+      "sha256": "4e4e969c8109f589d77ea687f3a9a5eeb6af82b0abff1bce2cf6906aa7bad2f2",
+      "artifact": "instructions/bandit-review/agents/openai.yaml.txt"
+    },
+    "bandit-review/assets/plan-template.md": {
+      "sha256": "0b1f6381172778640eceb9eea97b45a7e37070897ea85b159f9df5947bf8833e",
+      "artifact": "instructions/bandit-review/assets/plan-template.md.txt"
+    },
+    "bandit-review/references/changes.md": {
+      "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+      "artifact": "instructions/bandit-review/references/changes.md.txt"
+    },
+    "bandit-review/references/evidence-and-decisions.md": {
+      "sha256": "e4b2231af40395f417aba82a423d96ad8f493a307e0e0132549c7a41496e4bd5",
+      "artifact": "instructions/bandit-review/references/evidence-and-decisions.md.txt"
+    },
+    "bandit-review/references/product-journey.md": {
+      "sha256": "97ef06a5f5e8873665e311a38e3af42d3c39ed0f4693eaae64797a103964b749",
+      "artifact": "instructions/bandit-review/references/product-journey.md.txt"
+    },
+    "bandit-review/references/research.md": {
+      "sha256": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a",
+      "artifact": "instructions/bandit-review/references/research.md.txt"
+    },
+    "bandit-review/references/review.md": {
+      "sha256": "095a019a405b0adb3237d8efa99dff0878b14945eb1989adf2018356d161c203",
+      "artifact": "instructions/bandit-review/references/review.md.txt"
+    },
+    "bandit-review/references/specification.md": {
+      "sha256": "dba048cdf700b46f4e1a18918b6ba0cd260a6d37bea9c3dbf88e35c21faf7e02",
+      "artifact": "instructions/bandit-review/references/specification.md.txt"
+    },
+    "bandit-review/references/work-boundaries.md": {
+      "sha256": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da",
+      "artifact": "instructions/bandit-review/references/work-boundaries.md.txt"
+    },
+    "bandit-scope/SKILL.md": {
+      "sha256": "1cd2dc611fc7bac4118b07f4dfefb2834d774fab8160f1df41bd91e9df05bd5d",
+      "artifact": "instructions/bandit-scope/SKILL.md.txt"
+    },
+    "bandit-scope/agents/openai.yaml": {
+      "sha256": "0993e1993fd4f67d6e5d7ffa66232f36fbfa49442ddb6fc50b92acf3c47de293",
+      "artifact": "instructions/bandit-scope/agents/openai.yaml.txt"
+    },
+    "bandit-scope/references/decisions.md": {
+      "sha256": "103806ce62a04edb509b1e3a7b636bed0e6304bd211fb8e4c68144b52242ca8e",
+      "artifact": "instructions/bandit-scope/references/decisions.md.txt"
+    },
+    "bandit-scope/references/evidence-and-decisions.md": {
+      "sha256": "e4b2231af40395f417aba82a423d96ad8f493a307e0e0132549c7a41496e4bd5",
+      "artifact": "instructions/bandit-scope/references/evidence-and-decisions.md.txt"
+    },
+    "bandit-scope/references/product-journey.md": {
+      "sha256": "97ef06a5f5e8873665e311a38e3af42d3c39ed0f4693eaae64797a103964b749",
+      "artifact": "instructions/bandit-scope/references/product-journey.md.txt"
+    },
+    "bandit-scope/references/research.md": {
+      "sha256": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a",
+      "artifact": "instructions/bandit-scope/references/research.md.txt"
+    },
+    "bandit-scope/references/work-boundaries.md": {
+      "sha256": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da",
+      "artifact": "instructions/bandit-scope/references/work-boundaries.md.txt"
+    },
+    "bandit-specify/SKILL.md": {
+      "sha256": "efacac8db88588ff18e9fa637f750b153e2257dae922029b8523be811c62730d",
+      "artifact": "instructions/bandit-specify/SKILL.md.txt"
+    },
+    "bandit-specify/agents/openai.yaml": {
+      "sha256": "b951769856a415b45a116118323320a9c34b973441f0ac8058a03e8f1e0ce6cf",
+      "artifact": "instructions/bandit-specify/agents/openai.yaml.txt"
+    },
+    "bandit-specify/assets/plan-template.md": {
+      "sha256": "0b1f6381172778640eceb9eea97b45a7e37070897ea85b159f9df5947bf8833e",
+      "artifact": "instructions/bandit-specify/assets/plan-template.md.txt"
+    },
+    "bandit-specify/references/changes.md": {
+      "sha256": "39feda203772a3ca8c0d4a716adcec478269ee48daa7d643aeda732ed8da09e0",
+      "artifact": "instructions/bandit-specify/references/changes.md.txt"
+    },
+    "bandit-specify/references/evidence-and-decisions.md": {
+      "sha256": "e4b2231af40395f417aba82a423d96ad8f493a307e0e0132549c7a41496e4bd5",
+      "artifact": "instructions/bandit-specify/references/evidence-and-decisions.md.txt"
+    },
+    "bandit-specify/references/product-journey.md": {
+      "sha256": "97ef06a5f5e8873665e311a38e3af42d3c39ed0f4693eaae64797a103964b749",
+      "artifact": "instructions/bandit-specify/references/product-journey.md.txt"
+    },
+    "bandit-specify/references/research.md": {
+      "sha256": "11f2f3318898d2eaab80a85dc453f63598ee39c065c3249c1e1ae1b90b2ef68a",
+      "artifact": "instructions/bandit-specify/references/research.md.txt"
+    },
+    "bandit-specify/references/review.md": {
+      "sha256": "095a019a405b0adb3237d8efa99dff0878b14945eb1989adf2018356d161c203",
+      "artifact": "instructions/bandit-specify/references/review.md.txt"
+    },
+    "bandit-specify/references/specification.md": {
+      "sha256": "dba048cdf700b46f4e1a18918b6ba0cd260a6d37bea9c3dbf88e35c21faf7e02",
+      "artifact": "instructions/bandit-specify/references/specification.md.txt"
+    },
+    "bandit-specify/references/work-boundaries.md": {
+      "sha256": "8a8b8513f0b98f12ef5f040f6c3a71f4685cb82b4c84699b63dd5979b15532da",
+      "artifact": "instructions/bandit-specify/references/work-boundaries.md.txt"
+    }
+  },
+  "runs": [
+    {
+      "label": "A",
+      "case": "05-small-research",
+      "arm": "bandit-research",
+      "output_sha256": "cdaab6e4b304f013b3c6677c90daaf094b902ca52f73c341c4c1aab9d78b5683",
+      "rubric": "evals/RUBRIC.md",
+      "rubric_sha256": "ddf1dd003bb804f3bad7620215ab5f969fcf20ca669794c6eaec7a0167d87b3b",
+      "process_exit_code": 0,
+      "runner_exit_code": 0,
+      "integrity_status": "passed",
+      "session_tools": {
+        "schema": "bandit.session-tools/v1",
+        "requested": true,
+        "status": "captured",
+        "cli_event_coverage": "CLI JSON events are not a complete tool trace; absent events do not prove absent tool use",
+        "scope": "raw tool response_item rows; not a quality verdict",
+        "supported_record_types": [
+          "custom_tool_call",
+          "custom_tool_call_output",
+          "function_call",
+          "function_call_output",
+          "web_search_call"
+        ],
+        "host_session_retention": "CLI persists the opt-in session; the runner never deletes host sessions",
+        "thread_id": "01a08a16-ecac-7603-a2ae-44745f22f42f",
+        "source_sha256": "6f797e8ab92077de8edddf7ff8da15584f8435aedb09e1d4cb8fc6a17874985e",
+        "source_line_count": 28,
+        "export_sha256": "2da296bcbfc3badcebc45a0aaab0cbce0201a893a9cb61654c985c4daccc6519",
+        "capture_module_sha256": "5f7885c0e7f55bced0eb806a0c9ef7789a1560028fba93bcb61e5b8bc39c2d18",
+        "exported_source_lines": [
+          14,
+          17,
+          19,
+          22
+        ],
+        "record_count": 4,
+        "call_count": 2,
+        "result_count": 2,
+        "self_contained_count": 0,
+        "errors": []
+      },
+      "runner_sha256": "24c05b29d5d44c9d31048800948bb0669422c40f018705723953c15dfde1d5b3",
+      "execution_settings": {
+        "model": null,
+        "reasoning_effort": null,
+        "timeout_seconds": 600,
+        "max_output_words": 800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "capture_session_tools": true,
+        "sandbox": "read-only"
+      },
+      "usage": [
+        {
+          "input_tokens": 80567,
+          "cached_input_tokens": 60544,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 610,
+          "reasoning_output_tokens": 0
+        }
+      ]
+    },
+    {
+      "label": "B",
+      "case": "08-callback-scope",
+      "arm": "bandit-scope",
+      "output_sha256": "c9801b741f78c7b42be9461e8708041c19f1f446c39fda99c86dcb6e2bcec941",
+      "rubric": "evals/criteria/2026-09-09-bounded-workflows/08-callback-scope.md",
+      "rubric_sha256": "931a09fa0e6961b178e555d8dcfaf2f469d2dbd789af2a0b902e0bfb40102c96",
+      "process_exit_code": 0,
+      "runner_exit_code": 0,
+      "integrity_status": "passed",
+      "session_tools": {
+        "schema": "bandit.session-tools/v1",
+        "requested": true,
+        "status": "captured",
+        "cli_event_coverage": "CLI JSON events are not a complete tool trace; absent events do not prove absent tool use",
+        "scope": "raw tool response_item rows; not a quality verdict",
+        "supported_record_types": [
+          "custom_tool_call",
+          "custom_tool_call_output",
+          "function_call",
+          "function_call_output",
+          "web_search_call"
+        ],
+        "host_session_retention": "CLI persists the opt-in session; the runner never deletes host sessions",
+        "thread_id": "01a08a15-a6f1-7fa1-8c96-58b6bf6551bd",
+        "source_sha256": "4fd798664f84603e40dacdb8f6d6838b5a8faceece35469bf715814eb3b65f39",
+        "source_line_count": 35,
+        "export_sha256": "f1ca4fb94de7631d86db932d23a3d92b523e3c2941cfef327e0feeaa04b091f9",
+        "capture_module_sha256": "5f7885c0e7f55bced0eb806a0c9ef7789a1560028fba93bcb61e5b8bc39c2d18",
+        "exported_source_lines": [
+          14,
+          17,
+          19,
+          22,
+          24,
+          27
+        ],
+        "record_count": 6,
+        "call_count": 3,
+        "result_count": 3,
+        "self_contained_count": 0,
+        "errors": []
+      },
+      "runner_sha256": "24c05b29d5d44c9d31048800948bb0669422c40f018705723953c15dfde1d5b3",
+      "execution_settings": {
+        "model": null,
+        "reasoning_effort": null,
+        "timeout_seconds": 600,
+        "max_output_words": 1000,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "capture_session_tools": true,
+        "sandbox": "read-only"
+      },
+      "usage": [
+        {
+          "input_tokens": 114294,
+          "cached_input_tokens": 81152,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1514,
+          "reasoning_output_tokens": 30
+        }
+      ]
+    },
+    {
+      "label": "C",
+      "case": "12-launch-handoff",
+      "arm": "bandit",
+      "output_sha256": "ce36cc4ff069213b2c89da270f6ef04d740b0eb5b0d88798cac9fb40678810c2",
+      "rubric": "evals/criteria/2026-09-10-product-journey/12-launch-handoff.md",
+      "rubric_sha256": "bae6ee4dec94d83922c33e73d42791aa9622d5316bd6138bd6b88cb578f862f8",
+      "process_exit_code": 0,
+      "runner_exit_code": 0,
+      "integrity_status": "passed",
+      "session_tools": {
+        "schema": "bandit.session-tools/v1",
+        "requested": true,
+        "status": "captured",
+        "cli_event_coverage": "CLI JSON events are not a complete tool trace; absent events do not prove absent tool use",
+        "scope": "raw tool response_item rows; not a quality verdict",
+        "supported_record_types": [
+          "custom_tool_call",
+          "custom_tool_call_output",
+          "function_call",
+          "function_call_output",
+          "web_search_call"
+        ],
+        "host_session_retention": "CLI persists the opt-in session; the runner never deletes host sessions",
+        "thread_id": "01a08a16-f170-74e0-9417-5d1919b60d95",
+        "source_sha256": "18a886cd20110d3df6ab2f76bb694ed09fbd74e207ad1d3433f5df69bb18a4d4",
+        "source_line_count": 38,
+        "export_sha256": "5fe65b775fa6cb7491de79111eb597e7940026933c908910048589f9826c17fd",
+        "capture_module_sha256": "5f7885c0e7f55bced0eb806a0c9ef7789a1560028fba93bcb61e5b8bc39c2d18",
+        "exported_source_lines": [
+          13,
+          16,
+          18,
+          21,
+          27,
+          30
+        ],
+        "record_count": 6,
+        "call_count": 3,
+        "result_count": 3,
+        "self_contained_count": 0,
+        "errors": []
+      },
+      "runner_sha256": "24c05b29d5d44c9d31048800948bb0669422c40f018705723953c15dfde1d5b3",
+      "execution_settings": {
+        "model": null,
+        "reasoning_effort": null,
+        "timeout_seconds": 600,
+        "max_output_words": 1800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "capture_session_tools": true,
+        "sandbox": "read-only"
+      },
+      "usage": [
+        {
+          "input_tokens": 123232,
+          "cached_input_tokens": 85120,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4569,
+          "reasoning_output_tokens": 131
+        }
+      ]
+    },
+    {
+      "label": "D",
+      "case": "12-launch-handoff",
+      "arm": "bandit-specify",
+      "output_sha256": "504870bcb2badbd1fe5b1d78362760959f4ab85e8d50ab4045b366a0719b292c",
+      "rubric": "evals/criteria/2026-09-10-product-journey/12-launch-handoff.md",
+      "rubric_sha256": "bae6ee4dec94d83922c33e73d42791aa9622d5316bd6138bd6b88cb578f862f8",
+      "process_exit_code": 0,
+      "runner_exit_code": 0,
+      "integrity_status": "passed",
+      "session_tools": {
+        "schema": "bandit.session-tools/v1",
+        "requested": true,
+        "status": "captured",
+        "cli_event_coverage": "CLI JSON events are not a complete tool trace; absent events do not prove absent tool use",
+        "scope": "raw tool response_item rows; not a quality verdict",
+        "supported_record_types": [
+          "custom_tool_call",
+          "custom_tool_call_output",
+          "function_call",
+          "function_call_output",
+          "web_search_call"
+        ],
+        "host_session_retention": "CLI persists the opt-in session; the runner never deletes host sessions",
+        "thread_id": "01a08a15-b002-7132-9097-ebb49a3fd516",
+        "source_sha256": "c4d956d60010d714b4c93c5b4320059068f5dcd0744fc41a7717beb54b30db41",
+        "source_line_count": 41,
+        "export_sha256": "59a24f2f577bb19b0001cf80d7f265dd80b81c1e026021ea71c7d049985d0790",
+        "capture_module_sha256": "5f7885c0e7f55bced0eb806a0c9ef7789a1560028fba93bcb61e5b8bc39c2d18",
+        "exported_source_lines": [
+          14,
+          17,
+          19,
+          22,
+          24,
+          27,
+          33,
+          35
+        ],
+        "record_count": 8,
+        "call_count": 4,
+        "result_count": 4,
+        "self_contained_count": 0,
+        "errors": []
+      },
+      "runner_sha256": "24c05b29d5d44c9d31048800948bb0669422c40f018705723953c15dfde1d5b3",
+      "execution_settings": {
+        "model": null,
+        "reasoning_effort": null,
+        "timeout_seconds": 600,
+        "max_output_words": 1800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "capture_session_tools": true,
+        "sandbox": "read-only"
+      },
+      "usage": [
+        {
+          "input_tokens": 162412,
+          "cached_input_tokens": 97536,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4576,
+          "reasoning_output_tokens": 70
+        }
+      ]
+    },
+    {
+      "label": "E",
+      "case": "13-offer-consistency-review",
+      "arm": "bandit-review",
+      "output_sha256": "b13a16086375a897af5c1247a89aeb6d227a9aa3f3e6342c149e5c6874175114",
+      "rubric": "evals/criteria/2026-09-10-product-journey/13-offer-consistency-review.md",
+      "rubric_sha256": "adfa4b08880c7b383c662633c9dc9a271214467f5b6dd7bf60b11056fd025422",
+      "process_exit_code": 0,
+      "runner_exit_code": 0,
+      "integrity_status": "passed",
+      "session_tools": {
+        "schema": "bandit.session-tools/v1",
+        "requested": true,
+        "status": "captured",
+        "cli_event_coverage": "CLI JSON events are not a complete tool trace; absent events do not prove absent tool use",
+        "scope": "raw tool response_item rows; not a quality verdict",
+        "supported_record_types": [
+          "custom_tool_call",
+          "custom_tool_call_output",
+          "function_call",
+          "function_call_output",
+          "web_search_call"
+        ],
+        "host_session_retention": "CLI persists the opt-in session; the runner never deletes host sessions",
+        "thread_id": "01a08a17-7a12-7d23-8752-7df2f51b3853",
+        "source_sha256": "d1e03900a71a802711c99104d872cde6872c19fea8286b362f67602fe0ce54ed",
+        "source_line_count": 42,
+        "export_sha256": "c61e98b4e6f5d7a2bfc3367ca3a8aa6b15757bb102c37e033eda1319663d19e8",
+        "capture_module_sha256": "5f7885c0e7f55bced0eb806a0c9ef7789a1560028fba93bcb61e5b8bc39c2d18",
+        "exported_source_lines": [
+          14,
+          17,
+          19,
+          30,
+          34,
+          36
+        ],
+        "record_count": 6,
+        "call_count": 3,
+        "result_count": 3,
+        "self_contained_count": 0,
+        "errors": []
+      },
+      "runner_sha256": "24c05b29d5d44c9d31048800948bb0669422c40f018705723953c15dfde1d5b3",
+      "execution_settings": {
+        "model": null,
+        "reasoning_effort": null,
+        "timeout_seconds": 600,
+        "max_output_words": 1400,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "capture_session_tools": true,
+        "sandbox": "read-only"
+      },
+      "usage": [
+        {
+          "input_tokens": 118093,
+          "cached_input_tokens": 83328,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2561,
+          "reasoning_output_tokens": 12
+        }
+      ]
+    },
+    {
+      "label": "F",
+      "case": "15-supported-offer",
+      "arm": "bandit",
+      "output_sha256": "36b7f17b72570baadea434113dc7a5268237a27fb0d13b0a4b5ed4366a6fcdb3",
+      "rubric": "evals/criteria/2026-09-10-service-horizon/criteria.md",
+      "rubric_sha256": "93c856cbe49ef3b501cbe1fb5a3b188536b3f32bb18ec929df665d33346f59fa",
+      "process_exit_code": 0,
+      "runner_exit_code": 0,
+      "integrity_status": "passed",
+      "session_tools": {
+        "schema": "bandit.session-tools/v1",
+        "requested": true,
+        "status": "captured",
+        "cli_event_coverage": "CLI JSON events are not a complete tool trace; absent events do not prove absent tool use",
+        "scope": "raw tool response_item rows; not a quality verdict",
+        "supported_record_types": [
+          "custom_tool_call",
+          "custom_tool_call_output",
+          "function_call",
+          "function_call_output",
+          "web_search_call"
+        ],
+        "host_session_retention": "CLI persists the opt-in session; the runner never deletes host sessions",
+        "thread_id": "01a08a15-a6e1-70c1-8cb1-1f65936efe8f",
+        "source_sha256": "624d848f0b4ae2d1423620e071c6d36bfdf9ffac2fe08763cf476a3f49396966",
+        "source_line_count": 44,
+        "export_sha256": "0690c23cf1f2134558ee37a7d85d0045b36c876ae7ef625a92caed170dea24e0",
+        "capture_module_sha256": "5f7885c0e7f55bced0eb806a0c9ef7789a1560028fba93bcb61e5b8bc39c2d18",
+        "exported_source_lines": [
+          13,
+          16,
+          18,
+          21,
+          23,
+          26,
+          36,
+          38
+        ],
+        "record_count": 8,
+        "call_count": 4,
+        "result_count": 4,
+        "self_contained_count": 0,
+        "errors": []
+      },
+      "runner_sha256": "24c05b29d5d44c9d31048800948bb0669422c40f018705723953c15dfde1d5b3",
+      "execution_settings": {
+        "model": null,
+        "reasoning_effort": null,
+        "timeout_seconds": 600,
+        "max_output_words": 1800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "capture_session_tools": true,
+        "sandbox": "read-only"
+      },
+      "usage": [
+        {
+          "input_tokens": 152071,
+          "cached_input_tokens": 129920,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5505,
+          "reasoning_output_tokens": 1248
+        }
+      ]
+    },
+    {
+      "label": "G",
+      "case": "16-dependent-handoff",
+      "arm": "bandit",
+      "output_sha256": "ebf69b389cdaabea902b2f8d656232d8a9014c54624509df0e5a1424f3b0bb34",
+      "rubric": "evals/criteria/2026-09-10-dependent-handoff/criteria.md",
+      "rubric_sha256": "fea0aef8c8a76e4fd59d8b88838270968a9e4a8481be471978902045d755917c",
+      "process_exit_code": 0,
+      "runner_exit_code": 0,
+      "integrity_status": "passed",
+      "session_tools": {
+        "schema": "bandit.session-tools/v1",
+        "requested": true,
+        "status": "captured",
+        "cli_event_coverage": "CLI JSON events are not a complete tool trace; absent events do not prove absent tool use",
+        "scope": "raw tool response_item rows; not a quality verdict",
+        "supported_record_types": [
+          "custom_tool_call",
+          "custom_tool_call_output",
+          "function_call",
+          "function_call_output",
+          "web_search_call"
+        ],
+        "host_session_retention": "CLI persists the opt-in session; the runner never deletes host sessions",
+        "thread_id": "01a08a15-a69b-78e0-92a2-1828d6d6f838",
+        "source_sha256": "d521c559465d093e304816860c62e27077a746cc692ce3a05af87853c0a8e790",
+        "source_line_count": 38,
+        "export_sha256": "3c83d0844c6a979c8e9a83a16832169101f9624a2ff577284fe4fe1692132406",
+        "capture_module_sha256": "5f7885c0e7f55bced0eb806a0c9ef7789a1560028fba93bcb61e5b8bc39c2d18",
+        "exported_source_lines": [
+          13,
+          16,
+          18,
+          21,
+          27,
+          30
+        ],
+        "record_count": 6,
+        "call_count": 3,
+        "result_count": 3,
+        "self_contained_count": 0,
+        "errors": []
+      },
+      "runner_sha256": "24c05b29d5d44c9d31048800948bb0669422c40f018705723953c15dfde1d5b3",
+      "execution_settings": {
+        "model": null,
+        "reasoning_effort": null,
+        "timeout_seconds": 600,
+        "max_output_words": 1800,
+        "web_search": "disabled",
+        "multi_agent": false,
+        "capture_session_tools": true,
+        "sandbox": "read-only"
+      },
+      "usage": [
+        {
+          "input_tokens": 122080,
+          "cached_input_tokens": 84608,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4164,
+          "reasoning_output_tokens": 133
+        }
+      ]
+    }
+  ]
+}

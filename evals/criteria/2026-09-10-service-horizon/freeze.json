@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "case_id": "15-supported-offer",
+  "frozen_at_utc": "2026-09-10T05:45:41Z",
+  "status": "frozen_before_model_execution",
+  "synthetic": true,
+  "raw_word_count_whitespace": 1225,
+  "raw_word_count_wc": 1391,
+  "raw_files": [
+    {
+      "path": "evals/cases/15-supported-offer/request.md",
+      "sha256": "cb2b6fba4ceee5375b134d4ca9a7c3b8fea273a0500c983507d5b267e863db11"
+    },
+    {
+      "path": "evals/cases/15-supported-offer/operations.md",
+      "sha256": "8f9532f21045919ffee120432efc5fa9823db291569f00d45382b876cc594fa9"
+    },
+    {
+      "path": "evals/cases/15-supported-offer/customer-notes.md",
+      "sha256": "44cc27e33a683ad7c6f71c33607278183c7b8b2c2e49e119c7a4604b76afd4b6"
+    },
+    {
+      "path": "evals/cases/15-supported-offer/channels-and-alternatives.md",
+      "sha256": "0d2bcd7080ae7d1af1a09ef6338f8ecb71ea22abf457ac5103f9b6ab95ffdb21"
+    }
+  ],
+  "criteria_files": [
+    {
+      "path": "evals/criteria/2026-09-10-service-horizon/criteria.md",
+      "sha256": "93c856cbe49ef3b501cbe1fb5a3b188536b3f32bb18ec929df665d33346f59fa"
+    }
+  ],
+  "isolation": {
+    "inspected_product_skills": false,
+    "inspected_prior_outputs": false,
+    "inspected_issue_or_proposed_fix": false,
+    "executed_model_task": false,
+    "raw_inputs_contain_expected_answers": false,
+    "criteria_excluded_from_model_input": true
+  }
+}

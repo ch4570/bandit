@@ -1,0 +1,4 @@
+interface:
+  display_name: "BANDIT Scope"
+  short_description: "Define MVP scope and feature priorities"
+  default_prompt: "Use $bandit-scope to choose what to build now, defer, or handle manually within our constraints."

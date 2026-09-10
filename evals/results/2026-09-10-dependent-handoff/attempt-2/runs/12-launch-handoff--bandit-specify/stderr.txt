@@ -1,0 +1,2 @@
+2026-09-10T06:51:05.963219Z ERROR codex_skills_extension::host_service: failed to install system skills: io error while remove existing system skills dir: Directory not empty (os error 66)
+2026-09-10T06:51:09.855480Z ERROR codex_models_manager::manager: failed to load models cache: EOF while parsing a value at line 1 column 0

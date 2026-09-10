@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "case_id": "16-dependent-handoff",
+  "frozen_at_utc": "2026-09-10T06:36:04Z",
+  "raw_files": [
+    {
+      "path": "evals/cases/16-dependent-handoff/request.md",
+      "sha256": "f758032be79595a2373a566a7418fdee4ed1c04f2288db2ec8a8b77841721954"
+    },
+    {
+      "path": "evals/cases/16-dependent-handoff/research.md",
+      "sha256": "3ae661fd19859ac784dddc906ccf674ee92f4416c578d17fdb5c101b69cbe78a"
+    },
+    {
+      "path": "evals/cases/16-dependent-handoff/operations.md",
+      "sha256": "e3b1fc177f74d04a6a04af70b31facfd2022ab1423371ea013ad65ca38e3e3a5"
+    },
+    {
+      "path": "evals/cases/16-dependent-handoff/economics.md",
+      "sha256": "7f50a6dcc7b6a2a16dce37caefca463747e183fa74291720199344b31717f22e"
+    }
+  ],
+  "criteria_files": [
+    {
+      "path": "evals/criteria/2026-09-10-dependent-handoff/criteria.md",
+      "sha256": "fea0aef8c8a76e4fd59d8b88838270968a9e4a8481be471978902045d755917c"
+    }
+  ],
+  "raw_whitespace_words": 1067,
+  "criteria_weight_total": 100,
+  "isolation_note": "Independently authored synthetic Korean task and separate meaning-based criteria. Author viewed only repository AGENTS.md, target-path existence/status, and files authored in the two assigned directories; no product skills, existing evaluation cases/outputs/rubrics, issue/PR content, or diagnoses were inspected. No web, real customer information, task execution, model run, or delegation was used during authoring. Freeze predates any responding model run. Pass only raw_files, not this directory, to responding agents."
+}

@@ -93,6 +93,27 @@ requested; recommend one with its tradeoff and what would reopen it. A monthly
 price by itself is not a business model. Keep price tests provisional where
 willingness to pay has not been observed.
 
+Distinguish the preparation window, sales/commitment window, billing period,
+actual service and support dates, confirmed resource availability, and observation
+window. Trace each accepted schedule, including permitted late-input/recovery
+paths and stated customer availability, through every included interaction and
+closeout. For dependent steps, work backwards from staffed
+completion, allowing for the preceding delivery and customer review/response
+time. Then check forwards that the latest eligible customer can actually use
+each entitlement; a cutoff before the result it responds to does not provide
+a follow-up. If the chain does not fit, revise upstream timing or affected terms
+before commitment. Check capacity within each path's promised response windows,
+including batched starts, dependent follow-ups, and overlapping work, not only
+total hours. A late-input allowance must fit the remaining windows; elapsed
+capacity cannot be reused after the required input arrives.
+Delivery may extend beyond preparation or observation when its later resources
+are confirmed; those earlier end dates are not automatic service cutoffs.
+If coverage is missing, make resource confirmation a condition
+before accepting the affected commitment, or revise the affected intake, service
+dates, price, support, and exit terms together. Carry those conditions into the
+customer-facing promise and commitment flow. A later review date does not secure
+future staffing or establish repeat use that has not yet been observed.
+
 Show the calculations that bear on the decision, with inputs, sources or labeled
 assumptions, currency, units, and period. Separate fixed costs, variable delivery
 costs, acquisition costs, and staff time. For example, contribution per delivered

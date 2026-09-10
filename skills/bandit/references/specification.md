@@ -100,6 +100,8 @@ Explain the actor's outcome when acting on a stale version; do not silently tran
 For amounts or deadlines that affect the result, define units, currency, period, timezone, and rounding where relevant.
 Distinguish the payer from the user and the quoted amount from a collected payment.
 Only add cancellation, refund, or expiry rules if this product's promise depends on them.
+For a time-bounded service offer, apply the [product journey guidance](product-journey.md)
+to connect the customer's full service/support period to confirmed delivery resources.
 
 ## Make acceptance observable
 
