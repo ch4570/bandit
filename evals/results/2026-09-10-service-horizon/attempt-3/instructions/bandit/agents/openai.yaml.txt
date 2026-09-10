@@ -1,0 +1,7 @@
+interface:
+  display_name: "BANDIT"
+  short_description: "Your outlaw partner for sharp product plans"
+  icon_small: "./assets/bandit-avatar.png"
+  icon_large: "./assets/bandit-avatar.png"
+  brand_color: "#AF402E"
+  default_prompt: "Use $bandit to turn this idea into a focused product plan with clear decisions, assumptions, and acceptance criteria."

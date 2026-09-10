@@ -117,6 +117,14 @@ calculation is prohibited, skipped, or unavailable, verification stays incomplet
 Quoting a source number or answering a qualitative question does not require
 artificial arithmetic.
 
+For time-bounded offers, distinguish sales and billing dates from actual service,
+support, resource availability, and observation periods. Check the last accepted
+customer's full coverage, including the final allowed request and its response,
+and capacity within promised response windows and batched starts. Confirm
+additional resources before committing to uncovered
+service, or adjust affected offer terms consistently. A short preparation window
+does not prohibit longer delivery when its resources are already confirmed.
+
 Use a specialist directly when you need only one part.
 
 Evidence for an offer decision:

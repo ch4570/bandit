@@ -1,0 +1,1 @@
+2026-09-10T05:56:09.832567Z ERROR codex_skills_extension::host_service: failed to install system skills: io error while create system skills subdir: Invalid argument (os error 22)

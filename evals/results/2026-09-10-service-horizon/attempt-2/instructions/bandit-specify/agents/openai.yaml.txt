@@ -1,0 +1,4 @@
+interface:
+  display_name: "BANDIT Specify"
+  short_description: "Create or rewrite product specifications"
+  default_prompt: "Use $bandit-specify to read any existing PRD and create or rewrite the specification for this direction."

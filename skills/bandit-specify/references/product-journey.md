@@ -93,6 +93,21 @@ requested; recommend one with its tradeoff and what would reopen it. A monthly
 price by itself is not a business model. Keep price tests provisional where
 willingness to pay has not been observed.
 
+Distinguish the preparation window, sales/commitment window, billing period,
+actual service and support dates, confirmed resource availability, and observation
+window. Trace the last accepted customer's obligations through the latest allowed
+request, promised response, and closeout. If normal turnaround could run past
+coverage, state the final request cutoff and end-of-service response rule before
+commitment. Check capacity within promised response windows,
+including batched starts and overlapping work, not only weekly or total hours.
+Delivery may extend beyond preparation or observation when its later resources
+are confirmed; those earlier end dates are not automatic service cutoffs.
+If coverage is missing, make resource confirmation a condition
+before accepting the affected commitment, or revise the affected intake, service
+dates, price, support, and exit terms together. Carry those conditions into the
+customer-facing promise and commitment flow. A later review date does not secure
+future staffing or establish repeat use that has not yet been observed.
+
 Show the calculations that bear on the decision, with inputs, sources or labeled
 assumptions, currency, units, and period. Separate fixed costs, variable delivery
 costs, acquisition costs, and staff time. For example, contribution per delivered

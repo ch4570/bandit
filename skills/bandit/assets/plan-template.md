@@ -47,7 +47,7 @@
 {{User and payer, value, acquisition and ongoing service, charging unit/timing, delivery activities/resources/partners, alternative model and recommended tradeoff.}}
 
 **Economics:** {{Input sources or assumptions, currency/unit/period, revenue and variable/fixed/acquisition costs, staff effort, contribution, sensitivity, and capacity-feasible break-even when calculable}}
-**Offer consistency:** {{Link evidence → scope → message/channel → design → revenue/cost → next check; reconcile eligibility, price, timing, cancellation, and delivery limits}}
+**Offer consistency:** {{Link evidence → scope → message/channel → design → revenue/cost → next check; reconcile eligibility, price, cancellation, and delivery limits. Distinguish sales/billing, full service/support coverage, confirmed resource dates, and observation window; carry unresolved coverage conditions into the promise and commitment flow.}}
 
 ## Domain rules
 

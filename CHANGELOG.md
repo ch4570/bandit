@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Match the whole promised service/support period and response-window workload to confirmed resources, including the last accepted customer and batched starts; keep valid later delivery separate from short preparation or observation windows.
 - Require an executed calculation and retained result for consequential derived figures; keep quoted numbers and qualitative requests lightweight.
 - Add opt-in task-bound tool-transcript capture for development evaluations; disclose CLI JSON's missing direct JavaScript events without inferring non-execution.
 

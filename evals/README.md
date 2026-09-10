@@ -53,6 +53,11 @@ preserves numerical checks and an important telemetry correction: a successful
 direct JavaScript calculation can be absent from CLI JSON stdout. A missing
 command event alone is not proof of non-execution.
 
+The [service-horizon correction](results/2026-09-10-service-horizon/README.md)
+checks full delivery/support coverage against confirmed resource dates, while
+preserving legitimate service after a short preparation window. Its independent
+new case is separate from the earlier café handoff regression.
+
 ## Cases
 
 | Case | Planning task |
@@ -71,6 +76,7 @@ command event alone is not proof of non-execution.
 | [12 — launch handoff](cases/12-launch-handoff/request.md) | Connect research, planning, marketing, product design, and a capacity-aware business model |
 | [13 — offer consistency review](cases/13-offer-consistency-review/request.md) | Review whether public promises, UX, pricing, and fulfillment describe the same offer |
 | [14 — live channel research](cases/14-live-channel-research/request.md) | Retrieve current official competitor evidence and recommend a bounded message and next test |
+| [15 — supported offer](cases/15-supported-offer/request.md) | Connect a short preparation window to later confirmed delivery resources without confusing service, billing, and observation periods |
 
 The [rubric](RUBRIC.md) for cases 01–05 was written before those recorded runs.
 It grades observable meaning, including failures, rather than matching headings.
@@ -100,6 +106,14 @@ The criteria are separate from the raw fixture. Its published results are a
 development check, not representative customer research.
 
 ## Forward-test method
+
+Case 15 and its [separately frozen criteria](criteria/2026-09-10-service-horizon/)
+were authored without access to the service-horizon candidate instructions or
+earlier task outputs. Run it with `--arm bandit --capture-session-tools` after
+checking the raw request. It has no pinned upstream route. The preparation
+window is not itself a prohibition on later service; assess the actual supplied
+resource commitments. These are synthetic development inputs, not customer
+evidence or an ongoing held-out benchmark.
 
 Cases 12–13 have [separate frozen criteria](criteria/2026-09-10-product-journey/README.md)
 authored independently of the product-journey instructions. Run case 12 with
