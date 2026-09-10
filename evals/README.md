@@ -48,6 +48,11 @@ including the first budget-total defect and partial currency/retrieval grade.
 They exercise marketing, design handoffs, and business-model consistency as
 development tasks, not customer or business validation.
 
+The [calculation-evidence follow-up](results/2026-09-10-calculation-evidence/README.md)
+preserves numerical checks and an important telemetry correction: a successful
+direct JavaScript calculation can be absent from CLI JSON stdout. A missing
+command event alone is not proof of non-execution.
+
 ## Cases
 
 | Case | Planning task |
@@ -158,6 +163,36 @@ the isolated project's `.agents/skills/` and invoke the selected `$bandit-*`
 name in the prompt. Inspect the execution log to confirm the agent read that
 entrypoint. The general `bandit` arm retains the explicit instruction snapshot
 method used by the earlier runner.
+
+### Retain tool-execution evidence
+
+By default the runner uses `--ephemeral`. Its `events.jsonl` preserves the CLI's
+JSON stdout, which is not a complete tool transcript: a controlled Codex 0.154.0
+diagnostic found direct `functions.exec` arithmetic only in the persisted
+session, not in stdout. Do not infer that arithmetic was skipped or fabricated
+merely because no shell calculation event appears. Final prose alone does not
+prove execution either.
+
+When the check needs the actual call and returned values, explicitly opt in:
+
+```sh
+python3 evals/run_local.py --case 12-launch-handoff --arm bandit-specify --capture-session-tools --output-dir /absolute/path/to/new-evidence-runs
+```
+
+This option allows Codex to persist the new task's session in its normal host
+session directory. The runner binds that session to the CLI thread ID and exact
+workspace, then exports supported tool call/result records, excluding ordinary
+system, developer, user, assistant, and reasoning messages. A missing or invalid
+requested capture makes the run incomplete; it cannot become a passing execution
+claim. The original host session remains on the host and is not deleted.
+Capture requires safe descriptor-relative, no-follow filesystem access; hosts
+without it report unavailable. This does not change default ephemeral runs.
+
+Tool records themselves may contain task inputs or retrieved content. Use
+synthetic fixtures and inspect them before publishing; excluding message records
+does not make an arbitrary private task safe to publish. Capture proves evidence
+transport, not correct arithmetic, source validity, or overall skill quality.
+Compare inputs, formulas, returned results, and final decisions separately.
 
 To check a real artifact rewrite, permit the PRD named in case 06:
 

@@ -1,0 +1,18 @@
+{
+  "schema": "bandit.tool-event-probe/v1",
+  "codex_version": "0.154.0",
+  "thread_id": "01a089b5-ad9f-7803-8a4c-bdccf12cb79c",
+  "persisted_session": true,
+  "model_override": null,
+  "source_sha256": "d6470dd82a76c4b59269085fabade6facb60b06c2d2526388780298218445087",
+  "source_line_numbers": [
+    13,
+    15
+  ],
+  "exported_records": 2,
+  "omitted": "All system, developer, user, assistant and reasoning messages; only synthetic arithmetic call/result records were exported.",
+  "events_sha256": "227341d3348a6dbf0212d8f477e91b5d988a3dee5d1f5184b5eacf4957b676a8",
+  "tool_records_sha256": "12b5e998c58adae88395546f2811a19142c4daa8cb6f76fc7936cf12f0baa264",
+  "observation": "Successful direct JavaScript calculation appears in persisted session but is absent from --json stdout.",
+  "limits": "Controlled host diagnostic, not a BANDIT task. It does not prove calls occurred in past ephemeral tasks. An additional ephemeral probe requesting features.code_mode.enabled=false still claimed direct functions.exec use; without a persisted session its effective tool mode is unverified and this route was rejected."
+}

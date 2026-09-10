@@ -101,12 +101,11 @@ profit before fixed costs. Do not count deposits as earned revenue or count the
 same payment, refund, acquisition cost, or labor twice. Explain accounting
 boundaries when inputs are incomplete rather than inventing precision.
 
-Before reporting numeric tables or budgets, use an available calculator or code
-tool to recompute totals, fees, period conversions, and break-even from the
-listed inputs. Reconcile allocated spending, reserves, and explicitly unallocated
-funds with the budget; state unused capacity instead of making the total equal
-the cap by assertion. If calculation tools are unavailable, show the arithmetic
-and check the sum independently. A within-budget plan can still have a wrong total.
+Apply the shared [calculation check](evidence-and-decisions.md#verify-consequential-calculations)
+before reporting derived totals, fees, period conversions, or break-even.
+Reconcile allocated spending, reserves, and explicitly unallocated funds with
+the budget; state unused capacity instead of making the total equal the cap by
+assertion. A within-budget plan can still have a wrong total.
 
 Verify currency identity before comparing money across sources: a shared `$`
 symbol does not prove a shared currency. If a source leaves it unspecified,

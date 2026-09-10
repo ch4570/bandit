@@ -1,0 +1,199 @@
+{
+  "schema": "bandit.reextraction-check/v1",
+  "reason": "Unbuffered header read prevents source-body prefetch before binding; no task rerun or changed grading inputs.",
+  "runs": [
+    {
+      "run": "05-small-research--bandit-research",
+      "original_capture_module_sha256": "45a252983a30514530f349da524d6948bac31facaf96b085aec07b70e0a99659",
+      "same_source": true,
+      "byte_identical_tool_export": true,
+      "final_capture": {
+        "schema": "bandit.session-tools/v1",
+        "requested": true,
+        "status": "captured",
+        "cli_event_coverage": "CLI JSON events are not a complete tool trace; absent events do not prove absent tool use",
+        "scope": "raw tool response_item rows; not a quality verdict",
+        "supported_record_types": [
+          "custom_tool_call",
+          "custom_tool_call_output",
+          "function_call",
+          "function_call_output",
+          "web_search_call"
+        ],
+        "host_session_retention": "CLI persists the opt-in session; the runner never deletes host sessions",
+        "thread_id": "01a089c0-29aa-79b0-b7bc-1837222baa0f",
+        "source_sha256": "3685215fb07e66979614ade2a8001aa2f5e7c1cebd5e65bbfc7ff161ce977216",
+        "source_line_count": 28,
+        "export_sha256": "fc7dac0082cfc8254c7a694e59c7aa4867b3b39c6582da5a1e32974956510492",
+        "capture_module_sha256": "5f7885c0e7f55bced0eb806a0c9ef7789a1560028fba93bcb61e5b8bc39c2d18",
+        "exported_source_lines": [
+          14,
+          17,
+          19,
+          22
+        ],
+        "record_count": 4,
+        "call_count": 2,
+        "result_count": 2,
+        "self_contained_count": 0,
+        "errors": []
+      }
+    },
+    {
+      "run": "08-callback-scope--bandit-scope",
+      "original_capture_module_sha256": "45a252983a30514530f349da524d6948bac31facaf96b085aec07b70e0a99659",
+      "same_source": true,
+      "byte_identical_tool_export": true,
+      "final_capture": {
+        "schema": "bandit.session-tools/v1",
+        "requested": true,
+        "status": "captured",
+        "cli_event_coverage": "CLI JSON events are not a complete tool trace; absent events do not prove absent tool use",
+        "scope": "raw tool response_item rows; not a quality verdict",
+        "supported_record_types": [
+          "custom_tool_call",
+          "custom_tool_call_output",
+          "function_call",
+          "function_call_output",
+          "web_search_call"
+        ],
+        "host_session_retention": "CLI persists the opt-in session; the runner never deletes host sessions",
+        "thread_id": "01a089c0-29cf-7582-acbc-2462a45e2e51",
+        "source_sha256": "01f65907a1d119fd45f7e79590dce3c91ccdabd0ce74553d43ed7681a9b2e86e",
+        "source_line_count": 30,
+        "export_sha256": "3790f55e6d4cc1ac5e3ab12cb007d4f7611fd4255c3a6d6dea56846cfbd9748e",
+        "capture_module_sha256": "5f7885c0e7f55bced0eb806a0c9ef7789a1560028fba93bcb61e5b8bc39c2d18",
+        "exported_source_lines": [
+          14,
+          17,
+          19,
+          22
+        ],
+        "record_count": 4,
+        "call_count": 2,
+        "result_count": 2,
+        "self_contained_count": 0,
+        "errors": []
+      }
+    },
+    {
+      "run": "12-launch-handoff--bandit",
+      "original_capture_module_sha256": "45a252983a30514530f349da524d6948bac31facaf96b085aec07b70e0a99659",
+      "same_source": true,
+      "byte_identical_tool_export": true,
+      "final_capture": {
+        "schema": "bandit.session-tools/v1",
+        "requested": true,
+        "status": "captured",
+        "cli_event_coverage": "CLI JSON events are not a complete tool trace; absent events do not prove absent tool use",
+        "scope": "raw tool response_item rows; not a quality verdict",
+        "supported_record_types": [
+          "custom_tool_call",
+          "custom_tool_call_output",
+          "function_call",
+          "function_call_output",
+          "web_search_call"
+        ],
+        "host_session_retention": "CLI persists the opt-in session; the runner never deletes host sessions",
+        "thread_id": "01a089c0-24ea-7fb3-9d7f-5d637e308168",
+        "source_sha256": "c5df18a737c43b9700abec3e32b5b8a3f194faf6ae4ef3d34e726cdfb6a61dd0",
+        "source_line_count": 40,
+        "export_sha256": "695b9f172602101f5603da96b9fd1e31f9b07b1984c41f86478ea83fb1b3dfeb",
+        "capture_module_sha256": "5f7885c0e7f55bced0eb806a0c9ef7789a1560028fba93bcb61e5b8bc39c2d18",
+        "exported_source_lines": [
+          13,
+          16,
+          18,
+          21,
+          23,
+          26,
+          32,
+          34
+        ],
+        "record_count": 8,
+        "call_count": 4,
+        "result_count": 4,
+        "self_contained_count": 0,
+        "errors": []
+      }
+    },
+    {
+      "run": "12-launch-handoff--bandit-specify",
+      "original_capture_module_sha256": "45a252983a30514530f349da524d6948bac31facaf96b085aec07b70e0a99659",
+      "same_source": true,
+      "byte_identical_tool_export": true,
+      "final_capture": {
+        "schema": "bandit.session-tools/v1",
+        "requested": true,
+        "status": "captured",
+        "cli_event_coverage": "CLI JSON events are not a complete tool trace; absent events do not prove absent tool use",
+        "scope": "raw tool response_item rows; not a quality verdict",
+        "supported_record_types": [
+          "custom_tool_call",
+          "custom_tool_call_output",
+          "function_call",
+          "function_call_output",
+          "web_search_call"
+        ],
+        "host_session_retention": "CLI persists the opt-in session; the runner never deletes host sessions",
+        "thread_id": "01a089c0-2374-7411-be89-5a607953fcce",
+        "source_sha256": "858e6898efb0a334deccb1a3c65fccc575665967cb892cf08218f1397c69a473",
+        "source_line_count": 37,
+        "export_sha256": "0022b0cf9dc4f53a779b33be40ce6b5849d8694a82811f82cfc14321d1fbf592",
+        "capture_module_sha256": "5f7885c0e7f55bced0eb806a0c9ef7789a1560028fba93bcb61e5b8bc39c2d18",
+        "exported_source_lines": [
+          14,
+          18,
+          20,
+          23,
+          29,
+          31
+        ],
+        "record_count": 6,
+        "call_count": 3,
+        "result_count": 3,
+        "self_contained_count": 0,
+        "errors": []
+      }
+    },
+    {
+      "run": "13-offer-consistency-review--bandit-review",
+      "original_capture_module_sha256": "45a252983a30514530f349da524d6948bac31facaf96b085aec07b70e0a99659",
+      "same_source": true,
+      "byte_identical_tool_export": true,
+      "final_capture": {
+        "schema": "bandit.session-tools/v1",
+        "requested": true,
+        "status": "captured",
+        "cli_event_coverage": "CLI JSON events are not a complete tool trace; absent events do not prove absent tool use",
+        "scope": "raw tool response_item rows; not a quality verdict",
+        "supported_record_types": [
+          "custom_tool_call",
+          "custom_tool_call_output",
+          "function_call",
+          "function_call_output",
+          "web_search_call"
+        ],
+        "host_session_retention": "CLI persists the opt-in session; the runner never deletes host sessions",
+        "thread_id": "01a089c0-23d4-7531-9844-d3114c63b767",
+        "source_sha256": "4dd1c9fe222932d52e73aaf339e25274551c5e8179ab4ec9ad851eb0d41ac2ee",
+        "source_line_count": 32,
+        "export_sha256": "5995a4fabe2eca8f7820e7396577206b5ed2352afe8877e11573357db507ed81",
+        "capture_module_sha256": "5f7885c0e7f55bced0eb806a0c9ef7789a1560028fba93bcb61e5b8bc39c2d18",
+        "exported_source_lines": [
+          14,
+          17,
+          19,
+          22,
+          24,
+          26
+        ],
+        "record_count": 6,
+        "call_count": 3,
+        "result_count": 3,
+        "self_contained_count": 0,
+        "errors": []
+      }
+    }
+  ]
+}
