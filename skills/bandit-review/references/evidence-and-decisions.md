@@ -32,8 +32,16 @@ citations, quotes, customer interviews, confidence percentages, or market totals
 
 ## Verify consequential calculations
 
+Respect the user's execution restrictions first. A prohibition on running code
+also forbids arithmetic code, including JavaScript inside a tool; it is not
+limited to product code or tests. Use a permitted non-code calculator if one is
+available. Otherwise reason from the supplied figures, label the arithmetic
+not tool-verified, and continue without executing code or asking to override
+the restriction.
+
 When a recommendation depends on derived budget, fee, capacity, or economic
-figures, complete this sequence before writing the final recommendation:
+figures and execution is permitted, complete this sequence before writing the
+final recommendation:
 
 1. Gather the inputs, sources or assumptions, formulas, and units. Batch related
    sums, alternatives, and remaining capacity so the same inputs stay consistent.

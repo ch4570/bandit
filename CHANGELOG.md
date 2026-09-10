@@ -2,8 +2,8 @@
 
 ## Unreleased
 
-- Match the whole promised service/support period and response-window workload to confirmed resources, including the last accepted customer and batched starts; keep valid later delivery separate from short preparation or observation windows.
-- Require an executed calculation and retained result for consequential derived figures; keep quoted numbers and qualitative requests lightweight.
+- Match the whole service/support interaction chain and response-window workload to confirmed resources, including customer availability, permitted late inputs, dependent follow-ups, and batched starts; keep valid later delivery separate from short preparation or observation windows.
+- Require a permitted, executed calculation and retained result for consequential derived figures; a no-code instruction also forbids arithmetic code. Keep quoted numbers and qualitative requests lightweight.
 - Add opt-in task-bound tool-transcript capture for development evaluations; disclose CLI JSON's missing direct JavaScript events without inferring non-execution.
 
 - Connect research, planning, marketing, product-design handoffs, and business-model decisions through optional shared guidance in the existing five skills.

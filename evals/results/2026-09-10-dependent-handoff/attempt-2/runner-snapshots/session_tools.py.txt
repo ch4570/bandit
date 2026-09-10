@@ -1,0 +1,259 @@
+"""Transport tool evidence from one opt-in, persisted Codex exec session.
+
+CLI JSON events are not a complete tool trace. This export contains selected
+raw response_item rows, never conversation/message or reasoning records, and
+does not judge calculation correctness or task quality.
+"""
+from __future__ import annotations
+
+from contextlib import ExitStack
+from datetime import datetime, timezone
+import hashlib
+import json
+import os
+from pathlib import Path
+import stat
+from uuid import UUID
+
+
+CALLS = {"function_call": "function_call_output", "custom_tool_call": "custom_tool_call_output"}
+RESULTS = set(CALLS.values())
+CLI_COVERAGE = "CLI JSON events are not a complete tool trace; absent events do not prove absent tool use"
+
+
+class CaptureError(ValueError):
+    """An evidence failure whose message contains no host paths or record text."""
+
+
+def capture_metadata(requested: bool) -> dict:
+    return {"schema": "bandit.session-tools/v1", "requested": requested,
+            "status": "unavailable" if requested else "not_requested",
+            "cli_event_coverage": CLI_COVERAGE,
+            "scope": "raw tool response_item rows; not a quality verdict",
+            "supported_record_types": sorted([*CALLS, *RESULTS, "web_search_call"]),
+            "host_session_retention": "CLI persists the opt-in session; the runner never deletes host sessions",
+            "thread_id": None,
+            "source_sha256": None, "source_line_count": None, "export_sha256": None,
+            "capture_module_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+            "exported_source_lines": [], "record_count": 0,
+            "call_count": 0, "result_count": 0, "self_contained_count": 0, "errors": []}
+
+
+def _object(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise CaptureError("Duplicate JSON object key")
+        result[key] = value
+    return result
+
+
+def _invalid_constant(_):
+    raise CaptureError("Nonstandard JSON constant")
+
+
+def _row(raw: bytes, number: int) -> dict:
+    if not raw.endswith(b"\n"):
+        raise CaptureError(f"Truncated JSONL row at line {number}")
+    try:
+        value = json.loads(raw.decode("utf-8"), object_pairs_hook=_object, parse_constant=_invalid_constant)
+    except (ValueError, UnicodeError, RecursionError):
+        raise CaptureError(f"Malformed JSONL row at line {number}") from None
+    if not isinstance(value, dict) or not isinstance(value.get("type"), str):
+        raise CaptureError(f"Malformed event at line {number}")
+    return value
+
+
+def _thread_id(events: Path) -> str:
+    thread_id = None
+    with events.open("rb") as stream:
+        for number, raw in enumerate(stream, 1):
+            event = _row(raw, number)
+            if event["type"] != "thread.started":
+                continue
+            if thread_id is not None:
+                raise CaptureError("Repeated stdout thread.started header")
+            value = event.get("thread_id")
+            try:
+                valid = isinstance(value, str) and str(UUID(value)) == value
+            except ValueError:
+                valid = False
+            if not valid:
+                raise CaptureError("Stdout thread_id must be a canonical UUID")
+            thread_id = value
+    if thread_id is None:
+        raise CaptureError("Missing stdout thread.started header")
+    return thread_id
+
+
+def _identity(info):
+    return info.st_dev, info.st_ino, info.st_mode, info.st_nlink, info.st_size, info.st_mtime_ns, info.st_ctime_ns
+
+
+def _directory(path, stack: ExitStack, *, parent=None) -> int:
+    flags = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW
+    fd = os.open(path, flags, dir_fd=parent)
+    stack.callback(os.close, fd)
+    return fd
+
+
+def _source(root: Path, thread_id: str, stack: ExitStack) -> int:
+    # Fail closed on hosts without safe descriptor-relative traversal. Only
+    # directory entries are inspected until the exact UUID suffix is resolved.
+    if (not hasattr(os, "O_NOFOLLOW") or not hasattr(os, "O_DIRECTORY")
+            or os.open not in os.supports_dir_fd or os.scandir not in os.supports_fd):
+        raise CaptureError("Safe session traversal is unavailable on this host")
+    absolute = root.absolute()
+    parent = _directory(absolute.anchor, stack)
+    for component in absolute.parts[1:]:
+        parent = _directory(component, stack, parent=parent)
+    candidates = []
+    suffix = f"-{thread_id}.jsonl"
+
+    def visit(directory: int, parts: tuple = ()):
+        with os.scandir(directory) as entries:
+            names = sorted(entry.name for entry in entries)
+        for name in names:
+            info = os.stat(name, dir_fd=directory, follow_symlinks=False)
+            if name.startswith("rollout-") and name.endswith(suffix):
+                candidates.append(parts + (name,))
+            elif stat.S_ISDIR(info.st_mode):
+                with ExitStack() as children:
+                    child = _directory(name, children, parent=directory)
+                    visit(child, parts + (name,))
+
+    visit(parent)
+    if len(candidates) != 1:
+        raise CaptureError("Session source is missing" if not candidates else "Session source is ambiguous")
+    for component in candidates[0][:-1]:
+        parent = _directory(component, stack, parent=parent)
+    name = candidates[0][-1]
+    info = os.stat(name, dir_fd=parent, follow_symlinks=False)
+    if not stat.S_ISREG(info.st_mode) or info.st_nlink != 1:
+        raise CaptureError("Session source is not a safe regular file")
+    fd = os.open(name, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK, dir_fd=parent)
+    stack.callback(os.close, fd)
+    if _identity(info) != _identity(os.fstat(fd)):
+        raise CaptureError("Session source changed while opening")
+    return fd
+
+
+def _bind(header: dict, thread_id: str, workspace: Path, started_at: str) -> None:
+    payload = header.get("payload")
+    if header["type"] != "session_meta" or not isinstance(payload, dict):
+        raise CaptureError("First session row must be session_meta")
+    if payload.get("id") != thread_id:
+        raise CaptureError("Session metadata id does not match stdout thread_id")
+    if payload.get("cwd") != str(workspace):
+        raise CaptureError("Session metadata cwd does not match the run workspace")
+    if payload.get("source") != "exec":
+        raise CaptureError("Session metadata is not from Codex exec")
+    try:
+        created = datetime.fromisoformat(payload["timestamp"].replace("Z", "+00:00"))
+        started = datetime.fromisoformat(started_at)
+        fresh = started <= created <= datetime.now(timezone.utc)
+    except (KeyError, TypeError, ValueError, AttributeError):
+        fresh = False
+    if not fresh:
+        raise CaptureError("Session metadata timestamp is outside this run")
+
+
+def capture_session_tools(events: Path, workspace: Path, destination: Path, *, started_at: str) -> dict:
+    """Export the exact run's tool rows; retain partial rows with failure status."""
+    metadata = capture_metadata(True)
+    selected = []
+    try:
+        thread_id = _thread_id(events)
+        metadata["thread_id"] = thread_id
+        home = Path(os.environ["CODEX_HOME"]).expanduser() if os.environ.get("CODEX_HOME") else Path.home() / ".codex"
+        with ExitStack() as stack:
+            fd = _source(home / "sessions", thread_id, stack)
+            before = os.fstat(fd)
+            with os.fdopen(fd, "rb", buffering=0, closefd=False) as stream:
+                first = stream.readline()
+                _bind(_row(first, 1), thread_id, workspace, started_at)
+                # Do not read the remainder until id/cwd/freshness are bound.
+                raw_source = first + stream.read()
+            if _identity(before) != _identity(os.fstat(fd)):
+                raise CaptureError("Session source changed while reading")
+        metadata["source_sha256"] = hashlib.sha256(raw_source).hexdigest()
+        rows = raw_source.splitlines(keepends=True)
+        metadata["source_line_count"] = len(rows)
+        metadata["status"] = "incomplete"
+        pending, seen, self_contained_ids = {}, set(), set()
+        active_turn = None
+        completed = False
+        for number, raw in enumerate(rows[1:], 2):
+            event = _row(raw, number)
+            kind, payload = event["type"], event.get("payload")
+            if not isinstance(payload, dict):
+                raise CaptureError(f"Malformed session payload at line {number}")
+            if completed:
+                raise CaptureError(f"Session row follows task_complete at line {number}")
+            if kind == "session_meta":
+                raise CaptureError("Repeated session_meta header")
+            if kind == "event_msg":
+                if payload.get("type") == "task_started":
+                    if active_turn is not None or not isinstance(payload.get("turn_id"), str) or not payload["turn_id"]:
+                        raise CaptureError("Invalid or repeated task_started")
+                    active_turn = payload["turn_id"]
+                elif payload.get("type") == "task_complete":
+                    if active_turn is None or payload.get("turn_id") != active_turn or pending:
+                        raise CaptureError("task_complete does not match a complete task and paired tools")
+                    completed = True
+                continue
+            if kind != "response_item":
+                continue
+            tool_type = payload.get("type")
+            if not isinstance(tool_type, str):
+                raise CaptureError(f"Malformed response_item at line {number}")
+            if tool_type not in CALLS and tool_type not in RESULTS and tool_type != "web_search_call":
+                if "call" in tool_type or tool_type.endswith("_output"):
+                    metadata["status"] = "unavailable"
+                    raise CaptureError(f"Unsupported tool response_item at line {number}")
+                continue
+            if active_turn is None:
+                raise CaptureError("Tool row precedes task_started")
+            # Preserve exact raw rows, even if a later consistency check fails.
+            selected.append(raw)
+            metadata["exported_source_lines"].append(number)
+            metadata["record_count"] += 1
+            if tool_type == "web_search_call":
+                metadata["self_contained_count"] += 1
+                item_id = payload.get("id")
+                if (payload.get("status") != "completed" or not isinstance(payload.get("action"), dict)
+                        or not isinstance(item_id, str) or not item_id or item_id in self_contained_ids):
+                    raise CaptureError("Incomplete built-in web search tool record")
+                self_contained_ids.add(item_id)
+                continue
+            call_id = payload.get("call_id")
+            if not isinstance(call_id, str) or not call_id:
+                raise CaptureError("Tool record is missing call_id")
+            if tool_type in CALLS:
+                metadata["call_count"] += 1
+                input_field = "arguments" if tool_type == "function_call" else "input"
+                if (call_id in seen or not isinstance(payload.get("name"), str) or not payload["name"]
+                        or not isinstance(payload.get(input_field), str) or payload.get("status") not in (None, "completed")):
+                    raise CaptureError("Duplicate or malformed tool call")
+                pending[call_id] = CALLS[tool_type]
+                seen.add(call_id)
+            else:
+                metadata["result_count"] += 1
+                if pending.get(call_id) != tool_type or "output" not in payload or not isinstance(payload["output"], (str, list)):
+                    raise CaptureError("Unpaired, duplicate, or malformed tool result")
+                del pending[call_id]
+        if not completed:
+            raise CaptureError("Missing terminal task_complete")
+        metadata["status"] = "captured"
+    except CaptureError as exc:
+        metadata["errors"].append(str(exc))
+    except (OSError, RecursionError):
+        metadata["errors"].append("Session capture could not safely read its source")
+    try:
+        with destination.open("xb") as export:
+            export.writelines(selected)
+        metadata["export_sha256"] = hashlib.sha256(b"".join(selected)).hexdigest()
+    except OSError:
+        metadata["status"] = "unavailable"
+        metadata["errors"].append("Session tool export could not be written")
+    return metadata

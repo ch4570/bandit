@@ -95,11 +95,17 @@ willingness to pay has not been observed.
 
 Distinguish the preparation window, sales/commitment window, billing period,
 actual service and support dates, confirmed resource availability, and observation
-window. Trace the last accepted customer's obligations through the latest allowed
-request, promised response, and closeout. If normal turnaround could run past
-coverage, state the final request cutoff and end-of-service response rule before
-commitment. Check capacity within promised response windows,
-including batched starts and overlapping work, not only weekly or total hours.
+window. Trace each accepted schedule, including permitted late-input/recovery
+paths and stated customer availability, through every included interaction and
+closeout. For dependent steps, work backwards from staffed
+completion, allowing for the preceding delivery and customer review/response
+time. Then check forwards that the latest eligible customer can actually use
+each entitlement; a cutoff before the result it responds to does not provide
+a follow-up. If the chain does not fit, revise upstream timing or affected terms
+before commitment. Check capacity within each path's promised response windows,
+including batched starts, dependent follow-ups, and overlapping work, not only
+total hours. A late-input allowance must fit the remaining windows; elapsed
+capacity cannot be reused after the required input arrives.
 Delivery may extend beyond preparation or observation when its later resources
 are confirmed; those earlier end dates are not automatic service cutoffs.
 If coverage is missing, make resource confirmation a condition

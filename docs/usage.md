@@ -114,15 +114,19 @@ For consequential derived budgets, fees, capacity, or economic figures, expect a
 calculation check with an available tool and a compact note of the method and
 returned result. Showing a formula alone does not demonstrate execution. If a
 calculation is prohibited, skipped, or unavailable, verification stays incomplete.
+An explicit no-code request includes arithmetic code; it does not mean only
+product code. Use a permitted non-code calculator or disclose the unverified check.
 Quoting a source number or answering a qualitative question does not require
 artificial arithmetic.
 
 For time-bounded offers, distinguish sales and billing dates from actual service,
 support, resource availability, and observation periods. Check the last accepted
-customer's full coverage, including the final allowed request and its response,
-and capacity within promised response windows and batched starts. Confirm
-additional resources before committing to uncovered
-service, or adjust affected offer terms consistently. A short preparation window
+customer's full interaction chain, including time to review a result and use
+any included follow-up. Work backwards from staffed completion, then check that
+the latest eligible customer can perform each step in order, including allowed
+late inputs and stated customer availability. Check capacity within the remaining
+response windows and batched starts. Confirm additional resources before
+committing to uncovered service, or adjust affected terms. A short preparation window
 does not prohibit longer delivery when its resources are already confirmed.
 
 Use a specialist directly when you need only one part.

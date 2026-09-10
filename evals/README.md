@@ -58,6 +58,11 @@ checks full delivery/support coverage against confirmed resource dates, while
 preserving legitimate service after a short preparation window. Its independent
 new case is separate from the earlier café handoff regression.
 
+The [dependent-handoff follow-up](results/2026-09-10-dependent-handoff/README.md)
+continues the unresolved final-round interaction check. It retains the earlier
+failure and adds an independently authored information-card service task, with
+customer review time and separate staffed production windows.
+
 ## Cases
 
 | Case | Planning task |
@@ -77,6 +82,7 @@ new case is separate from the earlier café handoff regression.
 | [13 — offer consistency review](cases/13-offer-consistency-review/request.md) | Review whether public promises, UX, pricing, and fulfillment describe the same offer |
 | [14 — live channel research](cases/14-live-channel-research/request.md) | Retrieve current official competitor evidence and recommend a bounded message and next test |
 | [15 — supported offer](cases/15-supported-offer/request.md) | Connect a short preparation window to later confirmed delivery resources without confusing service, billing, and observation periods |
+| [16 — dependent handoff](cases/16-dependent-handoff/request.md) | Connect customer inputs, production, optional review and digital delivery to separate staffed windows, costs, marketing and usable handoffs |
 
 The [rubric](RUBRIC.md) for cases 01–05 was written before those recorded runs.
 It grades observable meaning, including failures, rather than matching headings.
@@ -106,6 +112,14 @@ The criteria are separate from the raw fixture. Its published results are a
 development check, not representative customer research.
 
 ## Forward-test method
+
+Case 16 and its [separately frozen criteria](criteria/2026-09-10-dependent-handoff/)
+were authored without reading the candidate skill, earlier cases, outputs or
+diagnoses. Run it with `--arm bandit --capture-session-tools`; there is no pinned
+upstream route. Its digital-card handoff has distinct input, production,
+customer-response and delivery windows. The rubric permits justified alternatives
+or deferral, not a prescribed package. Only its first execution was a new transfer
+check; subsequent runs are public development regressions.
 
 Case 15 and its [separately frozen criteria](criteria/2026-09-10-service-horizon/)
 were authored without access to the service-horizon candidate instructions or
