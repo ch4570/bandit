@@ -67,6 +67,10 @@ The [pilot-commitment follow-up](results/2026-09-10-pilot-commitments/README.md)
 checks cost periods and customer-level units alongside existing service promises,
 including a separately authored smartphone-photo guidance task.
 
+The [review-reachability follow-up](results/2026-09-10-review-reachability/README.md)
+checks whether reviews distinguish compatible constrained wording from real
+pricing, permission, recovery and public-promise defects.
+
 ## Cases
 
 | Case | Planning task |
@@ -88,6 +92,7 @@ including a separately authored smartphone-photo guidance task.
 | [15 — supported offer](cases/15-supported-offer/request.md) | Connect a short preparation window to later confirmed delivery resources without confusing service, billing, and observation periods |
 | [16 — dependent handoff](cases/16-dependent-handoff/request.md) | Connect customer inputs, production, optional review and digital delivery to separate staffed windows, costs, marketing and usable handoffs |
 | [17 — pilot commitments](cases/17-pilot-commitments/request.md) | Preserve vendor billing terms, separate demand thresholds from accepted orders, and connect service and recovery to finite operating time |
+| [18 — review reachability](cases/18-review-reachability/request.md) | Review a self-photo studio offer using implemented participation limits, valid checkout prices and public retention promises |
 
 The [rubric](RUBRIC.md) for cases 01–05 was written before those recorded runs.
 It grades observable meaning, including failures, rather than matching headings.
@@ -117,6 +122,13 @@ The criteria are separate from the raw fixture. Its published results are a
 development check, not representative customer research.
 
 ## Forward-test method
+
+Case 18 and its [separate frozen criteria](criteria/2026-09-10-review-reachability/)
+were authored without seeing skills, prior cases/results or diagnoses. Its raw
+documents include adopted terms, observed rehearsal behavior and untested
+operations. Run with `--arm bandit-review --capture-session-tools`; no pinned
+upstream route is configured. Keep the criteria and manifests outside the task
+workspace. Its first use is targeted transfer evidence, not a general benchmark.
 
 Case 17 and its [separate frozen criteria](criteria/2026-09-10-pilot-commitments/)
 were authored without reading the skill, existing cases or diagnoses. The original

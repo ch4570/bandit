@@ -44,6 +44,14 @@ Choose relevant lenses; do not produce a checklist of irrelevant omissions.
 - Are assumptions, recommendations, adopted decisions, and completed checks distinguishable?
 - Does new information invalidate an old conclusion or leave a material claim untested?
 
+Before treating wording as a material conflict, combine the applicable
+constraints, permissions and quantity bounds across the reviewed journey.
+Identify a reachable scenario with a conflicting outcome or a materially
+misleading promise. If the apparent conflict disappears under those constraints,
+narrower wording is an optional clarity improvement. An intended restriction
+does not establish that the reviewed flow enforces it, and a compatible phrase
+does not cancel independently supported defects.
+
 When repeated actions are in scope, establish what makes them the same operation:
 actor, target/version, intent, and content where relevant. Check exact retries
 separately from reuse of an identifier with changed content. If applicable sources

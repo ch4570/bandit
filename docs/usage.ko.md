@@ -158,6 +158,11 @@ $bandit-specify docs/PRD.md를 바탕으로 유료 파일럿의 UX·사업 전�
 
 같은 제품과 제공 조건을 설명하는지 문서 간 검토:
 
+표현이 충돌하는지 판단하기 전에 같은 흐름의 입력 한도와 권한을 함께
+확인합니다. 실제로 충돌하는 결과가 불가능하다면 문구를 좁히는 것은 선택적
+개선으로 구분합니다. 그렇다고 오해를 부르는 공개 약속을 허용하거나, 의도한
+제한이 실제로 적용된다고 가정하지는 않습니다.
+
 ```text
 $bandit-review docs/PRD.md, docs/marketing.md, docs/design-brief.md,
 docs/business-model.md에서 고객·약속·이용 자격·가격과 단위·제공 한도·취소
