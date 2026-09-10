@@ -31,6 +31,24 @@
 
 {{For material calculations, show input values or ranges, units, periods, formulas, and sources. Add stable IDs only when useful for continued cross-reference.}}
 
+## Marketing, when requested
+
+**Positioning and copy:** {{Initial audience, situation, alternative, supported difference, headline, supporting promise, and CTA with material offer limits}}
+**Channel and launch test:** {{Why this audience is reachable, recruitment path, material, responsible role, time/cost/capacity limit, funnel events and denominators, proposed decision thresholds}}
+
+## Design handoff, when requested
+
+{{Core flow and screen/content order or text wireframe; visible offer terms, primary actions, meaningful states and recovery, role handoffs, mobile/accessibility needs, and relevant product rules.}}
+
+**Prototype check:** {{Task, what the participant should understand/complete, observation method, and planned/executed status}}
+
+## Business model, when requested
+
+{{User and payer, value, acquisition and ongoing service, charging unit/timing, delivery activities/resources/partners, alternative model and recommended tradeoff.}}
+
+**Economics:** {{Input sources or assumptions, currency/unit/period, revenue and variable/fixed/acquisition costs, staff effort, contribution, sensitivity, and capacity-feasible break-even when calculable}}
+**Offer consistency:** {{Link evidence → scope → message/channel → design → revenue/cost → next check; reconcile eligibility, price, timing, cancellation, and delivery limits}}
+
 ## Domain rules
 
 {{Describe the objects, relationships, ownership, and lifecycle that determine this product's behavior. Keep presentation and technical implementation choices separate.}}

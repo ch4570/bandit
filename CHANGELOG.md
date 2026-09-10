@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Connect research, planning, marketing, product-design handoffs, and business-model decisions through optional shared guidance in the existing five skills.
+- Carry one offer through acquisition copy, UX states, delivery capacity, pricing, and economic assumptions; review conflicts across those artifacts.
+- Align improvement Issue and PR fields and document repeatable behavioral checks alongside package verification.
+
 ## 0.4.0 — Clearer planning tasks
 
 - Use `$bandit-scope` for MVP scope, priorities, and trade-offs, replacing `$bandit-decide`.

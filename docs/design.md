@@ -20,6 +20,28 @@ The reference sources remain under `skills/bandit/`. Maintainers run `node scrip
 
 The commands are not a mandatory sequence. A price change need not generate a market report, and a review leaves the source unchanged. The optional plan template supports new work. Existing artifacts are the baseline for specification work; the current request determines what needs rewriting.
 
+## Upcoming: carry one offer through the product journey
+
+The [product journey reference](../skills/bandit/references/product-journey.md) is an **unreleased branch change**. The published v0.4.0 tarball does not contain this new guidance. It extends the existing five skills without adding a command or a runtime.
+
+For a combined request, the general skill connects research → product planning → marketing → product design handoff → business model, then reconciles the artifacts. Research shapes the customer and problem; scope defines the deliverable outcome; marketing makes a supportable promise; design explains how the customer reaches it; the business model connects payer, delivery work, revenue, and costs. Initial price and capacity assumptions inform the earlier stages, and later findings can reopen affected decisions.
+
+| Command | Responsibility in this branch's product journey |
+| --- | --- |
+| `$bandit-research` | Assess evidence about the audience, alternatives, channel, price, and business assumptions; identify the next observation needed |
+| `$bandit-scope` | Keep the complete promised outcome feasible within delivery, capacity, and commercial constraints |
+| `$bandit-specify` | Draft or revise requested marketing, UX/design, and business model handoffs with the same audience, promise, and offer terms |
+| `$bandit-review` | Trace the offer across supplied artifacts and report consequential conflicts without editing them |
+| `$bandit` | Select and connect the requested work, including the whole journey when requested |
+
+A marketing brief includes usable copy, a call to action, and a channel test with ownership, timing, capacity, spending limits, and observable decision criteria. Product design covers the task flow, screen/content order or text wireframes, visible offer terms, relevant states and recovery, accessibility needs, and a proposed prototype check. This handoff does not claim to render an interface or complete a usability test.
+
+The business model connects customer and payer, charging unit and timing, delivery activities/resources, and costs. Calculations expose their inputs, units, periods, and assumptions. Contribution excludes fixed costs; break-even needs must fit both reachable demand and delivery capacity. Unmeasured acquisition, payment, and retention remain unverified.
+
+The shared constraint is one consistent offer: audience, promise, eligibility, price/unit, delivery time, capacity, and cancellation terms. Before handoff, trace one customer from message through use, delivery, and payment, plus a consequential failure/recovery case. A changed term propagates into affected copy, flows, scope, metrics, and acceptance scenarios within the requested edit scope; historical observations keep their original conditions. A review reports these conflicts while preserving the artifacts.
+
+These are requested planning deliverables. A narrow pricing or UX brief stays narrow, and producing a plan does not authorize outreach, publication, spending, implementation, or experiments. Coherence is not evidence of market demand or implementation correctness. The [English](usage.md#upcoming-connect-research-planning-marketing-design-and-bm) and [Korean](usage.ko.md#upcoming-product-journey) usage guides show matching prompts for the upcoming behavior.
+
 ## Keep specification work together
 
 `$bandit-specify` owns both a new spec and an existing spec that needs to reflect a new direction. It can revise the document's structure, replace outdated rules, and rewrite the affected journey as needed. A small edit can remain small; a substantive change should produce a coherent revised specification.

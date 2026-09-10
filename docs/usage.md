@@ -81,6 +81,71 @@ Reviewing a PRD does not exercise the product. Source inspection, a screenshot, 
 
 [Skill instructions](../skills/bandit-review/SKILL.md).
 
+## Upcoming: connect research, planning, marketing, design, and BM
+
+**Unreleased branch guidance.** The v0.4.0 command at the top installs the published release; it does not include the new [product journey guidance](../skills/bandit/references/product-journey.md) described in this section. The command set remains the same five skills.
+
+For a combined request, `$bandit` connects research → product planning → marketing → product design handoff → business model (BM), then checks that the artifacts describe the same offer. This is not a fixed sequence for every request. Start with provisional price and delivery limits so marketing and design reflect a feasible offer; later findings can reopen affected scope, copy, flows, and checks.
+
+The following examples are synthetic. Replace their idea, constraints, and document paths with your own sources.
+
+```text
+$bandit Use the supplied sources to assess a scope-change approval service
+for freelancers. Recommend a two-week MVP for one developer, then connect
+a marketing brief, a product flow/content and text-wireframe brief, and
+a business model with explicit price, cost, and delivery-capacity assumptions.
+Keep the audience, promise, and offer terms consistent. Label proposed
+choices and unverified claims, and suggest the next useful test.
+```
+
+Expect linked deliverables at the requested depth:
+
+| Work | Useful handoff |
+| --- | --- |
+| Research | Evidence about the customer, alternatives, and offer, with sources, conditions, and unresolved assumptions |
+| Product planning | A complete first outcome, included/deferred scope, delivery limits, and acceptance scenarios |
+| Marketing | Positioning, headline/supporting copy, a call to action, and a channel test with an audience, owner, time window, capacity, spending limit, and decision criteria |
+| Product design | Task flow, screen/content order or text wireframes, visible offer terms, relevant states and recovery, accessibility needs, and a proposed prototype check |
+| Business model | Customer and payer, charging unit, delivery activities/resources, price and cost assumptions, contribution and capacity calculations, and a next test |
+
+Keep the customer, promise, eligibility, price/unit, delivery timing, capacity, and cancellation terms consistent. Compare the business model's break-even needs with both reachable demand and delivery capacity. Calculations based on assumptions remain estimates; a coherent plan does not establish paid demand. A product design brief describes what to prototype and check; it is not a rendered or tested interface.
+
+Use a specialist directly when you need only one part.
+
+Evidence for an offer decision:
+
+```text
+$bandit-research Assess the supplied customer notes and competitor pages for
+this freelancer approval service. Which audience, promise, channel, and
+price assumptions do they support? Keep source dates and offer conditions,
+separate interest from payment, and propose one test of the largest unknown.
+Return an evidence brief only.
+```
+
+A UX and commercial brief from an existing plan:
+
+```text
+$bandit-specify Use docs/PRD.md to draft a UX and commercial handoff for the
+paid pilot. Include positioning copy and a channel test, entry-to-approval
+flows, screen/content order and text wireframes, price and cancellation
+terms at commitment, and relevant failure/recovery states. Connect payer,
+delivery work, costs, and capacity in the business model. Label draft choices
+and give acceptance scenarios; write the handoff in docs/PRD.md.
+```
+
+Consistency across the same offer:
+
+```text
+$bandit-review Review docs/PRD.md, docs/marketing.md, docs/design-brief.md,
+and docs/business-model.md for conflicting audience, promise, eligibility,
+price/unit, delivery limits, or cancellation terms. Trace one customer from
+the message through use, delivery, and payment, plus one recovery case.
+Recheck decision-changing calculations and cite each conflict's location,
+consequence, and correction. Leave the documents unchanged.
+```
+
+`$bandit-scope` remains the command for choosing or cutting delivery scope. No marketing, design, or BM command is added. A proposal does not authorize publishing copy, contacting customers, spending money, implementing screens, or running an experiment. Use separately authorized work for those actions.
+
 ## Keep the output proportionate
 
 Start with the named specialist; research, scope, specify, and review are not a

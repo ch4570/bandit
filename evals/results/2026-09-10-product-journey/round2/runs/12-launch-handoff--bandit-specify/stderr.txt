@@ -1,0 +1,5 @@
+2026-09-10T04:30:34.716460Z ERROR codex_skills_extension::host_service: failed to install system skills: io error while create system skills file parent: File exists (os error 17)
+2026-09-10T04:30:39.718870Z ERROR codex_models_manager::manager: failed to refresh available models: timeout waiting for child process to exit
+2026-09-10T04:30:39.820925Z ERROR codex_models_manager::manager: failed to refresh available models: timeout waiting for child process to exit
+2026-09-10T04:30:44.823900Z ERROR codex_models_manager::manager: failed to refresh available models: timeout waiting for child process to exit
+2026-09-10T04:30:58.377879Z ERROR codex_models_manager::manager: failed to refresh available models: timeout waiting for child process to exit

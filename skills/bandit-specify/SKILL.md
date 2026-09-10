@@ -1,6 +1,6 @@
 ---
 name: bandit-specify
-description: Create, rewrite, or refine PRDs and product specifications from an idea, changed direction, or new evidence. Read an existing spec first and replace outdated rules with a coherent current plan, including flows, permissions, states, and acceptance scenarios; excludes code implementation and standalone visual styling.
+description: Create, rewrite, or refine PRDs and product specifications from an idea, changed direction, or new evidence, including requested marketing, UX/design, and business model handoffs. Read an existing spec first and replace outdated rules with a coherent current plan, including flows, permissions, states, and acceptance scenarios; excludes code implementation and standalone visual styling.
 ---
 
 # BANDIT Specify
@@ -33,6 +33,9 @@ undecided rule, propose a reasoned draft and distinguish it from accepted policy
 
 For a durable specification or handoff, also apply
 [evidence and decision guidance](references/evidence-and-decisions.md).
+When the requested plan includes marketing, UX/design, or business model design,
+apply [product journey guidance](references/product-journey.md) and carry the
+same audience, promise, offer terms, and delivery limits into each deliverable.
 Use the optional [plan template](assets/plan-template.md) only when starting a
 new lasting plan. Finish with the artifact, significant changes to an existing
 specification, material open decisions, and

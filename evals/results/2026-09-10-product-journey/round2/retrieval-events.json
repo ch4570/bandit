@@ -1,0 +1,72 @@
+[
+  {
+    "type": "item.completed",
+    "item": {
+      "id": "exec-e43b8144-bbbc-4c5f-b183-286441dd3749",
+      "type": "web_search",
+      "query": "site.calendly.com pricing collective round robin Standard Teams ...",
+      "action": {
+        "type": "search",
+        "queries": [
+          "site.calendly.com pricing collective round robin Standard Teams",
+          "site.cal.com pricing teams collective round robin billing"
+        ]
+      }
+    }
+  },
+  {
+    "type": "item.completed",
+    "item": {
+      "id": "exec-3460a7e1-d362-4379-8e74-fdf6e5f9cbd4",
+      "type": "web_search",
+      "query": "site.cal.com/help collective round robin teams ...",
+      "action": {
+        "type": "search",
+        "queries": [
+          "site.cal.com/help collective round robin teams",
+          "site.cal.com \"billing\" \"USD\"",
+          "site.calendly.com/help \"monthly\" \"$12\" \"$20\""
+        ]
+      }
+    }
+  },
+  {
+    "type": "item.completed",
+    "item": {
+      "id": "exec-16799bfd-a3c2-42a1-928a-796c1bee075e",
+      "type": "web_search",
+      "query": "https://cal.com/help/event-types/round-robin-events",
+      "action": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "type": "item.completed",
+    "item": {
+      "id": "exec-866befe7-d306-40a7-b305-4f9a939f15b6",
+      "type": "web_search",
+      "query": "site.cal.com/help \"Teams\" \"$16\" ...",
+      "action": {
+        "type": "search",
+        "queries": [
+          "site.cal.com/help \"Teams\" \"$16\"",
+          "site.cal.com \"pricing\" \"USD\"",
+          "site.calendly.com/help \"currency\" \"USD\"",
+          "site.cal.com/help \"round-robin\" \"available\""
+        ]
+      }
+    }
+  },
+  {
+    "type": "item.completed",
+    "item": {
+      "id": "exec-2b5e405a-ced1-4fc4-b903-84f1114be3a8",
+      "type": "web_search",
+      "query": "https://cal.com/help/event-types/round-robin",
+      "action": {
+        "type": "other"
+      }
+    }
+  }
+]

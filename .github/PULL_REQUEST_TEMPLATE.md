@@ -1,11 +1,28 @@
-## Change
+## Task and stage
 
-Describe the concrete problem and resulting behavior. Include a short before/after scenario when useful.
+Name the user task, skill command, and relevant stage: research, product planning, marketing planning, design handoff, business-model planning, or installation.
 
-## Evidence
+## Observed gap and raw evidence
 
-List the checks actually run and their results. Distinguish structural tests, installer behavior, illustrative examples, and executed agent tasks. State any relevant checks that were not run.
+Identify the BANDIT release or commit tested. Link the request, raw fixtures, and actual output or logs supporting the problem; mark untested assumptions explicitly. A short before/after scenario is enough for a narrow documentation correction.
 
-## Scope
+## Expected behavior and acceptance criteria
 
-Explain any change to existing decisions, installation behavior, references, character voice, or public usage instructions. Keep the one-command npm onboarding consistent in English and Korean. Mention new sources and license notices when external material is included.
+State the resulting behavior and how a reviewer can tell the change works.
+
+## Change and alternatives
+
+Explain the final change, its scope, and relevant alternatives or trade-offs. Mention affected decisions, references, installation behavior, or public instructions; keep English and Korean onboarding consistent. Include source and license notices where needed.
+
+## Validation and limits
+
+List checks actually run with their results and evidence links, then planned or omitted checks and remaining risks. Distinguish structural tests, installer checks, illustrative examples, and executed skill trials.
+
+For skill behavior changes, link fresh independent trials using only the request, raw fixtures, and skill references. Preserve failed outputs and the criteria used to assess them; disclose failures before changing criteria. State the host/model when known and the limits of any quality or comparison claim. See [Contributing](https://github.com/ch4570/bandit/blob/main/CONTRIBUTING.md#repeat-skill-quality-checks).
+
+## Related issue and branches
+
+- Issue: `Closes #<number>` for completed work; `Refs #<number>` for partial work.
+- Base branch: `main` or the parent feature branch.
+- Head branch: `feat/issue-<number>-<slug>` or `fix/issue-<number>-<slug>`.
+- Dependencies: related PRs and merge order, if any. GitHub closes linked issues when the closing PR merges into the default branch.
