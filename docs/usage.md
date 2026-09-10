@@ -161,6 +161,11 @@ and give acceptance scenarios; write the handoff in docs/PRD.md.
 
 Consistency across the same offer:
 
+Reviews combine applicable input limits and permissions before treating broad
+wording as a conflict. If no conflicting outcome is reachable, tighter wording
+can remain optional. This does not excuse misleading public promises or assume
+that an intended restriction is actually enforced.
+
 ```text
 $bandit-review Review docs/PRD.md, docs/marketing.md, docs/design-brief.md,
 and docs/business-model.md for conflicting audience, promise, eligibility,

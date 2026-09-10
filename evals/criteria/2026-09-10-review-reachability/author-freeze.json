@@ -1,0 +1,48 @@
+{
+  "case_id": "self-photo-offer-flow-consistency",
+  "synthetic": true,
+  "frozen_at_utc": "2026-09-10T07:06:39.990Z",
+  "algorithm": "SHA-256",
+  "raw_whitespace_words": 539,
+  "raw_whitespace_word_limit": 1000,
+  "criteria_total_weight": 100,
+  "executed": false,
+  "blind_input_rule": "Supply only raw/request.md and the three raw/sources documents to the task agent. Keep criteria.md and freeze.json outside its context.",
+  "files": [
+    {
+      "path": "raw/request.md",
+      "kind": "raw_request",
+      "bytes": 548,
+      "whitespace_words": 61,
+      "sha256": "0218b873d1932b16b638bf7e7db99ef0688b4de3b5718ced0d17e50e620cc2ca"
+    },
+    {
+      "path": "raw/sources/01-product-meeting.md",
+      "kind": "raw_source",
+      "bytes": 1244,
+      "whitespace_words": 138,
+      "sha256": "b28b62ac901a22776df16b84f396ae67583cd38912fb5a141e8e84700a084f3f"
+    },
+    {
+      "path": "raw/sources/02-release-rehearsal.md",
+      "kind": "raw_source",
+      "bytes": 1983,
+      "whitespace_words": 253,
+      "sha256": "a4c4beea7dbcb1d6c415d5e063825d1158fdc1aeaa0b957bddd2ab48d55a1d05"
+    },
+    {
+      "path": "raw/sources/03-public-copy.md",
+      "kind": "raw_source",
+      "bytes": 760,
+      "whitespace_words": 87,
+      "sha256": "8961c9787d3a92879068834e08d8467fe8e35c78331e8076794294c8e7650f35"
+    },
+    {
+      "path": "criteria.md",
+      "kind": "private_criteria",
+      "bytes": 4980,
+      "whitespace_words": 697,
+      "sha256": "1ef4d1de0ab5f2a68f14d907ffd3c9179b102f7eaa19ee80f7ac1a74941187cd"
+    }
+  ]
+}
