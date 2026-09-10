@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "case_id": "17-pilot-commitments",
+  "frozen_at_utc": "2026-09-10T07:04:02Z",
+  "source_manifest": "author-freeze.json",
+  "source_manifest_sha256": "78d97d9c89e3cb56f1b54d47759475b4b02e743c6d320e5166ebe109f859f77d",
+  "raw_files": [
+    {
+      "path": "evals/cases/17-pilot-commitments/request.md",
+      "sha256": "a8241aaf8465c2e9220f90b1eb8c1f7d92d0c4325324a57c3845198f26b3c86b"
+    },
+    {
+      "path": "evals/cases/17-pilot-commitments/interview-notes.md",
+      "sha256": "c0c1bc5ef4815e85641b64fd6a433922918a0c8c0bad8445132b29178ccfe51e"
+    },
+    {
+      "path": "evals/cases/17-pilot-commitments/operating-notes.md",
+      "sha256": "efa95f9c017e318b0356498164807f2b9bf9ec24e74e9498b6c841c03c54fcb3"
+    },
+    {
+      "path": "evals/cases/17-pilot-commitments/quotes-and-costs.md",
+      "sha256": "b03d5b5552b3f496eda587e401126b9c302193fd3d18e201a9739e313671c8c9"
+    }
+  ],
+  "criteria_files": [
+    {
+      "path": "evals/criteria/2026-09-10-pilot-commitments/criteria.md",
+      "sha256": "fb6d07f8db2684f5484e7a6e0d2335206b2c86e41ce4632c9763ebe7487b736e"
+    }
+  ]
+}

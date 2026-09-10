@@ -63,6 +63,10 @@ continues the unresolved final-round interaction check. It retains the earlier
 failure and adds an independently authored information-card service task, with
 customer review time and separate staffed production windows.
 
+The [pilot-commitment follow-up](results/2026-09-10-pilot-commitments/README.md)
+checks cost periods and customer-level units alongside existing service promises,
+including a separately authored smartphone-photo guidance task.
+
 ## Cases
 
 | Case | Planning task |
@@ -83,6 +87,7 @@ customer review time and separate staffed production windows.
 | [14 — live channel research](cases/14-live-channel-research/request.md) | Retrieve current official competitor evidence and recommend a bounded message and next test |
 | [15 — supported offer](cases/15-supported-offer/request.md) | Connect a short preparation window to later confirmed delivery resources without confusing service, billing, and observation periods |
 | [16 — dependent handoff](cases/16-dependent-handoff/request.md) | Connect customer inputs, production, optional review and digital delivery to separate staffed windows, costs, marketing and usable handoffs |
+| [17 — pilot commitments](cases/17-pilot-commitments/request.md) | Preserve vendor billing terms, separate demand thresholds from accepted orders, and connect service and recovery to finite operating time |
 
 The [rubric](RUBRIC.md) for cases 01–05 was written before those recorded runs.
 It grades observable meaning, including failures, rather than matching headings.
@@ -112,6 +117,13 @@ The criteria are separate from the raw fixture. Its published results are a
 development check, not representative customer research.
 
 ## Forward-test method
+
+Case 17 and its [separate frozen criteria](criteria/2026-09-10-pilot-commitments/)
+were authored without reading the skill, existing cases or diagnoses. The original
+author manifest is preserved alongside the imported-path manifest. Run with
+`--arm bandit --capture-session-tools`; no pinned upstream route is configured.
+The fixture distinguishes authorized cost reductions, unresolved billing terms,
+and accepted customers' entitlements. Only its first use is new transfer evidence.
 
 Case 16 and its [separately frozen criteria](criteria/2026-09-10-dependent-handoff/)
 were authored without reading the candidate skill, earlier cases, outputs or

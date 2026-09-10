@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Preserve cost billing periods and per-customer denominators; separate experiment/intake decisions from existing customer obligations and carry participant availability through entry and recovery.
 - Match the whole service/support interaction chain and response-window workload to confirmed resources, including customer availability, permitted late inputs, dependent follow-ups, and batched starts; keep valid later delivery separate from short preparation or observation windows.
 - Require a permitted, executed calculation and retained result for consequential derived figures; a no-code instruction also forbids arithmetic code. Keep quoted numbers and qualitative requests lightweight.
 - Add opt-in task-bound tool-transcript capture for development evaluations; disclose CLI JSON's missing direct JavaScript events without inferring non-execution.

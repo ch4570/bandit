@@ -1,0 +1,16 @@
+{
+  "case_id": "synthetic-photo-guidance-pilot-v1",
+  "version": 1,
+  "synthetic": true,
+  "frozen_at_utc": "2026-09-10T07:04:02Z",
+  "raw_whitespace_words": 669,
+  "criteria_total_weight": 100,
+  "hash_algorithm": "SHA-256",
+  "sha256": {
+    "raw/request.md": "a8241aaf8465c2e9220f90b1eb8c1f7d92d0c4325324a57c3845198f26b3c86b",
+    "raw/interview-notes.md": "c0c1bc5ef4815e85641b64fd6a433922918a0c8c0bad8445132b29178ccfe51e",
+    "raw/operating-notes.md": "efa95f9c017e318b0356498164807f2b9bf9ec24e74e9498b6c841c03c54fcb3",
+    "raw/quotes-and-costs.md": "b03d5b5552b3f496eda587e401126b9c302193fd3d18e201a9739e313671c8c9",
+    "criteria.md": "fb6d07f8db2684f5484e7a6e0d2335206b2c86e41ce4632c9763ebe7487b736e"
+  }
+}

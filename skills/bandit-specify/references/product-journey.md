@@ -63,6 +63,13 @@ and inconclusive conditions. Count acquisition spending and staff effort on an
 explicit basis; a click cost is not a customer acquisition cost. Proposing copy
 or an experiment does not authorize publishing, outreach, or spending.
 
+Separate continuing an experiment or admitting new customers from commitments
+already accepted. Before commitment, resolve what happens below a progression
+threshold. If workload later overloads the plan, name who contacts affected
+customers, how remaining service is covered, and the applicable recovery or exit
+terms. Stopping intake alone does not resolve existing obligations. Preserve
+accepted terms and label new terms as proposals.
+
 ## Hand a coherent design to the next contributor
 
 Describe the core task from entry through the promised outcome, including an
@@ -122,6 +129,14 @@ profit before fixed costs. Do not count deposits as earned revenue or count the
 same payment, refund, acquisition cost, or labor twice. Explain accounting
 boundaries when inputs are incomplete rather than inventing precision.
 
+When service duration changes, retain each cost's source charging unit and billing
+period unless a different charge is confirmed. Shorter use does not establish
+monthly proration. Unresolved billing terms stay explicit scenarios with an owner
+and verification step; duration-scaled staff effort is a separate workload
+assumption to measure. For per-unit metrics, align the population, denominator
+and period of every component. Divide total acquisition cash and labor by the
+same acquired-customer count rather than adding a total to a per-customer rate.
+
 Apply the shared [calculation check](evidence-and-decisions.md#verify-consequential-calculations)
 before reporting derived totals, fees, period conversions, or break-even.
 Reconcile allocated spending, reserves, and explicitly unallocated funds with
@@ -146,6 +161,9 @@ next test of the uncertain price, cost, acquisition, or repeat-use assumption.
 
 Before handing off, trace one eligible person from the actual message through
 the design to delivery and payment, and one consequential failure/recovery case.
+Apply known participant availability to recruitment, application/payment,
+required corrections and recovery as well as delivery. Receiving an asynchronous
+message does not establish availability to respond to it.
 Check audience, promised benefit, offer/version, eligibility, price/unit,
 delivery time, capacity, and cancellation terms across the supplied artifacts.
 Recompute decision-changing figures and distinguish cash collected, delivered

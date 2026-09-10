@@ -129,6 +129,13 @@ response windows and batched starts. Confirm additional resources before
 committing to uncovered service, or adjust affected terms. A short preparation window
 does not prohibit longer delivery when its resources are already confirmed.
 
+Keep the source billing period when shortening a service; use prorated costs
+only when confirmed, or as an explicit scenario with a billing check. Align all
+parts of per-customer costs on the same customer count and period. A decision to
+stop an experiment or new intake must separately resolve existing customers'
+service, recovery or exit terms. Carry their known availability through signup,
+payment and required corrections too, not only when messages can be received.
+
 Use a specialist directly when you need only one part.
 
 Evidence for an offer decision:
