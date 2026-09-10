@@ -71,6 +71,10 @@ The [review-reachability follow-up](results/2026-09-10-review-reachability/READM
 checks whether reviews distinguish compatible constrained wording from real
 pricing, permission, recovery and public-promise defects.
 
+The [handoff-prerequisite follow-up](results/2026-09-10-handoff-prerequisites/README.md)
+checks final responses, result-driven corrections, supported output prerequisites
+and usable capacity across the connected planning stages.
+
 ## Cases
 
 | Case | Planning task |
@@ -93,6 +97,7 @@ pricing, permission, recovery and public-promise defects.
 | [16 — dependent handoff](cases/16-dependent-handoff/request.md) | Connect customer inputs, production, optional review and digital delivery to separate staffed windows, costs, marketing and usable handoffs |
 | [17 — pilot commitments](cases/17-pilot-commitments/request.md) | Preserve vendor billing terms, separate demand thresholds from accepted orders, and connect service and recovery to finite operating time |
 | [18 — review reachability](cases/18-review-reachability/request.md) | Review a self-photo studio offer using implemented participation limits, valid checkout prices and public retention promises |
+| [19 — dependent prerequisites](cases/19-dependent-prerequisites/request.md) | Plan a rehearsal-audio service with role-level production, accepted free commitments, separate resources and a conditional channel |
 
 The [rubric](RUBRIC.md) for cases 01–05 was written before those recorded runs.
 It grades observable meaning, including failures, rather than matching headings.
@@ -122,6 +127,12 @@ The criteria are separate from the raw fixture. Its published results are a
 development check, not representative customer research.
 
 ## Forward-test method
+
+Case19 and its [separate frozen criteria](criteria/2026-09-10-handoff-prerequisites/)
+were independently authored without seeing the skill, existing cases/results or
+diagnoses. Preserve the original author manifest and imported-path hashes. Run
+with `--arm bandit --capture-session-tools`, with only raw fixtures in the task
+workspace. First use is targeted transfer evidence, not representative reliability.
 
 Case 18 and its [separate frozen criteria](criteria/2026-09-10-review-reachability/)
 were authored without seeing skills, prior cases/results or diagnoses. Its raw

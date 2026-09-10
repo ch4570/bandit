@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Make dependent handoffs schedulable with input prerequisites, distinct initial/result-driven correction windows, final responses and supported downstream output requirements; account for intake and administrative workload.
 - Distinguish reachable review conflicts and misleading promises from compatible wording that only needs optional clarification; do not assume intended restrictions are enforced.
 - Preserve cost billing periods and per-customer denominators; separate experiment/intake decisions from existing customer obligations and carry participant availability through entry and recovery.
 - Match the whole service/support interaction chain and response-window workload to confirmed resources, including customer availability, permitted late inputs, dependent follow-ups, and batched starts; keep valid later delivery separate from short preparation or observation windows.

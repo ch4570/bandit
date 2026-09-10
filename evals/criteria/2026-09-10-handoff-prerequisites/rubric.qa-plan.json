@@ -1,0 +1,810 @@
+{
+  "schemaVersion": "vulpora.qa-test-plan/v1",
+  "title": "맞은편: 합성 생활연극 대사 연습 서비스의 연결 파일럿 명세",
+  "target": "input/request.md + input/fixtures/",
+  "requirements": [
+    {
+      "id": "REQ-EVIDENCE",
+      "description": "자료의 성립 상태와 사실·제안·미확인을 구분한다.",
+      "priority": "P0",
+      "sourceRef": "input/fixtures/01-창업자-메모.md#F1-A; input/fixtures/02-인터뷰-발췌.md; input/fixtures/04-동아리-주고받은-내용.md#F4-C"
+    },
+    {
+      "id": "REQ-PRODUCT",
+      "description": "선택한 대상·제공 단위·대안의 이유를 정한다.",
+      "priority": "P1",
+      "sourceRef": "input/request.md; input/fixtures/01-창업자-메모.md#F1-A; input/fixtures/02-인터뷰-발췌.md"
+    },
+    {
+      "id": "REQ-CAPACITY",
+      "description": "기존 약속을 포함한 수량을 두 사람의 시간·요일·수정 여유로 제한한다.",
+      "priority": "P0",
+      "sourceRef": "input/fixtures/01-창업자-메모.md#F1-B; input/fixtures/03-제작-작업기록.md#F3-B; input/fixtures/04-동아리-주고받은-내용.md#F4-A; input/fixtures/04-동아리-주고받은-내용.md#F4-B"
+    },
+    {
+      "id": "REQ-COMMITMENT",
+      "description": "이미 수락한 무료 제공·일정·자료 전달과 삭제 조건을 운영에 반영한다.",
+      "priority": "P0",
+      "sourceRef": "input/fixtures/04-동아리-주고받은-내용.md#F4-A; input/fixtures/04-동아리-주고받은-내용.md#F4-B; input/fixtures/04-동아리-주고받은-내용.md#F4-C"
+    },
+    {
+      "id": "REQ-MARKETING",
+      "description": "대상·가치 제안·채널 상태·모집 수량·측정을 연결한다.",
+      "priority": "P1",
+      "sourceRef": "input/request.md; input/fixtures/02-인터뷰-발췌.md; input/fixtures/04-동아리-주고받은-내용.md#F4-A; input/fixtures/04-동아리-주고받은-내용.md#F4-B"
+    },
+    {
+      "id": "REQ-EXPERIENCE",
+      "description": "고객 입력부터 연습·수정까지 상태와 다음 행동을 설계한다.",
+      "priority": "P1",
+      "sourceRef": "input/request.md; input/fixtures/02-인터뷰-발췌.md; input/fixtures/03-제작-작업기록.md#F3-A; input/fixtures/03-제작-작업기록.md#F3-C; input/fixtures/04-동아리-주고받은-내용.md#F4-C"
+    },
+    {
+      "id": "REQ-ECONOMICS",
+      "description": "파일럿 현금과 정상 시간비용을 구분하여 지불자·과금 단위·학습 기준을 정한다.",
+      "priority": "P0",
+      "sourceRef": "input/fixtures/01-창업자-메모.md#F1-B; input/fixtures/03-제작-작업기록.md#F3-B; input/fixtures/04-동아리-주고받은-내용.md#F4-C"
+    },
+    {
+      "id": "REQ-RESEARCH",
+      "description": "결정에 영향을 주는 미확인을 조사와 판정 조건으로 바꾼다.",
+      "priority": "P1",
+      "sourceRef": "input/request.md; input/fixtures/01-창업자-메모.md#F1-C; input/fixtures/02-인터뷰-발췌.md; input/fixtures/03-제작-작업기록.md#F3-C"
+    },
+    {
+      "id": "REQ-PRECOMMIT",
+      "description": "추가 확정 약속 전에 필요한 자원·입력·이용 확인과 불충족 분기를 둔다.",
+      "priority": "P1",
+      "sourceRef": "input/request.md; input/fixtures/01-창업자-메모.md#F1-B; input/fixtures/03-제작-작업기록.md; input/fixtures/04-동아리-주고받은-내용.md"
+    },
+    {
+      "id": "REQ-CONNECTED-PLAN",
+      "description": "제품·마케팅·설계·사업 모델을 연결한 문서만 작성한다.",
+      "priority": "P1",
+      "sourceRef": "input/request.md; input/fixtures/01-창업자-메모.md; input/fixtures/02-인터뷰-발췌.md; input/fixtures/03-제작-작업기록.md; input/fixtures/04-동아리-주고받은-내용.md"
+    }
+  ],
+  "risks": [
+    {
+      "id": "RISK-FABRICATION",
+      "description": "확인되지 않은 구매·승인·성과를 사실로 쓰면 잘못된 약속을 유도한다.",
+      "priority": "P0",
+      "sourceRef": "input/fixtures/01-창업자-메모.md#F1-A; input/fixtures/02-인터뷰-발췌.md; input/fixtures/04-동아리-주고받은-내용.md#F4-C",
+      "impact": 5,
+      "likelihood": 3,
+      "riskScore": 15
+    },
+    {
+      "id": "RISK-UNTARGETED",
+      "description": "사용자와 구매자를 섞으면 제공 가치와 과금 실험이 분리된다.",
+      "priority": "P1",
+      "sourceRef": "input/request.md; input/fixtures/01-창업자-메모.md#F1-A; input/fixtures/02-인터뷰-발췌.md",
+      "impact": 3,
+      "likelihood": 3,
+      "riskScore": 9
+    },
+    {
+      "id": "RISK-OVERPROMISE",
+      "description": "주간 제작 능력을 넘긴 모집은 이미 수락한 제공까지 지연시킨다.",
+      "priority": "P0",
+      "sourceRef": "input/fixtures/01-창업자-메모.md#F1-B; input/fixtures/03-제작-작업기록.md#F3-B; input/fixtures/04-동아리-주고받은-내용.md#F4-A; input/fixtures/04-동아리-주고받은-내용.md#F4-B",
+      "impact": 5,
+      "likelihood": 4,
+      "riskScore": 20
+    },
+    {
+      "id": "RISK-OBLIGATION-LOSS",
+      "description": "새 실험이 기존 약속을 지우거나 대본 전달·삭제 범위를 위반할 수 있다.",
+      "priority": "P0",
+      "sourceRef": "input/fixtures/04-동아리-주고받은-내용.md#F4-A; input/fixtures/04-동아리-주고받은-내용.md#F4-B; input/fixtures/04-동아리-주고받은-내용.md#F4-C",
+      "impact": 5,
+      "likelihood": 4,
+      "riskScore": 20
+    },
+    {
+      "id": "RISK-CHANNEL-ASSUMPTION",
+      "description": "조건부 동아리 검토를 게시 또는 고객 획득 보장으로 오인할 수 있다.",
+      "priority": "P1",
+      "sourceRef": "input/request.md; input/fixtures/02-인터뷰-발췌.md; input/fixtures/04-동아리-주고받은-내용.md#F4-A; input/fixtures/04-동아리-주고받은-내용.md#F4-B",
+      "impact": 3,
+      "likelihood": 4,
+      "riskScore": 12
+    },
+    {
+      "id": "RISK-HANDOFF-GAP",
+      "description": "역할·버전·재생·부적격 입력 상태가 빠지면 고객이 사용할 자료를 받지 못한다.",
+      "priority": "P1",
+      "sourceRef": "input/request.md; input/fixtures/02-인터뷰-발췌.md; input/fixtures/03-제작-작업기록.md#F3-A; input/fixtures/03-제작-작업기록.md#F3-C; input/fixtures/04-동아리-주고받은-내용.md#F4-C",
+      "impact": 4,
+      "likelihood": 3,
+      "riskScore": 12
+    },
+    {
+      "id": "RISK-FALSE-MARGIN",
+      "description": "무료 제공과 한정 협업비를 정상 매출·원가로 계산하면 유료 모델의 손익을 오판한다.",
+      "priority": "P0",
+      "sourceRef": "input/fixtures/01-창업자-메모.md#F1-B; input/fixtures/03-제작-작업기록.md#F3-B; input/fixtures/04-동아리-주고받은-내용.md#F4-C",
+      "impact": 5,
+      "likelihood": 3,
+      "riskScore": 15
+    },
+    {
+      "id": "RISK-UNKNOWN-AS-KNOWN",
+      "description": "근거 없는 외부 사실이나 막연한 추가 조사 목록이 실행 결정을 대신할 수 있다.",
+      "priority": "P1",
+      "sourceRef": "input/request.md; input/fixtures/01-창업자-메모.md#F1-C; input/fixtures/02-인터뷰-발췌.md; input/fixtures/03-제작-작업기록.md#F3-C",
+      "impact": 3,
+      "likelihood": 3,
+      "riskScore": 9
+    },
+    {
+      "id": "RISK-PREMATURE-PROMISE",
+      "description": "조건이 충족되지 않았는데 접수·일정을 확정하면 그 위험이 고객 의무로 전가된다.",
+      "priority": "P1",
+      "sourceRef": "input/request.md; input/fixtures/01-창업자-메모.md#F1-B; input/fixtures/03-제작-작업기록.md; input/fixtures/04-동아리-주고받은-내용.md",
+      "impact": 4,
+      "likelihood": 3,
+      "riskScore": 12
+    },
+    {
+      "id": "RISK-DISCONNECTED-PLAN",
+      "description": "분야별 문서가 모순되거나 문서 범위를 넘어 실제 구현·외부 행위를 할 수 있다.",
+      "priority": "P1",
+      "sourceRef": "input/request.md; input/fixtures/01-창업자-메모.md; input/fixtures/02-인터뷰-발췌.md; input/fixtures/03-제작-작업기록.md; input/fixtures/04-동아리-주고받은-내용.md",
+      "impact": 4,
+      "likelihood": 3,
+      "riskScore": 12
+    }
+  ],
+  "testCases": [
+    {
+      "id": "TC-TRANSFER-001",
+      "requirementIds": [
+        "REQ-EVIDENCE"
+      ],
+      "riskIds": [
+        "RISK-FABRICATION"
+      ],
+      "preconditions": [
+        "응답 작성자는 동결된 요청과 네 합성 자료만 입력으로 받는다.",
+        "평가자는 응답 작성 후 별도로 비공개 동결 루브릭을 받는다."
+      ],
+      "input": {
+        "classification": "synthetic",
+        "values": {
+          "requestRef": "input/request.md",
+          "fixtureDirectory": "input/fixtures",
+          "rubricRef": "holdout/rubric.md",
+          "criterionId": "C1"
+        }
+      },
+      "steps": [
+        "사실 주장과 근거의 성립 상태를 대조한다.",
+        "점수·응답 위치·소스 근거를 기록한다."
+      ],
+      "expected": [
+        "C1의 세 소항목 점수와 응답 근거 위치를 기록하고 CE1의 직접 증거 유무를 판정한다."
+      ],
+      "priority": "P0",
+      "type": "EP: 사실/제안/미확인",
+      "level": "unit",
+      "grounding": [
+        {
+          "sourceId": "REQ-EVIDENCE",
+          "evidence": "input/fixtures/01-창업자-메모.md#F1-A; input/fixtures/02-인터뷰-발췌.md; input/fixtures/04-동아리-주고받은-내용.md#F4-C"
+        },
+        {
+          "sourceId": "RISK-FABRICATION",
+          "evidence": "input/fixtures/01-창업자-메모.md#F1-A; input/fixtures/02-인터뷰-발췌.md; input/fixtures/04-동아리-주고받은-내용.md#F4-C"
+        }
+      ]
+    },
+    {
+      "id": "TC-TRANSFER-002",
+      "requirementIds": [
+        "REQ-PRODUCT"
+      ],
+      "riskIds": [
+        "RISK-UNTARGETED"
+      ],
+      "preconditions": [
+        "응답 작성자는 동결된 요청과 네 합성 자료만 입력으로 받는다.",
+        "평가자는 응답 작성 후 별도로 비공개 동결 루브릭을 받는다."
+      ],
+      "input": {
+        "classification": "synthetic",
+        "values": {
+          "requestRef": "input/request.md",
+          "fixtureDirectory": "input/fixtures",
+          "rubricRef": "holdout/rubric.md",
+          "criterionId": "C2"
+        }
+      },
+      "steps": [
+        "선택한 대상과 제공 단위 및 비교한 대안을 대조한다.",
+        "점수·응답 위치·소스 근거를 기록한다."
+      ],
+      "expected": [
+        "C2의 세 소항목 점수와 선택 근거·반전 조건을 기록한다."
+      ],
+      "priority": "P1",
+      "type": "EP: 사용자/지불자",
+      "level": "unit",
+      "grounding": [
+        {
+          "sourceId": "REQ-PRODUCT",
+          "evidence": "input/request.md; input/fixtures/01-창업자-메모.md#F1-A; input/fixtures/02-인터뷰-발췌.md"
+        },
+        {
+          "sourceId": "RISK-UNTARGETED",
+          "evidence": "input/request.md; input/fixtures/01-창업자-메모.md#F1-A; input/fixtures/02-인터뷰-발췌.md"
+        }
+      ]
+    },
+    {
+      "id": "TC-TRANSFER-003",
+      "requirementIds": [
+        "REQ-CAPACITY"
+      ],
+      "riskIds": [
+        "RISK-OVERPROMISE"
+      ],
+      "preconditions": [
+        "응답 작성자는 동결된 요청과 네 합성 자료만 입력으로 받는다.",
+        "평가자는 응답 작성 후 별도로 비공개 동결 루브릭을 받는다."
+      ],
+      "input": {
+        "classification": "synthetic",
+        "values": {
+          "requestRef": "input/request.md",
+          "fixtureDirectory": "input/fixtures",
+          "rubricRef": "holdout/rubric.md",
+          "criterionId": "C3"
+        }
+      },
+      "steps": [
+        "선택한 수량을 소리 20+45n 및 도담 40+40n+모집/회고 분에 대입하고 기존 차수 배정을 대조한다.",
+        "점수·응답 위치·소스 근거를 기록한다."
+      ],
+      "expected": [
+        "C3의 세 소항목 점수와 잔여 시간을 기록하며, 변경 없는 수정 포함 상품 8묶음 이상 확정 약속인지 CE3를 판정한다."
+      ],
+      "priority": "P0",
+      "type": "BVA: 7/8묶음; 결정표: 입력·변경·여유",
+      "level": "integration",
+      "grounding": [
+        {
+          "sourceId": "REQ-CAPACITY",
+          "evidence": "input/fixtures/01-창업자-메모.md#F1-B; input/fixtures/03-제작-작업기록.md#F3-B; input/fixtures/04-동아리-주고받은-내용.md#F4-A; input/fixtures/04-동아리-주고받은-내용.md#F4-B"
+        },
+        {
+          "sourceId": "RISK-OVERPROMISE",
+          "evidence": "input/fixtures/01-창업자-메모.md#F1-B; input/fixtures/03-제작-작업기록.md#F3-B; input/fixtures/04-동아리-주고받은-내용.md#F4-A; input/fixtures/04-동아리-주고받은-내용.md#F4-B"
+        }
+      ]
+    },
+    {
+      "id": "TC-TRANSFER-004",
+      "requirementIds": [
+        "REQ-COMMITMENT"
+      ],
+      "riskIds": [
+        "RISK-OBLIGATION-LOSS"
+      ],
+      "preconditions": [
+        "응답 작성자는 동결된 요청과 네 합성 자료만 입력으로 받는다.",
+        "평가자는 응답 작성 후 별도로 비공개 동결 루브릭을 받는다."
+      ],
+      "input": {
+        "classification": "synthetic",
+        "values": {
+          "requestRef": "input/request.md",
+          "fixtureDirectory": "input/fixtures",
+          "rubricRef": "holdout/rubric.md",
+          "criterionId": "C4"
+        }
+      },
+      "steps": [
+        "수락부터 입력 확인, 두 차수 제공, 수정, 자료 정리까지 추적한다.",
+        "점수·응답 위치·소스 근거를 기록한다."
+      ],
+      "expected": [
+        "C4의 세 소항목 점수와 4명별 2차례 제공 및 자료 삭제 담당·증거를 기록하고 CE2·CE4를 직접 증거로 판정한다."
+      ],
+      "priority": "P0",
+      "type": "상태전이: 수락/준비/완료/정리",
+      "level": "integration",
+      "grounding": [
+        {
+          "sourceId": "REQ-COMMITMENT",
+          "evidence": "input/fixtures/04-동아리-주고받은-내용.md#F4-A; input/fixtures/04-동아리-주고받은-내용.md#F4-B; input/fixtures/04-동아리-주고받은-내용.md#F4-C"
+        },
+        {
+          "sourceId": "RISK-OBLIGATION-LOSS",
+          "evidence": "input/fixtures/04-동아리-주고받은-내용.md#F4-A; input/fixtures/04-동아리-주고받은-내용.md#F4-B; input/fixtures/04-동아리-주고받은-내용.md#F4-C"
+        }
+      ]
+    },
+    {
+      "id": "TC-TRANSFER-005",
+      "requirementIds": [
+        "REQ-MARKETING"
+      ],
+      "riskIds": [
+        "RISK-CHANNEL-ASSUMPTION"
+      ],
+      "preconditions": [
+        "응답 작성자는 동결된 요청과 네 합성 자료만 입력으로 받는다.",
+        "평가자는 응답 작성 후 별도로 비공개 동결 루브릭을 받는다."
+      ],
+      "input": {
+        "classification": "synthetic",
+        "values": {
+          "requestRef": "input/request.md",
+          "fixtureDirectory": "input/fixtures",
+          "rubricRef": "holdout/rubric.md",
+          "criterionId": "C5"
+        }
+      },
+      "steps": [
+        "모집 메시지와 제안 채널의 확보 상태 및 제공 가능한 수량을 대조한다.",
+        "점수·응답 위치·소스 근거를 기록한다."
+      ],
+      "expected": [
+        "C5의 세 소항목 점수와 승인·검토·게시의 상태 차이, 퍼널 측정 기준을 기록한다."
+      ],
+      "priority": "P1",
+      "type": "결정표: 채널 가능/동의/수량",
+      "level": "integration",
+      "grounding": [
+        {
+          "sourceId": "REQ-MARKETING",
+          "evidence": "input/request.md; input/fixtures/02-인터뷰-발췌.md; input/fixtures/04-동아리-주고받은-내용.md#F4-A; input/fixtures/04-동아리-주고받은-내용.md#F4-B"
+        },
+        {
+          "sourceId": "RISK-CHANNEL-ASSUMPTION",
+          "evidence": "input/request.md; input/fixtures/02-인터뷰-발췌.md; input/fixtures/04-동아리-주고받은-내용.md#F4-A; input/fixtures/04-동아리-주고받은-내용.md#F4-B"
+        }
+      ]
+    },
+    {
+      "id": "TC-TRANSFER-006",
+      "requirementIds": [
+        "REQ-EXPERIENCE"
+      ],
+      "riskIds": [
+        "RISK-HANDOFF-GAP"
+      ],
+      "preconditions": [
+        "응답 작성자는 동결된 요청과 네 합성 자료만 입력으로 받는다.",
+        "평가자는 응답 작성 후 별도로 비공개 동결 루브릭을 받는다."
+      ],
+      "input": {
+        "classification": "synthetic",
+        "values": {
+          "requestRef": "input/request.md",
+          "fixtureDirectory": "input/fixtures",
+          "rubricRef": "holdout/rubric.md",
+          "criterionId": "C6"
+        }
+      },
+      "steps": [
+        "선택한 고객 경로의 정상·예외 상태와 자료 식별 및 사용 방식을 대조한다.",
+        "점수·응답 위치·소스 근거를 기록한다."
+      ],
+      "expected": [
+        "C6의 세 소항목 점수와 상태별 안내·다음 행동, 인터뷰 기반 경험 결정을 기록한다."
+      ],
+      "priority": "P1",
+      "type": "상태전이; EP: 정상/부적격/지연",
+      "level": "integration",
+      "grounding": [
+        {
+          "sourceId": "REQ-EXPERIENCE",
+          "evidence": "input/request.md; input/fixtures/02-인터뷰-발췌.md; input/fixtures/03-제작-작업기록.md#F3-A; input/fixtures/03-제작-작업기록.md#F3-C; input/fixtures/04-동아리-주고받은-내용.md#F4-C"
+        },
+        {
+          "sourceId": "RISK-HANDOFF-GAP",
+          "evidence": "input/request.md; input/fixtures/02-인터뷰-발췌.md; input/fixtures/03-제작-작업기록.md#F3-A; input/fixtures/03-제작-작업기록.md#F3-C; input/fixtures/04-동아리-주고받은-내용.md#F4-C"
+        }
+      ]
+    },
+    {
+      "id": "TC-TRANSFER-007",
+      "requirementIds": [
+        "REQ-ECONOMICS"
+      ],
+      "riskIds": [
+        "RISK-FALSE-MARGIN"
+      ],
+      "preconditions": [
+        "응답 작성자는 동결된 요청과 네 합성 자료만 입력으로 받는다.",
+        "평가자는 응답 작성 후 별도로 비공개 동결 루브릭을 받는다."
+      ],
+      "input": {
+        "classification": "synthetic",
+        "values": {
+          "requestRef": "input/request.md",
+          "fixtureDirectory": "input/fixtures",
+          "rubricRef": "holdout/rubric.md",
+          "criterionId": "C7"
+        }
+      },
+      "steps": [
+        "선택한 수량과 과금 단위에 따라 현금·노동시간·무료와 유료 수입을 재계산한다.",
+        "점수·응답 위치·소스 근거를 기록한다."
+      ],
+      "expected": [
+        "C7의 네 소항목 점수와 200000원 고정/100000원 잔액, 정상 시간비용 또는 민감도, 다음 단계 기준을 기록한다."
+      ],
+      "priority": "P0",
+      "type": "경계·결정표: 파일럿/정상, 무료/유료",
+      "level": "integration",
+      "grounding": [
+        {
+          "sourceId": "REQ-ECONOMICS",
+          "evidence": "input/fixtures/01-창업자-메모.md#F1-B; input/fixtures/03-제작-작업기록.md#F3-B; input/fixtures/04-동아리-주고받은-내용.md#F4-C"
+        },
+        {
+          "sourceId": "RISK-FALSE-MARGIN",
+          "evidence": "input/fixtures/01-창업자-메모.md#F1-B; input/fixtures/03-제작-작업기록.md#F3-B; input/fixtures/04-동아리-주고받은-내용.md#F4-C"
+        }
+      ]
+    },
+    {
+      "id": "TC-TRANSFER-008",
+      "requirementIds": [
+        "REQ-RESEARCH"
+      ],
+      "riskIds": [
+        "RISK-UNKNOWN-AS-KNOWN"
+      ],
+      "preconditions": [
+        "응답 작성자는 동결된 요청과 네 합성 자료만 입력으로 받는다.",
+        "평가자는 응답 작성 후 별도로 비공개 동결 루브릭을 받는다."
+      ],
+      "input": {
+        "classification": "synthetic",
+        "values": {
+          "requestRef": "input/request.md",
+          "fixtureDirectory": "input/fixtures",
+          "rubricRef": "holdout/rubric.md",
+          "criterionId": "C8"
+        }
+      },
+      "steps": [
+        "리서치 우선순위, 조사 방법과 선택 변경 조건 또는 실제 외부 근거를 대조한다.",
+        "점수·응답 위치·소스 근거를 기록한다."
+      ],
+      "expected": [
+        "C8의 두 소항목 점수와 조사→판정 조건 또는 외부 출처·확인일·한계를 기록한다."
+      ],
+      "priority": "P1",
+      "type": "EP: 알려짐/미확인",
+      "level": "unit",
+      "grounding": [
+        {
+          "sourceId": "REQ-RESEARCH",
+          "evidence": "input/request.md; input/fixtures/01-창업자-메모.md#F1-C; input/fixtures/02-인터뷰-발췌.md; input/fixtures/03-제작-작업기록.md#F3-C"
+        },
+        {
+          "sourceId": "RISK-UNKNOWN-AS-KNOWN",
+          "evidence": "input/request.md; input/fixtures/01-창업자-메모.md#F1-C; input/fixtures/02-인터뷰-발췌.md; input/fixtures/03-제작-작업기록.md#F3-C"
+        }
+      ]
+    },
+    {
+      "id": "TC-TRANSFER-009",
+      "requirementIds": [
+        "REQ-PRECOMMIT"
+      ],
+      "riskIds": [
+        "RISK-PREMATURE-PROMISE"
+      ],
+      "preconditions": [
+        "응답 작성자는 동결된 요청과 네 합성 자료만 입력으로 받는다.",
+        "평가자는 응답 작성 후 별도로 비공개 동결 루브릭을 받는다."
+      ],
+      "input": {
+        "classification": "synthetic",
+        "values": {
+          "requestRef": "input/request.md",
+          "fixtureDirectory": "input/fixtures",
+          "rubricRef": "holdout/rubric.md",
+          "criterionId": "C9"
+        }
+      },
+      "steps": [
+        "추가 모집·유료 확정 전에 확인되는 의존과 불충족 분기를 대조한다.",
+        "점수·응답 위치·소스 근거를 기록한다."
+      ],
+      "expected": [
+        "C9의 두 소항목 점수와 확인 책임·분기, 이미 수락한 의무의 별도 처리를 기록한다."
+      ],
+      "priority": "P1",
+      "type": "결정표; 무효 상태전이",
+      "level": "integration",
+      "grounding": [
+        {
+          "sourceId": "REQ-PRECOMMIT",
+          "evidence": "input/request.md; input/fixtures/01-창업자-메모.md#F1-B; input/fixtures/03-제작-작업기록.md; input/fixtures/04-동아리-주고받은-내용.md"
+        },
+        {
+          "sourceId": "RISK-PREMATURE-PROMISE",
+          "evidence": "input/request.md; input/fixtures/01-창업자-메모.md#F1-B; input/fixtures/03-제작-작업기록.md; input/fixtures/04-동아리-주고받은-내용.md"
+        }
+      ]
+    },
+    {
+      "id": "TC-TRANSFER-010",
+      "requirementIds": [
+        "REQ-CONNECTED-PLAN"
+      ],
+      "riskIds": [
+        "RISK-DISCONNECTED-PLAN"
+      ],
+      "preconditions": [
+        "응답 작성자는 동결된 요청과 네 합성 자료만 입력으로 받는다.",
+        "평가자는 응답 작성 후 별도로 비공개 동결 루브릭을 받는다."
+      ],
+      "input": {
+        "classification": "synthetic",
+        "values": {
+          "requestRef": "input/request.md",
+          "fixtureDirectory": "input/fixtures",
+          "rubricRef": "holdout/rubric.md",
+          "criterionId": "C10"
+        }
+      },
+      "steps": [
+        "제품에서 모집·경험·과금·운영까지 단위와 일정의 일치를 대조하고 직접 실행 기록이 있으면 범위를 확인한다.",
+        "점수·응답 위치·소스 근거를 기록한다."
+      ],
+      "expected": [
+        "C10의 두 소항목 점수, 교차 모순과 담당·의존·시점·완료 신호를 기록한다. 실행 기록이 없으면 CE5는 관찰 불가로 남긴다."
+      ],
+      "priority": "P1",
+      "type": "통합 경로; 네거티브: 범위",
+      "level": "integration",
+      "grounding": [
+        {
+          "sourceId": "REQ-CONNECTED-PLAN",
+          "evidence": "input/request.md; input/fixtures/01-창업자-메모.md; input/fixtures/02-인터뷰-발췌.md; input/fixtures/03-제작-작업기록.md; input/fixtures/04-동아리-주고받은-내용.md"
+        },
+        {
+          "sourceId": "RISK-DISCONNECTED-PLAN",
+          "evidence": "input/request.md; input/fixtures/01-창업자-메모.md; input/fixtures/02-인터뷰-발췌.md; input/fixtures/03-제작-작업기록.md; input/fixtures/04-동아리-주고받은-내용.md"
+        }
+      ]
+    }
+  ],
+  "traceability": [
+    {
+      "sourceId": "REQ-EVIDENCE",
+      "testCaseIds": [
+        "TC-TRANSFER-001"
+      ],
+      "status": "covered",
+      "rationale": null
+    },
+    {
+      "sourceId": "REQ-PRODUCT",
+      "testCaseIds": [
+        "TC-TRANSFER-002"
+      ],
+      "status": "covered",
+      "rationale": null
+    },
+    {
+      "sourceId": "REQ-CAPACITY",
+      "testCaseIds": [
+        "TC-TRANSFER-003"
+      ],
+      "status": "covered",
+      "rationale": null
+    },
+    {
+      "sourceId": "REQ-COMMITMENT",
+      "testCaseIds": [
+        "TC-TRANSFER-004"
+      ],
+      "status": "covered",
+      "rationale": null
+    },
+    {
+      "sourceId": "REQ-MARKETING",
+      "testCaseIds": [
+        "TC-TRANSFER-005"
+      ],
+      "status": "covered",
+      "rationale": null
+    },
+    {
+      "sourceId": "REQ-EXPERIENCE",
+      "testCaseIds": [
+        "TC-TRANSFER-006"
+      ],
+      "status": "covered",
+      "rationale": null
+    },
+    {
+      "sourceId": "REQ-ECONOMICS",
+      "testCaseIds": [
+        "TC-TRANSFER-007"
+      ],
+      "status": "covered",
+      "rationale": null
+    },
+    {
+      "sourceId": "REQ-RESEARCH",
+      "testCaseIds": [
+        "TC-TRANSFER-008"
+      ],
+      "status": "covered",
+      "rationale": null
+    },
+    {
+      "sourceId": "REQ-PRECOMMIT",
+      "testCaseIds": [
+        "TC-TRANSFER-009"
+      ],
+      "status": "covered",
+      "rationale": null
+    },
+    {
+      "sourceId": "REQ-CONNECTED-PLAN",
+      "testCaseIds": [
+        "TC-TRANSFER-010"
+      ],
+      "status": "covered",
+      "rationale": null
+    },
+    {
+      "sourceId": "RISK-FABRICATION",
+      "testCaseIds": [
+        "TC-TRANSFER-001"
+      ],
+      "status": "covered",
+      "rationale": null
+    },
+    {
+      "sourceId": "RISK-UNTARGETED",
+      "testCaseIds": [
+        "TC-TRANSFER-002"
+      ],
+      "status": "covered",
+      "rationale": null
+    },
+    {
+      "sourceId": "RISK-OVERPROMISE",
+      "testCaseIds": [
+        "TC-TRANSFER-003"
+      ],
+      "status": "covered",
+      "rationale": null
+    },
+    {
+      "sourceId": "RISK-OBLIGATION-LOSS",
+      "testCaseIds": [
+        "TC-TRANSFER-004"
+      ],
+      "status": "covered",
+      "rationale": null
+    },
+    {
+      "sourceId": "RISK-CHANNEL-ASSUMPTION",
+      "testCaseIds": [
+        "TC-TRANSFER-005"
+      ],
+      "status": "covered",
+      "rationale": null
+    },
+    {
+      "sourceId": "RISK-HANDOFF-GAP",
+      "testCaseIds": [
+        "TC-TRANSFER-006"
+      ],
+      "status": "covered",
+      "rationale": null
+    },
+    {
+      "sourceId": "RISK-FALSE-MARGIN",
+      "testCaseIds": [
+        "TC-TRANSFER-007"
+      ],
+      "status": "covered",
+      "rationale": null
+    },
+    {
+      "sourceId": "RISK-UNKNOWN-AS-KNOWN",
+      "testCaseIds": [
+        "TC-TRANSFER-008"
+      ],
+      "status": "covered",
+      "rationale": null
+    },
+    {
+      "sourceId": "RISK-PREMATURE-PROMISE",
+      "testCaseIds": [
+        "TC-TRANSFER-009"
+      ],
+      "status": "covered",
+      "rationale": null
+    },
+    {
+      "sourceId": "RISK-DISCONNECTED-PLAN",
+      "testCaseIds": [
+        "TC-TRANSFER-010"
+      ],
+      "status": "covered",
+      "rationale": null
+    }
+  ],
+  "handoffs": [],
+  "evaluation": {
+    "authoritativeRubric": "holdout/rubric.md",
+    "maxScore": 100,
+    "usableThreshold": 80,
+    "criticalErrorsAllowed": 0,
+    "criteria": [
+      {
+        "id": "C1",
+        "weight": 12,
+        "caseId": "TC-TRANSFER-001"
+      },
+      {
+        "id": "C2",
+        "weight": 10,
+        "caseId": "TC-TRANSFER-002"
+      },
+      {
+        "id": "C3",
+        "weight": 16,
+        "caseId": "TC-TRANSFER-003"
+      },
+      {
+        "id": "C4",
+        "weight": 14,
+        "caseId": "TC-TRANSFER-004"
+      },
+      {
+        "id": "C5",
+        "weight": 10,
+        "caseId": "TC-TRANSFER-005"
+      },
+      {
+        "id": "C6",
+        "weight": 10,
+        "caseId": "TC-TRANSFER-006"
+      },
+      {
+        "id": "C7",
+        "weight": 14,
+        "caseId": "TC-TRANSFER-007"
+      },
+      {
+        "id": "C8",
+        "weight": 6,
+        "caseId": "TC-TRANSFER-008"
+      },
+      {
+        "id": "C9",
+        "weight": 4,
+        "caseId": "TC-TRANSFER-009"
+      },
+      {
+        "id": "C10",
+        "weight": 4,
+        "caseId": "TC-TRANSFER-010"
+      }
+    ],
+    "criticalErrorIds": [
+      "CE1",
+      "CE2",
+      "CE3",
+      "CE4",
+      "CE5"
+    ],
+    "executionDisposition": "Design only. No application, browser, API or model execution performed by author."
+  }
+}

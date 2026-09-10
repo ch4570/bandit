@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "bandit.independent-case-author-freeze/v1",
+  "scenarioId": "korean-theatre-cue-rehearsal-transfer-v1",
+  "title": "맞은편: 생활연극 대사 연습 서비스의 4주 연결 파일럿",
+  "frozenAt": "2026-09-10T08:04:20.919Z",
+  "scenarioReferenceDate": "2026-09-24",
+  "allSourceMaterialSynthetic": true,
+  "authorStatement": {
+    "independentlyAuthored": true,
+    "repositoryFilesRead": false,
+    "skillImplementationRead": false,
+    "existingCasesOrResultsRead": false,
+    "issuesOrPullRequestsRead": false,
+    "otherAgentReportsRead": false,
+    "delegated": false,
+    "modelOrProductTestsExecuted": false,
+    "externalResearchPerformed": false,
+    "instructionReferencesRead": [
+      "/Users/ch4570/.codex/agents/qa/SOUL.md",
+      "/Users/ch4570/.codex/agents/qa/reference/principles.md",
+      "/Users/ch4570/.codex/agents/qa/reference/kb/INDEX.md",
+      "/Users/ch4570/.codex/agents/qa/reference/kb/test-design-techniques.md",
+      "/Users/ch4570/.codex/agents/qa/reference/kb/acceptance-criteria-gherkin.md",
+      "/Users/ch4570/.codex/agents/qa/reference/kb/test-strategy-pyramid.md",
+      "/Users/ch4570/.codex/agents/qa/reference/kb/risk-coverage.md",
+      "/Users/ch4570/.codex/agents/qa/reference/kb/test-case-spec-format.md",
+      "/Users/ch4570/.codex/agents/qa/reference/qa-test-plan-contract.md",
+      "/Users/ch4570/.codex/agents/qa/scripts/validate-test-plan.js"
+    ],
+    "writeScope": "New mktemp directory /private/tmp/bandit-transfer-case.VUMH5r only"
+  },
+  "executionInputAllowlist": [
+    "input/fixtures/01-창업자-메모.md",
+    "input/fixtures/02-인터뷰-발췌.md",
+    "input/fixtures/03-제작-작업기록.md",
+    "input/fixtures/04-동아리-주고받은-내용.md",
+    "input/request.md"
+  ],
+  "evaluatorOnlyFiles": [
+    "holdout/rubric.md",
+    "holdout/rubric.qa-plan.json",
+    "author-freeze.json"
+  ],
+  "scoring": {
+    "maxPoints": 100,
+    "usableThreshold": 80,
+    "criticalErrorsAllowed": 0,
+    "authoritativeRubric": "holdout/rubric.md"
+  },
+  "staticContractValidation": {
+    "command": "node /Users/ch4570/.codex/agents/qa/scripts/validate-test-plan.js /private/tmp/bandit-transfer-case.VUMH5r/holdout/rubric.qa-plan.json",
+    "exitCode": 0,
+    "output": "QA plan valid: /private/tmp/bandit-transfer-case.VUMH5r/holdout/rubric.qa-plan.json",
+    "type": "Static design contract check; not test execution"
+  },
+  "hashAlgorithm": "SHA256",
+  "hashEncoding": "hex",
+  "fileHashes": [
+    {
+      "path": "holdout/rubric.md",
+      "bytes": 17518,
+      "sha256": "0ff278fcb0751e16a56232278cb8fb037585c3b8878371cd78661236c6a10a7d"
+    },
+    {
+      "path": "holdout/rubric.qa-plan.json",
+      "bytes": 29288,
+      "sha256": "45ffd55547b865aba760e683fd075bb66c69b9f67bbdbcf657b71fc017421528"
+    },
+    {
+      "path": "input/fixtures/01-창업자-메모.md",
+      "bytes": 2899,
+      "sha256": "a395eae2a30d742b769a91a1e7c3cce64b7b2b57a67316fee689679b0db4b46d"
+    },
+    {
+      "path": "input/fixtures/02-인터뷰-발췌.md",
+      "bytes": 2612,
+      "sha256": "244eca29cb5a3ed57e6e79b035d701a857594289c503aa16964e6d9fbac2cb79"
+    },
+    {
+      "path": "input/fixtures/03-제작-작업기록.md",
+      "bytes": 2943,
+      "sha256": "2c25bfdd34e176945c62b90b4920798f5e04932b20a46369c9e365b057411dc0"
+    },
+    {
+      "path": "input/fixtures/04-동아리-주고받은-내용.md",
+      "bytes": 3074,
+      "sha256": "915b57d0af36a114473409c8c5d269bc955127803983f109f658122ec86241e7"
+    },
+    {
+      "path": "input/request.md",
+      "bytes": 1636,
+      "sha256": "c182dc08f93a615a7f16d76e5ab21c5d0f53fe8427f4a614ebb16a412cd921fd"
+    }
+  ],
+  "freezePolicy": "Import listed files byte-for-byte. Keep evaluator-only files out of planning agents. Do not alter sources or rubric after this freeze; preserve failed outputs before any future version.",
+  "selfHashExcluded": true
+}

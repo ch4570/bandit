@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "case_id": "19-dependent-prerequisites",
+  "frozen_at_utc": "2026-09-10T08:04:20.919Z",
+  "source_manifest": "author-freeze.json",
+  "source_manifest_sha256": "d8e1658493a441c038a69b027b845ba50d996b9729557a067e62cf701ef37960",
+  "raw_files": [
+    {
+      "path": "evals/cases/19-dependent-prerequisites/fixtures/01-창업자-메모.md",
+      "sha256": "a395eae2a30d742b769a91a1e7c3cce64b7b2b57a67316fee689679b0db4b46d"
+    },
+    {
+      "path": "evals/cases/19-dependent-prerequisites/fixtures/02-인터뷰-발췌.md",
+      "sha256": "244eca29cb5a3ed57e6e79b035d701a857594289c503aa16964e6d9fbac2cb79"
+    },
+    {
+      "path": "evals/cases/19-dependent-prerequisites/fixtures/03-제작-작업기록.md",
+      "sha256": "2c25bfdd34e176945c62b90b4920798f5e04932b20a46369c9e365b057411dc0"
+    },
+    {
+      "path": "evals/cases/19-dependent-prerequisites/fixtures/04-동아리-주고받은-내용.md",
+      "sha256": "915b57d0af36a114473409c8c5d269bc955127803983f109f658122ec86241e7"
+    },
+    {
+      "path": "evals/cases/19-dependent-prerequisites/request.md",
+      "sha256": "c182dc08f93a615a7f16d76e5ab21c5d0f53fe8427f4a614ebb16a412cd921fd"
+    }
+  ],
+  "criteria_files": [
+    {
+      "path": "evals/criteria/2026-09-10-handoff-prerequisites/criteria.md",
+      "sha256": "0ff278fcb0751e16a56232278cb8fb037585c3b8878371cd78661236c6a10a7d"
+    },
+    {
+      "path": "evals/criteria/2026-09-10-handoff-prerequisites/rubric.qa-plan.json",
+      "sha256": "45ffd55547b865aba760e683fd075bb66c69b9f67bbdbcf657b71fc017421528"
+    }
+  ]
+}
