@@ -18,7 +18,7 @@
 
 {{Who performs the task, in what situation, which current alternative they use, and what completing the task means.}}
 
-**Core journey:** {{Entry → core action → observable outcome, including a prerequisite or handoff when needed}}
+**Core journey:** {{Entry → core action → observable outcome, including needed prerequisites or handoffs; for timing-sensitive dependencies, connect required input, owner, usable cutoff, available completion/response window and next included step}}
 **Included:** {{Smallest complete scope}}
 **Deferred:** {{Excluded work and consequences of deferring it}}
 **Constraints and dependencies:** {{Time, resources, existing capabilities, or external dependencies that change this scope}}

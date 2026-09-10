@@ -1,0 +1,74 @@
+# Independent frozen-rubric content grade
+
+Result: **98/100 — clean pass** under the frozen threshold of at least 80/100 with no critical finding (`criteria.md:5`). This is a content assessment, not an authenticated execution result or validated product-quality benchmark. Only `grading/G/input/*`, `grading/G/output.md`, and `grading/G/criteria.md` were read as evaluation evidence. Citations below are relative to `grading/G/` and use source line numbers.
+
+## Scores
+
+| Criterion | Subscores in rubric order | Score | Evidence and assessment |
+|---|---:|---:|---|
+| 1. Research-grounded decision | 6/6, 5/5, 4/4 | **15/15** | The reviewed card service targets A/B's repeated or omitted explanations and desired preview/revision (`output.md:11`, `output.md:16`; `input/research.md:7`, `input/research.md:8`). Willingness is expressly not purchase evidence, and the convenience sample, channel size, and emoji reactions are not conversions (`output.md:12`, `output.md:14`; `input/research.md:3`, `input/research.md:16`). C–F materially narrow scope: DIY, photography/logo, editable-template/tool-training, and no-review needs are excluded from this package (`output.md:13`; `input/research.md:9`–`input/research.md:12`). The alternative is existing DIY/free templates; the paid trial versus deferred recurring sale is an explicit economic tradeoff (`output.md:3`, `output.md:16`, `output.md:104`). |
+| 2. Feasible dependent customer/staff journey | 10/10, 7/7, 5/5, 3/3 | **25/25** | Inputs and prepayment eligibility precede September 24 production; available previews precede customer approval; consolidated instructions precede September 30 revision/export and final delivery (`output.md:34`–`output.md:41`). Preparation creates forms, not customer cards (`output.md:28`, `output.md:32`; `input/operations.md:3`, `input/operations.md:27`). Missing inputs, full queue, silence, unresolved content, and production errors have explicit terminal or refund handling (`output.md:45`–`output.md:49`, `output.md:75`). Required review has value for the selected A/B segment and is one round (`output.md:16`, `output.md:36`, `output.md:77`). Detailed path checks appear below. |
+| 3. Offer boundaries and design handoff | 5/5, 5/5 | **10/10** | Buyer, 40,000 won price, up to three A6 cards, preview, one consolidated revision, PDF, supplied facts/images, excluded work, and responsibility for implementation errors are explicit (`output.md:16`, `output.md:20`–`output.md:24`). The designer receives source material, layout, version, and approved change instructions, with PDF dimensions and acceptance checks (`output.md:81`, `output.md:83`). These respect current capabilities (`input/operations.md:12`). |
+| 4. Usable UX and operating handoff | 7/7, 5/5, 3/3 | **15/15** | Form fields, eligibility, price/exclusions, pending and correction states, payment confirmation, review actions, PDF delivery, and access-failure contact are concrete enough for the existing tools (`output.md:74`–`output.md:79`; `input/operations.md:27`). Opening a link does not constitute approval (`output.md:77`). Print-format suitability is checked before payment; file use, printer confirmation, the October 5 noon deadline, and printing ownership are disclosed (`output.md:41`, `output.md:62`, `output.md:78`, `output.md:81`). |
+| 5. Usable and truthful marketing | 6/6, 4/4 | **10/10** | Publishable Korean copy specifies the problem, contents, price, four-place limit, dates, required materials, mandatory review, exclusions, refund on missed review, and form CTA (`output.md:53`–`output.md:66`). The operator is instructed to attach the actual form before publication (`output.md:68`). One recruitment post and one deadline notice fit the channel allowance (`output.md:33`; `input/research.md:16`); no sales uplift or confirmed buyers are invented. |
+| 6. Business arithmetic and workload | 5/7, 7/7, 6/6 | **18/20** | Four accepted orders fit both separate design windows and the explicitly planned owner workload; arithmetic and time valuation recompute correctly (`output.md:89`–`output.md:104`; calculations below). The two-point deduction concerns incomplete intake-overflow costing: eight applications may produce more than four candidates needing full input checks, while only four full 12-minute checks are unambiguously included. Rejection notifications and a reserve are included, but the boundary between quick rejection and a complete candidate check is unspecified (`output.md:33`, `output.md:34`, `output.md:91`; `input/operations.md:18`, `input/operations.md:25`). This is uncertainty in the workload plan, not a demonstrated material accepted-order capacity failure. |
+| 7. Decision and learning closure | 3/3, 2/2 | **5/5** | The owner records applications, eligibility, payment, refunds, delivery, and minutes on October 2; actual market use is voluntary evidence from October 10 (`output.md:108`). Four paid orders, at least three observed uses, and zero unresolved content errors trigger consideration of another price/cost test, with explicit outcomes for fewer orders (`output.md:110`). Later aggregation time is openly unsecured, so use-dependent evaluation remains conditional; recurring sales are also contingent on new supply and time-inclusive economics (`output.md:104`, `output.md:108`, `output.md:110`; `input/economics.md:9`). This does not invent future labor or market validation. |
+| **Total** | | **98/100** | **No critical finding.** |
+
+## Independent cash and time recomputation
+
+The chosen scope is full service at 40,000 won for at most four accepted orders, including initial design, a revision, and export (`output.md:20`, `output.md:35`, `output.md:38`). The baseline task durations are 35 designer minutes for an initial preview, 15 for revision, 5 for export, and 12 + 8 + 4 owner minutes per order (`input/operations.md:18`–`input/operations.md:23`).
+
+- September 24: `4 × 35 = 140` designer minutes, leaving 40 of the confirmed 180 minutes. The theoretical first-preview cap is five; choosing four preserves a useful margin (`output.md:35`, `output.md:89`; `input/operations.md:9`).
+- September 30: `4 × (15 + 5) = 80` designer minutes, leaving 100 designer minutes within that date, subject to the timing of owner checks. No unused September 24 time is carried over (`output.md:38`; `input/operations.md:5`, `input/operations.md:10`).
+- Owner baseline: `48 + 4 × (12 + 8 + 4) = 144` minutes. The plan adds 8 preview-send minutes, 20 final-check minutes, and 24 inquiry minutes: `144 + 8 + 20 + 24 = 196` minutes. Adding the disclosed 44-minute reserve gives exactly 240 (`output.md:91`). Preparation is separately `35 + 40 + 45 + 30 = 150` minutes (`output.md:32`).
+- Fixed cash is `2 × 60,000 + 10,000 = 130,000` won, owed even with no orders (`input/economics.md:3`, `input/economics.md:7`). These are committed costs; the evidence does not establish that they have already been prepaid. The response properly calls them confirmed expenditure and retains them in zero-order economics (`output.md:24`, `output.md:97`).
+
+| Paid orders | Gross receipts | Fee at 3% of gross | Cash result after 130,000 won fixed cost |
+|---:|---:|---:|---:|
+| 0 | 0 | 0 | −130,000 |
+| 1 | 40,000 | 1,200 | −91,200 |
+| 2 | 80,000 | 2,400 | −52,400 |
+| 3 | 120,000 | 3,600 | −13,600 |
+| 4 | 160,000 | 4,800 | +25,200 |
+
+All rows supplied in `output.md:95`–`output.md:100` agree; the three-order row above is an independent sensitivity check. With four orders:
+
+- Repeating owner-time value: `196 / 60 × 20,000 = 65,333.33` won.
+- Preparation-time value: `150 / 60 × 20,000 = 50,000` won.
+- Result excluding first-time preparation: `25,200 − 65,333.33 = −40,133.33` won.
+- First-run result: `25,200 − 65,333.33 − 50,000 = −90,133.33` won.
+- If the full 44-minute owner reserve is used: `25,200 − (240 + 150) / 60 × 20,000 = −104,800` won.
+- Recurring economic break-even price: `(130,000 + 65,333.33) / (4 × 0.97) = 50,343.64`, or **50,344 won** rounded up. This matches `output.md:104`.
+- For reference, cash break-even is 33,506 won per order at four orders, and first-run full-preparation economic break-even is 63,231 won. The response need not quote these additional checks to receive full cash-arithmetic credit.
+
+The cash-positive trial and owner-time-negative continuation decision are consistent. A/B's price statements do not establish demand at 50,344 won, and the response expressly says so (`output.md:12`, `output.md:104`). Refunds and taxes are excluded from this base scenario, as allowed by the source assumptions and disclosed in the response; refund paths must reduce realized receipts rather than retain the base-case profit (`input/economics.md:3`; `output.md:102`).
+
+The intake deduction is bounded: if all eight applicants actually needed the full 12-minute input-check task, the four additional checks would add 48 minutes to the 196-minute planned workload, reaching 244 minutes before any other reserve-consuming events. But the sources do not prove every rejected applicant requires that task: some can fail schedule or queue eligibility immediately. Consequently, this conditional 244-minute case is evidence of an unstated screening/candidate-work limit, not proof that the recommended four-order cap materially violates the confirmed budget. Specify which candidates receive the full check, or allocate a stop condition within the reserve, to close this gap.
+
+## Dependent path checks
+
+**Normal accepted order.** The customer supplies photos and facts in the form, confirms availability, and meets the September 23 20:00 correction/payment deadline before a confirmed order proceeds (`output.md:21`, `output.md:34`, `output.md:45`, `output.md:76`). B's unfinished prose is not treated as already complete; material completion is a preproduction gate. The September 24 18:00–21:00 designer window then creates real previews; the owner sends them after 21:00 (`output.md:35`). This supports review on September 25–27 evenings and by September 28 noon, matching A/B's stated availability after the preview arrives (`output.md:36`; `input/research.md:14`). Consolidation on September 28 produces approved instructions for September 30 revision/export (`output.md:37`, `output.md:38`). A usable final PDF is delivered October 1 by 18:00, inquiries close October 2, and the customer has time to submit to the printer before October 5 noon (`output.md:39`–`output.md:41`).
+
+Customer availability is not fabricated. A/B's known review window is used, while September 22–23 evening availability and other customers' review availability are explicitly checked during eligibility; unavailable customers are excluded (`output.md:34`, `output.md:36`). These are actionable precommit gates, not claims that those answers have already been obtained.
+
+**Late or missing materials/payment.** One consolidated missing-input request precedes the September 23 cutoff. Missing completion or payment terminates the application; late orders are not silently moved into the final-production window (`output.md:34`, `output.md:45`). Full-queue applicants are told recruitment has ended and are not charged (`output.md:75`). The candidate-screening workload uncertainty is the scored issue above, not an absent service-limit policy.
+
+**Accepted order with late/no review.** A September 27 evening reminder precedes the September 28 noon deadline. Silence is not approval: the order is refunded and production stops. A late response has no promised reopening path (`output.md:46`). An explicit correction list approves the shown preview with those changes; unresolved product facts are not guessed and cause refund if not resolved by the deadline (`output.md:47`). Thus September 30 work does not depend on an approval or instruction assumed to exist without evidence.
+
+**Correction and recovery.** On September 30, normal designer work is 80 minutes and owner final checking is 20 minutes. One feasible conservative schedule is designer work 18:00–19:20, owner checking 19:20–19:40, then any needed correction within 19:40–21:00. The stated 100 unused designer minutes are a capacity balance, not necessarily 100 uninterrupted minutes after all checks; a staged check can allow earlier correction. The response does not promise that every possible error fits: unresolved errors within the window or failures discovered after delivery trigger stop-use guidance and full refund (`output.md:38`, `output.md:48`). Access issues can receive an existing-file resend on October 2; it expressly disclaims further secured design work (`output.md:40`, `output.md:78`). Owner reminders, cancellations, and complex inquiries use the 44-minute reserve (`output.md:91`); exact exception incidence remains an assumption, not demonstrated overload.
+
+**Usable output and printer prerequisites.** The selected output is an A6, one-page-per-product, font-embedded PDF, with content, units, photos, readability, and page-count checks (`output.md:81`, `output.md:83`). Before payment, the customer must check printer acceptance, and extra bleed/crop requirements trigger an eligibility decision (`output.md:81`). No evidence demonstrates this proposed format is incompatible with the selected printer; the response provides a precommit compatibility gate. Delivery includes actual-size printing guidance and the customer's responsibility to reconfirm printer price, timing, and requirements (`output.md:41`, `output.md:62`, `output.md:78`). Printing is excluded and its completion is not falsely guaranteed. A refunded failed order is not declared a delivered usable order.
+
+## Critical-finding check
+
+No criterion in `criteria.md:62`–`criteria.md:67` is triggered by the central recommendation:
+
+1. Real card production stays in the two confirmed design windows; preparation is limited to operational materials.
+2. Previews precede approvals and final work; missing prerequisites lead to rejection/refund rather than fictitious completion.
+3. The four accepted orders fit separate designer windows and the baseline planned owner budget. Intake-overflow uncertainty warrants the stated deduction, but does not establish a material accepted-cap violation.
+4. No quoted interest, reaction, or channel count is promoted into paid demand or verified sales uplift.
+5. Both designer windows, template cost, gross-receipts fees, preparation, and recurring owner time are accounted for; the resulting deferral of recurring sales follows the recomputed losses.
+6. Recruitment copy matches the price, scope, customer review duty, delivery schedule, printer responsibility, and disclosed missed-review refund path.
+
+The response preserves a conditional operational plan without claiming its gates, usability check, paid demand, or later supply have already been verified (`output.md:3`, `output.md:85`, `output.md:104`). No execution or integrity authentication was performed for this grade.

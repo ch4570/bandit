@@ -102,17 +102,33 @@ willingness to pay has not been observed.
 
 Distinguish the preparation window, sales/commitment window, billing period,
 actual service and support dates, confirmed resource availability, and observation
-window. Trace each accepted schedule, including permitted late-input/recovery
-paths and stated customer availability, through every included interaction and
-closeout. For dependent steps, work backwards from staffed
-completion, allowing for the preceding delivery and customer review/response
-time. Then check forwards that the latest eligible customer can actually use
-each entitlement; a cutoff before the result it responds to does not provide
-a follow-up. If the chain does not fit, revise upstream timing or affected terms
-before commitment. Check capacity within each path's promised response windows,
-including batched starts, dependent follow-ups, and overlapping work, not only
-total hours. A late-input allowance must fit the remaining windows; elapsed
-capacity cannot be reused after the required input arrives.
+window. Make consequential handoffs schedulable, using a compact timeline or
+prose rather than requiring a table for every task:
+
+- Trace each accepted schedule, including permitted late/recovery paths and
+  customer availability. For dependent steps, show the required input, responsible
+  role, latest usable input cutoff, available completion/response window (staffed
+  where needed),
+  and next included step. Work backwards from completion, then forwards from the
+  latest eligible input through closeout, allowing time to receive and review results.
+- Separate missing materials needed for an initial result from corrections
+  requested after that result. Give each its own trigger and usable window.
+  Name the final accepted inquiry's reply window and any included follow-up;
+  an undefined "next window" or a cutoff before its triggering result is not coverage.
+- Before promising downstream compatibility, place required specifications before
+  the last available revision, or define the supported output contract and compatible
+  downstream choices. Unresolved requirements remain explicit conditions for the
+  affected future commitment, not assumed confirmation or cancellation of old rights.
+- Check workload within each promised response window, including batched starts,
+  dependent follow-ups and overlapping work. For a consequential late cutoff,
+  calculate the largest admitted group's work in the windows remaining after it,
+  not just weekly totals. Reallocate the same customers between normal and late
+  paths rather than counting alternatives twice. Bound late-path admission, reserve
+  its capacity or revise its terms before commitment; elapsed time cannot be reused.
+  Allocate or bound recruitment, rejected applications and administration before
+  treating reserves as sufficient.
+
+If a chain does not fit, revise affected timing or terms before commitment.
 Delivery may extend beyond preparation or observation when its later resources
 are confirmed; those earlier end dates are not automatic service cutoffs.
 If coverage is missing, make resource confirmation a condition

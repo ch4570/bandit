@@ -129,6 +129,14 @@ response windows and batched starts. Confirm additional resources before
 committing to uncovered service, or adjust affected terms. A short preparation window
 does not prohibit longer delivery when its resources are already confirmed.
 
+For time-sensitive handoffs, connect the required input, owner, usable input cutoff
+and available completion window. Separate initial missing materials from changes after
+a result, and name the last inquiry's reply window. Secure downstream requirements
+before the last revision or define a supported output and compatible next steps.
+Test the largest group allowed at a late cutoff against the windows remaining
+after it; bound that path before commitment. Include intake, rejection and
+administration when allocating work reserves.
+
 Keep the source billing period when shortening a service; use prorated costs
 only when confirmed, or as an explicit scenario with a billing check. Align all
 parts of per-customer costs on the same customer count and period. A decision to
